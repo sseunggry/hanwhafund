@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>라디오버튼 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">라디오버튼</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">Basic</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>단일 선택만 가능한 라디오 옵션</li>
+                <li>Radio Group 내에 2개 이산의 하위 라디오 항목이 존재하는 경우에만 사용 가능</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">라디오버튼 단일</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <label for="targetRadio1_1" class="lb-radio">
+                          <input type="radio" name="targetRadio1" id="targetRadio1_1" />
+                          <span class="label">라디오 옵션1</span>
+                        </label>
+                      </div>
+                      <div class="form-wrap">
+                        <label for="targetRadio1_2" class="lb-radio">
+                          <input type="radio" name="targetRadio1" id="targetRadio1_2" />
+                          <span class="label">라디오 옵션2</span>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">라디오버튼 크기</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>.lb-radio<strong>.option-xlg</strong> 크기 조절</li>
+                  <li>공시실, 펀드에서만 사용</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <label for="targetRadioSize1_1" class="lb-radio option-xlg">
+                          <input type="radio" name="targetRadioSize1" id="targetRadioSize1_1" />
+                          <span class="label">라디오 옵션1</span>
+                        </label>
+                      </div>
+                      <div class="form-wrap">
+                        <label for="targetRadioSize1_2" class="lb-radio option-xlg">
+                          <input type="radio" name="targetRadioSize1" id="targetRadioSize1_2" />
+                          <span class="label">라디오 옵션2</span>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">라디오버튼 그룹</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <!-- <a class="ui-tab-btn" href="#none">MARKUP</a> -->
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview_1">
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">라디오버튼 그룹</strong>
+                        </div>
+                        <!-- .radio-group (s)-->
+                        <div class="radio-group">
+                          <label for="targetRadio2_1" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_1" />
+                            <span class="label">라디오 옵션1</span>
+                          </label>
+                          <label for="targetRadio2_2" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_2" />
+                            <span class="label">라디오 옵션2</span>
+                          </label>
+                          <label for="targetRadio2_3" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_3" disabled />
+                            <span class="label">라디오 비활성화</span>
+                          </label>
+                          <label for="targetRadio2_4" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_4" checked disabled />
+                            <span class="label">라디오 체크 비활성화</span>
+                          </label>
+                          <label for="targetRadio2_5" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_5" />
+                            <span class="label">라디오 옵션5 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리</span>
+                          </label>
+                          <label for="targetRadio2_6" class="lb-radio">
+                            <input type="radio" name="targetRadio2" id="targetRadio2_6" />
+                            <span class="label">라디오 옵션6</span>
+                          </label>
+                        </div>
+                        <!--// .radio-group (e)-->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <!-- <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Radio 단독사용</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>우측 Label 없음</li>
+                  <li>.lb-radio<strong>.option-nolabel</strong> 추가</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">Basic</span>
+                          </div>
+                        </div>
+
+                        <!-- .radio-group (s)-->
+                        <div class="radio-group">
+                          <label for="targetRadio3_1" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_1" />
+                            <span class="label">라디오 옵션1</span>
+                          </label>
+                          <label for="targetRadio3_2" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_2" />
+                            <span class="label">라디오 옵션2</span>
+                          </label>
+                          <label for="targetRadio3_3" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_3" disabled />
+                            <span class="label">라디오 비활성화</span>
+                          </label>
+                          <label for="targetRadio3_4" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_4" checked disabled />
+                            <span class="label">라디오 체크 비활성화</span>
+                          </label>
+                          <label for="targetRadio3_5" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_5" />
+                            <span class="label">라디오 옵션5 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리</span>
+                          </label>
+                          <label for="targetRadio3_6" class="lb-radio option-nolabel">
+                            <input type="radio" name="targetRadio3" id="targetRadio3_6" />
+                            <span class="label">라디오 옵션6</span>
+                          </label>
+                        </div>
+                        <!--// .radio-group (e)-->
+                        <br /><br />
+
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">option-xlg</span>
+                          </div>
+                        </div>
+
+                        <!-- .radio-group (s)-->
+                        <div class="radio-group">
+                          <label for="targetRadio4_1" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_1" />
+                            <span class="label">라디오 옵션1</span>
+                          </label>
+                          <label for="targetRadio4_2" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_2" />
+                            <span class="label">라디오 옵션2</span>
+                          </label>
+                          <label for="targetRadio4_3" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_3" disabled />
+                            <span class="label">라디오 비활성화</span>
+                          </label>
+                          <label for="targetRadio4_4" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_4" checked disabled />
+                            <span class="label">라디오 체크 비활성화</span>
+                          </label>
+                          <label for="targetRadio4_5" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_5" />
+                            <span class="label">라디오 옵션5 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리</span>
+                          </label>
+                          <label for="targetRadio4_6" class="lb-radio option-xlg option-nolabel">
+                            <input type="radio" name="targetRadio4" id="targetRadio4_6" />
+                            <span class="label">라디오 옵션6</span>
+                          </label>
+                        </div>
+                        <!--// .radio-group (e)-->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">버튼타입</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>Index Type: border-line 1px, box-shadow - no, 상하좌우 간격 gap: 0.8rem / 사이즈는 medium, small 크기(상하/좌우 배치 자유롭게 사용, 텍스트가 중앙정렬)</li>
+                <li>List Type: border-line 2px, box-shadow - yes, 상하좌우 간격 gap: 1.6rem 1.4rem / 사이즈는 large 크기(상하 배치만 사용가능, 텍스트가 좌측정렬)</li>
+                <li>해당기준은 checkbox 버튼, 박스형도 동일</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Index Type</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">Index - Vertical</span>
+                          </div>
+                        </div>
+
+                        <!-- Index - Vertical(s) -->
+                        <div class="radio-group option-button">
+                          <label for="radioButton1-1" class="lb-radio">
+                            <input type="radio" name="radioButton1" id="radioButton1-1" />
+                            <span class="label">버튼형 라디오 옵션</span>
+                          </label>
+                          <label for="radioButton1-2" class="lb-radio">
+                            <input type="radio" name="radioButton1" id="radioButton1-2" />
+                            <span class="label">버튼형 라디오 옵션 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리</span>
+                          </label>
+                          <label for="radioButton1-3" class="lb-radio disabled">
+                            <input type="radio" name="radioButton1" id="radioButton1-3" disabled />
+                            <span class="label">버튼형 라디오 옵션 비활성화</span>
+                          </label>
+                          <label for="radioButton1-4" class="lb-radio disabled checked">
+                            <input type="radio" name="radioButton1" id="radioButton1-4" checked disabled />
+                            <span class="label">버튼형 라디오 옵션 체크 비활성화</span>
+                          </label>
+                        </div>
+                        <!--// Index - Vertical(e) -->
+                      </div>
+
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">Index - horizontal</span>
+                          </div>
+                        </div>
+
+                        <!-- Index - horizontal(s) -->
+                        <div class="radio-group option-button">
+                          <div class="item-row">
+                            <div class="unit filled">
+                              <label for="radioButton2-1" class="lb-radio">
+                                <input type="radio" name="radioButton2" id="radioButton2-1" />
+                                <span class="label">옵션1</span>
+                              </label>
+                            </div>
+                            <div class="unit filled">
+                              <label for="radioButton2-2" class="lb-radio">
+                                <input type="radio" name="radioButton2" id="radioButton2-2" />
+                                <span class="label">옵션2</span>
+                              </label>
+                            </div>
+                            <div class="unit filled">
+                              <label for="radioButton2-3" class="lb-radio disabled">
+                                <input type="radio" name="radioButton2" id="radioButton2-3" disabled />
+                                <span class="label">옵션3</span>
+                              </label>
+                            </div>
+                            <div class="unit filled">
+                              <label for="radioButton2-4" class="lb-radio disabled checked">
+                                <input type="radio" name="radioButton2" id="radioButton2-4" checked disabled />
+                                <span class="label">옵션4</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <!--// Index - horizontal(e) -->
+                      </div>
+
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">Index - horizontal(.option-sm / Height: 4rem)</span>
+                          </div>
+                        </div>
+
+                        <!-- Index - horizontal(.option-sm / Height: 4rem)(s) -->
+                        <div class="radio-group option-button option-sm">
+                          <div class="item-react">
+                            <div class="unit fixed">
+                              <label for="radioButton3-1" class="lb-radio">
+                                <input type="radio" name="radioButton3" id="radioButton3-1" />
+                                <span class="label">옵션1</span>
+                              </label>
+                            </div>
+                            <div class="unit fixed">
+                              <label for="radioButton3-2" class="lb-radio">
+                                <input type="radio" name="radioButton3" id="radioButton3-2" />
+                                <span class="label">옵션2</span>
+                              </label>
+                            </div>
+                            <div class="unit fixed">
+                              <label for="radioButton3-3" class="lb-radio disabled">
+                                <input type="radio" name="radioButton3" id="radioButton3-3" disabled />
+                                <span class="label">옵션3</span>
+                              </label>
+                            </div>
+                            <div class="unit fixed">
+                              <label for="radioButton3-4" class="lb-radio disabled checked">
+                                <input type="radio" name="radioButton3" id="radioButton3-4" checked disabled />
+                                <span class="label">옵션4</span>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <!--// Index - horizontal(.option-sm / Height: 4rem)(e) -->
+                      </div>
+
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">Index - horizontal(.option-sm / Height: 4rem) + 문구조합</span>
+                          </div>
+                        </div>
+
+                        <!-- Index - horizontal(.option-sm / Height: 4rem) + 문구조합(s) -->
+                        <div class="item-react">
+                          <div class="unit filled">
+                            <div class="radio-group option-button option-sm">
+                              <div class="item-react">
+                                <div class="unit fixed">
+                                  <label for="radioButton4-1" class="lb-radio">
+                                    <input type="radio" name="radioButton4" id="radioButton4-1" />
+                                    <span class="label">1회분</span>
+                                  </label>
+                                </div>
+                                <div class="unit fixed">
+                                  <label for="radioButton4-2" class="lb-radio">
+                                    <input type="radio" name="radioButton4" id="radioButton4-2" />
+                                    <span class="label">2회분</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="unit">196,000원</div>
+                        </div>
+                        <!--// Index - horizontal(.option-sm / Height: 4rem) + 문구조합(e) -->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">List Type(.option-list)</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">List Type</span>
+                          </div>
+                        </div>
+
+                        <!-- List Type(s) -->
+                        <div class="radio-group option-button option-list">
+                          <label for="elRadioList1-1" class="lb-radio">
+                            <input type="radio" name="elRadioList1" id="elRadioList1-1" />
+                            <span class="label">국채, 지방채, 보증채, MMF 등</span>
+                          </label>
+                          <label for="elRadioList1-2" class="lb-radio">
+                            <input type="radio" name="elRadioList1" id="elRadioList1-2" />
+                            <span class="label">금융채, 신용도가 높은 회사채, 채권형펀드, 원금보장형ELS(ELB) 등</span>
+                          </label>
+                          <label for="elRadioList1-3" class="lb-radio disabled">
+                            <input type="radio" name="elRadioList1" id="elRadioList1-3" disabled />
+                            <span class="label">신용도 중간 등급의 회사채, 원금의 일부만 보장되는 ELS, 혼합형펀드 등</span>
+                          </label>
+                          <label for="elRadioList1-4" class="lb-radio">
+                            <input type="radio" name="elRadioList1" id="elRadioList1-4" disabled checked />
+                            <span class="label">신용도가 낮은 회사채, 주식, 원금이 보장되지 않는 ELS, 시장수익률 수준의 수익을 추구하는 주식형펀드 등</span>
+                          </label>
+                          <label for="elRadioList1-5" class="lb-radio">
+                            <input type="radio" name="elRadioList1" id="elRadioList1-5" />
+                            <span class="label">ELW, 선물옵션, 시장수익률 이상의 수익을 추구하는 주식형펀드, 파생상품펀드, 주식신용거래 등 </span>
+                          </label>
+                        </div>
+                        <!--// List Type(e) -->
+                      </div>
+
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">List Type + 아이콘 조합</span>
+                          </div>
+                        </div>
+
+                        <!-- List Type + 아이콘 조합(s) -->
+                        <div class="radio-group option-button option-list">
+                          <label for="btnCert-1" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-1" />
+                            <span class="label option-img icon ico-cert1">모니모인증</span>
+                          </label>
+                          <label for="btnCert-2" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-2" />
+                            <span class="label option-img icon ico-cert2">카카오인증</span>
+                          </label>
+                          <label for="btnCert-3" class="lb-radio disabled">
+                            <input type="radio" name="btnCert" id="btnCert-3" disabled />
+                            <span class="label option-img icon ico-cert3">금융인증서</span>
+                          </label>
+                          <label for="btnCert-4" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-4" />
+                            <span class="label option-img icon ico-cert4">공동인증서</span>
+                          </label>
+                          <label for="btnCert-5" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-5" />
+                            <span class="label option-img icon ico-cert5">휴대폰인증</span>
+                          </label>
+                          <label for="btnCert-6" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-6" />
+                            <span class="label option-img icon ico-cert6">간편비밀번호</span>
+                          </label>
+                          <label for="btnCert-13" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-13" />
+                            <span class="label option-img icon ico-cert13">네이버페이</span>
+                          </label>
+                          <label for="btnCert-14" class="lb-radio">
+                            <input type="radio" name="btnCert" id="btnCert-14" />
+                            <span class="label option-img icon ico-cert14">토스페이</span>
+                          </label>
+                        </div>
+                        <!--// List Type + 아이콘 조합(e) -->
+                      </div>
+
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">List Type(하위 설명글 포함) + 아이콘 조합</span>
+                          </div>
+                        </div>
+
+                        <!-- List Type(하위 설명글 포함) + 아이콘 조합(s) -->
+                        <div class="radio-group option-button option-list">
+                          <label for="btnEx1-1" class="lb-radio" aria-checked="false" aria-disabled="false" role="radio">
+                            <input type="radio" name="btnEx1" id="btnEx1-1" />
+                            <div class="label option-img option-desc icon ico-irp1">
+                              <div class="desc">
+                                <span>퇴직용</span>
+                                <span class="txt">퇴직금 수령만을 위해 IRP를 가입합니다.</span>
+                              </div>
+                            </div>
+                          </label>
+                          <label for="btnEX1-2" class="lb-radio checked" aria-checked="true" aria-disabled="false" role="radio">
+                            <input type="radio" name="btnEx1" id="btnEX1-2" />
+                            <div class="label option-img option-desc icon ico-irp2">
+                              <div class="desc">
+                                <span>세액공제용 IRP</span>
+                                <span class="txt">개인부담금을 납입하여 세액공제를 받기 위해 IRP를 가입합니다.</span>
+                              </div>
+                            </div>
+                          </label>
+                        </div>
+                        <!--// List Type(하위 설명글 포함) + 아이콘 조합(e) -->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">Another Type</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="group">
+                        <div class="list-head">
+                          <div class="title-tiny">
+                            <span class="txt">고장출동서비스(3 cols 배열)</span>
+                          </div>
+                        </div>
+
+                        <!-- 고장출동(s) -->
+                        <div class="radio-group option-button option-bg col-3">
+                          <label for="radioButton5-1" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-1" />
+                            <span class="label icon ico-accd1">배터리 충전</span>
+                          </label>
+                          <label for="radioButton5-2" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-2" checked />
+                            <span class="label icon ico-accd2">비상급유</span>
+                          </label>
+                          <label for="radioButton5-3" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-3" />
+                            <span class="label icon ico-accd3">
+                              타이어교체<br />
+                              및 펑크수리
+                            </span>
+                          </label>
+                          <label for="radioButton5-4" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-4" disabled />
+                            <span class="label icon ico-accd4">긴급견인</span>
+                          </label>
+                          <label for="radioButton5-5" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-5" />
+                            <span class="label icon ico-accd5">비상구난</span>
+                          </label>
+                          <label for="radioButton5-6" class="lb-radio">
+                            <input type="radio" name="radioButton5" id="radioButton5-6" />
+                            <span class="label icon ico-accd6">잠금장치 해제</span>
+                          </label>
+                        </div>
+                        <!--// 고장출동(e) -->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">Button Type Custom</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">타이틀 + summary 조합</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="radio-group option-button">
+                        <label for="radioButtonSum1-1" class="lb-radio option-list">
+                          <input type="radio" name="radioButtonSum1" id="radioButtonSum1-1" />
+                          <div class="label">
+                            <div class="tit">20171207-22476</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong>사고장소</strong>
+                                <p>경기 용인시 수지구 주차장</p>
+                              </li>
+                              <li>
+                                <strong>사고일</strong>
+                                <p>2018.01.07</p>
+                              </li>
+                              <li>
+                                <strong>담당자</strong>
+                                <p>임한나</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </label>
+                        <label for="radioButtonSum1-2" class="lb-radio option-list">
+                          <input type="radio" name="radioButtonSum1" id="radioButtonSum1-2" />
+                          <div class="label">
+                            <div class="tit">20171207-22476</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong>사고장소</strong>
+                                <p>서울 강남구 개포통 삼성빌딩 앞</p>
+                              </li>
+                              <li>
+                                <strong>사고일</strong>
+                                <p>2018.01.07</p>
+                              </li>
+                              <li>
+                                <strong>담당자</strong>
+                                <p>김삼성</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </label>
+                        <label for="radioButtonSum1-3" class="lb-radio option-list">
+                          <input type="radio" name="radioButtonSum1" id="radioButtonSum1-3" disabled />
+                          <div class="label">
+                            <div class="tit">20171207-22476</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong>사고장소</strong>
+                                <p>서울 강남구 개포통 삼성빌딩 앞</p>
+                              </li>
+                              <li>
+                                <strong>사고일</strong>
+                                <p>2018.01.07</p>
+                              </li>
+                              <li>
+                                <strong>담당자</strong>
+                                <p>김삼성</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">타이틀 + summary 조합(내부 버튼 추가)</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- List Type(s) -->
+                      <div class="radio-group option-button option-list">
+                        <label for="elRadioList2-1" class="lb-radio">
+                          <input type="radio" name="elRadioList2" id="elRadioList2-1" />
+                          <div class="label">
+                            <div class="tit">삼성화재 디폴트옵션 저위험 포트폴리오1</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong class="w-min-sm">자산관리기관</strong>
+                                <span>삼성화재해상보험</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">상품구분</strong>
+                                <span>DO</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">위험등급</strong>
+                                <span>5등급</span>
+                              </li>
+                            </ul>
+                            <div class="btn-wrap option-array label-in-btn">
+                              <button type="button" class="btn outlined option-min option-round" onclick="javascript:alert('클릭!');">
+                                <span>상세보기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </label>
+                        <label for="elRadioList2-2" class="lb-radio">
+                          <input type="radio" name="elRadioList2" id="elRadioList2-2" />
+                          <div class="label">
+                            <div class="tit">삼성화재 디폴트옵션 초저위험 이율보증형보험</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong class="w-min-sm">자산관리기관</strong>
+                                <span>삼성화재해상보험</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">상품구분</strong>
+                                <span>DO</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">위험등급</strong>
+                                <span>5등급</span>
+                              </li>
+                            </ul>
+                            <div class="btn-wrap option-array label-in-btn">
+                              <button type="button" class="btn outlined option-min option-round" onclick="javascript:alert('클릭!');">
+                                <span>상세보기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </label>
+                        <label for="elRadioList2-3" class="lb-radio">
+                          <input type="radio" name="elRadioList2" id="elRadioList2-3" disabled />
+                          <div class="label">
+                            <div class="tit">삼성화재 디폴트옵션 저위험 포트폴리오1</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong class="w-min-sm">자산관리기관</strong>
+                                <span>삼성화재해상보험</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">상품구분</strong>
+                                <span>DO</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">위험등급</strong>
+                                <span>5등급</span>
+                              </li>
+                            </ul>
+                            <div class="btn-wrap option-array label-in-btn">
+                              <button type="button" class="btn outlined option-min option-round" onclick="javascript:alert('클릭!');">
+                                <span>상세보기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </label>
+                        <label for="elRadioList2-4" class="lb-radio">
+                          <input type="radio" name="elRadioList2" id="elRadioList2-4" />
+                          <div class="label">
+                            <div class="tit">삼성화재 디폴트옵션 중위험 포트폴리오1</div>
+                            <ul class="info-summary">
+                              <li>
+                                <strong class="w-min-sm">자산관리기관</strong>
+                                <span>삼성화재해상보험</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">상품구분</strong>
+                                <span>DO</span>
+                              </li>
+                              <li>
+                                <strong class="w-min-sm">위험등급</strong>
+                                <span>5등급</span>
+                              </li>
+                            </ul>
+                            <div class="btn-wrap option-array label-in-btn">
+                              <button type="button" class="btn outlined option-min option-round" onclick="javascript:alert('클릭!');">
+                                <span>상세보기</span>
+                              </button>
+                            </div>
+                          </div>
+                        </label>
+                      </div>
+                      <!--// List Type(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">박스타입(.option-boxed.option-list) / 디자인 확정아님</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="radio-group option-boxed option-list">
+                        <label for="radioBoxed1-1" class="lb-radio">
+                          <input type="radio" name="radioBoxed1" id="radioBoxed1-1" />
+                          <span class="label">박스형 라디오 옵션</span>
+                        </label>
+                        <label for="radioBoxed1-2" class="lb-radio">
+                          <input type="radio" name="radioBoxed1" id="radioBoxed1-2" />
+                          <span class="label">박스형 라디오 옵션 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리 내용이 길어질 경우 처리</span>
+                        </label>
+                        <label for="radioBoxed1-3" class="lb-radio disabled">
+                          <input type="radio" name="radioBoxed1" id="radioBoxed1-3" disabled />
+                          <span class="label">박스형 라디오 옵션 비활성화</span>
+                        </label>
+                        <label for="radioBoxed1-4" class="lb-radio disabled checked">
+                          <input type="radio" name="radioBoxed1" id="radioBoxed1-4" checked disabled />
+                          <span class="label">박스형 라디오 옵션 체크 비활성화</span>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>

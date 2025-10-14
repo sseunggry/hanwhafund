@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@import "../util";
+
+/* animation */
+[data-aos^=fade][data-aos^=fade].aos-animate{transition-duration: 0.6s;}
+
+.list-box .item[data-aos^=fade][data-aos^=fade].aos-animate{
+    @for $i from 1 through 5 {
+        &:nth-child(#{$i}){transition-delay: #{0.1*$i}s;}
+    }
+}
+
+.graph-wrap .img-list li[data-aos^=fade][data-aos^=fade].aos-animate{
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}){transition-delay: #{0.1*$i}s;}
+    }
+}
+
+.roadmap-list .item{
+    @for $i from 1 through 6 {
+        &:nth-child(#{$i}){
+            .txt-wrap[data-aos^=fade][data-aos^=fade].aos-animate{
+                transition-delay: #{0.1*$i}s;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .list-box .item[data-aos^=fade][data-aos^=fade].aos-animate{
+        @for $i from 1 through 5 {
+            &:nth-child(#{$i}){transition-delay: #{0.05*$i}s;}
+        }
+    }
+    
+    .roadmap-list .item{
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}){
+                .txt-wrap[data-aos^=fade][data-aos^=fade].aos-animate{
+                    transition-delay: #{0.05*$i}s;
+                }
+            }
+        }
+    }
+}

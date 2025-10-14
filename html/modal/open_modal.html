@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>퇴직연금 찾아주기 캠페인 안내 &gt; 퇴직연금 종합현황 &gt; 퇴직연금계약 &gt; 퇴직연금 | 삼성화재</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="samsungfire.com" />
+    <meta property="og:url" content="http://www.samsungfire.com" />
+    <meta property="og:image" content="http://www.samsungfire.com/images/samsungfire_brand.png" />
+    <meta name="description" content="삼성화재해상보험주식회사의 홈페이지입니다. 애니카 자동차보험, Super보험, 실손보험 등 각종 보험상품 정보를 제공, 인터넷창구를 이용한 계약조회, 보험계약대출, 보상서비스 및 라이프케어, 멤버십서비스 등 다양한 서비스를 제공합니다, Samsung Fire &amp; Marine Insurance Homepage," />
+    <meta name="keywords" content="삼성화재, 삼성화재 해상보험, 삼성화재해상보험주식회사, samsungfire, Insurance, 보험, 보험회사, 손해보험, 자동차보험, 애니카, anycar, 좋은보험, 인터넷창구, 보험상품, 보상, 외국인보험, RC, 대출, 보험계약대출, 퇴직연금, 펀드, 운세, V3, 멤버십카드, the s" />
+    <meta name="author" content="삼성화재" />
+    <!-- CSS선언 -->
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.base.js"></script>
+  </head>
+  <body>
+    <div id="skip"></div>
+    <div class="base-layer" id="baseLayer"></div>
+    <div class="wrapper" id="baseWrap" data-page-main="false">
+      <span class="pgr-tit">모달 오픈 전용 페이지</span>
+      <header class="base-header" id="baseHeader"></header>
+      <main class="base-main" id="baseMain">
+        <div class="content">
+          <section class="section">
+            <!-- .btn-wrap(s) -->
+            <div class="btn-wrap" id="btnWrap"></div>
+            <!--// .btn-wrap(e) -->
+          </section>
+
+          <!--// [D] 내부 콘텐츠 영역(e) -->
+        </div>
+      </main>
+      <footer class="base-footer" id="baseFooter"></footer>
+    </div>
+    <script>
+      $(() => {
+        const { $, append } = MOui.util;
+        const url = getUrlParams('url');
+        const rootCls = getUrlParams('cls');
+        const basePath = '/v2/html/modal/';
+        const btns = ['<button type="button" ', ' class="btn outlined"><span>', '</span></button>'];
+        console.log(rootCls);
+        url.forEach((id, i) => {
+          let path;
+          const pageType = id.split('/');
+          const pageId = pageType[pageType.length - 1].replace('.html', '');
+          const body = document.body;
+          if (id.indexOf('/v2/') !== -1) {
+            path = id;
+          } else {
+            path = `${basePath}${id}.html`;
+          }
+          if (pageId.indexOf('SL') !== -1) {
+            body.classList.add('page-smartlink');
+          }
+
+          setTimeout(() => {
+            MOui.callLayer({
+              url: path,
+            }).then(el => {
+              const title = !!$('.pgr-tit', el) ? $('.pgr-tit', el).innerHTML : '모달 오픈';
+              append($('#btnWrap'), `${btns[0]} fui-toggle="url:${path};"${btns[1]}${title}${btns[2]}`);
+            });
+          }, 400 * i + 1);
+        });
+
+        function getUrlParams(paraname) {
+          const params = decodeURIComponent(location.search.substring(1));
+          const arr = [];
+          const vars = params.split('&');
+          for (let i = 0; i < vars.length; i++) {
+            const varable = vars[i].split('=');
+            if (varable[0] === paraname) {
+              arr.push(varable[1]);
+            }
+          }
+          return arr;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>마크업 가이드</title>
+    <link href="/v2/guide/script_guide/css/index.css" rel="stylesheet">
+    <link href="/v2/guide/guide/resources/css/gui_style.css" rel="stylesheet">
+    <link href="/v2/resources/css/style.css" rel="stylesheet">
+    <link href="/v2/guide/script_guide/themes/css/github.css" rel="stylesheet">
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <section class="fui-section">
+          <div class="group">
+            <div class="list-head">
+              <div class="title-lg">
+                <span class="txt">프로젝트 환경</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>사용 언어 : HTML5, CSS3, Javascript(ES6), jQuery</li>
+                <li>인코딩 : UTF-8</li>
+                <li>서비스 기기 : 모바일, PC(반응형 / 일부 적응형)</li>
+                <li>크로스 브라우징 : Chrome, Edge, Safari</li>
+                <li>Base Size : 스타일시트 기준 font-size: 6.25% (6.25% = 1rem = 10px)</li>
+                <li>단위 : rem 사용</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="group">
+            <div class="list-head">
+              <div class="title-lg">
+                <span class="txt">기기별 해상도 기준</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>모바일 : 미디어 쿼리 없이 Default 작성(Mobile First)</li>
+                <li>최대 넒이 : Contents 영역 기준 - 600px</li>
+                <li>서비스 기기 : 모바일, PC(반응형 / 일부 적응형)</li>
+                <li>Break Point : @media screen and(min-width: 102.5rem)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="group">
+            <div class="list-head">
+              <div class="title-lg">
+                <span class="txt">폴더</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>/resources/<strong class="fc-primary">css</strong>/ : sass 컴파일링 폴더(StyleSheet 폴더)</li>
+                <li>/resources/<strong class="fc-primary">font</strong>/ : 웹폰트</li>
+                <li>/resources/<strong class="fc-primary">images</strong>/ : 이미지</li>
+                <li>/resources/<strong class="fc-primary">js</strong>/ : js</li>
+                <li>/resources/<strong class="fc-primary">scss</strong>/ : sass 폴더</li>
+                <li>/html/<strong class="fc-primary">contract</strong>/ : (A)계약관리 - HTML</li>
+                <li>/html/<strong class="fc-primary">product</strong>/ : (B)보험상품 - HTML</li>
+                <li>/html/<strong class="fc-primary">claim</strong>/ : (C)보상 - HTML</li>
+                <li>/html/<strong class="fc-primary">loan</strong>/ : (D)대출 - HTML</li>
+                <li>/html/<strong class="fc-primary">retfund</strong>/ : (E)퇴직연금 - HTML</li>
+                <li>/html/<strong class="fc-primary">customer</strong>/ : (F)혜택/서비스 - HTML</li>
+                <li>/html/<strong class="fc-primary">customer</strong>/ : (G)고객센터 - HTML</li>
+                <li>/html/<strong class="fc-primary">util</strong>/ : (I)로그인/인증센터 - HTML</li>
+                <li>/html/<strong class="fc-primary">publication</strong>/ : (J)공시실 - HTML</li>
+                <li>/html/<strong class="fc-primary">consumer</strong>/ : (K)소비자포털 - HTML</li>
+                <li>/html/<strong class="fc-primary">consultant</strong>/ : (L)컨설턴트모집 - HTML</li>
+                <li>/html/<strong class="fc-primary">company</strong>/ : (M)회사소개 - HTML</li>
+                <li>/html/<strong class="fc-primary">company_eng</strong>/ : (N)English - HTML</li>
+                <li>/html/<strong class="fc-primary">bizcomm</strong>/ : (Y/Z)모니모공통/기타 - HTML</li>
+                <li>/<strong class="fc-primary">guide</strong>/ : IA 산출물 목록 및 퍼블 컴포넌트/가이드(배포 대상 아님)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="group">
+            <div class="list-head">
+              <div class="title-lg">
+                <span class="txt">SASS</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <p class="note-txt">※ css파일은 scss에서 추가/변경된 코드를 컴파일링 하므로 css를 수정하시면 안됨.(컴파일링할때 덮힘 주의.)</p>
+              <ul class="note-list depth-1">
+                <li><strong>/resources/scss/base/</strong></li>
+                <li>/resources/scss/base/<strong class="fc-primary">_animations.scss</strong> <span>: animation keyframe</span></li>
+                <li>/resources/scss/base/<strong class="fc-primary">_fonts.scss</strong> <span>: 웹폰트</span></li>
+                <li>/resources/scss/base/<strong class="fc-primary">_reset.scss</strong> <span>: 초기화, 초기선언값</span></li>
+                <li>/resources/scss/base/<strong class="fc-primary">_root.scss</strong> <span>: 전역변수(ROOT css) Group css 변환</span></li>
+                <li>/resources/scss/base/<strong class="fc-primary">_variables.scss</strong> <span>: 변수 선언</span></li>
+                <li><strong>/resources/scss/components/</strong></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_accordions.scss</strong> <span>: 아코디언 리스트 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_agree.scss</strong> <span>: 약관 스타일 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_buttons.scss</strong> <span>: 버튼 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_calendar.scss</strong> <span>: 달력(Datepicker) 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_elements.scss</strong> <span>: 단일요소 스타일 정의 - 뱃지, 헤드라인, 제목, 사이즈, 여백, 요소정렬</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_indicator.scss</strong> <span>: 페이지 넘버링 등 인디게이터 요소 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_loadings.scss</strong> <span>: 로딩 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_lists.scss</strong> <span>: 리스트 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_modal.scss</strong> <span>: 모달팝업 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_modules.scss</strong> <span>: 단일요소 그룹화 스타일 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_sliders.scss</strong> <span>: 프로그레스 그래프 바 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_swiper.scss</strong> <span>: 스와이퍼 플러그인 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_tables.scss</strong> <span>: 테이블 스타일 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_tabs.scss</strong> <span>: 탭메뉴 스타일 정의</span></li>
+                <li>/resources/scss/components/<strong class="fc-primary">_tooltip.scss</strong> <span>: 툴팁 스타일 정의</span></li>
+                <li><strong>/resources/scss/contents/</strong></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_cms.scss</strong> <span>: as-is 관리자 등록 콘텐츠 요소 정의</span></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_cont_company</strong> <span>: 회사소개 공통이외의 사용 빈도수 낮은 콘텐츠 스타일 정의</span></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_cont_consultant.scss</strong> <span>: RC(보험설계사) 공통이외의 사용 빈도수 낮은 콘텐츠 스타일 정의</span></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_cont_lifecare.scss</strong> <span>: 혜택/서비스 &gt; 라이프케어 외부 콘텐츠 스타일 정의</span></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_cont_loan.scss</strong> <span>: 대출 공통이외의 사용 빈도수 낮은 콘텐츠 스타일 정의</span></li>
+                <li>/resources/scss/contents/<strong class="fc-primary">_content.scss</strong> <span>: 공통이외의 사용 빈도수 낮은 콘텐츠 스타일 정의</span></li>
+                <li><strong>/resources/scss/forms/</strong></li>
+                <li>/resources/scss/forms/<strong class="fc-primary">_input.scss</strong> <span>: input, select 폼 스타일 정의</span></li>
+                <li>/resources/scss/forms/<strong class="fc-primary">_selection.scss</strong> <span>: checkbox, radio버튼 폼 스타일 정의</span></li>
+                <li><strong>/resources/scss/layouts/</strong></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_desk_another.scss</strong> <span>: PC-only 화면(반응형이 되면 안되는 페이지) 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_footer.scss</strong> <span>: 공통 Footer 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_header.scss</strong> <span>: 공통 Header 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_layout.scss</strong> <span>: 전체 레이아웃 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_monimo.scss</strong> <span>: 모니모 메인 및 모니모 기타 화면(as-is) 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_nav.scss</strong> <span>: 공통 메뉴(모바일/PC gnb) 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_search.scss</strong> <span>: 공통 검색 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_smart.scss</strong> <span>: 스마트링크 스타일 정의</span></li>
+                <li>/resources/scss/layouts/<strong class="fc-primary">_viewer.scss</strong> <span>: OZ viewer 스타일 정의</span></li>
+                <li><strong>/resources/scss/mains/</strong></li>
+                <li>/resources/scss/mains/<strong class="fc-primary">_main.scss</strong> <span>: 홈페이지 메인 스타일 정의</span></li>
+                <li>/resources/scss/mains/<strong class="fc-primary">_main_company.scss</strong> <span>: 회사소개 메인 스타일 정의</span></li>
+                <li><strong>/resources/scss/mixins/</strong></li>
+                <li>/resources/scss/mixins/<strong class="fc-primary">_breakpoints.scss</strong> <span>: 믹스인 반응형 breakpoint 정의</span></li>
+                <li>/resources/scss/mixins/<strong class="fc-primary">_utils.scss</strong> <span>: 믹스인 정의</span></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>스크립트 가이드</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css">
+  <link rel="stylesheet" href="/v2/resources/css/style.css">
+  <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css">
+  <script src="/v2/resources/js/jquery3.min.js"> </script>
+  <script src="/v2/resources/js/ui.init.js"> </script>
+  <script src="/v2/resources/js/ui.plugins.js"> </script>
+  <script src="/v2/resources/js/ui.common.js"> </script>
+  <script src="/v2/resources/js/lottie_light.min.js"> </script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="base-layer" id="baseLayer" style="z-index:1000"></div>
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Datepicker
+        </p>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv4"> [ fui-datepicker ]
+        </p>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> 기본
+        </p>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="hls_preview">
+              <div class="input-wrap md">
+                <div class="inp-date" fui-datepicker fui-input id="datepickerDateCustom">
+                  <input type="text" class="inp-base inp-ani" title="날짜 선택" placeholder="날짜 선택">
+                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                    <span class="sr-only">달력</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div>
+          <pre><code class="hls" data-language="html"></code></pre>
+        </div>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> 버튼 형
+        </p>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="hls_preview">
+              <div class="input-wrap md">
+                <div fui-datepicker id="btnPicker">
+                  <button type="button" class="ui-datepicker-btn" style="border:1px solid red" class="">
+                    <span>달력 호출</span>
+                  </button>
+                </div>
+              </div>
+              <script>
+                var datepicker = document.querySelector('#btnPicker');
+                datepicker.addEventListener('pickDatepicker', function(e) {
+                  console.log(e.detail[0].date);
+                })
+              </script>
+            </div>
+          </div>
+        </div><br>
+        <div>
+          <pre><code class="hls" data-language="html"></code></pre>
+        </div>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> 월 선택
+        </p>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="hls_preview">
+              <div class="input-wrap md">
+                <div class="inp-date" fui-datepicker="isMonthOnly:true;" data-end-date="2025.11.01">
+                  <input type="text" class="inp-base inp-ani" title="날짜 선택" placeholder="날짜 선택">
+                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                    <span class="sr-only">달력</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div>
+          <pre><code class="hls" data-language="html"></code></pre>
+        </div>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> 최소 최대 날짜 지정
+        </p>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="hls_preview">
+              <div class="input-wrap md">
+                <div class="inp-date" fui-datepicker data-start-date="2024.02.05" data-end-date="2026.09.30">
+                  <input type="text" class="inp-base inp-ani" title="날짜 선택" placeholder="날짜 선택">
+                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                    <span class="sr-only">달력</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div>
+          <pre><code class="hls" data-language="html"></code></pre>
+        </div>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> From - to
+        </p>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div class="hls_preview" style="display:flex;">
+              <div class="input-wrap md">
+                <div class="inp-date" fui-datepicker="to:#datepickerTo;" id="datepickerFrom">
+                  <input type="text" class="inp-base inp-ani" title="날짜 선택" placeholder="날짜 선택">
+                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                    <span class="sr-only">달력</span>
+                  </button>
+                </div>
+              </div><span>&nbsp;&nbsp;~&nbsp;&nbsp;</span>
+              <div class="input-wrap md">
+                <div class="inp-date" fui-datepicker="from:#datepickerFrom;" id="datepickerTo">
+                  <input type="text" class="inp-base inp-ani" title="날짜 선택" placeholder="날짜 선택">
+                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                    <span class="sr-only">달력</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div>
+          <pre><code class="hls" data-language="html"></code></pre>
+        </div>
+      </div><br><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1">Methods</p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="30%" />
+              <col width="35%" />
+              <col width="35%" />
+            </colgroup>
+            <caption>
+              Attributes
+            </caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Name</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">parameter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>initValue()</td>
+                <td>새로운 날짜 값 세팅</td>
+                <td>new Date(), String</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  MOui.datepicker('#datepickerDateCustom').initValue('2023-01-01');<br>
+                  MOui.datepicker('#datepickerDateCustom').initValue(new Date('2023-01-01'));
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Options
+        </p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>value</td>
+                <td>옵션으로 값 전달 시 사용 <br>ex) 2023.01.01</td>
+                <td>String</td>
+                <td>""</td>
+              </tr>
+              <tr>
+                <td>isMonthOnly</td>
+                <td>월 선택 달력 호출 여부</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+              <tr>
+                <td>from</td>
+                <td>시작일 달력 셀렉터</td>
+                <td>String</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>to</td>
+                <td>종료일 달력 셀렉터</td>
+                <td>String</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>keyControl</td>
+                <td>키보드 컨트롤 여부</td>
+                <td>Boolean</td>
+                <td>false</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Events
+        </p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="30%" />
+              <col width="35%" />
+              <col width="35%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Name</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>pickDatepicker</td>
+                <td>날짜 선택 후 발생</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <pre><code data-language="script">// orignal
+ var datepicker = document.querySelector('#datepickerFrom');
+ MOui.util.on(datepicker, 'pickDatepicker', function(e){
+   console.log(e.detail[0]);
+ })
+
+
+
+ // jQuery
+ $('#datepickerFrom').on('pickDatepicker', function(e){
+   console.log(e.detail[0]);
+ })
+
+
+  // e.detail[0] 데이트피커 객체 정보</code></pre>
+        <script>
+          $(() => {
+            setTimeout(() => {
+              var datepicker = document.querySelector('#datepickerFrom');
+              MOui.util.on(datepicker, 'pickDatepicker', function(e) {
+                console.log(e.detail[0]);
+              })
+            }, 400)
+          })
+        </script>
+      </div>
+    </div>
+  </div>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+  <script src="/v2/guide/script_guide/src/language/html.js"></script>
+  <script src="/v2/guide/script_guide/src/language/css.js"></script>
+  <script src="/v2/guide/script_guide/src/language/php.js"></script>
+  <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/guide_script.js"></script>
+</body>
+
+</html>

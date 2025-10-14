@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>스크립트 가이드</title>
+  <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css">
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="/v2/resources/js/ui.front.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="inner">
+        <h1 class="title">삼성화재 마크업 가이드</h1>
+        <ul class="nav" id="topNav">
+          <li> <a href="/v2/guide/guide/markupguide.html">마크업 가이드</a></li>
+          <li> <a href="/v2/guide/script_guide/scriptguide.html">스크립트 가이드</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="contents">
+      <div class="side_nav" id="sideNav">
+        <div id="pages">
+          <div id="markupGuide">
+            <h2 class="side_title">스크립트 가이드</h2>
+            <div id="treemenu"></div>
+          </div>
+        </div>
+      </div>
+      <div class="contents">
+        <iframe class="content_frame" id="content_frame"></iframe>
+        <script>
+          const {
+            $
+          } = MOui.util;
+          const data = {
+            "ui.front.js": {
+              "공통 ": ["/v2/guide/script_guide/common_guide.html", "complete"],
+              "유틸 함수 ": ["/v2/guide/script_guide/common_util.html", "complete"],
+              "Accordion": ["/v2/guide/script_guide/accordion.html", "complete"],
+              "Autofocus": ["/v2/guide/script_guide/autofocus.html", "complete"],
+              "Ajax": ["/v2/guide/script_guide/ajax_new.html", "complete"],
+              "Button": ["/v2/guide/script_guide/button.html", "complete"],
+              "Datepicker": ["/v2/guide/script_guide/datepicker_new.html", "complete"],
+              "Input": ["/v2/guide/script_guide/input.html", "complete"],
+              "Modal": ["/v2/guide/script_guide/modal_new.html", "complete"],
+              "Radio&checkbox": ["/v2/guide/script_guide/radioCheck.html", "complete"],
+              "Selectbox": ["/v2/guide/script_guide/selectbox.html", "complete"],
+              "Slider": ["/v2/guide/script_guide/slider.html", "complete"],
+              "Sticky": ["/v2/guide/script_guide/sticky.html", "complete"],
+              "Step": ["/v2/guide/script_guide/step.html", "complete"],
+              "Tab": ["/v2/guide/script_guide/tab.html", "complete"],
+            },
+            "As-is": {
+              "modal ": ["/v2/guide/script_guide/modal.html", "complete"],
+              //- "datepicker ":["/v2/guide/script_guide/datepicker.html", "complete"],
+              //- "ajax ":["/v2/guide/script_guide/ajax.html", "complete"],
+              "loading_bar ": ["/v2/guide/script_guide/loading_bar.html", "complete"],
+              "range_slider ": ["/v2/guide/script_guide/range_slider.html", "complete"],
+              //- "floating ":["/v2/guide/script_guide/floating.html", "complete"],
+              //- "lottie_animation ":["/v2/guide/script_guide/lottie_animation.html", "complete"],
+
+            }
+
+          };
+          MOui.tree($('#treemenu'), {
+            data: data,
+            idName: 'tree2',
+            mainFrame: '#content_frame',
+          })
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

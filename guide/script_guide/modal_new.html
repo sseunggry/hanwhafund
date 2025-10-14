@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>스크립트 가이드</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.front.js"></script>
+    <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    
+    <script src="/v2/resources/js/lottie_light.min.js"></script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="base-layer" id="baseLayer" style="z-index: 1000"></div>
+      <div class="main_content">
+        <a href="/v2/html/contract/02/A_020_050_001.html" target="_blank">샘플</a>
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Modal</p>
+        </div>
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv4">[ fui-modal ]</p>
+        </div>
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">기본</p>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" fui-toggle="url: /v2/html/_layout/modal/popup_full_new.html">
+                    <span>풀 팝업</span>
+                  </button>
+                </div>
+                <br />
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" fui-toggle="url: /v2/html/_layout/modal/popup_bottom_new.html;">
+                    <span>버텀 시트</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">스크립트로 직접 호출</p>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" id="callModal">
+                    <span>팝업 호출</span>
+                  </button>
+                </div>
+                <script>
+                  const el = document.querySelector('#callModal');
+                  el.addEventListener('click', function () {
+                    MOui.callLayer({
+                      // 주소
+                      url: '/v2/html/_layout/modal/popup_bottom_new.html',
+
+                      // 모달 호출 후 콜백
+                      showFn: function (modalElement) {
+                        console.log(modalElement);
+                      },
+
+                      // 모달 닫은 후 콜백
+                      hideFn: function (modalElement) {
+                        alert('hideFn');
+                      },
+
+                      // 배경 닫힘 여부 (true / false)
+                      bgClose: true,
+                    }).then(function (el) {
+                      console.log(el); // 모달 엘리먼트를 반환
+                    });
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Alert</p>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" id="callAlert">
+                    <span>Alert 호출</span>
+                  </button>
+                </div>
+                <script>
+                  const alertEl = document.querySelector('#callAlert');
+                  alertEl.addEventListener('click', function () {
+                    MOui.modal
+                      .alert(
+                        {
+                          text: '<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>',
+                        },
+                        {
+                          type: 1,
+                        },
+                      )
+                      .then(function () {
+                        console.log('닫음');
+                      });
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" id="callAlert2">
+                    <span>마크업 구조가 들어가는 유형</span>
+                  </button>
+                </div>
+                <script>
+                  document.querySelector('#callAlert2').addEventListener('click', function () {
+                    MOui.modal
+                      .alert(
+                        {
+                          text: '<p class="title">보험료를 납입할 수 없습니다.</p><p class="txt">납입을 원하시는 경우, 삼성화재 고객콜센터(1588-5114)로<br>문의해 주세요.</p>',
+                        },
+                        {
+                          bgClose: false, //배경 클릭 시 닫힘 제공 X
+                        },
+                      )
+                      .then(function () {
+                        console.log('닫음');
+                      });
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Confirm</p>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" id="callConfirm">
+                    <span>Confirm 호출</span>
+                  </button>
+                </div>
+                <script>
+                  document.querySelector('#callConfirm').addEventListener('click', function () {
+                    MOui.modal
+                      .confirm(
+                        {
+                          text: '<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>',
+                          ok: 'ok',
+                          cancel: 'cancel',
+                        },
+                        {
+                          type: 1,
+                          endFocus: 'callAlert2',
+                        },
+                      )
+                      .then(
+                        function (resolve) {
+                          console.log('확인');
+                        },
+                        function (resolve) {
+                          console.log('닫기');
+                        },
+                      );
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Etc Tooltip Modal(공시실에서만 사용)</p>
+        </div>
+        <div>
+          <div>
+            <div>
+              <div class="hls_preview">
+                <div class="btn-wrap">
+                  <button type="button" class="btn outlined" id="callAlert3">
+                    <span>Tooltip 호출</span>
+                  </button>
+                </div>
+                <script>
+                  document.querySelector('#callAlert3').addEventListener('click', function () {
+                    MOui.modal
+                      .alert(
+                        {
+                          text: '<div class="pop-head"><h3 class="tit-gnb"><span>삼성애니카랜드 자동차보험</span></h3></div><div class="system-txtcont"><p class="txt">해당 상품은 애니카랜드점을 위한 단체상품입니다.</p></div><button type="button" class="btn-close fui-modal-close"><span>닫기</span></button>',
+                        },
+                        {
+                          type: 99,
+                        },
+                      )
+                      .then(function () {
+                        console.log('닫음');
+                      });
+                  });
+                </script>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div>
+            <pre><code class="hls" data-language="html"></code></pre>
+          </div>
+        </div>
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Options</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="15%" />
+                <col width="55%" />
+                <col width="15%" />
+                <col width="15%" />
+              </colgroup>
+              <caption>
+                Attributes
+              </caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Property</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Type</th>
+                  <th class="th" scope="cols">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>bgClose</td>
+                  <td>dim 클릭 시 닫힘 여부</td>
+                  <td>Boolean</td>
+                  <td>true</td>
+                </tr>
+                <tr>
+                  <td>endFocus</td>
+                  <td>모달 닫은 후 포커싱 처리</td>
+                  <td>String</td>
+                  <td>null</td>
+                </tr>
+                <tr>
+                  <td>type</td>
+                  <td>Alert & Conform 전용 - 디자인 타입 정의 1-알림, 2-선택, 3-확인, 4-오류</td>
+                  <td>String</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>ok</td>
+                  <td>Alert & Conform 전용 - 확인 버튼 텍스트</td>
+                  <td>String</td>
+                  <td>확인</td>
+                </tr>
+                <tr>
+                  <td>cancel</td>
+                  <td>Conform 전용 - 취소 버튼 텍스트</td>
+                  <td>String</td>
+                  <td>닫기</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br /><br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Options - MOui.callLayer()</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="15%" />
+                <col width="55%" />
+                <col width="15%" />
+                <col width="15%" />
+              </colgroup>
+              <caption>
+                Attributes
+              </caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Property</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Type</th>
+                  <th class="th" scope="cols">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>url</td>
+                  <td>비동기 호출할 모달 주소</td>
+                  <td>String</td>
+                  <td>null</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br /><br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Methods</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="30%" />
+                <col width="35%" />
+                <col width="35%" />
+              </colgroup>
+              <caption>
+                Attributes
+              </caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Name</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">parameter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>hide()</td>
+                  <td>모달 close</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <pre><code data-language="script">   
+   <div class="ui-modal" id="modal">
+      ...
+   </div>
+
+   var modalElement = document.querySelector('#modal');
+
+   MOui.modal(modalElement).hide().then(function(){
+    // callback 
+  })
+ </code></pre>
+        </div>
+        <br /><br />
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Events</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="30%" />
+                <col width="35%" />
+                <col width="35%" />
+              </colgroup>
+              <caption>
+                Attributes
+              </caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Name</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>beforeshow</td>
+                  <td>모듈이 실행되기 직전 발생</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>show</td>
+                  <td>모듈이 실행된 직후 발생</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>shown</td>
+                  <td>Show animation 이 완료된 후 발생</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>beforehide</td>
+                  <td>모듈이 닫히기 직전 발생</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>hide</td>
+                  <td>모듈이 닫힌 직후 직전 발생</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>hidden</td>
+                  <td>Hide animation 이 완료된 후 발생</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <pre><code data-language="script">비동기 호출이기 때문에 이벤트 위임을 통해야 함
+// orignal
+var baseLayer = document.querySelector('#baseLayer');
+MOui.util.on(baseLayer, 'show', '[fui-modal]', function(e){
+  console.log(e.detail);
+})
+
+
+
+ // jQuery
+ $('#baseLayer').on('show', '[fui-modal]', function(e){
+   console.log(e.detail);
+ })
+
+
+  // e.detail[0] 모달 전체 객체 정보
+  </code></pre>
+          <script>
+            $(() => {
+              setTimeout(() => {
+                var baseLayer = document.querySelector('#baseLayer');
+                MOui.util.on(baseLayer, 'show', '[fui-modal]', function (e) {
+                  console.log(e.detail[0]);
+                });
+              }, 400);
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>

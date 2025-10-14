@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>스크립트 가이드</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css">
+  <link rel="stylesheet" href="/v2/resources/css/style.css">
+  <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css">
+  <script src="/v2/resources/js/jquery3.min.js"> </script>
+  <script src="/v2/resources/js/ui.front.js"></script>
+  <script src="/v2/resources/js/ui.init.js"> </script>
+  <script src="/v2/resources/js/ui.plugins.js"> </script>
+  <script src="/v2/resources/js/ui.common.js"> </script>
+  
+  <script src="/v2/resources/js/lottie_light.min.js"> </script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> 유틸 함수
+        </p>
+      </div>
+      <div>
+        <div>
+          <p class="dec">Lottie Animation</p>
+          <div>
+            <div class="hls_preview">
+              <div style="width: 300px;">
+                <span class="ico-result fn-ani-set" data-ani-item="result-warning"></span>
+              </div>
+              
+              <script>
+                var lottieEl = document.querySelector('.fn-ani-set');
+                
+                // 로티 애니메이션 재생
+                MOui.util.lottieAnimation(lottieEl).play()
+
+                // 로티 애니메이션 초기화
+                // MOui.util.lottieAnimation(lottieEl).stop()
+              </script>
+            </div>
+            <div>
+              <pre><code class="hls" data-language="html"></code></pre>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div>
+          <p class="dec">goToScrollElement</p>
+          <div>
+            <div class="hls_preview">
+              <script>
+                /**
+                 * 
+                 * @param {*} element 스크롤 이동시킬 타겟 엘리먼트
+                 * @param {*} padding 스크롤 이동  타겟 엘리먼트의 상단 패딩 값(필요시에만 명시적 전달) default = 0;
+                 * @returns 
+                 */
+                var element = document.querySelector('#target or .target');
+                MOui.util.goToScrollElement(element).then(()=>{
+                  console.log('callback');  // callback 스크롤 애니메이션이 끝난 후 발생
+                })
+
+                // options
+
+
+              </script>
+            </div>
+            <div>
+              <pre><code class="hls" data-language="html"></code></pre>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div>
+          <p class="dec" id="dec-target">uigoToScroll</p>
+          <div>
+            <div class="hls_preview">
+              <div style="width: 300px;">
+                <div class="ui-modal-cont">
+                  <div class="fui-scroll-section"></div>
+                  <div class="fui-scroll-section"></div>
+                  <div class="fui-scroll-section"></div>
+                </div>
+              </div>
+              
+              <script>
+                // 기본 값
+                var options = {
+                  cls: '.fui-scroll-section', // 타겟 엘리먼트 클래스 네임
+                  scrollBody:'.ui-modal-cont',  // 스크롤 컨트롤 영역
+                  idx : 1,                      // 타겟 엘리먼트 n 번째 지정 (시작 인덱스 1)
+                  padding:20,                   // 스크롤 상단 간격 지정
+                }
+
+                var customOption = {idx:2}
+
+                $plugins.uigoToScroll(customOption).then(()=>{
+                  console.log('callback');  // callback 스크롤 애니메이션이 끝난 후 발생
+                })
+
+                // options
+
+
+              </script>
+            </div>
+            <div>
+              <pre><code class="hls" data-language="html"></code></pre>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+  <script src="/v2/guide/script_guide/src/language/html.js"></script>
+  <script src="/v2/guide/script_guide/src/language/css.js"></script>
+  <script src="/v2/guide/script_guide/src/language/php.js"></script>
+  <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/guide_script.js"></script>
+</body>
+
+</html>

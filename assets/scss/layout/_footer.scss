@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import "../util";
+
+/* footer */
+.footer{padding: 40px 0;}
+.footer .util-wrap{display: flex; align-items: center; justify-content: space-between;}
+.footer .logo{margin: 12px 0; width: 97px; height: 26px; @include bg('content/logo.svg', $size: 100% auto);}
+.footer .util-menu{display: flex; gap: 54px;}
+
+.footer .info{display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px;}
+.footer .info li.full{width: 100%;}
+
+.footer .copyright{margin-top: 20px; line-height: 1.7; text-align: center ;}
+
+@media (max-width: 750px) {
+    .footer .util-wrap{flex-direction: column; gap: 20px; }
+    .footer .util-menu{flex-wrap: wrap; gap: 8px 20px;}
+    .footer .info li{width: 100%; text-align: center;}
+}
+
+@media (max-width: 375px) {
+    .footer{padding: 10.67vw 0;}
+    .footer .util-wrap{gap: 5.33vw;}
+    .footer .logo{margin: 3.20vw 0; width: 25.87vw; height: 6.93vw;}
+    .footer .util-menu{gap: 2.13vw 5.33vw;}
+
+    .footer .info{gap: 2.13vw; margin-top: 4.27vw;}
+
+    .footer .copyright{margin-top: 5.33vw;}
+}

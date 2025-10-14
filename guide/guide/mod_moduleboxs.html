@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>모듈박스 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <script src="/v2/resources/js/jquery3.min.js"> </script>
+    <script src="/v2/resources/js/ui.init.js"> </script>
+    <script src="/v2/resources/js/ui.plugins.js"> </script>
+    <script src="/v2/resources/js/ui.common.js"> </script>
+    <script src="/v2/resources/js/lottie_light.min.js"> </script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">모듈박스</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELListBox</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>카드 형태로 정보를 묶어 제공</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Primary</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>주 서비스에 해당하는 정보 및 기능을 표시</li>
+                  <li>사각형 영역 안에 제목, 보조글, 기타 요소들을 조합하여 사용</li>
+                  <li>radius는 1.6rem, box-shadow 있음</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="module-box">
+                        <div class="list-head">
+                          <h4 class="title-min">
+                            <span class="txt">제목</span>
+                          </h4>
+                        </div>
+                        <p>텍스트</p>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Secondary(.option-bg)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>일반적인 정보 및 기능을 표시</li>
+                  <li>토글박스내 안내 혹은 기간(데이터검색, 계산시) ELListBox Secondary 내 표기되는 정보</li>
+                  <li>radius는 1.6rem, box-shadow 없음</li>
+                  <li>박스 여백 2rem / 폰트사이즈 1.4rem / li간 gap 0.8rem으로 구성</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="list-head">
+                <div class="title-min">
+                  <span class="txt">info_vertical</span>
+                </div>
+              </div>
+
+              <div class="group">
+                <ul class="note-list depth-1">
+                  <li>직사각형 영역 내에 텍스트와 보조글을 상,하로 세로 배치하여 정보를 전달</li>
+                  <li>텍스트가 긴 경우 사용</li>
+                </ul>
+              </div>
+
+              <div class="mui_tabs" fui-tab="">
+                <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+                <div class="ui-tab-pnls">
+                  <div class="ui-tab-pnl selected">
+                    <section class="section fui-mg-center">
+                      <div class="hls_preview">
+                        <div class="module-box">
+                          <div class="list-head">
+                            <h4 class="title-min">
+                              <span class="txt">제목</span>
+                            </h4>
+                          </div>
+                          <p>텍스트</p>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="ui-tab-pnl">
+                    <div>
+                      <pre><code class="hls" data-language="html"></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Secondary(.option-bg.option-contents)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>radius는 1.6rem, box-shadow 없음</li>
+                  <li>박스 여백 2.4rem / 폰트사이즈 1.6rem / gap 1rem으로 구성</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="list-head">
+                <div class="title-min">
+                  <span class="txt">내부 아이콘 + 텍스트 조합</span>
+                </div>
+              </div>
+
+              <div class="mui_tabs" fui-tab="">
+                <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+                <div class="ui-tab-pnls">
+                  <div class="ui-tab-pnl selected">
+                    <section class="section fui-mg-center">
+                      <div class="hls_preview">
+                        <div class="module-box option-bg option-contents">
+                          <div class="item-row">
+                            <div class="unit fixed">
+                              <img src="/v2/resources/images/bizcomm/ico-fds1.svg" alt="" />
+                            </div>
+                            <div class="unit filled">
+                              <div class="desc-wrap">
+                                <div class="tit">신분증</div>
+                                <p class="desc">주민등록증, 운전면허증, 외국인등록증</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <div class="ui-tab-pnl">
+                    <div>
+                      <pre><code class="hls" data-language="html"></code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">Default + line 추가형(.option-line)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>흰색 배경에 radius는 1.6rem, box-shadow 있음, border: 0.1rem solid #efefef 라인 추가</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="module-box option-line">
+                        <div class="list-head space-mb-4">
+                          <h4 class="title-min">
+                            <span class="txt">제목</span>
+                          </h4>
+                        </div>
+                        <ul class="info-summary">
+                          <li>
+                            <strong>가입일수</strong>
+                            <p><span class="txt-date">5일</span><span class="txt-date">(2020.03.20~</span><span class="txt-date">2020.03.25 24시)</span></p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELListGroup</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>모듈박스가 그룹으로 묶일 경우 사용</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mui_tabs" fui-tab="">
+            <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+            <div class="ui-tab-pnls">
+              <div class="ui-tab-pnl selected">
+                <section class="section fui-mg-center">
+                  <div class="hls_preview">
+                    <div class="module-group">
+                      <div class="module-box option-line">
+                        <div class="list-head space-mb-4">
+                          <h4 class="title-min">
+                            <span class="txt">제목</span>
+                          </h4>
+                        </div>
+                        <ul class="info-summary">
+                          <li>
+                            <strong>가입일수</strong>
+                            <p><span class="txt-date">5일</span><span class="txt-date">(2020.03.20~</span><span class="txt-date">2020.03.25 24시)</span></p>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="module-box option-bg">
+                        <div class="list-head space-mb-4">
+                          <h4 class="title-min">
+                            <span class="txt">제목</span>
+                          </h4>
+                        </div>
+                        <ul class="info-summary">
+                          <li>
+                            <strong>가입일수</strong>
+                            <p><span class="txt-date">5일</span><span class="txt-date">(2020.03.20~</span><span class="txt-date">2020.03.25 24시)</span></p>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="ui-tab-pnl">
+                <div>
+                  <pre><code class="hls" data-language="html"></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">CardList</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>좌우 배치로 2열 배치</li>
+                  <li>.module-group<strong>.option-card</strong>추가</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="module-group option-card">
+                        <div class="module-box option-line">
+                          <div class="list-head space-mb-4">
+                            <h4 class="title-min">
+                              <span class="txt">제목</span>
+                            </h4>
+                          </div>
+                          <p>하단텍스트</p>
+                        </div>
+                        <div class="module-box option-bg">
+                          <div class="list-head space-mb-4">
+                            <h4 class="title-min">
+                              <span class="txt">제목</span>
+                            </h4>
+                          </div>
+                          <p>하단텍스트</p>
+                        </div>
+                        <div class="module-box option-line">
+                          <div class="list-head space-mb-4">
+                            <h4 class="title-min">
+                              <span class="txt">제목</span>
+                            </h4>
+                          </div>
+                          <p>하단텍스트</p>
+                        </div>
+                        <div class="module-box option-line">
+                          <div class="list-head space-mb-4">
+                            <h4 class="title-min">
+                              <span class="txt">제목</span>
+                            </h4>
+                          </div>
+                          <p>하단텍스트</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">CardList(제목+아이콘 조합)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>좌우 배치로 2열 배치</li>
+                  <li>상단 제목, 하단 아이콘 배치</li>
+                  <li>.module-group.option-card .module-box<strong>.option-line-bg</strong> 추가</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="module-group option-card">
+                        <div class="module-box option-line-bg">
+                          <a href="javascript:void(0);" class="link-item ico-contract1" target="_blank" title="새창열림">
+                            <div class="list-head">
+                              <h5 class="title-min">
+                                <span class="txt">
+                                  임시운전자<br />
+                                  특약 가입
+                                </span>
+                              </h5>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="module-box option-line-bg">
+                          <a href="javascript:void(0);" class="link-item ico-contract2" target="_blank" title="새창열림">
+                            <div class="list-head">
+                              <h5 class="title-min">
+                                <span class="txt">
+                                  최종 주행거리<br />
+                                  사전 등록
+                                </span>
+                              </h5>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="module-box option-line-bg">
+                          <a href="javascript:void(0);" class="link-item ico-contract3" target="_blank" title="새창열림">
+                            <div class="list-head">
+                              <h5 class="title-min">
+                                <span class="txt">
+                                  가입증명서<br />
+                                  발행
+                                </span>
+                              </h5>
+                            </div>
+                          </a>
+                        </div>
+                        <div class="module-box option-line-bg">
+                          <a href="javascript:void(0);" class="link-item ico-contract4" target="_blank" title="새창열림">
+                            <div class="list-head">
+                              <h5 class="title-min">
+                                <span class="txt">증권발행</span>
+                              </h5>
+                            </div>
+                          </a>
+                        </div>
+                        <!--// 11월 오픈(e) -->
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELListMenu</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>로그인/인증센터만 사용되는 버튼유형 케이스</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">버튼형</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <ul class="list-module-box option-list">
+                        <li>
+                          <a href="javascript:;" class="btn-module">
+                            <div class="item option-img icon ico-cert6">
+                              <div class="text">
+                                <span class="tit">간편비밀번호</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="btn-module">
+                            <div class="item option-img icon ico-cert3">
+                              <div class="text">
+                                <span class="tit">금융인증서</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="btn-module">
+                            <div class="item option-img icon ico-cert2">
+                              <div class="text">
+                                <span class="tit">카카오인증</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="btn-module">
+                            <div class="item option-img icon ico-cert5">
+                              <div class="text">
+                                <span class="tit">휴대폰인증</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $plugins.uiTextareaAutoHeight();
+      });
+    </script>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>

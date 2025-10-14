@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>스크립트 가이드</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css">
+  <link rel="stylesheet" href="/v2/resources/css/style.css">
+  <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css">
+  <script src="/v2/resources/js/jquery3.min.js"> </script>
+  <script src="/v2/resources/js/ui.init.js"> </script>
+  <script src="/v2/resources/js/ui.plugins.js"> </script>
+  <script src="/v2/resources/js/ui.common.js"> </script>
+  <script src="/v2/resources/js/lottie_light.min.js"> </script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Step
+        </p>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv4"> [ fui-step ]
+        </p>
+      </div><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv2"> 기본
+        </p>
+      </div>
+      <div class="mui_tabs" fui-tab="">
+        <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a>
+        </div>
+        <div class="ui-tab-pnls">
+          <div class="ui-tab-pnl selected">
+            <div class="hls_preview">
+              <div class="base-header">
+                <button type="button" class="head-btn-back" id="mainBtnArea"><i></i><span class="sr-only">이전 페이지로 이동</span></button>
+              </div>
+              <div class="ui-pagestep" fui-step="movemsg:홈으로?">
+                <div class="process-wrap ui-pagestep-prcs">
+                  <div class="fraction active">
+                    <div class="step">
+                      <em class="num"><strong class="cur">1</strong></em>
+                      <span class="sr-only">보험금 청구 진행중</span>
+                    </div>
+                    <div class="step">
+                      <span class="sr-only">총</span>
+                      <em class="num total">10</em>
+                      <span class="sr-only">단계</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui-pagestep-wrap">
+                  <section class="ui-pagestep-item show">
+                    <div class="btn-wrap option-fixed">
+                      <button type="button" class="btn primary ui-pagestep-next" id="test">
+                        <span>다음 section 13</span>
+                      </button>
+                    </div>
+                  </section>
+                  <section class="ui-pagestep-item" data-disabled="false">
+                    <div class="form-wrap in-label">
+                      <div class="input-wrap md has-delBtn fui-input" fui-input="">
+                        <label for="targetInput2_1" class="label-txt">Inner Label</label>
+                        <input type="text" class="inp-base inp-ani" id="targetInput2_1">
+                      </div>
+                    </div>
+                    <div class="btn-wrap option-fixed">
+                      <button type="button" class="btn primary ui-pagestep-next">
+                        <span>다음 section 3</span>
+                      </button>
+                    </div>
+                  </section>
+                  <section class="ui-pagestep-item" data-func='test'>
+                    <div class="btn-wrap option-fixed">
+                      <button type="button" class="btn primary ui-pagestep-next">
+                        <span>다음 section 4</span>
+                      </button>
+                    </div>
+                  </section>
+                  <section class="ui-pagestep-item last">
+                    <div class="btn-wrap option-fixed">
+                      <button type="button" class="btn primary">
+                        <span>확인 last</span>
+                      </button>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <script>
+                var step = document.querySelector('[fui-step]');
+                var stepList = document.querySelectorAll('.ui-pagestep-item');
+                var backKey = document.querySelector('#mainBtnArea');
+
+                //- step.addEventListener('stepChangeBefore', function(e){
+                //-   console.log(e.detail);
+                //- })
+                //- window.addEventListener('popstate', (e)=>{
+                //-   console.log('ddddd')
+                //- })
+                function test(resolve) {
+                  $plugins.modal.confirm(
+                    '지금까지 입력하신 정보는 저장되지 않으며,<br>보험금청구 첫 단계로 이동합니다.',
+                    function() {
+                      resolve(true)
+                      resolve('back')
+                    },
+                    function() {
+                      resolve(false)
+                    },
+                    "이동",
+                    null
+                  );
+
+                  return true;
+                }
+                //- backKey.addEventListener('click', function(e){
+                //-   alert('클릭!!')
+                //-   e.stopPropagation();
+                //- })
+                //- $('[fui-step]').on('stepChangeBefore', function(e){
+                //-   console.log(e.detail);
+                //- })
+                //- window.addEventListener('stepChangeAfter', function(e){
+                //-   console.log(e.detail);
+                //- })
+
+                document.querySelector('#test').addEventListener('click', () => {
+                  //- console.log(stepList);
+                  //- stepList[1].setAttribute('data-disabled', true);
+                  //- MOui.step(step).showSlideStep('next');
+                  //- setTimeout(()=>{
+
+                  //- })
+                })
+              </script>
+            </div>
+          </div>
+          <div class="ui-tab-pnl">
+            <div>
+              <pre><code class="hls" data-language="html"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> 스텝 활성화 / 비활성화
+        </p>
+      </div>
+      <pre><code class="hls" data-language="html"><!-- 비활성화 시 data-disabled="true" data-disabled 값 true -->
+<section class="ui-pagestep-item" aria-hidden="false" data-disabled="true">...</section>
+
+
+<!-- 활성화 시 data-disabled="false" data-disabled 값 false -->
+<section class="ui-pagestep-item" aria-hidden="false" data-disabled="false">...</section></code></pre><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> data-func
+        </p>
+      </div>
+      <pre><code class="hls" data-language="html"><!-- 뒤로가기 버튼 클릭 시 data-func 속성 값을 체크하여 값과 일치하는 이름의 함수 호출 -->
+<section class="ui-pagestep-item" data-func='test'>...</section>
+
+
+            <script>// 기능 수행 후 resolve를 통해 Boolean 값 전달
+function test(resolve){
+  $plugins.modal.confirm(
+      '지금까지 입력하신 정보는 저장되지 않으며,<br>보험금청구 첫 단계로 이동합니다.',
+      function(){
+        resolve(true) // 첫번째 스텝으로 이동
+        resolve('back') // 이전 스텝으로 이동
+      },
+      function(){
+        resolve(false)
+      },
+      "이동",
+      null
+  );
+  
+  //- return true;
+}
+            </script></code></pre><br><br><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Options
+        </p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="15%" />
+              <col width="55%" />
+              <col width="15%" />
+              <col width="15%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Property</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Type</th>
+                <th class="th" scope="cols">Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>movemsg</td>
+                <td>홈 이동 모달 컴폼 호출 시 안내 메세지</td>
+                <td>String</td>
+                <td>홈으로 이동하시겠습니까?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Methods
+        </p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="30%" />
+              <col width="35%" />
+              <col width="35%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Name</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">parameter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>showSlideStep()</td>
+                <td>해당되는 인덱스, 엘리먼트 요소로 스텝 이동</td>
+                <td>int, Element, String(next, prev), </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <pre><code data-language="python">var stepList = document.querySelectorAll('.ui-pagestep-wrap')
+MOui.step('#uiStep').showSlideStep(4);
+// or
+MOui.step('#uiStep').showSlideStep(stepList[4]);
+
+// 다음 스텝
+MOui.step('#uiStep').showSlideStep('next');
+ 
+// 이전 스텝
+MOui.step('#uiStep').showSlideStep('prev');</code></pre>
+      </div><br><br>
+      <div class="title_sec">
+        <p class="guide_title title_lv1"> Events
+        </p>
+      </div>
+      <div class="attribute_table">
+        <div class="mui_datatable attr_table">
+          <table>
+            <colgroup>
+              <col width="30%" />
+              <col width="35%" />
+              <col width="35%" />
+            </colgroup>
+            <caption>Attributes</caption>
+            <thead>
+              <tr>
+                <th class="th" scope="cols">Name</th>
+                <th class="th" scope="cols">Description</th>
+                <th class="th" scope="cols">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>stepChangeBefore</td>
+                <td>스텝 이동 시작 전 발동</td>
+                <td>Orignal<br>var step = </td>
+              </tr>
+              <tr>
+                <td>stepChangeAfter</td>
+                <td>스텝 이동 완로 후 발동</td>
+                <td>스텝 이동 시작 전 발동</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <pre><code data-language="script">// orignal
+var step = document.querySelector('[fui-step]');
+step.addEventListener('stepChangeBefore', function(e){
+  console.log(e.detail);
+})
+
+
+
+ // jQuery
+ $('[fui-step]').on('stepChangeBefore', function(e){
+   console.log(e.detail);
+ })
+ // e.detail[0] : step 컴포넌트 전체 객체 정보
+ // e.detail[1] : 이전 스텝 Element 
+ // e.detail[2] : 다음( 애니메이션 후 현재) 스텝 Element</code></pre>
+      </div>
+    </div>
+  </div>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+  <script src="/v2/guide/script_guide/src/language/html.js"></script>
+  <script src="/v2/guide/script_guide/src/language/css.js"></script>
+  <script src="/v2/guide/script_guide/src/language/php.js"></script>
+  <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+  <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+  <script src="/v2/guide/script_guide/guide_script.js"></script>
+</body>
+
+</html>

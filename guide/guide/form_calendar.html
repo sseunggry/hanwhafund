@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>달력 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">달력</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">스크립트 호출관련 안내</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <a href="/v2/guide/script_guide/datepicker_new.html" class="btn outlined option-md" target="_blank" title="새창열림">
+              <span>스크립트 가이드 확인</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELCalendarPicker</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>달력의 기본적인 형태</li>
+                <li>기간 또는 날짜를 입력하는 본문 내 콘텐츠 영역에 사용</li>
+                <li>월 선택시 월 선택화면으로 변경</li>
+                <li>Readonly시 인풋폼에서 라인이 삭제되지만 달력에는 적용되지 않음</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 날짜 선택 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetDate1_1" class="label-txt">날짜 선택</label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md">
+                          <div class="inp-date" fui-datepicker>
+                            <input type="text" class="inp-base inp-ani" id="targetDate1_1" placeholder="날짜 선택" value="20240202" />
+                            <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                              <span class="sr-only">달력</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 날짜 선택 (e)-->
+
+                      <!-- 날짜 선택(Disabled) (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetDate1_2" class="label-txt">날짜 선택(Disabled)</label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md">
+                          <div class="inp-date" fui-datepicker>
+                            <input type="text" class="inp-base inp-ani" id="targetDate1_2" placeholder="날짜 선택" value="20240202" disabled />
+                            <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜" disabled>
+                              <span class="sr-only">달력</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 날짜 선택(Disabled) (e)-->
+
+                      <!-- 날짜 선택(Readonly) (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetDate1_2" class="label-txt">날짜 선택(Readonly)</label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md">
+                          <div class="inp-date" fui-datepicker>
+                            <input type="text" class="inp-base inp-ani" id="targetDate1_2" placeholder="날짜 선택" value="20240202" readonly />
+                            <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                              <span class="sr-only">달력</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 날짜 선택(Readonly) (e)-->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELCalendarMonthPicker</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>월 선택</li>
+                <li>기간 또는 날짜를 입력하는 본문 내 콘텐츠 영역에 사용</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 월 선택 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetDate2_1" class="label-txt">월 선택</label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md">
+                          <div class="inp-date" fui-datepicker="isMonthOnly:true;">
+                            <input type="text" class="inp-base inp-ani" id="targetDate2_1" placeholder="날짜 선택" />
+                            <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                              <span class="sr-only">달력</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 월 선택 (e)-->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">기간</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 가입기간(s) -->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">가입기간</strong>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="to:#datepickerTo1;" id="datepickerFrom1">
+                                  <input type="text" class="inp-base inp-ani" title="시작일" placeholder="날짜 선택" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span>~</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="from:#datepickerFrom1;" id="datepickerTo1">
+                                  <input type="text" class="inp-base inp-ani" title="종료일" placeholder="날짜 선택" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 가입기간(e) -->
+
+                      <!-- 시작일, 종료일 선택(s) -->
+                      <div class="form-wrap">
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">시작일</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="to:#datepickerTo2;" id="datepickerFrom2">
+                                  <input type="text" class="inp-base inp-ani" title="시작일" placeholder="날짜 선택" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed space-half-mt-6">
+                            <span>~</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">종료일</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="from:#datepickerFrom2;" id="datepickerTo2">
+                                  <input type="text" class="inp-base inp-ani" title="종료일" placeholder="날짜 선택" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 시작일, 종료일 선택(e) -->
+
+                      <!-- 시작일(비활성화), 종료일 선택(s) -->
+                      <div class="form-wrap">
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">시작일(비활성화)</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="to:#datepickerTo3;" id="datepickerFrom3">
+                                  <input type="text" class="inp-base inp-ani" title="시작일" placeholder="날짜 선택" disabled />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜" disabled>
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed space-half-mt-6">
+                            <span>~</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">종료일</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="from:#datepickerFrom3;" id="datepickerTo3">
+                                  <input type="text" class="inp-base inp-ani" title="종료일" placeholder="날짜 선택" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 시작일(비활성화), 종료일 선택(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">달력 직접입력 기능</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>텍스트필드에 직접입력 가능</li>
+                <li>fui-datepicker="<strong>keyControl:true</strong>"</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 날짜 선택 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetDateKeyControl_1" class="label-txt">날짜 선택</label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md">
+                          <div class="inp-date" fui-datepicker="keyControl:true">
+                            <input type="text" class="inp-base inp-ani" id="targetDateKeyControl_1" placeholder="날짜 선택" value="20240202" />
+                            <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                              <span class="sr-only">달력</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 날짜 선택 (e)-->
+
+                      <!-- 시작일, 종료일 선택(s) -->
+                      <div class="form-wrap">
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">시작일</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="to:#datepickerTo4; keyControl:true;" id="datepickerFrom4">
+                                  <input type="text" class="inp-base inp-ani" title="시작일" placeholder="날짜 선택" value="20240202" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed space-half-mt-6">
+                            <span>~</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">종료일</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md">
+                                <div class="inp-date" fui-datepicker="from:#datepickerFrom4; keyControl:true;" id="datepickerTo4">
+                                  <input type="text" class="inp-base inp-ani" title="종료일" placeholder="날짜 선택" value="20250115" />
+                                  <button type="button" class="btn-base ui-drop ui-datepicker-btn" title="날짜">
+                                    <span class="sr-only">달력</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 시작일, 종료일 선택(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $plugins.uiTextareaAutoHeight();
+      });
+    </script>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>
