@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>한화운용자산</title>
+    <!-- css -->
+    <link href="../assest/css/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap">
+			<%- include('../components/header.pug', { title: '홈페이지', user: { name: '홍길동' } }) %>
+
+      <!-- container -->
+      <div id="container">
+        <!-- contents -->
+        <div class="contents">
+
+					<section class="hero">
+						<h1>환영합니다!</h1>
+						<p>이 사이트는 Vite + Pug 컴포넌트로 구성되었습니다.</p>
+						
+						<!-- 버튼 컴포넌트 사용 -->
+						<%- include('../components/button.pug', { text: '시작하기', variant: 'primary', size: 'large', href: '/about.html' }) %>
+						<%- include('../components/button.pug', { text: '자세히 보기', variant: 'secondary' }) %>
+					</section>
+					
+					<section class="features">
+						<h2>주요 기능</h2>
+						<div class="feature-grid">
+							<% for(let i = 0; i < 3; i++) { %>
+								<div class="feature-card">
+									<h3>기능 <%= i + 1 %></h3>
+									<p>이것은 <%= i + 1 %>번째 기능입니다.</p>
+									<%- include('../components/button.pug', { text: '자세히', variant: 'outline' }) %>
+								</div>
+							<% } %>
+						</div>
+					</section>
+
+        </div>
+        <!-- //contents -->
+      </div>
+      <!--// container -->
+
+			<%- include('../components/footer.pug') %>
+    </div>
+  </body>
+
+</html>

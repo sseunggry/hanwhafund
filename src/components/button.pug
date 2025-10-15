@@ -1,0 +1,8 @@
+mixin button(text, variant='primary', size='medium', href='#')
+  - const classes = `btn btn-${variant} btn-${size}`
+  if href
+    a.button-link(class=classes href=href)= text
+  else
+    button(class=classes type="button")= text
+
+export button

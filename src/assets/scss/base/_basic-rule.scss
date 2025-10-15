@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@use "../util" as *;
+
+//default
+html{
+    font-size: $body-fz;
+    font-weight: 400;
+    line-height: $base-line-height;
+    color: $base-color;
+
+    &[lang="ko-KR"], &[lang="ko"]{
+        font-family: $font-family-ko;
+    }
+}
+
+/* blind */
+.blind {
+    @include blind();
+}
+
+/* font-style */
+.fw-normal{font-weight: 400 !important;}
+.fw-medium{font-weight: 500 !important;}
+.fw-bold{font-weight: 700 !important;}
+
+/* common */
+.txt-al-center{text-align: center !important;}
+.txt-al-left{text-align: left !important;}
+.txt-al-right{text-align: right !important;}
+
+.pc-only{display: block !important;}
+.mo-only{display: none !important;}
+
+.flex{display: flex;}
+.flex-end{@include flex('', 'flex-end !important');}
+.flex-center{@include flex('', 'center !important');}
+.flex-start{@include flex('', 'flex-start !important');}
+.flex-between{@include flex('space-between !important', '');}
+
+.bold{font-weight: 700 !important;}

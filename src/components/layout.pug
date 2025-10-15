@@ -1,0 +1,17 @@
+// 공통 mixin과 변수
+- var siteConfig = { title: 'My Site', version: '1.0.0' }
+
+mixin layout(title, content)
+  doctype html
+  html(lang="ko")
+    head
+      title= title || siteConfig.title
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    body
+      +header(title)
+      main
+        = content
+      +footer
+
+export layout, siteConfig

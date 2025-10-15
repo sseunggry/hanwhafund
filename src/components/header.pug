@@ -1,0 +1,22 @@
+mixin header(title, user=null)
+  header.main-header
+    nav
+      .logo
+        a(href="/") #{title || 'My Site'}
+      .nav-menu
+        ul
+          li
+            a(href="/") Home
+          li
+            a(href="/about.html") About
+      if user
+        .user-menu
+          span 👋 #{user.name}
+          a(href="/logout") Logout
+      else
+        .auth-links
+          a(href="/login") Login
+          a.btn-primary(href="/signup") Sign Up
+
+// mixin 내보내기
+export header

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+//font
+// 본문(paragraph) 사이즈
+$body-fz: var(--text-body-default);
+
+// 본문(paragraph) 기본 컬러
+$base-color: var(--color-text-base);
+
+// 본문 행간 비율
+$base-line-height: calc($body-fz * var(--base-line-height));
+
+// 적용 웹 폰트
+$font-ko: 'SDGothicNeoa';
+
+$font-family-ko: $font-ko, sans-serif;
+$sdGothic: $font-ko, sans-serif;
+
+//경로 url
+$base-url: '../';

@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@use "../util" as *;
+
+$fonts-style-ko: (dRg: 400, fSm: 600, hExBd: 800);
+
+@each $font, $weight in $fonts-style-ko{
+    @font-face{
+        @include font(#{$font-ko}, '#{$font-ko}-#{$font}', 'opentype', #{$weight});
+    }
+}

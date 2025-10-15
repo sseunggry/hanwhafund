@@ -1,0 +1,14 @@
+{
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"build:watch": "vite build --watch"
+	},
+	"devDependencies": {
+		"pug": "^3.0.3",
+		"sass": "^1.93.2",
+		"vite": "^7.1.10",
+		"vite-plugin-pug": "^0.4.1"
+	}
+}
