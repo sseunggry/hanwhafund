@@ -28,30 +28,30 @@
   }
 }
 [data-language] code,
-[class^='lang'] code,
+[class^="lang"] code,
 pre [data-language],
-pre [class^='lang'] {
+pre [class^="lang"] {
   opacity: 0;
-  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   animation: fade-in 50ms ease-in-out 2s forwards;
 }
 [data-language] code.rainbow,
-[class^='lang'] code.rainbow,
+[class^="lang"] code.rainbow,
 pre [data-language].rainbow,
-pre [class^='lang'].rainbow {
+pre [class^="lang"].rainbow {
   animation: none;
   transition: opacity 50ms ease-in-out;
 }
 [data-language] code.loading,
-[class^='lang'] code.loading,
+[class^="lang"] code.loading,
 pre [data-language].loading,
-pre [class^='lang'].loading {
+pre [class^="lang"].loading {
   animation: none;
 }
 [data-language] code.rainbow-show,
-[class^='lang'] code.rainbow-show,
+[class^="lang"] code.rainbow-show,
 pre [data-language].rainbow-show,
-pre [class^='lang'].rainbow-show {
+pre [class^="lang"].rainbow-show {
   opacity: 1;
 }
 pre {
@@ -124,7 +124,7 @@ code {
 }
 pre,
 code {
-  font-family: Consolas, 'Liberation Mono', Courier, monospace;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
   color: #333;
   background: #f8f8f8;
   border-radius: 3px;

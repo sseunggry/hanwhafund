@@ -1,20 +1,20 @@
-Rainbow.extend('generic', [
+Rainbow.extend("generic", [
   {
     matches: {
       1: [
         {
-          name: 'keyword.operator',
+          name: "keyword.operator",
           pattern: /\=|\+/g,
         },
         {
-          name: 'keyword.dot',
+          name: "keyword.dot",
           pattern: /\./g,
         },
       ],
       2: {
-        name: 'string',
+        name: "string",
         matches: {
-          name: 'constant.character.escape',
+          name: "constant.character.escape",
           pattern: /\\('|"){1}/g,
         },
       },
@@ -22,37 +22,38 @@ Rainbow.extend('generic', [
     pattern: /(\(|\s|\[|\=|:|\+|\.|\{|,)(('|")([^\\\1]|\\.)*?(\3))/gm,
   },
   {
-    name: 'comment',
+    name: "comment",
     pattern: /\/\*[\s\S]*?\*\/|(\/\/|\#)(?!.*('|").*?[^:](\/\/|\#)).*?$/gm,
   },
   {
-    name: 'constant.numeric',
+    name: "constant.numeric",
     pattern: /\b(\d+(\.\d+)?(e(\+|\-)?\d+)?(f|d)?|0x[\da-f]+)\b/gi,
   },
   {
     matches: {
-      1: 'keyword',
+      1: "keyword",
     },
-    pattern: /\b(and|array|as|b(ool(ean)?|reak)|c(ase|atch|har|lass|on(st|tinue))|d(ef|elete|o(uble)?)|e(cho|lse(if)?|xit|xtends|xcept)|f(inally|loat|or(each)?|unction)|global|if|import|int(eger)?|long|new|object|or|pr(int|ivate|otected)|public|return|self|st(ring|ruct|atic)|switch|th(en|is|row)|try|(un)?signed|var|void|while)(?=\b)/gi,
+    pattern:
+      /\b(and|array|as|b(ool(ean)?|reak)|c(ase|atch|har|lass|on(st|tinue))|d(ef|elete|o(uble)?)|e(cho|lse(if)?|xit|xtends|xcept)|f(inally|loat|or(each)?|unction)|global|if|import|int(eger)?|long|new|object|or|pr(int|ivate|otected)|public|return|self|st(ring|ruct|atic)|switch|th(en|is|row)|try|(un)?signed|var|void|while)(?=\b)/gi,
   },
   {
-    name: 'constant.language',
+    name: "constant.language",
     pattern: /true|false|null/g,
   },
   {
-    name: 'keyword.operator',
+    name: "keyword.operator",
     pattern: /\+|\!|\-|&(gt|lt|amp);|\||\*|\=/g,
   },
   {
     matches: {
-      1: 'function.call',
+      1: "function.call",
     },
     pattern: /(\w+?)(?=\()/g,
   },
   {
     matches: {
-      1: 'storage.function',
-      2: 'entity.name.function',
+      1: "storage.function",
+      2: "entity.name.function",
     },
     pattern: /(function)\s(.*?)(?=\()/g,
   },

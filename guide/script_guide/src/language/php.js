@@ -1,38 +1,39 @@
 Rainbow.extend(
-  'php',
+  "php",
   [
     {
-      name: 'support',
+      name: "support",
       pattern: /\becho\b/gi,
     },
     {
       matches: {
-        1: 'variable.dollar-sign',
-        2: 'variable',
+        1: "variable.dollar-sign",
+        2: "variable",
       },
       pattern: /(\$)(\w+)\b/g,
     },
     {
-      name: 'constant.language',
+      name: "constant.language",
       pattern: /true|false|null/gi,
     },
     {
-      name: 'constant',
+      name: "constant",
       pattern: /\b[A-Z0-9_]{2,}\b/g,
     },
     {
-      name: 'keyword.dot',
+      name: "keyword.dot",
       pattern: /\./g,
     },
     {
-      name: 'keyword',
-      pattern: /\b(die|end(for(each)?|switch|if)|case|require(_once)?|include(_once)?)(?=\b)/gi,
+      name: "keyword",
+      pattern:
+        /\b(die|end(for(each)?|switch|if)|case|require(_once)?|include(_once)?)(?=\b)/gi,
     },
     {
       matches: {
-        1: 'keyword',
+        1: "keyword",
         2: {
-          name: 'support.class',
+          name: "support.class",
           pattern: /\w+/g,
         },
       },
@@ -40,19 +41,20 @@ Rainbow.extend(
     },
     {
       matches: {
-        1: 'support.function',
+        1: "support.function",
       },
-      pattern: /\b(array(_key_exists|_merge|_keys|_shift)?|isset|count|empty|unset|printf|is_(array|string|numeric|object)|sprintf|each|date|time|substr|pos|str(len|pos|tolower|_replace|totime)?|ord|trim|in_array|implode|end|preg_match|explode|fmod|define|link|list|get_class|serialize|file|sort|mail|dir|idate|log|intval|header|chr|function_exists|dirname|preg_replace|file_exists)(?=\()/gi,
+      pattern:
+        /\b(array(_key_exists|_merge|_keys|_shift)?|isset|count|empty|unset|printf|is_(array|string|numeric|object)|sprintf|each|date|time|substr|pos|str(len|pos|tolower|_replace|totime)?|ord|trim|in_array|implode|end|preg_match|explode|fmod|define|link|list|get_class|serialize|file|sort|mail|dir|idate|log|intval|header|chr|function_exists|dirname|preg_replace|file_exists)(?=\()/gi,
     },
     {
-      name: 'variable.language.php-tag',
+      name: "variable.language.php-tag",
       pattern: /(&lt;\?(php)?|\?&gt;)/gi,
     },
     {
       matches: {
-        1: 'keyword.namespace',
+        1: "keyword.namespace",
         2: {
-          name: 'support.namespace',
+          name: "support.namespace",
           pattern: /\w+/g,
         },
       },
@@ -60,39 +62,40 @@ Rainbow.extend(
     },
     {
       matches: {
-        1: 'storage.modifier',
-        2: 'storage.class',
-        3: 'entity.name.class',
-        4: 'storage.modifier.extends',
-        5: 'entity.other.inherited-class',
-        6: 'storage.modifier.extends',
-        7: 'entity.other.inherited-class',
+        1: "storage.modifier",
+        2: "storage.class",
+        3: "entity.name.class",
+        4: "storage.modifier.extends",
+        5: "entity.other.inherited-class",
+        6: "storage.modifier.extends",
+        7: "entity.other.inherited-class",
       },
-      pattern: /\b(abstract|final)?\s?(class|interface|trait)\s(\w+)(\sextends\s)?([\w\\]*)?(\simplements\s)?([\w\\]*)?\s?\{?(\n|\})/gi,
+      pattern:
+        /\b(abstract|final)?\s?(class|interface|trait)\s(\w+)(\sextends\s)?([\w\\]*)?(\simplements\s)?([\w\\]*)?\s?\{?(\n|\})/gi,
     },
     {
-      name: 'keyword.static',
+      name: "keyword.static",
       pattern: /self::|static::/gi,
     },
     {
       matches: {
-        1: 'storage.function',
-        2: 'entity.name.function.magic',
+        1: "storage.function",
+        2: "entity.name.function.magic",
       },
       pattern: /(function)\s(__.*?)(?=\()/gi,
     },
     {
       matches: {
-        1: 'storage.function',
-        2: 'entity.name.function',
+        1: "storage.function",
+        2: "entity.name.function",
       },
       pattern: /(function)\s(.*?)(?=\()/gi,
     },
     {
       matches: {
-        1: 'keyword.new',
+        1: "keyword.new",
         2: {
-          name: 'support.class',
+          name: "support.class",
           pattern: /\w+/g,
         },
       },
@@ -101,22 +104,22 @@ Rainbow.extend(
     {
       matches: {
         1: {
-          name: 'support.class',
+          name: "support.class",
           pattern: /\w+/g,
         },
-        2: 'keyword.static',
+        2: "keyword.static",
       },
       pattern: /([\w\\]*?)(::)(?=\b|\$)/g,
     },
     {
       matches: {
         2: {
-          name: 'support.class',
+          name: "support.class",
           pattern: /\w+/g,
         },
       },
       pattern: /(\(|,\s?)([\w\\]*?)(?=\s\$)/g,
     },
   ],
-  'generic',
+  "generic",
 );

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>마크업 가이드</title>
-    <link href="/v2/guide/script_guide/css/index.css" rel="stylesheet">
+    <link href="/v2/guide/script_guide/css/index.css" rel="stylesheet" />
     <script src="/v2/resources/js/ui.front.js" type="text/javascript"></script>
   </head>
 
@@ -13,8 +13,14 @@
         <div class="inner">
           <h1 class="title">삼성화재 마크업 가이드</h1>
           <ul class="nav" id="topNav">
-            <li><a href="/v2/guide/guide/markupguide.html">마크업 가이드</a></li>
-            <li><a href="/v2/guide/script_guide/scriptguide.html">스크립트 가이드</a></li>
+            <li>
+              <a href="/v2/guide/guide/markupguide.html">마크업 가이드</a>
+            </li>
+            <li>
+              <a href="/v2/guide/script_guide/scriptguide.html">
+                스크립트 가이드
+              </a>
+            </li>
           </ul>
         </div>
       </header>
@@ -33,51 +39,54 @@
             const { $ } = MOui.util;
             const data = {
               가이드: {
-                가이드: ['/v2/guide/guide/guide.html', 'complete'],
+                가이드: ["/v2/guide/guide/guide.html", "complete"],
               },
 
               엘리먼트: {
-                클래스규칙: ['/v2/guide/guide/ele_class.html', 'complete'],
-                타이포그래피: ['/v2/guide/guide/ele_typo.html', 'complete'],
-                뱃지: ['/v2/guide/guide/ele_badge.html', 'complete'],
+                클래스규칙: ["/v2/guide/guide/ele_class.html", "complete"],
+                타이포그래피: ["/v2/guide/guide/ele_typo.html", "complete"],
+                뱃지: ["/v2/guide/guide/ele_badge.html", "complete"],
               },
 
               모듈: {
-                탭: ['/v2/guide/guide/mod_tabs.html', 'complete'],
-                아코디언: ['/v2/guide/guide/mod_accordions.html', 'complete'],
-                목록: ['/v2/guide/guide/mod_lists.html', 'complete'],
-                인디케이터: ['/v2/guide/guide/mod_indicators.html', 'complete'],
-                모듈박스: ['/v2/guide/guide/mod_moduleboxs.html', 'complete'],
-                테이블: ['/v2/guide/guide/mod_tables.html', 'complete'],
-                정보동의: ['/v2/guide/guide/mod_agrees.html', 'complete'],
-                프로세스: ['/v2/guide/guide/mod_process.html', 'complete'],
-                슬라이더: ['/v2/guide/guide/mod_sliders.html', 'complete'],
+                탭: ["/v2/guide/guide/mod_tabs.html", "complete"],
+                아코디언: ["/v2/guide/guide/mod_accordions.html", "complete"],
+                목록: ["/v2/guide/guide/mod_lists.html", "complete"],
+                인디케이터: ["/v2/guide/guide/mod_indicators.html", "complete"],
+                모듈박스: ["/v2/guide/guide/mod_moduleboxs.html", "complete"],
+                테이블: ["/v2/guide/guide/mod_tables.html", "complete"],
+                정보동의: ["/v2/guide/guide/mod_agrees.html", "complete"],
+                프로세스: ["/v2/guide/guide/mod_process.html", "complete"],
+                슬라이더: ["/v2/guide/guide/mod_sliders.html", "complete"],
               },
 
               폼: {
-                버튼: ['/v2/guide/guide/form_buttons.html', 'complete'],
-                '텍스트 필드': ['/v2/guide/guide/form_inputs.html', 'complete'],
-                셀렉트박스: ['/v2/guide/guide/form_selects.html', 'complete'],
-                달력: ['/v2/guide/guide/form_calendar.html', 'complete'],
-                파일첨부: ['/v2/guide/guide/form_files.html', 'complete'],
-                스위치: ['/v2/guide/guide/form_switch.html', 'complete'],
-                체크박스: ['/v2/guide/guide/form_checks.html', 'complete'],
-                라디오버튼: ['/v2/guide/guide/form_radios.html', 'complete'],
-                폼조합: ['/v2/guide/guide/form_combine.html', 'complete'],
+                버튼: ["/v2/guide/guide/form_buttons.html", "complete"],
+                "텍스트 필드": ["/v2/guide/guide/form_inputs.html", "complete"],
+                셀렉트박스: ["/v2/guide/guide/form_selects.html", "complete"],
+                달력: ["/v2/guide/guide/form_calendar.html", "complete"],
+                파일첨부: ["/v2/guide/guide/form_files.html", "complete"],
+                스위치: ["/v2/guide/guide/form_switch.html", "complete"],
+                체크박스: ["/v2/guide/guide/form_checks.html", "complete"],
+                라디오버튼: ["/v2/guide/guide/form_radios.html", "complete"],
+                폼조합: ["/v2/guide/guide/form_combine.html", "complete"],
               },
 
               레이아웃: {
-                타이틀영역: ['/v2/guide/guide/layout_title.html', 'complete'],
-                브레드크럼: ['/v2/guide/guide/layout_breadcrumb.html', 'complete'],
-                영역: ['/v2/guide/guide/layout_dividers.html', 'complete'],
-                로딩: ['/v2/guide/guide/layout_loadings.html', 'complete'],
-                로띠: ['/v2/guide/guide/layout_lotties.html', 'complete'],
+                타이틀영역: ["/v2/guide/guide/layout_title.html", "complete"],
+                브레드크럼: [
+                  "/v2/guide/guide/layout_breadcrumb.html",
+                  "complete",
+                ],
+                영역: ["/v2/guide/guide/layout_dividers.html", "complete"],
+                로딩: ["/v2/guide/guide/layout_loadings.html", "complete"],
+                로띠: ["/v2/guide/guide/layout_lotties.html", "complete"],
               },
             };
-            MOui.tree($('#treemenu'), {
+            MOui.tree($("#treemenu"), {
               data: data,
-              idName: 'tree2',
-              mainFrame: '#content_frame',
+              idName: "tree2",
+              mainFrame: "#content_frame",
             });
           </script>
         </div>

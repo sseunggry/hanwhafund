@@ -1,27 +1,27 @@
-Rainbow.extend('css', [
+(Rainbow.extend("css", [
   {
-    name: 'comment',
+    name: "comment",
     pattern: /\/\*[\s\S]*?\*\//gm,
   },
   {
-    name: 'constant.hex-color',
+    name: "constant.hex-color",
     pattern: /#([a-f0-9]{3}|[a-f0-9]{6})(?=;|\s|,|\))/gi,
   },
   {
     matches: {
-      1: 'constant.numeric',
-      2: 'keyword.unit',
+      1: "constant.numeric",
+      2: "keyword.unit",
     },
     pattern: /(\d+)(px|em|cm|s|%)?/g,
   },
   {
-    name: 'string',
+    name: "string",
     pattern: /('|")(.*?)\1/g,
   },
   {
-    name: 'support.css-property',
+    name: "support.css-property",
     matches: {
-      1: 'support.vendor-prefix',
+      1: "support.vendor-prefix",
     },
     pattern: /(-o-|-moz-|-webkit-|-ms-)?[\w-]+(?=\s?:)(?!.*\{)/g,
   },
@@ -29,27 +29,27 @@ Rainbow.extend('css', [
     matches: {
       1: [
         {
-          name: 'entity.name.sass',
+          name: "entity.name.sass",
           pattern: /&amp;/g,
         },
         {
-          name: 'direct-descendant',
+          name: "direct-descendant",
           pattern: /&gt;/g,
         },
         {
-          name: 'entity.name.class',
+          name: "entity.name.class",
           pattern: /\.[\w\-_]+/g,
         },
         {
-          name: 'entity.name.id',
+          name: "entity.name.id",
           pattern: /\#[\w\-_]+/g,
         },
         {
-          name: 'entity.name.pseudo',
+          name: "entity.name.pseudo",
           pattern: /:[\w\-_]+/g,
         },
         {
-          name: 'entity.name.tag',
+          name: "entity.name.tag",
           pattern: /\w+/g,
         },
       ],
@@ -58,10 +58,10 @@ Rainbow.extend('css', [
   },
   {
     matches: {
-      2: 'support.vendor-prefix',
-      3: 'support.css-value',
+      2: "support.vendor-prefix",
+      3: "support.css-value",
     },
     pattern: /(:|,)\s*(-o-|-moz-|-webkit-|-ms-)?([a-zA-Z-]*)(?=\b)(?!.*\{)/g,
   },
 ]),
-  Rainbow.addAlias('scss', 'css');
+  Rainbow.addAlias("scss", "css"));

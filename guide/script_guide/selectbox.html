@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>스크립트 가이드</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
     <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <link
+      rel="stylesheet"
+      href="/v2/guide/script_guide/themes/css/github.css"
+    />
     <script src="/v2/resources/js/jquery3.min.js"></script>
     <script src="/v2/resources/js/ui.init.js"></script>
     <script src="/v2/resources/js/ui.plugins.js"></script>
@@ -29,7 +35,10 @@
           <p class="guide_title title_lv2">기본</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
@@ -49,15 +58,18 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
         <script>
           setTimeout(() => {
-            const ele = document.querySelector('.guide_title.title_lv4');
-            const btn = document.querySelector('.ui-select-btn');
+            const ele = document.querySelector(".guide_title.title_lv4");
+            const btn = document.querySelector(".ui-select-btn");
             //-   const sel = document.querySelector('#targetSelect1_1');
             //-   console.log(ele)
             //-   console.log(sel)
-            ele.addEventListener('click', function () {
+            ele.addEventListener("click", function () {
               console.log(btn);
               btn.focus();
             });
@@ -67,16 +79,31 @@
           <p class="guide_title title_lv2">커스텀 구조</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
                 <div class="ui-select md" fui-selectbox id="ddfsdfs">
                   <ul fui-select="" title="커스텀구조 제목">
-                    <li fui-selected><span>내용</span><span>내용1</span></li>
-                    <li fui-selected><span>내용</span><span>내용2</span></li>
-                    <li><span>내용</span><span>내용3</span></li>
-                    <li><span>내용</span><span>내용4</span></li>
+                    <li fui-selected>
+                      <span>내용</span>
+                      <span>내용1</span>
+                    </li>
+                    <li fui-selected>
+                      <span>내용</span>
+                      <span>내용2</span>
+                    </li>
+                    <li>
+                      <span>내용</span>
+                      <span>내용3</span>
+                    </li>
+                    <li>
+                      <span>내용</span>
+                      <span>내용4</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -88,21 +115,33 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">콤보형태</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
                 <div class="ui-select md" fui-selectbox>
                   <select id="targetSelect1_1" title="콤보 형태">
                     <option value="">선택</option>
-                    <option value="" fui-visible=".show_element1">1 번 나와라</option>
-                    <option value="" fui-visible=".show_element2">2 번 나와라</option>
-                    <option value="" fui-visible=".show_element3">3 번 나와라</option>
+                    <option value="" fui-visible=".show_element1">
+                      1 번 나와라
+                    </option>
+                    <option value="" fui-visible=".show_element2">
+                      2 번 나와라
+                    </option>
+                    <option value="" fui-visible=".show_element3">
+                      3 번 나와라
+                    </option>
                   </select>
                 </div>
                 <div class="select_combo show_element1">1 번 나왔다.</div>
@@ -117,87 +156,210 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">계좌선택</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
-                <div class="ui-select md" fui-selectbox="customTag:true;label:선택;className:list-account-all">
+                <div
+                  class="ui-select md"
+                  fui-selectbox="customTag:true;label:선택;className:list-account-all"
+                >
                   <div fui-select="">
                     <div class="ui-tab" fui-tab>
                       <div class="ui-tab-btns space-mb-5" role="tablist">
                         <div class="ui-floating">
                           <div class="ui-floating-wrap">
-                            <a href="javascript:;" class="ui-tab-btn selected"><span>은행</span></a>
-                            <a href="javascript:;" class="ui-tab-btn"><span>증권</span></a>
+                            <a href="javascript:;" class="ui-tab-btn selected">
+                              <span>은행</span>
+                            </a>
+                            <a href="javascript:;" class="ui-tab-btn">
+                              <span>증권</span>
+                            </a>
                           </div>
                         </div>
                       </div>
                       <div class="ui-tab-pnls">
                         <section class="ui-tab-pnl scroll">
                           <ul class="list-bank">
-                            <li class="finance-004"><button type="button">KB국민은행</button></li>
-                            <li class="finance-020"><button type="button">우리은행</button></li>
-                            <li class="finance-088"><button type="button">신한은행</button></li>
-                            <li class="finance-081"><button type="button">하나은행</button></li>
-                            <li class="finance-003"><button type="button">IBK기업은행</button></li>
-                            <li class="finance-011" fui-selected><button type="button">NH농협은행</button></li>
-                            <li class="finance-090"><button type="button">카카오뱅크</button></li>
-                            <li class="finance-089"><button type="button">케이뱅크</button></li>
-                            <li class="finance-092"><button type="button">토스뱅크</button></li>
-                            <li class="finance-023"><button type="button">SC제일은행</button></li>
-                            <li class="finance-002"><button type="button">KDB산업은행</button></li>
-                            <li class="finance-027"><button type="button">한국씨티은행</button></li>
-                            <li class="finance-007"><button type="button">수협은행</button></li>
-                            <li class="finance-031"><button type="button">대구은행</button></li>
-                            <li class="finance-032"><button type="button">부산은행</button></li>
-                            <li class="finance-039"><button type="button">경남은행</button></li>
-                            <li class="finance-034"><button type="button">광주은행</button></li>
-                            <li class="finance-037"><button type="button">전북은행</button></li>
-                            <li class="finance-012"><button type="button">지역농협</button></li>
-                            <li class="finance-071"><button type="button">우체국</button></li>
-                            <li class="finance-048"><button type="button">신협</button></li>
-                            <li class="finance-035"><button type="button">제주은행</button></li>
-                            <li class="finance-045"><button type="button">새마을금고</button></li>
-                            <li class="finance-050"><button type="button">저축은행중앙회</button></li>
-                            <li class="finance-055"><button type="button">도이치은행</button></li>
-                            <li class="finance-064"><button type="button">산림조합중앙회</button></li>
-                            <li class="finance-054"><button type="button">HSBC</button></li>
-                            <li class="finance-061"><button type="button">BNP파리바은행</button></li>
-                            <li class="finance-"><button type="button">로고가 없는 은행</button></li>
+                            <li class="finance-004">
+                              <button type="button">KB국민은행</button>
+                            </li>
+                            <li class="finance-020">
+                              <button type="button">우리은행</button>
+                            </li>
+                            <li class="finance-088">
+                              <button type="button">신한은행</button>
+                            </li>
+                            <li class="finance-081">
+                              <button type="button">하나은행</button>
+                            </li>
+                            <li class="finance-003">
+                              <button type="button">IBK기업은행</button>
+                            </li>
+                            <li class="finance-011" fui-selected>
+                              <button type="button">NH농협은행</button>
+                            </li>
+                            <li class="finance-090">
+                              <button type="button">카카오뱅크</button>
+                            </li>
+                            <li class="finance-089">
+                              <button type="button">케이뱅크</button>
+                            </li>
+                            <li class="finance-092">
+                              <button type="button">토스뱅크</button>
+                            </li>
+                            <li class="finance-023">
+                              <button type="button">SC제일은행</button>
+                            </li>
+                            <li class="finance-002">
+                              <button type="button">KDB산업은행</button>
+                            </li>
+                            <li class="finance-027">
+                              <button type="button">한국씨티은행</button>
+                            </li>
+                            <li class="finance-007">
+                              <button type="button">수협은행</button>
+                            </li>
+                            <li class="finance-031">
+                              <button type="button">대구은행</button>
+                            </li>
+                            <li class="finance-032">
+                              <button type="button">부산은행</button>
+                            </li>
+                            <li class="finance-039">
+                              <button type="button">경남은행</button>
+                            </li>
+                            <li class="finance-034">
+                              <button type="button">광주은행</button>
+                            </li>
+                            <li class="finance-037">
+                              <button type="button">전북은행</button>
+                            </li>
+                            <li class="finance-012">
+                              <button type="button">지역농협</button>
+                            </li>
+                            <li class="finance-071">
+                              <button type="button">우체국</button>
+                            </li>
+                            <li class="finance-048">
+                              <button type="button">신협</button>
+                            </li>
+                            <li class="finance-035">
+                              <button type="button">제주은행</button>
+                            </li>
+                            <li class="finance-045">
+                              <button type="button">새마을금고</button>
+                            </li>
+                            <li class="finance-050">
+                              <button type="button">저축은행중앙회</button>
+                            </li>
+                            <li class="finance-055">
+                              <button type="button">도이치은행</button>
+                            </li>
+                            <li class="finance-064">
+                              <button type="button">산림조합중앙회</button>
+                            </li>
+                            <li class="finance-054">
+                              <button type="button">HSBC</button>
+                            </li>
+                            <li class="finance-061">
+                              <button type="button">BNP파리바은행</button>
+                            </li>
+                            <li class="finance-">
+                              <button type="button">로고가 없는 은행</button>
+                            </li>
                           </ul>
                         </section>
                         <section class="ui-tab-pnl scroll">
                           <ul class="list-bank">
-                            <li class="finance-240"><button type="button">삼성증권</button></li>
-                            <li class="finance-264"><button type="button">키움증권</button></li>
-                            <li class="finance-238"><button type="button">미래에셋증권</button></li>
-                            <li class="finance-243"><button type="button">한국투자증권</button></li>
-                            <li class="finance-247"><button type="button">NH투자증권</button></li>
-                            <li class="finance-287"><button type="button">메리츠증권</button></li>
-                            <li class="finance-218"><button type="button">KB증권</button></li>
-                            <li class="finance-271"><button type="button">토스증권</button></li>
-                            <li class="finance-278"><button type="button">신한금융투자</button></li>
-                            <li class="finance-270"><button type="button">하나금융투자</button></li>
-                            <li class="finance-261"><button type="button">교보증권</button></li>
-                            <li class="finance-267"><button type="button">대신증권</button></li>
-                            <li class="finance-279"><button type="button">DB금융투자</button></li>
-                            <li class="finance-280"><button type="button">유진투자증권</button></li>
-                            <li class="finance-266"><button type="button">SK증권</button></li>
-                            <li class="finance-269"><button type="button">한화투자증권</button></li>
-                            <li class="finance-265"><button type="button">이베스트투자증권</button></li>
-                            <li class="finance-265"><button type="button">카카오페이증권</button></li>
-                            <li class="finance-262"><button type="button">하이투자증권</button></li>
-                            <li class="finance-263"><button type="button">현대차증권</button></li>
-                            <li class="finance-291"><button type="button">신영증권</button></li>
-                            <li class="finance-292"><button type="button">케이프투자증권</button></li>
-                            <li class="finance-209"><button type="button">유안타증권</button></li>
-                            <li class="finance-290"><button type="button">부국증권</button></li>
-                            <li class="finance-"><button type="button">로고가 없는 증권</button></li>
+                            <li class="finance-240">
+                              <button type="button">삼성증권</button>
+                            </li>
+                            <li class="finance-264">
+                              <button type="button">키움증권</button>
+                            </li>
+                            <li class="finance-238">
+                              <button type="button">미래에셋증권</button>
+                            </li>
+                            <li class="finance-243">
+                              <button type="button">한국투자증권</button>
+                            </li>
+                            <li class="finance-247">
+                              <button type="button">NH투자증권</button>
+                            </li>
+                            <li class="finance-287">
+                              <button type="button">메리츠증권</button>
+                            </li>
+                            <li class="finance-218">
+                              <button type="button">KB증권</button>
+                            </li>
+                            <li class="finance-271">
+                              <button type="button">토스증권</button>
+                            </li>
+                            <li class="finance-278">
+                              <button type="button">신한금융투자</button>
+                            </li>
+                            <li class="finance-270">
+                              <button type="button">하나금융투자</button>
+                            </li>
+                            <li class="finance-261">
+                              <button type="button">교보증권</button>
+                            </li>
+                            <li class="finance-267">
+                              <button type="button">대신증권</button>
+                            </li>
+                            <li class="finance-279">
+                              <button type="button">DB금융투자</button>
+                            </li>
+                            <li class="finance-280">
+                              <button type="button">유진투자증권</button>
+                            </li>
+                            <li class="finance-266">
+                              <button type="button">SK증권</button>
+                            </li>
+                            <li class="finance-269">
+                              <button type="button">한화투자증권</button>
+                            </li>
+                            <li class="finance-265">
+                              <button type="button">이베스트투자증권</button>
+                            </li>
+                            <li class="finance-265">
+                              <button type="button">카카오페이증권</button>
+                            </li>
+                            <li class="finance-262">
+                              <button type="button">하이투자증권</button>
+                            </li>
+                            <li class="finance-263">
+                              <button type="button">현대차증권</button>
+                            </li>
+                            <li class="finance-291">
+                              <button type="button">신영증권</button>
+                            </li>
+                            <li class="finance-292">
+                              <button type="button">케이프투자증권</button>
+                            </li>
+                            <li class="finance-209">
+                              <button type="button">유안타증권</button>
+                            </li>
+                            <li class="finance-290">
+                              <button type="button">부국증권</button>
+                            </li>
+                            <li class="finance-">
+                              <button type="button">로고가 없는 증권</button>
+                            </li>
                           </ul>
                         </section>
                       </div>
@@ -213,16 +375,28 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">최근이용계좌</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
-                <div class="inp-latestbank" id="testSelect" fui-selectbox="type:account;label:최근이용계좌;className:list-recent-acc;">
+                <div
+                  class="inp-latestbank"
+                  id="testSelect"
+                  fui-selectbox="type:account;label:최근이용계좌;className:list-recent-acc;"
+                >
                   <div class="inp-latestbank-txt">
                     <div class="item-row">
                       <div class="unit filled">
@@ -239,78 +413,231 @@
                   <div class="inp-latestbank-reg">
                     <div class="item-row">
                       <div class="unit filled">
-                        <div class="ui-select type-bank" fui-selectbox="customTag:true;label:선택;className:list-account-all">
+                        <div
+                          class="ui-select type-bank"
+                          fui-selectbox="customTag:true;label:선택;className:list-account-all"
+                        >
                           <div fui-select="">
                             <div class="ui-tab" fui-tab>
-                              <div class="ui-tab-btns space-mb-5" role="tablist">
+                              <div
+                                class="ui-tab-btns space-mb-5"
+                                role="tablist"
+                              >
                                 <div class="ui-floating">
                                   <div class="ui-floating-wrap">
-                                    <a href="javascript:;" class="ui-tab-btn selected"><span>은행</span></a>
-                                    <a href="javascript:;" class="ui-tab-btn"><span>증권</span></a>
+                                    <a
+                                      href="javascript:;"
+                                      class="ui-tab-btn selected"
+                                    >
+                                      <span>은행</span>
+                                    </a>
+                                    <a href="javascript:;" class="ui-tab-btn">
+                                      <span>증권</span>
+                                    </a>
                                   </div>
                                 </div>
                               </div>
                               <div class="ui-tab-pnls">
                                 <section class="ui-tab-pnl scroll">
                                   <ul class="list-bank">
-                                    <li class="finance-004"><button type="button">KB국민은행</button></li>
-                                    <li class="finance-020"><button type="button">우리은행</button></li>
-                                    <li class="finance-088"><button type="button">신한은행</button></li>
-                                    <li class="finance-081"><button type="button">하나은행</button></li>
-                                    <li class="finance-003"><button type="button">IBK기업은행</button></li>
-                                    <li class="finance-011" fui-selected><button type="button">NH농협은행</button></li>
-                                    <li class="finance-090"><button type="button">카카오뱅크</button></li>
-                                    <li class="finance-089"><button type="button">케이뱅크</button></li>
-                                    <li class="finance-092"><button type="button">토스뱅크</button></li>
-                                    <li class="finance-023"><button type="button">SC제일은행</button></li>
-                                    <li class="finance-002"><button type="button">KDB산업은행</button></li>
-                                    <li class="finance-027"><button type="button">한국씨티은행</button></li>
-                                    <li class="finance-007"><button type="button">수협은행</button></li>
-                                    <li class="finance-031"><button type="button">대구은행</button></li>
-                                    <li class="finance-032"><button type="button">부산은행</button></li>
-                                    <li class="finance-039"><button type="button">경남은행</button></li>
-                                    <li class="finance-034"><button type="button">광주은행</button></li>
-                                    <li class="finance-037"><button type="button">전북은행</button></li>
-                                    <li class="finance-012"><button type="button">지역농협</button></li>
-                                    <li class="finance-071"><button type="button">우체국</button></li>
-                                    <li class="finance-048"><button type="button">신협</button></li>
-                                    <li class="finance-035"><button type="button">제주은행</button></li>
-                                    <li class="finance-045"><button type="button">새마을금고</button></li>
-                                    <li class="finance-050"><button type="button">저축은행중앙회</button></li>
-                                    <li class="finance-055"><button type="button">도이치은행</button></li>
-                                    <li class="finance-064"><button type="button">산림조합중앙회</button></li>
-                                    <li class="finance-054"><button type="button">HSBC</button></li>
-                                    <li class="finance-061"><button type="button">BNP파리바은행</button></li>
-                                    <li class="finance-"><button type="button">로고가 없는 은행</button></li>
+                                    <li class="finance-004">
+                                      <button type="button">KB국민은행</button>
+                                    </li>
+                                    <li class="finance-020">
+                                      <button type="button">우리은행</button>
+                                    </li>
+                                    <li class="finance-088">
+                                      <button type="button">신한은행</button>
+                                    </li>
+                                    <li class="finance-081">
+                                      <button type="button">하나은행</button>
+                                    </li>
+                                    <li class="finance-003">
+                                      <button type="button">IBK기업은행</button>
+                                    </li>
+                                    <li class="finance-011" fui-selected>
+                                      <button type="button">NH농협은행</button>
+                                    </li>
+                                    <li class="finance-090">
+                                      <button type="button">카카오뱅크</button>
+                                    </li>
+                                    <li class="finance-089">
+                                      <button type="button">케이뱅크</button>
+                                    </li>
+                                    <li class="finance-092">
+                                      <button type="button">토스뱅크</button>
+                                    </li>
+                                    <li class="finance-023">
+                                      <button type="button">SC제일은행</button>
+                                    </li>
+                                    <li class="finance-002">
+                                      <button type="button">KDB산업은행</button>
+                                    </li>
+                                    <li class="finance-027">
+                                      <button type="button">
+                                        한국씨티은행
+                                      </button>
+                                    </li>
+                                    <li class="finance-007">
+                                      <button type="button">수협은행</button>
+                                    </li>
+                                    <li class="finance-031">
+                                      <button type="button">대구은행</button>
+                                    </li>
+                                    <li class="finance-032">
+                                      <button type="button">부산은행</button>
+                                    </li>
+                                    <li class="finance-039">
+                                      <button type="button">경남은행</button>
+                                    </li>
+                                    <li class="finance-034">
+                                      <button type="button">광주은행</button>
+                                    </li>
+                                    <li class="finance-037">
+                                      <button type="button">전북은행</button>
+                                    </li>
+                                    <li class="finance-012">
+                                      <button type="button">지역농협</button>
+                                    </li>
+                                    <li class="finance-071">
+                                      <button type="button">우체국</button>
+                                    </li>
+                                    <li class="finance-048">
+                                      <button type="button">신협</button>
+                                    </li>
+                                    <li class="finance-035">
+                                      <button type="button">제주은행</button>
+                                    </li>
+                                    <li class="finance-045">
+                                      <button type="button">새마을금고</button>
+                                    </li>
+                                    <li class="finance-050">
+                                      <button type="button">
+                                        저축은행중앙회
+                                      </button>
+                                    </li>
+                                    <li class="finance-055">
+                                      <button type="button">도이치은행</button>
+                                    </li>
+                                    <li class="finance-064">
+                                      <button type="button">
+                                        산림조합중앙회
+                                      </button>
+                                    </li>
+                                    <li class="finance-054">
+                                      <button type="button">HSBC</button>
+                                    </li>
+                                    <li class="finance-061">
+                                      <button type="button">
+                                        BNP파리바은행
+                                      </button>
+                                    </li>
+                                    <li class="finance-">
+                                      <button type="button">
+                                        로고가 없는 은행
+                                      </button>
+                                    </li>
                                   </ul>
                                 </section>
                                 <section class="ui-tab-pnl scroll">
                                   <ul class="list-bank">
-                                    <li class="finance-240"><button type="button">삼성증권</button></li>
-                                    <li class="finance-264"><button type="button">키움증권</button></li>
-                                    <li class="finance-238"><button type="button">미래에셋증권</button></li>
-                                    <li class="finance-243"><button type="button">한국투자증권</button></li>
-                                    <li class="finance-247"><button type="button">NH투자증권</button></li>
-                                    <li class="finance-287"><button type="button">메리츠증권</button></li>
-                                    <li class="finance-218"><button type="button">KB증권</button></li>
-                                    <li class="finance-271"><button type="button">토스증권</button></li>
-                                    <li class="finance-278"><button type="button">신한금융투자</button></li>
-                                    <li class="finance-270"><button type="button">하나금융투자</button></li>
-                                    <li class="finance-261"><button type="button">교보증권</button></li>
-                                    <li class="finance-267"><button type="button">대신증권</button></li>
-                                    <li class="finance-279"><button type="button">DB금융투자</button></li>
-                                    <li class="finance-280"><button type="button">유진투자증권</button></li>
-                                    <li class="finance-266"><button type="button">SK증권</button></li>
-                                    <li class="finance-269"><button type="button">한화투자증권</button></li>
-                                    <li class="finance-265"><button type="button">이베스트투자증권</button></li>
-                                    <li class="finance-265"><button type="button">카카오페이증권</button></li>
-                                    <li class="finance-262"><button type="button">하이투자증권</button></li>
-                                    <li class="finance-263"><button type="button">현대차증권</button></li>
-                                    <li class="finance-291"><button type="button">신영증권</button></li>
-                                    <li class="finance-292"><button type="button">케이프투자증권</button></li>
-                                    <li class="finance-209"><button type="button">유안타증권</button></li>
-                                    <li class="finance-290"><button type="button">부국증권</button></li>
-                                    <li class="finance-"><button type="button">로고가 없는 증권</button></li>
+                                    <li class="finance-240">
+                                      <button type="button">삼성증권</button>
+                                    </li>
+                                    <li class="finance-264">
+                                      <button type="button">키움증권</button>
+                                    </li>
+                                    <li class="finance-238">
+                                      <button type="button">
+                                        미래에셋증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-243">
+                                      <button type="button">
+                                        한국투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-247">
+                                      <button type="button">NH투자증권</button>
+                                    </li>
+                                    <li class="finance-287">
+                                      <button type="button">메리츠증권</button>
+                                    </li>
+                                    <li class="finance-218">
+                                      <button type="button">KB증권</button>
+                                    </li>
+                                    <li class="finance-271">
+                                      <button type="button">토스증권</button>
+                                    </li>
+                                    <li class="finance-278">
+                                      <button type="button">
+                                        신한금융투자
+                                      </button>
+                                    </li>
+                                    <li class="finance-270">
+                                      <button type="button">
+                                        하나금융투자
+                                      </button>
+                                    </li>
+                                    <li class="finance-261">
+                                      <button type="button">교보증권</button>
+                                    </li>
+                                    <li class="finance-267">
+                                      <button type="button">대신증권</button>
+                                    </li>
+                                    <li class="finance-279">
+                                      <button type="button">DB금융투자</button>
+                                    </li>
+                                    <li class="finance-280">
+                                      <button type="button">
+                                        유진투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-266">
+                                      <button type="button">SK증권</button>
+                                    </li>
+                                    <li class="finance-269">
+                                      <button type="button">
+                                        한화투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-265">
+                                      <button type="button">
+                                        이베스트투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-265">
+                                      <button type="button">
+                                        카카오페이증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-262">
+                                      <button type="button">
+                                        하이투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-263">
+                                      <button type="button">현대차증권</button>
+                                    </li>
+                                    <li class="finance-291">
+                                      <button type="button">신영증권</button>
+                                    </li>
+                                    <li class="finance-292">
+                                      <button type="button">
+                                        케이프투자증권
+                                      </button>
+                                    </li>
+                                    <li class="finance-209">
+                                      <button type="button">유안타증권</button>
+                                    </li>
+                                    <li class="finance-290">
+                                      <button type="button">부국증권</button>
+                                    </li>
+                                    <li class="finance-">
+                                      <button type="button">
+                                        로고가 없는 증권
+                                      </button>
+                                    </li>
                                   </ul>
                                 </section>
                               </div>
@@ -320,7 +647,13 @@
                       </div>
                       <div class="unit filled">
                         <div class="input-wrap md has-delBtn" fui-input>
-                          <input type="tel" class="inp-base inp-ani" value="" id="a20" placeholder="- 없이 입력" />
+                          <input
+                            type="tel"
+                            class="inp-base inp-ani"
+                            value=""
+                            id="a20"
+                            placeholder="- 없이 입력"
+                          />
                         </div>
                       </div>
                     </div>
@@ -366,10 +699,16 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">
-            Disabled <br />
+            Disabled
+            <br />
             fui-select 속성이 있는 요소에 disabled="disabled" 속성 추가/제거
           </p>
         </div>
@@ -380,7 +719,8 @@
 <ul fui-select disabled="disabled"></ul></code></pre>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Options</p>
         </div>
@@ -393,9 +733,7 @@
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -407,7 +745,12 @@
               <tbody>
                 <tr>
                   <td>type</td>
-                  <td>default, account<br /><br />기본(default), 최근이용계좌(account)</td>
+                  <td>
+                    default, account
+                    <br />
+                    <br />
+                    기본(default), 최근이용계좌(account)
+                  </td>
                   <td>String</td>
                   <td>default</td>
                 </tr>
@@ -431,7 +774,11 @@
                 </tr>
                 <tr>
                   <td>pos</td>
-                  <td>셀렉트 레이어 노출 위치 지정<br />"bottom-left" or "bottom-right"</td>
+                  <td>
+                    셀렉트 레이어 노출 위치 지정
+                    <br />
+                    "bottom-left" or "bottom-right"
+                  </td>
                   <td>String</td>
                   <td>bottom-left</td>
                 </tr>
@@ -439,7 +786,8 @@
             </table>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Methods</p>
         </div>
@@ -451,9 +799,7 @@
                 <col width="35%" />
                 <col width="35%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Name</th>
@@ -464,7 +810,10 @@
               <tbody>
                 <tr>
                   <td>setValue()</td>
-                  <td>리스트 중 selected, fui-selected 속성이 부여된 요소를 찾아 셀렉트박스 상태 업데이트</td>
+                  <td>
+                    리스트 중 selected, fui-selected 속성이 부여된 요소를 찾아
+                    셀렉트박스 상태 업데이트
+                  </td>
                   <td>int, Element, "",</td>
                 </tr>
                 <tr>
@@ -490,7 +839,8 @@
    // 전달된 Element로 selected 요소 지정
    MOui.selectbox(selectbox).setVAlue(Element)</code></pre>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Events</p>
         </div>
@@ -502,9 +852,7 @@
                 <col width="35%" />
                 <col width="35%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Name</th>
@@ -552,9 +900,7 @@ selectbox.addEventListener('change', function(e){
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -566,7 +912,12 @@ selectbox.addEventListener('change', function(e){
               <tbody>
                 <tr>
                   <td>-</td>
-                  <td>토글 시키고 자 하는 요소의 id 또는 class 전달<br />옵션이 선택된 경우 속성 값으로 전달된 요소에 display:block/none 처리</td>
+                  <td>
+                    토글 시키고 자 하는 요소의 id 또는 class 전달
+                    <br />
+                    옵션이 선택된 경우 속성 값으로 전달된 요소에
+                    display:block/none 처리
+                  </td>
                   <td>String</td>
                   <td>-</td>
                 </tr>
@@ -586,9 +937,7 @@ selectbox.addEventListener('change', function(e){
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -600,7 +949,11 @@ selectbox.addEventListener('change', function(e){
               <tbody>
                 <tr>
                   <td>-</td>
-                  <td>fui-visible과 중첩으로만 사용 가능, 옵션이 선택되어 요소에 display:block 처리 될 경우 속성 값으로 전달된 클래스 추가 토글 </td>
+                  <td>
+                    fui-visible과 중첩으로만 사용 가능, 옵션이 선택되어 요소에
+                    display:block 처리 될 경우 속성 값으로 전달된 클래스 추가
+                    토글
+                  </td>
                   <td>String</td>
                   <td>-</td>
                 </tr>

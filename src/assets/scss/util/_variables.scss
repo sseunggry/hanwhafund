@@ -8,13 +8,17 @@ $body-fz: var(--text-body-default);
 $base-color: var(--color-text-base);
 
 // 본문 행간 비율
-$base-line-height: calc($body-fz * var(--base-line-height));
+$base-line-height: var(--base-line-height);
 
 // 적용 웹 폰트
-$font-ko: 'SDGothicNeoa';
+$font-ko: "Pretendard";
+$font-en: "Trust2ATRIAL";
 
 $font-family-ko: $font-ko, sans-serif;
-$sdGothic: $font-ko, sans-serif;
+$font-family-en: $font-en, sans-serif;
+
+$f-pretend: $font-ko, sans-serif;
+$f-trust: $font-en, sans-serif;
 
 //경로 url
-$base-url: '../';
+$base-url: "../";

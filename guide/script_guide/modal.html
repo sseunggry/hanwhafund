@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>스크립트 가이드</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
     <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <link
+      rel="stylesheet"
+      href="/v2/guide/script_guide/themes/css/github.css"
+    />
     <script src="/v2/resources/js/jquery3.min.js"></script>
     <script src="/v2/resources/js/ui.base.js"></script>
   </head>
@@ -31,7 +37,10 @@
           <p class="guide_title title_lv2">기본</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
@@ -39,7 +48,11 @@
                 <!-- .section(s) -->
                 <section class="section">
                   <div class="btn-wrap">
-                    <button type="button" class="btn outlined" id="uIP00_03_00_00">
+                    <button
+                      type="button"
+                      class="btn outlined"
+                      id="uIP00_03_00_00"
+                    >
                       <span>풀 팝업 오픈</span>
                     </button>
                   </div>
@@ -51,14 +64,22 @@
                 <!-- .section(s) -->
                 <section class="section">
                   <div class="btn-wrap">
-                    <button type="button" class="btn outlined" id="btnPopBottom">
+                    <button
+                      type="button"
+                      class="btn outlined"
+                      id="btnPopBottom"
+                    >
                       <span>바텀시트 팝업 오픈</span>
                     </button>
                   </div>
                 </section>
                 <section class="section">
                   <div class="btn-wrap">
-                    <button type="button" class="btn outlined" id="btnPopBottom2">
+                    <button
+                      type="button"
+                      class="btn outlined"
+                      id="btnPopBottom2"
+                    >
                       <span>호출! 이걸 개발에서 쓰고 있음</span>
                     </button>
                   </div>
@@ -75,12 +96,19 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">알럿모달 & 컨펌모달</p>
         </div>
         <div class="mui_tabs" fui-tab="">
-          <div class="ui-tab-btns"><a class="ui-tab-btn" href="#none">PREVIEW</a><a class="ui-tab-btn" href="#none">MARKUP</a></div>
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
           <div class="ui-tab-pnls">
             <div class="ui-tab-pnl selected">
               <div class="hls_preview">
@@ -141,20 +169,35 @@
             </div>
           </div>
         </div>
-        <br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
-          <p class="guide_title title_lv1">모달닫음 후 적용할때 closecallback 필수 사용</p>
+          <p class="guide_title title_lv1">
+            모달닫음 후 적용할때 closecallback 필수 사용
+          </p>
         </div>
         <div class="attribute_table">
-          예) 약관 비동의 <br />
-          $plugins.uiModalClose({ id:'모달아이디', remove:true, closecallback: function () {ih.ui.modalConfirm( {result:'N'})}});
+          예) 약관 비동의
+          <br />
+          $plugins.uiModalClose({ id:'모달아이디', remove:true, closecallback:
+          function () {ih.ui.modalConfirm( {result:'N'})}});
         </div>
         <div class="attribute_table">
-          예) 페이지이동<br />
-          $plugins.uiModalClose({ id:'모달아이디', remove:true, closecallback: function () {MOui.step('[fui-step]').showSlideStep();})}});
+          예) 페이지이동
+          <br />
+          $plugins.uiModalClose({ id:'모달아이디', remove:true, closecallback:
+          function () {MOui.step('[fui-step]').showSlideStep();})}});
         </div>
 
-        <br /><br /><br /><br /><br /><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Options</p>
         </div>
@@ -167,9 +210,7 @@
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -247,7 +288,10 @@
                 </tr>
                 <tr>
                   <td>endfocus</td>
-                  <td>모달닫힌 후 포커스이동 id 값 (autofocus 값이 true 일때만 적용)</td>
+                  <td>
+                    모달닫힌 후 포커스이동 id 값 (autofocus 값이 true 일때만
+                    적용)
+                  </td>
                   <td>string</td>
                   <td>null</td>
                 </tr>
@@ -259,53 +303,66 @@
     </div>
     <script>
       $(document).ready(function () {
-        $plugins.page.pageNumber = 'G00_02_10_00';
-        $('#uIP00_03_00_00').on('click', function () {
-          $plugins.uiModal({ id: 'IP00_03_00_00', link: '/v2/html/_layout/modal/sample-modal-pop1.html', full: true, ps: 'bottom' });
+        $plugins.page.pageNumber = "G00_02_10_00";
+        $("#uIP00_03_00_00").on("click", function () {
+          $plugins.uiModal({
+            id: "IP00_03_00_00",
+            link: "/v2/html/_layout/modal/sample-modal-pop1.html",
+            full: true,
+            ps: "bottom",
+          });
         });
-        $('#btnPopBottom2').on('click', function () {
-          $plugins.uiModal({ id: 'IP00_03_00_00', link: '/v2/html/modal/M1_08_001_009.html', full: true, ps: 'bottom' });
+        $("#btnPopBottom2").on("click", function () {
+          $plugins.uiModal({
+            id: "IP00_03_00_00",
+            link: "/v2/html/modal/M1_08_001_009.html",
+            full: true,
+            ps: "bottom",
+          });
         });
 
-        $('#btnPopBottom').on('click', function () {
+        $("#btnPopBottom").on("click", function () {
           $plugins.uiAjax({
-            type: 'get',
-            id: 'baseLayer',
-            url: '/v2/html/modal/M1_08_001_009.html',
+            type: "get",
+            id: "baseLayer",
+            url: "/v2/html/modal/M1_08_001_009.html",
             add: true,
             page: true,
             callback: function () {
               //확인 버튼
-              $('#bts_M1_08_001_009 .pop-footer button.btn.primary').on('click', function () {
-                $plugins.uiModalClose({
-                  id: 'bts_M1_08_001_009',
-                  remove: true,
-                  closecallback: function () {
-                    // MOui.step('[fui-step]').showSlideStep(5);
-                  },
-                });
-              });
+              $("#bts_M1_08_001_009 .pop-footer button.btn.primary").on(
+                "click",
+                function () {
+                  $plugins.uiModalClose({
+                    id: "bts_M1_08_001_009",
+                    remove: true,
+                    closecallback: function () {
+                      // MOui.step('[fui-step]').showSlideStep(5);
+                    },
+                  });
+                },
+              );
               //보험료 납입 유의사항 팝업
-              $('#uM1_08_001_011').on('click', function () {
+              $("#uM1_08_001_011").on("click", function () {
                 $plugins.uiModal({
-                  id: 'M1_08_001_011',
-                  link: '/v2/html/modal/M1_08_001_011.html',
+                  id: "M1_08_001_011",
+                  link: "/v2/html/modal/M1_08_001_011.html",
                   full: true,
                 });
               });
               //개인(신용)정보 수집/이용동의 팝업
-              $('#uM1_08_001_012').on('click', function () {
+              $("#uM1_08_001_012").on("click", function () {
                 $plugins.uiModal({
-                  id: 'M1_08_001_012',
-                  link: '/v2/html/modal/M1_08_001_012.html',
+                  id: "M1_08_001_012",
+                  link: "/v2/html/modal/M1_08_001_012.html",
                   full: true,
                 });
               });
               //개인(신용)정보제공 동의 팝업
-              $('#uM1_08_001_013').on('click', function () {
+              $("#uM1_08_001_013").on("click", function () {
                 $plugins.uiModal({
-                  id: 'M1_08_001_013',
-                  link: '/v2/html/modal/M1_08_001_013.html',
+                  id: "M1_08_001_013",
+                  link: "/v2/html/modal/M1_08_001_013.html",
                   full: true,
                 });
               });
@@ -313,42 +370,42 @@
           });
         });
         //모달 알럿 팝업
-        $('#uiAllcheck1').on('click', function () {
+        $("#uiAllcheck1").on("click", function () {
           $plugins.modal.alert(
             `<p>계약을 확인하고 있습니다.<br>
           잠시만 기다려 주세요.
         </p>`, //txt
             function () {
-              console.log('alert');
+              console.log("alert");
             }, //confirmCallback
-            '확인', //confirmButton
-            '', //type, default '1'
-            '', //size, default '410'
-            '', //zidx, default 'null'
-            'uiAllcheck1', //focusId, default 'false'
+            "확인", //confirmButton
+            "", //type, default '1'
+            "", //size, default '410'
+            "", //zidx, default 'null'
+            "uiAllcheck1", //focusId, default 'false'
           );
         });
-        $('#uiAllcheck2').on('click', function () {
+        $("#uiAllcheck2").on("click", function () {
           $plugins.modal.confirm(
             `<p>계약 확인 중 문제가 발생하였습니다.<br>
           다시 확인 할까요?
           </p>`, //txt
             function () {
-              console.log('confirm');
+              console.log("confirm");
             }, //confirmCallback
             function () {
-              console.log('cancel');
+              console.log("cancel");
             }, //cancelCallback
-            '동의', //confirmButton, default '확인'
-            '', //cancelButton, default '닫기'
-            '', //type, default '2'
-            '', //size, default '410'
-            '', //zidx, default 'null'
-            '', //callback
-            'uiAllcheck2', //focusId, default 'null'
+            "동의", //confirmButton, default '확인'
+            "", //cancelButton, default '닫기'
+            "", //type, default '2'
+            "", //size, default '410'
+            "", //zidx, default 'null'
+            "", //callback
+            "uiAllcheck2", //focusId, default 'null'
           );
         });
-        $('#uiAllcheck3').on('click', function () {
+        $("#uiAllcheck3").on("click", function () {
           $plugins.modal.alert(
             `<p class="title">보험료를 납입할 수 없습니다.</p>
         <p class="txt">
@@ -356,16 +413,16 @@
           문의해 주세요.
         </p>`, //txt
             function () {
-              console.log('alert');
+              console.log("alert");
             }, //confirmCallback
-            '확인', //confirmButton, default '확인'
-            '', //type, default '1'
-            '', //size, default '410'
-            '', //zidx, default 'null'
+            "확인", //confirmButton, default '확인'
+            "", //type, default '1'
+            "", //size, default '410'
+            "", //zidx, default 'null'
             null, //focusId, default 'null'
           );
         });
-        $('#uiAllcheck4').on('click', function () {
+        $("#uiAllcheck4").on("click", function () {
           $plugins.modal.alertX(
             `<p class="title">보험료를 납입할 수 없습니다.</p>
         <p class="txt">
@@ -373,12 +430,12 @@
           문의해 주세요.
         </p>`,
             function () {
-              console.log('alert');
+              console.log("alert");
             },
-            '', //confirmButton, default '확인'
-            '', //type, default '1'
-            '', //size, default '410'
-            '', //zidx, default 'null'
+            "", //confirmButton, default '확인'
+            "", //type, default '1'
+            "", //size, default '410'
+            "", //zidx, default 'null'
             null, //focusId, default 'false'
           );
         });

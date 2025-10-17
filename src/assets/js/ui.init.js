@@ -2,7 +2,7 @@ if (!Object.create) {
   Object.create = function (o) {
     if (arguments.length > 1) {
       throw new Error(
-        "Sorry the polyfill Object.create only accepts the first parameter."
+        "Sorry the polyfill Object.create only accepts the first parameter.",
       );
     }
     function F() {}
@@ -96,29 +96,38 @@ if (!Object.keys) {
 (function ($, win, doc, undefined) {
   $("head")
     .append(
-      '<script src="/v2/resources/js/ui.global.js?_ver=' + Date.now() + '"></script>'
+      '<script src="/v2/resources/js/ui.global.js?_ver=' +
+        Date.now() +
+        '"></script>',
     )
     .append(
-      '<link rel="shortcut icon" type="image/x-icon" href="/resources/images/common/favicon.ico">'
+      '<link rel="shortcut icon" type="image/x-icon" href="/resources/images/common/favicon.ico">',
     );
-    if (MOui.util.deviceCode() === 'MA') {
-      $("head").append('<script src="/v2/resources/js/native.js?_ver=' + Date.now() + '"></script>');
-    }
-    
-    // Monimo  Nethru Tag Manager(Log Collector) 
-    var ua = window.navigator.userAgent;
-    if (/mblSappKndDvC=IFP/.test(ua)) {
-    	$("head").append('<script src="/sfmi/v2/ui/common/ih.nethru.log.js?_ver=' + Date.now() + '"></script>');
-    }
-    
-    
-    $.getScriptCached = function(url, callback){
-      return $.ajax({
-        url:url,
-        dataType:'script',
-        cache:true
-      })
+  if (MOui.util.deviceCode() === "MA") {
+    $("head").append(
+      '<script src="/v2/resources/js/native.js?_ver=' +
+        Date.now() +
+        '"></script>',
+    );
+  }
+
+  // Monimo  Nethru Tag Manager(Log Collector)
+  var ua = window.navigator.userAgent;
+  if (/mblSappKndDvC=IFP/.test(ua)) {
+    $("head").append(
+      '<script src="/sfmi/v2/ui/common/ih.nethru.log.js?_ver=' +
+        Date.now() +
+        '"></script>',
+    );
+  }
+
+  $.getScriptCached = function (url, callback) {
+    return $.ajax({
+      url: url,
+      dataType: "script",
+      cache: true,
+    })
       .done(callback)
       .fail(callback);
-    }
+  };
 })(jQuery, window, document);

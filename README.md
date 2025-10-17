@@ -1,7 +1,5 @@
 # 2025 한화운용자산
 
-
-
 ## 클래스명 규칙
 
 .img-wrap
@@ -23,14 +21,12 @@
 .fz-xlg
 .fz-max
 
-
 .fc-black
 .fc-primary
 .fc-secondary
 .fc-default
 .fc-red
 .fc-yellow
-
 
 .wrap-tit-s
 .wrap-tit-s .txt-sub

@@ -1,18 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>스크립트 가이드</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
     <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <link
+      rel="stylesheet"
+      href="/v2/guide/script_guide/themes/css/github.css"
+    />
     <script src="/v2/resources/js/jquery3.min.js"></script>
     <script src="/v2/resources/js/ui.front.js"></script>
     <script src="/v2/resources/js/ui.init.js"></script>
     <script src="/v2/resources/js/ui.plugins.js"></script>
     <script src="/v2/resources/js/ui.common.js"></script>
-    
+
     <script src="/v2/resources/js/lottie_light.min.js"></script>
   </head>
 
@@ -20,7 +26,9 @@
     <div id="guideWrap">
       <div class="base-layer" id="baseLayer" style="z-index: 1000"></div>
       <div class="main_content">
-        <a href="/v2/html/contract/02/A_020_050_001.html" target="_blank">샘플</a>
+        <a href="/v2/html/contract/02/A_020_050_001.html" target="_blank">
+          샘플
+        </a>
         <div class="title_sec">
           <p class="guide_title title_lv1">Modal</p>
         </div>
@@ -37,13 +45,21 @@
             <div>
               <div class="hls_preview">
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" fui-toggle="url: /v2/html/_layout/modal/popup_full_new.html">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    fui-toggle="url: /v2/html/_layout/modal/popup_full_new.html"
+                  >
                     <span>풀 팝업</span>
                   </button>
                 </div>
                 <br />
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" fui-toggle="url: /v2/html/_layout/modal/popup_bottom_new.html;">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    fui-toggle="url: /v2/html/_layout/modal/popup_bottom_new.html;"
+                  >
                     <span>버텀 시트</span>
                   </button>
                 </div>
@@ -55,7 +71,8 @@
             <pre><code class="hls" data-language="html"></code></pre>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">스크립트로 직접 호출</p>
         </div>
@@ -69,11 +86,11 @@
                   </button>
                 </div>
                 <script>
-                  const el = document.querySelector('#callModal');
-                  el.addEventListener('click', function () {
+                  const el = document.querySelector("#callModal");
+                  el.addEventListener("click", function () {
                     MOui.callLayer({
                       // 주소
-                      url: '/v2/html/_layout/modal/popup_bottom_new.html',
+                      url: "/v2/html/_layout/modal/popup_bottom_new.html",
 
                       // 모달 호출 후 콜백
                       showFn: function (modalElement) {
@@ -82,7 +99,7 @@
 
                       // 모달 닫은 후 콜백
                       hideFn: function (modalElement) {
-                        alert('hideFn');
+                        alert("hideFn");
                       },
 
                       // 배경 닫힘 여부 (true / false)
@@ -100,7 +117,8 @@
             <pre><code class="hls" data-language="html"></code></pre>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">Alert</p>
         </div>
@@ -114,19 +132,19 @@
                   </button>
                 </div>
                 <script>
-                  const alertEl = document.querySelector('#callAlert');
-                  alertEl.addEventListener('click', function () {
+                  const alertEl = document.querySelector("#callAlert");
+                  alertEl.addEventListener("click", function () {
                     MOui.modal
                       .alert(
                         {
-                          text: '<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>',
+                          text: "<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>",
                         },
                         {
                           type: 1,
                         },
                       )
                       .then(function () {
-                        console.log('닫음');
+                        console.log("닫음");
                       });
                   });
                 </script>
@@ -148,20 +166,22 @@
                   </button>
                 </div>
                 <script>
-                  document.querySelector('#callAlert2').addEventListener('click', function () {
-                    MOui.modal
-                      .alert(
-                        {
-                          text: '<p class="title">보험료를 납입할 수 없습니다.</p><p class="txt">납입을 원하시는 경우, 삼성화재 고객콜센터(1588-5114)로<br>문의해 주세요.</p>',
-                        },
-                        {
-                          bgClose: false, //배경 클릭 시 닫힘 제공 X
-                        },
-                      )
-                      .then(function () {
-                        console.log('닫음');
-                      });
-                  });
+                  document
+                    .querySelector("#callAlert2")
+                    .addEventListener("click", function () {
+                      MOui.modal
+                        .alert(
+                          {
+                            text: '<p class="title">보험료를 납입할 수 없습니다.</p><p class="txt">납입을 원하시는 경우, 삼성화재 고객콜센터(1588-5114)로<br>문의해 주세요.</p>',
+                          },
+                          {
+                            bgClose: false, //배경 클릭 시 닫힘 제공 X
+                          },
+                        )
+                        .then(function () {
+                          console.log("닫음");
+                        });
+                    });
                 </script>
               </div>
             </div>
@@ -171,7 +191,8 @@
             <pre><code class="hls" data-language="html"></code></pre>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv2">Confirm</p>
         </div>
@@ -185,28 +206,30 @@
                   </button>
                 </div>
                 <script>
-                  document.querySelector('#callConfirm').addEventListener('click', function () {
-                    MOui.modal
-                      .confirm(
-                        {
-                          text: '<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>',
-                          ok: 'ok',
-                          cancel: 'cancel',
-                        },
-                        {
-                          type: 1,
-                          endFocus: 'callAlert2',
-                        },
-                      )
-                      .then(
-                        function (resolve) {
-                          console.log('확인');
-                        },
-                        function (resolve) {
-                          console.log('닫기');
-                        },
-                      );
-                  });
+                  document
+                    .querySelector("#callConfirm")
+                    .addEventListener("click", function () {
+                      MOui.modal
+                        .confirm(
+                          {
+                            text: "<p>계약을 확인하고 있습니다.<br>잠시만 기다려 주세요.</p>",
+                            ok: "ok",
+                            cancel: "cancel",
+                          },
+                          {
+                            type: 1,
+                            endFocus: "callAlert2",
+                          },
+                        )
+                        .then(
+                          function (resolve) {
+                            console.log("확인");
+                          },
+                          function (resolve) {
+                            console.log("닫기");
+                          },
+                        );
+                    });
                 </script>
               </div>
             </div>
@@ -216,9 +239,12 @@
             <pre><code class="hls" data-language="html"></code></pre>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
-          <p class="guide_title title_lv2">Etc Tooltip Modal(공시실에서만 사용)</p>
+          <p class="guide_title title_lv2">
+            Etc Tooltip Modal(공시실에서만 사용)
+          </p>
         </div>
         <div>
           <div>
@@ -230,20 +256,22 @@
                   </button>
                 </div>
                 <script>
-                  document.querySelector('#callAlert3').addEventListener('click', function () {
-                    MOui.modal
-                      .alert(
-                        {
-                          text: '<div class="pop-head"><h3 class="tit-gnb"><span>삼성애니카랜드 자동차보험</span></h3></div><div class="system-txtcont"><p class="txt">해당 상품은 애니카랜드점을 위한 단체상품입니다.</p></div><button type="button" class="btn-close fui-modal-close"><span>닫기</span></button>',
-                        },
-                        {
-                          type: 99,
-                        },
-                      )
-                      .then(function () {
-                        console.log('닫음');
-                      });
-                  });
+                  document
+                    .querySelector("#callAlert3")
+                    .addEventListener("click", function () {
+                      MOui.modal
+                        .alert(
+                          {
+                            text: '<div class="pop-head"><h3 class="tit-gnb"><span>삼성애니카랜드 자동차보험</span></h3></div><div class="system-txtcont"><p class="txt">해당 상품은 애니카랜드점을 위한 단체상품입니다.</p></div><button type="button" class="btn-close fui-modal-close"><span>닫기</span></button>',
+                          },
+                          {
+                            type: 99,
+                          },
+                        )
+                        .then(function () {
+                          console.log("닫음");
+                        });
+                    });
                 </script>
               </div>
             </div>
@@ -265,9 +293,7 @@
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -291,7 +317,10 @@
                 </tr>
                 <tr>
                   <td>type</td>
-                  <td>Alert & Conform 전용 - 디자인 타입 정의 1-알림, 2-선택, 3-확인, 4-오류</td>
+                  <td>
+                    Alert & Conform 전용 - 디자인 타입 정의 1-알림, 2-선택,
+                    3-확인, 4-오류
+                  </td>
                   <td>String</td>
                   <td>3</td>
                 </tr>
@@ -311,7 +340,9 @@
             </table>
           </div>
         </div>
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Options - MOui.callLayer()</p>
         </div>
@@ -324,9 +355,7 @@
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -346,7 +375,9 @@
             </table>
           </div>
         </div>
-        <br /><br /><br />
+        <br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Methods</p>
         </div>
@@ -358,9 +389,7 @@
                 <col width="35%" />
                 <col width="35%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Name</th>
@@ -391,7 +420,8 @@
   })
  </code></pre>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Events</p>
         </div>
@@ -403,9 +433,7 @@
                 <col width="35%" />
                 <col width="35%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Name</th>
@@ -469,8 +497,8 @@ MOui.util.on(baseLayer, 'show', '[fui-modal]', function(e){
           <script>
             $(() => {
               setTimeout(() => {
-                var baseLayer = document.querySelector('#baseLayer');
-                MOui.util.on(baseLayer, 'show', '[fui-modal]', function (e) {
+                var baseLayer = document.querySelector("#baseLayer");
+                MOui.util.on(baseLayer, "show", "[fui-modal]", function (e) {
                   console.log(e.detail[0]);
                 });
               }, 400);

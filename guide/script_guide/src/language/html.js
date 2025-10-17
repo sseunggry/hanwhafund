@@ -1,128 +1,128 @@
-Rainbow.extend('html', [
+(Rainbow.extend("html", [
   {
-    name: 'source.php.embedded',
+    name: "source.php.embedded",
     matches: {
-      1: 'variable.language.php-tag',
+      1: "variable.language.php-tag",
       2: {
-        language: 'php',
+        language: "php",
       },
-      3: 'variable.language.php-tag',
+      3: "variable.language.php-tag",
     },
     pattern: /(&lt;\?php|&lt;\?=?(?!xml))([\s\S]*?)(\?&gt;)/gm,
   },
   {
-    name: 'source.css.embedded',
+    name: "source.css.embedded",
     matches: {
       1: {
         matches: {
-          1: 'support.tag.style',
+          1: "support.tag.style",
           2: [
             {
-              name: 'entity.tag.style',
+              name: "entity.tag.style",
               pattern: /^style/g,
             },
             {
-              name: 'string',
+              name: "string",
               pattern: /('|")(.*?)(\1)/g,
             },
             {
-              name: 'entity.tag.style.attribute',
+              name: "entity.tag.style.attribute",
               pattern: /(\w+)/g,
             },
           ],
-          3: 'support.tag.style',
+          3: "support.tag.style",
         },
         pattern: /(&lt;\/?)(style.*?)(&gt;)/g,
       },
       2: {
-        language: 'css',
+        language: "css",
       },
-      3: 'support.tag.style',
-      4: 'entity.tag.style',
-      5: 'support.tag.style',
+      3: "support.tag.style",
+      4: "entity.tag.style",
+      5: "support.tag.style",
     },
     pattern: /(&lt;style.*?&gt;)([\s\S]*?)(&lt;\/)(style)(&gt;)/gm,
   },
   {
-    name: 'source.js.embedded',
+    name: "source.js.embedded",
     matches: {
       1: {
         matches: {
-          1: 'support.tag.script',
+          1: "support.tag.script",
           2: [
             {
-              name: 'entity.tag.script',
+              name: "entity.tag.script",
               pattern: /^script/g,
             },
             {
-              name: 'string',
+              name: "string",
               pattern: /('|")(.*?)(\1)/g,
             },
             {
-              name: 'entity.tag.script.attribute',
+              name: "entity.tag.script.attribute",
               pattern: /(\w+)/g,
             },
           ],
-          3: 'support.tag.script',
+          3: "support.tag.script",
         },
         pattern: /(&lt;\/?)(script.*?)(&gt;)/g,
       },
       2: {
-        language: 'javascript',
+        language: "javascript",
       },
-      3: 'support.tag.script',
-      4: 'entity.tag.script',
-      5: 'support.tag.script',
+      3: "support.tag.script",
+      4: "entity.tag.script",
+      5: "support.tag.script",
     },
     pattern: /(&lt;script(?! src).*?&gt;)([\s\S]*?)(&lt;\/)(script)(&gt;)/gm,
   },
   {
-    name: 'comment.html',
+    name: "comment.html",
     pattern: /&lt;\!--[\S\s]*?--&gt;/g,
   },
   {
     matches: {
-      1: 'support.tag.open',
-      2: 'support.tag.close',
+      1: "support.tag.open",
+      2: "support.tag.close",
     },
     pattern: /(&lt;)|(\/?\??&gt;)/g,
   },
   {
-    name: 'support.tag',
+    name: "support.tag",
     matches: {
-      1: 'support.tag',
-      2: 'support.tag.special',
-      3: 'support.tag-name',
+      1: "support.tag",
+      2: "support.tag.special",
+      3: "support.tag-name",
     },
     pattern: /(&lt;\??)(\/|\!?)(\w+)/g,
   },
   {
     matches: {
-      1: 'support.attribute',
+      1: "support.attribute",
     },
     pattern: /([a-z-]+)(?=\=)/gi,
   },
   {
     matches: {
-      1: 'support.operator',
-      2: 'string.quote',
-      3: 'string.value',
-      4: 'string.quote',
+      1: "support.operator",
+      2: "string.quote",
+      3: "string.value",
+      4: "string.quote",
     },
     pattern: /(=)('|")(.*?)(\2)/g,
   },
   {
     matches: {
-      1: 'support.operator',
-      2: 'support.value',
+      1: "support.operator",
+      2: "support.value",
     },
     pattern: /(=)([a-zA-Z\-0-9]*)\b/g,
   },
   {
     matches: {
-      1: 'support.attribute',
+      1: "support.attribute",
     },
     pattern: /\s([\w-]+)(?=\s|&gt;)(?![\s\S]*&lt;)/g,
   },
 ]),
-  Rainbow.addAlias('xml', 'html');
+  Rainbow.addAlias("xml", "html"));

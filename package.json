@@ -1,14 +1,31 @@
 {
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"build:watch": "vite build --watch"
+		"dev": "webpack serve",
+		"format": "prettier --write \"src/**/*.{html,ejs,scss}\"",
+		"build": "npm run format && webpack"
 	},
 	"devDependencies": {
-		"pug": "^3.0.3",
+		"copy-webpack-plugin": "^13.0.1",
+		"cross-env": "^10.1.0",
+		"css-loader": "^7.1.2",
+		"ejs-plain-loader": "^1.4.1",
+		"glob": "^11.0.3",
+		"html-loader": "^5.1.0",
+		"html-webpack-plugin": "^5.6.4",
+		"mini-css-extract-plugin": "^2.9.4",
+		"prettier": "^3.6.2",
+		"prettier-plugin-ejs": "^1.0.3",
 		"sass": "^1.93.2",
-		"vite": "^7.1.10",
-		"vite-plugin-pug": "^0.4.1"
-	}
+		"sass-loader": "^16.0.5",
+		"style-loader": "^4.0.0",
+		"terser-webpack-plugin": "^5.3.14",
+		"webpack": "^5.102.1",
+		"webpack-cli": "^6.0.1",
+		"webpack-dev-server": "^5.2.2",
+		"webpack-remove-empty-scripts": "^1.1.1"
+	},
+	"browserslist": [
+		"last 2 versions",
+		"not dead"
+	]
 }

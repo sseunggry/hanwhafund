@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <title>스크립트 가이드</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
     <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link rel="stylesheet" href="/v2/guide/script_guide/themes/css/github.css" />
+    <link
+      rel="stylesheet"
+      href="/v2/guide/script_guide/themes/css/github.css"
+    />
     <script src="/v2/resources/js/jquery3.min.js"></script>
     <script src="/v2/resources/js/ui.base.js"></script>
     <style>
@@ -41,18 +47,22 @@
                   <button type="button" class="btn outlined" id="loadingBar">
                     <span>로딩바</span>
                   </button>
-                  <button type="button" class="btn outlined" id="loadingBarClose">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="loadingBarClose"
+                  >
                     <span>로딩바닫기</span>
                   </button>
                   <div id="lodingarea"></div>
                 </div>
               </section>
               <script>
-                $('#loadingBar').on('click', function () {
-                  $plugins.uiLoading({ id: 'lodingarea', visible: true });
+                $("#loadingBar").on("click", function () {
+                  $plugins.uiLoading({ id: "lodingarea", visible: true });
                 });
-                $('#loadingBarClose').on('click', function () {
-                  $plugins.uiLoading({ id: 'lodingarea', visible: false });
+                $("#loadingBarClose").on("click", function () {
+                  $plugins.uiLoading({ id: "lodingarea", visible: false });
                 });
               </script>
             </div>
@@ -70,11 +80,14 @@
                 </div>
               </section>
               <script>
-                $('#dotloadingBar').on('click', function () {
-                  var loading = $plugins.uiLoading({ type: 'dot', visible: true });
+                $("#dotloadingBar").on("click", function () {
+                  var loading = $plugins.uiLoading({
+                    type: "dot",
+                    visible: true,
+                  });
                   setTimeout(() => {
-                    $('body').one('click', function () {
-                      $plugins.uiLoading({ type: 'dot', visible: false });
+                    $("body").one("click", function () {
+                      $plugins.uiLoading({ type: "dot", visible: false });
                     });
                   }, 0);
                 });
@@ -114,26 +127,38 @@
             <div class="hls_preview">
               <section class="section">
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" id="dotloadingBar2">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="dotloadingBar2"
+                  >
                     <span>닷로딩바 + 글자</span>
                   </button>
                 </div>
               </section>
               <script>
-                $('#dotloadingBar2').on('click', function () {
+                $("#dotloadingBar2").on("click", function () {
                   var idx = 0;
-                  var loading = $plugins.uiLoading({ id: 'dotlodingarea1', type: 'dot', txt: ['글자입력했습니다'], visible: true });
-                  var loadingInner = $('#uiDotLoading').find('.loader-innerbox');
-                  var addBtn = loadingInner.append('<button type="button" style="background:#000;color:#fff;position:absolute;top:10px;right:10px;padding:4px">글자 추가</button>')
-                  addBtn.on('click', function(){
-                    loading.addText('글자 추가 입력'+(++idx));
-                  })
+                  var loading = $plugins.uiLoading({
+                    id: "dotlodingarea1",
+                    type: "dot",
+                    txt: ["글자입력했습니다"],
+                    visible: true,
+                  });
+                  var loadingInner =
+                    $("#uiDotLoading").find(".loader-innerbox");
+                  var addBtn = loadingInner.append(
+                    '<button type="button" style="background:#000;color:#fff;position:absolute;top:10px;right:10px;padding:4px">글자 추가</button>',
+                  );
+                  addBtn.on("click", function () {
+                    loading.addText("글자 추가 입력" + ++idx);
+                  });
                   setTimeout(() => {
-                    $('body').on('click', function (e) {
+                    $("body").on("click", function (e) {
                       console.log(e.target.tagName);
                       if (e.target.tagName === "BUTTON") return;
-                      $(this).off('click');
-                      $plugins.uiLoading({ type: 'dot', visible: false });
+                      $(this).off("click");
+                      $plugins.uiLoading({ type: "dot", visible: false });
                     });
                   }, 0);
                 });
@@ -147,23 +172,31 @@
             <div class="hls_preview">
               <section class="section">
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" id="dotloadingBar12">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="dotloadingBar12"
+                  >
                     <span>로딩바 로띠 애니메이션(돋보기)</span>
                   </button>
                 </div>
               </section>
 
               <script>
-                $('#dotloadingBar12').on('click', function () {
+                $("#dotloadingBar12").on("click", function () {
                   var loading = $plugins.uiLoading({
-                    id: 'dotloadingBar12',
-                    txt: ['고객님이 입력한 정보를<br />확인하고 있어요', '삼성화재는 부수거래조건이 없어요', '삼성화재는 시중은행 대비<br />10% 높은 DSR을 적용해드리니<br />높은한도를 비교, 확인해보세요'],
+                    id: "dotloadingBar12",
+                    txt: [
+                      "고객님이 입력한 정보를<br />확인하고 있어요",
+                      "삼성화재는 부수거래조건이 없어요",
+                      "삼성화재는 시중은행 대비<br />10% 높은 DSR을 적용해드리니<br />높은한도를 비교, 확인해보세요",
+                    ],
                     visible: true,
-                    cls: 'fullmode',
-                    aniItem: 'loading-search',
+                    cls: "fullmode",
+                    aniItem: "loading-search",
                   });
                   setTimeout(() => {
-                    $('body').one('click', function () {
+                    $("body").one("click", function () {
                       $plugins.uiLoading({ visible: false });
                     });
                   }, 0);
@@ -179,23 +212,31 @@
             <div class="hls_preview">
               <section class="section">
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" id="dotloadingBar13">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="dotloadingBar13"
+                  >
                     <span>로딩바 로띠 애니메이션(파일)</span>
                   </button>
                 </div>
               </section>
 
               <script>
-                $('#dotloadingBar13').on('click', function () {
+                $("#dotloadingBar13").on("click", function () {
                   var loading = $plugins.uiLoading({
-                    id: 'dotloadingBar13',
-                    txt: ['고객님이 입력한 정보를<br />확인하고 있어요', '삼성화재는 부수거래조건이 없어요', '삼성화재는 시중은행 대비<br />10% 높은 DSR을 적용해드리니<br />높은한도를 비교, 확인해보세요'],
+                    id: "dotloadingBar13",
+                    txt: [
+                      "고객님이 입력한 정보를<br />확인하고 있어요",
+                      "삼성화재는 부수거래조건이 없어요",
+                      "삼성화재는 시중은행 대비<br />10% 높은 DSR을 적용해드리니<br />높은한도를 비교, 확인해보세요",
+                    ],
                     visible: true,
-                    cls: 'fullmode',
-                    aniItem: 'loading-files',
+                    cls: "fullmode",
+                    aniItem: "loading-files",
                   });
                   setTimeout(() => {
-                    $('body').one('click', function () {
+                    $("body").one("click", function () {
                       $plugins.uiLoading({ visible: false });
                     });
                   }, 0);
@@ -210,21 +251,38 @@
             <div class="hls_preview">
               <section class="section">
                 <div class="btn-wrap">
-                  <button type="button" class="btn outlined" id="progressloadingBar">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="progressloadingBar"
+                  >
                     <span>프로그레스로딩바</span>
                   </button>
-                  <button type="button" class="btn outlined" id="progressloadingBarClose">
+                  <button
+                    type="button"
+                    class="btn outlined"
+                    id="progressloadingBarClose"
+                  >
                     <span>프로그레스로딩바닫기</span>
                   </button>
                 </div>
                 <div class="content" id="progresslodingarea"></div>
               </section>
               <script>
-                $('#progressloadingBar').on('click', function () {
-                  $plugins.uiLoading({ id: 'progresslodingarea', type: 'progress', txt: '고객님의 계약을 불러오고 있어요.', visible: true });
+                $("#progressloadingBar").on("click", function () {
+                  $plugins.uiLoading({
+                    id: "progresslodingarea",
+                    type: "progress",
+                    txt: "고객님의 계약을 불러오고 있어요.",
+                    visible: true,
+                  });
                 });
-                $('#progressloadingBarClose').on('click', function () {
-                  $plugins.uiLoading({ id: 'progresslodingarea', type: 'progress', visible: false });
+                $("#progressloadingBarClose").on("click", function () {
+                  $plugins.uiLoading({
+                    id: "progresslodingarea",
+                    type: "progress",
+                    visible: false,
+                  });
                 });
               </script>
             </div>
@@ -233,7 +291,8 @@
             </div>
           </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Methods</p>
         </div>
@@ -245,9 +304,7 @@
                 <col width="35%" />
                 <col width="35%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Name</th>
@@ -299,9 +356,11 @@
 
           </code></pre>
         </div>
-        <br /><br />
+        <br />
+        <br />
 
-        <br /><br />
+        <br />
+        <br />
         <div class="title_sec">
           <p class="guide_title title_lv1">Options</p>
         </div>
@@ -314,9 +373,7 @@
                 <col width="15%" />
                 <col width="15%" />
               </colgroup>
-              <caption>
-                Attributes
-              </caption>
+              <caption>Attributes</caption>
               <thead>
                 <tr>
                   <th class="th" scope="cols">Property</th>
@@ -340,7 +397,9 @@
                 </tr>
                 <tr>
                   <td>type</td>
-                  <td>로딩바 타입선택 base: Default , part: Custom, dot 있음</td>
+                  <td>
+                    로딩바 타입선택 base: Default , part: Custom, dot 있음
+                  </td>
                   <td>any</td>
                   <td>"base"</td>
                 </tr>
