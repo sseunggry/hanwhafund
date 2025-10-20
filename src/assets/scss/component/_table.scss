@@ -1,0 +1,321 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 표 */
+// 사이즈 정의
+@mixin table-size-variable() {
+  --#{$prefix}-table--data-thead-th-padding: var(--#{$prefix}-padding-3);
+  --#{$prefix}-table--data-thead-th-padding-sides: var(--#{$prefix}-padding-5);
+  --#{$prefix}-table--data-tbody-padding: var(--#{$prefix}-padding-5);
+  // --#{$prefix}-table--data-tbody-padding-sides: var(--#{$prefix}-padding-6);
+}
+
+// 컬러 설정
+@mixin table-color-variable($mode: light) {
+  $table-color-variable: (
+    primary: (
+      thead: (
+        surface: var(--#{$prefix}-#{$mode}-color-surface-secondary-subtler),
+        border: var(--#{$prefix}-#{$mode}-color-border-secondary-light),
+        text: var(--#{$prefix}-#{$mode}-color-text-secondary),
+        small-font-size: var(--#{$prefix}-small-font-size-body-medium),
+        medium-font-size: var(--#{$prefix}-medium-font-size-body-medium),
+        large-font-size: var(--#{$prefix}-large-font-size-body-medium),
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-#{$mode}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-#{$mode}-color-divider-neutral-light),
+        text: var(--#{$prefix}-#{$mode}-color-text-subtle),
+        small-font-size: var(--#{$prefix}-small-font-size-label-medium),
+        medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
+        large-font-size: var(--#{$prefix}-large-font-size-label-medium),
+      ),
+    ),
+    secondary: (
+      thead: (
+        surface: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler),
+        border: var(--#{$prefix}-#{$mode}-color-border-neutral-light),
+        text: var(--#{$prefix}-#{$mode}-color-text-subtle),
+        small-font-size: var(--#{$prefix}-small-font-size-label-small),
+        medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
+        large-font-size: var(--#{$prefix}-large-font-size-label-small),
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-#{$mode}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-#{$mode}-color-divider-neutral-light),
+        text: var(--#{$prefix}-#{$mode}-color-text-basic),
+        small-font-size: var(--#{$prefix}-small-font-size-label-small),
+        medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
+        large-font-size: var(--#{$prefix}-large-font-size-label-small),
+      ),
+    ),
+    tertiary: (
+      thead: (
+        border: var(--#{$prefix}-#{$mode}-color-border-neutral-darker),
+        text: var(--#{$prefix}-#{$mode}-color-text-subtle),
+        small-font-size: var(--#{$prefix}-small-font-size-label-small),
+        medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
+        large-font-size: var(--#{$prefix}-large-font-size-label-small),
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-#{$mode}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-#{$mode}-color-divider-neutral-light),
+        text: var(--#{$prefix}-#{$mode}-color-text-basic),
+        small-font-size: var(--#{$prefix}-small-font-size-label-small),
+        medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
+        large-font-size: var(--#{$prefix}-large-font-size-label-small),
+      ),
+    ),
+  ) !default;
+
+  // css variable 생성
+  @each $color, $positions in $table-color-variable {
+    @each $position, $types in $positions {
+      @each $type, $value in $types {
+        --#{$prefix}-table--data-#{"#{$position}"}-#{"#{$color}"}-#{$type}: #{$value};
+      }
+    }
+  }
+
+  --#{$prefix}-table--data-border-width: var(--#{$prefix}-#{$mode}-border-width-variable-regular);
+}
+
+.#{$prefix}-table-wrap {
+  @include table-color-variable(map.get($modes, 'light'));
+  @include table-size-variable;
+
+  & {
+    width: 100%;
+  }
+
+  .tbl {
+    &.data {
+      th,
+      td {
+        vertical-align: middle;
+      }
+
+      thead {
+        th {
+          padding: var(--#{$prefix}-table--data-thead-th-padding) var(--#{$prefix}-table--data-thead-th-padding-sides);
+          background-color: var(--#{$prefix}-table--data-thead-primary-surface);
+          border-bottom: var(--#{$prefix}-table--data-border-width) solid var(--#{$prefix}-table--data-thead-primary-border);
+          font-weight: var(--#{$prefix}-font-weight-bold);
+          font-size: var(--#{$prefix}-table--data-thead-primary-small-font-size);
+          color: var(--#{$prefix}-table--data-thead-primary-text);
+
+          @include size-medium-to-large {
+            font-size: var(--#{$prefix}-table--data-thead-primary-medium-font-size);
+          }
+
+          @include size-large-more {
+            font-size: var(--#{$prefix}-table--data-thead-primary-large-font-size);
+          }
+        }
+      }
+
+      tbody {
+        th,
+        td {
+          border-bottom: var(--#{$prefix}-table--data-border-width) solid var(--#{$prefix}-table--data-tbody-primary-divider);
+          font-size: var(--#{$prefix}-table--data-tbody-primary-small-font-size);
+
+          @include size-medium-to-large {
+            font-size: var(--#{$prefix}-table--data-tbody-primary-medium-font-size);
+          }
+
+          @include size-large-more {
+            font-size: var(--#{$prefix}-table--data-tbody-primary-large-font-size);
+          }
+        }
+
+        th {
+          padding: var(--#{$prefix}-table--data-thead-th-padding) var(--#{$prefix}-table--data-thead-th-padding-sides);
+          background-color: var(--#{$prefix}-table--data-thead-primary-surface);
+          font-weight: var(--#{$prefix}-font-weight-bold);
+          color: var(--#{$prefix}-table--data-thead-primary-text);
+        }
+
+        td {
+          padding: var(--#{$prefix}-table--data-tbody-padding);
+          background-color: var(--#{$prefix}-table--data-tbody-primary-surface);
+          color: var(--#{$prefix}-table--data-tbody-primary-text);
+          font-weight: var(--#{$prefix}-font-weight-regular);
+          text-align: left;
+        }
+      }
+
+      .border-right {
+        @include border-position(right, var(--#{$prefix}-table--data-border-width), var(--#{$prefix}-table--data-thead-primary-border), '!important');
+      }
+
+      .border-bottom {
+        @include border-position(bottom, var(--#{$prefix}-table--data-border-width), var(--#{$prefix}-table--data-thead-primary-border), '!important');
+      }
+
+      &.secondary {
+        thead {
+          th {
+            background-color: var(--#{$prefix}-table--data-thead-secondary-surface);
+            border-bottom-color: var(--#{$prefix}-table--data-thead-secondary-border);
+            font-size: var(--#{$prefix}-table--data-thead-secondary-small-font-size);
+            color: var(--#{$prefix}-table--data-thead-secondary-text);
+
+            @include size-medium-to-large {
+              font-size: var(--#{$prefix}-table--data-tbody-primary-medium-font-size);
+            }
+
+            @include size-large-more {
+              font-size: var(--#{$prefix}-table--data-tbody-primary-large-font-size);
+            }
+          }
+        }
+
+        tbody {
+          th,
+          td {
+            border-bottom-color: var(--#{$prefix}-table--data-tbody-secondary-divider);
+            font-size: var(--#{$prefix}-table--data-tbody-secondary-small-font-size);
+
+            @include size-medium-to-large {
+              font-size: var(--#{$prefix}-table--data-tbody-secondary-medium-font-size);
+            }
+
+            @include size-large-more {
+              font-size: var(--#{$prefix}-table--data-tbody-secondary-large-font-size);
+            }
+          }
+
+          th {
+            background-color: var(--#{$prefix}-table--data-thead-secondary-surface);
+            font-weight: var(--#{$prefix}-font-weight-bold);
+            color: var(--#{$prefix}-table--data-thead-secondary-text);
+          }
+
+          td {
+            background-color: var(--#{$prefix}-table--data-tbody-secondary-surface);
+            color: var(--#{$prefix}-table--data-tbody-secondary-text);
+          }
+        }
+      }
+
+      &.tertiary {
+        thead {
+          th {
+            background-color: transparent;
+            border-top: var(--#{$prefix}-table--data-border-width) solid var(--#{$prefix}-table--data-thead-tertiary-border);
+            border-bottom-color: var(--#{$prefix}-table--data-thead-tertiary-border);
+            font-size: var(--#{$prefix}-table--data-thead-tertiary-small-font-size);
+            color: var(--#{$prefix}-table--data-thead-tertiary-text);
+
+            @include size-medium-to-large {
+              font-size: var(--#{$prefix}-table--data-thead-tertiary-medium-font-size);
+            }
+
+            @include size-large-more {
+              font-size: var(--#{$prefix}-table--data-thead-tertiary-large-font-size);
+            }
+          }
+        }
+
+        tbody {
+          th,
+          td {
+            border-bottom-color: var(--#{$prefix}-table--data-tbody-tertiary-divider);
+            font-size: var(--#{$prefix}-table--data-tbody-tertiary-small-font-size);
+
+            @include size-medium-to-large {
+              font-size: var(--#{$prefix}-table--data-tbody-tertiary-medium-font-size);
+            }
+
+            @include size-large-more {
+              font-size: var(--#{$prefix}-table--data-tbody-tertiary-large-font-size);
+            }
+          }
+
+          th {
+            background-color: var(--#{$prefix}-table--data-thead-tertiary-surface);
+            font-weight: var(--#{$prefix}-font-weight-bold);
+            color: var(--#{$prefix}-table--data-thead-tertiary-text);
+          }
+
+          td {
+            background-color: var(--#{$prefix}-table--data-tbody-tertiary-surface);
+            color: var(--#{$prefix}-table--data-tbody-tertiary-text);
+          }
+        }
+      }
+
+      &.col {
+        border-top: var(--#{$prefix}-table--data-border-width) solid var(--#{$prefix}-table--data-thead-primary-border);
+
+        &.secondary {
+          border-top: none;
+        }
+      }
+
+      &.secondary,
+      &.tertiary {
+        .border-right {
+          @include border-position(right, var(--#{$prefix}-table--data-border-width), var(--#{$prefix}-table--data-tbody-tertiary-divider), !important);
+        }
+
+        .border-bottom {
+          @include border-position(bottom, var(--#{$prefix}-table--data-border-width), var(--#{$prefix}-table--data-tbody-tertiary-divider), !important);
+        }
+      }
+
+      .swap {
+        @include flex-layout($ai: center, $jc: center, $fd: column);
+
+        margin-top: -0.6rem;
+        margin-bottom: -0.6rem;
+
+        .svg-icon {
+          @include square(1.4rem);
+        }
+
+        .text {
+          color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-text-subtler);
+          font-size: var(--#{$prefix}-large-font-size-body-xsmall);
+          font-weight: var(--#{$prefix}-font-weight-regular);
+        }
+      }
+    }
+  }
+
+  &.scroll {
+    overflow: auto hidden;
+
+    .tbl {
+      width: 100%;
+    }
+  }
+}
+
+@include size-medium {
+  .#{$prefix}-table-wrap {
+    overflow-x: auto;
+    width: calc(100vw - (var(--#{$prefix}-contents-padding-x) * 2));
+
+    .tbl {
+      min-width: 73.2rem;
+    }
+
+    &.mob-scroll {
+      width: 100%;
+
+      th,
+      td {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .#{$prefix}-table-wrap {
+    @include table-color-variable(map.get($modes, 'high-contrast'));
+  }
+}

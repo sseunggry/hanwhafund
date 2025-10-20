@@ -2,31 +2,17 @@
 @import "../util";
 
 /* layout */
-body {
-  font-size: 14px;
-}
+body{font-size: 14px;}
 
-.inner {
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: calc(1280px + 40px);
-}
-section {
-  margin-bottom: 260px;
-}
-section:last-child {
-  margin-bottom: 0;
-}
+.inner{margin: 0 auto; padding: 0 20px; max-width: calc(1280px + 40px);}
+section{margin-bottom: 260px;}
+section:last-child{margin-bottom: 0;}
 
 @media (max-width: 750px) {
+
 }
 
 @media (max-width: 375px) {
-  body {
-    font-size: 3.73vw;
-  }
-  .inner {
-    padding: 0 8vw;
-    max-width: calc(341.33vw + 16vw);
-  }
+    body{font-size: 3.73vw;}
+    .inner{padding: 0 8.00vw; max-width: calc(341.33vw + 16.00vw);}
 }

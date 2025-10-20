@@ -1,0 +1,15 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const variant = localsSafe.variant || 'outline'; // outline, solid, solid-pastel
+  const color = localsSafe.color || 'primary'; // primary, secondary, tertiary
+  const size = localsSafe.size || 'medium'; // medium, large
+  const label = localsSafe.label || 'badge';
+	const classes = [
+    `${projectName}-badge`,
+    `${variant}-${color}`,
+    size,
+  ].filter(Boolean).join(' ');
+%>
+
+<span class="<%= classes %>"><%= label %></span>

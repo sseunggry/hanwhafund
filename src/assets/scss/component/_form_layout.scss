@@ -1,0 +1,548 @@
+@use 'sass:map';
+@use "../util" as *;
+@use '../component/input';
+
+/* form 레이아웃 */
+// 사이즈 정의
+@mixin form-layout-size-variable() {
+  --#{$prefix}-form-group--label-large-font-size: var(--#{$prefix}-large-font-size-label-small);
+  --#{$prefix}-form-group--label-medium-font-size: var(--#{$prefix}-medium-font-size-label-small);
+  --#{$prefix}-form-group--label-small-font-size: var(--#{$prefix}-small-font-size-label-small);
+  --#{$prefix}-form-group--gap: var(--#{$prefix}-gap-3);
+  --#{$prefix}-form-group--icon-padding-right: calc(var(--#{$prefix}-padding-7) * 2 + var(--#{$prefix}-icon--size-large));
+  --#{$prefix}-form-group--message-large-font-size: var(--#{$prefix}-large-font-size-label-xsmall);
+  --#{$prefix}-form-group--message-medium-font-size: var(--#{$prefix}-medium-font-size-label-xsmall);
+  --#{$prefix}-form-group--message-small-font-size: var(--#{$prefix}-small-font-size-label-xsmall);
+}
+
+// 컬러 정의
+@mixin form-layout-color-variable($mode: light) {
+  --#{$prefix}-form-group--message-text-color: var(--#{$prefix}-#{$mode}-color-text-subtle);
+  --#{$prefix}-form-group--message-success-text-color: var(--#{$prefix}-#{$mode}-color-text-success);
+  --#{$prefix}-form-group--message-information-text-color: var(--#{$prefix}-#{$mode}-color-text-subtle);
+  --#{$prefix}-form-group--message-error-text-color: var(--#{$prefix}-#{$mode}-color-text-danger);
+}
+
+// focus, readonly, disabled, error 상태 스타일
+@mixin form-element-states() {
+  &.focus {
+    border-color: var(--#{$prefix}-input--color-border-active);
+    border-width: 2px;
+    outline: none;
+    box-shadow: none;
+
+    ~ .textarea-count {
+      color: var(--#{$prefix}-input--count-number-color-text);
+      .count-now {
+        color: var(--#{$prefix}-input--count-number-color-text-active);
+      }
+    }
+  }
+
+  &.readonly {
+    background-color: var(--#{$prefix}-input--color-surface-readonly);
+    border-color: var(--#{$prefix}-input--color-border-readonly);
+    color: var(--#{$prefix}-input--color-text-readonly);
+
+    &.datepicker {
+      background-color: var(--#{$prefix}-input--color-surface);
+      border-color: var(--#{$prefix}-input--color-border);
+      color: var(--#{$prefix}-input--color-text);
+    }
+
+    .#{$prefix}-input {
+      background-color: var(--#{$prefix}-input--color-surface-readonly);
+    }
+
+    ~ .textarea-count {
+      color: var(--#{$prefix}-input--count-number-color-text);
+    }
+
+    &:focus {
+      border-color: var(--#{$prefix}-input--color-border-active);
+    }
+  }
+
+  &.disabled {
+    background-color: var(--#{$prefix}-input--color-surface-disabled);
+    border-color: var(--#{$prefix}-input--color-border-disabled);
+    color: var(--#{$prefix}-input--color-text-disabled);
+
+    .#{$prefix}-input {
+      background-color: var(--#{$prefix}-input--color-surface-disabled);
+    }
+
+    ~ .textarea-count {
+      color: var(--#{$prefix}-input--count-number-color-text);
+    }
+  }
+
+  &.is-error {
+    background-color: var(--#{$prefix}-input--color-surface-error);
+    border-color: var(--#{$prefix}-input--color-border-error);
+    border-width: 2px;
+    color: var(--#{$prefix}-input--color-text-error);
+
+    &:focus {
+      border-color: var(--#{$prefix}-input--color-border-active);
+    }
+  }
+}
+
+.fieldset {
+  @include flex-layout($fd: column);
+
+  gap: var(--#{$prefix}-gap-7);
+}
+
+.form-col-group {
+  display: flex;
+  gap: var(--#{$prefix}-gap-5);
+
+  .form-group {
+    width: fit-content;
+  }
+
+  @include size-medium {
+    flex-direction: column;
+
+    .form-group {
+      width: 100%;
+    }
+  }
+}
+
+.form-group {
+  @include form-layout-color-variable(map.get($modes, 'light'));
+  @include form-layout-size-variable;
+  @include flex-layout($ai: normal, $fd: column);
+
+	@include input.input-color-variable(map.get($modes, 'light'));
+	@include input.input-size-variable;
+
+	--#{$prefix}-form-input--padding: var(--#{$prefix}-padding-6);
+	--#{$prefix}-form-input--dash-gap: 2.4rem;
+
+  & {
+    gap: var(--#{$prefix}-form-group--gap);
+    width: 100%;
+  }
+
+	&.row .form-field, &.full .form-field, &.multi .input-group {
+		@include input.input-base-style;
+	
+		gap: 0.2rem;
+
+		@each $size, $types in input.$input-size {
+			&.#{$size} {
+				border-radius: var(--#{$prefix}-input--radius-#{$size});
+			}
+		}
+
+		.#{$prefix}-input {
+			padding: 0;
+			border: none;
+		}
+	}
+
+	&.row {
+		.form-field{
+			align-items: center;
+			flex-direction: row;
+			padding: 0 var(--#{$prefix}-form-input--padding);
+			
+			.form-tit{
+				flex-shrink: 0;
+				width: auto;
+				min-width: 6.4rem;
+			}
+		}
+	}
+
+	&.full {
+		.form-field{
+			padding: var(--#{$prefix}-form-input--padding);
+		}
+	}
+
+	&.multi {
+		.input-group{
+			gap: var(--#{$prefix}-form-input--dash-gap);
+
+			@include form-element-states;
+		}
+	}
+
+	.form-field{
+		display: flex;
+		flex-direction: column;
+		gap: var(--#{$prefix}-form-group--gap);
+
+		@include form-element-states;
+	}
+
+  .form-tit,
+  .form-label {
+    width: 100%;
+		font-size: var(--#{$prefix}-form-group--label-large-font-size);
+    color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-text-subtle);
+
+		@include size-medium-to-large {
+			font-size: var(--#{$prefix}-form-group--label-medium-font-size);
+		}
+
+		@include size-medium {
+			font-size: var(--#{$prefix}-form-group--label-small-font-size);
+		}
+  }
+
+  .form-conts {
+    @include flex-layout($fd: column);
+
+    gap: var(--#{$prefix}-gap-4);
+    width: 100%;
+
+    &.keyword-sch {
+      width: 58.8rem;
+    }
+
+    .form-label {
+      display: flex;
+      font-size: var(--#{$prefix}-form-group--label-large-font-size);
+      width: 100%;
+
+			@include size-medium-to-large {
+				font-size: var(--#{$prefix}-form-group--label-medium-font-size);
+			}
+	
+			@include size-medium {
+				font-size: var(--#{$prefix}-form-group--label-small-font-size);
+			}
+    }
+
+    &.btn-ico-wrap {
+      // input안에 button 노출
+      position: relative;
+
+      .#{$prefix}-input {
+        padding-right: var(--#{$prefix}-form-group--icon-padding-right);
+      }
+
+      .btn-group,
+      .#{$prefix}-btn {
+        // form control 우측에 버튼 정렬
+        @include position($t: 50%, $r: var(--#{$prefix}-padding-7)); // form control large 사이즈에만 버튼 들어감
+
+        transform: translateY(-50%);
+      }
+
+      .btn-group {
+        // form control 버튼이 여러개인경우
+        @include flex-layout($ai: center);
+
+        gap: var(--#{$prefix}-gap-3);
+
+        .#{$prefix}-btn {
+          position: static;
+          transform: translateY(0);
+        }
+      }
+
+      .btn-delete-input {
+        // input 내용삭제 버튼은 value가 있을때만 보이게
+        display: none;
+
+        @at-root .form-conts {
+          &[data-delete='true'] {
+            .#{$prefix}-input:not(:placeholder-shown) {
+              ~ .btn-delete-input {
+                display: flex;
+              }
+
+              ~ .btn-group {
+                .btn-delete-input {
+                  display: flex;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.calendar-conts {
+      gap: 0;
+    }
+  }
+
+  > p {
+    width: 100%;
+  }
+
+  [class^='form-hint'] {
+    @include flex-layout($ai: center);
+
+    gap: var(--#{$prefix}-gap-2);
+    width: 100%;
+    font-size: var(--#{$prefix}-form-group--message-large-font-size);
+    color: var(--#{$prefix}-form-group--message-text-color);
+
+		@include size-medium-to-large {
+			font-size: var(--#{$prefix}-form-group--message-medium-font-size);
+		}
+
+		@include size-medium {
+			font-size: var(--#{$prefix}-form-group--message-small-font-size);
+		}
+
+    &::before {
+      display: inline-flex;
+
+      @include pseudo;
+      @include svg-icon($size: var(--#{$prefix}-icon--size-small), $mode: map.get($modes, 'light'));
+      @include icon-set(ico_information);
+    }
+  }
+
+  [class^='form-hint-'] {
+    &::before {
+      @include svg-icon($size: var(--#{$prefix}-icon--size-small), $mode: map.get($modes, 'light'), $effect: pure);
+    }
+  }
+
+  .form-hint-success {
+    // 성공
+    color: var(--#{$prefix}-form-group--message-success-text-color);
+
+    &::before {
+      @include icon-set(ico_success_fill, pure);
+    }
+  }
+
+  .form-hint-information {
+    // 정보
+    color: var(--#{$prefix}-form-group--message-information-text-color);
+
+    &::before {
+      @include icon-set(ico_information, pure);
+    }
+  }
+
+  .form-hint-invalid {
+    // 에러
+    color: var(--#{$prefix}-form-group--message-error-text-color);
+
+    &::before {
+      @include icon-set(ico_error_fill, pure);
+    }
+  }
+}
+
+.#{$prefix}-form-checks-inline {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.input-group {
+  // input 여러개가 포함된 그룹
+  @include flex-layout($ai: center);
+
+  gap: var(--#{$prefix}-gap-3);
+  width: 100%;
+
+  &.range {
+    // 범위설정 그룹 (주로 날짜범위설정에 사용됨)
+    align-items: flex-end;
+    position: relative;
+
+    > li {
+      &:not(.mark) {
+        @include flex-layout($fd: column);
+        @include equal-width;
+
+        gap: var(--#{$prefix}-form-group--gap);
+        position: relative;
+      }
+
+      &.mark {
+        @include flex-layout($ai: center);
+
+        height: var(--#{$prefix}-size-height-8);
+
+        &.large {
+          height: var(--#{$prefix}-size-height-8);
+        }
+
+        &.medium {
+          height: var(--#{$prefix}-size-height-7);
+        }
+
+        &.small {
+          height: var(--#{$prefix}-size-height-6);
+        }
+      }
+    }
+  }
+
+	&.dash {
+		gap: var(--#{$prefix}-form-input--dash-gap);
+
+		.#{$prefix}-input{
+			position: relative;
+
+			& + .#{$prefix}-input::before {
+				content: "";
+				display: inline-flex;
+				align-items: center;
+				position: absolute;
+				top: 50%;
+				left: calc(var(--#{$prefix}-form-input--dash-gap) * -1);
+				transform: translateY(-50%);
+				width: 8px;
+				height: 1px;
+				background-color: #000;
+				margin: 0 8px;
+			}
+		}
+	}
+}
+
+.column {
+  .input-group {
+    flex-direction: column;
+		align-items: stretch;
+
+    &.range {
+      > li {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .form-group {
+    @include form-layout-color-variable(map.get($modes, 'high-contrast'));
+
+    .form-tit,
+    .form-label {
+      color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-text-subtle);
+    }
+
+    [class^='form-hint'] {
+      &::before {
+        @include svg-icon($size: var(--#{$prefix}-icon--size-small), $mode: map.get($modes, 'high-contrast'));
+        @include icon-set(ico_information);
+      }
+    }
+
+    [class^='form-hint-'] {
+      &::before {
+        @include svg-icon($size: var(--#{$prefix}-icon--size-small), $mode: map.get($modes, 'high-contrast'), $effect: pure);
+      }
+    }
+
+    .form-hint-success {
+      // 성공
+      &::before {
+        @include icon-set(ico_success_fill, pure);
+      }
+    }
+
+    .form-hint-information {
+      // 정보
+      &::before {
+        @include icon-set(ico_information_fill, pure);
+      }
+    }
+
+    .form-hint-invalid {
+      // 에러
+      &::before {
+        @include icon-set(ico_error_fill, pure);
+      }
+    }
+  }
+}
+
+/* 검색 폼 */
+.sch-form-wrap {
+  @include flex-layout($ai: center);
+
+  gap: var(--#{$prefix}-gap-5);
+
+  &.vert {
+    @include flex-layout($fd: column, $ai: flex-start);
+
+    .sch-input {
+      width: 100%;
+    }
+  }
+
+  .input-group {
+    .#{$prefix}-form-select {
+      width: auto;
+    }
+  }
+
+  .#{$prefix}-btn {
+    &.ico-sch-plus {
+      &::before {
+        @include square(var(--#{$prefix}-size-height-4));
+      }
+    }
+  }
+}
+
+.sch-input {
+  display: flex;
+  position: relative;
+
+  .#{$prefix}-input {
+    padding: 0 var(--#{$prefix}-size-height-7) 0 var(--#{$prefix}-padding-6);
+
+    &.xlarge {
+      font-weight: var(--#{$prefix}-font-weight-bold);
+      padding: 0 7.2rem 0 var(--#{$prefix}-padding-8);
+    }
+  }
+
+  .ico-search {
+    position: absolute;
+    top: 50%;
+    right: var(--#{$prefix}-gap-5);
+    transform: translateY(-50%);
+  }
+}
+
+// 모바일 전용
+@include size-medium {
+  .form-group {
+    .form-conts {
+      &.keyword-sch {
+        width: 100%;
+      }
+    }
+  }
+
+  /* 검색 폼 */
+  .sch-form-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sch-input {
+    .#{$prefix}-input {
+      &.xlg {
+        padding: 0 var(--#{$prefix}-number-16) 0 var(--#{$prefix}-number-8);
+
+        ~ .ico-search {
+          right: var(--#{$prefix}-number-8);
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
+  }
+}

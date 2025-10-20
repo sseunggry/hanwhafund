@@ -12,7 +12,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const scssEntries = {};
 glob.sync('./src/assets/scss/*.scss').forEach((file) => {
   const name = path.basename(file, '.scss');
-  scssEntries[name] = `./${file.replace(/^\.\//, '')}`;
+  // scssEntries[name] = `./${file.replace(/^\.\//, '')}`;
+	scssEntries[name] = path.resolve(__dirname, file);
 });
 
 const htmlPages = glob.sync('./src/pages/**/*.html');
@@ -36,19 +37,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.html$/,
+        test: /\.(ejs|html)$/,
         use: [
 					{
             loader: 'html-loader',
             options: {
               sources: {
-								urlFilter: (attribute, value, resourcePath) => {
-									if (/\.(css|js)$/.test(value)) {
-										return false;
-									}
-									return true;
-								},
-							}
+								// urlFilter: (attribute, value, resourcePath) => {
+								// 	if (/\.(css|js)$/.test(value)) {
+								// 		return false;
+								// 	}
+								// 	return true;
+								// },
+								urlFilter: (attribute, value) => !/\.(css|js)$/.test(value),
+							},
+							minimize: false,
+							esModule: false,
+							// attributes: false
             }
           },
 					// {
@@ -58,12 +63,22 @@ module.exports = {
 					// 	}
 					// }
           'ejs-plain-loader', // EJS를 순수 HTML로 변환
+					// {
+					// 	loader: 'ejs-plain-loader',
+					// 	options: {
+					// 		locals: {
+					// 			// 모든 EJS 템플릿에 공통으로 적용될 변수
+					// 			projectName: 'hwf',
+					// 		}
+					// 	}
+					// }
         ]
       },
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,  // CSS 파일로 분리
+          // MiniCssExtractPlugin.loader,  // CSS 파일로 분리
+					'style-loader',
           'css-loader',
           'sass-loader'
         ],
@@ -86,9 +101,9 @@ module.exports = {
   },
   plugins: [
 		new RemoveEmptyScriptsPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'assets/css/[name].css',
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'assets/css/[name].css',
+    // }),
     // HTML로 생성
     ...htmlPages.map((file) => {
       const name = path.basename(file, '.html');
@@ -96,8 +111,11 @@ module.exports = {
         template: file,
         filename: `html/${name}.html`, // dist/pages/ 폴더 내에 출력
         inject: true,
-				chunks: [],
+				chunks: 'all',
         minify: false,
+				// templateParameters: {
+				// 	projectName: 'hwf',
+				// },	
       });
     }),
     // img, fonts, js 폴더 그대로 복사 (src/assets -> dist/assets)
@@ -130,8 +148,9 @@ module.exports = {
     port: 4000,
     open: ['/html/index.html'],
     hot: true,
-		watchFiles: ['src/**/*'],
+		liveReload: true,
+		// watchFiles: ['src/**/*'],
+		watchFiles: ['src/**/*.{js,scss,html,ejs}'],
   },
   mode: isProduction ? 'production' : 'development',  // mode: 'development', // 배포시 'production'으로 변경
 };
-

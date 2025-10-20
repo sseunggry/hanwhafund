@@ -1,0 +1,197 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 아코디언 */
+// 사이즈 정의
+@mixin accordion-size-variable() {
+  --#{$prefix}-accordion--list-margin-y: var(--#{$prefix}-padding-2);
+  --#{$prefix}-accordion--padding: var(--#{$prefix}-padding-7);
+  --#{$prefix}-accordion--button-padding-right: calc(var(--#{$prefix}-accordion--padding) + var(--#{$prefix}-gap-5) + var(--#{$prefix}-accordion--button-icon-size));
+  --#{$prefix}-accordion--medium-padding: var(--#{$prefix}-padding-6);
+  --#{$prefix}-accordion--line-button-padding-right: calc(var(--#{$prefix}-gap-5) + var(--#{$prefix}-accordion--button-icon-size));
+  --#{$prefix}-accordion--button-icon-size: var(--#{$prefix}-icon--size-large);
+  --#{$prefix}-accordion--button-arrow: var(--#{$prefix}-number-10);
+  --#{$prefix}-accordion--button-arrow-medium: var(--#{$prefix}-number-9);
+  --#{$prefix}-accordion--radius: var(--#{$prefix}-radius-max);
+  --#{$prefix}-accordion--small-button-font-size: var(--#{$prefix}-small-font-size-heading-small);
+  --#{$prefix}-accordion--medium-button-font-size: var(--#{$prefix}-medium-font-size-heading-small);
+  --#{$prefix}-accordion--large-button-font-size: var(--#{$prefix}-large-font-size-heading-small);
+  --#{$prefix}-accordion--small-button-font-size-medium: var(--#{$prefix}-small-font-size-heading-xsmall);
+  --#{$prefix}-accordion--medium-button-font-size-medium: var(--#{$prefix}-medium-font-size-heading-xsmall);
+  --#{$prefix}-accordion--large-button-font-size-medium: var(--#{$prefix}-large-font-size-heading-xsmall);
+}
+
+// 컬러 정의
+@mixin accordion-color-variable($mode: light) {
+  --#{$prefix}-accordion--color-action: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
+  --#{$prefix}-accordion--button-color-action: var(--#{$prefix}-#{$mode}-color-action-transparency);
+  --#{$prefix}-accordion--button-color-action-hover: var(--#{$prefix}-#{$mode}-color-action-primary-pressed);
+  --#{$prefix}-accordion--button-color-action-pressed: var(--#{$prefix}-#{$mode}-color-action-transparency);
+  --#{$prefix}-accordion--color-action-open: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
+  --#{$prefix}-accordion--color-action-open-border: var(--#{$prefix}-#{$mode}-color-border-neutral-light);
+  --#{$prefix}-accordion--color-divider: var(--#{$prefix}-#{$mode}-color-border-neutral-light);
+  --#{$prefix}-accordion--color-divider-open: var(--#{$prefix}-#{$mode}-color-divider-gray-dark);
+  --#{$prefix}-accordion--button-color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
+  --#{$prefix}-accordion--button-color-text-open: var(--#{$prefix}-#{$mode}-color-text-secondary);
+  --#{$prefix}-accordion--color-icon: var(--#{$prefix}-#{$mode}-color-icon-gray);
+}
+
+.#{$prefix}-accordion {
+  @include accordion-color-variable(map.get($modes, 'light'));
+  @include accordion-size-variable;
+
+  .accordion-item {
+    padding: var(--#{$prefix}-accordion--list-margin-y) 0;
+    border-top: 0.1rem solid var(--#{$prefix}-accordion--color-divider);
+    transition: var(--#{$prefix}-transition-base);
+
+    .btn-accordion {
+      @include flex-layout($ai: center);
+      position: relative;
+      width: 100%;
+      gap: var(--#{$prefix}-gap-5);
+      padding: var(--#{$prefix}-accordion--padding) 0;
+      background-color: var(--#{$prefix}-accordion--button-color-action);
+      border-radius: var(--#{$prefix}-accordion--radius);
+
+      .title-wrap {
+        @include flex-layout($ai: center);
+        gap: var(--#{$prefix}-gap-3);
+        flex: 1 0 0;
+      }
+
+      .title {
+        font-size: var(--#{$prefix}-accordion--small-button-font-size);
+        color: var(--#{$prefix}-accordion--button-color-text);
+        font-weight: var(--#{$prefix}-small-font-weight-regular);
+        text-align: left;
+
+        @include size-medium-to-large {
+          font-size: var(--#{$prefix}-accordion--medium-button-font-size);
+        }
+
+        @include size-large-more {
+          font-size: var(--#{$prefix}-accordion--large-button-font-size);
+        }
+      }
+
+      &:focus,
+      &:hover {
+        background-color: var(--#{$prefix}-accordion--button-color-action-hover);
+      }
+
+      &:active {
+        background-color: var(--#{$prefix}-accordion--button-color-action-pressed);
+      }
+
+      &::after {
+        @include pseudo;
+        @include svg-icon(var(--#{$prefix}-accordion--button-arrow), $mode: map.get($modes, 'light'));
+        @include icon-set(ico_angle);
+
+        background-color: var(--#{$prefix}-accordion--color-icon);
+        transition: var(--#{$prefix}-transition-base);
+        transform: rotate(0deg);
+      }
+
+      &.active {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &.active {
+      .title {
+        color: var(--#{$prefix}-accordion--button-color-text-open);
+        font-weight: var(--#{$prefix}-font-weight-semibold);
+      }
+
+      .btn-accordion {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .accordion-collapse {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+      visibility: hidden;
+    }
+
+    .accordion-body {
+      padding: 0 var(--#{$prefix}-accordion--padding) var(--#{$prefix}-accordion--padding);
+      color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-text-subtler);
+      font-size: var(--#{$prefix}-small-font-size-body-xsmall);
+
+      @include size-medium-to-large {
+          font-size: var(--#{$prefix}-medium-font-size-body-xsmall);
+        }
+
+      @include size-large-more {
+        font-size: var(--#{$prefix}-large-font-size-body-xsmall);
+      }
+    }
+
+    &.active {
+      padding-bottom: var(--#{$prefix}-gap-7);
+
+      .accordion-collapse {
+        height: auto;
+        max-height: 100vh;
+        transition: all 1.5s ease-in-out;
+        visibility: visible;
+      }
+
+      .accordion-body {
+        background-color: var(--#{$prefix}-accordion--color-action-open);
+        border: 0.1rem dashed var(--#{$prefix}-accordion--color-action-open-border);
+      }
+    }
+  }
+
+  // size - medium
+  &.medium {
+    .accordion-item {
+      .btn-accordion {
+        padding: var(--#{$prefix}-accordion--medium-padding);
+
+        .title {
+          font-size: var(--#{$prefix}-accordion--small-button-font-size-medium);
+
+          @include size-medium-to-large {
+            font-size: var(--#{$prefix}-accordion--medium-button-font-size-medium);
+          }
+
+          @include size-large-more {
+            font-size: var(--#{$prefix}-accordion--large-button-font-size-medium);
+          }
+        }
+
+        &::after {
+          @include svg-icon(var(--#{$prefix}-accordion--button-arrow-medium), $mode: map.get($modes, 'light'));
+        }
+      }
+
+      &.active {
+        padding-bottom: var(--#{$prefix}-gap-6);
+      }
+    }
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .#{$prefix}-accordion {
+    @include accordion-color-variable(map.get($modes, 'high-contrast'));
+  }
+}
+
+@include size-medium {
+  .#{$prefix}-accordion {
+    --#{$prefix}-accordion--padding: var(--#{$prefix}-padding-6);
+    --#{$prefix}-accordion--line-padding: var(--#{$prefix}-padding-5);
+    --#{$prefix}-accordion--button-icon-size: var(--#{$prefix}-icon--size-medium);
+  }
+}

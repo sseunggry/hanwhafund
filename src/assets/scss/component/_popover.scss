@@ -1,0 +1,210 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 팝오버 */
+
+// 사이즈 정의
+@mixin contextual-help-size-variable() {
+  --#{$prefix}-contextual-help--action-btn-radius: var(--#{$prefix}-radius-small2);
+  --#{$prefix}-contextual-help--action-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
+  --#{$prefix}-contextual-help--action-mobile-font-size: var(--#{$prefix}-mobile-font-size-body-small);
+  --#{$prefix}-contextual-help--popover-width: 36rem;
+  --#{$prefix}-contextual-help--popover-padding: var(--#{$prefix}-padding-8);
+  --#{$prefix}-contextual-help--popover-radius: var(--#{$prefix}-radius-xlarge2);
+  --#{$prefix}-contextual-help--popover-title-pc-font-size: var(--#{$prefix}-pc-font-size-heading-xsmall);
+  --#{$prefix}-contextual-help--popover-title-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall);
+  --#{$prefix}-contextual-help--popover-contents-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
+  --#{$prefix}-contextual-help--popover-contents-mobile-font-size: var(--#{$prefix}-mobile-font-size-body-small);
+}
+
+// 컬러 정의
+@mixin contextual-help-color-variable($mode: light) {
+  --#{$prefix}-contextual-help--action-btn-color-background: var(--#{$prefix}-#{$mode}-color-action-secondary);
+  --#{$prefix}-contextual-help--action-btn-color-background-hover: var(--#{$prefix}-#{$mode}-color-action-secondary-hover);
+  --#{$prefix}-contextual-help--action-btn-color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-secondary-pressed);
+  --#{$prefix}-contextual-help--action-icon-color-information: var(--#{$prefix}-#{$mode}-color-icon-information);
+  --#{$prefix}-contextual-help--popover-color-text-basic: var(--#{$prefix}-#{$mode}-color-text-basic);
+  --#{$prefix}-contextual-help--popover-color-text-bolder: var(--#{$prefix}-#{$mode}-color-text-bolder);
+  --#{$prefix}-contextual-help--popover-color-border: var(--#{$prefix}-#{$mode}-color-border-gray);
+  --#{$prefix}-contextual-help--popover-color-background: var(--#{$prefix}-#{$mode}-color-surface-white-subtler);
+  --#{$prefix}-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow3);
+}
+
+.#{$prefix}-contextual-help {
+  @include contextual-help-color-variable(map.get($modes, 'light'));
+  @include contextual-help-size-variable;
+  @include flex-layout($ai: center);
+
+  & {
+    gap: var(--#{$prefix}-gap-2);
+  }
+
+  .tooltip-txt {
+    font-size: var(--#{$prefix}-contextual-help--action-pc-font-size);
+  }
+
+  .tooltip-action {
+    @include flex-layout($ai: center);
+
+    position: relative;
+
+    .tooltip-btn {
+      @include flex-layout($ai: center);
+
+      border-radius: var(--#{$prefix}-contextual-help--action-btn-radius);
+      background-color: var(--#{$prefix}-contextual-help--action-btn-color-background);
+
+      &:hover {
+        background-color: var(--#{$prefix}-contextual-help--action-btn-color-background-hover);
+      }
+
+      &:active {
+        background-color: var(--#{$prefix}-contextual-help--action-btn-color-background-pressed);
+      }
+
+      .ico-tooltip {
+        background-color: var(--#{$prefix}-contextual-help--action-icon-color-information);
+      }
+    }
+  }
+
+  .tooltip-popover {
+    --#{$prefix}-contextual-help--bubble-arrow-size: 1.6rem;
+    --#{$prefix}-contextual-help--bubble-arrow-margin: calc((var(--#{$prefix}-contextual-help--bubble-arrow-size) / 2) * -1);
+    --#{$prefix}-contextual-help--bubble-margin-x: 2.4rem;
+    --#{$prefix}-contextual-help--bubble-arrow-position-x: -2rem;
+
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: var(--#{$prefix}-contextual-help--popover-width);
+    padding: var(--#{$prefix}-contextual-help--popover-padding);
+    border-radius: var(--#{$prefix}-contextual-help--popover-radius);
+    background-color: var(--#{$prefix}-contextual-help--popover-color-background);
+    border: 0.1rem solid var(--#{$prefix}-contextual-help--popover-color-border);
+    box-shadow: var(--#{$prefix}-contextual-help--popover-shadow);
+
+    &::before {
+      @include pseudo;
+      @include square(var(--#{$prefix}-contextual-help--bubble-arrow-size));
+
+      display: block;
+      position: absolute;
+      margin-top: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
+      transform: rotate(45deg);
+      border: 0.1rem solid var(--#{$prefix}-contextual-help--popover-color-border);
+      border-top-color: transparent;
+      border-left-color: transparent;
+      background-color: var(--#{$prefix}-contextual-help--popover-color-background);
+    }
+
+    .tooltip-title {
+      @include ellipsis(1);
+
+      color: var(--#{$prefix}-contextual-help--popover-color-text-bolder);
+      font-size: var(--#{$prefix}-contextual-help--popover-title-pc-font-size);
+      padding-right: var(--#{$prefix}-gap-5);
+    }
+
+    .tooltip-contents {
+      @include flex-layout($fd: column);
+
+      color: var(--#{$prefix}-contextual-help--popover-color-text-basic);
+      font-size: var(--#{$prefix}-contextual-help--popover-contents-pc-font-size);
+      margin-top: var(--#{$prefix}-gap-5);
+      gap: var(--#{$prefix}-gap-3);
+    }
+
+    .tooltip-close {
+      @include position($t: var(--#{$prefix}-contextual-help--popover-padding), $r: var(--#{$prefix}-contextual-help--popover-padding));
+    }
+  }
+
+  &.left {
+    .tooltip-popover {
+      left: 0;
+      margin-left: var(--#{$prefix}-contextual-help--bubble-arrow-position-x);
+
+      &::before {
+        left: var(--#{$prefix}-contextual-help--bubble-margin-x);
+      }
+    }
+  }
+
+  &.center {
+    .tooltip-popover {
+      @include position-center(x);
+
+      &::before {
+        left: 50%;
+        margin-left: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
+      }
+    }
+  }
+
+  &.right {
+    .tooltip-popover {
+      right: 0;
+      margin-right: var(--#{$prefix}-contextual-help--bubble-arrow-position-x);
+
+      &::before {
+        right: var(--#{$prefix}-contextual-help--bubble-margin-x);
+      }
+    }
+  }
+
+  &.top {
+    .tooltip-popover {
+      bottom: 100%;
+      margin-bottom: var(--#{$prefix}-gap-5);
+
+      &::before {
+        top: 100%;
+      }
+    }
+  }
+
+  &.bottom {
+    .tooltip-popover {
+      top: 100%;
+      margin-top: var(--#{$prefix}-gap-5);
+
+      &::before {
+        bottom: 100%;
+        transform: rotate(225deg);
+        margin-bottom: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
+      }
+    }
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  // #{$prefix}-contextual-help
+  .#{$prefix}-contextual-help {
+    @include contextual-help-color-variable(map.get($modes, 'high-contrast'));
+  }
+}
+
+// responsive mobile
+@include size-medium {
+  .#{$prefix}-contextual-help {
+    .tooltip-popover {
+      right: unset !important;
+      transform: none !important;
+      margin-left: 0 !important;
+
+      &::before {
+        display: none;
+      }
+
+      .tooltip-title {
+        font-size: var(--#{$prefix}-contextual-help--popover-title-mobile-font-size);
+      }
+
+      .tooltip-contents {
+        font-size: var(--#{$prefix}-contextual-help--popover-contents-mobile-font-size);
+      }
+    }
+  }
+}

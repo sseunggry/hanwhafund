@@ -1,0 +1,88 @@
+{
+	// Place your webpack-ejs workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"ejs_코드 실행 (변수 선언, 제어문 등)" :{
+		"scope": "html, ejs",
+		"prefix": "ejs",
+		"body": [
+			"<% const value = '$1'; -%>",
+		],
+	},
+	"ejs_안전한 출력 (HTML 이스케이프) =" :{
+		"scope": "html, ejs",
+		"prefix": "ejsout",
+		"body": [
+			"<%= $1 %>",
+		],
+	},
+	"ejs_원시 출력 (HTML 태그 그대로) -" :{
+		"scope": "html, ejs",
+		"prefix": "ejsesc",
+		"body": [
+			"<%- $1 %>",
+		],
+	},
+	"ejs_주석" :{
+		"scope": "html, ejs",
+		"prefix": "ejscom",
+		"body": [
+			"<%# $1 %>",
+		],
+	},
+	"ejs_인클루드" :{
+		"scope": "html, ejs",
+		"prefix": "ejsinc",
+		"body": [
+			"<%- include('$1') %>",
+		],
+	},
+	"ejs_반복문_each" :{
+		"scope": "html, ejs",
+		"prefix": "ejseach",
+		"body": [
+			"<% const array1 = []; -%>",
+			"<% array1.forEach(element => { -%>",
+			"	$0",
+			"<% }) -%>"
+		],
+	},
+	"ejs_반복문_for" :{
+		"scope": "html, ejs",
+		"prefix": "ejsfor",
+		"body": [
+			"<% const array2 = []; -%>",
+			"<% for( let index = 0; index < array2.length; index++ ) { -%>",
+			"	<p><%= array2[index] %></p>",
+			"	$0",
+			"<% } -%>"
+		],
+	},
+	"ejs_if" :{
+		"scope": "html, ejs",
+		"prefix": "ejsif",
+		"body": [
+			"<% const condition = ture; -%>",
+			"<% if (condition) { -%>",
+			"	$0",
+			"<% } else if (condition2) { -%>",
+			"	",
+			"<% } else { -%>",
+			"	",
+			"<% } -%>",
+		],
+	},
+}

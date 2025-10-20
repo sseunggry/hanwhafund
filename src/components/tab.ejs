@@ -1,0 +1,48 @@
+<%
+  const localsSafe = locals || {};
+	const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const active = Number(localsSafe.active) || 0; // 활성 탭 인덱스 (기본값: 0)
+  const variant = localsSafe.variant || 'line'; // 탭 스타일 (기본값: line)
+	const full = localsSafe.full ? 'full' : ''; // 전체 너비 여부
+  const tablist = Array.isArray(localsSafe.tablist) ? localsSafe.tablist : ['기본 탭']; // 탭 레이블 배열
+  const contents = Array.isArray(localsSafe.contents) ? localsSafe.contents : ['기본 콘텐츠']; // 탭 콘텐츠 배열
+  const addClass = localsSafe.addClass || ''; // 추가 클래스
+	const classes = [
+		variant,
+		full,
+    addClass
+  ].filter(Boolean).join(' ');
+
+	const uniqueId = `tab-${Math.random().toString(36).substring(2, 9)}`;
+%>
+
+<div class="<%= projectName %>-tab-area">
+  <div class="tab <%= classes %>">
+    <ul role="tablist">
+      <% tablist.forEach(function(label, idx) { -%>
+        <li 
+          id="<%= uniqueId %>-tab-<%= idx + 1 %>" 
+          role="tab" 
+          aria-controls="<%= uniqueId %>-panel-<%= idx + 1 %>" 
+          <%- active === idx ? `class="active" aria-selected="true"` : `aria-selected="false"` %>
+        >
+          <button type="button" class="btn-tab">
+            <%= label %><span class="sr-only"><%= active === idx ? ' 선택됨' : '' %></span>
+          </button>
+        </li>
+      <% }); -%>
+    </ul>
+  </div>
+  <div class="tab-conts-wrap">
+    <% tablist.forEach(function(label, idx) { -%>
+      <section 
+        id="<%= uniqueId %>-panel-<%= idx + 1 %>" 
+        class="tab-conts <%= active === idx ? 'active' : '' %>" 
+        role="tabpanel" 
+        aria-labelledby="<%= uniqueId %>-tab-<%= idx + 1 %>"
+      >
+        <%- contents[idx] || '콘텐츠 없음' %>
+      </section>
+    <% }); -%>
+  </div>
+</div>

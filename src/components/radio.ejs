@@ -1,0 +1,38 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const variant = localsSafe.variant || ''; // checkbox, check(체크 아이콘)
+  const size = localsSafe.size || 'medium'; // medium, large
+  const state = localsSafe.state || ''; // default, checked
+	const disabled = localsSafe.disabled ? 'disabled' : '';
+  const label = localsSafe.label || '라디오';
+	const iconPos = localsSafe.iconPos || ''; //left, right
+	const slot = localsSafe.slot || ''; // 추가 내용 넣기
+	const addClass = localsSafe.addClass || ''; 
+	const classes = [
+    `${projectName}-form-check`,
+    size,
+		variant === 'check' ? 'check-icon' : '', 
+		iconPos === 'right' ? 'icon-right' : '',
+		addClass
+  ].filter(Boolean).join(' ');
+
+	const uniqueId = `radio-${Math.random().toString(36).substring(2, 9)}`;
+%>
+
+<div class="<%= classes %>">
+	<input 
+		type="radio" 
+		id="<%= uniqueId %>" 
+		<%= state === 'checked' ? 'checked' : '' %>
+		<%= disabled %>
+	>
+	<label for="<%= uniqueId %>">
+		<% if (slot) { -%>
+			<span class="sr-only"><%= label %></span>
+			<%- slot %>
+		<% } else { -%>
+			<span><%= label %></span>
+		<% } -%>
+	</label>
+</div>

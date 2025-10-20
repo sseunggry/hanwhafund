@@ -1,52 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <%- include('../layouts/head.ejs') %>
 </head>
 <body>
-  <%- include('../components/header.ejs') %>
+  <%- include('../layouts/header.ejs') %>
   
   <div class="container">
     <h1>🎉 성공 dsdfsdf!</h1>
     <p>설정이 정상 작동합니다.</p>
 
-    <nav>
-      <a href="/main">Main 페이지 (/main)</a>
-      <a href="/">홈페이지</a>
-    </nav>
+		<%- include('../components/button.ejs') %>
+		
+		<%- include('../components/tab.ejs', {
+			active: 1,
+			variant: 'line',
+			tablist: ['탭 1', '탭 2', '탭 3', '탭 4'],
+			contents: [
+				'탭 1 내용',
+				'<p>탭 2 내용</p>',
+				'<div>탭 3 내용</div>',
+				'탭 4 내용'
+			],
+		}) %>
+		
+
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '클릭하세요',
+			hierarchy: 'secondary',
+			disabled: false,
+			tag: 'a',
+			preSlot: '<span class="icon">★</span>',
+			addClass: 'custom-btn',
+			size: 'large'
+		}) %>
+
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '클릭하세요',
+			hierarchy: 'secondary',
+			tag: 'button',
+			preIcon: 'sch',
+			disabled: true,
+			size: 'large'
+		}) %>
+
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '클릭하세요',
+			hierarchy: 'secondary',
+			tag: 'button',
+			preIcon: 'sch',
+			size: 'large',
+			iconOnly: true,
+		}) %>
+
+
+		<%- include('../components/badge.ejs', {
+			label: '',
+			variant: 'outline',
+			color: 'primary',
+			size: 'large',
+		}) %>
+		<%- include('../components/badge.ejs', {
+			label: '',
+			variant: 'solid',
+			color: 'secondary',
+			size: 'medium',
+		}) %>
+		<%- include('../components/badge.ejs', {
+			label: '',
+			variant: 'solid-pastel',
+			color: 'tertiary',
+			size: 'medium',
+		}) %>
+
+		<%- include('../components/tag.ejs', {
+			tagList: ['태그1', '태그2', '태그3'],
+			variant: 'sorting',
+			size: 'large',
+		}) %>
+		<%- include('../components/tag.ejs') %>
+
+		<%- include('../components/checkbox.ejs', {
+			label: '',
+			variant: '',
+			size: 'large',
+		}) %>
+		<%- include('../components/checkbox.ejs', {
+			label: '',
+			variant: 'check',
+			size: '',
+		}) %>
+		<%- include('../components/checkbox.ejs', {
+			label: '한화2.2배레버리지인덱스증권투자신탁',
+			slot: `
+			<div class="chk-con fund-item">
+				<div class="info">
+					<p class="tag">아세안ㆍ주식혼합ㆍ중소형주/성장주</p>
+					<p class="name">한화2.2배레버리지인덱스증권투자신탁 (주식-파생재간접형)</p>
+				</div>
+				<div class="price">
+					<dl>
+						<dt>기준가</dt>
+          	<dd>724.47</dd>
+					</dl>
+					<dl>
+						<dt>순자산</dt>
+          	<dd>3,333.19</dd>
+					</dl>
+				</div>
+				<ul class="rate">
+					<li>12.71</li>
+					<li>12.71</li>
+					<li>15.81</li>
+					<li>32.5</li>
+					<li>37.15</li>
+					<li>37.15</li>
+					<li>37.15</li>
+					<li>37.15</li>
+				</ul>
+			</div>
+			`,
+			variant: 'check',
+			size: '',
+			addClass: 'card'
+		}) %>
+
+
+		<%- include('../components/radio.ejs', {
+			label: '',
+			variant: 'check',
+			size: '',
+		}) %>
+		<%- include('../components/radio.ejs', {
+			label: '한화2.2배레버리지인덱스증권투자신탁',
+			slot: `
+			<div class="chk-con fund-item">
+				<div class="info">
+					<p class="tag">아세안ㆍ주식혼합ㆍ중소형주/성장주</p>
+					<p class="name">한화2.2배레버리지인덱스증권투자신탁 (주식-파생재간접형)</p>
+				</div>
+			</div>
+			`,
+			variant: 'check',
+			size: '',
+			addClass: 'card'
+		}) %>
+
+
+
   </div>
 
-	<% const name1 = '홍길동'; %>
-	<h1><%= name1 %></h1>
-
-	<% const name2 = '홍길동123'; %>
-	<h1><%= name2 %></h1>
-	
-	<% const name3 = '홍길동12345645'; %>
-	<h1><%= name3 %></h1>
-
-	<% condition = false; %>
-	<% if (condition) { %>
-		<h1>true</h1>
-	<% } else { %>
-		<p>false</p>
-	<% } %>
-
-	<% const array2 = ['menu1', 'menu2', 'menu3', 'menu4']; %>
-	<ul>
-
-
-		
-		<% for( let index = 0; index < array2.length; index++ ) { %>
-			<% const $i = array2[index] %>
-			<li class="ico-<%= $i %>"><%= $i %></li>
-		<% } %>
-	</ul>
-
-	<%- include('../components/footer.ejs') %>
-
-	
+	<%- include('../layouts/footer.ejs') %>
 </body>
 </html>

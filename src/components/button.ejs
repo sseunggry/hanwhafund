@@ -1,0 +1,37 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const tag = localsSafe.tag === 'a' ? 'a' : 'button'; // a 또는 button
+  const variant = localsSafe.variant || ''; // default, text, link
+  const hierarchy = localsSafe.hierarchy || 'primary'; // primary, secondary, tertiary
+  const size = localsSafe.size || 'medium'; // xsmall, small, medium, large
+  const disabled = localsSafe.disabled ? 'disabled' : '';
+  const addClass = localsSafe.addClass || '';
+  const label = localsSafe.label || '버튼';
+  const preSlot = localsSafe.preSlot || '';
+  const postSlot = localsSafe.postSlot || '';
+  const preIcon = localsSafe.preIcon || '';
+  const postIcon = localsSafe.postIcon || '';
+	const iconOnly = localsSafe.iconOnly || '';
+	const classes = [
+    `${projectName}-btn`,
+    variant,
+    hierarchy,
+    size,
+    disabled,
+    addClass,
+		iconOnly ? 'icon' : '',
+  ].filter(Boolean).join(' ');
+%>
+
+<<%= tag %>
+  <%- tag === 'button' ? `type="button"` : `href="#!"` %>
+	<%= disabled %>
+  class="<%= classes %>"
+>
+	<%- preSlot %>
+	<%- preIcon ? `<i class="svg-icon ico-${preIcon}"></i>` : '' %>
+	<%- iconOnly ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` %>
+  <%- postIcon ? `<i class="svg-icon ico-${postIcon}"></i>` : '' %>
+  <%- postSlot %>
+</<%= tag %>>

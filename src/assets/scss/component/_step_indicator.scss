@@ -1,0 +1,242 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 단계 표시기 */
+
+// 사이즈 정의
+@mixin step-size-variable() {
+
+  --#{$prefix}-step--step-font-size: var(--#{$prefix}-small-font-size-body-small);
+  --#{$prefix}-step--step-title-font-size: var(--#{$prefix}-small-font-size-body-xsmall);
+  --#{$prefix}-step--step-title-gap-top: var(--#{$prefix}-gap-1);
+  --#{$prefix}-step--circle-size-default: var(--#{$prefix}-icon--size-medium);
+  --#{$prefix}-step--circle-size-active: 1.2rem;
+  --#{$prefix}-step--circle-radius: var(--#{$prefix}-radius-full);
+  --#{$prefix}-step--padding-txt-top: var(--#{$prefix}-number-12);
+  --#{$prefix}-step--padding-txt-right: var(--#{$prefix}-padding-3);
+  --#{$prefix}-step--border-width-medium: 0.1rem;
+  --#{$prefix}-step--color-simple-step-font-size: var(--#{$prefix}-small-font-size-label-xsmall);
+}
+
+// 컬러 정의
+@mixin step-color-variable($mode: light) {
+  --#{$prefix}-step--color-step: var(--#{$prefix}-#{$mode}-color-text-basic); 
+  --#{$prefix}-step--color-step-title: var(--#{$prefix}-#{$mode}-color-text-subtle);
+  --#{$prefix}-step--color-fill-default: var(--#{$prefix}-#{$mode}-color-element-disabled);  
+  --#{$prefix}-step--color-fill-done: var(--#{$prefix}-#{$mode}-color-element-primary-light);
+  --#{$prefix}-step--color-fill-active: var(--#{$prefix}-#{$mode}-color-element-primary);
+  --#{$prefix}-step--color-fill-white: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
+  --#{$prefix}-step--color-border-default: var(--#{$prefix}-#{$mode}-color-element-disabled);
+  --#{$prefix}-step--color-border-done: var(--#{$prefix}-#{$mode}-color-border-primary-light);
+  --#{$prefix}-step--color-border-active: var(--#{$prefix}-step--color-fill-active);
+  --#{$prefix}-step--color-icon-done: var(--#{$prefix}-#{$mode}-color-element-primary);
+  --#{$prefix}-step--color-icon-active: var(--#{$prefix}-step--color-fill-active);  
+  --#{$prefix}-step--color-simple-step: var(--#{$prefix}-#{$mode}-color-text-disabled-on);
+  --#{$prefix}-step--color-simple-step-active: var(--#{$prefix}-#{$mode}-color-text-basic-inverse);
+}
+
+.#{$prefix}-step-wrap {
+  @include step-color-variable(map.get($modes, 'light'));
+  @include step-size-variable;
+
+  & {
+    display: flex;
+  }
+ 
+
+  > li {
+    flex: 1;
+    position: relative;
+
+    &:not(:last-child){
+      &::after {
+        @include pseudo;
+        
+        background-color: var(--#{$prefix}-step--color-fill-default);
+      }
+    }
+    
+    > span {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-top: var(--#{$prefix}-step--padding-txt-top);
+      padding-right: var(--#{$prefix}-step--padding-txt-right);
+
+      &::before,
+      &::after {
+        @include pseudo;
+
+        border-radius: var(--#{$prefix}-step--circle-radius);
+      }
+
+      &::before {
+        @include position($t: 0, $l: 0);
+
+        z-index: 2;
+        width: var(--#{$prefix}-step--circle-size-default);
+        height: var(--#{$prefix}-step--circle-size-default);
+        background-color: var(--#{$prefix}-step--color-fill-default);
+        border: 0.1rem solid var(--#{$prefix}-step--color-border-default);
+      }
+    }
+
+    .step {
+      font-size: var(--#{$prefix}-step--step-font-size);
+      color: var(--#{$prefix}-step--color-step);
+    }
+
+    .step-tit {
+      margin-top: var(--#{$prefix}-step--step-title-gap-top);
+      font-size: var(--#{$prefix}-step--step-title-font-size);     
+      color: var(--#{$prefix}-step--color-step-title);
+      white-space: nowrap;
+    }
+
+    &.done {
+      &::after {
+        background-color: var(--#{$prefix}-step--color-icon-done);
+      }
+
+      > span {
+        &::before {
+          border-color: var(--#{$prefix}-step--color-border-done);
+          background-color: var(--#{$prefix}-step--color-fill-done);
+        }
+
+        &::after {
+          @include position($t: 0, $l: 0);
+          @include svg-icon(var(--#{$prefix}-step--circle-size-default));
+          @include icon-set(ico_step_done);
+
+          background-color: var(--#{$prefix}-step--color-icon-done);
+          z-index: 3;
+        }
+      }
+    }
+
+    &.active {
+      &::after {
+        background-color: var(--#{$prefix}-step--color-border-default);
+      }
+
+      > span {
+        
+        &::before {
+          background-color: var(--#{$prefix}-step--color-fill-white);
+          border-width: var(--#{$prefix}-step--border-width-medium);
+          border-color: var(--#{$prefix}-step--color-border-active);
+        }
+
+        &::after {
+          @include position(
+            $t: calc((var(--#{$prefix}-step--circle-size-default) / 2) - (var(--#{$prefix}-step--circle-size-active) / 2)),
+            $l:calc((var(--#{$prefix}-step--circle-size-default) / 2) - (var(--#{$prefix}-step--circle-size-active) / 2)),
+          );
+         
+          @include square(var(--#{$prefix}-step--circle-size-active));
+
+          background-color: var(--#{$prefix}-step--color-icon-active);
+          z-index: 3;
+        }
+      }
+    }
+  }
+
+   // 가로형
+  &.horizontal {
+    flex-direction: row;
+    > li {
+       &::after {
+        @include position($t: calc((var(--#{$prefix}-step--circle-size-default) / 2) - (var(--#{$prefix}-step--border-width-medium) / 2)), $l: calc(var(--#{$prefix}-step--circle-size-default) + var(--pds-padding-3)));
+         
+        width: calc(100% - var(--pds-padding-3) * 2 - (var(--#{$prefix}-step--circle-size-default)));
+        height: var(--#{$prefix}-step--border-width-medium);
+      }
+    }
+  }
+
+  // 세로형
+  &.vertical {
+    --#{$prefix}-step--padding-txt-top: 0;  
+    --#{$prefix}-step--padding-txt-right: 0;  
+
+    flex-direction: column;
+    > li {
+      &:after {        
+        @include position(
+          $t: calc((var(--#{$prefix}-step--circle-size-default)) + var(--pds-padding-3)),
+          $l: calc((var(--#{$prefix}-step--circle-size-default) / 2) - (var(--#{$prefix}-step--border-width-medium) / 2))
+        );
+        width: var(--#{$prefix}-step--border-width-medium);
+        height: calc(100% - var(--pds-padding-3) * 2 - (var(--#{$prefix}-step--circle-size-default)));
+      }
+
+      &:not(:last-child) {
+        padding-bottom: var(--pds-padding-6);
+      }
+
+      > span {
+        padding-left: calc(2rem + var(--pds-gap-4));
+      }
+    } 
+  }
+
+  // 숫자형
+  &.simple {
+    --#{$prefix}-step--padding-txt-top: var(--#{$prefix}-step--circle-size-default);
+    --#{$prefix}-step--padding-txt-right: 0;
+
+  //justify-content: flex-end;
+  > li {
+      flex: none;   
+      min-width: var(--#{$prefix}-step--circle-size-default);
+      &:not(:last-child) {
+        padding-right: calc(var(--#{$prefix}-step--circle-size-default) + var(--pds-number-12));
+      }
+      &::after {
+        top: 50%;
+        left: calc(var(--#{$prefix}-step--circle-size-default) + var(--pds-padding-2) + var(--pds-padding-1));
+        width: calc(100% - (var(--#{$prefix}-step--circle-size-default) + var(--pds-padding-3)));
+      }
+
+      > span {        
+         &::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: var(--#{$prefix}-step--circle-size-default);
+          height: var(--#{$prefix}-step--circle-size-default);
+          text-align: center;
+          content:attr(data-num);
+          font-size: var(--#{$prefix}-step--color-simple-step-font-size);
+          color: var(--#{$prefix}-step--color-simple-step);
+          z-index: 2;
+        }
+      }
+
+      &.active {
+        > span {
+          &::after {
+            color: var(--#{$prefix}-step--color-simple-step-active);
+          }
+        }
+      }
+
+      .step {
+        @include sr-only;
+      }
+
+      .step-tit {
+        @include sr-only;
+      }
+    }
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .#{$prefix}-step-wrap {
+    @include step-color-variable(map.get($modes, 'high-contrast'));
+  }
+}

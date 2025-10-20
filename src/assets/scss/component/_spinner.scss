@@ -1,0 +1,95 @@
+@use "sass:map";
+@use "../util" as *;
+
+/* 스피너 */
+// 사이즈 정의
+@mixin spinner-size-variable() {
+  --#{$prefix}-spinner--layout-gap: var(--#{$prefix}-number-5);
+  --#{$prefix}-spinner--pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
+  --#{$prefix}-spinner--mobile-font-size: var(
+    --#{$prefix}-mobile-font-size-body-small
+  );
+  --#{$prefix}-spinner--size: var(--#{$prefix}-size-large);
+  --#{$prefix}-spinner--animation-duration: 900ms;
+}
+
+// 컬러 정의
+@mixin spinner-color-variable($mode: light) {
+  --#{$prefix}-spinner--color-text: var(
+    --#{$prefix}-#{$mode}-color-text-subtle
+  );
+  --#{$prefix}-spinner--border-width: var(--#{$prefix}-number-4);
+  --#{$prefix}-spinner--color-border: var(
+    --#{$prefix}-#{$mode}-color-element-primary-light
+  );
+  --#{$prefix}-spinner--color-border-active: var(
+    --#{$prefix}-#{$mode}-color-element-primary
+  );
+}
+
+.#{$prefix}-spinner {
+  @include spinner-color-variable(map.get($modes, "light"));
+  @include spinner-size-variable;
+  @include flex-layout($jc: center, $ai: center);
+  @include position($p: relative, $t: 0, $l: 0);
+
+  & {
+    gap: var(--#{$prefix}-spinner--layout-gap);
+    z-index: 10;
+    color: var(--#{$prefix}-spinner--color-text);
+    font-size: var(--#{$prefix}-spinner--pc-font-size);
+    width: 100%;
+    height: 100%;
+    text-align: right;
+  }
+
+  @include size-medium {
+    font-size: var(--#{$prefix}-spinner--mobile-font-size);
+  }
+
+  &::before {
+    display: inline-flex;
+    content: "";
+    height: var(--#{$prefix}-spinner--size);
+    width: var(--#{$prefix}-spinner--size);
+    border: var(--#{$prefix}-spinner--border-width) solid
+      var(--#{$prefix}-spinner--color-border);
+    border: {
+      top-color: var(--#{$prefix}-spinner--color-border-active);
+      radius: 100%;
+    }
+
+    animation: spin var(--#{$prefix}-spinner--animation-duration) infinite
+      linear;
+  }
+}
+
+.form-spinner {
+  // spinner - form-spinner - padding
+  --#{$prefix}-spinner-form-spinner-padding-x: var(--#{$prefix}-number-8);
+
+  position: relative;
+
+  .#{$prefix}-spinner {
+    position: absolute;
+    justify-content: flex-end;
+    padding: 0 var(--#{$prefix}-spinner-form-spinner-padding-x);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .#{$prefix}-spinner {
+    @include spinner-color-variable(map.get($modes, "high-contrast"));
+  }
+}

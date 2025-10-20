@@ -1,0 +1,40 @@
+@use "variables" as *;
+// @use "mixins" as *;
+
+// svg img
+@mixin svg-icon($size: var(--#{$prefix}-icon--size-large), $mode: light, $effect: null) {
+  display: inline-flex;
+// 
+  @include square($size);
+
+  background-color: var(--#{$prefix}-#{$mode}-color-text-basic);
+
+  @if $effect == 'pure' {
+    // mask 효과 없이 디자인된 svg 그대로 사용
+    background-color: transparent !important;
+  }
+
+  forced-color-adjust: none;
+
+  // @media (forced-colors: active) {
+  // }
+}
+
+// svg icon setting
+@mixin icon-set($name, $effect: null) {
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(#{$base-url}/img/component/icon/#{$name}.svg);
+
+  @if $effect == 'pure' {
+    // mask 효과 없이 디자인된 svg 그대로 사용
+    mask-image: none;
+    background-image: url(#{$base-url}/img/component/icon/#{$name}.svg);
+    background-color: transparent !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    // mask: none;
+  }
+}

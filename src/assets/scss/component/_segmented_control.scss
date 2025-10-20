@@ -1,0 +1,108 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 세그먼트 컨트롤 */
+// 사이즈 정의
+@mixin segment-control-size-variable() {
+  $segment-control-size: (
+    small: (
+			padding: var(--#{$prefix}-padding-2),
+      button-height: var(--#{$prefix}-size-small),
+			button-padding: var(--#{$prefix}-padding-3),
+			gap: var(--#{$prefix}-gap-2),
+      radius: var(--#{$prefix}-radius-small),
+			large-font-size: var(--#{$prefix}-large-font-size-label-small),
+      medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
+      small-font-size: var(--#{$prefix}-small-font-size-label-small),
+    ),
+    medium: (
+			padding: var(--#{$prefix}-padding-2),
+      button-height: var(--#{$prefix}-size-medium),
+			button-padding: var(--#{$prefix}-padding-3),
+			gap: var(--#{$prefix}-gap-2),
+      radius: var(--#{$prefix}-radius-medium),
+      large-font-size: var(--#{$prefix}-large-font-size-body-medium),
+      medium-font-size: var(--#{$prefix}-medium-font-size-body-medium),
+      small-font-size: var(--#{$prefix}-small-font-size-body-medium),
+    ),
+  ) !default;
+
+  // css variable 새성
+  @each $size, $types in $segment-control-size {
+    @each $type, $value in $types {
+      // css variable 생성
+      --#{$prefix}-segment-control--#{$type}-#{$size}: #{$value};
+    }
+  }
+
+  // class 정의
+  & {
+    // 사이즈 별 class
+    @each $size, $types in $segment-control-size {
+      &.#{$size} {
+				gap: var(--#{$prefix}-segment-control--gap-#{$size});
+				padding: var(--#{$prefix}-segment-control--padding-#{$size});
+				border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
+				font-size: var(--#{$prefix}-segment-control--large-font-size-#{$size});
+
+				@include size-medium-to-large {
+					font-size: var(--#{$prefix}-segment-control--medium-font-size-#{$size});
+				}
+				@include size-medium {
+					font-size: var(--#{$prefix}-segment-control--small-font-size-#{$size});
+				}
+
+				.control-button {
+					padding: 0 var(--#{$prefix}-segment-control--button-padding-#{$size});
+					height: var(--#{$prefix}-segment-control--button-height-#{$size});
+					border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
+				}
+      }
+    }
+  }
+}
+
+// 컬러 정의
+@mixin segment-control-color-variable($mode: light) {
+  --#{$prefix}-segment-control--color-background: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
+
+  --#{$prefix}-segment-control--button-color-background-action: var(--#{$prefix}-#{$mode}-color-action-transparency);
+  --#{$prefix}-segment-control--button-color-background-action-active: var(--#{$prefix}-#{$mode}-color-action-default);
+  --#{$prefix}-segment-control--button-shadow: var(--#{$prefix}-#{$mode}-color-alpha-shadow1);
+
+  --#{$prefix}-segment-control--button-color-text: var(--#{$prefix}-#{$mode}-color-text-subtle);
+  --#{$prefix}-segment-control--button-color-text-active: var(--#{$prefix}-#{$mode}-color-text-basic);
+}
+
+.#{$prefix}-segment-control {
+  @include segment-control-color-variable(map.get($modes, 'light'));
+  @include segment-control-size-variable;
+
+	display: inline-flex;
+	background-color: var(--#{$prefix}-segment-control--color-background);
+	
+	.control-button {
+		background-color: var(--#{$prefix}-segment-control--button-color-background-action);
+
+		&.active {
+			font-weight: var(--#{$prefix}-font-weight-bold);
+			background-color: var(--#{$prefix}-segment-control--button-color-background-action-active);
+			box-shadow: 0 0.1rem 0.3rem 0 var(--#{$prefix}-segment-control--button-shadow);
+		}
+	}
+
+	&.full {
+		width: 100%;
+		
+		.control-button {
+			flex: 1;
+		}
+	}
+}
+
+// 고대비모드
+@include color-mode($mode: high-contrast) {
+  .#{$prefix}-segment-control {
+    @include segment-control-color-variable(map.get($modes, 'high-contrast'));
+  }
+}

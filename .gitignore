@@ -1,6 +1,4 @@
-.vscode/*
 *.prettierrc
 *.prettierignore
 .DS_Store
 node_modules/
-dist/
