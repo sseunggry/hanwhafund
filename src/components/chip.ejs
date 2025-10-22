@@ -1,0 +1,64 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const variant = localsSafe.variant || 'single'; // single(radio), multi(check), button
+  const size = localsSafe.size || 'medium'; // medium, large
+	const items = Array.isArray(localsSafe.items) ? localsSafe.items : [{ label: '기본칩' }];
+	const name = localsSafe.name || `chip-${variant}-${Math.random().toString(36).substring(2, 9)}`;
+	const addClass = localsSafe.addClass || ''; 
+	const groupClasses = [
+    `${projectName}-check-area`,
+    'chip-wrap',
+    addClass
+  ].filter(Boolean).join(' ');
+
+	const chipBaseClasses = [
+    `${projectName}-form-chip`,
+    size
+  ].filter(Boolean).join(' ');
+
+	let inputType = 'radio'; // 기본값 (single)
+  if (variant === 'multi') {
+    inputType = 'checkbox';
+  }
+%>
+
+<div class="<%= groupClasses %>">
+  <% items.forEach((item, index) => { %>
+    <%
+      const itemLabel = item.label || `chips ${index + 1}`;
+      const itemValue = item.value || itemLabel;
+      const itemChecked = item.checked || false;
+      const itemDisabled = item.disabled ? 'disabled' : '';
+      const uniqueId = `chip-${variant}-${Math.random().toString(36).substring(2, 9)}`;
+    %>
+
+    <% if (variant === 'single' || variant === 'multi') { -%>
+			<%# 라디오 또는 체크박스 렌더링 %>
+      <div class="<%= chipBaseClasses %>">
+        <input
+          type="<%= inputType %>"
+          id="<%= uniqueId %>"
+          name="<%= name %>"
+          value="<%= itemValue %>"
+          <%= itemChecked ? 'checked' : '' %>
+          <%= itemDisabled %>
+        />
+        <label for="<%= uniqueId %>" class="<%= projectName %>-form-chip-outline">
+          <span><%= itemLabel %></span>
+        </label>
+      </div>
+    <% } else if (variant === 'button') { -%>
+      <%# 버튼 렌더링 %>
+      <div class="<%= chipBaseClasses %>">
+        <button
+          type="button"
+          class="<%= projectName %>-form-chip-outline"
+          <%= itemDisabled %>
+        >
+          <%= itemLabel %>
+        </button>
+      </div>
+    <% } -%>
+  <% }); %>
+</div>

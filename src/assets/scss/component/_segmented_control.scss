@@ -53,6 +53,7 @@
 				}
 
 				.control-button {
+					align-items: center;
 					padding: 0 var(--#{$prefix}-segment-control--button-padding-#{$size});
 					height: var(--#{$prefix}-segment-control--button-height-#{$size});
 					border-radius: var(--#{$prefix}-segment-control--radius-#{$size});

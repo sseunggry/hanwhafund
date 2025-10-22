@@ -1,0 +1,78 @@
+<%
+  // --- 입력 데이터 처리 ---
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf';
+  const size = localsSafe.size || 'medium';
+  const title = localsSafe.title || '세그먼트 컨트롤';
+  // tag: 'radio' (기본값) 또는 'button'
+  const tag = localsSafe.tag || 'radio';
+  // items: [{ label: '라벨1', value: 'v1', checked: true, disabled: false }, ...]
+  const items = Array.isArray(localsSafe.items) ? localsSafe.items : [{ label: 'control1', value: 'control1' }];
+  const full = localsSafe.full ? 'full' : '';
+  // 라디오 그룹 name 속성 (tag가 'radio'일 때 필수)
+  const name = localsSafe.name || `segment-${Math.random().toString(36).substring(2, 9)}`;
+  const addClass = localsSafe.addClass || '';
+  const classes = [
+    `${projectName}-segment-control`,
+    size,
+    full,
+    addClass,
+    `tag-${tag}` // 현재 모드를 클래스로 추가 (JS 식별용)
+  ].filter(Boolean).join(' ');
+
+  // --- 초기 선택 항목 계산 (두 방식 공통) ---
+  let initialCheckedIndex = items.findIndex(item => item.checked && !item.disabled);
+  if (initialCheckedIndex === -1) { // 명시적 checked 없고
+    initialCheckedIndex = items.findIndex(item => !item.disabled); // 첫 활성 찾기
+    if (initialCheckedIndex === -1) initialCheckedIndex = 0; // 모두 비활성이면 첫 번째
+  }
+%>
+
+<%# tag가 'button'일 때만 role="radiogroup" 적용 %>
+<div class="<%= classes %>" <%= tag === 'button' ? `role="radiogroup"` : '' %> aria-label="<%= title %>">
+
+  <% items.forEach((item, index) => { %>
+    <%
+      const itemLabel = item.label || `옵션 ${index + 1}`;
+      const itemValue = item.value || itemLabel;
+      const itemDisabled = item.disabled ? 'disabled' : '';
+      const isChecked = index === initialCheckedIndex;
+      const uniqueId = `segment-${name}-${index}-${Math.random().toString(36).substring(2, 9)}`;
+      const controlClasses = [
+          'control-button',
+          itemDisabled
+          // tag가 'button'이고 초기 선택 시 active 클래스 추가 (선택적)
+          // tag === 'button' && isChecked ? 'active' : ''
+      ].filter(Boolean).join(' ');
+    %>
+
+    <%# --- Tag에 따라 분기 --- %>
+    <% if (tag === 'radio') { -%>
+      <%# 네이티브 라디오 + 라벨 방식 %>
+      <label for="<%= uniqueId %>" class="<%= controlClasses %>">
+        <input
+          type="radio"
+          class="sr-only"
+          id="<%= uniqueId %>"
+          name="<%= name %>"
+          value="<%= itemValue %>"
+          <%= isChecked ? 'checked' : '' %>
+          <%= itemDisabled %>
+        />
+        <span><%= itemLabel %></span>
+      </label>
+    <% } else { -%>
+      <%# ARIA 버튼 방식 %>
+      <button
+        type="button"
+        class="<%= controlClasses %> <%= isChecked ? 'active' : '' %>" <%# 초기 active 클래스 %>
+        role="radio"
+        aria-checked="<%= isChecked ? 'true' : 'false' %>"
+        tabindex="<%= isChecked ? '0' : '-1' %>"
+        <%= itemDisabled %>
+      >
+        <%= itemLabel %>
+      </button>
+    <% } -%>
+  <% }); %>
+</div>

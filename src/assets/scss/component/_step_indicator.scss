@@ -223,13 +223,19 @@
         }
       }
 
-      .step {
-        @include sr-only;
-      }
+      // .step {
+      //   @include sr-only;
+      // }
 
-      .step-tit {
-        @include sr-only;
-      }
+      // .step-tit {
+      //   @include sr-only;
+      // }
+			.step-tit{
+
+			}
+			.step-desc{
+				
+			}
     }
   }
 }

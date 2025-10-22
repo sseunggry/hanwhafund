@@ -76,6 +76,46 @@
 			size: 'medium',
 		}) %>
 
+
+
+		<%- include('../components/select.ejs', {
+			title: "통신사",
+			placeholder: "통신사를 선택하세요",
+			size: 'large',
+			// required: true,
+			options: [
+				{ value: 'lg', text: 'LG U+' },
+				{ value: 'kt', text: 'KT' },
+				{ value: 'skt', text: 'SKT' }
+			]
+		}) %>
+
+		<%- include('../components/select.ejs', {
+			options: [
+				{ value: 'opt1', text: '옵션 1' },
+				{ value: 'opt2', text: '옵션 2', selected: true}
+			]
+		}) %>
+		<%- include('../components/select.ejs', {
+			variant: 'text',
+			options: [
+				{ value: 'opt11', text: '옵션 11' , disabled: true },
+				{ value: 'opt21', text: '옵션 21' },
+				{ value: 'opt31', text: '옵션 31' }
+			]
+		}) %>
+		<%- include('../components/select.ejs', {
+			variant: 'filter',
+			options: [
+				{ value: 'opt4', text: '옵션 4' },
+				{ value: 'opt5', text: '옵션 5' },
+				{ value: 'opt6', text: '옵션 6' }
+			]
+		}) %>
+
+
+
+
 		<%- include('../components/tag.ejs', {
 			tagList: ['태그1', '태그2', '태그3'],
 			variant: 'sorting',
@@ -150,6 +190,101 @@
 		}) %>
 
 
+		<h3>싱글 선택 (Radio)</h3>
+		<%- include('../components/chip.ejs', {
+			variant: 'single', // 기본값이므로 생략 가능
+			size: 'large',
+			name: 'favoriteFruit', // 라디오 그룹 이름 지정
+			items: [
+				{ label: '사과', value: 'apple', checked: true },
+				{ label: '바나나', value: 'banana' },
+				{ label: '오렌지', value: 'orange', disabled: true }
+			]
+		}) %>
+		<h3>다중 선택 (Checkbox)</h3>
+		<%- include('../components/chip.ejs', {
+			variant: 'multi',
+			size: 'medium',
+			name: 'topics', // 체크박스 그룹 이름 지정
+			items: [
+				{ label: '기술', value: 'tech', checked: true },
+				{ label: '디자인', value: 'design', checked: true },
+				{ label: '마케팅', value: 'marketing' }
+			]
+		}) %>
+		<h3>버튼 그룹</h3>
+		<%- include('../components/chip.ejs', {
+			variant: 'button',
+			size: 'small',
+			items: [
+				{ label: '옵션 1' },
+				{ label: '옵션 2', disabled: true },
+				{ label: '옵션 3' }
+			]
+		}) %>
+
+
+		<%- include('../components/segmentControl.ejs', {
+			size: 'small',
+			items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
+		}) %>
+
+		<%- include('../components/segmentControl.ejs', {
+			// size: 'small',
+			tag: 'button',
+			items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
+		}) %>
+
+
+		<%#- include('../components/spinner.ejs', {
+			text: '데이터 로딩 중...',
+		}) %>
+		<%#- include('../components/spinner.ejs') %>
+
+
+
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '공유하기',
+			hierarchy: 'tertiary',
+			tag: 'button',
+			size: 'large',
+			targetId: 'popover-share',
+			addClass: 'btn-toggle-popover'
+		}) %>
+		<%- include('../components/popover.ejs', {
+			id: 'popover-share',
+			active: true,
+			// text: '',
+		}) %>
+
+
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '모달',
+			hierarchy: 'tertiary',
+			tag: 'button',
+			size: 'large',
+			targetId: 'modal-sample-01',
+			addClass: 'btn-open-modal'
+		}) %>
+		<%- include('../components/modal.ejs', {
+			id: 'modal-sample-01',
+			// active: true,
+			// text: '',
+		}) %>
+
+		<%- include('../components/stepIndicator.ejs', {
+			activeStep: 3, // 3번째 스텝 활성화
+			orientation: 'vertical',
+			items: [
+				{ title: '정보 입력', desc: '기본 정보를 입력합니다.' },
+				{ title: '약관 동의', desc: '서비스 이용 약관에 동의합니다.' },
+				{ title: '본인 인증', desc: '휴대폰 또는 아이핀 인증' },
+				{ title: '가입 완료' }, // 설명 없는 경우
+				{ title: '추가 정보' }
+			]
+		}) %>
 
   </div>
 

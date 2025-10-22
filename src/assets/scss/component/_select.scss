@@ -203,7 +203,7 @@ $form-select-variants: (
 
 		.select-button {
 			text-align: left;
-			outline-width: 0;
+			// outline-width: 0;
 			box-shadow: none;
 		
 			.select-value {
@@ -214,6 +214,14 @@ $form-select-variants: (
 					color: var(--#{$prefix}-form-select--color-text);
 				}
 			}
+		}
+
+		.ui-select{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 		}
 		
 		.select-listbox {
@@ -368,6 +376,7 @@ $form-select-variants: (
 
 	//--- Variant: text ---
 	&.text {
+		width: fit-content;
 		background-color: var(--#{$prefix}-form-select-text--color-background) !important;
 		border: none;
 		color: var(--#{$prefix}-form-select-text--color-text);
@@ -429,6 +438,7 @@ $form-select-variants: (
 	&.filter {
 		--#{$prefix}-form-select-filter--radius: var(--#{$prefix}-radius-full);
 
+		width: fit-content;
 		background-color: var(--#{$prefix}-form-select-filter--color-background) !important;
 		border: none;
 		border-radius: var(--#{$prefix}-form-select-filter--radius);

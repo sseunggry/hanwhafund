@@ -1,0 +1,44 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf';
+  const activeStep = Number(localsSafe.activeStep) || 1; // 기본값: 1번째 스텝
+  const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];  // items: [{ title: '스텝1 제목', desc: '스텝1 설명' }, ...]
+  const direction = localsSafe.orientation || 'vertical'; // vertical, horizontal
+  const addClass = localsSafe.addClass || ''; // 추가 클래스
+  const wrapClasses = [
+    `${projectName}-step-wrap`,
+    direction, // 'horizontal' 또는 'vertical' 클래스 추가
+    addClass
+  ].filter(Boolean).join(' ');
+%>
+
+<% if (items.length > 0) { %>
+	<ol class="<%= wrapClasses %>">
+		<% items.forEach((item, index) => { %>
+			<%
+				let stepClass = '';
+				const stepNumber = index + 1; // 1부터 시작하는 스텝 번호
+				if (stepNumber < activeStep) {
+					stepClass = 'done'; // 현재 스텝 번호가 활성 스텝 번호보다 작으면 'done'
+				} else if (stepNumber === activeStep) {
+					stepClass = 'active'; // 현재 스텝 번호와 활성 스텝 번호가 같으면 'active'
+				}
+	
+				const stepTitle = item.title || `Step ${stepNumber}`; // 기본 제목
+				const stepDesc = item.desc || ''; // 설명 (없을 수 있음)
+			%>
+			<li class="<%= stepClass %>">
+				<span> <%# 스텝 번호 대신 내부 컨텐츠 그룹핑용 span %>
+					<% if (stepClass === 'active') { %>
+						<em class="sr-only">현재 단계</em> <%# 접근성을 위해 현재 단계임을 알림 %>
+					<% } %>
+					<span class="step-tit"><%= stepTitle %></span>
+					<% if (stepDesc) { %> <%# 설명이 있을 때만 렌더링 %>
+						<span class="step-desc"><%= stepDesc %></span>
+					<% } %>
+				</span>
+			</li>
+		<% }); %>
+	</ol>
+	<% } %>
+

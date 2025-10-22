@@ -58,9 +58,12 @@
   @include tooltip-size-variable;
 
   & {
-    display: none;
-    position: fixed;
+    // display: none;
+    position: absolute;
     z-index: 100;
+		opacity: 0;
+  	visibility: hidden;
+  	transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
     white-space: nowrap;
     color: var(--#{$prefix}-tooltip--inline-color-text);
     font-size: var(--#{$prefix}-tooltip--contents-small-font-size);
@@ -74,7 +77,10 @@
   }
 
   &.active {
-    display: block;
+    // display: block;
+		opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-out, visibility 0s linear 0s;
   }
 
   &::before {

@@ -152,11 +152,11 @@ html input[disabled] {
   cursor: default;
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+// button::-moz-focus-inner,
+// input::-moz-focus-inner {
+//   border: 0;
+//   padding: 0;
+// }
 
 input {
   line-height: normal;
@@ -574,10 +574,10 @@ input {
     visibility: visible !important;
   }
 
-  &[type="date"],
-  &:focus {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-  }
+  // &[type="date"],
+  // &:focus {
+  //   box-shadow: none;
+  //   -webkit-box-shadow: none;
+  //   -moz-box-shadow: none;
+  // }
 }

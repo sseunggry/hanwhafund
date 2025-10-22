@@ -1,0 +1,71 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+	const id = localsSafe.id || 'modal-default';
+	const title = localsSafe.title || '모달 제목';
+	const slot = localsSafe.slot || '<p>모달 내용이 여기에 들어갑니다.</p>';
+	const btnList = localsSafe.btnList || [];
+	const show = localsSafe.show ? true : false;
+	const classes = [
+    `${projectName}-modal`,
+		show ? 'show' : '',
+		'fade',
+		show ? 'in' : '',
+  ].filter(Boolean).join(' ');
+%>
+
+<div class="<%= classes %>" id="<%= id %>" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 id="tit_modal_sample_01" class="modal-title"><%= title %></h2>
+			</div>
+			<div class="modal-conts">
+				<div class="conts-area">
+					<%- slot %>
+				</div>
+			</div>
+			
+			<!-- <div class="modal-btn btn-wrap default">
+				<button type="button" class="pds-btn medium tertiary close-modal">아니요</button>
+				<button type="button" class="pds-btn medium primary close-modal">예</button>
+			</div> -->
+			<div class="modal-btn btn-wrap">
+				<% if (btnList && btnList.length) { %>
+					<% btnList.forEach(function(btn) { 
+						const btnType = btn.type || 'button';
+						const theme = btn.theme || 'primary'; // 기본값
+						const size = btn.size || 'medium';
+						const actionClass = btn.action ? `modal-action-${btn.action}` : '';
+						const extraClass = btn.class || ''; // 추가 클래스
+					%>
+						<button 
+							type="<%= btnType %>" 
+							class="<%= projectName %>-btn <%= size %> <%= theme %> close-modal <%= actionClass %> <%= extraClass %>">
+							<%= btn.label %>
+						</button>
+					<% }); %>
+				<% } else { %>
+					<button type="button" class="<%= projectName %>-btn medium tertiary close-modal">아니요</button>
+					<button type="button" class="<%= projectName %>-btn medium primary close-modal">예</button>
+				<% } %>
+			</div>
+			
+
+			<%- include('../components/button.ejs', {
+				label: '닫기',
+				tag: 'button',
+				postIcon: 'popup-close',
+				addClass: 'btn-close btn-close-modal',
+				size: 'medium',
+				iconOnly: true,
+			}) %>
+
+			<!-- <button type="button" class="pds-btn icon btn-close close-modal">
+				<span class="sr-only">닫기</span>
+				<i class="svg-icon ico-popup-close"></i>
+			</button> -->
+		</div>
+	</div>
+	<div class="modal-back <%= show ? 'in' : '' %>"></div>
+</div>

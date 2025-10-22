@@ -1,38 +1,113 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
-  const variant = localsSafe.variant || ''; // checkbox, check(체크 아이콘)
-  const size = localsSafe.size || 'medium'; // medium, large
-  const state = localsSafe.state || ''; // default, checked
-	const disabled = localsSafe.disabled ? 'disabled' : '';
-  const label = localsSafe.label || '체크박스';
-	const iconPos = localsSafe.iconPos || ''; //left, right
-	const slot = localsSafe.slot || ''; // 추가 내용 넣기
-	const addClass = localsSafe.addClass || ''; 
-	const classes = [
-    `${projectName}-form-check`,
+  const projectName = localsSafe.projectName || 'hwf';
+  const title = localsSafe.title || ''; // form-group용 라벨 텍스트
+  const options = Array.isArray(localsSafe.options) ? localsSafe.options : [{ value: 'option1', text: '옵션1'}]; // [{ value: 'v1', text: 'T1', selected: true, disabled: false }, ...]
+  const placeholder = localsSafe.placeholder || ''; // 선택적 플레이스홀더
+  const size = localsSafe.size || 'medium';
+  const disabled = localsSafe.disabled ? 'disabled' : '';
+	const variant = localsSafe.variant || ''; //box(기본), text, filter 
+  const addClass = localsSafe.addClass || '';
+  const selectClasses = [
+    `${projectName}-form-select`,
+		variant,
     size,
-		variant === 'check' ? 'check-icon' : '', 
-		iconPos === 'right' ? 'icon-right' : '',
-		addClass
+    addClass,
+    disabled ? 'disabled' : '' // 스타일링을 위한 disabled 클래스 추가
   ].filter(Boolean).join(' ');
 
-	const uniqueId = `chk-${Math.random().toString(36).substring(2, 9)}`;
+	// --- ARIA용 고유 ID 생성 ---
+	const uniqueId = `select-${Math.random().toString(36).substring(2, 9)}`;
+  const buttonId = `${uniqueId}-button`;
+  const listboxId = `${uniqueId}-listbox`;
+	const nativeSelectId = `${uniqueId}-native`;
+
+	// --- 선택된 옵션 찾기 ---
+	let selectedOption = options.find(opt => opt.selected);
+  let initialSelectedValue = selectedOption ? selectedOption.value : null;
+  let selectedValueText = placeholder || '';
+
+  if (!selectedValueText && options.length > 0) { // 플레이스홀더가 없고 옵션이 있을 때
+    const firstEnabledOption = options.find(opt => !opt.disabled && (opt.value !== '' || opt.text !== '옵션 없음'));
+    if (!selectedOption && firstEnabledOption) {
+      selectedOption = firstEnabledOption;
+      initialSelectedValue = selectedOption.value;
+      selectedValueText = selectedOption.text;
+    } else if (selectedOption) {
+      selectedValueText = selectedOption.text;
+    } else if (options.length > 0) { // 선택된 것도, 활성 옵션도 없으면 첫 옵션 텍스트 표시
+			selectedValueText = options[0].text !== '옵션 없음' ? options[0].text : '';
+    }
+  } else if (!selectedValueText && options[0]?.text === '옵션 없음') {
+		selectedValueText = '옵션 없음'; // 옵션 배열 자체가 비었을 때
+  }
 %>
 
-<div class="<%= classes %>">
-	<input 
-		type="checkbox" 
-		id="<%= uniqueId %>" 
-		<%= state === 'checked' ? 'checked' : '' %>
-		<%= disabled %>
-	>
-	<label for="<%= uniqueId %>">
-		<% if (slot) { -%>
-			<span class="sr-only"><%= label %></span>
-			<%- slot %>
-		<% } else { -%>
-			<span><%= label %></span>
-		<% } -%>
-	</label>
+<% if (title) { -%>
+<div class="form-group">
+  <div class="form-tit">
+    <label for="<%= buttonId %>"><%= title %></label>
+  </div>
+  <div class="form-conts">
+<% } -%>
+    <div class="<%= selectClasses %>">
+      <select
+        class="sr-only"
+        name="<%= localsSafe.name || uniqueId %>"
+				id="<%= uniqueId %>-native"
+        tabindex="-1"
+        aria-hidden="true"
+        <%- disabled %>
+				<%- placeholder ? `data-placeholder="${placeholder}"` : '' %>
+      >
+        <% options.forEach(option => { %>
+					<option 
+						value="<%= option.value %>"
+						<%= initialSelectedValue === option.value ? 'selected' : '' %>
+						<%= option.disabled ? 'disabled' : '' %>
+					>
+						<%= option.text %>
+					</option>
+        <% }); %>
+      </select>
+
+			<%# --- 커스텀 셀렉트 UI --- %>
+			<button
+				type="button"
+				role="combobox" 
+				class="select-button"
+				aria-haspopup="listbox" 
+				aria-expanded="false" 
+				aria-controls="<%= listboxId %>"
+				<%- disabled ? 'disabled' : '' %>
+				tabindex="0" 
+				aria-controls="<%= listboxId %>"
+			>
+				<span class="select-value <%= (placeholder && !initialSelectedValue) ? 'placeholder' : '' %>"><%= selectedValueText %></span>
+			</button>
+
+			<%# 리스트박스는 옵션들을 포함 %>
+			<ul
+				id="<%= listboxId %>"
+				class="select-listbox"
+				role="listbox"
+				tabindex="-1"
+				hidden
+				style="--form-select-listbox-option-length: <%= options.length %>"
+			>
+				<% options.forEach(option => { %>
+					<li
+						class="select-option <%= option.disabled ? 'disabled' : '' %>"
+						role="option"
+						data-value="<%= option.value %>"
+						aria-selected="<%= option.selected ? 'true' : 'false' %>"
+						<%- option.disabled ? 'aria-disabled="true"' : '' %>
+						tabindex="-1"
+					><%= option.text %></li>
+				<% }); %>
+			</ul>
+    </div>
+<% if (title) { -%>
+  </div>
 </div>
+<% } -%>

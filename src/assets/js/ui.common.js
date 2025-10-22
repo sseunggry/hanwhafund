@@ -1,1 +1,705 @@
-!function(o,s,e,p){$plugins.page={moveMenu:function(e){location.href=e},getMenuInfo:function(e){var n=$plugins.page.getUrlToPageId(e);if(null!=n){var t;if($plugins.page.menuList!=p&&null!=$plugins.page.menuList)for(var i=0;i<$plugins.page.menuList.length;i++){var s=$plugins.page.menuList[i];if(null!=s&&null!=(t=$plugins.page.getUrlToPageId(s.href))&&t==n)return s}}return null},getUrlToPageId:function(e){var n,t,i=null;return e&&""!=e&&(n=e.indexOf("/page/VH"),t=e.indexOf(".do"),0<=n&&0<=t&&(i=e.substring(n+6,t))),i},init:function(){var e=0<!!o(".wrapper").length&&"true"===o(".wrapper")[0].dataset.hiddenHeader,n=($plugins.page.pageNumber||(n=(n=document.location.pathname.split("/"))[n.length-1].split("."),$plugins.page.pageNumber=n[0]),$plugins.page.pageName||($plugins.page.pageName=o("#baseWrap > .pgr-tit").text()),$plugins.page.menuList=null,$plugins.page.session={limit:1200,time:0,timer:null,pop:!1},$plugins.page.originWidth=o(window).width(),$plugins.page.originHeight=o(window).height(),document.location.href.split(".html"));$plugins.page.htmlIs=1<n.length,$plugins.uiDatepicker(),$plugins.uiTextareaAutoHeight(),$plugins.uiLbPassword(),$plugins.page.showHideToggle(),o(".btn-tooltip").on("click",function(){var e=o(this).data("id");$plugins.uiModal({id:e,link:"/integplatform/tooltip/"+e+".html",full:!0,remove:!0})}),0<o("#baseHeader").length&&!e&&(n=o("body").hasClass("page-smartlink")?"/v2/html/inc/header-simple.html":"/v2/html/inc/header.html",$plugins.uiAjax({id:"baseHeader",url:n,page:!0,callback:$plugins.page.header})),0<o("#baseFooter").length&&((e=o("body").hasClass("page-smartlink")?null:"/v2/html/inc/footer.html")&&$plugins.uiAjax({id:"baseFooter",url:e,page:!0,callback:function(e){o(".foot-aside-list",o("#baseFooter")).on("mouseenter mouseleave",function(e){var n=o(this).find(".link-list");"mouseenter"===e.type?n.css("display","block"):n.removeAttr("style")})}})),0<o("#skip").length&&$plugins.uiAjax({id:"skip",url:"/v2/html/inc/skip_navigation.html",page:!0,callback:$plugins.page.skip})},formReset:function(e){$plugins.uiDatepicker(e),$plugins.uiTextareaAutoHeight(e),$plugins.uiLbPassword(),$plugins.page.showHideToggle(e)},formResetSync:function(e){var n=setTimeout(function(){$plugins.page.formReset(e),clearTimeout&&clearTimeout(n)},0)},header:function(e){MOui.util.trigger(o("#baseHeader")[0],"headerInit");var n=o(".wrapper>.pgr-tit").text();if($plugins.page.pageNumber===p)return!1;"IP01_01_01_00"===$plugins.page.pageNumber?o("body").addClass("main").removeClass("sub"):o("body").addClass("sub").removeClass("main"),"pc"===MOui.util.displayCheck(window.innerWidth)&&MOui.sticky(o(".header-gnb-wrap")[0]),""!==n.trim()?$plugins.page.pageTit(n):MOui.util.loadMenu().then(function(e){for(var n,t=e,i=0;i<t.length;i++)if((e=t[i]).cate===$plugins.page.pageNumber){n=e.tit,$plugins.page.h1Tit=n;break}$plugins.page.pageTit(n)})},footer:function(){$plugins.page.pageNumber,$plugins.page.getMenuInfo(location.href);o(".base-main").css("min-height",o(s).outerHeight()-(o("#baseFooter").outerHeight()+o("#baseHeader").outerHeight()+o("#baseArstop").outerHeight())-50),o(s).on("scroll",function(){100<o(this).scrollTop()?(o(".base-footer .btn-top").fadeIn(),o(".base-footer .float-btn-ars").css("bottom","4.4rem")):(o(".base-footer .btn-top").fadeOut(200),o(".base-footer .float-btn-ars").css("bottom","0"))}),o('.ui-pagestep-item[aria-hidden="false"]').find(".btn-wrap-sticky").length?(o(".base-footer").addClass("sticky"),o(".base-main").css("margin-bottom","17.0rem")):o(".base-footer").removeClass("sticky"),$global.browser.tphone&&o(".btn-foot-wrap").remove()},showHideToggle:function(){o(document).off(".ui-btn-arrow").on("click.ui-btn-arrow",".ui-btn-arrow",function(){var e=o(this);btnControls=e.closest(".ui-show-box"),$wrap=btnControls,$tit=$wrap.find(".ui-show-txt"),$con=$wrap.find(".ui-show-con"),$txt=e.find("span").text(),e.toggleClass("on"),e.hasClass("on")?($con.slideDown(100),e.attr("title","닫힘"),"보기"==$txt&&e.find("span").text("접기")):($con.stop().slideUp(100,function(){$tit.removeClass("hide")}),e.attr("title","펼침"),"접기"==$txt&&e.find("span").text("보기"))})},popAddress:function(){$plugins.uiModalClose({id:"address1-1",remove:!0}),o("#uAddress").on("click",function(){$plugins.uiModal({id:"address1-1",link:"/v2/html/modal/address1-1.html",full:!0})}),o(".uAddress").on("click",function(){$plugins.uiModal({id:"address1-1",link:"/v2/html/modal/address1-1.html",full:!0})})},menuHeight:function(){o(".ui-menu-wrap").css({height:o(s).outerHeight()-o(".menu-wrap-head").outerHeight(),overflowY:"scroll"}),o(".gn-wrap").css({height:o(s).outerHeight()-o(".menu-wrap-head").outerHeight(),overflowY:"scroll"})},pageTit:function(e){var n=o("#baseHeader").find(".tit-gnb .txt"),t=(location.pathname,n.text(""),o(".btn-back")),i='<button type="button" class="head-btn-back"><i></i><span class="sr-only">이전 페이지로 이동</span></button>';$plugins.page.pageResult&&(i='<a href="javascript:$plugins.page.moveMenu(\'/v2/html/main/Z_005_010_001.html\');" class="btn-home"><span>메인으로 이동</span></a>'),$plugins.page.pageName&&(e=$plugins.page.pageName),"IP01_01_01_00"!==$plugins.page.pageNumber&&t.append(i),n.append(e),$plugins.page.h1Stit&&(i='<span class="st">'+$plugins.page.h1Stit+"</span>",o(".base-header-wrap .h1").append(i)),$plugins.page.pageTitLine(),o(s).resize(function(){$plugins.page.pageTitLine()})},pageTitLine:function(){o("#h1Tit").removeClass("small"),20<o(".base-header-wrap .h1 span").outerHeight()&&o("#h1Tit").addClass("small")},logoutTimer:function(){$plugins.page.session.time=$plugins.page.session.limit,$plugins.page.session.timer=setInterval(function(){var e,n,t;$plugins.page.session.time=$plugins.page.session.time-1,$plugins.page.session.time<=0?top.location.href="/vh/page/VH.IPMNP003.do":(60==$plugins.page.session.time&&!1===$plugins.page.session.pop&&($plugins.page.session.pop=!0,$plugins.modal.confirm('<p class="mgb">일정시간 서비스 이용이 없어 자동으로 로그아웃 될 예정입니다<p><p id="_remainTime">남은 시간 [ -- : -- ]</p>',function(){o.ajax({type:"post",url:"/vh/data/VH.IPMN0001.do",data:{},success:function(e){e&&e.responseMessage&&e.responseMessage.body&&e.responseMessage.body.data&&"Y"==e.responseMessage.body.data.connect&&$plugins.page.updateLogoutTime()},error:function(e){}})},function(){top.location.href="/vh/page/VH.IPMNP003.do"},"연장","취소")),!0===$plugins.page.session.pop&&(t=(e=$plugins.page.session.time)-60*(e=e/60>>0),n=(1<String(e).length?"":"0")+e,t=(1<String(t).length?"":"0")+t,o("#_remainTime").html((0<e?n+"분 ":"")+t+"초")))},1e3)},updateLogoutTime:function(){$plugins.page.session.pop=!1,$plugins.page.session.time=$plugins.page.session.limit},floatBtnShow:function(e){e?o(".float-btns").fadeIn("fast"):o(".float-btns").fadeOut("fast")},clickMoveTopBtn:function(){$plugins.uiScroll({value:0,speed:150,focus:"baseHeader"})}},$plugins.callback={uiShowHide:function(e){o("#"+e.view).show(),o("#"+e.hide).hide()},modal:function(e){$plugins.page.formReset()}},o(e).ready(function(){$plugins.page.init();var e,n,t,i,s=window.location.hostname.split(".");"www"!==s[0]&&"m"!==s[0]||o("body").append('<script src="/m_gSmartLogger.js"><\/script>'),o(".base-wrap").addClass("loaded"),self!==top&&(o(".base-wrap").addClass("loaded"),o("body").addClass("type-iframe")),o(document).on("nppfs-npv-after-show",function(){o(document.documentElement).addClass("npps-keypad-show")}),o(document).on("nppfs-npv-closed nppfs-npv-after-hide",function(){o(document.documentElement).removeClass("npps-keypad-show")});try{["Z_070_010_000"].indexOf($plugins.page.pageNumber)<0&&(e="corpInfo",n=null,t=(t=-1)==p?0:t,(i=new Date).setDate(i.getDate()+t),document.cookie=e+"="+n+"; path=/; domain=.samsungfire.com; secure=true; expires="+(0==t?t:i.toGMTString())+";")}catch(a){}})}(jQuery,window,document);
+let projectName = 'hwf';
+let scrollTop = 0;
+
+const commonJs = {
+	init: function () {
+		$(`.${projectName}-form-select`).each(commonJs.customSelect.init);
+		$(`.${projectName}-segment-control`).each(commonJs.segmentControl.init);
+
+		$(`.btn-toggle-tooltip, .btn-toggle-popover`).each(commonJs.tooltip.init);
+		$(`.btn-open-modal, .btn-open-bottom-sheet`).each(commonJs.modal.init);
+
+		commonJs.bindGlobalEvents(); //전역 이벤트 리스너 바인딩 (이벤트 위임 방식)
+	},
+	bindGlobalEvents: function () {
+		// 툴팁 토글 버튼 클릭 (이벤트 위임)
+		$(document).on('click', '.btn-toggle-tooltip, .btn-toggle-popover', function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			commonJs.tooltip.toggle.call(this);
+		});
+
+		// 툴팁 닫기 버튼 클릭 (이벤트 위임)
+		$(document).on('click', '.btn-close-tooltip', function (e) {
+			e.preventDefault();
+			commonJs.tooltip.close.call(this);
+		});
+
+		// ✨ 모달 열기 버튼
+		$(document).on('click', '.btn-open-modal, .btn-open-bottom-sheet', function (e) {
+			e.preventDefault();
+			commonJs.modal.open.call(this); // 'this'는 클릭된 열기 버튼
+		});
+		// ✨ 모달 닫기 버튼
+		$(document).on('click', '.btn-close-modal, .btn-close-bottom-sheet', function (e) {
+			e.preventDefault();
+			commonJs.modal.close.call(this); // 'this'는 클릭된 닫기 버튼
+		});
+	},
+	resize: function () {
+
+	},
+	scroll: function () {
+
+	},
+
+	debounce: function (func, wait) {
+		let timeout;
+		return function executedFunction(...args) {
+			const later = () => { clearTimeout(timeout); func.apply(this, args); };
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	},
+	customSelect: {
+		init: function () {
+			const $wrapper = $(this);
+			const $select = $wrapper.find('select.sr-only');
+			const $button = $wrapper.find('.select-button');
+			const $valueSpan = $button.find('.select-value');
+			const $listbox = $wrapper.find('.select-listbox');
+			const $options = $listbox.find('.select-option');
+
+			// 중복 초기화 방지
+			if ($wrapper.data('custom-select-initialized')) return;
+			$wrapper.data('custom-select-initialized', true);
+
+			const placeholder = $select.data('placeholder') || '';
+			const isDisabled = $select.is(':disabled');
+			const listboxId = $listbox.attr('id');
+
+			// 비활성화 처리
+			if (isDisabled) {
+				$wrapper.addClass('disabled');
+				$button.attr('aria-disabled', 'true').attr('tabindex', '-1');
+				return;
+			}
+
+			// --- 헬퍼 함수 ---
+			function openListbox() {
+				if (isDisabled) return;
+				// 다른 열린 셀렉트 닫기
+				$('[data-custom-select-initialized="true"] .select-button[aria-expanded="true"]').not($button).each(function () {
+					$(this).trigger('closeListbox.customSelect');
+				});
+
+				$listbox.removeAttr('hidden'); // ✨ 먼저 보이게
+				$button.attr('aria-expanded', 'true');
+
+				let $focusedOption = $options.filter('[aria-selected="true"]');
+				if (!$focusedOption.length) {
+					$focusedOption = $options.not('.disabled').first();
+				}
+
+				// ✨ 요소가 보인 후 포커스 이동 (setTimeout 사용)
+				setTimeout(() => {
+					if ($focusedOption.length) {
+						$focusedOption.focus();
+					} else {
+						$listbox.focus(); // 옵션 없으면 리스트박스에
+					}
+				}, 0);
+
+				$(document).on('click.customSelect.' + listboxId, handleOutsideClick);
+			}
+
+			// 리스트박스 닫기
+			function closeListbox() {
+				$listbox.attr('hidden', true);
+				$button.attr('aria-expanded', 'false');
+				$(document).off('click.customSelect.' + listboxId);
+
+				$button.focus();
+			}
+
+			// 리스트박스 토글
+			function toggleListbox() {
+				if ($button.attr('aria-expanded') === 'true') {
+					closeListbox();
+				} else {
+					openListbox();
+				}
+			}
+
+			// 옵션 선택 처리
+			function selectOption($option) {
+				if (!$option || !$option.length || $option.hasClass('disabled')) return;
+				const value = $option.data('value');
+				const text = $option.text();
+
+				$valueSpan.text(text).removeClass('placeholder');
+				$options.attr('aria-selected', 'false');
+				$option.attr('aria-selected', 'true');
+
+				if ($select.val() !== value) {
+					$select.val(value).trigger('change');
+				}
+				closeListbox();
+			}
+
+			// 외부 클릭 처리
+			function handleOutsideClick(event) {
+				// wrapper 외부 클릭 시 닫기
+				if ($(event.target).closest($wrapper).length === 0) {
+					closeListbox();
+				}
+			}
+
+			// --- 이벤트 바인딩 ---
+			$wrapper.on('click', function (e) {
+				if (!$(e.target).is($button) && $(e.target).closest($button).length === 0) {
+					e.stopPropagation();
+					$button.trigger('click');
+				}
+			});
+			$button.on('click', function (e) {
+				e.stopPropagation();
+				toggleListbox();
+			});
+
+			// 외부에서 닫기 요청 시
+			$button.on('closeListbox.customSelect', closeListbox);
+
+			// 옵션 클릭: 선택 (이벤트 위임)
+			$listbox.on('click', '.select-option', function (e) {
+				e.stopPropagation();
+				selectOption($(this));
+			});
+
+			// 키보드 네비게이션
+			$button.on('keydown', function (e) {
+				const isListboxOpen = $button.attr('aria-expanded') === 'true';
+				if (!isListboxOpen && ['Enter', ' ', 'ArrowDown', 'ArrowUp'].includes(e.key)) {
+					e.preventDefault();
+					openListbox();
+				}
+				else if (isListboxOpen && (e.key === 'Escape' || e.key === 'Tab')) {
+					e.preventDefault();
+					closeListbox();
+				}
+			});
+
+			// 리스트박스 또는 그 안의 옵션에 포커스가 있을 때
+			$listbox.on('keydown', function (e) {
+				const $currentItem = $(document.activeElement);
+				if (!$listbox.is($currentItem) && !$options.is($currentItem)) return;
+
+				const $enabledOptions = $options.not('.disabled');
+				let $targetOption;
+
+				switch (e.key) {
+					case 'Enter':
+					case ' ':
+						if ($currentItem.is('.select-option')) {
+							e.preventDefault();
+							selectOption($currentItem);
+							e.stopPropagation();
+						} else {
+							toggleListbox();
+						}
+						break;
+					case 'ArrowDown':
+						e.preventDefault();
+						if ($currentItem.is('.select-option')) {
+							$targetOption = $currentItem.nextAll('.select-option:not(.disabled)').first();
+						} else {
+							$targetOption = $enabledOptions.first();
+						}
+						if ($targetOption && $targetOption.length) $targetOption.focus();
+						break;
+					case 'ArrowUp':
+						e.preventDefault();
+						if ($currentItem.is('.select-option')) {
+							$targetOption = $currentItem.prevAll('.select-option:not(.disabled)').first();
+						} else {
+							$targetOption = $enabledOptions.last();
+						}
+						if ($targetOption && $targetOption.length) $targetOption.focus();
+						break;
+					case 'Escape':
+						e.preventDefault();
+						closeListbox();
+						e.stopPropagation();
+						break;
+					case 'Tab':
+						closeListbox();
+						break;
+					default:
+						break;
+				}
+			});
+
+			// --- 네이티브 select 변경 시 UI 업데이트 ---
+			$select.on('change.customSelectUpdate', function () {
+				const newValue = $(this).val();
+				const $newOption = $options.filter(`[data-value="${newValue}"]`);
+				if ($newOption.length) {
+					$valueSpan.text($newOption.text()).removeClass('placeholder');
+					$options.attr('aria-selected', 'false');
+					$newOption.attr('aria-selected', 'true');
+				} else if (placeholder) {
+					$valueSpan.text(placeholder).addClass('placeholder');
+					$options.attr('aria-selected', 'false');
+				} else {
+					const $firstEnabledOption = $options.not('.disabled').first();
+					if ($firstEnabledOption.length) {
+						$valueSpan.text($firstEnabledOption.text()).removeClass('placeholder');
+						$options.attr('aria-selected', 'false');
+						$firstEnabledOption.attr('aria-selected', 'true');
+					} else {
+						const firstOptText = $options.first().text() || '옵션 없음';
+						$valueSpan.text(firstOptText).addClass('placeholder');
+						$options.attr('aria-selected', 'false');
+					}
+				}
+			});
+
+			// --- 초기 상태 적용 ---
+			const initialValue = $select.val();
+			const $initialOption = $options.filter(`[data-value="${initialValue}"]`);
+			if (initialValue && $initialOption.length) {
+				$valueSpan.text($initialOption.text()).removeClass('placeholder');
+			} else if (placeholder) {
+				$valueSpan.text(placeholder).addClass('placeholder');
+			} else {
+				if ($valueSpan.text() !== '옵션 없음' && $valueSpan.text() !== '선택') {
+					$valueSpan.removeClass('placeholder');
+				}
+			}
+		}
+	},
+	segmentControl: {
+		init: function () {
+			const $wrapper = $(this); // <div class="hwf-segment-control">
+			const isButtonMode = $wrapper.hasClass('tag-button'); // 버튼 모드인지 확인
+
+			if (isButtonMode) {
+				// --- 버튼 모드 (ARIA Radio Group) 로직 ---
+				const $buttons = $wrapper.find('.control-button[role="radio"]');
+
+				// 1. 클릭 이벤트 바인딩
+				$buttons.on('click', function (e) {
+					const $this = $(this);
+					if ($this.is('[disabled]') || $this.attr('aria-checked') === 'true') {
+						// 비활성화거나 이미 선택된 버튼은 아무것도 안 함 (선택 해제 방지)
+						return;
+					}
+
+					// 모든 버튼 상태 초기화
+					$buttons.removeClass('active').attr('aria-checked', 'false').attr('tabindex', '-1');
+
+					// 클릭된 버튼만 활성 상태로 변경
+					$this.addClass('active').attr('aria-checked', 'true').attr('tabindex', '0');
+
+					// (선택사항) 값 변경 이벤트 트리거
+					$wrapper.trigger('change', $this.data('value'));
+				});
+
+				// 2. 키보드 네비게이션 (방향키)
+				$wrapper.on('keydown', function (e) {
+					// 포커스가 그룹 내 라디오 버튼에 있을 때만 작동
+					const $focusedButton = $(document.activeElement);
+					if (!$focusedButton.is('.control-button[role="radio"]') || !$wrapper.has($focusedButton).length) {
+						return;
+					}
+
+					let $targetButton;
+					const $enabledButtons = $buttons.not('[disabled]');
+					const currentIndex = $enabledButtons.index($focusedButton);
+
+					if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+						e.preventDefault();
+						const nextIndex = (currentIndex + 1) % $enabledButtons.length;
+						$targetButton = $enabledButtons.eq(nextIndex);
+					} else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+						e.preventDefault();
+						const prevIndex = (currentIndex - 1 + $enabledButtons.length) % $enabledButtons.length;
+						$targetButton = $enabledButtons.eq(prevIndex);
+					}
+
+					if ($targetButton && $targetButton.length) {
+						// 포커스 이동 및 선택 상태 변경 (클릭 이벤트 트리거 방식)
+						$targetButton.focus(); // 실제 포커스 이동
+						$targetButton.trigger('click'); // 클릭 이벤트 실행하여 상태 변경
+					}
+				});
+
+			} else {
+				// --- 라디오 버튼 모드 로직 ---
+				const $radios = $wrapper.find('input[type="radio"]');
+				const $labels = $wrapper.find('label.control-button');
+
+				// 초기 상태 반영 (CSS로도 가능하지만 JS로 명확히)
+				$radios.each(function () {
+					if ($(this).is(':checked')) {
+						$(this).closest('label').addClass('active');
+					}
+				});
+
+				// 라디오 버튼 상태 변경 시 라벨 클래스 업데이트
+				$radios.on('change', function () {
+					$labels.removeClass('active'); // 모든 라벨 active 제거
+					if ($(this).is(':checked')) {
+						$(this).closest('label').addClass('active'); // 체크된 것의 라벨에만 active 추가
+					}
+				});
+				// (선택사항) 키보드 접근성 향상: 라벨에 포커스 갔을 때 내부 라디오로 포커스 이동
+				// $labels.on('focus', function() {
+				//    $(this).find('input[type="radio"]').focus();
+				// });
+			}
+		}
+	},
+	tooltip: {
+		activeTooltips: {},
+		resizeListenerAttached: false,
+		defaultSettings: { // 기본 설정값
+			activeClass: 'active',
+			tooltipSelector: '.hwf-tooltip, .hwf-popover',
+			gap: 20
+		},
+		_updatePosition: function ($btn, $tooltipEl, settings) {
+			if (!$tooltipEl || !$tooltipEl.length || !$btn || !$btn.length) return;
+
+			// --- 위치/정렬 클래스 읽기 ---
+			let primaryPosition = 'top'; // 기본값
+			if ($tooltipEl.hasClass('bottom')) primaryPosition = 'bottom';
+			else if ($tooltipEl.hasClass('left')) primaryPosition = 'left';
+			else if ($tooltipEl.hasClass('right')) primaryPosition = 'right';
+
+			let alignment = 'center'; // 기본값
+			if ($tooltipEl.hasClass('left')) alignment = 'left';
+			else if ($tooltipEl.hasClass('right')) alignment = 'right';
+
+			const tooltipGap = settings.gap; // 설정에서 gap 값 사용
+			const tooltipHeight = $tooltipEl.outerHeight();
+			const tooltipWidth = $tooltipEl.outerWidth();
+			const triggerRect = $btn[0].getBoundingClientRect();
+			const itemTop = triggerRect.top + window.scrollY;
+			const itemLeft = triggerRect.left + window.scrollX;
+			const itemRight = triggerRect.right + window.scrollX;
+			const itemBottom = triggerRect.bottom + window.scrollY;
+			const itemHeight = triggerRect.height;
+			const itemWidth = triggerRect.width;
+
+			let tooltipTop, tooltipLeft;
+
+			// --- 위치 계산 switch 문 ---
+			switch (primaryPosition) {
+				case 'top':
+					tooltipTop = itemTop - tooltipHeight - tooltipGap;
+					if (alignment === 'left') tooltipLeft = itemLeft;
+					else if (alignment === 'right') tooltipLeft = itemRight - tooltipWidth;
+					else tooltipLeft = itemLeft + (itemWidth - tooltipWidth) / 2;
+					break;
+				case 'left':
+					tooltipLeft = itemLeft - tooltipWidth - tooltipGap;
+					if (alignment === 'top') tooltipTop = itemTop;
+					else if (alignment === 'bottom') tooltipTop = itemBottom - tooltipHeight;
+					else tooltipTop = itemTop + (itemHeight - tooltipHeight) / 2;
+					break;
+				case 'right':
+					tooltipLeft = itemRight + tooltipGap;
+					if (alignment === 'top') tooltipTop = itemTop;
+					else if (alignment === 'bottom') tooltipTop = itemBottom - tooltipHeight;
+					else tooltipTop = itemTop + (itemHeight - tooltipHeight) / 2;
+					break;
+				case 'bottom':
+				default:
+					tooltipTop = itemBottom + tooltipGap;
+					if (alignment === 'left') tooltipLeft = itemLeft;
+					else if (alignment === 'right') tooltipLeft = itemRight - tooltipWidth;
+					else tooltipLeft = itemLeft + (itemWidth - tooltipWidth) / 2;
+					break;
+			}
+
+			// --- 뷰포트 경계 체크 ---
+			const viewportWidth = window.innerWidth;
+			if (tooltipLeft + tooltipWidth > viewportWidth + window.scrollX - tooltipGap) tooltipLeft = viewportWidth + window.scrollX - tooltipWidth - tooltipGap;
+			if (tooltipLeft < window.scrollX + tooltipGap) tooltipLeft = window.scrollX + tooltipGap;
+
+			// CSS 적용
+			$tooltipEl.css({
+				top: Math.round(tooltipTop) + 'px',
+				left: Math.round(tooltipLeft) + 'px',
+			});
+		},
+		// 툴팁 열기 로직
+		_open: function ($btn, $targetEl, settings) {
+			if (!$btn || !$targetEl || !$targetEl.length || $targetEl.hasClass(settings.activeClass)) return; // 이미 열려있으면 중단
+			const targetId = $targetEl.attr('id');
+			const eventNamespace = '.tooltipClose.' + targetId;
+
+			$targetEl.addClass(settings.activeClass);
+			$btn.attr('aria-expanded', 'true');
+			$targetEl.attr('aria-hidden', 'false');
+			this.activeTooltips[targetId] = { $btn: $btn, $tooltipEl: $targetEl, settings: settings }; // 활성 목록 추가
+			this._updatePosition($btn, $targetEl, settings); // 위치 계산
+
+			setTimeout(() => { // 외부 클릭 닫기 바인딩
+				$(document).on(eventNamespace, function (e) {
+					if ($(e.target).closest($targetEl).length === 0 && !$(e.target).is($btn) && $(e.target).closest($btn).length === 0) {
+						this._close($targetEl, $btn, settings); // 내부 닫기 함수 호출
+					}
+				});
+			}, 0);
+		},
+		// 툴팁 닫기 로직
+		_close: function ($tooltipToClose, $btn, settings) {
+			if (!$tooltipToClose || !$tooltipToClose.length || !$tooltipToClose.hasClass(settings.activeClass)) return; // 이미 닫혀있으면 중단
+			const targetId = $tooltipToClose.attr('id');
+			const eventNamespace = '.tooltipClose.' + targetId;
+
+			$tooltipToClose.removeClass(settings.activeClass);
+			$tooltipToClose.attr('aria-hidden', 'true');
+			if (targetId) delete this.activeTooltips[targetId]; // 활성 목록 제거
+
+			const $openerButton = $btn || (targetId ? $(`[aria-controls="${targetId}"]`) : $());
+			if ($openerButton.length) {
+				$openerButton.attr('aria-expanded', 'false');
+			}
+			$(document).off(eventNamespace); // 외부 클릭 리스너 제거
+		},
+		handleResizeOrScroll: null,
+		init: function () {
+			const $btn = $(this);
+			const userOptions = {};
+			const settings = $.extend({}, commonJs.tooltip.defaultSettings, userOptions);
+
+			if (!$btn.is('button, a, [role="button"]') || !$btn.attr('aria-controls')) return;
+			const targetId = $btn.attr('aria-controls');
+
+			if ($btn.data('tooltip-settings')) return;
+			$btn.data('tooltip-settings', settings); // 버튼에 설정 저장
+			$btn.data('tooltip-target-id', targetId);
+
+			if (targetId) {
+				const $targetEl = $('#' + targetId);
+				if ($targetEl.length) {
+					const isActiveInitially = $targetEl.hasClass(settings.activeClass);
+					if (isActiveInitially) { // 이미 active 클래스가 있으면:
+						$btn.attr('aria-expanded', 'true');
+						$targetEl.attr('aria-hidden', 'false');
+						commonJs.tooltip.activeTooltips[targetId] = { $btn: $btn, $tooltipEl: $targetEl, settings: settings };
+						commonJs.tooltip._updatePosition($btn, $targetEl, settings);
+
+						const eventNamespace = '.tooltipClose.' + targetId;
+
+						setTimeout(() => {
+							$(document).on(eventNamespace, function (e) {
+								if (
+									$targetEl.hasClass(settings.activeClass) &&
+									$(e.target).closest($targetEl).length === 0 &&
+									!$(e.target).is($btn) && $(e.target).closest($btn).length === 0) {
+									commonJs.tooltip.close($targetEl, $btn, settings);
+								}
+							});
+						}, 0);
+					} else {// active 클래스가 없으면 (닫힌 상태):
+						$btn.attr('aria-expanded', 'false');
+						$targetEl.attr('aria-hidden', 'true');
+					}
+				} else { console.warn('Tooltip target not found:', targetId); }
+			} else { console.warn('Button is missing aria-controls attribute:', this); }
+
+			// 리사이즈/스크롤 핸들러 설정 (한 번만)
+			if (!commonJs.tooltip.handleResizeOrScroll) {
+				commonJs.tooltip.handleResizeOrScroll = commonJs.debounce(() => {
+					$.each(commonJs.tooltip.activeTooltips, (id, refs) => {
+						if (refs.$tooltipEl.hasClass(refs.settings.activeClass)) {
+							commonJs.tooltip._updatePosition(refs.$btn, refs.$tooltipEl, refs.settings);
+						} else {
+							delete commonJs.tooltip.activeTooltips[id];
+						}
+					});
+				}, 100);
+
+				if (!commonJs.tooltip.resizeListenerAttached) {
+					$(window).on('resize.tooltipControl scroll.tooltipControl', commonJs.handleResizeOrScroll);
+					commonJs.tooltip.resizeListenerAttached = true;
+				}
+			}
+		},
+		toggle: function () {
+			const $btn = $(this); // 'this'는 토글 버튼
+			const settings = $btn.data('tooltip-settings');
+			const targetId = $btn.data('tooltip-target-id');
+			if (!settings || !targetId) return; // 초기화 안 됨
+			const $targetEl = $('#' + targetId);
+
+			if ($targetEl.length) {
+				if ($targetEl.hasClass(settings.activeClass)) {
+					commonJs.tooltip._close($targetEl, $btn, settings);
+				} else {
+					commonJs.tooltip._open($btn, $targetEl, settings);
+				}
+			}
+		},
+		close: function () {
+			const $el = $(this); // 닫기 버튼 또는 툴팁 자체
+			let $tooltipToClose = null;
+			let targetId = null;
+			let $openBtn = null;
+			let settings = {}; // 설정 로드 필요
+
+			if ($el.is('.btn-close-tooltip')) {
+				targetId = $el.attr('aria-controls') || $el.closest('[id]').attr('id'); // ID 찾기
+				if (targetId) $tooltipToClose = $('#' + targetId);
+			} else if ($el.is('[id]')) { // 툴팁 요소 가정
+				$tooltipToClose = $el;
+				targetId = $el.attr('id');
+			}
+
+			if ($tooltipToClose && $tooltipToClose.length) {
+				$openBtn = targetId ? $(`[aria-controls="${targetId}"]`) : $();
+				settings = $openBtn.data('tooltip-settings') || {}; // 버튼 설정 가져오기
+				commonJs.tooltip._close($tooltipToClose, $openBtn, settings);
+			} else {
+				console.warn('Could not find tooltip to close for:', this);
+			}
+		},
+		updatePosition: function () {
+			const $btn = $(this);
+			const settings = $btn.data('tooltip-settings');
+			const targetId = $btn.data('tooltip-target-id');
+			if (!settings || !targetId) return;
+			const $targetEl = $('#' + targetId);
+
+			if ($targetEl && $targetEl.length && $targetEl.hasClass(settings.activeClass)) {
+				commonJs.tooltip._updatePosition($btn, $targetEl, settings);
+			}
+		}
+	},
+	modal: {
+		activeModals: {},
+		defaultSettings: {
+			activeClass: 'show', // 'show' 대신 'active' 사용 권장 (일관성)
+			modalSelector: '.hwf-modal, .hwf-bottom-sheet'
+			// focusSelector: 'a, button, input:not([type=hidden]), [tabindex]:not([tabindex="-1"])'
+		},
+		// --- 내부 핵심 로직 함수들 ---
+		_open: function ($btn, $targetEl, settings) {
+			// 'this'는 commonJs.modal 객체
+			if (!$btn || !$targetEl || !$targetEl.length || $targetEl.hasClass(settings.activeClass)) return;
+			const targetId = $targetEl.attr('id');
+			const eventNamespace = '.modalClose.' + targetId;
+
+			// 다른 열린 모달 닫기 (필요 시)
+			// ✨ 여기서 this는 commonJs.modal 객체이므로 this.activeModals 사용
+			$.each(this.activeModals, (id, refs) => {
+				if (id !== targetId && refs.$modalEl.hasClass(refs.settings.activeClass)) {
+					this._close(refs.$modalEl, refs.$btn, refs.settings);
+				}
+			});
+
+			$targetEl.addClass(settings.activeClass);
+			$btn.attr('aria-expanded', 'true'); // 버튼 상태 업데이트
+			this.activeModals[targetId] = { $btn: $btn, $modalEl: $targetEl, settings: settings }; // 활성 목록 추가
+
+			// 바깥 영역 클릭 닫기 바인딩
+			setTimeout(() => {
+				$(document).on(eventNamespace, (e) => { // 화살표 함수로 'this' 유지
+					if ($targetEl.hasClass(settings.activeClass) && $(e.target).closest($targetEl).length === 0 && !$(e.target).is($btn) && $(e.target).closest($btn).length === 0) {
+						this._close($targetEl, $btn, settings); // 내부 닫기 함수 호출
+					}
+				});
+			}, 0);
+
+			// (선택사항) 포커스 이동 로직
+			// const $focusTarget = $targetEl.find(settings.focusSelector).first();
+			// if ($focusTarget.length) { setTimeout(() => $focusTarget.focus(), 50); }
+		},
+
+		_close: function ($modalToClose, $btn, settings) {
+			// 'this'는 commonJs.modal 객체
+			if (!$modalToClose || !$modalToClose.length || !$modalToClose.hasClass(settings.activeClass)) return;
+			const targetId = $modalToClose.attr('id');
+			const eventNamespace = '.modalClose.' + targetId;
+
+			$modalToClose.removeClass(settings.activeClass);
+			// ✨ 객체 속성 접근 시 'this.' 사용
+			if (targetId) delete this.activeModals[targetId];
+
+			const $openerButton = $btn || (targetId ? $(`[aria-controls="${targetId}"]`) : $());
+			if ($openerButton.length) {
+				$openerButton.attr('aria-expanded', 'false'); // 버튼 상태 업데이트
+				// (선택사항) 포커스 복귀
+				// setTimeout(() => $openerButton.focus(), 50);
+			}
+			$(document).off(eventNamespace); // 외부 클릭 리스너 제거
+		},
+
+		// --- ✨ 공개 메서드 ---
+		init: function () { // ✨ 'this'는 모달 열기 버튼 DOM 요소
+			const $btn = $(this);
+			const userOptions = {}; // data 속성 등에서 옵션 로드 가능
+			// ✨ defaultSettings는 commonJs.modal 객체의 속성
+			const settings = $.extend({}, commonJs.modal.defaultSettings, userOptions);
+
+			if (!$btn.is('button, a, [role="button"]') || !$btn.attr('aria-controls')) return;
+			const targetId = $btn.attr('aria-controls');
+
+			if ($btn.data('modal-settings')) return; // 중복 초기화 방지
+			$btn.data('modal-settings', settings); // 버튼에 설정 저장
+			$btn.data('modal-target-id', targetId);
+
+			if (targetId) {
+				const $targetEl = $('#' + targetId);
+				if ($targetEl.length) {
+					// 초기 상태 설정 (보통 모달은 처음에 닫혀있음)
+					$btn.attr('aria-expanded', 'false');
+					// $targetEl.attr('aria-hidden', 'true'); // hidden 속성/클래스 관리 확인
+					if ($targetEl.hasClass(settings.activeClass)) {
+						// 만약 초기 로드 시 열려있어야 한다면 여기서 _open 로직 일부 실행
+						console.warn('Modal should ideally be closed on init:', targetId);
+						// commonJs.modal._open($btn, $targetEl, settings); // 필요 시 호출
+					}
+				} else { console.warn('Modal target not found:', targetId); }
+			} else { console.warn('Button is missing aria-controls attribute:', this); }
+		}, // end init
+
+		open: function () { // ✨ 'this'는 클릭된 열기 버튼 DOM 요소
+			const $btn = $(this);
+			const settings = $btn.data('modal-settings');
+			const targetId = $btn.data('modal-target-id');
+			if (!settings || !targetId) { console.error('Modal not initialized for button:', this); return; }
+			const $targetEl = $('#' + targetId);
+
+			if ($targetEl.length) {
+				// ✨ 내부 함수 호출 ('commonJs.modal.' 경로 사용)
+				commonJs.modal._open($btn, $targetEl, settings);
+			}
+		}, // end open
+
+		close: function () { // ✨ 'this'는 닫기 버튼 또는 모달 DOM 요소
+			const $element = $(this);
+			let $modalToClose = null;
+			let targetId = null;
+			let $openBtn = null;
+			let settings = {};
+
+			// 닫을 모달 찾기
+			if ($element.is('.btn-close-modal, .btn-close-bottom-sheet')) { // 구체적인 닫기 버튼 클래스 사용
+				targetId = $element.attr('aria-controls') || $element.closest('[id]').attr('id');
+				if (targetId) $modalToClose = $('#' + targetId);
+			} else if ($element.is(commonJs.modal.defaultSettings.modalSelector)) { // 모달 요소 자체
+				$modalToClose = $element;
+				targetId = $element.attr('id');
+			}
+
+			if ($modalToClose && $modalToClose.length) {
+				$openBtn = targetId ? $(`[aria-controls="${targetId}"]`) : $();
+				// ✨ 열기 버튼에 저장된 설정 사용, 없으면 기본값
+				settings = $openBtn.data('modal-settings') || commonJs.modal.defaultSettings;
+				// ✨ 내부 함수 호출 ('commonJs.modal.' 경로 사용)
+				commonJs.modal._close($modalToClose, $openBtn, settings);
+			} else {
+				console.warn('Could not find modal to close for:', this);
+			}
+		} // end close
+	}
+};
+
+$(function () {
+	commonJs.init();
+});

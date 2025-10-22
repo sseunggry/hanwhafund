@@ -1,0 +1,14 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const size = localsSafe.size || 'medium'; // small, medium, large
+  const text = localsSafe.text || '';
+	const classes = [
+    `${projectName}-spinner`,
+    size,
+  ].filter(Boolean).join(' ');
+%>
+
+<div class="<%= classes %>" role="status">
+	<span class="<%= !text ? 'sr-only' : ''%>"><%= text || '로딩 중' %></span>
+</div>

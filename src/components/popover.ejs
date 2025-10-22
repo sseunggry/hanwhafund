@@ -1,0 +1,39 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+	const id = localsSafe.id || 'popover-default';
+	const position = localsSafe.position || 'top'; // top, right, bottom, left
+	const title = localsSafe.title || '툴팁 제목';
+	const slot = localsSafe.slot || '<p>툴팁 내용이 여기에 들어갑니다.</p>';
+	const active = localsSafe.active ? true : false;
+	const classes = [
+    `${projectName}-tooltip tooltip-popover`,
+		active ? 'active' : '',
+		position
+  ].filter(Boolean).join(' ');
+%>
+
+<div class="<%= classes %>" id="<%= id %>" role="dialog" aria-hidden="<%= !active %>">
+	<div class="tooltip-inner">
+		<div class="popover-header">
+			<h2 class="popover-title"><%= title %></h2>
+		</div>
+		<div class="popover-content">
+			<%- slot %>
+		</div>
+	</div>
+
+	<%- include('../components/button.ejs', {
+		label: '닫기',
+		tag: 'button',
+		postIcon: 'popup-close',
+		addClass: 'btn-close popover-close-btn btn-close-tooltip',
+		size: 'medium',
+		iconOnly: true,
+	}) %>
+
+	<!-- <button type="button" class="<%= projectName %>-btn icon btn-close popover-close-btn">
+		<span class="sr-only">닫기</span>
+		<i class="svg-icon ico-popup-close"></i>
+	</button> -->
+</div>

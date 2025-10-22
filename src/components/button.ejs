@@ -13,10 +13,11 @@
   const preIcon = localsSafe.preIcon || '';
   const postIcon = localsSafe.postIcon || '';
 	const iconOnly = localsSafe.iconOnly || '';
+	const targetId = localsSafe.targetId || '';
 	const classes = [
     `${projectName}-btn`,
     variant,
-    hierarchy,
+    iconOnly ? '' : hierarchy,
     size,
     disabled,
     addClass,
@@ -28,6 +29,7 @@
   <%- tag === 'button' ? `type="button"` : `href="#!"` %>
 	<%= disabled %>
   class="<%= classes %>"
+	<%- targetId ? `aria-controls="${targetId}"` : '' %>
 >
 	<%- preSlot %>
 	<%- preIcon ? `<i class="svg-icon ico-${preIcon}"></i>` : '' %>
