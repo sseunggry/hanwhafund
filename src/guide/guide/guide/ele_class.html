@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>클래스규칙 &gt; 마크업 가이드</title>
+    <link href="../resources/css/index.css" rel="stylesheet" />
+    <link href="../resources/css/gui_style.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <link
+      href="../../script_guide/themes/css/github.css"
+      rel="stylesheet"
+    />
+    <script src="../../../assets/js/jquery3.min.js"></script>
+    <!-- <script src="/v2/resources/js/ui.base.js"></script> -->
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">클래스규칙</span>
+          </div>
+        </div>
+        <section class="fui-section">
+          <div class="group">
+            <div class="list-head">
+              <div class="title-lg">
+                <span class="txt">채널별 Class 부여 규칙</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  HTML태그에 class로 부여 함. &lt;html class="
+                  <strong>page-xxx</strong>
+                  "&gt;
+                </li>
+                <li>
+                  홈페이지(메인):
+                  <strong class="fc-red">.rep-main-page</strong>
+                </li>
+                <li>
+                  회사소개:
+                  <strong class="fc-red">.page-company</strong>
+                </li>
+                <li>
+                  회사소개(메인):
+                  <strong class="fc-red">.page-company.main-company</strong>
+                </li>
+                <li>
+                  회사소개 영문:
+                  <strong class="fc-red">.page-company.page-company-eng</strong>
+                </li>
+                <li>
+                  회사소개 영문(메인):
+                  <strong class="fc-red">
+                    .page-company.page-company-eng.main-company
+                  </strong>
+                </li>
+                <li>
+                  공시실:
+                  <strong class="fc-red">.page-publication</strong>
+                </li>
+                <li>
+                  공시실(메인):
+                  <strong class="fc-red">
+                    .page-publication.main-publication
+                  </strong>
+                </li>
+                <li>
+                  소비자포털:
+                  <strong class="fc-red">.page-consumer</strong>
+                </li>
+                <li>
+                  소비자포털(메인):
+                  <strong class="fc-red">.page-consumer.main-consumer</strong>
+                </li>
+                <li>
+                  RC(보험설계사):
+                  <strong class="fc-red">.page-consultant</strong>
+                </li>
+                <li>
+                  펀드:
+                  <strong class="fc-red">.page-fund</strong>
+                </li>
+                <li>
+                  인증센터:
+                  <strong class="fc-red">.page-util</strong>
+                </li>
+                <li>
+                  모니모:
+                  <strong class="fc-red">.page-monimo</strong>
+                </li>
+                <li>
+                  삼성화재 앱:
+                  <strong class="fc-red">.page-fireapp</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">강제 클래스</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-tiny">
+                <span class="txt">경우에 따른 Show/Hide</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  Mobile에서만 보여야 하는 경우:
+                  <strong class="fc-red">.mob-only</strong>
+                  / Mobile에서만 읽혀야 하는 경우:
+                  <strong class="fc-red">.mob-only.read</strong>
+                </li>
+                <li>
+                  PC에서만 보여야 하는 경우:
+                  <strong class="fc-red">.pc-only</strong>
+                  / PC에서만 읽혀야 하는 경우:
+                  <strong class="fc-red">.pc-only.read</strong>
+                  / PC에서만 보여야하는 경우인데 flex로 되어야 할 경우:
+                  <strong class="fc-red">.pc-only-flex</strong>
+                  / PC에서만 보여야하는 경우인데 inline-flex로 되어야 할 경우:
+                  <strong class="fc-red">.pc-only-inlineflex</strong>
+                </li>
+                <li>
+                  스마트링크에서만 보여야 하는 경우:
+                  <strong class="fc-red">.smartlink-only</strong>
+                  / 반대로 스마트링크에서는 안 보여야 하는 경우(홈페이지에서는
+                  노출):
+                  <strong class="fc-red">.smartlink-none</strong>
+                </li>
+                <li>
+                  모니모 앱에서만 보여야 하는 경우:
+                  <strong class="fc-red">.monimo-only-show</strong>
+                  / 반대로 모니모 앱에서는 안 보여야 하는 경우(홈페이지에서는
+                  노출):
+                  <strong class="fc-red">.monimo-hide</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-tiny">
+                <span class="txt">
+                  글자가 br요소가 모바일이나 PC일때 다르게 보여야 할 경우
+                </span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  모바일에서는 br요소, PC일때는 inline으로 span이나 i 같은
+                  inline 요소인 태그를 사용할것:
+                  <strong class="fc-red">.br</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-tiny">
+                <span class="txt">Width 사이즈</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  min-width: 4rem:
+                  <strong class="fc-red">.w-min-tiny</strong>
+                  <br />
+                  min-width: 5rem:
+                  <strong class="fc-red">.w-min-min</strong>
+                  <br />
+                  min-width: 6rem:
+                  <strong class="fc-red">.w-min-xxs</strong>
+                  <br />
+                  min-width: 8rem:
+                  <strong class="fc-red">.w-min-xsm</strong>
+                  <br />
+                  min-width: 10rem:
+                  <strong class="fc-red">.w-min-sm</strong>
+                  <br />
+                  min-width: 12rem:
+                  <strong class="fc-red">.w-min-md</strong>
+                  <br />
+                  min-width: 17rem:
+                  <strong class="fc-red">.w-min-lg</strong>
+                  <br />
+                  min-width: 8.6rem:
+                  <strong class="fc-red">.w-min-rem86</strong>
+                </li>
+                <li>
+                  width: 25%:
+                  <strong class="fc-red">.w-ratio-25</strong>
+                  <br />
+                  width: 40%:
+                  <strong class="fc-red">.w-ratio-40</strong>
+                  <br />
+                  width: 50%:
+                  <strong class="fc-red">.w-ratio-50</strong>
+                  <br />
+                  width: 100%:
+                  <strong class="fc-red">.w-full</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="../../script_guide/dist/rainbow.js"></script>
+    <script src="../../script_guide/src/language/generic.js"></script>
+    <script src="../../script_guide/src/language/html.js"></script>
+    <script src="../../script_guide/src/language/css.js"></script>
+    <script src="../../script_guide/src/language/php.js"></script>
+    <script src="../../script_guide/src/language/javascript.js"></script>
+    <script src="../../script_guide/guide_script.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".btn[data-btn='fold']").bind("click", function () {
+          $(this)
+            .closest("div.btn-wrap")
+            .next(".fui-src-fold")
+            .toggleClass("is-fold");
+        });
+      });
+    </script>
+  </body>
+</html>

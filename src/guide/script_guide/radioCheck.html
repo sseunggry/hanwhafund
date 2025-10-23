@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <title>스크립트 가이드</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/v2/guide/script_guide/themes/css/github.css"
+    />
+    <script src="/v2/resources/js/jquery3.min.js"></script>
+    <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="title_sec">
+          <p class="guide_title title_lv1">Radio & Checkbox</p>
+        </div>
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Radio</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="radio-group">
+                  <label for="id1" class="lb-radio">
+                    <input type="radio" name="id" id="id1" checked />
+                    <span class="label">라디오 옵션1</span>
+                  </label>
+                  <label for="id2" class="lb-radio">
+                    <input type="radio" name="id" id="id2" />
+                    <span class="label">라디오 옵션2</span>
+                  </label>
+                  <label for="id3" class="lb-radio">
+                    <input type="radio" name="id" id="id3" />
+                    <span class="label">라디오 옵션3</span>
+                  </label>
+                  <label for="id4" class="lb-radio">
+                    <input type="radio" name="id" id="id4" />
+                    <span class="label">라디오 옵션4</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Radio Toggle</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="radio-group">
+                  <label for="idd1" class="lb-radio">
+                    <input
+                      type="radio"
+                      name="idd"
+                      id="idd1"
+                      fui-visible=".show_element1"
+                      checked
+                    />
+                    <span class="label">옵션1</span>
+                  </label>
+                  <label for="idd2" class="lb-radio">
+                    <input
+                      type="radio"
+                      name="idd"
+                      id="idd2"
+                      fui-visible=".show_element2"
+                    />
+                    <span class="label">옵션2</span>
+                  </label>
+                  <label for="idd3" class="lb-radio">
+                    <input type="radio" name="idd" id="idd3" />
+                    <span class="label">옵션3</span>
+                  </label>
+                </div>
+                <div class="select_combo show_element1" style="display: flex">
+                  옵션1 내용
+                </div>
+                <div class="select_combo show_element1">옵션1-1 내용</div>
+                <div class="select_combo show_element2">옵션2 내용</div>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Checkbox</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="checkbox-group">
+                  <label for="ckid1" class="lb-check">
+                    <input type="checkbox" name="ckid1" id="ckid1" />
+                    <span class="label">옵션1</span>
+                  </label>
+                  <label for="ckid2" class="lb-check">
+                    <input type="checkbox" name="targetCheck_2" id="ckid2" />
+                    <span class="label">옵션2</span>
+                  </label>
+                  <label for="ckid3" class="lb-check checked">
+                    <input
+                      type="checkbox"
+                      name="targetCheck_2"
+                      id="ckid3"
+                      checked
+                    />
+                    <span class="label">옵션3</span>
+                  </label>
+                  <label for="ckid4" class="lb-check">
+                    <input type="checkbox" name="targetCheck_2" id="ckid4" />
+                    <span class="label">옵션4</span>
+                  </label>
+                  <label for="ckid5" class="lb-check test-chk">
+                    <input type="checkbox" name="targetCheck_2" id="ckid5" />
+                    <span class="label">옵션5</span>
+                    <span class="label">옵션6</span>
+                  </label>
+                </div>
+                <style>
+                  .test-chk .label:last-child {
+                    display: none;
+                  }
+
+                  #ckid5:checked ~ .label {
+                    display: none;
+                  }
+
+                  #ckid5:checked ~ .label:last-child {
+                    display: block;
+                  }
+                </style>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv3">
+            checked 속성을 javascript 로 컨트롤 할 경우
+          </p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <button class="btn primary" type="button" id="button">
+                  <span>체크 활성 / 비활성</span>
+                </button>
+                <br />
+                <br />
+                <div class="radio-group">
+                  <label for="id2" class="lb-radio">
+                    <input type="radio" name="id22" id="id222" />
+                    <span class="label">라디오</span>
+                  </label>
+                </div>
+                <br />
+                <div class="checkbox-group">
+                  <label for="ckid1222" class="lb-check">
+                    <input type="checkbox" name="ckid1222" id="ckid1222" />
+                    <span class="label">옵션</span>
+                  </label>
+                </div>
+                <script>
+                  var btn = document.querySelector("#button");
+                  var radio = document.querySelector("#id222");
+                  var check = document.querySelector("#ckid1222");
+                  btn.addEventListener("click", function () {
+                    radio.checked = !radio.checked;
+                    check.checked = !check.checked;
+                    MOui.util.trigger(radio, "change");
+                    MOui.util.trigger(check, "change");
+                  });
+                  btn.addEventListener("checkChange", function () {
+                    console.log("ddddddd");
+                  });
+
+                  console.log(btn);
+                </script>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="title_sec">
+          <p class="guide_title title_lv3">Checkbox Toggle</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="checkbox-group">
+                  <label for="ckidd1" class="lb-check">
+                    <input
+                      type="checkbox"
+                      name="ckidd"
+                      id="ckidd1"
+                      fui-visible=".show_element4"
+                    />
+                    <span class="label">옵션1</span>
+                  </label>
+                  <label for="ckidd2" class="lb-check">
+                    <input
+                      type="checkbox"
+                      name="ckidd"
+                      id="ckidd2"
+                      fui-visible=".show_element5"
+                      checked
+                    />
+                    <span class="label">옵션2</span>
+                  </label>
+                  <label for="ckidd3" class="lb-check checked">
+                    <input type="checkbox" name="ckidd" id="ckidd3" />
+                    <span class="label">옵션3</span>
+                  </label>
+                </div>
+                <div class="select_combo show_element4">옵션1 내용</div>
+                <div class="select_combo show_element5">옵션2 내용</div>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv3">전체 동의 체크 fui-allcheck</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="terms-wrap" fui-allcheck>
+                  <div class="all-chk-wrap">
+                    <label for="termChk_1" class="lb-check">
+                      <input type="checkbox" name="" id="termChk_1" fui-all />
+                      <span class="label">
+                        [필수] 개인(신용)정보 수집&middot;이용 처리 및
+                        이용약관에 대한 동의
+                      </span>
+                    </label>
+                  </div>
+                  <div class="sub-depth">
+                    <ul class="terms-list">
+                      <li>
+                        <div class="chk-agree">
+                          <label
+                            for="termChk_1_1"
+                            class="lb-check option-md"
+                            role="checkbox"
+                          >
+                            <input
+                              type="checkbox"
+                              id="termChk_1_1"
+                              name="allcheck1"
+                            />
+                            <span class="label">개인정보 수집&middot;이용</span>
+                          </label>
+                          <button type="button" class="btn ico-view">
+                            <span class="sr-only">자세히 보기</span>
+                          </button>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="chk-agree">
+                          <label
+                            for="termChk_1_2"
+                            class="lb-check option-md"
+                            role="checkbox"
+                          >
+                            <input
+                              type="checkbox"
+                              id="termChk_1_2"
+                              name="allcheck1"
+                            />
+                            <span class="label">고유식별정보의 처리</span>
+                          </label>
+                          <button type="button" class="btn ico-view">
+                            <span class="sr-only">자세히 보기</span>
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv3">단일체크</p>
+        </div>
+        <div class="mui_tabs" fui-tab="">
+          <div class="ui-tab-btns">
+            <a class="ui-tab-btn" href="#none">PREVIEW</a>
+            <a class="ui-tab-btn" href="#none">MARKUP</a>
+          </div>
+          <div class="ui-tab-pnls">
+            <div class="ui-tab-pnl selected">
+              <div class="hls_preview">
+                <div class="terms-wrap" fui-allcheck>
+                  <!-- 전체동의 체크박스 및 하위 체크박스를 감싸는 엘리먼트에  fui-allcheck 속성 추가 -->
+                  <div class="all-chk-wrap">
+                    <label for="termChk_112" class="lb-check">
+                      <input type="checkbox" name="" id="termChk_112" fui-all />
+                      <span class="label">
+                        [필수] 개인(신용)정보 수집&middot;이용 처리 및
+                        이용약관에 대한 동의
+                      </span>
+                    </label>
+                  </div>
+                  <div class="sub-depth">
+                    <ul class="terms-list">
+                      <li>
+                        <div class="chk-agree">
+                          <label
+                            for="termChk_1_112"
+                            class="lb-check option-md"
+                            role="checkbox"
+                          >
+                            <input
+                              type="checkbox"
+                              id="termChk_1_112"
+                              name="singleChk"
+                              fui-single
+                            />
+                            <span class="label">개인정보 수집&middot;이용</span>
+                          </label>
+                          <button type="button" class="btn ico-view">
+                            <span class="sr-only">자세히 보기</span>
+                          </button>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="chk-agree">
+                          <label
+                            for="termChk_1_212"
+                            class="lb-check option-md"
+                            role="checkbox"
+                          >
+                            <input
+                              type="checkbox"
+                              id="termChk_1_212"
+                              name="singleChk"
+                              fui-single
+                            />
+                            <span class="label">고유식별정보의 처리</span>
+                          </label>
+                          <button type="button" class="btn ico-view">
+                            <span class="sr-only">자세히 보기</span>
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui-tab-pnl">
+              <div>
+                <pre><code class="hls" data-language="html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="title_sec">
+          <p class="guide_title title_lv1">fui-visible</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="15%" />
+                <col width="55%" />
+                <col width="15%" />
+                <col width="15%" />
+              </colgroup>
+              <caption>Attributes</caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Property</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Type</th>
+                  <th class="th" scope="cols">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>-</td>
+                  <td>
+                    토글 시키고 자 하는 요소의 id 또는 class 전달
+                    <br />
+                    요소가 체크 되거나 해제 될 경우 속성 값으로 전달된 요소에
+                    display:block/none 처리
+                  </td>
+                  <td>String</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
+    <script src="/v2/guide/script_guide/src/language/html.js"></script>
+    <script src="/v2/guide/script_guide/src/language/css.js"></script>
+    <script src="/v2/guide/script_guide/src/language/php.js"></script>
+    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
+    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
+    <script src="/v2/guide/script_guide/guide_script.js"></script>
+  </body>
+</html>

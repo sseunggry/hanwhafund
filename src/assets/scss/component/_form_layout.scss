@@ -122,6 +122,7 @@
 
 	--#{$prefix}-form-input--padding: var(--#{$prefix}-padding-6);
 	--#{$prefix}-form-input--dash-gap: 2.4rem;
+	--#{$prefix}-form-input--dash-width: 0.8rem;
 
   & {
     gap: var(--#{$prefix}-form-group--gap);
@@ -396,12 +397,12 @@
 				align-items: center;
 				position: absolute;
 				top: 50%;
-				left: calc(var(--#{$prefix}-form-input--dash-gap) * -1);
+				left: calc(var(--#{$prefix}-form-input--dash-gap)/2 * -1 - var(--#{$prefix}-form-input--dash-width)/2);
 				transform: translateY(-50%);
-				width: 8px;
-				height: 1px;
+				width: var(--#{$prefix}-form-input--dash-width);
+				height: 0.1rem;
 				background-color: #000;
-				margin: 0 8px;
+				// margin: 0 0.8rem;
 			}
 		}
 	}

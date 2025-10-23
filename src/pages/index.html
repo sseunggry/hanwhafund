@@ -286,6 +286,130 @@
 			]
 		}) %>
 
+
+		<%# --- Textarea --- %>
+		<%- include('../components/textarea.ejs', {
+			title: "자기소개",
+			placeholder: "자신을 소개해주세요...",
+			maxlength: 200, // 글자 수 제한 및 카운트 표시
+			size: 'large',
+			required: true
+		}) %>
+
+		<%# --- 단일 Input --- %>
+		<%- include('../components/input.ejs', {
+			title: "아이디",
+			type: "text",
+			placeholder: "아이디 입력",
+			size: 'medium',
+			required: true,
+		}) %>
+
+		<%# --- 비밀번호 Input --- %>
+		<%- include('../components/input.ejs', {
+			title: "비밀번호",
+			type: "password",
+			placeholder: "비밀번호 입력",
+			size: 'medium',
+			showClearButton: false // 비밀번호는 클리어 버튼 숨김
+		}) %>
+
+		<%# --- 그룹 Input (Dash 스타일) --- %>
+		<%- include('../components/input.ejs', {
+			title: "주민등록번호",
+			type: "text", // 필요 시 number 등으로 변경
+			size: 'medium',
+			dash: true, // dash 스타일 적용
+			group: [
+				{ placeholder: '앞자리', ariaLabel: '주민등록번호 앞자리' }, // 각 필드 placeholder, aria-label 설정
+				{ placeholder: '뒷자리', ariaLabel: '주민등록번호 뒷자리', type: 'password' } // 개별 타입 변경도 가능
+			]
+		}) %>
+		<%# --- 그룹 Input --- %>
+		<%- include('../components/input.ejs', {
+			title: "이메일",
+			type: "text", // 필요 시 number 등으로 변경
+			size: 'medium',
+			group: [
+				{ placeholder: '앞자리'}, // 각 필드 placeholder, aria-label 설정
+				{ placeholder: '뒷자리'} // 개별 타입 변경도 가능
+			]
+		}) %>
+
+		<%# --- 기본 모달 --- %>
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '기본 모달 열기',
+			hierarchy: 'tertiary',
+			tag: 'button',
+			size: 'large',
+			targetId: 'myModal1',
+			addClass: 'btn-open-modal'
+		}) %>
+		<%- include('../components/modal.ejs', {
+			id: 'myModal1',
+			title: '기본 모달 제목',
+			content: '<p>모달 내용입니다. 확인 또는 취소 버튼을 누르세요.</p>',
+			buttons: [
+				{ text: '취소', class: 'medium tertiary', action: 'close' },
+				{ text: '확인', class: 'medium primary', action: 'custom', customAttr: 'onclick="alert(\'확인됨!\');"' } // 커스텀 액션 예시
+			]
+		}) %>
+
+		<%# --- 바텀 시트 (세로 버튼) --- %>
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '바텀 시트 열기',
+			hierarchy: 'tertiary',
+			tag: 'button',
+			size: 'large',
+			targetId: 'myBottomSheet',
+			addClass: 'btn-open-bottom-sheet'
+		}) %>
+		<%- include('../components/modal.ejs', {
+			id: 'myBottomSheet',
+			variant: 'bottom-sheet',
+			title: '바텀 시트 제목',
+			content: '<p>옵션을 선택하세요.</p>',
+			buttonLayout: 'column', // 버튼 세로 정렬
+			buttons: [
+				{ text: '옵션 1', class: 'medium primary', action: 'close' },
+				{ text: '옵션 2', class: 'medium secondary', action: 'close' },
+				{ text: '취소', class: 'medium text-secondary', action: 'close' }
+			],
+			showCloseBtn: false // X 버튼 숨김
+		}) %>
+
+		<%# --- 풀스크린 모달 (내용 스크롤) --- %>
+		<%- include('../components/button.ejs', {
+			variant: 'text',
+			label: '풀스크린 모달 열기',
+			hierarchy: 'tertiary',
+			tag: 'button',
+			size: 'large',
+			targetId: 'myFullModal',
+			addClass: 'btn-open-modal'
+		}) %>
+		<%- include('../components/modal.ejs', {
+			id: 'myFullModal',
+			variant: 'full',
+			title: '긴 내용의 모달',
+			content: '<p>내용... (아주 긴 내용)</p>'.repeat(20), // 긴 내용 예시
+			scrollable: true, // 내용 영역 스크롤 가능 + tabindex="0" 추가
+			buttons: [
+				{ text: '닫기', class: 'large primary', action: 'close' }
+			]
+		}) %>
+
+
+		<%- include('../components/accordion.ejs', {
+			items: [
+				{title: '제목1', content: '<p>내용1</p>', active: true },
+				{title: '제목2', content: '<p>내용2</p>' },
+				{title: '제목3', content: '<p>내용3</p>' }
+			],
+		}) %>
+
   </div>
 
 	<%- include('../layouts/footer.ejs') %>

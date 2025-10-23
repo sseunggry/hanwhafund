@@ -1,0 +1,35 @@
+.fui-section + .fui-section {
+  margin-top: 5rem;
+}
+.fui-section .note-txt + .group {
+  margin-top: 2rem;
+}
+@media screen and (max-width: 58rem) {
+  .fui-section .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.fui-section .fui-mg-center {
+  margin: auto;
+}
+.fui-guide-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.fui-guide-flex.fui-flx-column {
+  flex-direction: column;
+}
+.fui-source {
+  margin-top: 1.2rem;
+}
+.fui-source .btn-wrap {
+  margin-bottom: 0.8rem;
+}
+.fui-source .fui-src-fold {
+  display: none;
+}
+.fui-source .fui-src-fold.is-fold {
+  display: block;
+}

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>슬라이더 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="../../script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../script_guide/themes/css/github.css"
+    />
+    <script src="../../../assets/js/jquery3.min.js"></script>
+    <!-- <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">슬라이더</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">ELSlider</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  가로 막대 형태로 범위를 제공하고 현재 상태에 대한 정보를 표시
+                </li>
+                <li>
+                  보험 시작일, 등 특정 목표치와 현황을 표시하는 화면에 주로 사용
+                </li>
+                <li>경우에 따라 가로 막대가 정방향 혹은 역방향으로 사용가능</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">정방향</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">0%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 0% 일때 (s) -->
+                      <div class="slider-graph" data-graph-bar="0">
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move" style="left: 0">
+                            <p>
+                              변경 후 종료일
+                              <br />
+                              2024.12.19
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 0"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            특약 시작일
+                            <br />
+                            2023.12.20
+                          </p>
+                          <p class="end">
+                            특약 종료일
+                            <br />
+                            2024.12.19
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 0% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">11%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 11% 일때 (s) -->
+                      <div class="slider-graph" data-graph-bar="11">
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move center" style="left: 11%">
+                            <p>
+                              변경 후 종료일
+                              <br />
+                              2024.12.19
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 11%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            특약 시작일
+                            <br />
+                            2023.12.20
+                          </p>
+                          <p class="end">
+                            특약 종료일
+                            <br />
+                            2024.12.19
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 11% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">50%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 50% 일때 (s) -->
+                      <div class="slider-graph" data-graph-bar="50">
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move center" style="left: 50%">
+                            <p>
+                              변경 후 종료일
+                              <br />
+                              2024.12.19
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 50%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            특약 시작일
+                            <br />
+                            2023.12.20
+                          </p>
+                          <p class="end">
+                            특약 종료일
+                            <br />
+                            2024.12.19
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 50% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">91%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 91% 일때 (s) -->
+                      <div class="slider-graph" data-graph-bar="91">
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move end" style="left: 91%">
+                            <p>
+                              변경 후 종료일
+                              <br />
+                              2024.12.19
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 91%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            특약 시작일
+                            <br />
+                            2023.12.20
+                          </p>
+                          <p class="end">
+                            특약 종료일
+                            <br />
+                            2024.12.19
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 91% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">100%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 100% 일때 (s) -->
+                      <div class="slider-graph" data-graph-bar="100">
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move end" style="left: 100%">
+                            <p>
+                              변경 후 종료일
+                              <br />
+                              2024.12.19
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 100%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            특약 시작일
+                            <br />
+                            2023.12.20
+                          </p>
+                          <p class="end">
+                            특약 종료일
+                            <br />
+                            2024.12.19
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 100% 일때 (e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">역방향(.option-reverse)</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">0%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 0% 일때 (s) -->
+                      <div
+                        class="slider-graph option-reverse"
+                        data-graph-bar="0"
+                      >
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move" style="right: 0">
+                            <p>
+                              계약 변경 시작일
+                              <br />
+                              2024.07.11
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 0"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            보험 시작일
+                            <br />
+                            2023.07.11
+                          </p>
+                          <p class="end">
+                            보험 종료일
+                            <br />
+                            2024.07.11
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 0% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">11%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 11% 일때 (s) -->
+                      <div
+                        class="slider-graph option-reverse"
+                        data-graph-bar="11"
+                      >
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move center" style="right: 11%">
+                            <p>
+                              계약 변경 시작일
+                              <br />
+                              2024.07.11
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 11%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            보험 시작일
+                            <br />
+                            2023.07.11
+                          </p>
+                          <p class="end">
+                            보험 종료일
+                            <br />
+                            2024.07.11
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 11% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">50%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 50% 일때 (s) -->
+                      <div
+                        class="slider-graph option-reverse"
+                        data-graph-bar="50"
+                      >
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move center" style="right: 50%">
+                            <p>
+                              계약 변경 시작일
+                              <br />
+                              2024.07.11
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 50%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            보험 시작일
+                            <br />
+                            2023.07.11
+                          </p>
+                          <p class="end">
+                            보험 종료일
+                            <br />
+                            2024.07.11
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 50% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">91%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 91% 일때 (s) -->
+                      <div
+                        class="slider-graph option-reverse"
+                        data-graph-bar="91"
+                      >
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move end" style="right: 91%">
+                            <p>
+                              계약 변경 시작일
+                              <br />
+                              2024.07.11
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 91%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            보험 시작일
+                            <br />
+                            2023.07.11
+                          </p>
+                          <p class="end">
+                            보험 종료일
+                            <br />
+                            2024.07.11
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 91% 일때 (e) -->
+
+                      <br />
+                      <br />
+
+                      <div class="list-head">
+                        <h4 class="title-tiny">
+                          <span class="txt">100%</span>
+                        </h4>
+                      </div>
+
+                      <!-- 100% 일때 (s) -->
+                      <div
+                        class="slider-graph option-reverse"
+                        data-graph-bar="100"
+                      >
+                        <div class="point-area">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <div class="x-axis move end" style="right: 100%">
+                            <p>
+                              계약 변경 시작일
+                              <br />
+                              2024.07.11
+                            </p>
+                          </div>
+                        </div>
+                        <div class="bar-line">
+                          <!-- data-graph-bar : style 숫자 동일하게 -->
+                          <span class="bar" style="width: 100%"></span>
+                        </div>
+                        <div class="bar-info">
+                          <p class="start">
+                            보험 시작일
+                            <br />
+                            2023.07.11
+                          </p>
+                          <p class="end">
+                            보험 종료일
+                            <br />
+                            2024.07.11
+                          </p>
+                        </div>
+                      </div>
+                      <!--// 100% 일때 (e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $plugins.uiTextareaAutoHeight();
+      });
+    </script>
+    <script src="../../script_guide/dist/rainbow.js"></script>
+    <script src="../../script_guide/src/language/generic.js"></script>
+    <script src="../../script_guide/src/language/html.js"></script>
+    <script src="../../script_guide/src/language/css.js"></script>
+    <script src="../../script_guide/src/language/php.js"></script>
+    <script src="../../script_guide/src/language/javascript.js"></script>
+    <script src="../../script_guide/guide_script.js"></script>
+  </body>
+</html>

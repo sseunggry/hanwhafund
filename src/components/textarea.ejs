@@ -1,0 +1,67 @@
+<%
+  const localsSafe = locals || {};
+  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
+  const size = localsSafe.size || 'medium';
+  const placeholder = localsSafe.placeholder || '';
+  const value = localsSafe.value || '';
+  const name = localsSafe.name || '';
+  const required = localsSafe.required || false;
+  const disabled = localsSafe.disabled || false;
+  const readonly = localsSafe.readonly || false;
+  const maxlength = localsSafe.maxlength || null; // 최대 글자 수
+  const showCount = localsSafe.showCount !== false && maxlength; // maxlength 있을 때 기본으로 카운트 표시
+  const rows = localsSafe.rows || null; // textarea rows 속성
+  const addClass = localsSafe.addClass || ''; // textarea-wrap 추가 클래스
+
+  const uniqueId = localsSafe.id || `textarea-${Math.random().toString(36).substring(2, 9)}`;
+
+  const wrapClasses = [
+    'textarea-wrap', // 기본 textarea 래퍼
+    size,
+    addClass,
+    disabled ? 'disabled' : '',
+    readonly ? 'readonly' : ''
+  ].filter(Boolean).join(' ');
+
+  const textareaClasses = [
+     `${projectName}-input`, // input과 유사한 스타일 적용 위해
+     size
+  ].filter(Boolean).join(' ');
+
+  const formGroupClasses = [
+		'form-group', 
+		disabled ? 'disabled' : '', 
+		readonly ? 'readonly' : '' 
+	].filter(Boolean).join(' ');
+%>
+
+<% if (title) { -%>
+<div class="<%= formGroupClasses %>">
+  <div class="form-tit"><label for="<%= uniqueId %>"><%= title %></label></div>
+  <div class="form-conts">
+<% } -%>
+    <div class="<%= wrapClasses %>">
+      <textarea
+        id="<%= uniqueId %>"
+        class="<%= textareaClasses %>"
+        name="<%= name %>"
+        placeholder="<%= placeholder %>"
+        <%= maxlength ? `maxlength="${maxlength}"` : '' %>
+        <%= rows ? `rows="${rows}"` : '' %>
+        <%= required ? 'required' : '' %>
+        <%= disabled ? 'disabled' : '' %>
+        <%= readonly ? 'readonly' : '' %>
+      ><%= value %></textarea>
+
+      <% if (showCount) { %>
+        <p class="textarea-count">
+          <span class="count-now"><%= value.length %></span>
+          <span class="count-total">/<%= maxlength %></span>
+        </p>
+      <% } %>
+    </div>
+<% if (title) { -%>
+  </div> <%# /.form-conts %>
+</div> <%# /.form-group %>
+<% } -%>

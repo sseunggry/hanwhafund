@@ -1,71 +1,96 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
-	const id = localsSafe.id || 'modal-default';
-	const title = localsSafe.title || '모달 제목';
-	const slot = localsSafe.slot || '<p>모달 내용이 여기에 들어갑니다.</p>';
-	const btnList = localsSafe.btnList || [];
-	const show = localsSafe.show ? true : false;
-	const classes = [
+  const projectName = localsSafe.projectName || 'hwf';
+  const id = localsSafe.id || 'modal-default';
+  const title = localsSafe.title || ''; // 모달 제목 (HTML 가능)
+  const content = localsSafe.content || ''; // 모달 본문 내용 (HTML 가능)
+  const variant = localsSafe.variant || 'modal'; // variant: modal(기본), bottom-sheet, full
+  const buttonLayout = localsSafe.buttonLayout || 'default'; // buttonLayout: default(기본), column
+  const buttons = Array.isArray(localsSafe.buttons) ? localsSafe.buttons : []; // buttons: [{ text: '확인', class: 'primary medium', action: 'close'/'custom', customAttr: '...' }, ...]
+  const showCloseBtn = localsSafe.showCloseBtn !== false; // X 닫기 버튼 표시 여부 (기본 true)
+  const addClass = localsSafe.addClass || '';
+  const scrollable = localsSafe.scrollable || false; // 내용 영역 스크롤 시 tabindex 추가 여부
+
+  const titleId = `tit_${id}`;
+  const modalClasses = [
     `${projectName}-modal`,
-		show ? 'show' : '',
-		'fade',
-		show ? 'in' : '',
+    'fade',
+    variant,
+    addClass
+  ].filter(Boolean).join(' ');
+	
+  const dialogClasses = ['modal-dialog'].filter(Boolean).join(' ');
+  const btnWrapClasses = [
+    'modal-btn',
+    'btn-wrap',
+    buttonLayout
   ].filter(Boolean).join(' ');
 %>
 
-<div class="<%= classes %>" id="<%= id %>" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h2 id="tit_modal_sample_01" class="modal-title"><%= title %></h2>
-			</div>
-			<div class="modal-conts">
-				<div class="conts-area">
-					<%- slot %>
-				</div>
-			</div>
-			
-			<!-- <div class="modal-btn btn-wrap default">
-				<button type="button" class="pds-btn medium tertiary close-modal">아니요</button>
-				<button type="button" class="pds-btn medium primary close-modal">예</button>
-			</div> -->
-			<div class="modal-btn btn-wrap">
-				<% if (btnList && btnList.length) { %>
-					<% btnList.forEach(function(btn) { 
-						const btnType = btn.type || 'button';
-						const theme = btn.theme || 'primary'; // 기본값
-						const size = btn.size || 'medium';
-						const actionClass = btn.action ? `modal-action-${btn.action}` : '';
-						const extraClass = btn.class || ''; // 추가 클래스
-					%>
-						<button 
-							type="<%= btnType %>" 
-							class="<%= projectName %>-btn <%= size %> <%= theme %> close-modal <%= actionClass %> <%= extraClass %>">
-							<%= btn.label %>
-						</button>
-					<% }); %>
-				<% } else { %>
-					<button type="button" class="<%= projectName %>-btn medium tertiary close-modal">아니요</button>
-					<button type="button" class="<%= projectName %>-btn medium primary close-modal">예</button>
-				<% } %>
-			</div>
-			
+<div
+  id="<%= id %>"
+  class="<%= modalClasses %>"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="<%= titleId %>"
+  data-type="<%= variant %>"
+>
+  <div class="<%= dialogClasses %>">
+    <div class="modal-content">
+      <% if (title) { %>
+        <div class="modal-header">
+          <h2 id="<%= titleId %>" class="modal-title"><%- title %></h2>
+        </div>
+      <% } %>
 
-			<%- include('../components/button.ejs', {
-				label: '닫기',
-				tag: 'button',
-				postIcon: 'popup-close',
-				addClass: 'btn-close btn-close-modal',
-				size: 'medium',
-				iconOnly: true,
-			}) %>
+      <%# --- 모달 본문 --- %>
+      <div class="modal-conts" <%= scrollable ? 'tabindex="0"' : '' %>>
+        <div class="conts-area">
+          <%- content %>
+        </div>
+      </div>
 
-			<!-- <button type="button" class="pds-btn icon btn-close close-modal">
-				<span class="sr-only">닫기</span>
-				<i class="svg-icon ico-popup-close"></i>
-			</button> -->
-		</div>
-	</div>
-	<div class="modal-back <%= show ? 'in' : '' %>"></div>
+      <%# --- 모달 버튼 영역 --- %>
+      <% if (buttons.length > 0) { %>
+        <div class="<%= btnWrapClasses %>">
+          <% buttons.forEach(button => { %>
+            <%
+              const btnText = button.text || '버튼';
+              // 기본 클래스 + 사용자 정의 클래스 + 닫기 클래스(action 기준)
+              const btnClasses = [
+                `${projectName}-btn`, // 기본 버튼 클래스 (pds-btn 대체 또는 병행)
+                button.class || 'medium primary', // 기본값 설정
+                button.action === 'close' ? 'btn-close-modal' : '' // 닫기 액션 시 클래스 추가
+              ].filter(Boolean).join(' ');
+              // 닫기 액션이면 aria-controls 추가
+              const btnAriaControls = button.action === 'close' ? `aria-controls="${id}"` : '';
+              const btnCustomAttr = button.customAttr || ''; // 추가 속성
+            %>
+            <button
+              type="button"
+              class="<%= btnClasses %>"
+              <%- btnAriaControls %>
+              <%- btnCustomAttr %>
+            >
+              <%= btnText %>
+            </button>
+          <% }); %>
+        </div>
+      <% } %>
+
+      <%# --- 우상단 닫기 버튼 --- %>
+      <% if (showCloseBtn) { %>
+        <button
+          type="button"
+          class="<%= projectName %>-btn icon btn-close btn-close-modal"
+          aria-controls="<%= id %>"
+        >
+          <span class="sr-only">닫기</span>
+          <i class="svg-icon ico-popup-close"></i>
+        </button>
+      <% } %>
+
+    </div>
+  </div>
+	<div class="modal-back in"></div>
 </div>

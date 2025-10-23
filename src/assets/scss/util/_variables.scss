@@ -101,3 +101,52 @@ $screen-zoom-sizes: (
   xlarge: 1.3,
   xxlarge: 1.5,
 ) !default;
+
+:root {
+  // * PRIMITIVE *
+  --#{$prefix}-font-family-base: #{$font-family-base};
+  --#{$prefix}-font-size-base: #{$font-size-base};
+
+  // line heights
+  @each $type, $value in $font-line-heights {
+    --#{$prefix}-line-height-#{$type}: #{$value};
+  }
+
+  // letter spacings
+  @each $type, $value in $font-letter-spacings {
+    --#{$prefix}-letter-spacing-#{$type}: #{$value};
+  }
+
+  // font weight
+  @each $type, $value in $font-weights {
+    --#{$prefix}-font-weight-#{$type}: #{$value};
+  }
+
+  // transition
+  --#{$prefix}-transition-base: #{$transition-base};
+  --#{$prefix}-transition-fade: #{$transition-fade};
+  --#{$prefix}-transition-collapse: #{$transition-collapse};
+  --#{$prefix}-transition-collapse-width: #{$transition-collapse-width};
+
+  // contents size
+  --#{$prefix}-contents-size: #{$contents-size};
+  --#{$prefix}-contents-padding-x: #{$contents-padding-x-pc};
+  --#{$prefix}-contents-wrap-size: #{$contents-wrap-size};
+
+  // box shadow (only for focus outline)
+  // --#{$prefix}-box-shadow-outline: 0 0 0 0.4rem var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-primary);
+  // --#{$prefix}-box-shadow-outline-inset: inset 0 0 0 0.2rem var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-primary);
+
+  // screen zoom sizes
+  @each $type, $value in $screen-zoom-sizes {
+    --#{$prefix}-zoom-#{$type}: #{$value};
+  }
+
+  // text underline offset
+  --#{$prefix}-font-underline-offset: #{$font-underline-offset-default};
+
+  // svg icon size
+  @each $size, $value in $icon-sizes {
+    --#{$prefix}-icon--size-#{$size}: #{$value};
+  }
+}

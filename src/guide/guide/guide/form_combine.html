@@ -1,0 +1,1282 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>폼조합 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="../../script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../script_guide/themes/css/github.css"
+    />
+    <script src="../../../assets/js/jquery3.min.js"></script>
+    <!-- <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">폼조합</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">폼조합</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>텍스트 필드의 기본적인 형태</li>
+                <li>
+                  label에는 항목명이 표시되고, placeholder에는 힌트 텍스트가
+                  표시됨
+                </li>
+                <li>placeholder가 label로 이동하는 상호작용이 일어나지 않음</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 인증번호(s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetInput4_2" class="label-txt">
+                            인증번호
+                          </label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md has-button certify" fui-input>
+                          <input
+                            type="tel"
+                            class="inp-base inp-ani"
+                            id="targetInput4_2"
+                            name=""
+                            value=""
+                            placeholder="6자리입력"
+                            maxlength="6"
+                          />
+                          <div class="combine">
+                            <span class="count-mes">
+                              <i class="sr-only">남은시간</i>
+                              03:00
+                            </span>
+                            <button
+                              type="button"
+                              class="btn tertiary option-xsm option-round"
+                            >
+                              <span>시간연장</span>
+                            </button>
+                            <button
+                              type="button"
+                              class="btn secondary option-xsm option-round"
+                            >
+                              <span>다시받기</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 인증번호(e)-->
+
+                      <!-- 주민번호 풀 입력시(s) -->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <span class="label-txt">
+                            주민등록번호(주민번호 풀 입력시 - PC일때 가상키패드
+                            이미지 노출)
+                          </span>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id="certLicenseInput2_1"
+                                  name=""
+                                  value=""
+                                  maxlength="6"
+                                  placeholder="예: 850101"
+                                  title="주민등록번호 앞6자리"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark">-</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md has-button">
+                                <input
+                                  type="password"
+                                  class="inp-base inp-ani"
+                                  id="certLicenseInput2_2"
+                                  name=""
+                                  value=""
+                                  maxlength="7"
+                                  placeholder=""
+                                  title="주민등록번호 뒤 7자리"
+                                />
+                                <div class="combine pc-only-flex">
+                                  <img
+                                    id="kpSsn2_toggle"
+                                    src="/v2/resources/images/common/keypad_off.png"
+                                    class="btn-keypad"
+                                    alt="가상키패드"
+                                  />
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 주민번호 풀 입력시(e) -->
+
+                      <!-- 주민등록번호(Short Type - 뒤 6자리 마스킹) (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <span class="label-txt">
+                            주민등록번호(Short Type - 뒤 6자리 마스킹)
+                          </span>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id="certPhoneInput3_1"
+                                  name=""
+                                  value=""
+                                  maxlength="6"
+                                  placeholder="예: 850101"
+                                  title="주민등록번호 앞6자리"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark">-</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="item-row option-license-short">
+                                <div class="unit fixed">
+                                  <div class="input-wrap md">
+                                    <input
+                                      type="tel"
+                                      class="inp-base inp-ani"
+                                      id="certPhoneInput2_2"
+                                      name=""
+                                      value=""
+                                      maxlength="1"
+                                      placeholder=""
+                                      title="주민등록번호 뒤 1자리"
+                                    />
+                                  </div>
+                                  <!--// .input* (e)-->
+                                </div>
+                                <div class="unit filled">
+                                  <div class="fc-placeholder">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 주민등록번호(Short Type - 뒤 6자리 마스킹) (e)-->
+
+                      <!-- 주민번호 풀 입력시-readonly(s) -->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <span class="label-txt">
+                            주민등록번호-readonly(주민번호 풀 입력시 - PC일때
+                            가상키패드 이미지 삭제)
+                          </span>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id="certLicenseInput2_1"
+                                  name=""
+                                  value="123456"
+                                  maxlength="6"
+                                  placeholder="예: 850101"
+                                  title="주민등록번호 앞6자리"
+                                  readonly
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark">-</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md has-button">
+                                <input
+                                  type="password"
+                                  class="inp-base inp-ani"
+                                  id="certLicenseInput2_2"
+                                  name=""
+                                  value="******"
+                                  maxlength="7"
+                                  placeholder=""
+                                  title="주민등록번호 뒤 7자리"
+                                  readonly
+                                />
+                                <!-- 보안 키패드 임시로 넣어 둠 -->
+                                <div class="combine pc-only-flex">
+                                  <img
+                                    id="kpSsn2_toggle"
+                                    src="/v2/resources/images/common/keypad_off.png"
+                                    class="btn-keypad"
+                                    alt="가상키패드"
+                                  />
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 주민번호 풀 입력시-readonly(e) -->
+
+                      <!-- 사업자번호 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">사업자번호</strong>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled w-fix-md">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  maxlength="3"
+                                  placeholder="123"
+                                  title="앞3자리"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark">-</span>
+                          </div>
+                          <div class="unit filled w-fix-md">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  maxlength="2"
+                                  placeholder="45"
+                                  title="중간2자리"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark">-</span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  maxlength="5"
+                                  placeholder="67890"
+                                  title="뒤5자리"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 사업자번호 (e)-->
+
+                      <!-- 카드번호 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="inputCard1_1" class="label-txt">
+                            카드번호
+                          </label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md has-button">
+                          <input
+                            type="tel"
+                            class="inp-base inp-ani"
+                            id="inputCard1_1"
+                            name=""
+                            value=""
+                            placeholder=""
+                            title="카드번호"
+                          />
+                          <div class="combine pc-only-flex">
+                            <img
+                              id="kpSsn2_toggle"
+                              src="/v2/resources/images/common/keypad_off.png"
+                              class="btn-keypad"
+                              alt="가상키패드"
+                            />
+                          </div>
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 카드번호 (e)-->
+
+                      <!-- 유효기간(s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">유효기간</strong>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div
+                                class="input-wrap md has-button endunit"
+                                fui-input
+                              >
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  placeholder="MM"
+                                  title="유효기간 월 2자리"
+                                />
+                                <div class="combine">
+                                  <span>월</span>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div
+                                class="input-wrap md has-button endunit"
+                                fui-input
+                              >
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  placeholder="YY"
+                                  title="유효기간 연도 2자리"
+                                />
+                                <div class="combine">
+                                  <span>년</span>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 유효기간(e)-->
+
+                      <!-- 선택 + 입력(s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">선택 + 입력</strong>
+                        </div>
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .ui-select* (s)-->
+                              <div class="ui-select md" fui-selectbox>
+                                <select id="te-select1_1" title="선택">
+                                  <option value="" selected>선택</option>
+                                  <option value="">김삼성</option>
+                                  <option value="">선택1</option>
+                                  <option value="">선택2</option>
+                                </select>
+                              </div>
+                              <!--// .ui-select* (e)-->
+                            </div>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value=""
+                                  placeholder="YY"
+                                  title="입력해 주세요"
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 선택 + 입력(e)-->
+
+                      <!-- 휴대폰번호(s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">휴대폰번호</strong>
+                        </div>
+                        <div class="form-wrap">
+                          <div class="ui-select md" fui-selectbox>
+                            <select id="certPhoneInput3_1" title="통신사선택">
+                              <option value="" selected>SKT</option>
+                              <option value="">KT</option>
+                              <option value="">LG U+</option>
+                              <option value="">알뜰폰 SKT</option>
+                              <option value="">알뜰폰 KT</option>
+                              <option value="">알뜰폰 LG U+</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-wrap">
+                          <!-- .input* (s)-->
+                          <div class="input-wrap md" fui-input>
+                            <input
+                              type="tel"
+                              class="inp-base inp-ani"
+                              id="certPhoneInput3_2"
+                              name=""
+                              value=""
+                              placeholder="- 없이 입력"
+                              title="휴대폰번호"
+                            />
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                      </div>
+                      <!--// 휴대폰번호(e)-->
+
+                      <!-- 시/도, 시/군/구 선택(s) -->
+                      <div class="form-wrap">
+                        <div class="item-row">
+                          <div class="unit fixed w-ratio-50">
+                            <div class="form-name">
+                              <label for="selectArea1_1" class="label-txt">
+                                시/도
+                              </label>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .ui-select (s)-->
+                              <div class="ui-select md" fui-selectbox>
+                                <select id="selectArea1_1" title="시/도 선택">
+                                  <option value="" selected>시/도 선택</option>
+                                  <option value="">경기</option>
+                                  <option value="">광주</option>
+                                  <option value="">대구</option>
+                                  <option value="">대전</option>
+                                  <option value="">서울</option>
+                                  <option value="">세종</option>
+                                </select>
+                              </div>
+                              <!--// .ui-select (e)-->
+                            </div>
+                          </div>
+                          <div class="unit fixed w-ratio-50">
+                            <div class="form-name">
+                              <label for="selectArea1_2" class="label-txt">
+                                시/군/구
+                              </label>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .ui-select (s)-->
+                              <div class="ui-select md" fui-selectbox>
+                                <select
+                                  id="selectArea1_2"
+                                  title="시/군/구 선택"
+                                >
+                                  <option value="" selected>
+                                    시/군/구 선택
+                                  </option>
+                                  <option value="">강남구</option>
+                                  <option value="">강동구</option>
+                                  <option value="">강북구</option>
+                                  <option value="">강서구</option>
+                                  <option value="">구로구</option>
+                                  <option value="">중구</option>
+                                </select>
+                              </div>
+                              <!--// .ui-select (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 시/도, 시/군/구 선택(e) -->
+
+                      <!-- 납부가능 금액 / 납입금액(s) -->
+                      <div class="form-wrap">
+                        <div class="item-row">
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <strong class="label-txt">납부가능 금액</strong>
+                            </div>
+                            <div class="form-wrap">
+                              <span class="form-text">18,000,000원</span>
+                            </div>
+                          </div>
+                          <div class="unit fixed">
+                            <span class="txt-mark space-mt-7">
+                              <img
+                                src="/v2/resources/images/common/ico-common-arrow-20.svg"
+                                alt=""
+                              />
+                            </span>
+                          </div>
+                          <div class="unit filled">
+                            <div class="form-name">
+                              <label for="input_ex1_2" class="label-txt">
+                                납입금액
+                              </label>
+                            </div>
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div
+                                class="input-wrap md has-button endunit"
+                                fui-input
+                              >
+                                <input
+                                  type="tel"
+                                  class="inp-base inp-ani"
+                                  id="input_ex1_2"
+                                  name=""
+                                  value=""
+                                  placeholder=""
+                                />
+                                <div class="combine">
+                                  <span>원</span>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--// 납부가능 금액 / 납입금액(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">폼조합-특이케이스</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-tiny">
+                <span class="txt">주소 검색</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>인풋필드나 버튼 클릭시 주소 검색 팝업 호출</li>
+                  <li>input readonly이지만 라인 적용</li>
+                  <li>
+                    상세 주소의 경우 미입력시 disabled / 주소값 입력시
+                    readonly로 변경
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 주소검색(미 입력시) (s)-->
+                      <div class="form-wrap uAddress">
+                        <div class="form-wrap">
+                          <div class="form-name">
+                            <label for="targetInputAddress_1" class="label-txt">
+                              주소 검색(미 입력시)
+                            </label>
+                          </div>
+                          <!-- .input* (s)-->
+                          <div
+                            class="input-wrap md has-button address"
+                            fui-input
+                          >
+                            <input
+                              type="text"
+                              class="inp-base inp-ani"
+                              id="targetInputAddress_1"
+                              name=""
+                              value=""
+                              placeholder="주소 검색"
+                              readonly
+                            />
+                            <div class="combine">
+                              <button type="button" class="btn ico-search">
+                                <span class="sr-only">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                        <div class="form-wrap">
+                          <!-- .input* (s)-->
+                          <div class="input-wrap md readonly-line" fui-input>
+                            <input
+                              type="text"
+                              class="inp-base inp-ani"
+                              id="targetInputAddress_1_1"
+                              name=""
+                              value=""
+                              placeholder=""
+                              disabled
+                            />
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                      </div>
+                      <!--// 주소검색(미 입력시) (e)-->
+
+                      <!-- 주소검색(주소값 입력시) (s)-->
+                      <div class="form-wrap uAddress">
+                        <div class="form-wrap">
+                          <div class="form-name">
+                            <label for="targetInputAddress_3" class="label-txt">
+                              주소 검색(주소값 입력시)
+                            </label>
+                          </div>
+                          <!-- .input* (s)-->
+                          <div
+                            class="input-wrap md has-button address"
+                            fui-input
+                          >
+                            <input
+                              type="text"
+                              class="inp-base inp-ani"
+                              id="targetInputAddress_3"
+                              name=""
+                              value="서울시 영등포구 양평로 76"
+                              placeholder="주소 검색"
+                              readonly
+                            />
+                            <div class="combine">
+                              <button type="button" class="btn ico-search">
+                                <span class="sr-only">검색</span>
+                              </button>
+                            </div>
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                        <div class="form-wrap">
+                          <!-- .input* (s)-->
+                          <div class="input-wrap md readonly-line" fui-input>
+                            <input
+                              type="text"
+                              class="inp-base inp-ani"
+                              id="targetInputAddress_3_1"
+                              name=""
+                              value="7층 삼성화재영등포사옥"
+                              placeholder=""
+                              readonly
+                            />
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                      </div>
+                      <!--// 주소검색(주소값 입력시) (e)-->
+
+                      <!-- 주소검색+삭제버튼 조합 (s)-->
+                      <div class="form-wrap uAddress">
+                        <div class="form-wrap">
+                          <div class="form-name">
+                            <label for="targetInputAddress_2" class="label-txt">
+                              주소검색+삭제버튼 조합
+                            </label>
+                          </div>
+                          <div class="item-row gap-0-2">
+                            <div class="unit filled">
+                              <!-- .input* (s)-->
+                              <div
+                                class="input-wrap md has-button address"
+                                fui-input
+                              >
+                                <input
+                                  type="text"
+                                  class="inp-base inp-ani"
+                                  id="targetInputAddress_2"
+                                  name=""
+                                  value=""
+                                  placeholder="주소 검색"
+                                  readonly
+                                />
+                                <div class="combine">
+                                  <button type="button" class="btn ico-search">
+                                    <span class="sr-only">검색</span>
+                                  </button>
+                                </div>
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                            <div class="unit fixed">
+                              <button
+                                type="button"
+                                class="btn tertiary option-xsm option-round"
+                              >
+                                <span>삭제</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-wrap">
+                          <!-- .input* (s)-->
+                          <div class="input-wrap md readonly-line" fui-input>
+                            <input
+                              type="text"
+                              class="inp-base inp-ani"
+                              id="targetInputAddress_2_1"
+                              name=""
+                              value=""
+                              placeholder=""
+                              disabled
+                            />
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                      </div>
+                      <!--// 주소검색+삭제버튼 조합 (e)-->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-tiny">
+                <span class="txt">이메일</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>
+                    '@' 입력시 이메일 도메일 선택 (바텀시트/드롭다운) 호출
+                  </li>
+                  <li>직접 입력 선택시 '@'뒤로 포커스 이동</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 이메일 (s)-->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="inputEmail1" class="label-txt">
+                            이메일
+                          </label>
+                        </div>
+                        <!-- .input* (s)-->
+                        <div class="input-wrap md" fui-input="type:email;">
+                          <input
+                            type="text"
+                            class="inp-base inp-ani"
+                            id="inputEmail1"
+                            name=""
+                            value=""
+                            placeholder="이메일입력"
+                          />
+                        </div>
+                        <!--// .input* (e)-->
+                      </div>
+                      <!--// 이메일 (e)-->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">계좌선택 / 최근이용계좌 / 콤보형태</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <a
+              href="../../script_guide/selectbox.html"
+              class="btn outlined option-md"
+              target="_blank"
+              title="새창열림"
+            >
+              <span>스크립트 가이드 확인</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">예금주 선택</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- 예금주 선택(s) -->
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <strong class="label-txt">예금주</strong>
+                        </div>
+                        <!-- 선택 : 나 인 경우 -->
+                        <div class="item-row">
+                          <div class="unit fixed w-ratio-40">
+                            <div class="form-wrap">
+                              <div class="ui-select md" fui-selectbox>
+                                <select id="" title="예금주 선택">
+                                  <option
+                                    value=""
+                                    selected
+                                    fui-visible=".fui--self2"
+                                  >
+                                    나
+                                  </option>
+                                  <option value="" fui-visible=".fui--direct">
+                                    직접 입력
+                                  </option>
+                                  <option value="">김삼성</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="unit filled sight-group fui--self2">
+                            <div class="form-wrap">
+                              <!-- .input* (s)-->
+                              <div class="input-wrap md" fui-input>
+                                <input
+                                  type="text"
+                                  class="inp-base inp-ani"
+                                  id=""
+                                  name=""
+                                  value="사용자"
+                                  title=""
+                                />
+                              </div>
+                              <!--// .input* (e)-->
+                            </div>
+                          </div>
+                        </div>
+                        <!-- //선택 : 나 인 경우 -->
+
+                        <!-- 선택 : 직접 입력 인 경우 주민번호 입력 필드 추가 (s) -->
+                        <div class="space-half-mt-6 sight-group fui--direct">
+                          <div class="form-wrap">
+                            <!-- .input* (s)-->
+                            <div class="input-wrap md" fui-input>
+                              <input
+                                type="text"
+                                class="inp-base inp-ani"
+                                id=""
+                                name=""
+                                value=""
+                                placeholder="예금주/개인사업자"
+                                title=""
+                              />
+                            </div>
+                            <!--// .input* (e)-->
+                          </div>
+                          <div class="form-wrap space-half-mt-6">
+                            <div class="item-row">
+                              <div class="unit filled">
+                                <div class="form-wrap">
+                                  <!-- .input* (s)-->
+                                  <div class="input-wrap md" fui-input>
+                                    <input
+                                      type="tel"
+                                      class="inp-base inp-ani"
+                                      id=""
+                                      name=""
+                                      value=""
+                                      placeholder="예:850101"
+                                      title="주민등록번호 앞6자리"
+                                    />
+                                  </div>
+                                  <!--// .input* (e)-->
+                                </div>
+                              </div>
+                              <div class="unit fixed">
+                                <span class="txt-mark">-</span>
+                              </div>
+                              <div class="unit filled">
+                                <div class="form-wrap">
+                                  <!-- .input* (s)-->
+                                  <div class="input-wrap md has-button">
+                                    <input
+                                      type="password"
+                                      class="inp-base inp-ani"
+                                      id=""
+                                      name=""
+                                      value=""
+                                      maxlength="7"
+                                      placeholder=""
+                                      title="주민등록번호 뒤 7자리"
+                                    />
+                                    <div class="combine pc-only-flex">
+                                      <img
+                                        id=""
+                                        src="/v2/resources/images/common/keypad_off.png"
+                                        class="btn-keypad"
+                                        alt="가상키패드"
+                                      />
+                                    </div>
+                                  </div>
+                                  <!--// .input* (e)-->
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!--// 선택 : 직접 입력 인 경우 주민번호 입력 필드 추가 (e) -->
+                      </div>
+                      <!--// 예금주 선택(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">금액추가 버튼 + 입력타입</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <div class="btn-wrap">
+                          <button
+                            type="button"
+                            class="btn outlined type2 option-sm"
+                          >
+                            <span>전액</span>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn outlined type2 option-sm"
+                          >
+                            <span>100만</span>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn outlined type2 option-sm"
+                          >
+                            <span>50만</span>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn outlined type2 option-sm"
+                          >
+                            <span>10만</span>
+                          </button>
+                          <button
+                            type="button"
+                            class="btn outlined type2 option-sm"
+                          >
+                            <span>5만</span>
+                          </button>
+                        </div>
+                        <div class="form-wrap space-mt-5">
+                          <!-- .input* (s)-->
+                          <div
+                            class="input-wrap md has-button endunit"
+                            fui-input
+                          >
+                            <input
+                              type="tel"
+                              class="inp-base inp-ani"
+                              id=""
+                              name=""
+                              value=""
+                              placeholder=""
+                              title="추가 납입료입력"
+                            />
+                            <div class="combine">
+                              <span>원</span>
+                            </div>
+                          </div>
+                          <!--// .input* (e)-->
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">포인트 입력</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- .form(s) -->
+                      <div class="form">
+                        <legend></legend>
+                        <ul class="form-field">
+                          <li class="form-list">
+                            <div class="item-row">
+                              <div class="unit">
+                                <span class="label-txt option-md">
+                                  보유 포인트
+                                </span>
+                              </div>
+                              <div class="uint">
+                                <span>10,000P</span>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="form-list space-mt-5">
+                            <div class="item-row">
+                              <div class="unit fixed">
+                                <label
+                                  for="aniPoint1"
+                                  class="label-txt option-md"
+                                >
+                                  사용 포인트
+                                </label>
+                                <button
+                                  type="button"
+                                  class="btn secondary option-xsm option-round space-ml-2"
+                                >
+                                  <span>전액 사용</span>
+                                </button>
+                              </div>
+                              <div class="unit w-fix-sm">
+                                <div class="form-wrap">
+                                  <!-- .input* (s)-->
+                                  <div
+                                    class="input-wrap md has-button endunit"
+                                    fui-input
+                                  >
+                                    <input
+                                      type="tel"
+                                      class="inp-base inp-ani"
+                                      id="aniPoint1"
+                                      name="aniPoint1"
+                                      value=""
+                                      placeholder=""
+                                    />
+                                    <div class="combine">
+                                      <span>P</span>
+                                    </div>
+                                  </div>
+                                  <!--// .input* (e)-->
+                                </div>
+                              </div>
+                            </div>
+                            <ul
+                              class="info-summary space-between option-reset-space space-half-mt-2"
+                            >
+                              <li>
+                                <div class="fc-default">납입할 보험료</div>
+                                <div class="fc-default">50,000원</div>
+                              </li>
+                              <li>
+                                <div class="fc-default">포인트</div>
+                                <div class="fc-default">0P</div>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="form-list space-mt-5">
+                            <div class="item-row">
+                              <div class="unit">
+                                <strong class="result-total">
+                                  최종 결제금액
+                                </strong>
+                              </div>
+                              <div class="unit">
+                                <strong class="result-total">50,000원</strong>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <!--// .form(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="../../script_guide/dist/rainbow.js"></script>
+    <script src="../../script_guide/src/language/generic.js"></script>
+    <script src="../../script_guide/src/language/html.js"></script>
+    <script src="../../script_guide/src/language/css.js"></script>
+    <script src="../../script_guide/src/language/php.js"></script>
+    <script src="../../script_guide/src/language/javascript.js"></script>
+    <script src="../../script_guide/guide_script.js"></script>
+    <script>
+      $plugins.page.popAddress();
+    </script>
+  </body>
+</html>

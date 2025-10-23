@@ -1,0 +1,1557 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>아코디언 &gt; 마크업 가이드</title>
+    <link rel="stylesheet" href="../../script_guide/css/index.css" />
+    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
+    <link rel="stylesheet" href="/v2/resources/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../script_guide/themes/css/github.css"
+    />
+    <script src="../../../assets/js/jquery3.min.js"></script>
+    <!-- <script src="/v2/resources/js/ui.init.js"></script>
+    <script src="/v2/resources/js/ui.plugins.js"></script>
+    <script src="/v2/resources/js/ui.common.js"></script>
+    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="title-xlg">
+            <span class="txt">아코디언</span>
+          </div>
+        </div>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">Basic</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>사용자의 선택에 따라 하단 콘텐츠를 펼치거나 숨김</li>
+                <li>dl.accordion-box 에 .is-open 추가 시 펼쳐짐</li>
+                <li>상하 간격 1.8rem</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="accordion-wrap" fui-accordion>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>기본 아코디언 제목1</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">기본 아코디언 내용 1</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>기본 아코디언 제목2</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">기본 아코디언 내용 2</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>기본 아코디언 제목3</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>
+                                실손의료비 외 담보는 건당 200만원을 초과하여
+                                청구하는 경우, 우편 또는 방문 접수만 가능하며
+                                접수 시 서류 원본이 필요합니다.
+                              </li>
+                              <li>
+                                회사에서 가입한 단체보험의 질병/상해 보험금도
+                                청구할 수 있습니다.
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">토글형</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>다른 콘텐츠가 펼쳐질 경우 나머지는 닫침</li>
+                  <li>
+                    .accordion-wrap 에 fui-accordion="multiple:false;" 추가 시
+                    펼쳐짐
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div
+                        class="accordion-wrap"
+                        fui-accordion="multiple:false;"
+                      >
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>Toggle 아코디언 제목1</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">Toggle 아코디언 내용 1</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>Toggle 아코디언 제목2</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">Toggle 아코디언 내용 2</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>Toggle 아코디언 제목3</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>
+                                실손의료비 외 담보는 건당 200만원을 초과하여
+                                청구하는 경우, 우편 또는 방문 접수만 가능하며
+                                접수 시 서류 원본이 필요합니다.
+                              </li>
+                              <li>
+                                회사에서 가입한 단체보험의 질병/상해 보험금도
+                                청구할 수 있습니다.
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">라인추가형(.option-line)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>
+                    dl.accordion-box 에 .option-line 추가 시 제목과 본문사이에
+                    라인 추가 됨
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="accordion-wrap" fui-accordion>
+                        <dl class="accordion-box option-line">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>라인형 아코디언 제목1</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">라인형 아코디언 내용 1</dd>
+                        </dl>
+                        <dl class="accordion-box option-line">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>라인형 아코디언 제목2</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">라인형 아코디언 내용 2</dd>
+                        </dl>
+                        <dl class="accordion-box option-line">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>라인형 아코디언 제목3</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>
+                                실손의료비 외 담보는 건당 200만원을 초과하여
+                                청구하는 경우, 우편 또는 방문 접수만 가능하며
+                                접수 시 서류 원본이 필요합니다.
+                              </li>
+                              <li>
+                                회사에서 가입한 단체보험의 질병/상해 보험금도
+                                청구할 수 있습니다.
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">아이콘 + 제목 조합형(p.tit.icon)</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>상하 간격 2.5rem / 아이콘과 제목 사이 gap 0.8rem</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div
+                        class="accordion-wrap"
+                        fui-accordion="multiple:false;"
+                      >
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <p class="tit icon unit">
+                                <span>납입할 보험료</span>
+                              </p>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">Toggle 아코디언 내용 1</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <p class="tit icon point">
+                                <span>애니포인트 제목 제목</span>
+                              </p>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">Toggle 아코디언 내용 2</dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <p class="tit icon point">
+                                <span>
+                                  제목이 두줄 이상 가려면 어떻게 보일까요?
+                                  제목이 깁니다. 제목이 깁니다. 제목이 깁니다.
+                                  제목이 깁니다.
+                                </span>
+                              </p>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>
+                                실손의료비 외 담보는 건당 200만원을 초과하여
+                                청구하는 경우, 우편 또는 방문 접수만 가능하며
+                                접수 시 서류 원본이 필요합니다.
+                              </li>
+                              <li>
+                                회사에서 가입한 단체보험의 질병/상해 보험금도
+                                청구할 수 있습니다.
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">제목 + 보조글</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <div class="module-box option-bg">
+                <ul class="note-list depth-1">
+                  <li>상하 간격 2.5rem / 아이콘과 제목 사이 gap 0.8rem</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div
+                        class="accordion-wrap"
+                        fui-accordion="multiple:false;"
+                      >
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <div class="acc-head-item">
+                                <div class="acc-tit">
+                                  오케이저축은행 1년(20210105)
+                                </div>
+                                <div class="acc-h-info">
+                                  <span>
+                                    이관
+                                    <em class="fc-red">N</em>
+                                  </span>
+                                  <span>
+                                    수관
+                                    <em class="fc-red">N</em>
+                                  </span>
+                                  <span>1,000,000원</span>
+                                </div>
+                              </div>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>계약번호: 1234567</li>
+                              <li>자산관리기관: 삼성화재해상보험</li>
+                              <li>
+                                이관 불가사유: 삼성화재 신탁자산상품이 아닌 경우
+                                실물이전이 불가
+                              </li>
+                              <li>
+                                수관 불가사유: 삼성화재 신탁자산상품은
+                                실물이전이 불가
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <div class="acc-head-item">
+                                <div class="acc-tit">
+                                  오케이저축은행 1년(20210105)오케이저축은행
+                                  1년(20210105)오케이저축은행
+                                  1년(20210105)오케이저축은행
+                                  1년(20210105)오케이저축은행 1년(20210105)
+                                </div>
+                                <div class="acc-h-info">
+                                  <span>
+                                    이관
+                                    <em>Y</em>
+                                  </span>
+                                  <span>
+                                    수관
+                                    <em class="fc-red">N</em>
+                                  </span>
+                                  <span>1,000,000원</span>
+                                </div>
+                              </div>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>계약번호: 1234567</li>
+                              <li>자산관리기관: 삼성화재해상보험</li>
+                              <li>
+                                이관 불가사유: 삼성화재 신탁자산상품이 아닌 경우
+                                실물이전이 불가
+                              </li>
+                              <li>
+                                수관 불가사유: 삼성화재 신탁자산상품은
+                                실물이전이 불가
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <div class="acc-head-item">
+                                <div class="acc-tit">
+                                  오케이저축은행 1년(20210105)
+                                </div>
+                                <div class="acc-h-info">
+                                  <span>
+                                    이관
+                                    <em class="fc-red">N</em>
+                                  </span>
+                                  <span>
+                                    수관
+                                    <em class="fc-red">N</em>
+                                  </span>
+                                  <span>1,000,000원</span>
+                                </div>
+                              </div>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <ul class="note-list depth-1">
+                              <li>계약번호: 1234567</li>
+                              <li>자산관리기관: 삼성화재해상보험</li>
+                              <li>
+                                이관 불가사유: 삼성화재 신탁자산상품이 아닌 경우
+                                실물이전이 불가
+                              </li>
+                              <li>
+                                수관 불가사유: 삼성화재 신탁자산상품은
+                                실물이전이 불가
+                              </li>
+                            </ul>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">
+                디바이더 첫번째 아코디언이 있을경우 간격(확인해 주세요.)
+              </span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>바로 상단에 디바이더가 있을 경우 .space-tip 추가</li>
+                <li>확인해 주세요. 의 경우 기본은 펼쳐진 상태</li>
+                <li>
+                  .accordion-wrap
+                  <strong>.tipbox-wrap</strong>
+                  선언 시 font-size: 1.4rem / color: #868a93
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <section class="section option-line-lg space-tip">
+                        <div class="accordion-wrap tipbox-wrap" fui-accordion>
+                          <dl class="accordion-box is-open">
+                            <dt class="accordion-head">
+                              <button type="button" class="btn-fold">
+                                <span>확인해 주세요</span>
+                              </button>
+                            </dt>
+                            <dd class="accordion-body">
+                              <ul class="note-list depth-1">
+                                <li>
+                                  블릿1은 국문/영문 공통으로 SS의 Size 14 Text
+                                  Style을 사용합니다. 폰트색상은 #868a93을
+                                  사용합니다. line-height: 2rem(20px)입니다.
+                                </li>
+                                <li>
+                                  실손의료비 외 담보는 건당 200만원을 초과하여
+                                  청구하는 경우, 우편 또는 방문 접수만 가능하며
+                                  접수 시 서류 원본이 필요합니다.
+
+                                  <div class="tbl-wrap space-half-mt-2">
+                                    <table class="tbl-base">
+                                      <caption>
+                                        <!-- 표제목 -->
+                                        <strong>접수방법 안내</strong>
+                                        <!-- 표내용순서 -->
+                                        <span>
+                                          접수방법, 실손의료비, 실손의료비 외
+                                          담보 구성
+                                        </span>
+                                      </caption>
+                                      <colgroup>
+                                        <col />
+                                        <col />
+                                        <col />
+                                      </colgroup>
+                                      <thead>
+                                        <tr>
+                                          <th scope="row">접수방법</th>
+                                          <th scope="row">실손의료비</th>
+                                          <th scope="row">
+                                            실손의료비 외 담보
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="col">홈페이지</th>
+                                          <td rowspan="2">금액 제한 없음</td>
+                                          <td>200만원까지</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="col">우편, 방문</th>
+                                          <td>금액 제한 없음</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </li>
+                                <li>
+                                  회사에서 가입한 단체보험의 질병/상해 보험금도
+                                  청구할 수 있습니다.
+                                </li>
+                                <li>
+                                  보험금은 사고발생일로부터 3년 이내에 청구할 수
+                                  있습니다.
+                                  <br />
+                                  <button type="button" class="btn bulleted">
+                                    <span>연금전환 가입조건</span>
+                                  </button>
+                                </li>
+                                <li>
+                                  궁금하신 사항은 삼성화재 고객콜센터(1588-5114)
+                                  또는 보상담당자에게 문의해 주세요.
+                                </li>
+                              </ul>
+                            </dd>
+                          </dl>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">아코디언 Box Type</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>박스형태의 토글형 아코디언으로 선택된 요소를 보여줌</li>
+                <li>
+                  .accordion-wrap
+                  <strong class="fc-red">.option-boxed</strong>
+                  클래스 추가
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">선택형</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  선택된 요소에는 Script로 dl.accordion-box.is-open
+                  <strong class="fc-red">.is-selected</strong>
+                  클래스 추가됨(개발에서 추가요청 함)
+                </li>
+                <li>
+                  선택된 요소에는 border-width: 0.2rem, border-color:
+                  primary(#0068ff)가 추가됨
+                </li>
+                <li>퇴직연금 &gt; 상품운용 &gt; 포트폴리오변경 사용</li>
+              </ul>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div
+                        class="accordion-wrap option-boxed"
+                        fui-accordion="multiple:false; isSelected:true; activeCls:is-selected;"
+                      >
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>
+                                제목은 국문/영문 공통으로 SS의 Size 18 Text
+                                Style / bold를 사용합니다. 폰트색상은 #0b0d0f
+                                사용합니다. line-height: 2.4rem(24px)입니다.
+                              </span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">삼성화재 금리연동형</span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>1등급</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>삼성화재 포트폴리오 3</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">삼성화재 금리연동형</span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>1등급</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>삼성화재 포트폴리오 4</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">삼성화재 금리연동형</span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>1등급</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">
+                                    삼성화재 이율보증형 1년
+                                  </span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>무위험</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>비대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">
+                                    삼성화재 이율보증형 2년
+                                  </span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>무위험</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>비대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                        <dl class="accordion-box">
+                          <dt class="accordion-head">
+                            <button type="button" class="btn-fold">
+                              <span>삼성화재 포트폴리오 3</span>
+                            </button>
+                          </dt>
+                          <dd class="accordion-body">
+                            <div class="prd-item">
+                              <div class="list-head">
+                                <h6 class="title-tiny">
+                                  <span class="txt">삼성화재 금리연동형</span>
+                                </h6>
+                              </div>
+                              <div class="item">
+                                <ul class="info-summary space-between">
+                                  <li>
+                                    <strong class="w-min-sm">위험등급</strong>
+                                    <span>1등급</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">위험자산</strong>
+                                    <span>대상</span>
+                                  </li>
+                                  <li>
+                                    <strong class="w-min-sm">투입비율</strong>
+                                    <span>50%</span>
+                                  </li>
+                                </ul>
+                                <div class="btn-wrap option-array">
+                                  <button
+                                    type="button"
+                                    class="btn outlined option-min option-round"
+                                  >
+                                    <span>상세보기</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="fui-section">
+          <div class="list-head">
+            <div class="title-md">
+              <span class="txt">아코디언 More</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  일부 콘텐츠만 우선적으로 노출하고 사용자의 선택에 따라 하단
+                  콘텐츠를 추가적으로 노출하는 형태
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">상단 정보 아코디언</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- .ui-show-box(s) -->
+                      <div class="ui-show-box">
+                        <!-- toggle button -->
+                        <div class="btn-wrap btn-change">
+                          <button
+                            type="button"
+                            class="btn outlined option-xsm option-round icon arrow i-right ui-btn-arrow"
+                            title="보상내역 조회 조건 확장됨"
+                          >
+                            <span>변경</span>
+                          </button>
+                        </div>
+                        <!-- //toggle button -->
+                        <!-- toggle 상단  -->
+                        <div class="ui-show-txt">
+                          <ul class="info-summary">
+                            <li>
+                              <strong class="w-min-tiny fz-lg">기간</strong>
+                              <p>
+                                <strong class="w-min-tiny fz-lg">
+                                  <span class="txt-date">2021.07.04</span>
+                                  <span class="txt-date">~2022.07.04</span>
+                                </strong>
+                              </p>
+                            </li>
+                            <li>
+                              <strong class="w-min-tiny fz-lg">대상</strong>
+                              <p>
+                                <strong class="w-min-tiny fz-lg">나</strong>
+                              </p>
+                            </li>
+                            <li>
+                              <strong class="w-min-tiny fz-lg">기간</strong>
+                              <p>
+                                <strong class="w-min-tiny fz-lg">
+                                  <span class="txt-date">2021.07.04</span>
+                                  <span class="txt-date">~2022.07.04</span>
+                                </strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- //toggle 상단  -->
+
+                        <!-- toggle 내 컨텐츠 -->
+                        <div class="ui-show-con">
+                          <div class="form">
+                            <legend></legend>
+                            <ul class="form-field">
+                              <li class="form-list">
+                                <div class="form-wrap">
+                                  <div class="form-name">
+                                    <strong class="label-txt">대상</strong>
+                                  </div>
+                                  <div class="radio-group option-button">
+                                    <label
+                                      for="radioToggleBtn1-1"
+                                      class="lb-radio"
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="radioToggleBtn1"
+                                        id="radioToggleBtn1-1"
+                                      />
+                                      <span class="label">나</span>
+                                    </label>
+                                    <label
+                                      for="radioToggleBtn1-2"
+                                      class="lb-radio"
+                                    >
+                                      <input
+                                        type="radio"
+                                        name="radioToggleBtn1"
+                                        id="radioToggleBtn1-2"
+                                      />
+                                      <span class="label">미성년 자녀</span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="form-list">
+                                <div class="form-wrap">
+                                  <div class="ui-select md" fui-selectbox>
+                                    <select
+                                      id="targetSelect1_1"
+                                      title="미성년 자녀"
+                                    >
+                                      <option value="" selected>선택</option>
+                                      <option value="">김삼성</option>
+                                      <option value="">김사성</option>
+                                      <option value="">김오성</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="form-list">
+                                <div class="form-wrap">
+                                  <div class="form-name">
+                                    <strong class="label-txt">기간</strong>
+                                  </div>
+                                  <div
+                                    class="radio-group option-button option-sm"
+                                  >
+                                    <div class="item-row">
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioToggleBtn2-1"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioToggleBtn2"
+                                            id="radioToggleBtn2-1"
+                                          />
+                                          <span class="label">1년</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioToggleBtn2-2"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioToggleBtn2"
+                                            id="radioToggleBtn2-2"
+                                          />
+                                          <span class="label">3년</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioToggleBtn2-3"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioToggleBtn2"
+                                            id="radioToggleBtn2-3"
+                                          />
+                                          <span class="label">5년</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioToggleBtn2-4"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioToggleBtn2"
+                                            id="radioToggleBtn2-4"
+                                          />
+                                          <span class="label">직접 입력</span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="form-list">
+                                <div class="item-row">
+                                  <div class="unit filled">
+                                    <div class="form-wrap">
+                                      <!-- .input* (s)-->
+                                      <div class="input-wrap md">
+                                        <div
+                                          class="ui-datepicker start-date rangepicker inp-date"
+                                          id="datepickerCallbackTest5_1"
+                                        >
+                                          <input
+                                            type="text"
+                                            class="inp-base inp-ani"
+                                            id="targetInputDateToggle"
+                                            name=""
+                                            value=""
+                                            title="시작일"
+                                            placeholder="날짜 선택"
+                                          />
+                                          <button
+                                            type="button"
+                                            class="btn-base ui-drop ui-datepicker-btn"
+                                            data-inp="targetInputDateToggle"
+                                            id="targetInputDateToggle_a"
+                                            title="날짜"
+                                          >
+                                            <span class="sr-only">달력</span>
+                                          </button>
+                                          <section
+                                            class="ui-drop-pnl ui-datepickr-wrap"
+                                            aria-hidden="true"
+                                            data-id="targetInputDateToggle_a"
+                                            id="targetInputDateToggle_a_pnl"
+                                          ></section>
+                                        </div>
+                                      </div>
+                                      <!--// .input* (e)-->
+                                    </div>
+                                  </div>
+                                  <div class="unit fixed">
+                                    <span>~</span>
+                                  </div>
+                                  <div class="unit filled">
+                                    <div class="form-wrap">
+                                      <!-- .input* (s)-->
+                                      <div class="input-wrap md">
+                                        <div
+                                          class="ui-datepicker end-date rangepicker inp-date"
+                                          id="datepickerCallbackTest5_2"
+                                        >
+                                          <input
+                                            type="text"
+                                            class="inp-base inp-ani"
+                                            id="targetInputDateToggleb"
+                                            name=""
+                                            value=""
+                                            title="종료일"
+                                            placeholder="날짜 선택"
+                                          />
+                                          <button
+                                            type="button"
+                                            class="btn-base ui-drop ui-datepicker-btn"
+                                            data-inp="targetInputDateToggleb"
+                                            id="targetInputDateToggleb_a"
+                                            title="날짜"
+                                          >
+                                            <span class="sr-only">달력</span>
+                                          </button>
+                                          <section
+                                            class="ui-drop-pnl ui-datepickr-wrap"
+                                            aria-hidden="true"
+                                            data-id="targetInputDateToggleb_a"
+                                            id="targetInputDateToggleb_a_pnl"
+                                          ></section>
+                                        </div>
+                                      </div>
+                                      <!--// .input* (e)-->
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="form-list">
+                                <div class="item-row">
+                                  <div class="unit filled">
+                                    <div class="form-name">
+                                      <strong class="label-txt">시작일</strong>
+                                    </div>
+                                    <div class="form-wrap">
+                                      <!-- .input* (s)-->
+                                      <div class="input-wrap md">
+                                        <div
+                                          class="ui-datepicker start-date rangepicker inp-date"
+                                          id="datepickerCallbackTest5_3"
+                                        >
+                                          <input
+                                            type="text"
+                                            class="inp-base inp-ani"
+                                            id="targetInputDateToggleC"
+                                            name=""
+                                            value=""
+                                            title="시작일"
+                                            placeholder="날짜 선택"
+                                          />
+                                          <button
+                                            type="button"
+                                            class="btn-base ui-drop ui-datepicker-btn"
+                                            data-inp="targetInputDateToggleC"
+                                            id="targetInputDateToggleC_a"
+                                            title="날짜"
+                                          >
+                                            <span class="sr-only">달력</span>
+                                          </button>
+                                          <section
+                                            class="ui-drop-pnl ui-datepickr-wrap"
+                                            aria-hidden="true"
+                                            data-id="targetInputDateToggleC_a"
+                                            id="targetInputDateToggleC_a_pnl"
+                                          ></section>
+                                        </div>
+                                      </div>
+                                      <!--// .input* (e)-->
+                                    </div>
+                                  </div>
+                                  <div class="unit fixed space-half-mt-6">
+                                    <span>~</span>
+                                  </div>
+                                  <div class="unit filled">
+                                    <div class="form-name">
+                                      <strong class="label-txt">종료일</strong>
+                                    </div>
+                                    <div class="form-wrap">
+                                      <!-- .input* (s)-->
+                                      <div class="input-wrap md">
+                                        <div
+                                          class="ui-datepicker end-date rangepicker inp-date"
+                                          id="datepickerCallbackTest5_4"
+                                        >
+                                          <input
+                                            type="text"
+                                            class="inp-base inp-ani"
+                                            id="targetInputDateToggleD"
+                                            name=""
+                                            value=""
+                                            title="종료일"
+                                            placeholder="날짜 선택"
+                                          />
+                                          <button
+                                            type="button"
+                                            class="btn-base ui-drop ui-datepicker-btn"
+                                            data-inp="targetInputDateToggleD"
+                                            id="targetInputDateToggleD_a"
+                                            title="날짜"
+                                          >
+                                            <span class="sr-only">달력</span>
+                                          </button>
+                                          <section
+                                            class="ui-drop-pnl ui-datepickr-wrap"
+                                            aria-hidden="true"
+                                            data-id="targetInputDateToggleD_a"
+                                            id="targetInputDateToggleD_a_pnl"
+                                          ></section>
+                                        </div>
+                                      </div>
+                                      <!--// .input* (e)-->
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <ul class="note-list depth-1 space-mt-4">
+                            <li>
+                              최근 3년 이전의 보상내역은 [직접 입력]으로 확인해
+                              주세요.
+                            </li>
+                            <li>
+                              단체보험으로 가입된 미성년 자녀의 보험금 청구
+                              내역은 이 화면에서 확인할 수 없습니다. 삼성화재
+                              고객콜센터(1588-5114)로 문의해 주세요.
+                            </li>
+                          </ul>
+                          <div class="btn-wrap option-array-center space-mt-10">
+                            <button
+                              type="button"
+                              class="btn secondary option-md option-round"
+                            >
+                              <span>확인</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- //toggle 내 컨텐츠 -->
+                      </div>
+                      <!--// .ui-show-box(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="title-min">
+                <span class="txt">상단 정보 아코디언(버튼위치 예외 타입)</span>
+              </div>
+            </div>
+
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  일부 콘텐츠만 우선적으로 노출하고 사용자의 선택에 따라 하단
+                  콘텐츠를 추가적으로 노출하는 형태
+                </li>
+              </ul>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <!-- .ui-show-box(s) -->
+                      <div class="ui-show-box option-column">
+                        <!-- toggle button -->
+                        <div class="btn-wrap btn-change">
+                          <button
+                            type="button"
+                            class="btn outlined option-xsm option-round icon arrow i-right ui-btn-arrow"
+                            title="거래내역 조회 조건 확장됨"
+                            aria-controls="showHideTogg0"
+                          >
+                            <span>변경</span>
+                          </button>
+                        </div>
+                        <!-- //toggle button -->
+                        <!-- toggle 상단  -->
+                        <div class="ui-show-txt">
+                          <ul class="info-summary option-horizontal">
+                            <li>
+                              <strong class="w-min-min fz-lg">
+                                만기예정일
+                              </strong>
+                              <p>
+                                <strong class="w-min-min">
+                                  <span class="txt-date fz-lg">2021.07.04</span>
+                                  <span class="txt-date fz-lg">
+                                    ~2022.07.04
+                                  </span>
+                                </strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- //toggle 상단  -->
+
+                        <!-- toggle 내 컨텐츠 -->
+                        <div class="ui-show-con">
+                          <div class="form">
+                            <legend></legend>
+                            <ul class="form-field">
+                              <li class="form-list">
+                                <div class="form-wrap">
+                                  <div class="form-name">
+                                    <strong class="label-txt">기간</strong>
+                                  </div>
+                                  <div
+                                    class="radio-group option-button option-sm"
+                                  >
+                                    <div class="item-row">
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioButton2-1"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioButton2"
+                                            id="radioButton2-1"
+                                          />
+                                          <span class="label">1개월</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioButton2-2"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioButton2"
+                                            id="radioButton2-2"
+                                          />
+                                          <span class="label">3개월</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioButton2-3"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioButton2"
+                                            id="radioButton2-3"
+                                          />
+                                          <span class="label">6개월</span>
+                                        </label>
+                                      </div>
+                                      <div class="unit filled">
+                                        <label
+                                          for="radioButton2-4"
+                                          class="lb-radio"
+                                        >
+                                          <input
+                                            type="radio"
+                                            name="radioButton2"
+                                            id="radioButton2-4"
+                                          />
+                                          <span class="label">직접 입력</span>
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              <li class="form-list">
+                                <!-- 2024-06-18 : 달력 구조 변경 -->
+                                <div class="item-row">
+                                  <div class="unit filled">
+                                    <div class="input-wrap md">
+                                      <div
+                                        class="inp-date"
+                                        fui-datepicker="to:#datepickerTo;"
+                                        id="datepickerFrom"
+                                      >
+                                        <input
+                                          type="text"
+                                          class="inp-base inp-ani"
+                                          title="시작일"
+                                          placeholder="날짜 선택"
+                                        />
+                                        <button
+                                          type="button"
+                                          class="btn-base ui-drop ui-datepicker-btn"
+                                          title="날짜"
+                                        >
+                                          <span class="sr-only">달력</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="unit fixed"><span>~</span></div>
+                                  <div class="unit filled">
+                                    <div class="input-wrap md">
+                                      <div
+                                        class="inp-date"
+                                        fui-datepicker="from:#datepickerFrom;"
+                                        id="datepickerTo"
+                                      >
+                                        <input
+                                          type="text"
+                                          class="inp-base inp-ani"
+                                          title="종료일"
+                                          placeholder="날짜 선택"
+                                        />
+                                        <button
+                                          type="button"
+                                          class="btn-base ui-drop ui-datepicker-btn"
+                                          title="날짜"
+                                        >
+                                          <span class="sr-only">달력</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="btn-wrap option-array-center space-mt-10">
+                            <button
+                              type="button"
+                              class="btn secondary option-md option-round"
+                            >
+                              <span>확인</span>
+                            </button>
+                          </div>
+                        </div>
+                        <!-- //toggle 내 컨텐츠 -->
+                      </div>
+                      <!--// .ui-show-box(e) -->
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $plugins.uiTextareaAutoHeight();
+        $plugins.page.showHideToggle();
+      });
+    </script>
+    <script src="../../script_guide/dist/rainbow.js"></script>
+    <script src="../../script_guide/src/language/generic.js"></script>
+    <script src="../../script_guide/src/language/html.js"></script>
+    <script src="../../script_guide/src/language/css.js"></script>
+    <script src="../../script_guide/src/language/php.js"></script>
+    <script src="../../script_guide/src/language/javascript.js"></script>
+    <script src="../../script_guide/guide_script.js"></script>
+  </body>
+</html>

@@ -1,15 +1,100 @@
 <%
   const localsSafe = locals || {};
   const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
-  const variant = localsSafe.variant || 'outline'; // outline, solid, solid-pastel
-  const color = localsSafe.color || 'primary'; // primary, secondary, tertiary
-  const size = localsSafe.size || 'medium'; // medium, large
-  const label = localsSafe.label || 'badge';
-	const classes = [
-    `${projectName}-badge`,
-    `${variant}-${color}`,
+  const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
+  const groupItems = Array.isArray(localsSafe.group) ? localsSafe.group : null;
+  const type = localsSafe.type || 'text'; // input 타입 (text, password, number 등)
+  const size = localsSafe.size || 'medium';
+  const placeholder = localsSafe.placeholder || '';
+  const value = localsSafe.value || '';
+  const name = localsSafe.name || ''; // 단일 입력 필드 name
+  const dash = localsSafe.dash ? 'dash' : ''; // 'dash'
+  const required = localsSafe.required || false;
+  const disabled = localsSafe.disabled || false;
+  const readonly = localsSafe.readonly || false;
+  const showClearButton = localsSafe.showClearButton !== false && ['text', 'search', 'url', 'tel', 'email', 'password'].includes(type); // 기본적으로 활성화, 그룹 아닐 때
+  const addClass = localsSafe.addClass || ''; // input-wrap 추가 클래스
+
+  const uniqueId = localsSafe.id || `input-${Math.random().toString(36).substring(2, 9)}`;
+
+  const inputWrapClasses = [
+    `${projectName}-input`,
     size,
+    addClass,
+    disabled ? 'disabled' : '',
+    readonly ? 'readonly' : ''
   ].filter(Boolean).join(' ');
+
+  const formGroupClasses = [
+		'form-group', 
+		disabled ? 'disabled' : '', 
+		readonly ? 'readonly' : '' 
+	].filter(Boolean).join(' ');
 %>
 
-<span class="<%= classes %>"><%= label %></span>
+<% if (title) { -%>
+<div class="<%= formGroupClasses %>">
+	<!-- <div class="form-field"> -->
+	<div class="form-tit">
+		<%# 그룹 입력 시 span, 단일 입력 시 label %>
+		<% if (groupItems) { %>
+			<span><%= title %></span>
+		<% } else { %>
+			<label for="<%= uniqueId %>"><%= title %></label>
+		<% } %>
+	</div>
+	<div class="form-conts">
+<% } -%>
+      <% if (groupItems) { %>
+        <div class="input-group <%= dash %>">
+          <% groupItems.forEach((item, index) => { %>
+            <%
+              const itemUniqueId = `${uniqueId}-group-${index}`;
+              const itemValue = item.value || '';
+              const itemPlaceholder = item.placeholder || '';
+              const itemAriaLabel = item.ariaLabel || `${title} ${index + 1}번째 자리`; // 접근성 레이블
+              const itemDisabled = item.disabled || disabled; // 그룹 전체 disabled 상속
+              const itemReadonly = item.readonly || readonly; // 그룹 전체 readonly 상속
+              const itemShowClear = item.showClearButton !== false && showClearButton && !itemDisabled && !itemReadonly; // 개별 클리어 버튼 표시 여부
+              const itemWrapClasses = [ `${projectName}-input`, size, itemDisabled ? 'disabled' : '', itemReadonly ? 'readonly' : '' ].filter(Boolean).join(' ');
+            %>
+            <div class="<%= itemWrapClasses %>">
+              <input
+                type="<%= type %>"
+                id="<%= itemUniqueId %>"
+                value="<%= itemValue %>"
+                placeholder="<%= itemPlaceholder %>"
+                aria-label="<%= itemAriaLabel %>"
+                <%= required ? 'required' : '' %>
+                <%= itemDisabled ? 'disabled' : '' %>
+                <%= itemReadonly ? 'readonly' : '' %>
+              />
+              <% if (itemShowClear) { %>
+                <button type="button" class="btn-clear active"><span class="sr-only">입력 내용 지우기</span></button>
+              <% } %>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div class="<%= inputWrapClasses %>">
+          <input
+            type="<%= type %>"
+            id="<%= uniqueId %>"
+            name="<%= name %>"
+            value="<%= value %>"
+            placeholder="<%= placeholder %>"
+            <%= required ? 'required' : '' %>
+            <%= disabled ? 'disabled' : '' %>
+            <%= readonly ? 'readonly' : '' %>
+          />
+          <% if (showClearButton) { %>
+            <button type="button" class="btn-clear active"><span class="sr-only">입력 내용 지우기</span></button>
+          <% } %>
+        </div>
+      <% } %>
+
+<% if (title) { -%>
+    <!-- </div> -->
+  </div>
+</div>
+<% } -%>
