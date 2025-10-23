@@ -33,10 +33,12 @@ const commonJs = {
   },
   resize: function () {
     // console.log('Resized');
+    // EJS 수정: 리사이즈 시 툴팁 위치 업데이트
     commonJs.tooltip.updateAllVisibleTooltipPositions();
   },
   scroll: function () {
     // console.log('Scrolled:', scrollTop);
+    // EJS 수정: 스크롤 시 툴팁 위치 업데이트
     commonJs.tooltip.updateAllVisibleTooltipPositions();
   },
   debounce: function (func, wait) {
@@ -48,31 +50,20 @@ const commonJs = {
     };
   },
   customSelect: {
-    SELECTORS: {
-      WRAPPER: `.${projectName}-form-select`,
-      NATIVE_SELECT: 'select.sr-only',
-      BUTTON: '.select-button',
-      VALUE: '.select-value',
-      LISTBOX: '.select-listbox',
-      OPTION: '.select-option',
-      OPEN_BUTTON: `.${projectName}-form-select .select-button[aria-expanded="true"]`,
-    },
     init: function () {
-      const $wrappers = $(this.SELECTORS.WRAPPER);
+      const $wrappers = $(`.${projectName}-form-select`);
       if ($wrappers.length === 0) return;
-
-      const self = this;
 
       $wrappers.each(function () {
         const $wrapper = $(this);
         if ($wrapper.data('custom-select-initialized')) return;
         $wrapper.data('custom-select-initialized', true);
 
-        const $select = $wrapper.find(self.SELECTORS.NATIVE_SELECT);
-        const $button = $wrapper.find(self.SELECTORS.BUTTON);
-        const $valueSpan = $button.find(self.SELECTORS.VALUE);
-        const $listbox = $wrapper.find(self.SELECTORS.LISTBOX);
-        const $options = $listbox.find(self.SELECTORS.OPTION);
+        const $select = $wrapper.find('select.sr-only');
+        const $button = $wrapper.find('.select-button');
+        const $valueSpan = $button.find('.select-value');
+        const $listbox = $wrapper.find('.select-listbox');
+        const $options = $listbox.find('.select-option');
         const placeholder = $select.data('placeholder') || '';
         const isDisabled = $select.is(':disabled');
         const listboxId = $listbox.attr('id') || `custom-select-${Math.random().toString(36).substring(2, 9)}`;
@@ -85,23 +76,7 @@ const commonJs = {
         }
 
         // --- 헬퍼 함수 ---
-        const closeListbox = (revert = false) => {
-          if (revert) {
-            const originalText = $wrapper.data('original-text');
-            const isPlaceholder = $wrapper.data('is-placeholder');
-            if (originalText) {
-              $valueSpan.text(originalText);
-              if (isPlaceholder) {
-                $valueSpan.addClass('placeholder');
-              } else {
-                $valueSpan.removeClass('placeholder');
-              }
-            }
-          }
-          // data 속성 초기화
-          $wrapper.removeData('original-text');
-          $wrapper.removeData('is-placeholder');
-
+        const closeListbox = () => {
           $listbox.attr('hidden', true);
           $button.attr('aria-expanded', 'false');
           $(document).off('click.customSelect.' + listboxId);
@@ -109,34 +84,17 @@ const commonJs = {
             $button.focus();
           }
         };
-
         const openListbox = () => {
           if (isDisabled) return;
-          $(self.SELECTORS.OPEN_BUTTON).not($button).each(function () {
-            const $otherWrapper = $(this).closest(self.SELECTORS.WRAPPER);
-            const $otherListbox = $otherWrapper.find(self.SELECTORS.LISTBOX);
-            const otherListboxId = $otherListbox.attr('id');
-            
-            const originalText = $otherWrapper.data('original-text');
-            const isPlaceholder = $otherWrapper.data('is-placeholder');
-            if(originalText) {
-              $(this).find(self.SELECTORS.VALUE).text(originalText);
-              if (isPlaceholder) {
-                $(this).find(self.SELECTORS.VALUE).addClass('placeholder');
-              } else {
-                $(this).find(self.SELECTORS.VALUE).removeClass('placeholder');
-              }
-            }
-            $otherWrapper.removeData('original-text');
-            $otherWrapper.removeData('is-placeholder');
+          // 다른 열린 셀렉트박스 닫기
+          $('[data-custom-select-initialized="true"] .select-button[aria-expanded="true"]').not($button).each(function () {
             $(this).attr('aria-expanded', 'false');
+
+            const $otherListbox = $(this).closest(`.${projectName}-form-select`).find('.select-listbox');
             $otherListbox.attr('hidden', true);
+            const otherListboxId = $otherListbox.attr('id');
             $(document).off('click.customSelect.' + otherListboxId);
           });
-
-          $wrapper.data('original-text', $valueSpan.text());
-          $wrapper.data('is-placeholder', $valueSpan.hasClass('placeholder'));
-
           $listbox.removeAttr('hidden');
           $button.attr('aria-expanded', 'true');
           let $focusedOption = $options.filter('[aria-selected="true"]');
@@ -148,15 +106,10 @@ const commonJs = {
           }, 0);
           $(document).on('click.customSelect.' + listboxId, handleOutsideClick);
         };
-
         const toggleListbox = () => {
-          if ($button.attr('aria-expanded') === 'true') {
-            closeListbox(true);
-          } else {
-            openListbox();
-          }
+          if ($button.attr('aria-expanded') === 'true') closeListbox();
+          else openListbox();
         };
-
         const selectOption = ($option) => {
           if (!$option || !$option.length || $option.hasClass('disabled')) return;
           const value = $option.data('value');
@@ -165,96 +118,43 @@ const commonJs = {
           $options.attr('aria-selected', 'false');
           $option.attr('aria-selected', 'true');
           if ($select.val() !== value) $select.val(value).trigger('change');
-          
-          closeListbox(false); 
+          closeListbox();
         };
-
-        const previewOption = ($option) => {
-          if (!$option || !$option.length) return;
-          $valueSpan.text($option.text()).removeClass('placeholder');
-          $option.focus();
-        };
-
         const handleOutsideClick = (event) => {
           if ($(event.target).closest($wrapper).length === 0) {
-            closeListbox(true); // [수정]
+            closeListbox();
           }
         };
-
         // --- 이벤트 바인딩 ---
         $wrapper.on('click', function (e) {
-          if (isDisabled) return;
-          // 리스트박스 내부(옵션 등)를 클릭한 경우, 각 핸들러가 처리
-          if ($(e.target).closest(self.SELECTORS.LISTBOX).length) {
-            return;
+          if ($(e.target).closest('.select-button').length) {
+            e.stopPropagation();
+            toggleListbox();
           }
-          e.stopPropagation();
-          toggleListbox();
         });
-
-        $listbox.on('click', self.SELECTORS.OPTION, function (e) {
+        $listbox.on('click', '.select-option', function (e) {
           e.stopPropagation();
           selectOption($(this));
         });
-
         $button.on('keydown', function (e) {
           const isListboxOpen = $button.attr('aria-expanded') === 'true';
           if (!isListboxOpen && ['Enter', ' ', 'ArrowDown', 'ArrowUp'].includes(e.key)) { e.preventDefault(); openListbox(); }
-          else if (isListboxOpen && (e.key === 'Escape' || e.key === 'Tab')) { 
-            e.preventDefault(); 
-            closeListbox(true); // [수정]
-          }
+          else if (isListboxOpen && (e.key === 'Escape' || e.key === 'Tab')) { e.preventDefault(); closeListbox(); }
         });
-
         $listbox.on('keydown', function (e) {
           const $currentItem = $(document.activeElement);
           if (!$listbox.is($currentItem) && !$options.is($currentItem)) return;
           const $enabledOptions = $options.not('.disabled');
           let $targetOption;
           switch (e.key) {
-            case 'Enter': case ' ': 
-              if ($currentItem.is(self.SELECTORS.OPTION)) { 
-                e.preventDefault(); 
-                selectOption($currentItem); // Enter/Space로 최종 선택
-                e.stopPropagation(); 
-              } 
-              break;
-            case 'ArrowDown': 
-              e.preventDefault(); 
-              if ($currentItem.is(self.SELECTORS.OPTION)) { 
-                $targetOption = $currentItem.nextAll(`${self.SELECTORS.OPTION}:not(.disabled)`).first(); 
-                if (!$targetOption.length) $targetOption = $enabledOptions.first(); 
-              } else { 
-                $targetOption = $enabledOptions.first(); 
-              } 
-              if ($targetOption && $targetOption.length) {
-                previewOption($targetOption);
-              }
-              break;
-            case 'ArrowUp': 
-              e.preventDefault(); 
-              if ($currentItem.is(self.SELECTORS.OPTION)) { 
-                $targetOption = $currentItem.prevAll(`${self.SELECTORS.OPTION}:not(.disabled)`).first(); 
-                if (!$targetOption.length) $targetOption = $enabledOptions.last(); 
-              } else { 
-                $targetOption = $enabledOptions.last(); 
-              } 
-              if ($targetOption && $targetOption.length) {
-                previewOption($targetOption);
-              }
-              break;
-            case 'Escape': 
-              e.preventDefault(); 
-              closeListbox(true);
-              e.stopPropagation(); 
-              break;
-            case 'Tab': 
-              closeListbox(true);
-              break;
+            case 'Enter': case ' ': if ($currentItem.is('.select-option')) { e.preventDefault(); selectOption($currentItem); e.stopPropagation(); } break;
+            case 'ArrowDown': e.preventDefault(); if ($currentItem.is('.select-option')) { $targetOption = $currentItem.nextAll('.select-option:not(.disabled)').first(); if (!$targetOption.length) $targetOption = $enabledOptions.first(); } else { $targetOption = $enabledOptions.first(); } if ($targetOption && $targetOption.length) $targetOption.focus(); break;
+            case 'ArrowUp': e.preventDefault(); if ($currentItem.is('.select-option')) { $targetOption = $currentItem.prevAll('.select-option:not(.disabled)').first(); if (!$targetOption.length) $targetOption = $enabledOptions.last(); } else { $targetOption = $enabledOptions.last(); } if ($targetOption && $targetOption.length) $targetOption.focus(); break;
+            case 'Escape': e.preventDefault(); closeListbox(); e.stopPropagation(); break;
+            case 'Tab': closeListbox(); break;
             default: break;
           }
         });
-        
         // 네이티브 변경
         $select.on('change.customSelectUpdate', function () {
           const newValue = $(this).val();
@@ -268,7 +168,6 @@ const commonJs = {
             $options.attr('aria-selected', 'false');
           }
         });
-        
         // 초기 상태 적용
         const initialValue = $select.val();
         const $initialOption = $options.filter(`[data-value="${initialValue}"]`);
@@ -285,17 +184,9 @@ const commonJs = {
     },
   },
   segmentControl: {
-    SELECTORS: {
-      WRAPPER: `.${projectName}-segment-control`,
-      CONTROL_BTN: '.control-button[role="radio"]',
-      NATIVE_RADIO: 'input[type="radio"]',
-      CONTROL_LABEL: 'label.control-button',
-    },
     init: function () {
-      const $wrappers = $(this.SELECTORS.WRAPPER);
+      const $wrappers = $(`.${projectName}-segment-control`);
       if ($wrappers.length === 0) return;
-
-      const self = this;
 
       $wrappers.each(function () {
         const $wrapper = $(this);
@@ -304,7 +195,7 @@ const commonJs = {
 
         const isButtonMode = $wrapper.hasClass('tag-button');
         if (isButtonMode) {
-          const $buttons = $wrapper.find(self.SELECTORS.CONTROL_BTN);
+          const $buttons = $wrapper.find('.control-button[role="radio"]');
           $buttons.on('click', function (e) {
             const $this = $(this);
             if ($this.is('[disabled]') || $this.attr('aria-checked') === 'true') return;
@@ -314,7 +205,7 @@ const commonJs = {
           });
           $wrapper.on('keydown', function (e) {
             const $focusedButton = $(document.activeElement);
-            if (!$focusedButton.is(self.SELECTORS.CONTROL_BTN) || !$wrapper.has($focusedButton).length) return;
+            if (!$focusedButton.is('.control-button[role="radio"]') || !$wrapper.has($focusedButton).length) return;
             let $targetButton;
             const $enabledButtons = $buttons.not('[disabled]');
             const currentIndex = $enabledButtons.index($focusedButton);
@@ -333,8 +224,8 @@ const commonJs = {
             }
           });
         } else {
-          const $radios = $wrapper.find(self.SELECTORS.NATIVE_RADIO);
-          const $labels = $wrapper.find(self.SELECTORS.CONTROL_LABEL);
+          const $radios = $wrapper.find('input[type="radio"]');
+          const $labels = $wrapper.find('label.control-button');
           $radios.each(function () {
             if ($(this).is(':checked')) $(this).closest('label').addClass('active');
           });
@@ -347,15 +238,9 @@ const commonJs = {
     },
   },
   tooltip: {
-    SELECTORS: {
-      TRIGGER_BTN: '.btn-toggle-popover[aria-controls]',
-      OPEN_TRIGGER_BTN: '.btn-toggle-popover[aria-expanded="true"]',
-      POPOVER: '.tooltip-popover',
-      OPEN_POPOVER: '.tooltip-popover[aria-hidden="false"]',
-      CLOSE_BTN: '.btn-close-tooltip',
-    },
     init() {
-      const $tooltipButtons = $(this.SELECTORS.TRIGGER_BTN);
+      // const $tooltipButtons = $(`.${projectName}-tooltip-wrap .tooltip-btn`);
+      const $tooltipButtons = $(`.btn-toggle-popover[aria-controls]`);
       if ($tooltipButtons.length === 0) return;
 
       this.setupTooltips($tooltipButtons);
@@ -368,17 +253,23 @@ const commonJs = {
         if ($button.data('tooltip-initialized')) return;
         $button.data('tooltip-initialized', true);
         
+        // const $tooltipContainer = $button.closest(`.${projectName}-tooltip-wrap`);
+        // const $tooltipPopover = $tooltipContainer.find(".tooltip-popover");
         const popoverId = $button.attr('aria-controls');
-        if (!popoverId) return; 
+        if (!popoverId) return; // ID가 없으면 중단
 
         const $tooltipPopover = $(`#${popoverId}`);
-        if ($tooltipPopover.length === 0) return;
+        if ($tooltipPopover.length === 0) return; // ID로 팝오버를 찾지 못하면 중단
 
-        const $closeButton = $tooltipPopover.find(self.SELECTORS.CLOSE_BTN); 
+        const $closeButton = $tooltipPopover.find(".btn-close-tooltip"); 
         const tooltipId = `tooltip-${Math.random().toString(36).substring(2, 9)}`;
         
         $button.data('tooltip-id', tooltipId);
         $button.attr("aria-expanded", "false");
+
+        // if ($tooltipContainer.length && $tooltipContainer.attr('class').split(' ').length === 1) {
+        //   $tooltipContainer.addClass("top left"); // 이 로직은 EJS 구조와 상이할 수 있으나 유지
+        // }
 
         // 이벤트 바인딩
         $button.on("click", (e) => {
@@ -391,6 +282,7 @@ const commonJs = {
       });
     },
     toggleTooltip($button, $tooltipPopover) {
+      // const isVisible = $tooltipPopover.is(":visible");
       const isVisible = $tooltipPopover.attr('aria-hidden') === 'false';
       
       if (isVisible) {
@@ -430,7 +322,8 @@ const commonJs = {
       $button.focus();
     },
     closeAllTooltips($exceptButton) {
-      let $buttonsToClose = $(this.SELECTORS.OPEN_TRIGGER_BTN);
+      // let $buttonsToClose = $(`.${projectName}-tooltip-wrap .tooltip-btn[aria-expanded="true"]`);
+      let $buttonsToClose = $(`.btn-toggle-popover[aria-expanded="true"]`);
       
       if ($exceptButton && $exceptButton.length) {
         $buttonsToClose = $buttonsToClose.not($exceptButton);
@@ -439,6 +332,7 @@ const commonJs = {
       const self = this;
       $buttonsToClose.each(function() {
           const $btn = $(this);
+          // const $popover = $btn.closest(`.${projectName}-tooltip-wrap`).find(".tooltip-popover");
           const popoverId = $btn.attr('aria-controls');
 
           if (popoverId) {
@@ -462,7 +356,7 @@ const commonJs = {
 
         let alignment = 'center'; // 기본값
         if ($tooltipEl.hasClass('left')) alignment = 'left';
-        else if ($tooltipEl.hasClass('right')) alignment = 'right';
+		    else if ($tooltipEl.hasClass('right')) alignment = 'right';
 
         const tooltipGap = 20;
         const tooltipHeight = $tooltipEl.outerHeight();
@@ -520,12 +414,13 @@ const commonJs = {
     },
     updateAllVisibleTooltipPositions() {
       const self = this;
-      $(this.SELECTORS.OPEN_POPOVER).each(function() {
+      $(`.tooltip-popover[aria-hidden="false"]`).each(function() {
           const $tooltipPopover = $(this);
           const popoverId = $tooltipPopover.attr('id');
           if (!popoverId) return;
 
-          const $button = $(`${self.SELECTORS.TRIGGER_BTN}[aria-controls="${popoverId}"]`);
+          // 팝오버 ID로 연결된 버튼을 탐색
+          const $button = $(`.btn-toggle-popover[aria-controls="${popoverId}"]`);
           if ($button.length) {
               self.adjustTooltipPosition($button, $tooltipPopover);
           }
@@ -533,19 +428,13 @@ const commonJs = {
     }
   },
   modal: {
-    SELECTORS: {
-      OPEN_TRIGGERS: ".btn-open-modal, .btn-open-bottom-sheet",
-      CLOSE_TRIGGERS: ".btn-close-modal",
-      MODAL_WRAPPER: `.${projectName}-modal`,
-      OPEN_MODAL_INSTANCE: `.${projectName}-modal.in:not(.sample)`,
-      CONTENT: ".modal-content",
-      BACKDROP: ".modal-back",
-      OPENED_TRIGGER_BTN: (id) => `.modal-opened[data-modal-id="${id}"]` // 동적 셀렉터
-    },
     outsideClickHandlers: {},
     init() {
-      const $modalOpenTriggers = $(this.SELECTORS.OPEN_TRIGGERS);
-      const $modalCloseTriggers = $(this.SELECTORS.CLOSE_TRIGGERS); 
+      // const $modalOpenTriggers = $(".open-modal");
+      // const $modalCloseTriggers = $(".btn-close-modal"); 
+
+      const $modalOpenTriggers = $(".btn-open-modal, .btn-open-bottom-sheet");
+      const $modalCloseTriggers = $(".btn-close-modal"); 
 
       if ($modalOpenTriggers.length === 0 && $modalCloseTriggers.length === 0) return;
 
@@ -571,7 +460,8 @@ const commonJs = {
 
       $closeTriggers.on("click", function (event) {
         event.preventDefault();
-        const modalId = $(this).closest(self.SELECTORS.MODAL_WRAPPER).attr("id"); 
+        // const modalId = $(this).closest(".modal").attr("id"); 
+        const modalId = $(this).closest(`.${projectName}-modal`).attr("id"); 
         if (modalId) {
           self.closeModal(modalId);
         }
@@ -580,8 +470,8 @@ const commonJs = {
     openModal(id) {
       const $modalElement = $(`#${id}`);
       if ($modalElement.length === 0) return;
-      const $dialogElement = $modalElement.find(this.SELECTORS.CONTENT);
-      const $modalBack = $modalElement.find(this.SELECTORS.BACKDROP);
+      const $dialogElement = $modalElement.find(".modal-content");
+      const $modalBack = $modalElement.find(".modal-back");
 
       $("body").addClass("scroll-no");
       $dialogElement.attr("tabindex", "0");
@@ -597,7 +487,7 @@ const commonJs = {
       }, 350);
 
       // ESC 모달 닫기
-      $dialogElement.one("keydown", (event) => {
+      $dialogElement.one("keydown", (event) => { // .one() for { once: true }
         if (event.key === "Escape" || event.key === "Esc") {
           this.closeModal(id);
         }
@@ -605,23 +495,26 @@ const commonJs = {
 
       // 모달 외부 클릭 처리
       const handler = (event) => {
-        if ($(event.target).closest(this.SELECTORS.CONTENT).length === 0) {
-          this.closeModal(id); 
+        if ($(event.target).closest(".modal-content").length === 0) {
+          // $dialogElement.focus(); // 외부 클릭 시 포커스만 이동
+          this.closeModal(id); // 외부 클릭 시 닫기로 변경 (주석 처리된 원본 로직)
         }
       };
       this.outsideClickHandlers[id] = handler;
       
-      $modalElement.off('click', this.outsideClickHandlers[id])
+      $modalElement.off('click', this.outsideClickHandlers[id]) // 중복 방지
                      .on('click', this.outsideClickHandlers[id]);
+
+      // common.focusTrap(dialogElement[0]); // jQuery 객체가 아닌 DOM 요소를 전달해야 함
 
       this.updateZIndex($modalElement);
     },
     closeModal(id) {
       const $modalElement = $(`#${id}`);
       if ($modalElement.length === 0) return;
-      const $dialogElement = $modalElement.find(this.SELECTORS.CONTENT);
-      const $openModals = $(this.SELECTORS.OPEN_MODAL_INSTANCE);
-      const $modalBack = $modalElement.find(this.SELECTORS.BACKDROP);
+      const $dialogElement = $modalElement.find(".modal-content");
+      const $openModals = $(".modal.in:not(.sample)");
+      const $modalBack = $modalElement.find(".modal-back");
 
       $dialogElement.removeAttr("tabindex");
       $modalElement.attr("aria-hidden", "true").removeClass("in");
@@ -636,21 +529,21 @@ const commonJs = {
       }
       
       $modalElement.off('click', this.outsideClickHandlers[id]);
-      delete this.outsideClickHandlers[id]; 
+      delete this.outsideClickHandlers[id]; // 핸들러 제거
 
       this.returnFocusToTrigger(id);
     },
     updateZIndex($modalElement) {
-      const $openModals = $(this.SELECTORS.OPEN_MODAL_INSTANCE);
-      const openModalsLength = $openModals.length;
+      const $openModals = $(".modal.in:not(.sample)");
+      const openModalsLength = $openModals.length; // .length는 0부터 시작하므로 +1 안함
       const newZIndex = 1010 + openModalsLength;
-      if (openModalsLength > 0) { 
+      if (openModalsLength > 0) { // 1개 이상 열려있으면 (지금 여는게 2번째 이상)
         $modalElement.css("z-index", newZIndex);
-        $modalElement.find(this.SELECTORS.BACKDROP).removeClass("in");
+        $modalElement.find(".modal-back").removeClass("in");
       }
     },
     returnFocusToTrigger(id) {
-      const $triggerButton = $(this.SELECTORS.OPENED_TRIGGER_BTN(id));
+      const $triggerButton = $(`.modal-opened[data-modal-id="${id}"]`);
       if ($triggerButton.length) {
         $triggerButton.focus()
                       .attr("tabindex", "0")
@@ -660,30 +553,22 @@ const commonJs = {
     },
   },
   accordion: {
-    // [추가] 셀렉터 상수화
-    SELECTORS: {
-      BUTTON: ".btn-accordion",
-      WRAPPER: `.${projectName}-accordion`,
-      ITEM: ".accordion-item",
-      COLLAPSE: ".accordion-collapse",
-    },
     init() {
-      const $accordionButtons = $(this.SELECTORS.BUTTON);
+      const $accordionButtons = $(".btn-accordion");
       if ($accordionButtons.length === 0) return;
       this.setupAccordions($accordionButtons);
     },
     setupAccordions($buttons) {
-      const self = this; 
       $buttons.each(function (idx) {
         const $button = $(this);
         if ($button.data('accordion-initialized')) return;
         $button.data('accordion-initialized', true);
 
-        const $accordionContainer = $button.closest(self.SELECTORS.WRAPPER);
+        const $accordionContainer = $button.closest(`.${projectName}-accordion`);
         if ($accordionContainer.length === 0) return;
 
-        const $accordionItems = $accordionContainer.find(self.SELECTORS.ITEM);
-        const $currentItem = $button.closest(self.SELECTORS.ITEM);
+        const $accordionItems = $accordionContainer.find(".accordion-item");
+        const $currentItem = $button.closest(".accordion-item");
 
         const $accordionContent = $currentItem.find(`#${$button.attr('aria-controls')}`);
         const accordionType = $accordionContainer.data("type") || "singleOpen";
@@ -691,11 +576,12 @@ const commonJs = {
         $button.on("click", () => {
           const isExpanded = $button.attr("aria-expanded") === "true";
 
+          // 멀티오픈이 아니고, 현재 버튼이 닫혀있을 때 (열릴 예정일 때)
           if (accordionType !== "multiOpen" && !isExpanded) {
             $accordionItems.not($currentItem).each(function () {
               const $otherItem = $(this);
-              const $otherButton = $otherItem.find(self.SELECTORS.BUTTON);
-              const $otherContent = $otherItem.find(self.SELECTORS.COLLAPSE);
+              const $otherButton = $otherItem.find(".btn-accordion");
+              const $otherContent = $otherItem.find(".accordion-collapse");
 
               $otherItem.removeClass("active");
               $otherButton.attr("aria-expanded", "false").removeClass("active");
@@ -711,25 +597,17 @@ const commonJs = {
           
           $accordionContent.toggleClass("active", !isExpanded);
           if (isExpanded) {
-             $accordionContent.attr("hidden", true); 
+             $accordionContent.attr("hidden", true); // 닫힐 때
           } else {
-             $accordionContent.removeAttr("hidden");
+             $accordionContent.removeAttr("hidden"); // 열릴 때
           }
         });
       });
     },
   },
   tab: {
-    SELECTORS: {
-      WRAPPER: `.${projectName}-tab-area`,
-      TAB_LIST: "ul[role='tablist']",
-      TAB_ITEM: "li[role='tab']",
-      TAB_PANEL: ".tab-conts",
-      SR_ONLY: ".sr-only",
-      BUTTON: "button",
-    },
     init() {
-      const $layerTabArea = $(this.SELECTORS.WRAPPER);
+      const $layerTabArea = $(`.${projectName}-tab-area`);
       if ($layerTabArea.length === 0) return;
       this.setupTabs($layerTabArea);
     },
@@ -737,7 +615,7 @@ const commonJs = {
       const self = this;
       $tabAreas.each(function () {
         const $tabArea = $(this);
-        const $layerTabs = $tabArea.find(`.tab > ${self.SELECTORS.TAB_LIST} > ${self.SELECTORS.TAB_ITEM}`);
+        const $layerTabs = $tabArea.find(".tab > ul[role='tablist'] > li[role='tab']");
 
         $layerTabs.each(function () {
           const $tab = $(this);
@@ -752,15 +630,15 @@ const commonJs = {
 
           $tab.on("click", function (e) {
             e.preventDefault();
-            if ($tab.attr('aria-selected') === 'true') return;
+            if ($tab.attr('aria-selected') === 'true') return; // 이미 활성 상태면 중지
 
-            const $closestTabs = $tab.closest(self.SELECTORS.TAB_LIST).find(self.SELECTORS.TAB_ITEM);
-            const $closestTabPanels = $tabArea.find(self.SELECTORS.TAB_PANEL);
+            const $closestTabs = $tab.closest("ul[role='tablist']").find("li[role='tab']");
+            const $closestTabPanels = $tabArea.find(".tab-conts");
             
             self.resetTabs($closestTabs, $closestTabPanels);
 
             $tab.addClass("active").attr("aria-selected", "true");
-            $tab.find(`${self.SELECTORS.BUTTON} ${self.SELECTORS.SR_ONLY}`).text(" 선택됨");
+            $tab.find("button .sr-only").text(" 선택됨");
             $selectedTabPanel.addClass("active");
           });
 
@@ -770,35 +648,33 @@ const commonJs = {
       });
     },
     resetTabs($closestTabs, $closestTabPanels) {
-      const self = this;
       $closestTabs.each(function () {
         $(this).removeClass("active").attr("aria-selected", "false");
-        $(this).find(self.SELECTORS.SR_ONLY).text("");
+        $(this).find(".sr-only").text("");
       });
       $closestTabPanels.removeClass("active");
     },
     setupKeyboardNavigation($tab) {
-      const self = this;
-      const $button = $tab.find(this.SELECTORS.BUTTON);
+      const $button = $tab.find('button');
       if (!$button.length) return; 
 
       $button.on("keydown", function (event) {
-        const $currentTabLi = $(this).closest(self.SELECTORS.TAB_ITEM);
-        const $siblings = $currentTabLi.siblings(self.SELECTORS.TAB_ITEM); 
+        const $currentTabLi = $(this).closest('li[role="tab"]');
+        const $siblings = $currentTabLi.siblings('li[role="tab"]'); 
         let $newTabLi;
 
         if (event.key === "ArrowRight" || event.key === "ArrowDown") {
           event.preventDefault();
-          $newTabLi = $currentTabLi.nextAll(self.SELECTORS.TAB_ITEM).first();
+          $newTabLi = $currentTabLi.nextAll('li[role="tab"]').first();
           if ($newTabLi.length === 0) $newTabLi = $siblings.first();
         } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
           event.preventDefault();
-          $newTabLi = $currentTabLi.prevAll(self.SELECTORS.TAB_ITEM).first();
+          $newTabLi = $currentTabLi.prevAll('li[role="tab"]').first();
           if ($newTabLi.length === 0) $newTabLi = $siblings.last(); 
         }
         
         if ($newTabLi && $newTabLi.length) {
-          $newTabLi.find(self.SELECTORS.BUTTON).trigger('focus');
+          $newTabLi.find("button").trigger('focus');
         }
       });
     },

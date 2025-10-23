@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const glob = require('glob');
@@ -16,7 +15,8 @@ glob.sync('./src/assets/scss/*.scss').forEach((file) => {
 	scssEntries[name] = path.resolve(__dirname, file);
 });
 
-const htmlPages = glob.sync('./src/pages/**/*.html');
+// const htmlPages = glob.sync('./src/pages/**/*.html');
+const allHtmlPages = glob.sync('./src/{pages,guides}/**/*.html');
 
 module.exports = {
   entry: {
@@ -43,41 +43,18 @@ module.exports = {
             loader: 'html-loader',
             options: {
               sources: {
-								// urlFilter: (attribute, value, resourcePath) => {
-								// 	if (/\.(css|js)$/.test(value)) {
-								// 		return false;
-								// 	}
-								// 	return true;
-								// },
 								urlFilter: (attribute, value) => !/\.(css|js)$/.test(value),
 							},
 							minimize: false,
 							esModule: false,
-							// attributes: false
             }
           },
-					// {
-					// 	loader: 'ejs-plain-loader',
-					// 	options: {
-					// 		async: true, // 비동기 지원 (optional)
-					// 	}
-					// }
           'ejs-plain-loader', // EJS를 순수 HTML로 변환
-					// {
-					// 	loader: 'ejs-plain-loader',
-					// 	options: {
-					// 		locals: {
-					// 			// 모든 EJS 템플릿에 공통으로 적용될 변수
-					// 			projectName: 'hwf',
-					// 		}
-					// 	}
-					// }
         ]
       },
       {
         test: /\.scss$/,
         use: [
-          // MiniCssExtractPlugin.loader,  // CSS 파일로 분리
 					'style-loader',
           'css-loader',
           'sass-loader'
@@ -101,21 +78,23 @@ module.exports = {
   },
   plugins: [
 		new RemoveEmptyScriptsPlugin(),
-    // new MiniCssExtractPlugin({
-    //   filename: 'assets/css/[name].css',
-    // }),
     // HTML로 생성
-    ...htmlPages.map((file) => {
-      const name = path.basename(file, '.html');
+    ...allHtmlPages.map((file) => {
+      // const name = path.basename(file, '.html');
+      const relativePath = path.relative(path.resolve(__dirname, 'src'), file);
+      let outputFilename = relativePath;
+
+      if (relativePath.startsWith('pages' + path.sep)) {
+        const name = path.basename(file, '.html');
+        outputFilename = `html/${name}.html`;
+      }
+
       return new HtmlWebpackPlugin({
         template: file,
-        filename: `html/${name}.html`, // dist/pages/ 폴더 내에 출력
+        filename: outputFilename, // 'html/index.html' 또는 'guides/resources/ele_badge.html'
         inject: true,
-				chunks: 'all',
+        chunks: 'all',
         minify: false,
-				// templateParameters: {
-				// 	projectName: 'hwf',
-				// },	
       });
     }),
     // img, fonts, js 폴더 그대로 복사 (src/assets -> dist/assets)
