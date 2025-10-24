@@ -10,8 +10,7 @@
     direction, // 'horizontal' 또는 'vertical' 클래스 추가
     addClass
   ].filter(Boolean).join(' ');
-%>
-
+-%>
 <% if (items.length > 0) { %>
 	<ol class="<%= wrapClasses %>">
 		<% items.forEach((item, index) => { %>

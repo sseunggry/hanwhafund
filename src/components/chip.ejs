@@ -21,10 +21,9 @@
   if (variant === 'multi') {
     inputType = 'checkbox';
   }
-%>
-
+-%>
 <div class="<%= groupClasses %>">
-  <% items.forEach((item, index) => { %>
+  <% items.forEach((item, index) => { -%>
     <%
       const itemLabel = item.label || `chips ${index + 1}`;
       const itemValue = item.value || itemLabel;
@@ -32,7 +31,6 @@
       const itemDisabled = item.disabled ? 'disabled' : '';
       const uniqueId = `chip-${variant}-${Math.random().toString(36).substring(2, 9)}`;
     %>
-
     <% if (variant === 'single' || variant === 'multi') { -%>
 			<%# 라디오 또는 체크박스 렌더링 %>
       <div class="<%= chipBaseClasses %>">
@@ -60,5 +58,5 @@
         </button>
       </div>
     <% } -%>
-  <% }); %>
+  <% }); -%>
 </div>

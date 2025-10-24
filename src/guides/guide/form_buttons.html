@@ -9,17 +9,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">버튼</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">버튼</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">기본형 Button</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">기본형 Button</span>
           </div>
 
           <div class="group">
@@ -37,59 +33,92 @@
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Primary</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">Primary</span>
             </div>
 
             <div class="group">
-              <button type="button" class="btn primary">
-                <span>확인(.primary)</span>
-              </button>
-              <button type="button" class="btn primary" disabled>
-                <span>확인(비활성화)</span>
-              </button>
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(.primary)',
+                  hierarchy: 'primary',
+                  size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(비활성화)',
+                  hierarchy: 'primary',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Secondary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(.secondary)',
+                  hierarchy: 'secondary',
+                  size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(비활성화)',
+                  hierarchy: 'secondary',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Tertiary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(.tertiary)',
+                  hierarchy: 'tertiary',
+                  size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '확인(비활성화)',
+                  hierarchy: 'tertiary',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
             </div>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Secondary</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <button type="button" class="btn secondary">
-                <span>확인(.secondary)</span>
-              </button>
-              <button type="button" class="btn secondary" disabled>
-                <span>확인(비활성화)</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Tertiary</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <button type="button" class="btn tertiary">
-                <span>확인(.tertiary)</span>
-              </button>
-              <button type="button" class="btn tertiary" disabled>
-                <span>확인(비활성화)</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Alert</span>
               </div>
             </div>
@@ -106,7 +135,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Outlined</span>
               </div>
             </div>
@@ -123,7 +152,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   Outlined(글자색상: var(--ssf-black); - #0b0d0f)
                 </span>
@@ -375,7 +404,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">아이콘 좌측배치(Default)</span>
               </div>
             </div>
@@ -436,7 +465,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">아이콘 우측배치(.icon.i-right)</span>
               </div>
             </div>
@@ -472,7 +501,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">텍스트 버튼-1.6rem</span>
               </div>
             </div>
@@ -502,7 +531,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   텍스트 버튼 폰트크기-1.4rem(.texted.type-sm)
                 </span>
@@ -518,7 +547,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   텍스트 버튼 폰트크기-1.8rem(.texted.type-lg)
                 </span>
@@ -538,7 +567,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   Text UnderLine 추가(.texted.type-underline)
                 </span>
@@ -655,7 +684,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">button Group - Basic</span>
               </div>
             </div>
@@ -801,7 +830,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Button Group - 상하배열(.option-full)</span>
               </div>
             </div>
@@ -873,7 +902,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Button Group - 반응배열(.option-react)</span>
               </div>
             </div>
@@ -940,7 +969,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Button Group - 반응배열(.option-array)</span>
               </div>
             </div>
@@ -1081,7 +1110,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Button Group - 반응형에 따른 제어</span>
               </div>
             </div>
@@ -1153,7 +1182,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">버튼 + 체크버튼형 추가</span>
               </div>
             </div>

@@ -3,22 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>클래스규칙 &gt; 마크업 가이드</title>
+    <title>클래스규칙 &gt; 가이드</title>
 
+    <link href="./assets/css/prism.css" rel="stylesheet" />
     <link href="./assets/css/index.css" rel="stylesheet" />
-    <link href="./assets/css/gui_style.css" rel="stylesheet" />
-    <link href="./assets/css/github.css" rel="stylesheet" />
 
     <link href="../../assets/css/style.css" rel="stylesheet" />
     <script src="../../assets/js/jquery3.min.js"></script>
     <script src="../../assets/js/ui.common.js"></script>
 
-    <script src="./assets/js/rainbow.js"></script>
-    <script src="./assets/js/generic.js"></script>
-    <script src="./assets/js/html.js"></script>
-    <script src="./assets/js/css.js"></script>
-    <script src="./assets/js/php.js"></script>
-    <script src="./assets/js/javascript.js"></script>
+    <script src="./assets/js/prism.js"></script>
+    <script src="./assets/js/guide_script.js"></script>
     <link href="/assets/css/style.css" rel="stylesheet" />
   </head>
 
@@ -26,14 +21,14 @@
     <div id="guideWrap">
       <div class="main_content">
         <div class="list-head">
-          <div class="title-xlg">
+          <div class="tit-lg">
             <span class="txt">클래스규칙</span>
           </div>
         </div>
-        <section class="fui-section">
+        <section class="section">
           <div class="group">
             <div class="list-head">
-              <div class="title-lg">
+              <div class="tit-sm">
                 <span class="txt">채널별 Class 부여 규칙</span>
               </div>
             </div>
@@ -106,16 +101,16 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">강제 클래스</span>
             </div>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">경우에 따른 Show/Hide</span>
               </div>
             </div>
@@ -156,7 +151,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">글자가 br요소가 모바일이나 PC일때 다르게 보여야 할 경우</span>
               </div>
             </div>
@@ -173,7 +168,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">Width 사이즈</span>
               </div>
             </div>
@@ -224,12 +219,5 @@
         </section>
       </div>
     </div>
-    <script>
-      $(document).ready(function () {
-        $(".btn[data-btn='fold']").bind("click", function () {
-          $(this).closest("div.btn-wrap").next(".fui-src-fold").toggleClass("is-fold");
-        });
-      });
-    </script>
   </body>
 </html>

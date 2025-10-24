@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -99,6 +100,11 @@ module.exports = {
         inject: true,
         chunks: 'all',
         minify: false,
+        templateParameters: {
+          fs: require('fs'),
+          path: require('path'),
+          __dirname: path.dirname(file),
+        }
       });
     }),
     // img, fonts, js 폴더 그대로 복사 (src/assets -> dist/assets)

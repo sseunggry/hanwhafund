@@ -9,17 +9,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">라디오버튼</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">라디오버튼</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Basic</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">Basic</span>
           </div>
 
           <div class="group">
@@ -35,55 +31,57 @@
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">라디오버튼 단일</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">라디오버튼 단일</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/radio.ejs', {
+                  label: '',
+                  variant: 'check',
+                  size: '',
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="form-wrap">
-                        <label for="targetRadio1_1" class="lb-radio">
-                          <input
-                            type="radio"
-                            name="targetRadio1"
-                            id="targetRadio1_1"
-                          />
-                          <span class="label">라디오 옵션1</span>
-                        </label>
-                      </div>
-                      <div class="form-wrap">
-                        <label for="targetRadio1_2" class="lb-radio">
-                          <input
-                            type="radio"
-                            name="targetRadio1"
-                            id="targetRadio1_2"
-                          />
-                          <span class="label">라디오 옵션2</span>
-                        </label>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라디오버튼 카드형</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/radio.ejs', {
+                  label: '한화2.2배레버리지인덱스증권투자신탁',
+                  slot: `
+                  <div class="chk-con fund-item">
+                    <div class="info">
+                      <p class="tag">아세안ㆍ주식혼합ㆍ중소형주/성장주</p>
+                      <p class="name">한화2.2배레버리지인덱스증권투자신탁 (주식-파생재간접형)</p>
+                    </div>
+                  </div>
+                  `,
+                  variant: 'check',
+                  size: '',
+                  addClass: 'card'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">라디오버튼 크기</span>
               </div>
             </div>
@@ -150,7 +148,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">라디오버튼 그룹</span>
               </div>
             </div>
@@ -241,7 +239,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Radio 단독사용</span>
               </div>
             </div>
@@ -477,7 +475,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Index Type</span>
               </div>
             </div>
@@ -737,7 +735,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">List Type(.option-list)</span>
               </div>
             </div>
@@ -1071,7 +1069,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">타이틀 + summary 조합</span>
               </div>
             </div>
@@ -1183,7 +1181,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">타이틀 + summary 조합(내부 버튼 추가)</span>
               </div>
             </div>

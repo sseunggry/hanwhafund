@@ -15,182 +15,76 @@
 
         <section class="section">
 					<div class="tit-xsm">
-						<span class="txt">ELBadgeText</span>
+						<span class="txt">Badge - outline</span>
 					</div>
 
           <div class="group">
             <div class="module-box option-bg">
               <ul class="note-list depth-1">
                 <li>텍스트만 선언되는 가장 기본적인 유형</li>
-                <li>뱃지가 2개 이상 선언시 가운데 라인 생성</li>
+                <!-- <li>뱃지가 2개 이상 선언시 가운데 라인 생성</li> -->
               </ul>
             </div>
           </div>
 
-					<div class="group">
-						<% let previewBadges = '<div class="hls_preview">'; %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid', color: 'primary', size: 'medium', label: '국내' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid', color: 'secondary', size: 'medium', label: '주식' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid', color: 'tertiary', size: 'medium', label: '글로벌' }); %>
-
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'outline', color: 'primary', size: 'medium' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'outline', color: 'secondary', size: 'medium' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'outline', color: 'tertiary', size: 'medium' }); %>
-
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid-pastel', color: 'primary', size: 'medium' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid-pastel', color: 'secondary', size: 'medium' }); %>
-						<% previewBadges += include('../../components/badge.ejs', { variant: 'solid-pastel', color: 'tertiary', size: 'medium' }); %>
-						<% previewBadges += '</div>'; %>
-						
-						<%- include('../../components/tab.ejs', {
-							variant: 'line',
-							tablist: ['PREVIEW', 'CODE'],
-							contents: [
-								previewBadges,
-								`<pre><code class="hls language-html"></code></pre>`,
-								],
-							}) %>
-          </div>
-					<%- include('../../components/badge.ejs', { 
-						variant: 'solid', color: 'primary', size: 'medium', label: '국내' }) 
-					%>
-					
-
           <div class="group">
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="hls_preview">
+              <div class="hwf-badge-wrap">
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'outline', color: 'rating1', size: 'medium', label: '1등급' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'outline', color: 'rating2', size: 'medium', label: '2등급' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'outline', color: 'rating3', size: 'medium', label: '3등급' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'outline', color: 'rating4', size: 'medium', label: '4등급' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'outline', color: 'rating5', size: 'medium', label: '5등급' 
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="badge-group">
-                        <span class="badge type1">유지</span>
-                        <span class="badge type2">갱신형</span>
-                        <span class="badge type3">효력상실</span>
-                        <span class="badge type3">만기미환급</span>
-                        <span class="badge type4">만기</span>
-                        <span class="badge type4">완료</span>
-                        <span class="badge type4">중도해지</span>
-                        <span class="badge type4">가입취소</span>
-                        <span class="badge type4">부활불능</span>
-                        <span class="badge type4">지급불가</span>
-                      </div>
-                      <br />
-                      <br />
-                      <div class="badge-group">
-                        <span class="badge type5">고객지원센터</span>
-                        <span class="badge type5">지점</span>
-                        <span class="badge type2">융자센터</span>
-                        <span class="badge type1">자동차보험 보상부/센터</span>
-                        <span class="badge type1">
-                          자동차 고장수리보장보험 수리업체
-                        </span>
-                        <span class="badge type1">자동차정기검사 대행업체</span>
-                        <span class="badge type1">애니카패밀리센터</span>
-                        <span class="badge type1">애니카랜드</span>
-                      </div>
-                      <br />
-                      <br />
-                      <div class="badge-group">
-                        <span class="badge rating1">1등급</span>
-                        <span class="badge rating2">2등급</span>
-                        <span class="badge rating3">3등급</span>
-                        <span class="badge rating4">4등급</span>
-                        <span class="badge rating5">5등급</span>
-                        <span class="badge rating6">무위험</span>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELBadge</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">Badge - solid</span>
           </div>
 
           <div class="group">
             <div class="module-box option-bg">
               <ul class="note-list depth-1">
                 <li>박스형태 유형</li>
-                <li>가운데 라인 생성되지 않음 / gap 1.6rem</li>
-                <li>
-                  <strong>.badge.bg</strong>
-                  추가
-                </li>
+                <li><strong>.badge.solid</strong>추가</li>
               </ul>
             </div>
           </div>
 
           <div class="group">
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="hls_preview">
+              <div class="hwf-badge-wrap">
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'solid', color: 'primary', size: 'medium', label: '국내' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'solid', color: 'secondary', size: 'medium', label: '주식' 
+                }) -%>
+                <%- include('../../components/badge.ejs', { 
+                    variant: 'solid', color: 'tertiary', size: 'medium', label: '글로벌' 
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="badge-group">
-                        <span class="badge bg">기본</span>
-                        <span class="badge bg type1">적절</span>
-                        <span class="badge bg type2">보통</span>
-                        <span class="badge bg type3">필요</span>
-                        <span class="badge bg type7">ARS 1번</span>
-                      </div>
-                      <br />
-                      <br />
-                      <div class="badge-group">
-                        <span class="badge bg rating01">안심</span>
-                        <span class="badge bg rating02">다소안심</span>
-                        <span class="badge bg rating03">보통</span>
-                        <span class="badge bg rating04">신중</span>
-                        <span class="badge bg rating05">주의</span>
-                      </div>
-                      <br />
-                      <br />
-                      <div class="badge-group">
-                        <span class="badge bg type4">헬스클럽</span>
-                        <span class="badge bg type5">컬쳐클럽</span>
-                        <span class="badge bg type6">스터디클럽</span>
-                        <span class="badge bg type8">플로깅</span>
-                        <span class="badge bg">환경의날</span>
-                        <span class="badge bg">친환경</span>
-                        <span class="badge bg">ESG</span>
-                        <span class="badge bg">건강</span>
-                        <span class="badge bg">조깅</span>
-                        <span class="badge bg">산책</span>
-                        <span class="badge bg">플로깅</span>
-                        <span class="badge bg">환경의날</span>
-                        <span class="badge bg">친환경</span>
-                        <span class="badge bg">ESG</span>
-                        <span class="badge bg">건강</span>
-                        <span class="badge bg">조깅</span>
-                        <span class="badge bg">산책</span>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>

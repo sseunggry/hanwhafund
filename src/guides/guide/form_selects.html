@@ -9,17 +9,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">셀렉트박스</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">셀렉트박스</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">SelectBox Primary</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">SelectBox Primary</span>
           </div>
 
           <div class="group">
@@ -36,90 +32,22 @@
           </div>
 
           <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect1_1" class="label-txt">
-                            Select Label
-                          </label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect1_1" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="" disabled>비활성화</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">
-                              텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect2_1" class="label-txt">
-                            비활성화
-                          </label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect2_1" title="제목" disabled>
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">
-                              텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기
-                            </option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- 필수입력 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect1_1_1" class="label-txt">
-                            필수입력
-                            <span class="bullet-must">
-                              <em class="sr-only">필수입력</em>
-                            </span>
-                          </label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect1_1_1" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택 2번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">선택 4번</option>
-                            <option value="">선택 5번</option>
-                            <option value="">선택 6번</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// 필수입력 (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            <div class="hls_preview">
+              <%- include('../../components/select.ejs', {
+                title: "통신사",
+                placeholder: "통신사를 선택하세요",
+                size: 'large',
+                // required: true,
+                options: [
+                  { value: 'lg', text: 'LG U+' },
+                  { value: 'kt', text: 'KT' },
+                  { value: 'skt', text: 'SKT' }
+                ]
+              }) -%>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
@@ -133,7 +61,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Box Type-Primary(.ui-select.option-box)</span>
               </div>
             </div>
@@ -177,7 +105,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   Box Type-Outlined(.ui-select.option-box.outlined)
                 </span>
@@ -283,7 +211,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">텍스트 + 셀렉트박스(.xsm) 혼합형</span>
               </div>
             </div>
@@ -350,7 +278,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   텍스트 + 셀렉트박스(.xsm) 혼합형(페이지내 최상단에 검색
                   혼합형일 경우)

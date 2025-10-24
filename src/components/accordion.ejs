@@ -12,8 +12,7 @@
   ].filter(Boolean).join(' ');
 
   const accordionId = `accordion-${Math.random().toString(36).substring(2, 9)}`;
-%>
-
+-%>
 <% if (items.length > 0) { %>
 <div class="<%= accordionClasses %>" data-type="<%= type %>">
   <% items.forEach((item, index) => { %>

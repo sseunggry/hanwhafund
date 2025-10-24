@@ -14,8 +14,7 @@
   ].filter(Boolean).join(' ');
 
 	const uniqueId = `tab-${Math.random().toString(36).substring(2, 9)}`;
-%>
-
+-%>
 <div class="<%= projectName %>-tab-area">
   <div class="tab <%= classes %>">
     <ul role="tablist">
@@ -27,7 +26,7 @@
           <%- active === idx ? `class="active" aria-selected="true"` : `aria-selected="false"` %>
         >
           <button type="button" class="btn-tab">
-            <%= label %><span class="sr-only"><%= active === idx ? ' 선택됨' : '' %></span>
+            <%= label %><%- active === idx ? '<span class="sr-only">선택됨</span>' : '' %>
           </button>
         </li>
       <% }); -%>

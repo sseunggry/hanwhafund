@@ -7,8 +7,7 @@
     `${projectName}-spinner`,
     size,
   ].filter(Boolean).join(' ');
-%>
-
+-%>
 <div class="<%= classes %>" role="status">
 	<span class="<%= !text ? 'sr-only' : ''%>"><%= text || '로딩 중' %></span>
 </div>

@@ -26,8 +26,7 @@
     initialCheckedIndex = items.findIndex(item => !item.disabled); // 첫 활성 찾기
     if (initialCheckedIndex === -1) initialCheckedIndex = 0; // 모두 비활성이면 첫 번째
   }
-%>
-
+-%>
 <%# tag가 'button'일 때만 role="radiogroup" 적용 %>
 <div class="<%= classes %>" <%= tag === 'button' ? `role="radiogroup"` : '' %> aria-label="<%= title %>">
 

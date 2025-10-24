@@ -9,17 +9,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">체크박스</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">체크박스</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Basic</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">Basic</span>
           </div>
 
           <div class="group">
@@ -32,87 +28,97 @@
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Checkbox 단일</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">Checkbox 단일</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/checkbox.ejs', {
+                  label: '',
+                  variant: '',
+                  size: 'large',
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="form-wrap">
-                        <label for="targetCheck_1_1" class="lb-check">
-                          <input
-                            type="checkbox"
-                            name="targetCheck_1"
-                            id="targetCheck_1_1"
-                          />
-                          <span class="label">옵션1(font: 18pt/bold)</span>
-                        </label>
-                      </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
 
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <strong class="label-txt">
-                            Checkbox 폰트굵기 normal (.option-normal)
-                          </strong>
-                        </div>
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Check 타입</span>
+            </div>
 
-                        <label
-                          for="targetCheck_1_2"
-                          class="lb-check option-normal"
-                        >
-                          <input
-                            type="checkbox"
-                            name="targetCheck_1"
-                            id="targetCheck_1_2"
-                          />
-                          <span class="label">옵션1(font: 18/normal)</span>
-                        </label>
-                      </div>
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/checkbox.ejs', {
+                  label: '',
+                  variant: 'check',
+                  size: 'large',
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
 
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <strong class="label-txt">
-                            Checkbox 폰트사이즈 16 / 폰트굵기 normal
-                            (.option-md-normal)
-                          </strong>
-                        </div>
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">checkbox card 타입</span>
+            </div>
 
-                        <label
-                          for="targetCheck_1_3"
-                          class="lb-check option-md-normal"
-                        >
-                          <input
-                            type="checkbox"
-                            name="targetCheck_1"
-                            id="targetCheck_1_3"
-                          />
-                          <span class="label">옵션1(font: 16/normal)</span>
-                        </label>
-                      </div>
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/checkbox.ejs', {
+                  label: '한화2.2배레버리지인덱스증권투자신탁',
+                  slot: `
+                  <div class="chk-con fund-item">
+                    <div class="info">
+                      <p class="tag">아세안ㆍ주식혼합ㆍ중소형주/성장주</p>
+                      <p class="name">한화2.2배레버리지인덱스증권투자신탁 (주식-파생재간접형)</p>
                     </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+                    <div class="price">
+                      <dl>
+                        <dt>기준가</dt>
+                        <dd>724.47</dd>
+                      </dl>
+                      <dl>
+                        <dt>순자산</dt>
+                        <dd>3,333.19</dd>
+                      </dl>
+                    </div>
+                    <ul class="rate">
+                      <li>12.71</li>
+                      <li>12.71</li>
+                      <li>15.81</li>
+                      <li>32.5</li>
+                      <li>37.15</li>
+                      <li>37.15</li>
+                      <li>37.15</li>
+                      <li>37.15</li>
+                    </ul>
                   </div>
-                </div>
+                  `,
+                  variant: 'check',
+                  size: '',
+                  addClass: 'card'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Checkbox 그룹</span>
               </div>
             </div>
@@ -223,7 +229,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">Basic</span>
               </div>
             </div>
@@ -314,7 +320,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">텍스트 좌측 + 체크영역 우측배치</span>
               </div>
             </div>
@@ -412,7 +418,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">정보동의 자식 그룹(.option-md)</span>
               </div>
             </div>
@@ -512,7 +518,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   정보동의 하위 자식 그룹(.lb-check.option-sm)
                 </span>
@@ -623,7 +629,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">상하정렬 Type(.option-block)</span>
               </div>
             </div>
@@ -710,7 +716,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">좌우정렬 Type</span>
               </div>
             </div>
@@ -1356,7 +1362,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">CheckBox 단독사용</span>
               </div>
             </div>
@@ -1701,7 +1707,7 @@
                     <div class="hls_preview">
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-min">
+                          <div class="tit-xxsm">
                             <span class="txt">default</span>
                           </div>
                         </div>
@@ -1830,7 +1836,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-min">
+                          <div class="tit-xxsm">
                             <span class="txt">
                               텍스트 단독유형(.option-boxed.type-large)
                             </span>
@@ -1891,7 +1897,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-min">
+                          <div class="tit-xxsm">
                             <span class="txt">
                               중앙정렬(.option-boxed.type-center)
                             </span>
@@ -1982,7 +1988,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">타이틀 + summary 조합(내부 버튼 추가)</span>
               </div>
             </div>
@@ -2227,7 +2233,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">
                   타이틀 + summary 조합(내부 텍스트 필드 추가)
                 </span>

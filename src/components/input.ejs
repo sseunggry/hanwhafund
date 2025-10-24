@@ -30,11 +30,9 @@
 		disabled ? 'disabled' : '', 
 		readonly ? 'readonly' : '' 
 	].filter(Boolean).join(' ');
-%>
-
+-%>
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
-	<!-- <div class="form-field"> -->
 	<div class="form-tit">
 		<%# 그룹 입력 시 span, 단일 입력 시 label %>
 		<% if (groupItems) { %>
@@ -94,7 +92,6 @@
       <% } %>
 
 <% if (title) { -%>
-    <!-- </div> -->
   </div>
 </div>
 <% } -%>

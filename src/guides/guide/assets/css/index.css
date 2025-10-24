@@ -647,7 +647,7 @@ body {
 .code-toolbar .code[class*="language-"], .code-toolbar pre[class*="language-"]{
 	margin: 0;
 	padding: 3rem 10rem 3rem 2rem;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 }
 .code-toolbar .toolbar .copy-to-clipboard-button{
 	position: absolute;
@@ -668,4 +668,24 @@ body {
 	background-color: #f8f8f8;
 	border-radius: 0.4rem;
 	font-size: 1.6rem;
+}
+.hls-wrap{
+  max-height: 1000px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.hls-wrap.is-fold {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.btn-code-toggle{
+  margin: 2rem 0 1rem;
+  font-size: 1.6em;
+  font-weight: 700;
+  border: 1px solid #000;
+  border-radius: 0.4rem;
+  padding: 0.4rem 1rem;
 }
