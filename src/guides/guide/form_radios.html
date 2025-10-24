@@ -1,38 +1,23 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>라디오버튼 &gt; 마크업 가이드</title>
-    <link rel="stylesheet" href="../script_guide/css/index.css" />
-    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
-    <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="../script_guide/themes/css/github.css"
-    />
-    <script src="../../assets/js/jquery3.min.js"></script>
-    <!-- <script src="/v2/resources/js/ui.init.js"></script>
-    <script src="/v2/resources/js/ui.plugins.js"></script>
-    <script src="/v2/resources/js/ui.common.js"></script>
-    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+		 <%- include('../_inc/guide_head.ejs', {
+			title: '라디오버튼',
+		}) %>
   </head>
 
   <body>
     <div id="guideWrap">
       <div class="main_content">
         <div class="list-head">
-          <div class="title-xlg">
+          <div class="tit-lg">
             <span class="txt">라디오버튼</span>
           </div>
         </div>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">Basic</span>
             </div>
           </div>
@@ -285,7 +270,7 @@
                     <div class="hls_preview">
                       <div class="form-wrap">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">Basic</span>
                           </div>
                         </div>
@@ -370,7 +355,7 @@
                         <br />
 
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">option-xlg</span>
                           </div>
                         </div>
@@ -465,9 +450,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">버튼타입</span>
             </div>
           </div>
@@ -508,7 +493,7 @@
                     <div class="hls_preview">
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">Index - Vertical</span>
                           </div>
                         </div>
@@ -568,7 +553,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">Index - horizontal</span>
                           </div>
                         </div>
@@ -632,7 +617,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">
                               Index - horizontal(.option-sm / Height: 4rem)
                             </span>
@@ -698,7 +683,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">
                               Index - horizontal(.option-sm / Height: 4rem) +
                               문구조합
@@ -768,7 +753,7 @@
                     <div class="hls_preview">
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">List Type</span>
                           </div>
                         </div>
@@ -839,7 +824,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">List Type + 아이콘 조합</span>
                           </div>
                         </div>
@@ -913,7 +898,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">
                               List Type(하위 설명글 포함) + 아이콘 조합
                             </span>
@@ -977,9 +962,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">Another Type</span>
             </div>
           </div>
@@ -996,7 +981,7 @@
                     <div class="hls_preview">
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">고장출동서비스(3 cols 배열)</span>
                           </div>
                         </div>
@@ -1077,9 +1062,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">Button Type Custom</span>
             </div>
           </div>
@@ -1370,9 +1355,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">
                 박스타입(.option-boxed.option-list) / 디자인 확정아님
               </span>
@@ -1449,13 +1434,6 @@
           </div>
         </section>
       </div>
-    </div>
-    <script src="../script_guide/dist/rainbow.js"></script>
-    <script src="../script_guide/src/language/generic.js"></script>
-    <script src="../script_guide/src/language/html.js"></script>
-    <script src="../script_guide/src/language/css.js"></script>
-    <script src="../script_guide/src/language/php.js"></script>
-    <script src="../script_guide/src/language/javascript.js"></script>
-    <script src="../script_guide/guide_script.js"></script>
+    </div> 
   </body>
 </html>

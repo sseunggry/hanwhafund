@@ -3,44 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>마크업 가이드</title>
-    <link href="./resources/css/index.css" rel="stylesheet" />
-    <style>
-      #treemenu ul {
-        list-style: none;
-        padding-left: 15px; /* 들여쓰기 */
-      }
-      #treemenu .category > span {
-        font-weight: bold;
-        cursor: default; /* 클릭 기능 없으면 */
-        display: block;
-        margin-top: 10px;
-      }
-      #treemenu .sub-items {
-        padding-left: 10px; /* 하위 항목 들여쓰기 */
-        margin-top: 5px;
-      }
-      #treemenu a {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        padding: 3px 0;
-      }
-      #treemenu a:hover {
-        text-decoration: underline;
-        color: #007bff;
-      }
-      #treemenu a.active {
-        /* 현재 활성화된 링크 스타일 */
-        font-weight: bold;
-        color: #0056b3;
-      }
-      #treemenu a.status-complete::after {
-        /* 완료 상태 표시 예시 */
-        content: " ✔";
-        color: green;
-        font-size: 0.8em;
-      }
-    </style>
+    <link href="./assets/css/index.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -65,11 +28,7 @@
           </div>
         </div>
         <div class="contents">
-          <iframe
-            class="content_frame"
-            id="content_frame"
-            name="content_frame"
-          ></iframe>
+          <iframe class="content_frame" id="content_frame" name="content_frame"></iframe>
           <script>
             const treeContainer = document.getElementById("treemenu");
             const iframe = document.getElementById("content_frame");
@@ -82,6 +41,8 @@
                 클래스규칙: ["./ele_class.html", "complete"],
                 타이포그래피: ["./ele_typo.html", "complete"],
                 뱃지: ["./ele_badge.html", "complete"],
+                칩: ["./ele_chip.html", "complete"],
+                "스피너(로딩)": ["./ele_spinner.html", "complete"],
               },
 
               모듈: {
@@ -89,11 +50,7 @@
                 아코디언: ["./mod_accordions.html", "complete"],
                 목록: ["./mod_lists.html", "complete"],
                 인디케이터: ["./mod_indicators.html", "complete"],
-                모듈박스: ["./mod_moduleboxs.html", "complete"],
                 테이블: ["./mod_tables.html", "complete"],
-                정보동의: ["./mod_agrees.html", "complete"],
-                프로세스: ["./mod_process.html", "complete"],
-                슬라이더: ["./mod_sliders.html", "complete"],
               },
 
               폼: {
@@ -107,63 +64,44 @@
                 라디오버튼: ["./form_radios.html", "complete"],
                 폼조합: ["./form_combine.html", "complete"],
               },
-
-              레이아웃: {
-                타이틀영역: ["./layout_title.html", "complete"],
-                브레드크럼: [
-                  "./layout_breadcrumb.html",
-                  "complete",
-                ],
-                영역: ["./layout_dividers.html", "complete"],
-                로딩: ["./layout_loadings.html", "complete"],
-                로띠: ["./layout_lotties.html", "complete"],
-              },
             };
 
             // 트리 메뉴 생성 함수 (CSS 구조 반영)
             function createTreeMenu(container, treeData, frameName) {
               if (!container || !treeData || !frameName) return;
 
-              // 데이터 객체를 순회하며 카테고리 생성
               for (const category in treeData) {
                 const categoryWrap = document.createElement("div");
-                categoryWrap.className = "tree_wrap"; // CSS 클래스 적용
+                categoryWrap.className = "tree_wrap active"; // ⭐️ 초기 상태: active 클래스 추가
 
-                // 카테고리 제목/토글 영역
                 const categoryNav = document.createElement("div");
-                categoryNav.className = "tree_nav"; // CSS 클래스 적용
-                categoryNav.setAttribute("role", "button"); // 접근성 위해 역할 부여
-                categoryNav.setAttribute("tabindex", "0"); // 키보드 접근 가능하게
-                categoryNav.textContent = category; // 카테고리 이름
+                categoryNav.className = "tree_nav";
+                categoryNav.setAttribute("role", "button");
+                categoryNav.setAttribute("tabindex", "0");
+                categoryNav.textContent = category;
                 categoryWrap.appendChild(categoryNav);
 
-                // 하위 항목들을 담을 컨테이너
                 const subWrap = document.createElement("div");
-                subWrap.className = "tree_sub_wrap"; // CSS 클래스 적용
-                // subWrap.style.display = 'none'; // 초기에는 숨김 (mui-active 클래스로 제어)
+                subWrap.className = "tree_sub_wrap";
+                // subWrap.style.display = 'block'; // active 클래스로 제어하므로 불필요
 
-                // 카테고리 내 항목 순회
                 for (const subItemName in treeData[category]) {
                   const itemData = treeData[category][subItemName];
                   const url = itemData[0];
                   const status = itemData[1] || "";
 
-                  // 각 항목 리스트 요소
                   const itemDiv = document.createElement("div");
-                  itemDiv.className = "tree_lists"; // CSS 클래스 적용
+                  itemDiv.className = "tree_lists";
                   if (status) {
-                    itemDiv.classList.add(status); // 상태 클래스 추가 (complete, confirm 등)
+                    itemDiv.classList.add(status);
                   }
 
-                  // 링크를 감싸는 span (CSS 구조 반영)
                   const itemSpan = document.createElement("span");
-
-                  // 실제 링크
                   const link = document.createElement("a");
                   link.href = url;
                   link.textContent = subItemName;
-                  link.className = "name"; // CSS 클래스 적용
-                  link.target = frameName; // iframe name 속성으로 타겟 지정
+                  link.className = "name";
+                  link.target = frameName;
 
                   itemSpan.appendChild(link);
                   itemDiv.appendChild(itemSpan);
@@ -173,15 +111,14 @@
                 categoryWrap.appendChild(subWrap);
                 container.appendChild(categoryWrap);
 
-                // 카테고리 토글 이벤트 리스너 추가
+                // 카테고리 토글 이벤트 리스너 추가 (⭐️ 클래스명 변경: active)
                 categoryNav.addEventListener("click", () => {
-                  categoryWrap.classList.toggle("mui-active"); // CSS의 .mui-active 클래스 토글
+                  categoryWrap.classList.toggle("active");
                 });
-                // Enter 키로도 토글 가능하게 (접근성)
                 categoryNav.addEventListener("keydown", (e) => {
                   if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault(); // 기본 동작(스크롤 등) 방지
-                    categoryWrap.classList.toggle("mui-active");
+                    e.preventDefault();
+                    categoryWrap.classList.toggle("active");
                   }
                 });
               }
@@ -192,57 +129,49 @@
 
             // iframe 로드 시 해당 링크 하이라이트 함수 (CSS 구조 반영)
             function highlightActiveLink(treeRoot, frameName) {
-              const frame = window.frames[frameName]; // name으로 iframe 접근
-              if (!frame) return;
+              const frameElement = document.getElementById(frameName);
+              if (!frameElement) {
+                console.error(`Iframe with id "${frameName}" not found.`);
+                return;
+              }
 
               const handleLoad = function () {
                 try {
-                  // iframe 접근 권한 오류 방지
-                  const currentFramePath = frame.window.location.pathname;
-                  const allLinks =
-                    treeRoot.querySelectorAll(".tree_lists a.name"); // 링크 선택자 수정
+                  const currentFramePath = frameElement.contentWindow.location.pathname;
+                  const allLinks = treeRoot.querySelectorAll(".tree_lists a.name");
 
                   allLinks.forEach((link) => {
-                    // link.pathname으로 비교
                     if (link.pathname === currentFramePath) {
-                      link.classList.add("mui-highlight"); // CSS 하이라이트 클래스
+                      link.classList.add("highlight"); // 하이라이트 클래스 (유지)
+                      const parentWrap = link.closest(".tree_wrap");
                     } else {
-                      link.classList.remove("mui-highlight");
+                      link.classList.remove("highlight");
                     }
                   });
                 } catch (e) {
-                  console.warn(
-                    "Cannot access iframe location, possibly due to cross-origin restrictions.",
-                  );
+                  // console.warn("Cannot access iframe location...");
                 }
               };
 
-              // 초기 로드 및 이후 src 변경 시 이벤트 리스너
-              if (frame.document.readyState === "complete") {
-                handleLoad(); // 이미 로드된 경우 즉시 실행
+              frameElement.addEventListener("load", handleLoad);
+              if (frameElement.contentDocument && frameElement.contentDocument.readyState === "complete") {
+                setTimeout(handleLoad, 100);
               }
-              frame.window.addEventListener("load", handleLoad); // 로드 이벤트 리스너
-              // src 변경 감지 (MutationObserver는 src 변경 감지 어려움, load 이벤트 활용)
             }
 
             // --- 스크립트 실행 ---
             if (treeContainer && iframe && iframe.name) {
               createTreeMenu(treeContainer, data, iframe.name);
 
-              // 초기 iframe 로드 (예: 첫 번째 링크)
-              const firstLinkElement =
-                treeContainer.querySelector(".tree_lists a.name");
+              // 초기 iframe 로드
+              const firstLinkElement = treeContainer.querySelector(".tree_lists a.name");
               if (firstLinkElement && firstLinkElement.href) {
                 iframe.src = firstLinkElement.href;
-                // 첫 로드 후 하이라이트 즉시 적용 시도 (load 이벤트 전에)
-                // setTimeout(() => highlightActiveLink(treeContainer, iframe.name), 100); // 약간의 지연 후 실행
               } else {
                 console.warn("No links found to set initial iframe source.");
               }
             } else {
-              console.error(
-                "Tree container or iframe (with name attribute) not found!",
-              );
+              console.error("Tree container or iframe (with name attribute) not found!");
             }
           </script>
         </div>

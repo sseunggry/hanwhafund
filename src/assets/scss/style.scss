@@ -6,7 +6,7 @@
 .inner{padding: 0 20px;}
 
 section .inner{padding-top: 28px; padding-bottom: 28px;}
-section::after{content: ''; display: block; width: 100%; height: 8px; background-color: var(--color-background);}
+// section::after{content: ''; display: block; width: 100%; height: 8px; background-color: var(--color-background);}
 section:last-of-type:after{display: none;}
 section:first-of-type .inner{padding-top: 20px;}
 

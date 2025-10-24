@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const glob = require('glob');
@@ -11,8 +12,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const scssEntries = {};
 glob.sync('./src/assets/scss/*.scss').forEach((file) => {
   const name = path.basename(file, '.scss');
-  // scssEntries[name] = `./${file.replace(/^\.\//, '')}`;
-	scssEntries[name] = path.resolve(__dirname, file);
+  scssEntries[name] = `./${file.replace(/^\.\//, '')}`;
+	// scssEntries[name] = path.resolve(__dirname, file);
 });
 
 // const htmlPages = glob.sync('./src/pages/**/*.html');
@@ -55,7 +56,8 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-					'style-loader',
+					MiniCssExtractPlugin.loader,
+					// 'style-loader',
           'css-loader',
           'sass-loader'
         ],
@@ -78,9 +80,11 @@ module.exports = {
   },
   plugins: [
 		new RemoveEmptyScriptsPlugin(),
+		new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css'
+    }),
     // HTML로 생성
     ...allHtmlPages.map((file) => {
-      // const name = path.basename(file, '.html');
       const relativePath = path.relative(path.resolve(__dirname, 'src'), file);
       let outputFilename = relativePath;
 
@@ -101,6 +105,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
 				{ from: 'src/assets/js', to: 'assets/js', noErrorOnMissing: true },
+				{ from: 'src/guides/guide/assets',  to: 'guides/guide/assets', noErrorOnMissing: true },
+				{ from: 'src/guides/list',  to: 'guides/list', noErrorOnMissing: true },
         // { from: 'src/assets/images', to: 'assets/images', noErrorOnMissing: true },
         // { from: 'src/assets/fonts', to: 'assets/fonts',  noErrorOnMissing: true },
       ],
@@ -125,7 +131,8 @@ module.exports = {
       directory: path.resolve(__dirname, 'dist'),
     },
     port: 4000,
-    open: ['/html/index.html'],
+    // open: ['/html/index.html'],
+    open: ['/guides/index.html'],
     hot: true,
 		liveReload: true,
 		// watchFiles: ['src/**/*'],

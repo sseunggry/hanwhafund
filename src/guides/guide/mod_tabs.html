@@ -1,38 +1,23 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>탭 &gt; 마크업 가이드</title>
-    <link href="./resources/css/index.css" rel="stylesheet" />
-    <link href="./resources/css/gui_style.css" rel="stylesheet" />
-    <link href="../../assets/css/style.css" rel="stylesheet" />
-    <link
-      href="../script_guide/themes/css/github.css"
-      rel="stylesheet"
-    />
-    <script src="../../assets/js/jquery3.min.js"></script>
-    <!-- <script src="/v2/resources/js/ui.init.js"></script>
-    <script src="/v2/resources/js/ui.plugins.js"></script>
-    <script src="/v2/resources/js/ui.common.js"></script>
-    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+		 <%- include('../_inc/guide_head.ejs', {
+			title: '탭',
+		}) %>
   </head>
 
   <body>
     <div id="guideWrap">
       <div class="main_content">
         <div class="list-head">
-          <div class="title-xlg">
+          <div class="tit-lg">
             <span class="txt">탭</span>
           </div>
         </div>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">탭에 관한 기본 스크립트 가이드</span>
             </div>
           </div>
@@ -49,9 +34,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">ELTab</span>
             </div>
           </div>
@@ -470,9 +455,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">ELTabContent - Bubble Type</span>
             </div>
           </div>
@@ -562,9 +547,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">ELTabDetail</span>
             </div>
           </div>
@@ -634,9 +619,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">Custom</span>
             </div>
           </div>
@@ -973,17 +958,5 @@
         </section>
       </div>
     </div>
-    <script>
-      $(document).ready(function () {
-        $plugins.uiTextareaAutoHeight();
-      });
-    </script>
-    <script src="../script_guide/dist/rainbow.js"></script>
-    <script src="../script_guide/src/language/generic.js"></script>
-    <script src="../script_guide/src/language/html.js"></script>
-    <script src="../script_guide/src/language/css.js"></script>
-    <script src="../script_guide/src/language/php.js"></script>
-    <script src="../script_guide/src/language/javascript.js"></script>
-    <script src="../script_guide/guide_script.js"></script>
   </body>
 </html>

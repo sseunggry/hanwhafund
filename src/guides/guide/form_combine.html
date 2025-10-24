@@ -1,38 +1,23 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>폼조합 &gt; 마크업 가이드</title>
-    <link rel="stylesheet" href="../script_guide/css/index.css" />
-    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
-    <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="../script_guide/themes/css/github.css"
-    />
-    <script src="../../assets/js/jquery3.min.js"></script>
-    <!-- <script src="/v2/resources/js/ui.init.js"></script>
-    <script src="/v2/resources/js/ui.plugins.js"></script>
-    <script src="/v2/resources/js/ui.common.js"></script>
-    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+		 <%- include('../_inc/guide_head.ejs', {
+			title: '폼조합',
+		}) %>
   </head>
 
   <body>
     <div id="guideWrap">
       <div class="main_content">
         <div class="list-head">
-          <div class="title-xlg">
+          <div class="tit-lg">
             <span class="txt">폼조합</span>
           </div>
         </div>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">폼조합</span>
             </div>
           </div>
@@ -146,12 +131,12 @@
                                   title="주민등록번호 뒤 7자리"
                                 />
                                 <div class="combine pc-only-flex">
-                                  <img
+                                  <!-- <img
                                     id="kpSsn2_toggle"
                                     src="/v2/resources/images/common/keypad_off.png"
                                     class="btn-keypad"
                                     alt="가상키패드"
-                                  />
+                                  /> -->
                                 </div>
                               </div>
                               <!--// .input* (e)-->
@@ -274,12 +259,12 @@
                                 />
                                 <!-- 보안 키패드 임시로 넣어 둠 -->
                                 <div class="combine pc-only-flex">
-                                  <img
+                                  <!-- <img
                                     id="kpSsn2_toggle"
                                     src="/v2/resources/images/common/keypad_off.png"
                                     class="btn-keypad"
                                     alt="가상키패드"
-                                  />
+                                  /> -->
                                 </div>
                               </div>
                               <!--// .input* (e)-->
@@ -378,12 +363,12 @@
                             title="카드번호"
                           />
                           <div class="combine pc-only-flex">
-                            <img
+                            <!-- <img
                               id="kpSsn2_toggle"
                               src="/v2/resources/images/common/keypad_off.png"
                               class="btn-keypad"
                               alt="가상키패드"
-                            />
+                            /> -->
                           </div>
                         </div>
                         <!--// .input* (e)-->
@@ -591,10 +576,10 @@
                           </div>
                           <div class="unit fixed">
                             <span class="txt-mark space-mt-7">
-                              <img
+                              <!-- <img
                                 src="/v2/resources/images/common/ico-common-arrow-20.svg"
                                 alt=""
-                              />
+                              /> -->
                             </span>
                           </div>
                           <div class="unit filled">
@@ -640,16 +625,16 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">폼조합-특이케이스</span>
             </div>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">주소 검색</span>
               </div>
             </div>
@@ -845,7 +830,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">이메일</span>
               </div>
             </div>
@@ -904,9 +889,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">계좌선택 / 최근이용계좌 / 콤보형태</span>
             </div>
           </div>
@@ -923,9 +908,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">예금주 선택</span>
             </div>
           </div>
@@ -1039,12 +1024,12 @@
                                       title="주민등록번호 뒤 7자리"
                                     />
                                     <div class="combine pc-only-flex">
-                                      <img
+                                      <!-- <img
                                         id=""
                                         src="/v2/resources/images/common/keypad_off.png"
                                         class="btn-keypad"
                                         alt="가상키패드"
-                                      />
+                                      /> -->
                                     </div>
                                   </div>
                                   <!--// .input* (e)-->
@@ -1069,9 +1054,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">금액추가 버튼 + 입력타입</span>
             </div>
           </div>
@@ -1154,9 +1139,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">포인트 입력</span>
             </div>
           </div>
@@ -1267,16 +1252,9 @@
           </div>
         </section>
       </div>
-    </div>
-    <script src="../script_guide/dist/rainbow.js"></script>
-    <script src="../script_guide/src/language/generic.js"></script>
-    <script src="../script_guide/src/language/html.js"></script>
-    <script src="../script_guide/src/language/css.js"></script>
-    <script src="../script_guide/src/language/php.js"></script>
-    <script src="../script_guide/src/language/javascript.js"></script>
-    <script src="../script_guide/guide_script.js"></script>
-    <script>
+    </div> 
+    <!-- <script>
       $plugins.page.popAddress();
-    </script>
+    </script> -->
   </body>
 </html>

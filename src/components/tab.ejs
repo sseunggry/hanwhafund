@@ -35,14 +35,14 @@
   </div>
   <div class="tab-conts-wrap">
     <% tablist.forEach(function(label, idx) { -%>
-      <section 
+      <div 
         id="<%= uniqueId %>-panel-<%= idx + 1 %>" 
         class="tab-conts <%= active === idx ? 'active' : '' %>" 
         role="tabpanel" 
         aria-labelledby="<%= uniqueId %>-tab-<%= idx + 1 %>"
       >
         <%- contents[idx] || '콘텐츠 없음' %>
-      </section>
+      </div>
     <% }); -%>
   </div>
 </div>

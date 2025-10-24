@@ -1,45 +1,30 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>목록 &gt; 마크업 가이드</title>
-    <link rel="stylesheet" href="../script_guide/css/index.css" />
-    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
-    <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="../script_guide/themes/css/github.css"
-    />
-    <script src="../../assets/js/jquery3.min.js"></script>
-    <!-- <script src="/v2/resources/js/ui.init.js"></script>
-    <script src="/v2/resources/js/ui.plugins.js"></script>
-    <script src="/v2/resources/js/ui.common.js"></script>
-    <script src="/v2/resources/js/lottie_light.min.js"></script> -->
+		 <%- include('../_inc/guide_head.ejs', {
+			title: '목록',
+		}) %>
   </head>
 
   <body>
     <div id="guideWrap">
       <div class="main_content">
         <div class="list-head">
-          <div class="title-xlg">
+          <div class="tit-lg">
             <span class="txt">목록</span>
           </div>
         </div>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">Basic</span>
             </div>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">Bullet Type(가이드확정 : 2024-07-25)</span>
               </div>
             </div>
@@ -207,7 +192,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">Number Type(.option-num)</span>
               </div>
             </div>
@@ -321,7 +306,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">No Bullet Type(.option-nobullet)</span>
               </div>
             </div>
@@ -368,7 +353,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">
                   목록형태가 아닌 단독문구 사용시(&lt;p&gt;태그 사용)
                 </span>
@@ -427,7 +412,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">
                   글자크기 변경(.option-md : font-size: 1.6rem, line-height:
                   2rem)
@@ -493,7 +478,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">
                   글자크기 변경(.option-sm : font-size: 1.4rem, line-height:
                   2rem)
@@ -559,7 +544,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">
                   글자색상 변경(li
                   <strong>.fn-color-primary</strong>
@@ -646,7 +631,7 @@
 
           <div class="group">
             <div class="list-head">
-              <div class="title-tiny">
+              <div class="tit-xxsm">
                 <span class="txt">
                   글자색상 변경(li
                   <strong>.fn-color-red</strong>
@@ -732,9 +717,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">블릿 체계</span>
             </div>
           </div>
@@ -2273,7 +2258,7 @@
                     <div class="hls_preview">
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">예시 1. Index - horizontal</span>
                           </div>
                         </div>
@@ -2349,7 +2334,7 @@
 
                       <div class="group">
                         <div class="list-head">
-                          <div class="title-tiny">
+                          <div class="tit-xxsm">
                             <span class="txt">List Type</span>
                           </div>
                         </div>
@@ -3386,9 +3371,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">제목+문구 목록형(.info-summary)</span>
             </div>
           </div>
@@ -3760,9 +3745,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">ELListEmpty</span>
             </div>
           </div>
@@ -3796,7 +3781,7 @@
                     <br />
 
                     <div class="list-head">
-                      <div class="title-tiny">
+                      <div class="tit-xxsm">
                         <span class="txt">검색 결과 없을 경우</span>
                       </div>
                     </div>
@@ -3820,9 +3805,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">ELListMove</span>
             </div>
           </div>
@@ -3931,9 +3916,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">아이콘 + 스텝(타이틀 보조글)</span>
             </div>
           </div>
@@ -4170,9 +4155,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">스텝 라인형</span>
             </div>
           </div>
@@ -4274,9 +4259,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">아이콘 조합 라인형 목록</span>
             </div>
           </div>
@@ -4356,9 +4341,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">기타 조합</span>
             </div>
           </div>
@@ -4627,9 +4612,9 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
-            <div class="title-md">
+            <div class="tit-xsm">
               <span class="txt">item-row</span>
             </div>
           </div>
@@ -4664,17 +4649,5 @@
         </section>
       </div>
     </div>
-    <script>
-      $(document).ready(function () {
-        $plugins.uiTextareaAutoHeight();
-      });
-    </script>
-    <script src="../script_guide/dist/rainbow.js"></script>
-    <script src="../script_guide/src/language/generic.js"></script>
-    <script src="../script_guide/src/language/html.js"></script>
-    <script src="../script_guide/src/language/css.js"></script>
-    <script src="../script_guide/src/language/php.js"></script>
-    <script src="../script_guide/src/language/javascript.js"></script>
-    <script src="../script_guide/guide_script.js"></script>
   </body>
 </html>
