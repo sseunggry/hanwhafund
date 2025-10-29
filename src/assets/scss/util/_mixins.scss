@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @use "variables" as *;
-// @use "breakpoints" as *;
-// @use "icons" as *;
+@use "breakpoints" as *;
 @use "sass:string";
 @use "sass:list";
 
@@ -28,69 +27,13 @@
     }
   }
 
-  // $file-extension: $type;
-
-  // @if ($type == 'opentype') {
-  //     $file-extension: 'otf';
-  // } @else if ($type == 'truetype') {
-  //     $file-extension: 'ttf';
-  // }
-
-  // $url: $base-url + 'font/' + $name + '.' + $file-extension;
-
   font-family: "#{$family}";
   src: #{$sources};
   font-weight: $weight;
   font-style: $style;
 }
 
-@mixin bg($url, $pos: center, $size: cover, $color: null) {
-  background: $color url(#{$base-url}img/#{$url}) no-repeat $pos / $size;
-}
-
-@mixin icon($name, $pos: center, $size: 100% auto, $color: $color-black) {
-  mask: url(#{$base-url}img/icon/icon_#{$name}) no-repeat $pos / $size;
-  background-color: $color;
-}
-
-@mixin blind {
-  overflow: hidden;
-  position: absolute;
-  display: block;
-  width: 1px;
-  height: 1px;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  border: 0;
-  z-index: -1;
-}
-
-@mixin ellipsis($line: 1) {
-  @if ($line == 1) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  } @else {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word; // 공백 없을때 글자 짤림 방지
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: $line;
-  }
-}
-
-@mixin flex($justify: null, $align: center) {
-  display: flex;
-  align-items: string.unquote($align);
-  @if ($justify) {
-    justify-content: string.unquote($justify);
-  }
-}
-
-////////////////////////////////////////////////
 // focus color
-// 추후삭제
 @mixin focus($offset: -0.4rem, $color: var(--#{$prefix}-light-color-border-primary), $alpha: 0.8) {
   box-shadow: var(--#{$prefix}-box-shadow-outline-inset);
   outline-offset: $offset;
@@ -105,11 +48,12 @@
 // position
 @mixin position($p: absolute, $t: auto, $b: auto, $l: auto, $r: auto) {
   position: $p;
-  inset: $t $r $b $l;
-  // top: $t;
-  // bottom: $b;
-  // left: $l;
-  // right: $r;
+  // inset: $t $r $b $l;
+
+  @if $t  { top: $t; }
+  @if $b  { bottom: $b; }
+  @if $l  { left: $l; }
+  @if $r  { right: $r; }
 }
 
 // square rectangle
@@ -124,11 +68,14 @@
 }
 
 // flex layout
-@mixin flex-layout($d: flex, $ai: flex-start, $jc: flex-start, $fd: row) {
+@mixin flex-layout($d: flex, $ai: null, $jc: null, $fd: null) {
   display: $d;
-  align-items: $ai;
-  justify-content: $jc;
-  flex-direction: $fd;
+  // align-items: $ai;
+  // justify-content: $jc;
+  
+  @if $ai  { align-items: $ai; }
+  @if $ai  { justify-content: $jc; }
+  @if $fd  { flex-direction: $fd; }
 }
 
 // group contents
@@ -181,13 +128,19 @@
 }
 
 // **** text attr **** //
-// text ellipsis
-@mixin ellipsis($line) {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $line;
+@mixin ellipsis($line: 1) {
+  @if ($line == 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word; // 공백 없을때 글자 짤림 방지
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+  }
 }
 
 // sr-only
@@ -205,9 +158,9 @@
 
 // reset text : popover/tooltip
 @mixin reset-text {
-  font-size: var(--#{$prefix}-pc-font-size-body-medium);
+  font-size: 1.6rem;
   font-style: normal;
-  font-weight: var(--#{$prefix}-font-weight-regular);
+  font-weight: 400;
   line-height: var(--#{$prefix}-line-height-base);
   text-align: left;
   text-decoration: none;
@@ -220,8 +173,8 @@
   word-spacing: normal;
   line-break: auto;
 
-  @include size-medium {
-    font-size: var(--#{$prefix}-mobile-font-size-body-medium);
+  @include mq(mobile) {
+    font-size: 1.8rem;
   }
 }
 
@@ -239,23 +192,19 @@
 }
 
 // **** scroll **** //
-@mixin scrollbar-mode($mode: light) {
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--#{$prefix}-#{$mode}-color-element-secondary-light);
-    border-radius: 0.8rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: var(--#{$prefix}-#{$mode}-color-element-secondary-lighter);
-  }
-}
-
-@mixin scrollbar($mode: light) {
+@mixin scrollbar() {
   &::-webkit-scrollbar {
     width: 0.8rem;
   }
 
-  @include scrollbar-mode($mode);
+  &::-webkit-scrollbar-thumb {
+    background-color: #F4C0A9;
+    border-radius: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fdefec;
+  }
 }
 
 // text underline
@@ -266,163 +215,4 @@
 
 @mixin border-position($position: left, $line, $color, $important) {
   border-#{$position}: #{$line} solid #{$color} #{$important};
-}
-
-// color mode setting
-// $mode-theme: (light, dark) !default;
-@mixin color-mode($mode: light) {
-  [data-#{$prefix}-mode='#{$mode}'] {
-    @content;
-  }
-
-  $mode-theme: light;
-
-  @if $mode == light {
-    $mode-theme: light;
-  } @else if $mode == high-contrast {
-    $mode-theme: dark;
-  }
-
-  // data-#{$prefix}-mode가 theme일 경우 dark mode 생성
-  [data-#{$prefix}-mode='theme'] {
-    @media (prefers-color-scheme: #{$mode-theme}) {
-      @content;
-    }
-  }
-}
-
-// 사이즈별 variable
-@mixin btn-size($unit) {
-  // unit value: xsmall small medium larger xlarge
-  gap: var(--#{$prefix}-button--gap-#{$unit});
-  height: var(--#{$prefix}-button--size-height-#{$unit});
-  padding: var(--#{$prefix}-button--padding-y-#{$unit}) var(--#{$prefix}-button--padding-x-#{$unit});
-  border-radius: var(--#{$prefix}-button--radius-#{$unit});
-  font-size: var(--#{$prefix}-button--small-font-size-#{$unit});
-  font-weight: var(--#{$prefix}-button--font-weight-#{$unit});
-
-  @include size-medium-to-large {
-    font-size: var(--#{$prefix}-button--medium-font-size-#{$unit});
-  }
-
-  @include size-large-more {
-    font-size: var(--#{$prefix}-button--large-font-size-#{$unit});
-  }
-
-  // 아이콘 크기 변수명에서 'text-' 또는 'link-' 접두사를 제거합니다.
-  $icon-size-unit: $unit;
-  @if string.index(#{$unit}, 'text-') == 1 {
-    $icon-size-unit: string.slice(#{$unit}, 6);
-  } @else if string.index(#{$unit}, 'link-') == 1 {
-    $icon-size-unit: string.slice(#{$unit}, 6);
-  }
-
-  & {
-    .svg-icon {
-      @include square(var(--#{$prefix}-icon--size-#{$icon-size-unit}));
-    }
-  }
-}
-
-// 고대비모드인경우 border-width가 두꺼워짐
-@mixin border-size-mode($mode: light, $size: regular) {
-  border-width: var(--#{$prefix}-#{$mode}-border-width-variable-#{$size});
-}
-
-
-
-//////////////////////////
-//breakpoints
-
-
-@mixin size-medium {
-  // 767까지
-  @media (max-width: ($breakpoint-medium - 1px)) {
-    @content;
-  }
-}
-
-@mixin size-medium-more {
-  // 768이상
-  @media (width >= calc($breakpoint-medium)) {
-    @content;
-  }
-}
-
-@mixin size-medium-to-large {
-  //  768 ~ 1023
-  @media (width >= calc($breakpoint-medium)) and (max-width: ($breakpoint-large - 1px)) {
-    @content;
-  }
-}
-
-// tablet size 이하
-@mixin size-large-less {
-  // 1023까지
-  @media (max-width: ($breakpoint-large - 1px)) {
-    @content;
-  }
-}
-
-// tablet size 이상
-@mixin size-large-more {
-  // 1024이상
-  @media (width >= calc($breakpoint-large)) {
-    @content;
-  }
-}
-
-// 소형 데스크톱
-@mixin size-large-to-xlarge {
-  // 1024 ~ 1279
-  @media (width >= calc($breakpoint-large)) and (width <= calc($breakpoint-xlarge - 1px)) {
-    @content;
-  }
-}
-
-@mixin size-xlarge {
-  // 1280 이상
-  @media (min-width: $breakpoint-xlarge) {
-    @content;
-  }
-}
-
-
-///////////////////////////////////////////
-/// // svg img
-@mixin svg-icon($size: var(--#{$prefix}-icon--size-large), $mode: light, $effect: null) {
-  display: inline-flex;
-// 
-  @include square($size);
-
-  background-color: var(--#{$prefix}-#{$mode}-color-text-basic);
-
-  @if $effect == 'pure' {
-    // mask 효과 없이 디자인된 svg 그대로 사용
-    background-color: transparent !important;
-  }
-
-  forced-color-adjust: none;
-
-  // @media (forced-colors: active) {
-  // }
-}
-
-// svg icon setting
-@mixin icon-set($name, $effect: null) {
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: contain;
-  mask-image: url(#{$base-url}/images/component/icon/#{$name}.svg);
-
-  @if $effect == 'pure' {
-    // mask 효과 없이 디자인된 svg 그대로 사용
-    mask-image: none;
-    background-image: url(#{$base-url}/images/component/icon/#{$name}.svg);
-    background-color: transparent !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    // mask: none;
-  }
 }

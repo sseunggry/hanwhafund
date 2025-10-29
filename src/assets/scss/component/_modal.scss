@@ -1,64 +1,62 @@
-@use 'sass:map';
+@use "sass:map";
 @use "../util" as *;
 
 /* 모달 */
 // 사이즈 정의
 @mixin modal-size-variable() {
-  // Mobile : Default
+  // PC : Default
+  --#{$prefix}-modal--small-gap: 2.4rem;
+  --#{$prefix}-modal--small-width: calc(100% - 2.4rem);
+  --#{$prefix}-modal--small-height: calc(100% - var(--#{$prefix}-modal--small-gap) * 2);
+  --#{$prefix}-modal--large-padding: 3.2rem;
+  --#{$prefix}-modal--small-header-padding-top: 5.2rem;
+  --#{$prefix}-modal--header-pc-font-size: 2rem;
+  --#{$prefix}-modal--conts-pc-font-size: 1.6rem;
+  --#{$prefix}-modal--large-btn-column-gap: 2rem;
+  --#{$prefix}-modal--small-btn-close-position: 2rem;
+  --#{$prefix}-modal--small-btn-padding-top: 1.6rem;
+  --#{$prefix}-modal--small-btn-padding-bottom: 2.4rem;
+
+  // Tablet 768 ~ 1023
+  --#{$prefix}-modal--medium-gap: 2.4rem;
+  --#{$prefix}-modal--medium-width: calc(100% - 2.4rem);
+  --#{$prefix}-modal--medium-height: calc(100% - var(--#{$prefix}-modal--medium-gap) * 2);
+  --#{$prefix}-modal--medium-padding: 2.4rem;
+  --#{$prefix}-modal--medium-header-padding-top: 5.2rem;
+  --#{$prefix}-modal--header-tablet-font-size: 1.8rem;
+  --#{$prefix}-modal--conts-tablet-font-size: 1.6rem;
+  --#{$prefix}-modal--medium-btn-column-gap: 1.6rem;
+  --#{$prefix}-modal--medium-btn-close-position: 2rem;
+  --#{$prefix}-modal--medium-btn-padding-top: 1.6rem;
+  --#{$prefix}-modal--medium-btn-padding-bottom: 2.4rem;
+
+  // Mobile
   --#{$prefix}-modal--size-large: 76rem;
   --#{$prefix}-modal--size-medium: 56rem;
   --#{$prefix}-modal--size-small: 40rem;
   --#{$prefix}-modal--size-min-height: 26.4rem;
-  --#{$prefix}-modal--wrap-radius: var(--#{$prefix}-radius-max);
-  --#{$prefix}-modal--small-padding: var(--#{$prefix}-small-padding-card-large);
-  --#{$prefix}-modal--header-padding-top: var(--#{$prefix}-number-17);
-  --#{$prefix}-modal--header-small-font-size: var(--#{$prefix}-small-font-size-heading-small);
-  --#{$prefix}-modal--conts-padding-top: var(--#{$prefix}-padding-6);
-  --#{$prefix}-modal--conts-padding-bottom: var(--#{$prefix}-padding-3);
-  --#{$prefix}-modal--conts-gap: var(--#{$prefix}-gap-5);
-  --#{$prefix}-modal--cont-small-font-size: var(--#{$prefix}-small-font-size-body-medium);
-  --#{$prefix}-modal--btn-gap: var(--#{$prefix}-gap-3);
-  --#{$prefix}-modal--small-btn-column-gap: var(--#{$prefix}-small-gap-layout-text-text-large);
-  --#{$prefix}-modal--btn-padding-top: var(--#{$prefix}-padding-6);
+  --#{$prefix}-modal--wrap-radius: 2rem;
+  --#{$prefix}-modal--small-padding: 2.4rem;
+  --#{$prefix}-modal--header-padding-top: 4.8rem;
+  --#{$prefix}-modal--header-mobile-font-size: 1.8rem;
+  --#{$prefix}-modal--conts-padding-top: 1.6rem;
+  --#{$prefix}-modal--conts-padding-bottom: 0.8rem;
+  --#{$prefix}-modal--conts-gap: 1.6rem;
+  --#{$prefix}-modal--cont-mobile-font-size: 1.6rem;
+  --#{$prefix}-modal--btn-gap: 0.8rem;
+  --#{$prefix}-modal--small-btn-column-gap: 1.6rem;
+  --#{$prefix}-modal--btn-padding-top: 1.6rem;
   --#{$prefix}-modal--btn-size-min-width: 7.8rem;
-  --#{$prefix}-modal--btn-close-position: var(--#{$prefix}-padding-3);
-
-  // Tablet 768 ~ 1023
-  --#{$prefix}-modal--medium-gap: var(--#{$prefix}-gap-7);
-  --#{$prefix}-modal--medium-width: calc(100% - var(--#{$prefix}-gap-7));
-  --#{$prefix}-modal--medium-height: calc(100% - var(--#{$prefix}-modal--medium-gap) * 2);
-  --#{$prefix}-modal--medium-padding: var(--#{$prefix}-medium-padding-card-large);
-  --#{$prefix}-modal--medium-header-padding-top: 5.2rem;
-  --#{$prefix}-modal--header-medium-font-size: var(--#{$prefix}-medium-font-size-heading-small);
-  --#{$prefix}-modal--conts-medium-font-size: var(--#{$prefix}-medium-font-size-body-medium);
-  --#{$prefix}-modal--medium-btn-column-gap: var(--#{$prefix}-medium-gap-layout-text-text-large);
-  --#{$prefix}-modal--medium-btn-close-position: var(--#{$prefix}-gap-6);
-  --#{$prefix}-modal--medium-btn-padding-top: var(--#{$prefix}-padding-6);
-  --#{$prefix}-modal--medium-btn-padding-bottom: var(--#{$prefix}-padding-8);
-
-  // Desktop 1024 ~
-  --#{$prefix}-modal--small-gap: var(--#{$prefix}-gap-7);
-  --#{$prefix}-modal--small-width: calc(100% - var(--#{$prefix}-gap-7));
-  --#{$prefix}-modal--small-height: calc(100% - var(--#{$prefix}-modal--small-gap) * 2);
-  --#{$prefix}-modal--large-padding: var(--#{$prefix}-large-padding-card-large);
-  --#{$prefix}-modal--small-header-padding-top: 5.2rem;
-  --#{$prefix}-modal--header-large-font-size: var(--#{$prefix}-large-font-size-heading-small);
-  --#{$prefix}-modal--conts-large-font-size: var(--#{$prefix}-large-font-size-body-medium);
-  --#{$prefix}-modal--large-btn-column-gap: var(--#{$prefix}-large-gap-layout-text-text-large);
-  --#{$prefix}-modal--small-btn-close-position: var(--#{$prefix}-gap-6);
-  --#{$prefix}-modal--small-btn-padding-top: var(--#{$prefix}-padding-6);
-  --#{$prefix}-modal--small-btn-padding-bottom: var(--#{$prefix}-padding-8);
+  --#{$prefix}-modal--btn-close-position: 0.8rem;
 }
 
 // 컬러 정의
-@mixin modal-color-variable($mode: light) {
-  // --#{$prefix}-modal--border-width: var(--#{$prefix}-#{$mode}-border-width-variable-regular);
-  --#{$prefix}-modal--color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-modal--wrap-color-surface: var(--#{$prefix}-#{$mode}-color-surface-elevated-03);
-  // --#{$prefix}-modal--wrap-color-border: var(--#{$prefix}-#{$mode}-color-border-gray);
-  --#{$prefix}-modal--wrap-shadow: 0 0 0.2rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow2), 0 1.6rem 2.4rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow3);
-  --#{$prefix}-modal--color-dim: var(--#{$prefix}-#{$mode}-color-surface-dimmed);
-  --#{$prefix}-modal--full-popup-surface: var(--#{$prefix}-#{$mode}-color-surface-secondary-subtler);
+@mixin modal-color-variable() {
+  --#{$prefix}-modal--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-modal--wrap-color-surface: #ffffff;
+  --#{$prefix}-modal--wrap-shadow: 0 0 0.2rem 0 #0000001a, 0 1.6rem 2.4rem 0 #00000029;
+  --#{$prefix}-modal--color-dim: rgba(0, 0, 0, 0.5);
+  --#{$prefix}-modal--full-popup-surface: #fff;
 }
 
 // modal size
@@ -85,7 +83,7 @@ $modal-size: (
 }
 
 .#{$prefix}-modal {
-  @include modal-color-variable(map.get($modes, 'light'));
+  @include modal-color-variable();
   @include modal-size-variable;
   @include modal-default;
   @include reset-text;
@@ -103,16 +101,16 @@ $modal-size: (
 
   &.show {
     // display: block;
-		z-index: 1010;
+    z-index: 1010;
     transition-delay: 0s;
     opacity: 1;
     visibility: visible;
 
-		// .modal-back {
-		// 	display: block;
+    // .modal-back {
+    // 	display: block;
     //   z-index: 1000;
     //   visibility: visible;
-		// }
+    // }
   }
 
   // dim-backgorund
@@ -149,7 +147,7 @@ $modal-size: (
 
     .modal-content {
       @include flex-layout($ai: center, $fd: column);
-      
+
       z-index: 1020;
       position: relative;
       width: 100%;
@@ -177,29 +175,29 @@ $modal-size: (
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
       padding-top: var(--#{$prefix}-modal--header-padding-top);
-      padding-inline: var(--#{$prefix}-modal--small-padding);
+      padding-inline: var(--#{$prefix}-modal--large-padding);
 
-      @include size-medium-to-large {
+      @include mq(tablet) {
         padding-inline: var(--#{$prefix}-modal--medium-padding);
       }
 
-      @include size-large-more {
-        padding-inline: var(--#{$prefix}-modal--large-padding);
+      @include mq(mobile) {
+        padding-inline: var(--#{$prefix}-modal--small-padding);
       }
 
       .modal-title {
         @include ellipsis(1);
 
-        font-size: var(--#{$prefix}-modal--header-small-font-size);
+        font-size: var(--#{$prefix}-modal--header-pc-font-size);
         font-weight: var(--#{$prefix}-font-weight-bold);
         text-align: center;
 
-        @include size-medium-to-large {
-          font-size: var(--#{$prefix}-modal--header-medium-font-size);
+        @include mq(tablet) {
+          font-size: var(--#{$prefix}-modal--header-tablet-font-size);
         }
 
-        @include size-large-more {
-          font-size: var(--#{$prefix}-modal--header-large-font-size);
+        @include mq(mobile) {
+          font-size: var(--#{$prefix}-modal--header-mobile-font-size);
         }
       }
     }
@@ -211,16 +209,16 @@ $modal-size: (
       overflow-y: auto;
       width: 100%;
       padding: var(--#{$prefix}-modal--conts-padding-top) var(--#{$prefix}-modal--large-padding) var(--#{$prefix}-modal--conts-padding-bottom);
-      font-size: var(--#{$prefix}-modal--conts-small-font-size);
+      font-size: var(--#{$prefix}-modal--conts-pc-font-size);
 
       @include scrollbar;
 
-      @include size-medium-to-large {
-        font-size: var(--#{$prefix}-modal--conts-medium-font-size);
+      @include mq(tablet) {
+        font-size: var(--#{$prefix}-modal--conts-tablet-font-size);
       }
 
-      @include size-large-more {
-        font-size: var(--#{$prefix}-modal--conts-large-font-size);
+      @include mq(mobile) {
+        font-size: var(--#{$prefix}-modal--conts-mobile-font-size);
       }
 
       > * {
@@ -242,14 +240,14 @@ $modal-size: (
       @include flex-layout($ai: center, $jc: space-between);
 
       gap: var(--#{$prefix}-modal--btn-gap);
-      padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--small-padding) var(--#{$prefix}-modal--small-padding);
+      padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--large-padding) var(--#{$prefix}-modal--large-padding);
 
-      @include size-medium-to-large {
+      @include mq(tablet) {
         padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--medium-padding) var(--#{$prefix}-modal--medium-padding);
       }
 
-      @include size-large-more {
-        padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--large-padding) var(--#{$prefix}-modal--large-padding);
+      @include mq(mobile) {
+        padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--small-padding) var(--#{$prefix}-modal--small-padding);
       }
 
       .#{$prefix}-btn {
@@ -258,21 +256,20 @@ $modal-size: (
         min-width: var(--#{$prefix}-modal--btn-size-min-width);
       }
 
-      &.column{
+      &.column {
         flex-direction: column;
-        gap: var(--#{$prefix}-modal--small-btn-column-gap);
+        gap: var(--#{$prefix}-modal--large-btn-column-gap);
 
-        @include size-medium-to-large {
+        @include mq(tablet) {
           gap: var(--#{$prefix}-modal--medium-btn-column-gap);
         }
 
-        @include size-large-more {
-          gap: var(--#{$prefix}-modal--large-btn-column-gap);
+        @include mq(mobile) {
+          gap: var(--#{$prefix}-modal--small-btn-column-gap);
         }
-        
 
         .#{$prefix}-btn {
-          width: 100%
+          width: 100%;
         }
       }
 
@@ -283,14 +280,19 @@ $modal-size: (
 
     .btn-close {
       @include position($t: var(--#{$prefix}-modal--btn-close-position), $r: var(--#{$prefix}-modal--btn-close-position));
-      @include square(4.8rem);
+      @include square(3.2rem);
+
+      .svg-icon{
+        width: 100%;
+        height: 100%;
+      }
 
       z-index: 901;
     }
   }
 
-  // full 팝업(통합검색, 관련기관링크)
-  &[data-type='full'] {
+  // full 팝업
+  &[data-type="full"] {
     background-color: var(--#{$prefix}-modal--full-popup-surface);
 
     .modal-dialog {
@@ -300,9 +302,12 @@ $modal-size: (
       padding: 0;
     }
 
-    .modal-header,
+    .modal-header {
+      padding: 2rem 2rem 0;
+    }
+
     .modal-conts {
-      padding: 0;
+      padding: 2rem;
     }
 
     .modal-content {
@@ -320,14 +325,14 @@ $modal-size: (
   }
 
   // 바텀시트(모바일만 사용)
-  &[data-type='bottom-sheet'] {
-    --#{$prefix}-modal--bottom-sheet-radius: var(--#{$prefix}-radius-large);
-    --#{$prefix}-modal--bottom-sheet-header-padding: var(--#{$prefix}-padding-7);
+  &[data-type="bottom-sheet"] {
+    --#{$prefix}-modal--bottom-sheet-radius: 1.2rem;
+    --#{$prefix}-modal--bottom-sheet-header-padding: 2rem;
     --#{$prefix}-modal--bottom-sheet-header-padding-right: var(--#{$prefix}-number-18);
-    --#{$prefix}-modal--bottom-sheet-cont-padding: var(--#{$prefix}-padding-6);
-    --#{$prefix}-modal--bottom-sheet-btn-padding-top: var(--#{$prefix}-padding-3);
-    --#{$prefix}-modal--bottom-sheet-btn-padding-bottom: var(--#{$prefix}-padding-8);
-    --#{$prefix}-modal--bottom-sheet-btn-padding-side: var(--#{$prefix}-padding-6);
+    --#{$prefix}-modal--bottom-sheet-cont-padding: 1.6rem;
+    --#{$prefix}-modal--bottom-sheet-btn-padding-top: 0.8rem;
+    --#{$prefix}-modal--bottom-sheet-btn-padding-bottom: 2.4rem;
+    --#{$prefix}-modal--bottom-sheet-btn-padding-side: 1.6rem;
 
     .modal-content {
       position: fixed;
@@ -348,8 +353,7 @@ $modal-size: (
       flex-shrink: 0;
 
       .modal-title {
-        
-        font-size: var(--#{$prefix}-large-font-size-heading-small);
+        font-size: var(--#{$prefix}-modal--header-pc-font-size);
       }
     }
 
@@ -362,12 +366,12 @@ $modal-size: (
 
     .btn-close {
       top: var(--#{$prefix}-modal--bottom-sheet-header-padding);
+      right: var(--#{$prefix}-modal--bottom-sheet-header-padding);
     }
 
     .pop-filter-top {
       width: auto;
     }
-
 
     .modal-btn {
       &.btn-wrap {
@@ -376,8 +380,14 @@ $modal-size: (
         .#{$prefix}-btn {
           flex: 1;
 
-          &.primary{
+          &.primary {
             flex: 0 73.35%;
+          }
+        }
+
+        &.column {
+          .#{$prefix}-btn {
+            flex: none;
           }
         }
       }
@@ -392,9 +402,9 @@ $modal-size: (
 }
 
 /* mobile */
-@include size-medium {
+@include mq(mobile) {
   .#{$prefix}-modal {
-    &:not([data-type='bottom-sheet']) {
+    &:not([data-type="bottom-sheet"]) {
       // 기본 스타일(bottom-sheet제외)
       .modal-dialog {
         width: var(--#{$prefix}-modal--mobile-width);
@@ -406,7 +416,7 @@ $modal-size: (
           padding: var(--#{$prefix}-modal--mobile-header-padding-top) var(--#{$prefix}-modal--mobile-padding) 0;
 
           .modal-title {
-            font-size: var(--#{$prefix}-modal--header-small-font-size);
+            font-size: var(--#{$prefix}-modal--header-mobile-font-size);
           }
         }
 
@@ -437,7 +447,7 @@ $modal-size: (
     }
 
     // 풀팝업
-    &[data-type='full'] {
+    &[data-type="full"] {
       --#{$prefix}-modal--full-mobile-btn-close-size: var(--#{$prefix}-size-height-4);
 
       .modal-dialog {
@@ -448,19 +458,6 @@ $modal-size: (
         .btn-close {
           @include square(var(--#{$prefix}-modal--full-mobile-btn-close-size));
         }
-      }
-    }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-modal {
-    @include modal-color-variable(map.get($modes, 'high-contrast'));
-
-    .modal-dialog {
-      .modal-conts {
-        @include scrollbar(map.get($modes, 'high-contrast'));
       }
     }
   }

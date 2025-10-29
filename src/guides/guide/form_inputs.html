@@ -41,7 +41,7 @@
                 title: "아이디",
                 type: "text",
                 placeholder: "아이디 입력",
-                size: 'medium',
+                size: 'large',
                 required: true,
               }) -%>
             </div>
@@ -57,7 +57,7 @@
                 title: "비밀번호",
                 type: "password",
                 placeholder: "비밀번호 입력",
-                size: 'medium',
+                size: 'large',
                 required: false,
               }) -%>
             </div>
@@ -98,7 +98,7 @@
               <%- include('../../components/input.ejs', {
                 title: "주민등록번호",
                 type: "number", // 필요 시 number 등으로 변경
-                size: 'medium',
+                size: 'large',
                 dash: true, // dash 스타일 적용
                 group: [
                   { placeholder: '앞자리', ariaLabel: '주민등록번호 앞자리' }, // 각 필드 placeholder, aria-label 설정
@@ -143,7 +143,7 @@
               <%- include('../../components/input.ejs', {
                 title: "이메일",
                 type: "text", // 필요 시 number 등으로 변경
-                size: 'medium',
+                size: 'large',
                 group: [
                   { placeholder: '앞자리'}, // 각 필드 placeholder, aria-label 설정
                   { placeholder: '뒷자리'} // 개별 타입 변경도 가능
@@ -173,7 +173,7 @@
             </div>
           </div>
 
-          <div class="group">
+          <!-- <div class="group">
             <div class="tit-xxsm">
               <span class="txt">unit 조합</span>
             </div>
@@ -187,14 +187,12 @@
                 <div class="ui-tab-pnl selected">
                   <section class="section fui-mg-center">
                     <div class="hls_preview">
-                      <!-- unit 조합 (s)-->
                       <div class="form-wrap">
                         <div class="form-name">
                           <label for="targetInputUnit1_1" class="label-txt">
                             label unit
                           </label>
                         </div>
-                        <!-- .input* (s)-->
                         <div class="input-wrap md has-button search" fui-input>
                           <input
                             type="text"
@@ -208,9 +206,7 @@
                             <span>만원</span>
                           </div>
                         </div>
-                        <!--// .input* (e)-->
                       </div>
-                      <!--// unit 조합 (e)-->
                     </div>
                   </section>
                 </div>
@@ -221,56 +217,30 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="group">
             <div class="tit-xxsm">
               <span class="txt">image 조합</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="group">
+              <% 
+                let searchIcon = '';
+                searchIcon += include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
+              -%>
+              <div class="hls_preview">
+                <%- include('../../components/input.ejs', {
+                  title: "검색",
+                  type: "text",
+                  size: 'large',
+                  placeholder: '검색어 입력',
+                  slot: searchIcon
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 검색 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput4_1" class="label-txt">
-                            검색
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md has-button search" fui-input>
-                          <input
-                            type="text"
-                            class="inp-base inp-ani"
-                            id="targetInput4_1"
-                            name=""
-                            value=""
-                            placeholder="검색어 입력"
-                          />
-                          <div class="combine">
-                            <button type="button" class="btn ico-search">
-                              <span class="sr-only">검색</span>
-                            </button>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// 검색 (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
@@ -280,52 +250,23 @@
               <span class="txt">button 조합</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="group">
+              <% 
+                let btnTag = '';
+                btnTag += include('../../components/button.ejs', { variant: '', label: '확인', size: 'small'});
+              -%>
+              <div class="hls_preview">
+                <%- include('../../components/input.ejs', {
+                  title: "검색",
+                  type: "text",
+                  size: 'large',
+                  placeholder: '검색어 입력',
+                  slot: btnTag
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 버튼조합 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInputBtn1_1" class="label-txt">
-                            버튼조합
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md has-button search" fui-input>
-                          <input
-                            type="text"
-                            class="inp-base inp-ani"
-                            id="targetInputBtn1_1"
-                            name=""
-                            value=""
-                            placeholder="placeholder"
-                          />
-                          <div class="combine">
-                            <button
-                              type="button"
-                              class="btn secondary option-xsm option-round"
-                            >
-                              <span>버튼</span>
-                            </button>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// 버튼조합 (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
@@ -354,175 +295,6 @@
         </section>
 
         <section class="section">
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">ELInputBoxAmount</span>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- Basic(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_1" class="label-txt">
-                            Basic
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div
-                          class="input-wrap sm option-box has-button"
-                          fui-input
-                        >
-                          <input
-                            type="text"
-                            class="inp-base"
-                            id="targetInpBox2_1"
-                            name=""
-                            value=""
-                            placeholder="입력"
-                          />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Basic(e) -->
-
-                      <!-- Completed(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_2" class="label-txt">
-                            Completed
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div
-                          class="input-wrap sm option-box has-button"
-                          fui-input
-                        >
-                          <input
-                            type="text"
-                            class="inp-base"
-                            id="targetInpBox2_2"
-                            name=""
-                            value="1,000"
-                            placeholder="입력"
-                          />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Completed(e) -->
-
-                      <!-- Error(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_3" class="label-txt">
-                            Error
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div
-                          class="input-wrap sm option-box has-button is-error"
-                          fui-input
-                        >
-                          <input
-                            type="text"
-                            class="inp-base"
-                            id="targetInpBox2_3"
-                            name=""
-                            value="1,000"
-                            placeholder="입력"
-                          />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Error(e) -->
-
-                      <!-- Disabled(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_4" class="label-txt">
-                            Disabled
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div
-                          class="input-wrap sm option-box has-button"
-                          fui-input
-                        >
-                          <input
-                            type="text"
-                            class="inp-base"
-                            id="targetInpBox2_4"
-                            name=""
-                            value=""
-                            placeholder="입력"
-                            disabled
-                          />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Disabled(e) -->
-
-                      <!-- Readonly(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_5" class="label-txt">
-                            Readonly
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div
-                          class="input-wrap sm option-box has-button"
-                          fui-input
-                        >
-                          <input
-                            type="text"
-                            class="inp-base"
-                            id="targetInpBox2_5"
-                            name=""
-                            value="1,000"
-                            placeholder="입력"
-                            readonly
-                          />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Readonly(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="group">
             <div class="list-head">
               <div class="tit-xxsm">
@@ -645,10 +417,5 @@
         </section>
       </div>
     </div>
-    <!-- <script>
-      $(document).ready(function () {
-        $plugins.uiTextareaAutoHeight();
-      });
-    </script>  -->
   </body>
 </html>

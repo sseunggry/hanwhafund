@@ -8,25 +8,25 @@
   $form-toggle-switch-size: (
 		small: (
 			button-size-width: 3.2rem,
-      button-size-height: var(--#{$prefix}-size-xxsmall),
+      button-size-height: 2rem,
       check-size: calc(var(--#{$prefix}-form-toggle-switch--button-size-height-small) - var(--#{$prefix}-form-toggle-switch-offset) * 2),
       icon-size: 1rem,
 			icon-check-gap: 0.1rem,
       button-radius: var(--#{$prefix}-form-toggle-switch--button-size-height-small),
-      large-font-size: var(--#{$prefix}-large-font-size-label-small),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
-      small-font-size: var(--#{$prefix}-small-font-size-label-small),
+      pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
 		),
     medium: (
       button-size-width: 4rem,
-      button-size-height: var(--#{$prefix}-size-xsmall),
+      button-size-height: 2.4rem,
       check-size: calc(var(--#{$prefix}-form-toggle-switch--button-size-height-medium) - var(--#{$prefix}-form-toggle-switch-offset) * 2),
       icon-size: 1.2rem,
 			icon-check-gap: 0.1rem,
       button-radius: var(--#{$prefix}-form-toggle-switch--button-size-height-medium),
-      large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-      small-font-size: var(--#{$prefix}-small-font-size-label-medium),
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
     ),
     large: (
       button-size-width: 4.8rem,
@@ -35,9 +35,9 @@
       icon-size: 1.4rem,
 			icon-check-gap: 0.2rem,
       button-radius: var(--#{$prefix}-form-toggle-switch--button-size-height-large),
-      large-font-size: var(--#{$prefix}-large-font-size-label-large),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-large),
-      small-font-size: var(--#{$prefix}-small-font-size-label-large),
+      pc-font-size: 1.8rem,
+      tablet-font-size: 1.8rem,
+      mobile-font-size: 1.8rem,
     ),
   ) !default;
 
@@ -49,7 +49,7 @@
     }
   }
 
-  --#{$prefix}-form-toggle-switch--gap: var(--#{$prefix}-gap-3);
+  --#{$prefix}-form-toggle-switch--gap: 0.8rem;
 	--#{$prefix}-form-toggle-switch-offset: 0.2rem;
 
   // class 정의
@@ -86,29 +86,29 @@
 }
 
 // 컬러 정의
-@mixin form-toggle-switch-color-variable($mode: light) {
-  --#{$prefix}-form-toggle-switch--color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-form-toggle-switch--color-text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-form-toggle-switch--button-color-background: var(--#{$prefix}-#{$mode}-color-element-neutral-light);
-  --#{$prefix}-form-toggle-switch--button-color-background-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-toggle-switch--button-color-background-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-toggle-switch--check-color-background: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-toggle-switch--check-color-background-disabled: var(--#{$prefix}-#{$mode}-color-element-white);
+@mixin form-toggle-switch-color-variable() {
+  --#{$prefix}-form-toggle-switch--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-toggle-switch--color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-toggle-switch--button-color-background: var(--#{$prefix}-color-element-neutral-light);
+  --#{$prefix}-form-toggle-switch--button-color-background-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-toggle-switch--button-color-background-disabled: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-toggle-switch--check-color-background: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-toggle-switch--check-color-background-disabled: var(--#{$prefix}-color-element-white);
   --#{$prefix}-form-toggle-switch--check-color-border: var(--#{$prefix}-form-toggle-switch--button-color-background);
   --#{$prefix}-form-toggle-switch--check-color-border-checked: var(--#{$prefix}-form-toggle-switch--button-color-background-checked);
   --#{$prefix}-form-toggle-switch--check-color-border-disabled: var(--#{$prefix}-form-toggle-switch--button-color-background-disabled);
 	
-  --#{$prefix}-form-toggle-switch--icon-button-color-background: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-form-toggle-switch--icon-button-color-background-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-toggle-switch--icon-button-color-background-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-toggle-switch--icon-button-color-border: var(--#{$prefix}-#{$mode}-color-element-neutral);
+  --#{$prefix}-form-toggle-switch--icon-button-color-background: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-toggle-switch--icon-button-color-background-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-toggle-switch--icon-button-color-background-disabled: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-toggle-switch--icon-button-color-border: var(--#{$prefix}-color-element-neutral);
   --#{$prefix}-form-toggle-switch--icon-button-color-border-checked: var(--#{$prefix}-form-toggle-switch--icon-button-color-background-checked);
   --#{$prefix}-form-toggle-switch--icon-button-color-border-disabled: var(--#{$prefix}-form-toggle-switch--icon-button-color-background-disabled);
-  --#{$prefix}-form-toggle-switch--icon-check-color-checked: var(--#{$prefix}-#{$mode}-color-icon-inverse);
-  --#{$prefix}-form-toggle-switch--icon-check-color-disabled-checked: var(--#{$prefix}-#{$mode}-color-icon-disabled-on);
-  --#{$prefix}-form-toggle-switch--icon-check-color-background: var(--#{$prefix}-#{$mode}-color-element-neutral-light);
-  --#{$prefix}-form-toggle-switch--icon-check-color-background-checked: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-toggle-switch--icon-check-color-background-disabled: var(--#{$prefix}-#{$mode}-color-element-white);
+  --#{$prefix}-form-toggle-switch--icon-check-color-checked: var(--#{$prefix}-color-icon-inverse);
+  --#{$prefix}-form-toggle-switch--icon-check-color-disabled-checked: var(--#{$prefix}-color-icon-disabled-on);
+  --#{$prefix}-form-toggle-switch--icon-check-color-background: var(--#{$prefix}-color-element-neutral-light);
+  --#{$prefix}-form-toggle-switch--icon-check-color-background-checked: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-toggle-switch--icon-check-color-background-disabled: var(--#{$prefix}-color-element-white);
   --#{$prefix}-form-toggle-switch--icon-check-color-border: var(--#{$prefix}-form-toggle-switch--icon-button-color-background);
   --#{$prefix}-form-toggle-switch--icon-check-color-border-checked: var(--#{$prefix}-form-toggle-switch--icon-button-color-background-checked);
   --#{$prefix}-form-toggle-switch--icon-check-color-border-disabled: var(--#{$prefix}-form-toggle-switch--icon-button-color-background-disabled);
@@ -117,14 +117,14 @@
 // switch 전체영역 사이즈 정의
 @mixin form-toggle-switch($size) {
   gap: var(--#{$prefix}-form-toggle-switch--gap);
-  font-size: var(--#{$prefix}-form-toggle-switch--large-font-size-#{$size});
+  font-size: var(--#{$prefix}-form-toggle-switch--pc-font-size--#{$size});
   line-height: var(--#{$prefix}-form-toggle-switch--button-size-height-#{$size});
 
-	@include size-medium-to-large {
-		font-size: var(--#{$prefix}-form-toggle-switch--medium-font-size-#{$size});
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-form-toggle-switch--tablet-font-size--#{$size});
 	}
-  @include size-medium {
-    font-size: var(--#{$prefix}-form-toggle-switch--small-font-size-#{$size});
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-form-toggle-switch--mobile-font-size-#{$size});
   }
 }
 
@@ -142,7 +142,7 @@
 	top: var(--#{$prefix}-form-toggle-switch-offset);
 	left: var(--#{$prefix}-form-toggle-switch-offset);
 
-  border-radius: var(--#{$prefix}-radius-max);
+  border-radius: 100rem;
 }
 
 // switch-toggle > i(checker) checked 시 위치 정의
@@ -158,13 +158,13 @@
 	right: calc(var(--#{$prefix}-form-toggle-switch--check-size-#{$size}) + var(--#{$prefix}-form-toggle-switch-offset) + var(--#{$prefix}-form-toggle-switch--icon-check-gap-#{$size}));
 	transform: translateY(-50%);
 
-  @include svg-icon($size: #{var(--#{$prefix}-form-toggle-switch--icon-size-#{$size})}, $mode: map.get($modes, 'light'));
+  @include svg-icon($size: #{var(--#{$prefix}-form-toggle-switch--icon-size-#{$size})});
 
   background-color: var(--#{$prefix}-form-toggle-switch--icon-check-color-checked);
 }
 
 .#{$prefix}-form-toggle-switch {
-  @include form-toggle-switch-color-variable($mode: map.get($modes, 'light'));
+  @include form-toggle-switch-color-variable();
   @include form-toggle-switch-size-variable;
 
   & {
@@ -257,7 +257,7 @@
 					&::after{
 						@include pseudo;
 						@include form-toggle-switch-icon(#{$size});
-						@include icon-set(ico_switch_on);
+						@include icon-set(switch-on);
 						
 						opacity: 0;
 						transition: opacity 0.4s cubic-bezier(0.4, 0, 0.23, 1);
@@ -309,11 +309,4 @@
 			}
 		}
 	}
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-form-toggle-switch {
-    @include form-toggle-switch-color-variable(map.get($modes, 'high-contrast'));
-  }
 }

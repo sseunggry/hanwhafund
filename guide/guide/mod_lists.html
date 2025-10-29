@@ -1,72 +1,94 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>목록 &gt; 마크업 가이드</title>
-    <link rel="stylesheet" href="/v2/guide/script_guide/css/index.css" />
-    <link rel="stylesheet" href="/v2/guide/guide/resources/css/gui_style.css" />
-    <link rel="stylesheet" href="/v2/resources/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="/v2/guide/script_guide/themes/css/github.css"
-    />
-    <script src="/v2/resources/js/jquery3.min.js"></script>
-    <script src="/v2/resources/js/ui.init.js"></script>
-    <script src="/v2/resources/js/ui.plugins.js"></script>
-    <script src="/v2/resources/js/ui.common.js"></script>
-    <script src="/v2/resources/js/lottie_light.min.js"></script>
+    <%- include('../_inc/guide_head.ejs', { 
+      title: '목록', 
+    }) %>
   </head>
 
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="title-xlg">
-            <span class="txt">목록</span>
-          </div>
+        <div class="title-xlg">
+          <span class="txt">목록</span>
         </div>
 
-        <section class="fui-section">
-          <div class="list-head">
-            <div class="title-md">
-              <span class="txt">Basic</span>
-            </div>
+        <section class="section">
+          <div class="title-md">
+            <span class="txt">Basic</span>
           </div>
 
           <div class="group">
             <div class="list-head">
               <div class="title-tiny">
-                <span class="txt">Bullet Type(가이드확정 : 2024-07-25)</span>
+                <span class="txt">Bullet Type</span>
               </div>
             </div>
 
             <div class="group">
               <div class="module-box option-bg">
                 <ul class="note-list depth-1">
-                  <li>
-                    1Depth일 경우 '&middot;'(Dot) / 2Depth일 경우 '-'(Dash)가
-                    들어감
-                  </li>
+                  <li>1Depth일 경우 '&middot;'(Dot) / 2Depth일 경우 '-'(Dash)가들어감</li>
                   <li>1Depth .depth-1 / 2Depth .depth-2 클래스 부여</li>
-                  <li>
-                    <strong class="fc-red">
-                      모니모 가이드 기준에서 bullet Type만 들여쓰기 가능. 나머지
-                      Type들은 들여쓰기 안됨
-                    </strong>
-                    <br />
-                    (단, 요청에 의한 들여쓰기가 필요한 경우 별도의
-                    클래스(li.ele-indent) 추가시 다른 Type도 들여쓰기 가능)
-                  </li>
-                  <li>목록 안에 테이블이 있을경우 테이블은 들여쓰기 제외</li>
                 </ul>
               </div>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
+            <div class="group">
+                <%
+                // 1. 렌더링할 데이터 (JSON/Object 형태)
+                const noteListData = [
+                  {
+                    // <li> 태그 안의 내용은 <strong>, <br> 등 HTML을 포함할 수 있으므로 <%- %>로 렌더링
+                    content: `
+                      블릿1은 국문/영문 공통으로 SS의 Size 16 Text Style을
+                      사용합니다. 폰트색상은 #5a5b63을 사용합니다.
+                      line-height: 2rem(20px)입니다.
+                      <strong>.note-txt</strong>
+                      와
+                      <strong>.note-list.depth-1</strong>
+                      사이 간격은 margin-top: 1rem(10px) 입니다.
+                    `,
+                    // 2. 자식 리스트 (Depth 2)
+                    children: [
+                      {
+                        content: `
+                          블릿3(하이픈)은 국문/영문 공통으로 SS의 Size 14
+                          Text Style을 사용합니다. 폰트색상은 #868a93을
+                          사용합니다. line-height: 2rem(20px)입니다.
+                          <strong>.note-list.depth-1</strong>
+                          와
+                          <strong>.note-list.depth-2</strong>
+                          사이 간격은 margin-top: 0.6rem(6px) 입니다.
+                        `
+                        // children: [] (없으면 생략)
+                      },
+                      {
+                        content: `
+                          블릿3(하이픈)은 국문/영문 공통으로 SS의 Size 14
+                          Text Style을 사용합니다. 폰트색상은 #868a93을
+                          사용합니다. line-height: 2rem(20px)입니다.
+                          <strong>.note-list.depth-2에서 li간</strong>
+                          간격은 없습니다. 블릿3(하이픈)은 들여쓰기가
+                          안됩니다.
+                        `
+                      }
+                    ]
+                  }
+                ];
+              %>
+              <div class="hls_preview">
+                <%- include('../../components/note-list.ejs', { 
+                  items: noteListData, depth: 1 
+                }) %>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+
+            <!-- <div class="mui_tabs" fui-tab="">
               <div class="ui-tab-btns">
                 <a class="ui-tab-btn" href="#none">PREVIEW</a>
                 <a class="ui-tab-btn" href="#none">MARKUP</a>
@@ -120,9 +142,7 @@
                           <div class="tbl-wrap space-half-mt-2">
                             <table class="tbl-base">
                               <caption>
-                                <!-- 표제목 -->
                                 <strong>접수방법 안내</strong>
-                                <!-- 표내용순서 -->
                                 <span>
                                   접수방법, 실손의료비, 실손의료비 외 담보
                                 </span>
@@ -202,7 +222,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="group">
@@ -732,7 +752,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">블릿 체계</span>
@@ -3386,7 +3406,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">제목+문구 목록형(.info-summary)</span>
@@ -3760,7 +3780,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">ELListEmpty</span>
@@ -3820,7 +3840,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">ELListMove</span>
@@ -3931,7 +3951,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">아이콘 + 스텝(타이틀 보조글)</span>
@@ -4170,7 +4190,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">스텝 라인형</span>
@@ -4274,7 +4294,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">아이콘 조합 라인형 목록</span>
@@ -4356,7 +4376,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">기타 조합</span>
@@ -4627,7 +4647,7 @@
           </div>
         </section>
 
-        <section class="fui-section">
+        <section class="section">
           <div class="list-head">
             <div class="title-md">
               <span class="txt">item-row</span>
@@ -4664,17 +4684,5 @@
         </section>
       </div>
     </div>
-    <script>
-      $(document).ready(function () {
-        $plugins.uiTextareaAutoHeight();
-      });
-    </script>
-    <script src="/v2/guide/script_guide/dist/rainbow.js"></script>
-    <script src="/v2/guide/script_guide/src/language/generic.js"></script>
-    <script src="/v2/guide/script_guide/src/language/html.js"></script>
-    <script src="/v2/guide/script_guide/src/language/css.js"></script>
-    <script src="/v2/guide/script_guide/src/language/php.js"></script>
-    <script src="/v2/guide/script_guide/src/language/javascript.js"></script>
-    <script src="/v2/guide/script_guide/guide_script.js"></script>
   </body>
 </html>

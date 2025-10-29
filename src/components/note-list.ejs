@@ -1,0 +1,20 @@
+<% 
+  const localsSafe = locals || {};
+  const items = localsSafe.items || []; 
+  const depth = localsSafe.depth || "1"; 
+  const variant = localsSafe.variant || ""; //기본(bullet), number, nobullet 
+  const addClass = localsSafe.addClass || '';
+  const classes = [
+    "note-list",
+    `depth-${depth}`,
+    variant,
+    addClass,
+  ].filter(Boolean).join(' ');
+-%>
+<% if (items && items.length > 0) { -%>
+  <ul class="<%= classes -%>">
+    <% items.forEach(item => { -%>
+      <li><%- item -%></li>
+    <% }); -%>
+  </ul>
+<% } -%>

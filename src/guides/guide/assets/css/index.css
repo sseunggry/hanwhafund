@@ -643,6 +643,9 @@ body {
 }
 .code-toolbar {
 	position: relative;
+  overflow: auto;
+  max-height: 60rem;
+  max-width: 100%;
 }
 .code-toolbar .code[class*="language-"], .code-toolbar pre[class*="language-"]{
 	margin: 0;
@@ -665,9 +668,12 @@ body {
 }
 .hls_preview{
 	padding: 2rem;
-	background-color: #f8f8f8;
+	/* background-color: #f8f8f8; */
 	border-radius: 0.4rem;
 	font-size: 1.6rem;
+}
+.hls_preview.bg{
+  background-color: #666;
 }
 .hls-wrap{
   max-height: 1000px;

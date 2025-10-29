@@ -5,39 +5,39 @@
 // 사이즈 정의
 @mixin accordion-size-variable() {
   --#{$prefix}-accordion--list-margin-y: var(--#{$prefix}-padding-2);
-  --#{$prefix}-accordion--padding: var(--#{$prefix}-padding-7);
-  --#{$prefix}-accordion--button-padding-right: calc(var(--#{$prefix}-accordion--padding) + var(--#{$prefix}-gap-5) + var(--#{$prefix}-accordion--button-icon-size));
-  --#{$prefix}-accordion--medium-padding: var(--#{$prefix}-padding-6);
-  --#{$prefix}-accordion--line-button-padding-right: calc(var(--#{$prefix}-gap-5) + var(--#{$prefix}-accordion--button-icon-size));
+  --#{$prefix}-accordion--padding: 2rem;
+  --#{$prefix}-accordion--button-padding-right: calc(var(--#{$prefix}-accordion--padding) + 1.6rem + var(--#{$prefix}-accordion--button-icon-size));
+  --#{$prefix}-accordion--medium-padding: 1.6rem;
+  --#{$prefix}-accordion--line-button-padding-right: calc(1.6rem + var(--#{$prefix}-accordion--button-icon-size));
   --#{$prefix}-accordion--button-icon-size: var(--#{$prefix}-icon--size-large);
   --#{$prefix}-accordion--button-arrow: var(--#{$prefix}-number-10);
   --#{$prefix}-accordion--button-arrow-medium: var(--#{$prefix}-number-9);
-  --#{$prefix}-accordion--radius: var(--#{$prefix}-radius-max);
-  --#{$prefix}-accordion--small-button-font-size: var(--#{$prefix}-small-font-size-heading-small);
-  --#{$prefix}-accordion--medium-button-font-size: var(--#{$prefix}-medium-font-size-heading-small);
-  --#{$prefix}-accordion--large-button-font-size: var(--#{$prefix}-large-font-size-heading-small);
-  --#{$prefix}-accordion--small-button-font-size-medium: var(--#{$prefix}-small-font-size-heading-xsmall);
-  --#{$prefix}-accordion--medium-button-font-size-medium: var(--#{$prefix}-medium-font-size-heading-xsmall);
-  --#{$prefix}-accordion--large-button-font-size-medium: var(--#{$prefix}-large-font-size-heading-xsmall);
+  --#{$prefix}-accordion--radius: 100rem;
+  --#{$prefix}-accordion--mobile-button-font-size: var(--#{$prefix}-mobile-font-size-heading-small);
+  --#{$prefix}-accordion--tablet-button-font-size: var(--#{$prefix}-tablet-font-size--heading-small);
+  --#{$prefix}-accordion--pc-button-font-size: var(--#{$prefix}-pc-font-size--heading-small);
+  --#{$prefix}-accordion--mobile-button-font-size-medium: var(--#{$prefix}-mobile-font-size-heading-xsmall);
+  --#{$prefix}-accordion--tablet-button-font-size-medium: var(--#{$prefix}-tablet-font-size--heading-xsmall);
+  --#{$prefix}-accordion--pc-button-font-size-medium: var(--#{$prefix}-pc-font-size--heading-xsmall);
 }
 
 // 컬러 정의
-@mixin accordion-color-variable($mode: light) {
-  --#{$prefix}-accordion--color-action: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
-  --#{$prefix}-accordion--button-color-action: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-accordion--button-color-action-hover: var(--#{$prefix}-#{$mode}-color-action-primary-pressed);
-  --#{$prefix}-accordion--button-color-action-pressed: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-accordion--color-action-open: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
-  --#{$prefix}-accordion--color-action-open-border: var(--#{$prefix}-#{$mode}-color-border-neutral-light);
-  --#{$prefix}-accordion--color-divider: var(--#{$prefix}-#{$mode}-color-border-neutral-light);
-  --#{$prefix}-accordion--color-divider-open: var(--#{$prefix}-#{$mode}-color-divider-gray-dark);
-  --#{$prefix}-accordion--button-color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-accordion--button-color-text-open: var(--#{$prefix}-#{$mode}-color-text-secondary);
-  --#{$prefix}-accordion--color-icon: var(--#{$prefix}-#{$mode}-color-icon-gray);
+@mixin accordion-color-variable() {
+  --#{$prefix}-accordion--color-action: var(--#{$prefix}-color-surface-neutral-subtler);
+  --#{$prefix}-accordion--button-color-action: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-accordion--button-color-action-hover: var(--#{$prefix}-color-action-primary-pressed);
+  --#{$prefix}-accordion--button-color-action-pressed: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-accordion--color-action-open: var(--#{$prefix}-color-surface-neutral-subtler);
+  --#{$prefix}-accordion--color-action-open-border: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-accordion--color-divider: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-accordion--color-divider-open: var(--#{$prefix}-color-divider-gray-dark);
+  --#{$prefix}-accordion--button-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-accordion--button-color-text-open: var(--#{$prefix}-color-text-secondary);
+  --#{$prefix}-accordion--color-icon: var(--#{$prefix}-color-icon-gray);
 }
 
 .#{$prefix}-accordion {
-  @include accordion-color-variable(map.get($modes, 'light'));
+  @include accordion-color-variable();
   @include accordion-size-variable;
 
   .accordion-item {
@@ -49,29 +49,29 @@
       @include flex-layout($ai: center);
       position: relative;
       width: 100%;
-      gap: var(--#{$prefix}-gap-5);
+      gap: 1.6rem;
       padding: var(--#{$prefix}-accordion--padding) 0;
       background-color: var(--#{$prefix}-accordion--button-color-action);
       border-radius: var(--#{$prefix}-accordion--radius);
 
       .title-wrap {
         @include flex-layout($ai: center);
-        gap: var(--#{$prefix}-gap-3);
+        gap: 0.8rem;
         flex: 1 0 0;
       }
 
       .title {
-        font-size: var(--#{$prefix}-accordion--small-button-font-size);
+        font-size: var(--#{$prefix}-accordion--pc-button-font-size);
         color: var(--#{$prefix}-accordion--button-color-text);
         font-weight: var(--#{$prefix}-small-font-weight-regular);
         text-align: left;
 
-        @include size-medium-to-large {
-          font-size: var(--#{$prefix}-accordion--medium-button-font-size);
+        @include mq(tablet) {
+          font-size: var(--#{$prefix}-accordion--tablet-button-font-size);
         }
 
-        @include size-large-more {
-          font-size: var(--#{$prefix}-accordion--large-button-font-size);
+        @include mq(mobile) {
+          font-size: var(--#{$prefix}-accordion--mobile-button-font-size);
         }
       }
 
@@ -86,8 +86,8 @@
 
       &::after {
         @include pseudo;
-        @include svg-icon(var(--#{$prefix}-accordion--button-arrow), $mode: map.get($modes, 'light'));
-        @include icon-set(ico_angle);
+        @include svg-icon(var(--#{$prefix}-accordion--button-arrow));
+        @include icon-set(angle);
 
         background-color: var(--#{$prefix}-accordion--color-icon);
         transition: var(--#{$prefix}-transition-base);
@@ -122,20 +122,20 @@
 
     .accordion-body {
       padding: 0 var(--#{$prefix}-accordion--padding) var(--#{$prefix}-accordion--padding);
-      color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-text-subtler);
-      font-size: var(--#{$prefix}-small-font-size-body-xsmall);
+      color: var(--#{$prefix}-color-text-subtler);
+      font-size: var(--#{$prefix}-pc-font-size-body-xsmall);
 
-      @include size-medium-to-large {
-          font-size: var(--#{$prefix}-medium-font-size-body-xsmall);
+      @include mq(tablet) {
+          font-size: var(--#{$prefix}-tablet-font-size--body-xsmall);
         }
 
-      @include size-large-more {
-        font-size: var(--#{$prefix}-large-font-size-body-xsmall);
+      @include mq(mobile) {
+        font-size: var(--#{$prefix}-mobile-font-size--body-xsmall);
       }
     }
 
     &.active {
-      padding-bottom: var(--#{$prefix}-gap-7);
+      padding-bottom: 2.4rem;
 
       .accordion-collapse {
         height: auto;
@@ -158,40 +158,33 @@
         padding: var(--#{$prefix}-accordion--medium-padding);
 
         .title {
-          font-size: var(--#{$prefix}-accordion--small-button-font-size-medium);
+          font-size: var(--#{$prefix}-accordion--pc-button-font-size-medium);
 
-          @include size-medium-to-large {
-            font-size: var(--#{$prefix}-accordion--medium-button-font-size-medium);
+          @include mq(tablet) {
+            font-size: var(--#{$prefix}-accordion--tablet-button-font-size-medium);
           }
 
-          @include size-large-more {
-            font-size: var(--#{$prefix}-accordion--large-button-font-size-medium);
+          @include mq(mobile) {
+            font-size: var(--#{$prefix}-accordion--mobile-button-font-size-medium);
           }
         }
 
         &::after {
-          @include svg-icon(var(--#{$prefix}-accordion--button-arrow-medium), $mode: map.get($modes, 'light'));
+          @include svg-icon(var(--#{$prefix}-accordion--button-arrow-medium));
         }
       }
 
       &.active {
-        padding-bottom: var(--#{$prefix}-gap-6);
+        padding-bottom: 2rem;
       }
     }
   }
 }
 
-// 고대비모드
-@include color-mode($mode: high-contrast) {
+@include mq(mobile) {
   .#{$prefix}-accordion {
-    @include accordion-color-variable(map.get($modes, 'high-contrast'));
-  }
-}
-
-@include size-medium {
-  .#{$prefix}-accordion {
-    --#{$prefix}-accordion--padding: var(--#{$prefix}-padding-6);
-    --#{$prefix}-accordion--line-padding: var(--#{$prefix}-padding-5);
+    --#{$prefix}-accordion--padding: 1.6rem;
+    --#{$prefix}-accordion--line-padding: 1.2rem;
     --#{$prefix}-accordion--button-icon-size: var(--#{$prefix}-icon--size-medium);
   }
 }

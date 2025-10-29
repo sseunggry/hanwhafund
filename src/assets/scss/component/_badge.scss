@@ -4,73 +4,49 @@
 /* 배지 */
 // 사이즈 정의
 @mixin badge-size-variable() {
-  --#{$prefix}-badge--size-height: var(--#{$prefix}-size-small);
-  --#{$prefix}-badge--size-height-medium: var(--#{$prefix}-size-xsmall);
-  --#{$prefix}-badge--line-height: 2.4rem;
-  --#{$prefix}-badge--font-weight-regular: var(--#{$prefix}-large-font-weight-regular);
-  --#{$prefix}-badge--font-weight-medium: var(--#{$prefix}-large-font-weight-medium);
-  --#{$prefix}-badge--padding: var(--#{$prefix}-padding-3);
-  --#{$prefix}-badge--radius: var(--#{$prefix}-radius-small);
-  --#{$prefix}-badge--radius-medium: var(--#{$prefix}-radius-xsmall);
-  --#{$prefix}-badge--radius-max: var(--#{$prefix}-radius-max);
-  --#{$prefix}-badge--dot-size: 0.6rem;
-  --#{$prefix}-badge--dot-padding: 0;
-  --#{$prefix}-badge--count-size-height: var(--#{$prefix}-size-xsmall);
-  --#{$prefix}-badge--count-small-font-size: var(--#{$prefix}-small-font-size-label-small); //count font-size: Mobile
-  --#{$prefix}-badge--count-medium-font-size: var(--#{$prefix}-medium-font-size-label-small); //count font-size: Tablet
-  --#{$prefix}-badge--count-large-font-size: var(--#{$prefix}-large-font-size-label-xsmall); //count font-size: PC
-  --#{$prefix}-badge--small-font-size: var(--#{$prefix}-small-font-size-label-medium);
-  --#{$prefix}-badge--medium-font-size: var(--#{$prefix}-medium-font-size-label-medium);
-  --#{$prefix}-badge--large-font-size: var(--#{$prefix}-large-font-size-label-medium);
-  --#{$prefix}-badge--small-font-size-medium: var(--#{$prefix}-small-font-size-label-small);
-  --#{$prefix}-badge--medium-font-size-medium: var(--#{$prefix}-medium-font-size-label-small);
-  --#{$prefix}-badge--large-font-size-medium: var(--#{$prefix}-large-font-size-label-small);
-  --#{$prefix}-badge--size-height-large: var(--#{$prefix}-size-xsmall);
+  --#{$prefix}-badge--size-height: 3rem;
+  --#{$prefix}-badge--padding: 0.8rem;
+  --#{$prefix}-badge--radius: 0.2rem;
+  --#{$prefix}-badge--mobile-font-size: 1.6rem;
+  --#{$prefix}-badge--tablet-font-size: 1.6rem;
+  --#{$prefix}-badge--pc-font-size: 1.6rem;
 }
 
 // 컬러 정의
-@mixin badge-color-variable($mode) {
+@mixin badge-color-variable() {
   // 컬러 변수 배열 생성
   $badge-color-variable: (
-    primary: (
-      element: var(--#{$prefix}-#{$mode}-color-element-primary),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-primary-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-primary),
+    domestic: (
+      element: #D05841,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    secondary: (
-      element: var(--#{$prefix}-#{$mode}-color-element-secondary),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-secondary-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-secondary),
+    stock: (
+      element: #CC8440,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    tertiary: (
-      element: var(--#{$prefix}-#{$mode}-color-element-neutral-dark),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-neutral-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-subtle),
+    global: (
+      element: #7759B1,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    point: (
-      element: var(--#{$prefix}-#{$mode}-color-element-point),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-point-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-point),
+    rating1: (
+      element: #000,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    danger: (
-      element: var(--#{$prefix}-#{$mode}-color-element-danger),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-danger-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-danger),
+    rating2: (
+      element: #222,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    warning: (
-      element: var(--#{$prefix}-#{$mode}-color-element-warning),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-warning-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-warning),
+    rating3: (
+      element: #666,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    success: (
-      element: var(--#{$prefix}-#{$mode}-color-element-success),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-success-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-success),
+    rating4: (
+      element: #FE5B16,
+      text: var(--#{$prefix}-color-text-white),
     ),
-    information: (
-      element: var(--#{$prefix}-#{$mode}-color-element-information),
-      element-lighter: var(--#{$prefix}-#{$mode}-color-element-information-lighter),
-      text: var(--#{$prefix}-#{$mode}-color-text-information),
+    rating5: (
+      element: #000,
+      text: var(--#{$prefix}-color-text-white),
     ),
   ) !default;
 
@@ -81,9 +57,8 @@
     }
   }
 
-  --#{$prefix}-badge--color-background-basic: var(--#{$prefix}-#{$mode}-color-background-white);
-  --#{$prefix}-badge--color-text-basic: var(--#{$prefix}-#{$mode}-color-text-inverse-static);
-  --#{$prefix}-badge--color-text-warning: var(--#{$prefix}-#{$mode}-color-text-static);
+  // --#{$prefix}-badge--color-background-basic: var(--#{$prefix}-color-background-white);
+  --#{$prefix}-badge--color-text-basic: var(--#{$prefix}-color-text-white);
 
   // class 정의
   & {
@@ -95,34 +70,22 @@
 
       &.solid-#{'#{$color}'} {
         color: var(--#{$prefix}-badge--color-text-basic);
-
         @include color-background(#{$color});
       }
-
-      &.solid-pastel-#{'#{$color}'} {
-        @include color-background-light(#{$color});
-        @include color-text(#{$color});
-      }
     }
-  }
-
-  // warning text color
-  &.bg-warning {
-    color: var(--#{$prefix}-badge--color-text-warning);
   }
 }
 
 // badge color border
-@mixin color-border($color, $mode: light) {
-  @include border-size-mode(#{$mode});
-
+@mixin color-border($color) {
   @if $color == 'primary' {
     border-color: var(--#{$prefix}-badge--color-primary-element);
   } @else {
-    border-color: var(--#{$prefix}-badge--#{$mode}-color-#{$color}-element);
+    border-color: var(--#{$prefix}-badge--color-#{$color}-element);
   }
 
   & {
+    border-width: 0.1rem;
     border-style: solid;
   }
 }
@@ -137,100 +100,31 @@
   background-color: var(--#{$prefix}-badge--color-#{$color}-element);
 }
 
-// badge color background light
-@mixin color-background-light($color) {
-  background-color: var(--#{$prefix}-badge--color-#{$color}-element-lighter);
-}
-
 .#{$prefix}-badge {
   @include badge-size-variable;
-  @include badge-color-variable(map.get($modes, 'light'));
+  @include badge-color-variable();
 
   & {
-    height: var(--#{$prefix}-badge--size-height);
-    line-height: var(--#{$prefix}-badge--line-height);
-    font-size: var(--#{$prefix}-badge--small-font-size);
+    @include flex-layout($d: inline-flex, $ai: center, $jc: center);
     padding: 0 var(--#{$prefix}-badge--padding);
+    height: var(--#{$prefix}-badge--size-height);
+    font-size: var(--#{$prefix}-badge--pc-font-size);
+    font-weight: 500;
     border-radius: var(--#{$prefix}-badge--radius);
 
-    @include size-medium-to-large {
-      font-size: var(--#{$prefix}-badge--medium-font-size);
+    @include mq(tablet) {
+      font-size: var(--#{$prefix}-badge--tablet-font-size);
     }
 
-    @include size-large-more {
-      font-size: var(--#{$prefix}-badge--large-font-size);
-    }
-  }
-
-  @include flex-layout($d: inline-flex, $ai: center, $jc: center);
-
-  &.status {
-    @include square(var(--#{$prefix}-badge--size-height-large));
-
-    font-size: var(--#{$prefix}-badge--count-small-font-size);
-    font-weight: var(--#{$prefix}-badge--font-weight-medium);
-    border-radius: var(--#{$prefix}-radius-full);
-
-    @include size-medium-to-large {
-      font-size: var(--#{$prefix}-badge--count-medium-font-size);
-    }
-
-    @include size-large-more {
-      font-size: var(--#{$prefix}-badge--count-large-font-size);
-    }
-  }
-
-  &.count {
-    height: var(--#{$prefix}-badge--count-size-height);
-    border-radius: var(--#{$prefix}-badge--radius-max);
-    border: 0.1rem solid var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-inverse);
-    font-size: var(--#{$prefix}-badge--count-small-font-size);
-    font-weight: var(--#{$prefix}-badge--font-weight-medium);
-
-    @include size-medium-to-large {
-      font-size: var(--#{$prefix}-badge--count-medium-font-size);
-    }
-
-    @include size-large-more {
-      font-size: var(--#{$prefix}-badge--count-large-font-size);
-    }
-  }
-
-  &.dot {
-    @include square(var(--#{$prefix}-badge--dot-size));
-
-    padding: var(--#{$prefix}-badge--dot-padding);
-    border-radius: var(--#{$prefix}-radius-full);
-    border: 0.1rem solid var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-inverse);
-    text-indent: -9999rem;
-    font-size: 0.1rem;
-  }
-
-  &.medium {
-    height: var(--#{$prefix}-badge--size-height-medium);
-    font-size: var(--#{$prefix}-badge--small-font-size-medium);
-    border-radius: var(--#{$prefix}-badge--radius-medium);
-
-    @include size-medium-to-large {
-      font-size: var(--#{$prefix}-badge--medium-font-size-medium);
-    }
-
-    @include size-large-more {
-      font-size: var(--#{$prefix}-badge--large-font-size-medium);
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-badge--mobile-font-size);
     }
   }
 }
 
 .#{$prefix}-badge-wrap {
-  --#{$prefix}-badge--wrap-gap: var(--#{$prefix}-gap-3);
+  --#{$prefix}-badge--wrap-gap: 0.4rem;
 
   display: flex;
   gap: var(--#{$prefix}-badge--wrap-gap);
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-badge {
-    @include badge-color-variable(map.get($modes, 'high-contrast'));
-  }
 }

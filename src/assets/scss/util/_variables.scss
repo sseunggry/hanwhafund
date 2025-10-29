@@ -23,6 +23,14 @@ $f-trust: $font-en, sans-serif;
 //경로 url
 $base-url: "../";
 
+//
+$breakpoint-pc-large: 1440px !default;
+$breakpoint-pc: 1280px !default;
+$breakpoint-tablet: 1024px !default;
+$breakpoint-tablet-small: 768px !default;
+$breakpoint-mobile-large: 480px !default;
+$breakpoint-mobile: 360px !default;
+
 ///////////////////////
 
 $prefix: hwf !default;
@@ -86,11 +94,11 @@ $transition-collapse-width: width 0.4s ease !default;
 
 // SVG ICON SIZE
 $icon-sizes: (
-  xsmall: var(--#{$prefix}-size-xxxsmall),
-  small: var(--#{$prefix}-size-xxxsmall),
-  medium: var(--#{$prefix}-size-xxsmall),
-  large: var(--#{$prefix}-size-xsmall),
-  xlarge: var(--#{$prefix}-size-xsmall),
+  xsmall: 1.6rem,
+  small: 1.6rem,
+  medium: 2rem,
+  large: 2.4rem,
+  xlarge: 2.4rem,
 ) !default;
 
 // SCREEN ZOOM
@@ -134,8 +142,8 @@ $screen-zoom-sizes: (
   --#{$prefix}-contents-wrap-size: #{$contents-wrap-size};
 
   // box shadow (only for focus outline)
-  // --#{$prefix}-box-shadow-outline: 0 0 0 0.4rem var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-primary);
-  // --#{$prefix}-box-shadow-outline-inset: inset 0 0 0 0.2rem var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-primary);
+  // --#{$prefix}-box-shadow-outline: 0 0 0 0.4rem var(--#{$prefix}-color-border-primary);
+  // --#{$prefix}-box-shadow-outline-inset: inset 0 0 0 0.2rem var(--#{$prefix}-color-border-primary);
 
   // screen zoom sizes
   @each $type, $value in $screen-zoom-sizes {

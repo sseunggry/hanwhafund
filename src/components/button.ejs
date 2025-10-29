@@ -2,37 +2,36 @@
   const localsSafe = locals || {};
   const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const tag = localsSafe.tag === 'a' ? 'a' : 'button'; // a 또는 button
-  const variant = localsSafe.variant || ''; // default, text, link
-  const hierarchy = localsSafe.hierarchy || 'primary'; // primary, secondary, tertiary
-  const size = localsSafe.size || 'medium'; // xsmall, small, medium, large
+  const variant = localsSafe.variant || ''; // default, text, link, icon
+  const hierarchy = localsSafe.hierarchy || ''; // primary, secondary, tertiary
+  const size = localsSafe.size || 'large'; // xsmall, small, medium, large
   const disabled = localsSafe.disabled ? 'disabled' : '';
   const addClass = localsSafe.addClass || '';
   const label = localsSafe.label || '버튼';
   const preSlot = localsSafe.preSlot || '';
-  const postSlot = localsSafe.postSlot || '';
   const preIcon = localsSafe.preIcon || '';
-  const postIcon = localsSafe.postIcon || '';
+  const icon = localsSafe.icon || '';
+  const slot = localsSafe.slot || '';
 	const iconOnly = localsSafe.iconOnly || '';
 	const targetId = localsSafe.targetId || '';
 	const classes = [
     `${projectName}-btn`,
     variant,
-    iconOnly ? '' : hierarchy,
+    variant === 'icon' ? '' : hierarchy,
     size,
-    disabled,
     addClass,
-		iconOnly ? 'icon' : '',
+		// iconOnly ? 'icon' : '',
   ].filter(Boolean).join(' ');
 -%>
-<<%= tag %>
-  <%- tag === 'button' ? `type="button"` : `href="#!"` %>
-	<%= disabled %>
-  class="<%= classes %>"
-	<%- targetId ? `aria-controls="${targetId}"` : '' %>
+<<%= tag -%>
+  <%- tag === 'button' ? `type="button"` : `href="#!"` -%>
+	<%= disabled -%>
+  class="<%= classes -%>"
+	<%- targetId ? `aria-controls="${targetId}"` : '' -%>
 >
-	<%- preSlot %>
-	<%- preIcon ? `<i class="svg-icon ico-${preIcon}"></i>` : '' %>
-	<%- iconOnly ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` %>
-  <%- postIcon ? `<i class="svg-icon ico-${postIcon}"></i>` : '' %>
-  <%- postSlot %>
-</<%= tag %>>
+	<%- preSlot -%>
+	<%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' -%>
+	<%- variant === 'icon' ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` -%>
+  <%- icon ? `<i class="svg-icon icon-${icon}"></i>` : '' -%>
+  <%- slot %>
+</<%= tag -%>> 

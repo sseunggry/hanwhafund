@@ -6,7 +6,7 @@
 @mixin toast-size-variable() {
   --#{$prefix}-toast--group-space-y: 4rem; 
   --#{$prefix}-toast--group-space-x: var(--#{$prefix}-grid-screen-margin); 
-  --#{$prefix}-toast--group-gap: var(--#{$prefix}-padding-5);
+  --#{$prefix}-toast--group-gap: 1.2rem;
   --#{$prefix}-toast--small-padding-y: var(--#{$prefix}-small-padding-card-small);
   --#{$prefix}-toast--medium-padding-y: var(--#{$prefix}-medium-padding-card-small);
   --#{$prefix}-toast--large-padding-y: var(--#{$prefix}-large-padding-card-small);
@@ -14,27 +14,27 @@
   --#{$prefix}-toast--medium-padding-x: var(--#{$prefix}-medium-padding-card-large);
   --#{$prefix}-toast--large-padding-x: var(--#{$prefix}-large-padding-card-large);
   --#{$prefix}-toast--radius: var(--#{$prefix}-radius-full);
-  --#{$prefix}-toast--contents-small-font-size: var(--#{$prefix}-small-font-size-body-small);
-  --#{$prefix}-toast--contents-medium-font-size: var(--#{$prefix}-medium-font-size-body-small);
-  --#{$prefix}-toast--contents-large-font-size: var(--#{$prefix}-large-font-size-body-small);
+  --#{$prefix}-toast--contents-mobile-font-size: 1.5rem;
+  --#{$prefix}-toast--contents-tablet-font-size-: 1.5rem;
+  --#{$prefix}-toast--contents-pc-font-size-: 1.5rem;
   --#{$prefix}-toast--contents-letter-spacing: var(--#{$prefix}-typo-letter-spacing-0);
-  --#{$prefix}-toast--contents-gap: var(--#{$prefix}-gap-4);
+  --#{$prefix}-toast--contents-gap: 1rem;
   --#{$prefix}-toast--contents-icon-size: var(--#{$prefix}-number-11);
 }
 
-@mixin toast-color-variable($mode: light) {
+@mixin toast-color-variable() {
   $toast-color-variable: (
     light: (
-      text-color: var(--#{$prefix}-#{$mode}-color-text-basic),
-      background: var(--#{$prefix}-#{$mode}-color-surface-elevated-03),
-      shadow-bg-x: var(--#{$prefix}-#{$mode}-color-alpha-shadow2),
-      shadow-bg-y: var(--#{$prefix}-#{$mode}-color-alpha-shadow3),
-      shadow-width-x: var(--#{$prefix}-#{$mode}-shadow-y-3),
-      shadow-width-y: var(--#{$prefix}-#{$mode}-shadow-blur-3),
+      text-color: var(--#{$prefix}-color-text-basic),
+      background: var(--#{$prefix}-color-surface-elevated-03),
+      shadow-bg-x: var(--#{$prefix}-color-alpha-shadow2),
+      shadow-bg-y: var(--#{$prefix}-color-alpha-shadow3),
+      shadow-width-x: var(--#{$prefix}-shadow-y-3),
+      shadow-width-y: var(--#{$prefix}-shadow-blur-3),
     ),
     dark: (
-      text-color: var(--#{$prefix}-#{$mode}-color-text-basic-inverse),
-      background: var(--#{$prefix}-#{$mode}-color-surface-inverse),
+      text-color: var(--#{$prefix}-color-text-white),
+      background: var(--#{$prefix}-color-surface-inverse),
     ),
   ) !default;
 
@@ -57,7 +57,7 @@
   pointer-events: none;
 
   .#{$prefix}-toast {
-    @include toast-color-variable(map.get($modes, 'light'));
+    @include toast-color-variable();
 
     width: fit-content;
     min-width: 24rem; /* 최소 너비 조정 */
@@ -67,7 +67,7 @@
     box-shadow: 0 0 0.2rem 0 var(--#{$prefix}-toast--color-light-shadow-bg-x), 0 var(--#{$prefix}-toast--color-light-shadow-width-x) var(--#{$prefix}-toast--color-light-shadow-width-y) 0 var(--#{$prefix}-toast--color-light-shadow-bg-y);
     border-radius: var(--#{$prefix}-toast--radius);
     color: var(--#{$prefix}-toast--color-light-text-color);
-    font-size: var(--#{$prefix}-toast--contents-small-font-size);
+    font-size: var(--#{$prefix}-toast--contents-mobile-font-size);
     letter-spacing: var(--#{$prefix}-toast--contents-letter-spacing);
     pointer-events: auto;
     opacity: 0;

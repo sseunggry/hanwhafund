@@ -5,38 +5,37 @@
 
 // 사이즈 정의
 @mixin step-size-variable() {
-
-  --#{$prefix}-step--step-font-size: var(--#{$prefix}-small-font-size-body-small);
-  --#{$prefix}-step--step-title-font-size: var(--#{$prefix}-small-font-size-body-xsmall);
-  --#{$prefix}-step--step-title-gap-top: var(--#{$prefix}-gap-1);
+  --#{$prefix}-step--step-font-size: 1.5rem;
+  --#{$prefix}-step--step-title-font-size: 1.3rem;
+  --#{$prefix}-step--step-title-gap-top: 0.2rem;
   --#{$prefix}-step--circle-size-default: var(--#{$prefix}-icon--size-medium);
   --#{$prefix}-step--circle-size-active: 1.2rem;
   --#{$prefix}-step--circle-radius: var(--#{$prefix}-radius-full);
   --#{$prefix}-step--padding-txt-top: var(--#{$prefix}-number-12);
-  --#{$prefix}-step--padding-txt-right: var(--#{$prefix}-padding-3);
+  --#{$prefix}-step--padding-txt-right: 0.8rem;
   --#{$prefix}-step--border-width-medium: 0.1rem;
-  --#{$prefix}-step--color-simple-step-font-size: var(--#{$prefix}-small-font-size-label-xsmall);
+  --#{$prefix}-step--color-simple-step-font-size: 1.3rem;
 }
 
 // 컬러 정의
-@mixin step-color-variable($mode: light) {
-  --#{$prefix}-step--color-step: var(--#{$prefix}-#{$mode}-color-text-basic); 
-  --#{$prefix}-step--color-step-title: var(--#{$prefix}-#{$mode}-color-text-subtle);
-  --#{$prefix}-step--color-fill-default: var(--#{$prefix}-#{$mode}-color-element-disabled);  
-  --#{$prefix}-step--color-fill-done: var(--#{$prefix}-#{$mode}-color-element-primary-light);
-  --#{$prefix}-step--color-fill-active: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-step--color-fill-white: var(--#{$prefix}-#{$mode}-color-surface-neutral-subtler);
-  --#{$prefix}-step--color-border-default: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-step--color-border-done: var(--#{$prefix}-#{$mode}-color-border-primary-light);
+@mixin step-color-variable() {
+  --#{$prefix}-step--color-step: var(--#{$prefix}-color-text-basic); 
+  --#{$prefix}-step--color-step-title: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-step--color-fill-default: var(--#{$prefix}-color-element-disabled);  
+  --#{$prefix}-step--color-fill-done: var(--#{$prefix}-color-element-primary-light);
+  --#{$prefix}-step--color-fill-active: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-step--color-fill-white: var(--#{$prefix}-color-surface-neutral-subtler);
+  --#{$prefix}-step--color-border-default: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-step--color-border-done: var(--#{$prefix}-color-border-primary-light);
   --#{$prefix}-step--color-border-active: var(--#{$prefix}-step--color-fill-active);
-  --#{$prefix}-step--color-icon-done: var(--#{$prefix}-#{$mode}-color-element-primary);
+  --#{$prefix}-step--color-icon-done: var(--#{$prefix}-color-element-primary);
   --#{$prefix}-step--color-icon-active: var(--#{$prefix}-step--color-fill-active);  
-  --#{$prefix}-step--color-simple-step: var(--#{$prefix}-#{$mode}-color-text-disabled-on);
-  --#{$prefix}-step--color-simple-step-active: var(--#{$prefix}-#{$mode}-color-text-basic-inverse);
+  --#{$prefix}-step--color-simple-step: var(--#{$prefix}-color-text-disabled-on);
+  --#{$prefix}-step--color-simple-step-active: var(--#{$prefix}-color-text-white);
 }
 
 .#{$prefix}-step-wrap {
-  @include step-color-variable(map.get($modes, 'light'));
+  @include step-color-variable();
   @include step-size-variable;
 
   & {
@@ -107,7 +106,7 @@
         &::after {
           @include position($t: 0, $l: 0);
           @include svg-icon(var(--#{$prefix}-step--circle-size-default));
-          @include icon-set(ico_step_done);
+          @include icon-set(step-done);
 
           background-color: var(--#{$prefix}-step--color-icon-done);
           z-index: 3;
@@ -237,12 +236,5 @@
 				
 			}
     }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-step-wrap {
-    @include step-color-variable(map.get($modes, 'high-contrast'));
   }
 }

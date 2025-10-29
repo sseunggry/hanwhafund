@@ -1,334 +1,345 @@
-@use 'sass:map';
+@use "sass:map";
 @use "../util" as *;
 
 /* 셀렉트 */
 // 사이즈 정의
 $form-select-variants: (
-	box: (
-		small: (
-      size-height: var(--#{$prefix}-size-medium),
-			icon-size: var(--#{$prefix}-icon--size-small),
-			option-icon-size: var(--#{$prefix}-size-xxxsmall),
-			option-padding: var(--#{$prefix}-padding-3),
-      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + var(--#{$prefix}-gap-3) + var(--#{$prefix}-form-select--icon-size-small)),
-      radius: var(--#{$prefix}-radius-medium),
-			large-font-size: var(--#{$prefix}-large-font-size-label-small),
-			medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
-			small-font-size: var(--#{$prefix}-small-font-size-label-small),
+  box: (
+    small: (
+      size-height: 4rem,
+      icon-size: 1.4rem,
+      option-icon-size: 1.6rem,
+      option-padding: 0.8rem,
+      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + 0.8rem + var(--#{$prefix}-form-select--icon-size-small)),
+      radius: 0.2rem,
+      pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
     ),
     medium: (
-      size-height: var(--#{$prefix}-size-large),
-			icon-size: var(--#{$prefix}-icon--size-medium),
-			option-icon-size: var(--#{$prefix}-size-xxsmall),
-			option-padding: var(--#{$prefix}-padding-4),
-      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + var(--#{$prefix}-gap-3) + var(--#{$prefix}-form-select--icon-size-medium)),
-      radius: var(--#{$prefix}-radius-large),
-			large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-			medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-			small-font-size: var(--#{$prefix}-small-font-size-label-medium),
+      size-height: 4.8rem,
+      icon-size: 1.6rem,
+      option-icon-size: 2rem,
+      option-padding: 1rem,
+      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + 0.8rem + var(--#{$prefix}-form-select--icon-size-medium)),
+      radius: 0.2rem,
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
     ),
     large: (
-      size-height: var(--#{$prefix}-size-xlarge),
-			icon-size: var(--#{$prefix}-icon--size-large),
-			option-icon-size: var(--#{$prefix}-size-xsmall),
-			option-padding: var(--#{$prefix}-padding-5),
-      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + var(--#{$prefix}-gap-3) + var(--#{$prefix}-form-select--icon-size-large)),
-      radius: var(--#{$prefix}-radius-xlarge),
-			large-font-size: var(--#{$prefix}-large-font-size-label-large),
-			medium-font-size: var(--#{$prefix}-medium-font-size-label-large),
-			small-font-size: var(--#{$prefix}-small-font-size-label-large),
+      size-height: 5.6rem,
+      icon-size: 2rem,
+      option-icon-size: 2.4rem,
+      option-padding: 1.2rem,
+      padding-right: calc(var(--#{$prefix}-form-select--padding-default) + 0.8rem + var(--#{$prefix}-form-select--icon-size-large)),
+      radius: 0.4rem,
+      pc-font-size: 1.8rem,
+      tablet-font-size: 1.8rem,
+      mobile-font-size: 1.8rem,
     ),
-	),
-	text: (
-		small: (
-			icon-size: 1.6rem,
-			option-icon-size: var(--#{$prefix}-size-xxxsmall),
-			padding-left: var(--#{$prefix}-padding-1),
-			padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-small) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-text--icon-size-small)),
-			radius: var(--#{$prefix}-radius-xsmall),
-		),
-		medium: (
-			icon-size: 1.8rem,
-			option-icon-size: var(--#{$prefix}-size-xxsmall),
-			padding-left: var(--#{$prefix}-padding-2),
-			padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-medium) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-text--icon-size-medium)),
-			radius: var(--#{$prefix}-radius-xsmall),
-		),
-		large: (
-			icon-size: 2rem,
-			option-icon-size: var(--#{$prefix}-size-xsmall),
-			padding-left: var(--#{$prefix}-padding-2),
-			padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-large) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-text--icon-size-large)),
-			radius: var(--#{$prefix}-radius-xsmall),
-		),
-		xlarge: (
-			icon-size: 2.4rem,
-			option-icon-size: var(--#{$prefix}-size-small),
-			padding-left: var(--#{$prefix}-padding-2),
-			padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-xlarge) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-text--icon-size-xlarge)),
-			radius: var(--#{$prefix}-radius-small),
-		),
-	),
-	filter: (
-		small: (
-			size-height: var(--#{$prefix}-size-small),
-			icon-size: 1.6rem,
-			option-icon-size: var(--#{$prefix}-size-xxxsmall),
-			padding-left: var(--#{$prefix}-padding-5),
-			padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-small) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-filter--icon-size-small)),
-		),
-		medium: (
-			size-height: var(--#{$prefix}-size-medium),
-			icon-size: 1.8rem,
-			option-icon-size: var(--#{$prefix}-size-xxsmall),
-			padding-left: var(--#{$prefix}-padding-6),
-			padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-medium) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-filter--icon-size-medium)),
-		),
-		large: (
-			size-height: var(--#{$prefix}-size-large),
-			icon-size: 1.8rem,
-			option-icon-size: var(--#{$prefix}-size-xsmall),
-			padding-left: var(--#{$prefix}-padding-6),
-			padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-large) + var(--#{$prefix}-gap-2) + var(--#{$prefix}-form-select-filter--icon-size-large)),
-		),
-	)
+  ),
+  text: (
+    small: (
+      icon-size: 1.6rem,
+      option-icon-size: 1.6rem,
+      padding-left: 0.2rem,
+      padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-small) + 0.4rem + var(--#{$prefix}-form-select-text--icon-size-small)),
+      pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
+    ),
+    medium: (
+      icon-size: 1.8rem,
+      option-icon-size: 2rem,
+      padding-left: 0.4rem,
+      padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-medium) + 0.4rem + var(--#{$prefix}-form-select-text--icon-size-medium)),
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
+    ),
+    large: (
+      icon-size: 2rem,
+      option-icon-size: 2.4rem,
+      padding-left: 0.4rem,
+      padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-large) + 0.4rem + var(--#{$prefix}-form-select-text--icon-size-large)),
+      pc-font-size: 1.8rem,
+      tablet-font-size: 1.8rem,
+      mobile-font-size: 1.8rem,
+    ),
+    xlarge: (
+      icon-size: 2.4rem,
+      option-icon-size: 3.2rem,
+      padding-left: 0.4rem,
+      padding-right: calc(var(--#{$prefix}-form-select-text--padding-left-xlarge) + 0.4rem + var(--#{$prefix}-form-select-text--icon-size-xlarge)),
+      pc-font-size: 3.2rem,
+      tablet-font-size: 3.2rem,
+      mobile-font-size: 3.2rem,
+    ),
+  ),
+  filter: (
+    small: (
+      size-height: 3.2rem,
+      icon-size: 1.6rem,
+      option-icon-size: 1.6rem,
+      padding-left: 1.2rem,
+      padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-small) + 0.4rem + var(--#{$prefix}-form-select-filter--icon-size-small)),
+    ),
+    medium: (
+      size-height: 4rem,
+      icon-size: 1.8rem,
+      option-icon-size: 2rem,
+      padding-left: 1.6rem,
+      padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-medium) + 0.4rem + var(--#{$prefix}-form-select-filter--icon-size-medium)),
+    ),
+    large: (
+      size-height: 4.8rem,
+      icon-size: 1.8rem,
+      option-icon-size: 2.4rem,
+      padding-left: 1.6rem,
+      padding-right: calc(var(--#{$prefix}-form-select-filter--padding-left-large) + 0.4rem + var(--#{$prefix}-form-select-filter--icon-size-large)),
+    ),
+  ),
 );
 
 // 컬러 정의
-@mixin form-select-color-variable($mode: light) {
-	//common
-	--#{$prefix}-form-select--icon-color-background: var(--#{$prefix}-#{$mode}-color-icon-gray);
-  --#{$prefix}-form-select--icon-color-background-readonly: var(--#{$prefix}-#{$mode}-color-icon-disabled-on);
-  --#{$prefix}-form-select--icon-color-background-disabled: var(--#{$prefix}-#{$mode}-color-icon-disabled-on);
+@mixin form-select-color-variable() {
+  //common
+  --#{$prefix}-form-select--icon-color-background: var(--#{$prefix}-color-icon-gray);
+  --#{$prefix}-form-select--icon-color-background-readonly: var(--#{$prefix}-color-icon-disabled-on);
+  --#{$prefix}-form-select--icon-color-background-disabled: var(--#{$prefix}-color-icon-disabled-on);
 
-	--#{$prefix}-form-select--color-text: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-form-select--color-text-active: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-form-select--color-text-completed: var(--#{$prefix}-#{$mode}-color-text-subtle);
-  --#{$prefix}-form-select--color-text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled-on);
-  --#{$prefix}-form-select--color-text-readonly: var(--#{$prefix}-#{$mode}-color-text-subtle);
-  --#{$prefix}-form-select--color-text-error: var(--#{$prefix}-#{$mode}-color-text-subtle);
+  --#{$prefix}-form-select--color-text: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-select--color-text-active: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select--color-text-completed: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-form-select--color-text-disabled: var(--#{$prefix}-color-text-disabled-on);
+  --#{$prefix}-form-select--color-text-readonly: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-form-select--color-text-error: var(--#{$prefix}-color-text-subtle);
 
-	--#{$prefix}-form-select--color-background: var(--#{$prefix}-#{$mode}-color-input-surface);
-  --#{$prefix}-form-select--color-background-readonly: var(--#{$prefix}-#{$mode}-color-input-surface-disabled);
-  --#{$prefix}-form-select--color-background-disabled: var(--#{$prefix}-#{$mode}-color-input-surface-disabled);
-  --#{$prefix}-form-select--color-background-error: var(--#{$prefix}-#{$mode}-color-input-surface);
+  --#{$prefix}-form-select--color-background: var(--#{$prefix}-color-input-surface);
+  --#{$prefix}-form-select--color-background-readonly: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-form-select--color-background-disabled: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-form-select--color-background-error: var(--#{$prefix}-color-input-surface);
 
-	--#{$prefix}-form-select--color-border: var(--#{$prefix}-#{$mode}-color-input-border);
-  --#{$prefix}-form-select--color-border-active: var(--#{$prefix}-#{$mode}-color-input-border-active);
-  --#{$prefix}-form-select--color-border-readonly: var(--#{$prefix}-#{$mode}-color-input-border-disabled);
-  --#{$prefix}-form-select--color-border-disabled: var(--#{$prefix}-#{$mode}-color-input-border-disabled);
-  --#{$prefix}-form-select--color-border-error: var(--#{$prefix}-#{$mode}-color-input-border-error);
+  --#{$prefix}-form-select--color-border: var(--#{$prefix}-color-input-border);
+  --#{$prefix}-form-select--color-border-active: var(--#{$prefix}-color-input-border-active);
+  --#{$prefix}-form-select--color-border-readonly: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-form-select--color-border-disabled: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-form-select--color-border-error: var(--#{$prefix}-color-input-border-error);
 
-  --#{$prefix}-form-select-listbox--color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-form-select-listbox--color-text-selected: var(--#{$prefix}-#{$mode}-color-text-primary);
-  --#{$prefix}-form-select-listbox--color-border: var(--#{$prefix}-#{$mode}-color-border-neutral-light);
-  --#{$prefix}-form-select-listbox--color-background: var(--#{$prefix}-#{$mode}-color-surface-elevated-03);
-  --#{$prefix}-form-select-listbox--shadow-start: var(--#{$prefix}-#{$mode}-color-alpha-shadow1);
-  --#{$prefix}-form-select-listbox--shadow-end: var(--#{$prefix}-#{$mode}-color-alpha-shadow2);
+  --#{$prefix}-form-select-listbox--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select-listbox--color-text-selected: var(--#{$prefix}-color-text-primary);
+  --#{$prefix}-form-select-listbox--color-border: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-form-select-listbox--color-background: var(--#{$prefix}-color-surface-elevated-03);
+  --#{$prefix}-form-select-listbox--shadow-start: var(--#{$prefix}-color-alpha-shadow1);
+  --#{$prefix}-form-select-listbox--shadow-end: var(--#{$prefix}-color-alpha-shadow2);
 
-  --#{$prefix}-form-select-listbox-option--color-background: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-form-select-listbox-option--color-background-hover: var(--#{$prefix}-#{$mode}-color-action-neutral-hover);
-  --#{$prefix}-form-select-listbox-option--color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-neutral-pressed);
-  --#{$prefix}-form-select-listbox-option--color-background-selected: var(--#{$prefix}-#{$mode}-color-action-transparency);
+  --#{$prefix}-form-select-listbox-option--color-background: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-select-listbox-option--color-background-hover: var(--#{$prefix}-color-action-neutral-hover);
+  --#{$prefix}-form-select-listbox-option--color-background-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-form-select-listbox-option--color-background-selected: var(--#{$prefix}-color-action-transparency);
 
-	//text
-	--#{$prefix}-form-select-text--color-background: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-form-select-text--color-background-hover: var(--#{$prefix}-#{$mode}-color-action-primary-hover);
-  --#{$prefix}-form-select-text--color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-primary-pressed,);
-  --#{$prefix}-form-select-text--color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
+  //text
+  --#{$prefix}-form-select-text--color-background: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-select-text--color-background-hover: var(--#{$prefix}-color-action-primary-hover);
+  --#{$prefix}-form-select-text--color-background-pressed: var(--#{$prefix}-color-action-primary-pressed);
+  --#{$prefix}-form-select-text--color-text: var(--#{$prefix}-color-text-basic);
 
-	--#{$prefix}-form-select-text-listbox-option--color-background-hover: var(--#{$prefix}-#{$mode}-color-action-primary-hover);
-  --#{$prefix}-form-select-text-listbox-option--color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-primary-pressed);
+  --#{$prefix}-form-select-text-listbox-option--color-background-hover: var(--#{$prefix}-color-action-primary-hover);
+  --#{$prefix}-form-select-text-listbox-option--color-background-pressed: var(--#{$prefix}-color-action-primary-pressed);
 
-	//filter
-	--#{$prefix}-form-select-filter--color-background: var(--#{$prefix}-#{$mode}-color-action-neutral-on);
-  --#{$prefix}-form-select-filter--color-background-hover: var(--#{$prefix}-#{$mode}-color-action-neutral-on-hover);
-  --#{$prefix}-form-select-filter--color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-neutral-pressed);
-	--#{$prefix}-form-select-filter--color-background-disabled: var(--#{$prefix}-#{$mode}-color-action-disabled);
-  --#{$prefix}-form-select-filter--color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
+  //filter
+  --#{$prefix}-form-select-filter--color-background: var(--#{$prefix}-color-action-neutral-on);
+  --#{$prefix}-form-select-filter--color-background-hover: var(--#{$prefix}-color-action-neutral-on-hover);
+  --#{$prefix}-form-select-filter--color-background-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-form-select-filter--color-background-disabled: var(--#{$prefix}-color-action-disabled);
+  --#{$prefix}-form-select-filter--color-text: var(--#{$prefix}-color-text-basic);
 }
 
 @mixin generate-css-variables($config, $variant-prefix) {
   @each $size, $types in $config {
     @each $type, $value in $types {
-			// css variable 생성
+      // css variable 생성
       --#{$prefix}-#{$variant-prefix}--#{$type}-#{$size}: #{$value};
     }
   }
 }
 
 .#{$prefix}-form-select {
-	$box-config: map.get($form-select-variants, 'box');
-	$text-config: map.get($form-select-variants, 'text');
-	$filter-config: map.get($form-select-variants, 'filter');
+  $box-config: map.get($form-select-variants, "box");
+  $text-config: map.get($form-select-variants, "text");
+  $filter-config: map.get($form-select-variants, "filter");
 
-	@include generate-css-variables($box-config, 'form-select');
-	@include generate-css-variables($text-config, 'form-select-text');
-	@include generate-css-variables($filter-config, 'form-select-filter');
-	@include form-select-color-variable(map.get($modes, 'light'));
+  @include generate-css-variables($box-config, "form-select");
+  @include generate-css-variables($text-config, "form-select-text");
+  @include generate-css-variables($filter-config, "form-select-filter");
+  @include form-select-color-variable();
 
-	--#{$prefix}-form-select--padding-default: var(--#{$prefix}-padding-6);
-	--#{$prefix}-form-select-listbox-option--padding-default: var(--#{$prefix}-padding-5);
-  --#{$prefix}-form-select--border-width-focus: 0.2rem;
+  --#{$prefix}-form-select--padding-default: 1.6rem;
+  --#{$prefix}-form-select-listbox-option--padding-default: 1.2rem;
+  --#{$prefix}-form-select--border-width-focus: 0.1rem;
 
-	--#{$prefix}-form-select-text--padding-left: var(--#{$prefix}-padding-2);
-  --#{$prefix}-form-select-text--radius: var(--#{$prefix}-radius-small2);
+  --#{$prefix}-form-select-text--padding-left: var(--#{$prefix}-padding-2);
+  --#{$prefix}-form-select-text--radius: 0.2rem;
 
-	& {
-		position: relative;
-		display: flex;
-		align-items: center;
-		background-color: var(--#{$prefix}-form-select--color-background) !important;
-		border-style: solid;
-		border-color: var(--#{$prefix}-form-select--color-border);
-		font-family: inherit;
-		color: var(--#{$prefix}-form-select--color-text);
-		transition: var(--#{$prefix}-transition-base);
-		text-align: left;
-		cursor: pointer;
-		@include icon-set(ico_angle, $effect: pure);
-		@include border-size-mode(map.get($modes, 'light'));
+  & {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--#{$prefix}-form-select--color-background) !important;
+    border: 0.1rem solid transparent;
+    // border: 0.1rem solid var(--#{$prefix}-form-select--color-border);
+    font-family: inherit;
+    color: var(--#{$prefix}-form-select--color-text);
+    transition: var(--#{$prefix}-transition-base);
+    text-align: left;
+    cursor: pointer;
+    @include icon-set(angle, $effect: pure);
 
-		&:not(.text, .filter) {
-			width: 100%;
+    &:not(.text, .filter) {
+      width: 100%;
 
-			.select-button {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-			}
-		}
+      .select-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
 
-		.select-button {
-			text-align: left;
-			// outline-width: 0;
-			box-shadow: none;
-		
-			.select-value {
-				@include ellipsis(1);
-				color: var(--#{$prefix}-form-select--color-text-completed);
-		
-				&.placeholder {
-					color: var(--#{$prefix}-form-select--color-text);
-				}
-			}
-		}
+    .select-button {
+      text-align: left;
+      // outline-width: 0;
+      box-shadow: none;
 
-		.ui-select{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-		
-		.select-listbox {
-			overflow-y: auto;
-			position: absolute;
-			left: 0;
-			top: calc( 100% + var(--#{$prefix}-form-select--border-width-focus) );
-			z-index: 10;
-			padding: var(--#{$prefix}-padding-3) var(--#{$prefix}-gap-3);
-			width: 100%;
-			color: var(--#{$prefix}-form-select-listbox--color-text);
-			background-color: var(--#{$prefix}-form-select-listbox--color-background);
-			border: 0.1rem solid var(--#{$prefix}-form-select-listbox--color-border);
-			border-radius: var(--#{$prefix}-radius-xlarge);
-			box-shadow: 0 0 0.2rem 0 var(--#{$prefix}-form-select-listbox--shadow-start), 0 0.4rem 0.8rem 0 var(--#{$prefix}-form-select-listbox--shadow-end);
-		
-			.select-option {
-				display: flex;
-				align-items: center;
-				gap: var(--#{$prefix}-gap-3);
-				cursor: pointer;
-		
-				&::after{
-					content: '';
-					display: block;
-					@include icon-set(ico_checkbox_checked);
-					margin-left: auto;
-					flex-shrink: 0;
-				}
+      .select-value {
+        @include ellipsis(1);
+        color: var(--#{$prefix}-form-select--color-text-completed);
 
-				&[aria-selected='true'] {
-					color: var(--#{$prefix}-form-select-listbox--color-text-selected);
-					font-weight: var(--#{$prefix}-font-weight-bold);
-					background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
-		
-					&::after {
-						background-color: var(--#{$prefix}-form-select-listbox--color-text-selected);
-					}
-				}
-				&:focus {
-					border: var(--#{$prefix}-form-select--border-width-focus) solid var(--#{$prefix}-form-select--color-border-active);
-					outline-width: 0;
-					box-shadow: none;
-					background-color: var(--#{$prefix}-form-select-listbox-option--color-background);
-				}
-				&:hover {
-					background-color: var(--#{$prefix}-form-select-listbox-option--color-background-hover);
-				}
-				&:active {
-					background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
-				}
-			}
-		}
-	}
+        &.placeholder {
+          color: var(--#{$prefix}-form-select--color-text);
+        }
+      }
+    }
 
-	// --- Variant: box (기본 스타일) ---
-	@each $size, $types in $box-config {
-		&.#{$size} {
-			height: map.get($types, 'size-height');
-			padding: 0 map.get($types, 'padding-right') 0 var(--#{$prefix}-form-select--padding-default);
-			background-position: center right var(--#{$prefix}-form-select--padding-default);
-			background-size: map.get($types, 'icon-size') !important;
-			border-radius: map.get($types, 'radius');
+    .ui-select {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-			font-size: map.get($types, large-font-size);
+    .select-listbox {
+      overflow-y: auto;
+      position: absolute;
+      left: 0;
+      top: calc(100% + var(--#{$prefix}-form-select--border-width-focus));
+      z-index: 10;
+      padding: 0.8rem;
+      width: 100%;
+      color: var(--#{$prefix}-form-select-listbox--color-text);
+      background-color: var(--#{$prefix}-form-select-listbox--color-background);
+      border: 0.1rem solid var(--#{$prefix}-form-select-listbox--color-border);
+      border-radius: 0.2rem;
+      box-shadow:
+        0 0 0.2rem 0 var(--#{$prefix}-form-select-listbox--shadow-start),
+        0 0.4rem 0.8rem 0 var(--#{$prefix}-form-select-listbox--shadow-end);
 
-			@include size-medium-to-large {
-				font-size: map.get($types, medium-font-size);
-			}
-			@include size-medium {
-				font-size: map.get($types, small-font-size);
-			}
+      .select-option {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        cursor: pointer;
 
-			&:not(.text, .filter) {
-				.select-button {
-					padding: 0 map.get($types, 'padding-right') 0 var(--#{$prefix}-form-select--padding-default);
-				}
-			}
+        &::after {
+          content: "";
+          display: block;
+          @include icon-set(checkbox-checked);
+          margin-left: auto;
+          flex-shrink: 0;
+        }
 
-			.select-listbox {
-				--form-select-listbox-max-height: calc( map.get($types, size-height) * var(--form-select-listbox-option-length) + map.get($types, 'option-padding') * 2 );
-				max-height: var(--form-select-listbox-max-height);
+        &[aria-selected="true"] {
+          color: var(--#{$prefix}-form-select-listbox--color-text-selected);
+          font-weight: var(--#{$prefix}-font-weight-bold);
+          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
 
-				.select-option {
-					padding: map.get($types, 'option-padding');
-					border-radius: map.get($types, 'radius');
+          &::after {
+            background-color: var(--#{$prefix}-form-select-listbox--color-text-selected);
+          }
+        }
+        &:focus {
+          border: var(--#{$prefix}-form-select--border-width-focus) solid var(--#{$prefix}-form-select--color-border-active);
+          outline-width: 0;
+          box-shadow: none;
+          background-color: var(--#{$prefix}-form-select-listbox-option--color-background);
+        }
+        &:hover {
+          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-hover);
+        }
+        &:active {
+          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
+        }
+      }
+    }
+  }
 
-					&::after{
-						@include square(map.get($types, 'icon-size'));
-					}
-				}
-			}
-		}
-	}
+  // --- Variant: box (기본 스타일) ---
+  @each $size, $types in $box-config {
+    &.#{$size} {
+      height: map.get($types, "size-height");
+      padding: 0 map.get($types, "padding-right") 0 var(--#{$prefix}-form-select--padding-default);
+      background-position: center right var(--#{$prefix}-form-select--padding-default);
+      background-size: map.get($types, "icon-size") !important;
+      border-radius: map.get($types, "radius");
 
-	&:focus, &.focus {
+      font-size: map.get($types, pc-font-size);
+
+      @include mq(tablet) {
+        font-size: map.get($types, tablet-font-size);
+      }
+      @include mq(mobile) {
+        font-size: map.get($types, mobile-font-size);
+      }
+
+      &:not(.text, .filter) {
+        .select-button {
+          padding: 0 map.get($types, "padding-right") 0 var(--#{$prefix}-form-select--padding-default);
+        }
+      }
+
+      .select-listbox {
+        --form-select-listbox-max-height: calc(map.get($types, size-height) * var(--form-select-listbox-option-length) + map.get($types, "option-padding") * 2);
+        max-height: var(--form-select-listbox-max-height);
+
+        .select-option {
+          padding: map.get($types, "option-padding");
+          border-radius: map.get($types, "radius");
+
+          &::after {
+            @include square(map.get($types, "icon-size"));
+          }
+        }
+      }
+    }
+  }
+
+  &:focus,
+  &:focus-within,
+  &.focus {
     border-color: var(--#{$prefix}-form-select--color-border-active);
     border-width: var(--#{$prefix}-form-select--border-width-focus);
     outline: none;
     box-shadow: none;
     color: var(--#{$prefix}-form-select--color-text-active);
 
-		.select-button {
-			.select-value {
-				color: var(--#{$prefix}-form-select--color-text-active);
-			}
-		}
+    .select-button {
+      .select-value {
+        color: var(--#{$prefix}-form-select--color-text-active);
+      }
+    }
   }
 
   &.completed {
@@ -340,161 +351,175 @@ $form-select-variants: (
     border-width: var(--#{$prefix}-form-select--border-width-focus);
   }
 
-  &[disabled], &.disabled {
-    @include icon-set(ico_angle_disabled, $effect: pure);
+  &[disabled],
+  &.disabled {
+    @include icon-set(angle-disabled, $effect: pure);
 
     background-color: var(--#{$prefix}-form-select--color-background-disabled) !important;
     border-color: var(--#{$prefix}-form-select--color-border-disabled);
     color: var(--#{$prefix}-form-select--color-text-disabled);
-		cursor: default;
+    cursor: default;
 
-		.select-button {
-			cursor: default;
-	
-			.select-value {
-				color: var(--#{$prefix}-form-select--color-text-disabled);
-			}
-		}
+    .select-button {
+      cursor: default;
+
+      .select-value {
+        color: var(--#{$prefix}-form-select--color-text-disabled);
+      }
+    }
   }
 
-  &[readonly], &.readonly {
-    @include icon-set(ico_angle_disabled, $effect: pure);
+  &[readonly],
+  &.readonly {
+    @include icon-set(angle-disabled, $effect: pure);
 
     background-color: var(--#{$prefix}-form-select--color-background-disabled) !important;
     border-color: var(--#{$prefix}-form-select--color-border-disabled);
     color: var(--#{$prefix}-form-select--color-text-readonly);
-		cursor: default;
+    cursor: default;
 
-		.select-button {
-			cursor: default;
-	
-			.select-value {
-				color: var(--#{$prefix}-form-select--color-text-readonly);
-			}
-		}
+    .select-button {
+      cursor: default;
+
+      .select-value {
+        color: var(--#{$prefix}-form-select--color-text-readonly);
+      }
+    }
   }
 
-	//--- Variant: text ---
-	&.text {
-		width: fit-content;
-		background-color: var(--#{$prefix}-form-select-text--color-background) !important;
-		border: none;
-		color: var(--#{$prefix}-form-select-text--color-text);
-		
-		@each $size, $types in $text-config {
-			&.#{$size} {
-				height: auto;
-				padding: 0 map.get($types, 'padding-right') 0 map.get($types, 'padding-left');
-				background-position: center right map.get($types, 'padding-left');
-				background-size:  map.get($types, 'icon-size') !important;
-				border-radius: map.get($types, 'radius');
+  // --- Variant: outline (라인 스타일) ---
+  &.outline {
+    border: 0.1rem solid #333333;
 
-				@if $size == 'xlarge' {
-					.select-button {
-						.select-value:not(.placeholder) {
-							font-weight: var(--#{$prefix}-font-weight-bold);
-						}
-					}
-				}
+    &:focus,
+    &:focus-within,
+    &.focus {
+      border-color: var(--#{$prefix}-form-select--color-border-active);
+      border-width: var(--#{$prefix}-form-select--border-width-focus);
+    }
 
-				.select-listbox {
-					--form-select-text-listbox-max-height: calc( map.get($types, 'size-height') * var(--form-select-listbox-option-length) + map.get($types, 'option-padding') * 2 );
-				
-					max-height: var(--form-select-text-listbox-max-height);
+    &.is-error {
+      border-color: var(--#{$prefix}-form-select--color-border-error);
+      border-width: var(--#{$prefix}-form-select--border-width-focus);
+    }
 
-					.select-option {
-						padding: map.get($types, 'option-padding');
+    &[readonly],
+    &.readonly {
+      border-color: var(--#{$prefix}-form-select--color-border-disabled);
+    }
+  }
 
-						&::after{
-							@include square(map.get($types, 'icon-size'));
-						}
-					}
-				}
-			}
-		}
+  //--- Variant: text ---
+  &.text {
+    width: fit-content;
+    background-color: var(--#{$prefix}-form-select-text--color-background) !important;
+    border: none;
+    color: var(--#{$prefix}-form-select-text--color-text);
 
-		&:hover:not([disabled]):not(.disabled) {
-			background-color: var(--#{$prefix}-form-select-text--color-background-hover) !important;
-		}
-	
-		&:focus, &.focus {
-			background-color: var(--#{$prefix}-form-select-text--color-background-pressed) !important;
-		}
-	
-		.select-listbox {
-			width: max-content;
-			min-width: 100%;
+    @each $size, $types in $text-config {
+      &.#{$size} {
+        height: auto;
+        padding: 0 map.get($types, "padding-right") 0 map.get($types, "padding-left");
+        background-position: center right map.get($types, "padding-left");
+        background-size: map.get($types, "icon-size") !important;
+        border-radius: 0;
 
-			.select-option {
-				&::after {
-					content: '';
-					order: -1;
-				}
-			}
-		}
-	}
+        font-size: map.get($types, pc-font-size);
 
-	//--- Variant: filter ---
-	&.filter {
-		--#{$prefix}-form-select-filter--radius: var(--#{$prefix}-radius-full);
+        @include mq(tablet) {
+          font-size: map.get($types, tablet-font-size);
+        }
+        @include mq(mobile) {
+          font-size: map.get($types, mobile-font-size);
+        }
 
-		width: fit-content;
-		background-color: var(--#{$prefix}-form-select-filter--color-background) !important;
-		border: none;
-		border-radius: var(--#{$prefix}-form-select-filter--radius);
-		color: var(--#{$prefix}-form-select-filter--color-text);
+        .select-listbox {
+          --form-select-text-listbox-max-height: calc(map.get($types, "size-height") * var(--form-select-listbox-option-length) + map.get($types, "option-padding") * 2);
 
-		@each $size, $types in $filter-config {
-			&.#{$size} {
-				height: map.get($types, 'size-height');
-				padding: 0 map.get($types, 'padding-right') 0 map.get($types, 'padding-left');
-				border-radius: map.get($types, 'radius');
-				background-position: center right map.get($types, 'padding-left');
-				background-size: map.get($types, 'icon-size') !important;
+          max-height: var(--form-select-text-listbox-max-height);
 
-				.select-listbox {
-					--form-select-filter-listbox-max-height: calc( map.get($types, 'size-height') * var(--form-select-listbox-option-length) + var(--#{$prefix}-form-select-listbox-option--padding-default) * 2 );
-				
-					max-height: var(--form-select-filter-listbox-max-height);
+          .select-option {
+            padding: map.get($types, "option-padding");
 
-					.select-option {
-						&::after{
-							@include square(map.get($types, 'icon-size'));
-						}
-					}
-				}
-			}
-		}
+            &::after {
+              @include square(map.get($types, "icon-size"));
+            }
+          }
+        }
+      }
+    }
 
-		&:hover {
-			background-color: var(--#{$prefix}-form-select-filter--color-background-hover) !important;
-		}
-	
-		&:focus, &.focus {
-			background-color: var(--#{$prefix}-form-select-filter--color-background-pressed) !important;
-		}
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: var(--#{$prefix}-form-select-text--color-background-hover) !important;
+    }
 
-		&[disabled], &.disabled {
-			background-color: var(--#{$prefix}-form-select-filter--color-background-disabled) !important;
-		}
+    &:focus,
+    &.focus {
+      background-color: var(--#{$prefix}-form-select-text--color-background-pressed) !important;
+    }
 
-		.select-listbox {
-			width: max-content;
-			min-width: 100%;
-		}
-	}
-}
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-form-select {
-    @include form-select-color-variable(map.get($modes, 'high-contrast'));
-    @include border-size-mode(map.get($modes, 'high-contrast'));
-    @include icon-set(ico_angle_inverse, $effect: pure);
-		
-		&[disabled], &.disabled {
-			@include icon-set(ico_angle_disabled_inverse, $effect: pure);
+    .select-listbox {
+      width: max-content;
+      min-width: 100%;
 
-			// background-color: var(--#{$prefix}-form-select--color-background-disabled) !important;
-		}
+      .select-option {
+        &::after {
+          content: "";
+          order: -1;
+        }
+      }
+    }
+  }
+
+  //--- Variant: filter ---
+  &.filter {
+    --#{$prefix}-form-select-filter--radius: var(--#{$prefix}-radius-full);
+
+    width: fit-content;
+    background-color: var(--#{$prefix}-form-select-filter--color-background) !important;
+    border: none;
+    border-radius: var(--#{$prefix}-form-select-filter--radius);
+    color: var(--#{$prefix}-form-select-filter--color-text);
+
+    @each $size, $types in $filter-config {
+      &.#{$size} {
+        height: map.get($types, "size-height");
+        padding: 0 map.get($types, "padding-right") 0 map.get($types, "padding-left");
+        border-radius: map.get($types, "radius");
+        background-position: center right map.get($types, "padding-left");
+        background-size: map.get($types, "icon-size") !important;
+
+        .select-listbox {
+          --form-select-filter-listbox-max-height: calc(map.get($types, "size-height") * var(--form-select-listbox-option-length) + var(--#{$prefix}-form-select-listbox-option--padding-default) * 2);
+
+          max-height: var(--form-select-filter-listbox-max-height);
+
+          .select-option {
+            &::after {
+              @include square(map.get($types, "icon-size"));
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background-color: var(--#{$prefix}-form-select-filter--color-background-hover) !important;
+    }
+
+    &:focus,
+    &.focus {
+      background-color: var(--#{$prefix}-form-select-filter--color-background-pressed) !important;
+    }
+
+    &[disabled],
+    &.disabled {
+      background-color: var(--#{$prefix}-form-select-filter--color-background-disabled) !important;
+    }
+
+    .select-listbox {
+      width: max-content;
+      min-width: 100%;
+    }
   }
 }

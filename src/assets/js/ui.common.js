@@ -11,6 +11,7 @@ const commonJs = {
     this.segmentControl.init();
     this.tooltip.init();
     this.modal.init();
+    this.modal.setFullModalContentHeight();
     this.accordion.init();
     this.tab.init();
 
@@ -34,6 +35,7 @@ const commonJs = {
   resize: function () {
     // console.log('Resized');
     commonJs.tooltip.updateAllVisibleTooltipPositions();
+    commonJs.modal.setFullModalContentHeight();
   },
   scroll: function () {
     // console.log('Scrolled:', scrollTop);
@@ -540,6 +542,7 @@ const commonJs = {
       OPEN_MODAL_INSTANCE: `.${projectName}-modal.in:not(.sample)`,
       CONTENT: ".modal-content",
       BACKDROP: ".modal-back",
+      MODAL_FULL: `.${projectName}-modal[data-type="full"]`,
       OPENED_TRIGGER_BTN: (id) => `.modal-opened[data-modal-id="${id}"]` // 동적 셀렉터
     },
     outsideClickHandlers: {},
@@ -562,9 +565,10 @@ const commonJs = {
         if (!modalId) modalId = $trigger.attr("aria-controls");
 
         if (modalId) {
-          $trigger.attr("data-modal-id", modalId)
-                  .addClass("modal-opened")
-                  .attr("tabindex", "-1");
+          $trigger
+            .attr("data-modal-id", modalId)
+            .addClass("modal-opened")
+            .attr("tabindex", "-1");
           self.openModal(modalId);
         }
       });
@@ -583,7 +587,8 @@ const commonJs = {
       const $dialogElement = $modalElement.find(this.SELECTORS.CONTENT);
       const $modalBack = $modalElement.find(this.SELECTORS.BACKDROP);
 
-      $("body").addClass("scroll-no");
+      $("html").css('overflow', 'hidden');
+      // $("body").addClass("scroll-no");
       $dialogElement.attr("tabindex", "0");
       $modalElement.attr("aria-hidden", "false").addClass("shown");
       $modalBack.addClass("in");
@@ -611,8 +616,9 @@ const commonJs = {
       };
       this.outsideClickHandlers[id] = handler;
       
-      $modalElement.off('click', this.outsideClickHandlers[id])
-                     .on('click', this.outsideClickHandlers[id]);
+      $modalElement
+        .off('click', this.outsideClickHandlers[id])
+        .on('click', this.outsideClickHandlers[id]);
 
       this.updateZIndex($modalElement);
     },
@@ -623,6 +629,7 @@ const commonJs = {
       const $openModals = $(this.SELECTORS.OPEN_MODAL_INSTANCE);
       const $modalBack = $modalElement.find(this.SELECTORS.BACKDROP);
 
+      $("html").css('overflow', '');
       $dialogElement.removeAttr("tabindex");
       $modalElement.attr("aria-hidden", "true").removeClass("in");
       $modalBack.removeClass("in");
@@ -631,9 +638,10 @@ const commonJs = {
         $modalElement.removeClass("shown");
       }, 350);
 
-      if ($openModals.length < 2) {
-        $("body").removeClass("scroll-no");
-      }
+      // if ($openModals.length < 1) {
+      //   $("html").css('overflow', '');
+      //   // $("body").removeClass("scroll-no");
+      // }
       
       $modalElement.off('click', this.outsideClickHandlers[id]);
       delete this.outsideClickHandlers[id]; 
@@ -658,6 +666,30 @@ const commonJs = {
                       .removeAttr("data-modal-id");
       }
     },
+    setFullModalContentHeight: function(){
+      const rootFontSize = parseFloat($('html').css('font-size'));
+
+      if (!rootFontSize) return;
+
+      const $fullModals = $(this.SELECTORS.MODAL_FULL);
+
+      $fullModals.each(function () {
+        const $modal = $(this);
+        const $header = $modal.find(".modal-header");
+        const $btnWrap = $modal.find(".modal-btn");
+        const $contentArea = $modal.find(".modal-conts");
+
+        if (!$contentArea.length) return;
+
+        const headerHeightPx = $header.length ? $header.outerHeight() : 0;
+        const btnWrapHeightPx = $btnWrap.length ? $btnWrap.outerHeight() : 0;
+
+        const headerHeightRem = headerHeightPx / rootFontSize;
+        const btnWrapHeightRem = btnWrapHeightPx / rootFontSize;
+
+        $contentArea.css('height', `calc(100vh - ${headerHeightRem + btnWrapHeightRem}rem)`);
+      });
+    }
   },
   accordion: {
     // [추가] 셀렉터 상수화

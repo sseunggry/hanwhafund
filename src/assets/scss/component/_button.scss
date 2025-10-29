@@ -1,276 +1,195 @@
-@use 'sass:map';
+@use "sass:map";
 @use "../util" as *;
+@use "sass:string";
+@use "sass:list";
 
 /* 버튼 / 링크 */
 // 사이즈 정의
-@mixin button-size-variable() {
-  // 변수 배열 설정
-  $button-size: (
-    xsmall: (
-      size-height: var(--#{$prefix}-size-small),
-      padding-x: var(--#{$prefix}-padding-4),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-1),
-      radius: var(--#{$prefix}-radius-small),
-      small-font-size: var(--#{$prefix}-small-font-size-label-xsmall),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-xsmall),
-      large-font-size: var(--#{$prefix}-large-font-size-label-xsmall),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    small: (
-      size-height: var(--#{$prefix}-size-medium),
-      padding-x: var(--#{$prefix}-padding-5),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-medium),
-      small-font-size: var(--#{$prefix}-small-font-size-label-small),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
-      large-font-size: var(--#{$prefix}-large-font-size-label-small),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    medium: (
-      size-height: var(--#{$prefix}-size-large),
-      padding-x: var(--#{$prefix}-padding-6),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-large),
-      small-font-size: var(--#{$prefix}-small-font-size-label-medium),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-      large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    large: (
-      size-height: var(--#{$prefix}-size-xlarge),
-      padding-x: var(--#{$prefix}-padding-7),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-xlarge),
-      small-font-size: var(--#{$prefix}-small-font-size-label-large),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-large),
-      large-font-size: var(--#{$prefix}-large-font-size-label-large),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    text-small: (
-      size-height: var(--#{$prefix}-size-xsmall),
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-1),
-      radius: var(--#{$prefix}-radius-xsmall),
-      small-font-size: var(--#{$prefix}-small-font-size-label-small),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
-      large-font-size: var(--#{$prefix}-large-font-size-label-small),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    text-medium: (
-      size-height: var(--#{$prefix}-size-small),
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-small),
-      small-font-size: var(--#{$prefix}-small-font-size-label-medium),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-      large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    text-large: (
-      size-height: var(--#{$prefix}-size-medium),
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-medium),
-      small-font-size: var(--#{$prefix}-small-font-size-label-large),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-large),
-      large-font-size: var(--#{$prefix}-large-font-size-label-large),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    link-small: (
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-1),
-      radius: var(--#{$prefix}-radius-xsmall),
-      small-font-size: var(--#{$prefix}-small-font-size-body-small),
-      medium-font-size: var(--#{$prefix}-medium-font-size-body-small),
-      large-font-size: var(--#{$prefix}-large-font-size-body-small),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    link-medium: (
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-xsmall),
-      small-font-size: var(--#{$prefix}-small-font-size-body-medium),
-      medium-font-size: var(--#{$prefix}-medium-font-size-body-medium),
-      large-font-size: var(--#{$prefix}-large-font-size-body-medium),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-    link-large: (
-      padding-x: var(--#{$prefix}-padding-1),
-      padding-y: 0,
-      gap: var(--#{$prefix}-gap-2),
-      radius: var(--#{$prefix}-radius-small),
-      small-font-size: var(--#{$prefix}-small-font-size-body-large),
-      medium-font-size: var(--#{$prefix}-medium-font-size-body-large),
-      large-font-size: var(--#{$prefix}-large-font-size-body-large),
-      font-weight: var(--#{$prefix}-font-weight-regular),
-    ),
-  ) !default;
+// 1. 사이즈 맵
+$button-size: (
+  small: (
+    size-height: 3.2rem,
+    padding-x: 1.6rem,
+    padding-y: 0,
+    gap: 0.2rem,
+    radius: 0.2rem,
+    icon-size: 1.4rem,
+    mobile-font-size: 1.4rem,
+    tablet-font-size: 1.4rem,
+    pc-font-size: 1.4rem,
+  ),
+  medium: (
+    size-height: 4.8rem,
+    padding-x: 2.4rem,
+    padding-y: 0,
+    gap: 0.4rem,
+    radius: 0.2rem,
+    icon-size: 1.6rem,
+    mobile-font-size: 1.8rem,
+    tablet-font-size: 1.8rem,
+    pc-font-size: 1.8rem,
+  ),
+  large: (
+    size-height: 5.6rem,
+    padding-x: 2.4rem,
+    padding-y: 0,
+    gap: 0.8rem,
+    radius: 0.4rem,
+    icon-size: 2rem,
+    mobile-font-size: 1.8rem,
+    tablet-font-size: 1.8rem,
+    pc-font-size: 1.8rem,
+  ),
+  xlarge: (
+    size-height: 6.4rem,
+    padding-x: 1.6rem,
+    padding-y: 0,
+    gap: 0.4rem,
+    radius: 0.6rem,
+    icon-size: 2rem,
+    mobile-font-size: 1.8rem,
+    tablet-font-size: 1.8rem,
+    pc-font-size: 1.8rem,
+  ),
+) !default;
 
-  // css variable 생성
+// 2. 컬러 맵
+$button-color-variable: (
+  primary: (
+    fill: var(--#{$prefix}-color-button-primary-fill),
+    fill-hover: var(--#{$prefix}-color-button-primary-fill-hover),
+    fill-pressed: var(--#{$prefix}-color-button-primary-fill-pressed),
+    fill-disabled: var(--#{$prefix}-color-button-disabled-fill),
+    border: var(--#{$prefix}-color-button-primary-fill),
+    border-disabled: var(--#{$prefix}-color-button-disabled-fill),
+    text: var(--#{$prefix}-color-text-white),
+    text-disabled: var(--#{$prefix}-color-text-disabled-on),
+  ),
+  secondary: (
+    fill: var(--#{$prefix}-color-button-secondary-fill),
+    fill-hover: var(--#{$prefix}-color-button-secondary-fill-hover),
+    fill-pressed: var(--#{$prefix}-color-button-secondary-fill-pressed),
+    fill-disabled: var(--#{$prefix}-color-button-disabled-fill),
+    border: var(--#{$prefix}-color-button-secondary-border),
+    border-disabled: var(--#{$prefix}-color-button-disabled-border),
+    text: var(--#{$prefix}-text-basic),
+    text-disabled: var(--#{$prefix}-color-text-disabled-on),
+  ),
+  tertiary: (
+    fill: var(--#{$prefix}-color-button-tertiary-fill),
+    fill-hover: var(--#{$prefix}-color-button-tertiary-fill-hover),
+    fill-pressed: var(--#{$prefix}-color-button-tertiary-fill-pressed),
+    fill-disabled: var(--#{$prefix}-color-button-disabled-fill),
+    border: var(--#{$prefix}-color-button-tertiary-fill),
+    border-disabled: var(--#{$prefix}-color-button-disabled-border),
+    text: var(--#{$prefix}-text-basic),
+    text-disabled: var(--#{$prefix}-color-text-disabled-on),
+  ),
+  "black": (
+    fill: var(--#{$prefix}-color-button-black-fill),
+    fill-hover: var(--#{$prefix}-color-button-black-fill-hover),
+    fill-pressed: var(--#{$prefix}-color-button-black-fill-pressed),
+    fill-disabled: var(--#{$prefix}-color-button-disabled-fill),
+    border: var(--#{$prefix}-color-button-black-fill),
+    border-disabled: var(--#{$prefix}-color-button-disabled-border),
+    text: var(--#{$prefix}-color-text-white),
+    text-disabled: var(--#{$prefix}-color-text-disabled-on),
+  ),
+) !default;
+
+// 3. 아이콘 사이즈 맵
+$button-icon-size: (
+  xsmall: 1.2rem,
+  small: 1.4rem,
+  medium: 1.6rem,
+  large: 2rem,
+  xlarge: 2.4rem,
+  xxlarge: 3rem,
+  xxxlarge: 3.2rem,
+) !default;
+
+// [Mixin] 사이즈 CSS 변수 정의
+@mixin button-size-variable() {
   @each $size, $types in $button-size {
     @each $type, $value in $types {
-      // css variable 생성
       --#{$prefix}-button--#{$type}-#{$size}: #{$value};
-    }
-  }
-
-  // class 정의
-  & {
-    @include btn-size(large);
-
-    & {
-      @each $size, $types in $button-size {
-        &.#{$size} {
-          @include btn-size(#{$size});
-        }
-      }
     }
   }
 }
 
-// 컬러 정의
-@mixin button-color-variable($mode) {
-  // 변수 배열 정의
-  $button-color-variable: (
-    primary: (
-      fill: var(--#{$prefix}-#{$mode}-color-button-primary-fill),
-      fill-hover: var(--#{$prefix}-#{$mode}-color-button-primary-fill-hover),
-      fill-pressed: var(--#{$prefix}-#{$mode}-color-button-primary-fill-pressed),
-      fill-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-fill),
-      border: var(--#{$prefix}-#{$mode}-color-button-primary-fill),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-fill),
-      text: var(--#{$prefix}-#{$mode}-color-text-inverse-static),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled-on),
-    ),
-    secondary: (
-      fill: var(--#{$prefix}-#{$mode}-color-button-secondary-fill),
-      fill-hover: var(--#{$prefix}-#{$mode}-color-button-secondary-fill-hover),
-      fill-pressed: var(--#{$prefix}-#{$mode}-color-button-secondary-fill-pressed),
-      fill-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-fill),
-      border: var(--#{$prefix}-#{$mode}-color-button-secondary-border),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-border),
-      text: var(--#{$prefix}-#{$mode}-color-text-secondary),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled-on),
-    ),
-    tertiary: (
-      fill: var(--#{$prefix}-#{$mode}-color-button-tertiary-fill),
-      fill-hover: var(--#{$prefix}-#{$mode}-color-button-tertiary-fill-hover),
-      fill-pressed: var(--#{$prefix}-#{$mode}-color-button-tertiary-fill-pressed),
-      fill-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-fill),
-      border: var(--#{$prefix}-#{$mode}-color-button-tertiary-border),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-button-disabled-border),
-      text: var(--#{$prefix}-#{$mode}-color-text-basic),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled-on),
-    ),
-    text-primary: (
-      fill: var(--#{$prefix}-#{$mode}-color-button-text-fill),
-      fill-hover: var(--#{$prefix}-#{$mode}-color-button-text-fill-hover),
-      fill-pressed: var(--#{$prefix}-#{$mode}-color-button-text-fill-pressed),
-      fill-disabled: var(--#{$prefix}-#{$mode}-color-button-text-fill),
-      border: var(--#{$prefix}-#{$mode}-color-button-text-border),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      text: var(--#{$prefix}-#{$mode}-color-text-secondary),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled),
-    ),
-    text-secondary: (
-      fill: var(--#{$prefix}-#{$mode}-color-button-text-fill),
-      fill-hover: var(--#{$prefix}-#{$mode}-color-button-text-fill-hover),
-      fill-pressed: var(--#{$prefix}-#{$mode}-color-button-text-fill-pressed),
-      fill-disabled: var(--#{$prefix}-#{$mode}-color-button-text-fill),
-      border: var(--#{$prefix}-#{$mode}-color-button-text-border),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      text: var(--#{$prefix}-#{$mode}-color-text-basic),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled),
-    ),
-    link-primary: (
-      border: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      text: var(--#{$prefix}-#{$mode}-color-link-default),
-      text-hover: var(--#{$prefix}-#{$mode}-color-link-hover),
-      text-pressed: var(--#{$prefix}-#{$mode}-color-link-pressed),
-      text-visited: var(--#{$prefix}-#{$mode}-color-link-visited),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled),
-    ),
-    link-subtle: (
-      border: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      border-disabled: var(--#{$prefix}-#{$mode}-color-border-transparency),
-      text: var(--#{$prefix}-#{$mode}-color-text-basic),
-      text-hover: var(--#{$prefix}-#{$mode}-color-link-hover),
-      text-pressed: var(--#{$prefix}-#{$mode}-color-link-pressed),
-      text-visited: var(--#{$prefix}-#{$mode}-color-link-visited),
-      text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled),
-    ),
-  ) !default;
+// [Mixin] 컬러 CSS 변수 정의
+@mixin button-color-variable() {
+  --#{$prefix}-color-button-primary-fill: var(--hwf-color-primary-60);
+  --#{$prefix}-color-button-primary-fill-hover: var(--hwf-color-primary-70);
+  --#{$prefix}-color-button-primary-fill-pressed: var(--hwf-color-primary-80);
 
-  // css variable 생성
+  --#{$prefix}-color-button-secondary-fill: var(--hwf-color-secondary-10);
+  --#{$prefix}-color-button-secondary-fill-hover: var(--hwf-color-secondary-20);
+  --#{$prefix}-color-button-secondary-fill-pressed: var(--hwf-color-secondary-30);
+  --#{$prefix}-color-button-secondary-border: var(--hwf-orange-20);
+
+  --#{$prefix}-color-button-tertiary-fill: #f3f2f1;
+  --#{$prefix}-color-button-tertiary-fill-hover: #ddd;
+  --#{$prefix}-color-button-tertiary-fill-pressed: #ddd;
+
+  --#{$prefix}-color-button-black-fill: #121212;
+  --#{$prefix}-color-button-black-fill-hover: #000;
+  --#{$prefix}-color-button-black-fill-pressed: #000;
+
+  --#{$prefix}-color-button-disabled-fill: #cdd1d5;
+  --#{$prefix}-color-button-disabled-border: #cdd1d5;
+
+  --#{$prefix}-color-button-text-fill: #ffffff00; // transparent
+  --#{$prefix}-color-button-text-fill-hover: #f5f5f5;
+  --#{$prefix}-color-button-text-fill-pressed: #eee;
+
+  // --#{$prefix}-color-text-primary: var(--hwf-color-primary-60);
+  // --#{$prefix}-color-text-secondary: var(--hwf-color-primary-30);
+  // --#{$prefix}-color-text-disabled-on: #6d7882;
+  // --#{$prefix}-color-text: #333333;
+  // --#{$prefix}-color-disabled-text: #aaa;
+  --#{$prefix}-color-transparency-border: #0000;
+
+  // 맵을 기반으로 CSS 변수 생성
   @each $color, $types in $button-color-variable {
     @each $type, $value in $types {
       --#{$prefix}-button--color-#{$color}-#{$type}: #{$value};
     }
   }
+}
 
-  // class 생성
+@mixin btn-size($size) {
+  gap: var(--#{$prefix}-button--gap-#{$size});
+  height: var(--#{$prefix}-button--size-height-#{$size});
+  // min-height: var(--#{$prefix}-button--size-height-#{$size});
+  padding: var(--#{$prefix}-button--padding-y-#{$size}) var(--#{$prefix}-button--padding-x-#{$size});
+  border-radius: var(--#{$prefix}-button--radius-#{$size});
+  font-size: var(--#{$prefix}-button--mobile-font-size-#{$size});
+  font-weight: 400;
+
+  @include mq(tablet) {
+    font-size: var(--#{$prefix}-button--tablet-font-size--#{$size});
+  }
+
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-button--pc-font-size--#{$size});
+  }
+
+  // 아이콘 크기 변수명에서 'text-' 또는 'link-' 접두사를 제거합니다.
+  $icon-size-unit: $size;
+  @if string.index(#{$size}, "text-") == 1 {
+    $icon-size-unit: string.slice(#{$size}, 6);
+  } @else if string.index(#{$size}, "link-") == 1 {
+    $icon-size-unit: string.slice(#{$size}, 6);
+  }
+
   & {
-    @include btn-color(primary);
-
-    & {
-      // 컬러 별 class
-      @each $color, $types in $button-color-variable {
-        &.#{$color} {
-          @include btn-color(#{$color});
-
-          &:not(.icon) {
-            .svg-icon {
-              @include btn-color-icon(#{$color});
-            }
-          }
-
-          &:hover {
-            @include btn-color-hover(#{$color});
-          }
-
-          &:active,
-          &:focus {
-            @include btn-color-pressed(#{$color});
-          }
-
-          &[disabled],
-          &.disabled {
-            @include btn-color-disabled(#{$color});
-
-            &:not(.icon) {
-              .svg-icon {
-                background-color: var(--#{$prefix}-button--color-#{$color}-text-disabled);
-              }
-            }
-
-            &:hover {
-              @include btn-color-disabled(#{$color});
-            }
-          }
-        }
-      }
+    .ico {
+      // @include square(var(--#{$prefix}-icon--size-#{$icon-size-unit}));
+      @include square(var(--#{$prefix}-button--icon-size-#{$size}));
     }
   }
 }
-
-/* icon 버튼 사이즈 */
-$button-icon-size: (
-  xsmall: var(--#{$prefix}-size-xxxsmall),
-  small: var(--#{$prefix}-size-xxsmall),
-  medium: var(--#{$prefix}-size-xsmall),
-  large: var(--#{$prefix}-size-small),
-  xlarge: var(--#{$prefix}-size-medium),
-) !default;
 
 // 컬러별 variable
 @mixin btn-color($color) {
@@ -294,136 +213,134 @@ $button-icon-size: (
 }
 
 @mixin btn-color-icon($color) {
-  background-color: var(--#{$prefix}-button--color-#{$color}-text);
+  background-color: var(--#{$prefix}-color-#{$color}-text);
 }
 
 .#{$prefix}-btn {
   @include button-size-variable;
-}
+  @include button-color-variable;
 
-.#{$prefix}-btn {
-  @include button-color-variable(map.get($modes, 'light'));
+  // 기본버튼: black large
+  @include flex-layout($d: inline-flex, $ai: center, $jc: center);
+  width: auto;
+  border-style: solid;
+  border-width: 0.1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--#{$prefix}-transition-base);
 
-  & {
-    // 기본버튼: primary large
-    @include flex-layout($d: inline-flex, $ai: center, $jc: center);
+  @include btn-size(large);
+  @include btn-color(black);
 
-    width: auto;
-    border-style: solid;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: var(--#{$prefix}-transition-base);
+  @each $size, $types in $button-size {
+    &.#{$size} {
+      @include btn-size(#{$size});
+    }
+  }
+  @each $color, $types in $button-color-variable {
+    &.#{$color} {
+      @include btn-color(#{$color});
 
-    @include border-size-mode(map.get($modes, 'light'));
+      &:hover {
+        @include btn-color-hover(#{$color});
+      }
+
+      &:active,
+      &:focus {
+        @include btn-color-pressed(#{$color});
+      }
+
+      &[disabled],
+      &.disabled {
+        @include btn-color-disabled(#{$color});
+
+        cursor: default;
+
+        &:hover {
+          @include btn-color-disabled(#{$color});
+        }
+      }
+    }
   }
 
   .svg-icon {
-    @include btn-color-icon(primary);
-
+    @include btn-color-icon(white);
     transition: var(--#{$prefix}-transition-base);
   }
 
   &:hover {
-    @include btn-color-hover(primary);
+    @include btn-color-hover(black);
   }
 
   &:active,
   &:focus {
-    @include btn-color-pressed(primary);
+    @include btn-color-pressed(black);
   }
 
   &[disabled],
   &.disabled {
-    @include btn-color-disabled(primary);
+    @include btn-color-disabled(black);
 
     cursor: default;
 
     &:hover {
-      @include btn-color-disabled(primary);
+      @include btn-color-disabled(black);
     }
   }
 
-  &[class*='text-'] {
-    // large 사이즈 기준 기본 세팅수정
-    & {
-      align-items: center;
-      white-space: normal;
-    }
-
-    &.h-auto {
-      height: auto;
-      padding: var(--#{$prefix}-padding-1) !important;
-    }
+  &.text {
+    padding: 0;
+    height: auto;
+    color: #121212;
+    // background-color: var(--#{$prefix}-color-button-text-fill);
+    background-color: transparent;
+    border-color: transparent;
 
     .svg-icon {
-      display: inline-block;
+      background-color: var(--#{$prefix}-color-default-text);
     }
-  }
 
-  &[class*='link-'] {
-    // 링크인 경우 (텍스트 버튼과 비슷해보이지만 높이값 없음)
-    // @include btn-link-variable;
-
-    // large 사이즈 기준 기본 세팅수정
-    
-    height: auto !important;
-    text-decoration: underline;
-    background-color: transparent;
-    text-align: left;
-    white-space: normal;
+    &.primary {
+      color: var(--#{$prefix}-color-text-primary);
+      .svg-icon {
+        background-color: var(--#{$prefix}-color-text-primary);
+      }
+    }
+    &.secondary {
+      color: var(--#{$prefix}-color-text-secondary);
+      .svg-icon {
+        background-color: var(--#{$prefix}-color-text-secondary);
+      }
+    }
 
     &:hover {
-      $color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-link-hover);
-
-      color: $color;
-
-      .svg-icon {
-        background-color: $color;
-      }
     }
-
     &:active,
     &:focus {
-      $color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-link-pressed);
-
-      color: $color;
+    }
+    &[disabled],
+    &.disabled {
+      color: var(--#{$prefix}-color-text-disabled-on);
       background-color: transparent;
+      border-color: transparent;
 
-      .svg-icon {
-        background-color: $color;
+      &:hover {
+        background-color: transparent;
+        border-color: transparent;
       }
     }
+  }
 
-    &:visited {
-      $color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-link-visited);
-
-      color: $color;
-
-      .svg-icon {
-        background-color: $color;
-      }
-    }
-
-    &.underline {
-      &.hidden-underline {
-        text-decoration-color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-transparency);
-        transition: var(--#{$prefix}-transition-base);
-      }
-    }
-
-    &:hover,
-    &:active,
-    &:focus,
-    &:visited {
-      .underline {
-        &.hidden-underline {
-          text-decoration-color: inherit;
-        }
-      }
-    }
+  &.line {
+    color: var(--#{$prefix}-color-text-basic);
+    background-color: transparent;
+    border-color: #333333;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
 
     .svg-icon {
-      display: inline-block;
+      background-color: #333;
     }
   }
 
@@ -434,205 +351,97 @@ $button-icon-size: (
     }
 
     // 기본 세팅
-    @include square(var(--#{$prefix}-button--icon-size-medium));
-
+    @include square(var(--#{$prefix}-button--icon-size-large));
     padding: 0 !important;
     background-color: transparent;
-    border-color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-transparency);
+    border-color: transparent;
+    // border-color: var(--#{$prefix}-color-transparency-border);
     color: inherit;
-    border-width: 0;
 
     &:hover,
     &:active {
       background-color: inherit;
     }
 
-    & {
-      @each $size, $value in $button-icon-size {
-        &.#{$size} {
-          @include square(var(--#{$prefix}-button--icon-size-#{$size}));
+    @each $size, $value in $button-icon-size {
+      &.#{$size} {
+        @include square(var(--#{$prefix}-button--icon-size-#{$size}));
 
-          // icon size
-          .svg-icon {
-            @include square(100%);
-          }
+        // icon size
+        .svg-icon {
+          @include square(100%);
         }
       }
     }
 
     .svg-icon {
-      background-color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-text-basic);
-    }
-
-    &.pure {
-      .svg-icon {
-        background-color: transparent;
-      }
+      background-color: var(--#{$prefix}-color-default-text);
     }
 
     // 새로고침, 토글 등 보더 아이콘 버튼 형태
-    &.border {
-      background-color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-action-default);
-      border: 0.1rem solid var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-neutral-light);
-      border-radius: var(--#{$prefix}-radius-full);
+    // &.border {
+    //   background-color: var(--#{$prefix}-color-action-default);
+    //   border: 0.1rem solid var(--#{$prefix}-color-border-neutral-light);
+    //   border-radius: var(--#{$prefix}-radius-full);
 
-      // icon size 1.6rem
-      &.large {
-        .svg-icon {
-          @include square(var(--#{$prefix}-icon--size-xsmall));
-        }
-      }
+    //   // icon size 1.6rem
+    //   &.large {
+    //     .svg-icon {
+    //       @include square(var(--#{$prefix}-icon--size-xsmall));
+    //     }
+    //   }
 
-      &.xlarge {
-        .svg-icon {
-          @include square(var(--#{$prefix}-icon--size-xlarge));
-        }
-      }
+    //   &.xlarge {
+    //     .svg-icon {
+    //       @include square(var(--#{$prefix}-icon--size-xlarge));
+    //     }
+    //   }
 
-      &[disabled],
-      &.disabled {
-        background-color: var(--#{$prefix}-#{map.get($modes, 'light')}-color-button-disabled-fill);
-      }
-    }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-btn {
-    @include border-size-mode(map.get($modes, 'high-contrast'));
-    @include button-color-variable(map.get($modes, 'high-contrast'));
-
-    &.text {
-      // class명 검토
-      &.ico-filter {
-        .num {
-          color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-text-basic-inverse);
-          background-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-element-primary);
-        }
-      }
-    }
-
-    &.link {
-      &.basic {
-        $color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-text-basic);
-
-        color: $color;
-
-        &:not(.icon) {
-          .svg-icon {
-            background-color: $color;
-          }
-        }
-
-        &.pure {
-          &:hover,
-          &:active,
-          &:focus,
-          &:visited {
-            color: $color;
-
-            .svg-icon {
-              background-color: $color;
-            }
-          }
-        }
-      }
-
-      &:hover {
-        $color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-link-hover);
-
-        color: $color;
-
-        &:not(.icon) {
-          .svg-icon {
-            background-color: $color;
-          }
-        }
-      }
-
-      &:active,
-      &:focus {
-        $color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-link-pressed);
-
-        color: $color;
-
-        &:not(.icon) {
-          .svg-icon {
-            background-color: $color;
-          }
-        }
-      }
-
-      &:visited {
-        $color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-link-visited);
-
-        color: $color;
-
-        &:not(.icon) {
-          .svg-icon {
-            background-color: $color;
-          }
-        }
-      }
-
-      &.pure {
-        &:hover,
-        &:active,
-        &:focus,
-        &:visited {
-          $color: var(--#{$prefix}-button--color-link-text);
-
-          color: $color;
-
-          .svg-icon {
-            background-color: $color;
-          }
-        }
-      }
-
-      .underline {
-        &.hidden-underline {
-          text-decoration-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-border-transparency);
-        }
-      }
-
-      &:hover,
-      &:active,
-      &:focus,
-      &:visited {
-        .underline {
-          &.hidden-underline {
-            text-decoration-color: inherit;
-          }
-        }
-      }
-    }
-
-    /* icon 버튼 (텍스트 없음) */
-    &.icon {
-      background-color: transparent;
-      border-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-border-transparency);
-
-      .svg-icon {
-        background-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-text-basic);
-      }
-
-      // 새로고침, 토글 등 보더 아이콘 버튼 형태
-      &.border {
-        background-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-background-white);
-        border-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-border-gray);
-
-        &[disabled],
-        &.disabled {
-          background-color: var(--#{$prefix}-#{map.get($modes, 'high-contrast')}-color-button-disabled-fill);
-        }
-      }
-    }
+    //   &[disabled],
+    //   &.disabled {
+    //     background-color: var(--#{$prefix}-#{map.get($modes, "light")}-color-button-disabled-fill);
+    //   }
+    // }
   }
 }
 
 /* **** button area **** */
 .btn-wrap {
+  display: flex;
   width: 100%;
+  gap: 0.8rem;
+
+  &.column {
+    flex-direction: column;
+
+    .#{$prefix}-btn {
+      flex: none;
+    }
+  }
+
+  &.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &:has(.#{$prefix}-btn.line) {
+    &.column {
+      gap: 0;
+
+      .line + .line {
+        border-top: 0;
+      }
+    }
+    &.grid-3 {
+      gap: 0 4rem;
+
+      .line:nth-child(n + 4) {
+        border-top: 0;
+      }
+    }
+  }
+
+  .#{$prefix}-btn {
+    flex: 1;
+  }
 }

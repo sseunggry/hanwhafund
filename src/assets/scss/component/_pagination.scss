@@ -4,43 +4,43 @@
 /* 페이지네이션 */
 // 사이즈 정의
 @mixin pagination-size-variable() {
-  --#{$prefix}-pagination--gap: var(--#{$prefix}-gap-7) var(--#{$prefix}-gap-3);
+  --#{$prefix}-pagination--gap: 2.4rem 0.8rem;
   --#{$prefix}-pagination--large-margin-top: var(--#{$prefix}-large-gap-layout-title-body-large);
   --#{$prefix}-pagination--medium-margin-top: var(--#{$prefix}-medium-gap-layout-title-body-large);
   --#{$prefix}-pagination--small-margin-top: var(--#{$prefix}-small-gap-layout-title-body-large);
-  --#{$prefix}-pagination--large-font-size: var(--#{$prefix}-large-font-size-body-medium);
-  --#{$prefix}-pagination--medium-font-size: var(--#{$prefix}-medium-font-size-body-medium);
-  --#{$prefix}-pagination--small-font-size: var(--#{$prefix}-small-font-size-body-medium);
-  --#{$prefix}-pagination--navi-large-font-size: var(--#{$prefix}-large-font-size-label-medium);
-  --#{$prefix}-pagination--navi-medium-font-size: var(--#{$prefix}-medium-font-size-label-medium);
-  --#{$prefix}-pagination--navi-small-font-size: var(--#{$prefix}-small-font-size-label-medium);
-  --#{$prefix}-pagination--navi-padding: var(--#{$prefix}-padding-1);
-  --#{$prefix}-pagination--navi-gap: var(--#{$prefix}-gap-2);
-  --#{$prefix}-pagination--navi-size: var(--#{$prefix}-size-small);
+  --#{$prefix}-pagination--pc-font-size: 1.6rem;
+  --#{$prefix}-pagination--tablet-font-size: 1.6rem;
+  --#{$prefix}-pagination--mobile-font-size: 1.6rem;
+  --#{$prefix}-pagination--navi-pc-font-size: 1.6rem;
+  --#{$prefix}-pagination--navi-tablet-font-size: 1.6rem;
+  --#{$prefix}-pagination--navi-mobile-font-size: 1.6rem;
+  --#{$prefix}-pagination--navi-padding: 0.2rem;
+  --#{$prefix}-pagination--navi-gap: 0.4rem;
+  --#{$prefix}-pagination--navi-size: 3.2rem;
   --#{$prefix}-pagination--number-size: var(--#{$prefix}-size-medium);
-  --#{$prefix}-pagination--icon-size: var(--#{$prefix}-size-xxsmall);
-  --#{$prefix}-pagination--radius: var(--#{$prefix}-radius-medium);
-  --#{$prefix}-pagination--total-large-font-size: var(--#{$prefix}-large-font-size-body-small);
-  --#{$prefix}-pagination--total-medium-font-size: var(--#{$prefix}-medium-font-size-body-small);
-  --#{$prefix}-pagination--total-small-font-size: var(--#{$prefix}-small-font-size-body-small);
+  --#{$prefix}-pagination--icon-size: 2rem;
+  --#{$prefix}-pagination--radius: 1rem;
+  --#{$prefix}-pagination--total-pc-font-size: 1.5rem;
+  --#{$prefix}-pagination--total-tablet-font-size: 1.5rem;
+  --#{$prefix}-pagination--total-mobile-font-size: 1.5rem;
   --#{$prefix}-pagination--total-padding-left: var(--#{$prefix}-padding-2);
-  --#{$prefix}-pagination--total-padding-right: var(--#{$prefix}-padding-5);
+  --#{$prefix}-pagination--total-padding-right: 1.2rem;
 }
 
 // 컬러 정의
-@mixin pagination-color-variable($mode: light) {
-  --#{$prefix}-pagination--color-text: var(--#{$prefix}-#{$mode}-color-text-subtle);
-  --#{$prefix}-pagination--color-text-active: var(--#{$prefix}-#{$mode}-color-text-inverse-static);
-  --#{$prefix}-pagination--color-text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-pagination--color-action-inactive: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-pagination--color-action-hover: var(--#{$prefix}-#{$mode}-color-action-neutral-hover);
-  --#{$prefix}-pagination--color-action-pressed: var(--#{$prefix}-#{$mode}-color-action-neutral-pressed);
-  --#{$prefix}-pagination--color-action-active: var(--#{$prefix}-#{$mode}-color-action-neutral-active);
-  --#{$prefix}-pagination--color-action-disabled: var(--#{$prefix}-#{$mode}-color-action-transparency);
+@mixin pagination-color-variable() {
+  --#{$prefix}-pagination--color-text: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-pagination--color-text-active: var(--#{$prefix}-color-text-white);
+  --#{$prefix}-pagination--color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-pagination--color-action-inactive: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-pagination--color-action-hover: var(--#{$prefix}-color-action-neutral-hover);
+  --#{$prefix}-pagination--color-action-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-pagination--color-action-active: var(--#{$prefix}-color-action-neutral-active);
+  --#{$prefix}-pagination--color-action-disabled: var(--#{$prefix}-color-action-transparency);
 }
 
 .#{$prefix}-pagination {
-  @include pagination-color-variable(map.get($modes, 'light'));
+  @include pagination-color-variable();
   @include pagination-size-variable;
 
   & {
@@ -51,11 +51,11 @@
     margin-top: var(--#{$prefix}-pagination--large-margin-top);
     color: var(--#{$prefix}-pagination--color-text);
 
-		@include size-medium-to-large {
+		@include mq(tablet) {
 			margin-top: var(--#{$prefix}-pagination--medium-margin-top);
 		}
 
-		@include size-medium {
+		@include mq(mobile) {
 			margin-top: var(--#{$prefix}-pagination--small-margin-top);
 		}
   }
@@ -81,14 +81,14 @@
 		gap: var(--#{$prefix}-pagination--navi-gap);
 		padding: 0 var(--#{$prefix}-pagination--navi-padding);
 		height: var(--#{$prefix}-pagination--navi-size);
-		font-size: var(--#{$prefix}-pagination--navi-large-font-size);
+		font-size: var(--#{$prefix}-pagination--navi-pc-font-size);
 
-		@include size-medium-to-large {
-			font-size: var(--#{$prefix}-pagination--navi-medium-font-size);
+		@include mq(tablet) {
+			font-size: var(--#{$prefix}-pagination--navi-tablet-font-size);
 		}
 
-		@include size-medium {
-			font-size: var(--#{$prefix}-pagination--navi-small-font-size);
+		@include mq(mobile) {
+			font-size: var(--#{$prefix}-pagination--navi-mobile-font-size);
 		}
 
     &.prev {
@@ -97,8 +97,8 @@
       &::before {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo;
-        @include svg-icon($size: var(--#{$prefix}-pagination--icon-size), $mode: light);
-        @include icon-set(ico_angle);
+        @include svg-icon($size: var(--#{$prefix}-pagination--icon-size));
+        @include icon-set(angle);
 
         background-color: var(--#{$prefix}-pagination--color-text);
         transform: rotate(90deg);
@@ -111,8 +111,8 @@
       &::after {
         @include flex-layout($d: inline-flex, $jc: center, $ai: center);
         @include pseudo;
-        @include svg-icon($size: var(--#{$prefix}-pagination--icon-size), $mode: light);
-        @include icon-set(ico_angle);
+        @include svg-icon($size: var(--#{$prefix}-pagination--icon-size));
+        @include icon-set(angle);
 
         background-color: var(--#{$prefix}-pagination--color-text);
         transform: rotate(-90deg);
@@ -140,23 +140,23 @@
     @include flex-layout($jc: center, $ai: center);
 
     order: 2;
-    gap: var(--#{$prefix}-gap-3);
+    gap: 0.8rem;
 
     .page-link {
       @include square(var(--#{$prefix}-pagination--number-size));
-			font-size: var(--#{$prefix}-pagination--large-font-size);
+			font-size: var(--#{$prefix}-pagination--pc-font-size);
 			
-			@include size-medium-to-large {
-				font-size: var(--#{$prefix}-pagination--medium-font-size);
+			@include mq(tablet) {
+				font-size: var(--#{$prefix}-pagination--tablet-font-size);
 			}
 	
-			@include size-medium {
-				font-size: var(--#{$prefix}-pagination--small-font-size);
+			@include mq(mobile) {
+				font-size: var(--#{$prefix}-pagination--mobile-font-size);
 			}
 
       &.link-dot {
-        @include svg-icon($mode: light);
-        @include icon-set(ico_ellipsis);
+        @include svg-icon();
+        @include icon-set(ellipsis);
       }
 
       &.active {
@@ -174,54 +174,24 @@
 	//select
 	.#{$prefix}-form-select{
 		width: auto;
-		font-size: var(--#{$prefix}-pagination--total-large-font-size);
+		font-size: var(--#{$prefix}-pagination--total-pc-font-size);
 
 		+ .page-total{
 			padding: 0 var(--#{$prefix}-pagination--total-padding-right) 0 var(--#{$prefix}-pagination--total-padding-left);
-			font-size: var(--#{$prefix}-pagination--total-large-font-size);
+			font-size: var(--#{$prefix}-pagination--total-pc-font-size);
 
-			@include size-medium-to-large {
-				font-size: var(--#{$prefix}-pagination--total-medium-font-size);
+			@include mq(tablet) {
+				font-size: var(--#{$prefix}-pagination--total-tablet-font-size);
 			}
 	
-			@include size-medium {
-				font-size: var(--#{$prefix}-pagination--total-small-font-size);
+			@include mq(mobile) {
+				font-size: var(--#{$prefix}-pagination--total-mobile-font-size);
 			}
 		}
 	}
 }
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-pagination {
-    @include pagination-color-variable(map.get($modes, 'high-contrast'));
-
-    .page-navi {
-      &.prev {
-        &::before {
-          @include svg-icon($size: var(--#{$prefix}-pagination--icon-size), $mode: map.get($modes, 'high-contrast'));
-        }
-      }
-
-      &.next {
-        &::after {
-          @include svg-icon($size: var(--#{$prefix}-pagination--icon-size), $mode: map.get($modes, 'high-contrast'));
-        }
-      }
-    }
-
-    .page-links {
-      .page-link {
-        &.link-dot {
-          @include svg-icon($mode: map.get($modes, 'high-contrast'));
-        }
-      }
-    }
-  }
-}
-
 // 태블릿 & 모바일 전용 속성
-@include size-medium {
+@include mq(mobile) {
   .#{$prefix}-pagination {
     .page-links {
 			.page-link{
@@ -237,7 +207,7 @@
 		//number button
 		&.type-number-button{
 			flex-wrap: wrap;
-			gap: var(--#{$prefix}-gap-5) var(--#{$prefix}-gap-9);
+			gap: 1.6rem var(--#{$prefix}-gap-9);
 			.page-links {
 				width: 100%;
 			}

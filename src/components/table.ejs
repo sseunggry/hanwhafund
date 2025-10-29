@@ -1,0 +1,61 @@
+<%
+  const localsSafe = locals || {};
+  const caption = localsSafe.captionTitle || ''; 
+  const thead = Array.isArray(localsSafe.thead) ? localsSafe.thead : [];
+  const tbody = Array.isArray(localsSafe.tbody) ? localsSafe.tbody : [];
+  const addClass = localsSafe.addClass || '';
+  const colWidths = Array.isArray(localsSafe.colWidths) ? localsSafe.colWidths : [];
+  const rowHeaders = localsSafe.rowHeaders === true;
+  const colCount = thead.length; // 컬럼 수
+  const captionSummary = thead.join(', ');
+
+  const wrapClasses = [
+    'tbl-wrap', // 기본 래퍼 클래스
+    addClass
+  ].filter(Boolean).join(' ');
+%>
+<% if (colCount > 0 || tbody.length > 0) { -%>
+<div class="<%= wrapClasses %>">
+  <table class="tbl">
+    <caption>
+      <% if (caption) { -%><strong><%- caption %></strong><% } -%>
+      <span><%- captionSummary %>로 구성된 표</span>
+    </caption>
+    <% if (colCount > 0) { -%>
+    <colgroup>
+      <% for (let i = 0; i < colCount; i++) { -%>
+        <% if (colWidths[i]) { -%>
+          <col style="width: <%= colWidths[i] %>;" />
+        <% } else { -%>
+          <col />
+        <% } -%>
+      <% } -%>
+    </colgroup>
+    <% } -%>
+    <% if (colCount > 0) { -%>
+    <thead>
+      <tr>
+        <% thead.forEach(header => { -%>
+        <th scope="col"><%- header %></th>
+        <% }); -%>
+      </tr>
+    </thead>
+    <% } -%>
+    <% if (tbody.length > 0) { -%>
+    <tbody>
+      <% tbody.forEach(td => { -%>
+      <tr>
+        <% td.forEach((cell, index) => { -%>
+          <% if (index === 0 && rowHeaders) { -%>
+            <th scope="row"><%- cell %></th>
+          <% } else { -%>
+            <td><%- cell %></td>
+          <% } -%>
+        <% }); -%>
+      </tr>
+      <% }); -%>
+    </tbody>
+    <% } -%>
+  </table>
+</div>
+<% } -%>

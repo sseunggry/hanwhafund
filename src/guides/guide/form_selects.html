@@ -15,7 +15,7 @@
 
         <section class="section">
           <div class="tit-xsm">
-            <span class="txt">SelectBox Primary</span>
+            <span class="txt">SelectBox 기본(박스형)</span>
           </div>
 
           <div class="group">
@@ -34,6 +34,46 @@
           <div class="group">
             <div class="hls_preview">
               <%- include('../../components/select.ejs', {
+                // title: "통신사",
+                placeholder: "통신사를 선택하세요",
+                size: 'medium',
+                // required: true,
+                options: [
+                  { value: 'lg', text: 'LG U+' },
+                  { value: 'kt', text: 'KT' },
+                  { value: 'skt', text: 'SKT' }
+                ]
+              }) -%>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">SelectBox outline</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>셀렉트박스 기본형태</li>
+                <li>모바일 : 바텀시트 팝업 / PC : 드롭다운 메뉴</li>
+                <li>
+                  필수입력 .bullet-must는 .label-txt상이 아닌 단독으로도
+                  사용가능(모듈 &gt; 리스트 참조)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <%- include('../../components/select.ejs', {
+                variant: 'outline',
                 title: "통신사",
                 placeholder: "통신사를 선택하세요",
                 size: 'large',
@@ -42,6 +82,46 @@
                   { value: 'lg', text: 'LG U+' },
                   { value: 'kt', text: 'KT' },
                   { value: 'skt', text: 'SKT' }
+                ]
+              }) -%>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">SelectBox text</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>셀렉트박스 기본형태</li>
+                <li>모바일 : 바텀시트 팝업 / PC : 드롭다운 메뉴</li>
+                <li>
+                  필수입력 .bullet-must는 .label-txt상이 아닌 단독으로도
+                  사용가능(모듈 &gt; 리스트 참조)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <%- include('../../components/select.ejs', {
+                // title: "통신사",
+                variant: 'text',
+                placeholder: "선택하세요",
+                size: 'xlarge',
+                // required: true,
+                options: [
+                  { value: 'c', text: 'C-e(수수료미징구-온라인)' },
+                  { value: 'b', text: 'B-e(수수료미징구-온라인)' },
+                  { value: 'd', text: 'D-e(수수료미징구-온라인)' }
                 ]
               }) -%>
             </div>

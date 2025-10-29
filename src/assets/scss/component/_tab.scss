@@ -4,44 +4,44 @@
 /* 탭 */
 // 사이즈 정의
 @mixin tab-size-variable() {
-  --#{$prefix}-tab--button-size-height: var(--#{$prefix}-size-large);
+  --#{$prefix}-tab--button-size-height: 4.8rem;
   --#{$prefix}-tab--button-size-min-width: 4.8rem;
-  --#{$prefix}-tab--button-large-font-size: var(--#{$prefix}-large-font-size-heading-medium);
-  --#{$prefix}-tab--button-medium-font-size: var(--#{$prefix}-medium-font-size-heading-medium);
-  --#{$prefix}-tab--button-small-font-size: var(--#{$prefix}-small-font-size-heading-medium);
-  --#{$prefix}-tab--gap: var(--#{$prefix}-gap-3);
-  --#{$prefix}-tab--full-button-size-height: var(--#{$prefix}-size-large);
-  --#{$prefix}-tab--full-button-large-font-size: var(--#{$prefix}-large-font-size-heading-xsmall);
-  --#{$prefix}-tab--full-button-medium-font-size: var(--#{$prefix}-medium-font-size-heading-xsmall);
-  --#{$prefix}-tab--full-button-small-font-size: var(--#{$prefix}-small-font-size-heading-xsmall);
-  --#{$prefix}-tab--line-button-padding: var(--#{$prefix}-padding-3);
-  --#{$prefix}-tab--bg-button-padding: var(--#{$prefix}-padding-5);
+  --#{$prefix}-tab--button-pc-font-size: var(--#{$prefix}-pc-font-size--heading-medium);
+  --#{$prefix}-tab--button-tablet-font-size: var(--#{$prefix}-tablet-font-size--heading-medium);
+  --#{$prefix}-tab--button-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-medium);
+  --#{$prefix}-tab--gap: 0.8rem;
+  --#{$prefix}-tab--full-button-size-height: 4.8rem;
+  --#{$prefix}-tab--full-button-pc-font-size: var(--#{$prefix}-pc-font-size--heading-xsmall);
+  --#{$prefix}-tab--full-button-tablet-font-size: var(--#{$prefix}-tablet-font-size--heading-xsmall);
+  --#{$prefix}-tab--full-button-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall);
+  --#{$prefix}-tab--line-button-padding: 0.8rem;
+  --#{$prefix}-tab--bg-button-padding: 1.2rem;
   --#{$prefix}-tab--bg-button-radius: var(--#{$prefix}-radius-full);
-  --#{$prefix}-tab--bg-button-large-font-size: var(--#{$prefix}-large-font-size-heading-xsmall);
+  --#{$prefix}-tab--bg-button-pc-font-size: var(--#{$prefix}-pc-font-size--heading-xsmall);
   --#{$prefix}-tab--bg-button-size-height: var(--#{$prefix}-size-medium);
   --#{$prefix}-tab--conts-padding-top: var(--#{$prefix}-padding-10);
-  --#{$prefix}-tab--small-button-trigger-size-height: var(--#{$prefix}-size-large);
-  --#{$prefix}-tab--small-button-trigger-padding-x: var(--#{$prefix}-padding-6);
-  --#{$prefix}-tab--small-button-trigger-radius: var(--#{$prefix}-radius-xsmall);
+  --#{$prefix}-tab--small-button-trigger-size-height: 4.8rem;
+  --#{$prefix}-tab--small-button-trigger-padding-x: 1.6rem;
+  --#{$prefix}-tab--small-button-trigger-radius: 0.6rem;
 }
 
 // 컬러 정의
-@mixin tab-color-variable($mode: light) {
-  --#{$prefix}-tab--button-color-action: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-tab--button-color-action-hover: var(--#{$prefix}-#{$mode}-color-action-neutral-hover);
-  --#{$prefix}-tab--button-color-action-pressed: var(--#{$prefix}-#{$mode}-color-action-neutral-pressed);
-  --#{$prefix}-tab--button-color-border: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-tab--button-color-text: var(--#{$prefix}-#{$mode}-color-text-subtler);
-  --#{$prefix}-tab--button-color-text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-tab--bg-button-color-action-active: var(--#{$prefix}-#{$mode}-color-action-neutral-active);
-  --#{$prefix}-tab--bg-button-color-border: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-tab--bg-button-color-border-active: var(--#{$prefix}-#{$mode}-color-action-neutral-active);
-  --#{$prefix}-tab--bg-button-color-text: var(--#{$prefix}-#{$mode}-color-text-inverse-static);
-  --#{$prefix}-tab--line-button-color-border: var(--#{$prefix}-#{$mode}-color-action-transparency);
-  --#{$prefix}-tab--line-button-color-line-active: var(--#{$prefix}-#{$mode}-color-border-neutral-darker);
-  --#{$prefix}-tab--line-button-color-text-active: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-tab--small-button-trigger-color-text: var(--#{$prefix}-#{$mode}-color-text-inverse-static);
-  --#{$prefix}-tab--small-button-trigger-color-action: var(--#{$prefix}-#{$mode}-color-action-neutral-active);
+@mixin tab-color-variable() {
+  --#{$prefix}-tab--button-color-action: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-tab--button-color-action-hover: var(--#{$prefix}-color-action-neutral-hover);
+  --#{$prefix}-tab--button-color-action-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-tab--button-color-border: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-tab--button-color-text: var(--#{$prefix}-color-text-subtler);
+  --#{$prefix}-tab--button-color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-tab--bg-button-color-action-active: var(--#{$prefix}-color-action-neutral-active);
+  --#{$prefix}-tab--bg-button-color-border: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-tab--bg-button-color-border-active: var(--#{$prefix}-color-action-neutral-active);
+  --#{$prefix}-tab--bg-button-color-text: var(--#{$prefix}-color-text-white);
+  --#{$prefix}-tab--line-button-color-border: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-tab--line-button-color-line-active: var(--#{$prefix}-color-border-neutral-darker);
+  --#{$prefix}-tab--line-button-color-text-active: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tab--small-button-trigger-color-text: var(--#{$prefix}-color-text-white);
+  --#{$prefix}-tab--small-button-trigger-color-action: var(--#{$prefix}-color-action-neutral-active);
 }
 
 .#{$prefix}-tab-area {
@@ -50,13 +50,13 @@
   gap: var(--#{$prefix}-gap-8);
   width: 100%;
 
-  @include size-medium {
+  @include mq(mobile) {
     gap: var(--#{$prefix}-gap-8);
   }
 }
 
 .tab {
-  @include tab-color-variable(map.get($modes, 'light'));
+  @include tab-color-variable();
   @include tab-size-variable;
 
   > ul {
@@ -80,17 +80,17 @@
     height: var(--#{$prefix}-tab--button-size-height);
     background-color: var(--#{$prefix}-tab--button-color-action);
     border: 1px solid var(--#{$prefix}-tab--button-color-border);
-    font-size: var(--#{$prefix}-tab--button-large-font-size);
+    font-size: var(--#{$prefix}-tab--button-pc-font-size);
     color: var(--#{$prefix}-tab--button-color-text);
     font-weight: var(--#{$prefix}-font-weight-bold);
     transition: var(--#{$prefix}-transition-base);
 
-		@include size-medium-to-large {
-			font-size: var(--#{$prefix}-tab--button-medium-font-size);
+		@include mq(tablet) {
+			font-size: var(--#{$prefix}-tab--button-tablet-font-size);
 		}
 
-    @include size-medium {
-      font-size: var(--#{$prefix}-tab--button-small-font-size);
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-tab--button-mobile-font-size);
     }
 
     &:not(:disabled):hover {
@@ -124,13 +124,13 @@
     .btn-tab {
       height: var(--#{$prefix}-tab--full-button-size-height);
       padding: 0;
-      font-size: var(--#{$prefix}-tab--full-button-large-font-size);
+      font-size: var(--#{$prefix}-tab--full-button-pc-font-size);
 
-      @include size-medium-to-large {
-        font-size: var(--#{$prefix}-tab--full-button-medium-font-size);
+      @include mq(tablet) {
+        font-size: var(--#{$prefix}-tab--full-button-tablet-font-size);
       }
-      @include size-medium {
-        font-size: var(--#{$prefix}-tab--full-button-small-font-size);
+      @include mq(mobile) {
+        font-size: var(--#{$prefix}-tab--full-button-mobile-font-size);
       }
     }
 
@@ -149,12 +149,12 @@
     // bg 타입
     .btn-tab {
 			padding: 0 var(--#{$prefix}-tab--bg-button-padding);
-			font-size: var(--#{$prefix}-tab--bg-button-large-font-size);
+			font-size: var(--#{$prefix}-tab--bg-button-pc-font-size);
 			height: var(--#{$prefix}-tab--bg-button-size-height);
       border-radius: var(--#{$prefix}-tab--bg-button-radius);
 
       &:focus {
-        box-shadow: inset 0 0 0 0.6rem var(--#{$prefix}-#{map.get($modes, 'light')}-color-border-primary);
+        box-shadow: inset 0 0 0 0.6rem var(--#{$prefix}-color-border-primary);
         outline-offset: -0.4rem;
       }
     }
@@ -258,10 +258,10 @@
 }
 
 // mobile only
-@include size-medium {
+@include mq(mobile) {
   .tab-conts {
     &.active {
-      gap: var(--#{$prefix}-padding-8);
+      gap: 2.4rem;
     }
   }
 
@@ -270,12 +270,12 @@
       &.full {
         .btn-tab {
           border-color: var(--#{$prefix}-tab--bg-button-color-border);
-          padding: 0 var(--#{$prefix}-padding-5);
+          padding: 0 1.2rem;
           border-width: 0;
         }
 
         > ul {
-          gap: var(--#{$prefix}-gap-3);
+          gap: 0.8rem;
           flex-wrap: nowrap;
 
           > li {
@@ -289,12 +289,5 @@
         }
       }
     }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .tab {
-    @include tab-color-variable(map.get($modes, 'high-contrast'));
   }
 }

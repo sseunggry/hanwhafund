@@ -4,7 +4,7 @@
 //default
 html{
     // font-size: $body-fz;
-		font-size: 62.5%;
+    font-size: 62.5%;
     font-weight: 400;
     line-height: $base-line-height;
     color: $base-color;
@@ -19,11 +19,6 @@ html{
     @include sr-only();
 }
 
-/* font-style */
-.fw-normal{font-weight: 400 !important;}
-.fw-medium{font-weight: 500 !important;}
-.fw-bold{font-weight: 700 !important;}
-
 /* common */
 .txt-al-center{text-align: center !important;}
 .txt-al-left{text-align: left !important;}
@@ -33,9 +28,11 @@ html{
 .mo-only{display: none !important;}
 
 .flex{display: flex;}
-.flex-end{@include flex('', 'flex-end !important');}
-.flex-center{@include flex('', 'center !important');}
-.flex-start{@include flex('', 'flex-start !important');}
-.flex-between{@include flex('space-between !important', '');}
+.flex-end{@include flex-layout($jc: 'flex-end !important');}
+.flex-center{@include flex-layout($jc: 'center !important');}
+.flex-start{@include flex-layout($jc: 'flex-start !important');}
+.flex-between{@include flex-layout($jc: 'space-between !important');}
 
-.bold{font-weight: 700 !important;}
+.flex-column{flex-direction: column !important;};
+
+.fc-white{color: #fff !important;}

@@ -7,36 +7,36 @@
 @mixin contextual-help-size-variable() {
   --#{$prefix}-contextual-help--action-btn-radius: var(--#{$prefix}-radius-small2);
   --#{$prefix}-contextual-help--action-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
-  --#{$prefix}-contextual-help--action-mobile-font-size: var(--#{$prefix}-mobile-font-size-body-small);
+  --#{$prefix}-contextual-help--action-mobile-font-size: 1.5rem;
   --#{$prefix}-contextual-help--popover-width: 36rem;
-  --#{$prefix}-contextual-help--popover-padding: var(--#{$prefix}-padding-8);
+  --#{$prefix}-contextual-help--popover-padding: 2.4rem;
   --#{$prefix}-contextual-help--popover-radius: var(--#{$prefix}-radius-xlarge2);
   --#{$prefix}-contextual-help--popover-title-pc-font-size: var(--#{$prefix}-pc-font-size-heading-xsmall);
   --#{$prefix}-contextual-help--popover-title-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall);
   --#{$prefix}-contextual-help--popover-contents-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
-  --#{$prefix}-contextual-help--popover-contents-mobile-font-size: var(--#{$prefix}-mobile-font-size-body-small);
+  --#{$prefix}-contextual-help--popover-contents-mobile-font-size: 1.5rem;
 }
 
 // 컬러 정의
-@mixin contextual-help-color-variable($mode: light) {
-  --#{$prefix}-contextual-help--action-btn-color-background: var(--#{$prefix}-#{$mode}-color-action-secondary);
-  --#{$prefix}-contextual-help--action-btn-color-background-hover: var(--#{$prefix}-#{$mode}-color-action-secondary-hover);
-  --#{$prefix}-contextual-help--action-btn-color-background-pressed: var(--#{$prefix}-#{$mode}-color-action-secondary-pressed);
-  --#{$prefix}-contextual-help--action-icon-color-information: var(--#{$prefix}-#{$mode}-color-icon-information);
-  --#{$prefix}-contextual-help--popover-color-text-basic: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-contextual-help--popover-color-text-bolder: var(--#{$prefix}-#{$mode}-color-text-bolder);
-  --#{$prefix}-contextual-help--popover-color-border: var(--#{$prefix}-#{$mode}-color-border-gray);
-  --#{$prefix}-contextual-help--popover-color-background: var(--#{$prefix}-#{$mode}-color-surface-white-subtler);
-  --#{$prefix}-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--#{$prefix}-#{$mode}-color-alpha-shadow3);
+@mixin contextual-help-color-variable() {
+  --#{$prefix}-contextual-help--action-btn-color-background: var(--#{$prefix}-color-action-secondary);
+  --#{$prefix}-contextual-help--action-btn-color-background-hover: var(--#{$prefix}-color-action-secondary-hover);
+  --#{$prefix}-contextual-help--action-btn-color-background-pressed: var(--#{$prefix}-color-action-secondary-pressed);
+  --#{$prefix}-contextual-help--action-icon-color-information: var(--#{$prefix}-color-icon-information);
+  --#{$prefix}-contextual-help--popover-color-text-basic: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-contextual-help--popover-color-text-bolder: var(--#{$prefix}-color-text-bolder);
+  --#{$prefix}-contextual-help--popover-color-border: var(--#{$prefix}-color-border-gray);
+  --#{$prefix}-contextual-help--popover-color-background: var(--#{$prefix}-color-surface-white-subtler);
+  --#{$prefix}-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--#{$prefix}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--#{$prefix}-color-alpha-shadow3);
 }
 
 .#{$prefix}-contextual-help {
-  @include contextual-help-color-variable(map.get($modes, 'light'));
+  @include contextual-help-color-variable();
   @include contextual-help-size-variable;
   @include flex-layout($ai: center);
 
   & {
-    gap: var(--#{$prefix}-gap-2);
+    gap: 0.4rem;
   }
 
   .tooltip-txt {
@@ -103,7 +103,7 @@
 
       color: var(--#{$prefix}-contextual-help--popover-color-text-bolder);
       font-size: var(--#{$prefix}-contextual-help--popover-title-pc-font-size);
-      padding-right: var(--#{$prefix}-gap-5);
+      padding-right: 1.6rem;
     }
 
     .tooltip-contents {
@@ -111,8 +111,8 @@
 
       color: var(--#{$prefix}-contextual-help--popover-color-text-basic);
       font-size: var(--#{$prefix}-contextual-help--popover-contents-pc-font-size);
-      margin-top: var(--#{$prefix}-gap-5);
-      gap: var(--#{$prefix}-gap-3);
+      margin-top: 1.6rem;
+      gap: 0.8rem;
     }
 
     .tooltip-close {
@@ -156,7 +156,7 @@
   &.top {
     .tooltip-popover {
       bottom: 100%;
-      margin-bottom: var(--#{$prefix}-gap-5);
+      margin-bottom: 1.6rem;
 
       &::before {
         top: 100%;
@@ -167,7 +167,7 @@
   &.bottom {
     .tooltip-popover {
       top: 100%;
-      margin-top: var(--#{$prefix}-gap-5);
+      margin-top: 1.6rem;
 
       &::before {
         bottom: 100%;
@@ -178,16 +178,8 @@
   }
 }
 
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  // #{$prefix}-contextual-help
-  .#{$prefix}-contextual-help {
-    @include contextual-help-color-variable(map.get($modes, 'high-contrast'));
-  }
-}
-
 // responsive mobile
-@include size-medium {
+@include mq(mobile) {
   .#{$prefix}-contextual-help {
     .tooltip-popover {
       right: unset !important;

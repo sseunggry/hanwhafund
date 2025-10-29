@@ -13,11 +13,8 @@ label {
 
 .#{$prefix}-check-area {
   display: flex;
-  gap: var(--#{$prefix}-gap-6);
+  gap: 2rem;
 
-  &.chk-column {
-    flex-direction: column;
-  }
 	&.full{
 		width: 100%;
 
@@ -30,73 +27,47 @@ label {
 	}
 }
 
-// .chip-wrap {
-//   @include flex-layout($jc: space-between);
-
-//   gap: var(--#{$prefix}-number-5);
-
-//   .#{$prefix}-form-chip {
-//     flex: 1;
-
-//     .radio {
-//       &:not(:checked) {
-//         ~ .#{$prefix}-form-chip-outline {
-//           &::before {
-//             display: none;
-//           }
-//         }
-//       }
-
-//       ~ .#{$prefix}-form-chip-outline {
-//         justify-content: center;
-//         width: 100%;
-//         padding: 0;
-//       }
-//     }
-//   }
-// }
-
 // 사이즈 정의
 @mixin form-check-size-variable() {
   // 변수 배열 설정
   $form-check-size: (
 		small: (
-			button-size: var(--#{$prefix}-size-xxsmall),
+			button-size: 2rem,
 			radio-check-size: 1.6rem,
 			checkbox-check-size: 1.6rem,
-			check-icon-size: var(--#{$prefix}-size-xxxsmall),
-			checkbox-button-radius: var(--#{$prefix}-radius-xsmall),
-			large-font-size: var(--#{$prefix}-large-font-size-label-small),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-small),
-      small-font-size: var(--#{$prefix}-small-font-size-label-small),
+			check-icon-size: 1.6rem,
+			checkbox-button-radius: 0.6rem,
+			pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
 		),
     medium: (
-      button-size: var(--#{$prefix}-size-xxsmall),
+      button-size: 2rem,
       radio-check-size: 1rem,
       checkbox-check-size: 1.2rem,
-      check-icon-size: var(--#{$prefix}-size-xxsmall),
-      radio-button-radius: var(--#{$prefix}-radius-max),
-      checkbox-button-radius: var(--#{$prefix}-radius-xsmall),
-      large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-      small-font-size: var(--#{$prefix}-small-font-size-label-medium),
-      additional-text-large-font-size: var(--#{$prefix}-large-font-size-label-small),
-      additional-text-medium-font-size: var(--#{$prefix}-mobile-font-size-label-small),
-      additional-text-small-font-size: var(--#{$prefix}-mobile-font-size-label-small),
+      check-icon-size: 2rem,
+      radio-button-radius: 100rem,
+      checkbox-button-radius: 0.6rem,
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
+      additional-text-pc-font-size-: 1.5rem,
+      additional-text-tablet-font-size-: 1.5rem,
+      additional-text-mobile-font-size: 1.5rem,
     ),
     large: (
-      button-size: var(--#{$prefix}-size-xsmall),
+      button-size: 2.4rem,
       radio-check-size: 1.2rem,
-      checkbox-check-size: var(--#{$prefix}-size-xxxsmall),
-			check-icon-size: var(--#{$prefix}-size-xsmall),
-      radio-button-radius: var(--#{$prefix}-radius-max),
-      checkbox-button-radius: var(--#{$prefix}-radius-xsmall),
-      large-font-size: var(--#{$prefix}-large-font-size-label-large),
-      medium-font-size: var(--#{$prefix}-medium-font-size-label-large),
-      small-font-size: var(--#{$prefix}-small-font-size-label-large),
-      additional-text-large-font-size: var(--#{$prefix}-large-font-size-label-medium),
-      additional-text-medium-font-size: var(--#{$prefix}-medium-font-size-label-medium),
-      additional-text-small-font-size: var(--#{$prefix}-small-font-size-label-medium),
+      checkbox-check-size: 1.6rem,
+			check-icon-size: 2.4rem,
+      radio-button-radius: 100rem,
+      checkbox-button-radius: 0.6rem,
+      pc-font-size: 1.8rem,
+      tablet-font-size: 1.8rem,
+      mobile-font-size: 1.8rem,
+      additional-text-pc-font-size-: 1.6rem,
+      additional-text-tablet-font-size-: 1.6rem,
+      additional-text-mobile-font-size: 1.6rem,
     ),
   ) !default;
 
@@ -108,7 +79,7 @@ label {
     }
   }
 
-  --#{$prefix}-form-check--gap: var(--#{$prefix}-gap-3);
+  --#{$prefix}-form-check--gap: 0.8rem;
   // --#{$prefix}-form-check--button-margin-top: 0.3rem;
   --#{$prefix}-form-check--button-margin-top: 0;
 
@@ -153,7 +124,7 @@ label {
             }
 
             &::after {
-              @include form-check-checkbox-check(#{$size}, $mode: map.get($modes, 'light'));
+              @include form-check-checkbox-check(#{$size});
             }
           }
         }
@@ -209,14 +180,14 @@ label {
 // checkbox radio 공통 사이즈 정의
 @mixin form-check($size) {
   gap: var(--#{$prefix}-form-check--gap);
-  font-size: var(--#{$prefix}-form-check--large-font-size-#{$size});
+  font-size: var(--#{$prefix}-form-check--pc-font-size--#{$size});
 
-	@include size-medium-to-large {
-		font-size: var(--#{$prefix}-form-check--medium-font-size-#{$size});
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-form-check--tablet-font-size--#{$size});
 	}
 	
-  @include size-medium {
-    font-size: var(--#{$prefix}-form-check--small-font-size-#{$size});
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-form-check--mobile-font-size-#{$size});
   }
 }
 
@@ -230,6 +201,7 @@ label {
 // radio ::before 사이즈 정의
 @mixin form-check-radio-button($size) {
   border-radius: var(--#{$prefix}-form-check--radio-button-radius-#{$size});
+  box-sizing: border-box;
 }
 
 // radio ::after 사이즈 정의
@@ -243,7 +215,7 @@ label {
 	@include square(var(--#{$prefix}-form-check--radio-check-size-#{$size}));
 
   // background-color: var(--#{$prefix}-form-check--radio-check-color-element);
-  border-radius: var(--#{$prefix}-radius-max);
+  border-radius: 100rem;
 
 	@if $pos == right {
 		left: auto;
@@ -257,7 +229,7 @@ label {
 }
 
 // checkbox ::after 사이즈 정의
-@mixin form-check-checkbox-check($size, $mode: light, $checkIcon: false) {
+@mixin form-check-checkbox-check($size, $checkIcon: false) {
   // 포지션: (전체사이즈 - 체크영역) / 2
 	--form-check-check-size: var(--#{$prefix}-form-check--checkbox-check-size-#{$size});
 	--form-check-color: var(--#{$prefix}-form-check--checkbox-check-color-element);
@@ -272,8 +244,8 @@ label {
 	left: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--form-check-check-size)) / 2);
 	transform: translateY(-50%);
 	
-	@include svg-icon($size: var(--form-check-check-size), $mode: #{$mode});
-	@include icon-set(ico_checkbox_checked);
+	@include svg-icon($size: var(--form-check-check-size));
+	@include icon-set(checkbox-checked);
 
 	background-color: var(--form-check-color);
 }
@@ -293,46 +265,52 @@ label {
   padding-left: calc(var(--#{$prefix}-form-check--button-size-#{$size}) + var(--#{$prefix}-form-check--gap));
 
   .#{$prefix}-form-check-p {
-    font-size: var(--#{$prefix}-form-check--additional-text-large-font-size-#{$size});
+    font-size: var(--#{$prefix}-form-check--additional-text-pc-font-size--#{$size});
 
-    @include size-medium-to-large {
-			font-size: var(--#{$prefix}-form-check--additional-text-medium-font-size-#{$size});
+    @include mq(tablet) {
+			font-size: var(--#{$prefix}-form-check--additional-text-tablet-font-size--#{$size});
 		}
-    @include size-medium {
-      font-size: var(--#{$prefix}-form-check--additional-text-small-font-size-#{$size});
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-form-check--additional-text-mobile-font-size-#{$size});
     }
   }
 }
 
 // 컬러 정의
-@mixin form-check-color-variable($mode: light) {
-  --#{$prefix}-form-check--color-text: var(--#{$prefix}-#{$mode}-color-text-bolder);
-  --#{$prefix}-form-check--color-text-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-form-check--color-text-sub: var(--#{$prefix}-#{$mode}-color-text-subtle);
-  --#{$prefix}-form-check--color-text-sub-disabled: var(--#{$prefix}-#{$mode}-color-text-disabled);
-  --#{$prefix}-form-check--button-color-element: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--button-color-element-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-check--button-color-border: var(--#{$prefix}-#{$mode}-color-border-neutral);
-  --#{$prefix}-form-check--button-color-border-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-check--button-color-border-disabled: var(--#{$prefix}-#{$mode}-color-border-disabled);
-  --#{$prefix}-form-check--checkbox-button-color-element-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-check--radio-check-color-element: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--radio-check-color-element-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-check--radio-check-color-element-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled-on);
-  --#{$prefix}-form-check--checkbox-check-color-element: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--checkbox-check-color-element-checked: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--checkbox-check-color-element-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-check--checkbox-check-color-element-checked-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled-on);
-  --#{$prefix}-form-check--check-icon-button-color-element: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--check-icon-button-color-border: var(--#{$prefix}-#{$mode}-color-element-white);
-  --#{$prefix}-form-check--check-icon-color-element: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-check--check-icon-color-element-checked: var(--#{$prefix}-#{$mode}-color-element-primary);
-  --#{$prefix}-form-check--check-icon-color-element-disabled: var(--#{$prefix}-#{$mode}-color-element-disabled);
-  --#{$prefix}-form-check--additional-text-color-text: var(--#{$prefix}-#{$mode}-color-text-subtle);
+@mixin form-check-color-variable() {
+  --#{$prefix}-color-element-white: #ffffff;
+  --#{$prefix}-color-element-disabled: #cdd1d5;
+  --#{$prefix}-color-element-disabled-on: #b1b8be;
+  --#{$prefix}-color-border-neutral: #b1b8be;
+  --#{$prefix}-color-element-primary: #F54500;
+
+  --#{$prefix}-form-check--color-text: var(--#{$prefix}-color-text-bolder);
+  --#{$prefix}-form-check--color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-check--color-text-sub: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-form-check--color-text-sub-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-check--button-color-element: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--button-color-element-disabled: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-check--button-color-border: var(--#{$prefix}-color-border-neutral);
+  --#{$prefix}-form-check--button-color-border-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-check--button-color-border-disabled: var(--#{$prefix}-color-border-disabled);
+  --#{$prefix}-form-check--checkbox-button-color-element-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-check--radio-check-color-element: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--radio-check-color-element-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-check--radio-check-color-element-disabled: var(--#{$prefix}-color-element-disabled-on);
+  --#{$prefix}-form-check--checkbox-check-color-element: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--checkbox-check-color-element-checked: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--checkbox-check-color-element-disabled: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-check--checkbox-check-color-element-checked-disabled: var(--#{$prefix}-color-element-disabled-on);
+  --#{$prefix}-form-check--check-icon-button-color-element: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--check-icon-button-color-border: var(--#{$prefix}-color-element-white);
+  --#{$prefix}-form-check--check-icon-color-element: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-check--check-icon-color-element-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-check--check-icon-color-element-disabled: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-check--additional-text-color-text: var(--#{$prefix}-color-text-subtle);
 }
 
 .#{$prefix}-form-check {
-  @include form-check-color-variable(map.get($modes, 'light'));
+  @include form-check-color-variable();
   @include form-check-size-variable;
 
   $size: medium;
@@ -439,7 +417,7 @@ label {
       }
 
       &::after {
-        @include form-check-checkbox-check(#{$size}, $mode: map.get($modes, 'light'));
+        @include form-check-checkbox-check(#{$size});
       }
     }
 
@@ -482,7 +460,7 @@ label {
 					border-color: var(--#{$prefix}-form-check--button-color-border-checked);
 				}
 				&::after {
-					@include icon-set(ico_checkbox_indeterminate);
+					@include icon-set(checkbox-indeterminate);
 					background-color: var(--#{$prefix}-form-check--checkbox-check-color-element);
 
 				}
@@ -547,71 +525,33 @@ label {
 
 	}
 
+  //카드형
+  &.card {
+    input[type='radio'], input[type='checkbox']{
+      ~ label {
+        padding: 2rem;
+        border: 0.1rem solid #ddd;
+        border-radius: 0.4rem;
+
+        &::before, &::after {
+          display: none;
+        }
+      }
+    }
+
+    input[type='radio']:checked, input[type='checkbox']:checked{
+      ~ label {
+        border-color: #F54500;
+      }
+    }
+  }
+
   // 부가설명
   .#{$prefix}-form-check-cnt {
     margin-top: var(--#{$prefix}-padding-2);
 
     .#{$prefix}-form-check-p {
       color: var(--#{$prefix}-form-check--additional-text-color-text);
-    }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-form-check {
-    @include form-check-color-variable(map.get($modes, 'high-contrast'));
-    @include form-check-size-variable;
-
-    $size: medium;
-
-    // checkbox
-    input[type='checkbox'] {
-      ~ label {
-        &::after {
-          @include form-check-checkbox-check(#{$size}, $mode: map.get($modes, 'high-contrast'));
-        }
-      }
-
-      &:checked {
-        ~ label {
-          &::after {
-            background-color: var(--#{$prefix}-form-check--checkbox-check-color-element-checked);
-            transition-delay: 0.1s;
-          }
-        }
-
-        &:disabled {
-          ~ label {
-            &::after {
-              background-color: var(--#{$prefix}-form-check--checkbox-check-color-element-disabled);
-            }
-          }
-        }
-      }
-    }
-
-    // radio button
-    input[type='radio'] {
-      &:checked {
-        ~ label {
-          &::before {
-            border-color: var(--#{$prefix}-form-check--button-color-border-checked);
-          }
-
-          &::after {
-            background-color: var(--#{$prefix}-form-check--radio-check-color-element-checked);
-          }
-        }
-
-        &:disabled {
-          ~ label {
-            &::after {
-              background-color: var(--#{$prefix}-form-check--radio-check-color-element-disabled);
-            }
-          }
-        }
-      }
     }
   }
 }

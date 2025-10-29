@@ -4,7 +4,7 @@
   const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
   const groupItems = Array.isArray(localsSafe.group) ? localsSafe.group : null;
   const type = localsSafe.type || 'text'; // input 타입 (text, password, number 등)
-  const size = localsSafe.size || 'medium';
+  const size = localsSafe.size || 'large';
   const placeholder = localsSafe.placeholder || '';
   const value = localsSafe.value || '';
   const name = localsSafe.name || ''; // 단일 입력 필드 name
@@ -12,8 +12,9 @@
   const required = localsSafe.required || false;
   const disabled = localsSafe.disabled || false;
   const readonly = localsSafe.readonly || false;
-  const showClearButton = localsSafe.showClearButton !== false && ['text', 'search', 'url', 'tel', 'email', 'password'].includes(type); // 기본적으로 활성화, 그룹 아닐 때
+  const showClearButton = Boolean(localsSafe.showClearButton) && ['text', 'search', 'url', 'number', 'tel', 'email', 'password'].includes(type); // 기본적으로 바활성화
   const addClass = localsSafe.addClass || ''; // input-wrap 추가 클래스
+  const slot = localsSafe.slot || '';
 
   const uniqueId = localsSafe.id || `input-${Math.random().toString(36).substring(2, 9)}`;
 
@@ -43,54 +44,56 @@
 	</div>
 	<div class="form-conts">
 <% } -%>
-      <% if (groupItems) { %>
-        <div class="input-group <%= dash %>">
-          <% groupItems.forEach((item, index) => { %>
-            <%
-              const itemUniqueId = `${uniqueId}-group-${index}`;
-              const itemValue = item.value || '';
-              const itemPlaceholder = item.placeholder || '';
-              const itemAriaLabel = item.ariaLabel || `${title} ${index + 1}번째 자리`; // 접근성 레이블
-              const itemDisabled = item.disabled || disabled; // 그룹 전체 disabled 상속
-              const itemReadonly = item.readonly || readonly; // 그룹 전체 readonly 상속
-              const itemShowClear = item.showClearButton !== false && showClearButton && !itemDisabled && !itemReadonly; // 개별 클리어 버튼 표시 여부
-              const itemWrapClasses = [ `${projectName}-input`, size, itemDisabled ? 'disabled' : '', itemReadonly ? 'readonly' : '' ].filter(Boolean).join(' ');
-            %>
-            <div class="<%= itemWrapClasses %>">
-              <input
-                type="<%= type %>"
-                id="<%= itemUniqueId %>"
-                value="<%= itemValue %>"
-                placeholder="<%= itemPlaceholder %>"
-                aria-label="<%= itemAriaLabel %>"
-                <%= required ? 'required' : '' %>
-                <%= itemDisabled ? 'disabled' : '' %>
-                <%= itemReadonly ? 'readonly' : '' %>
-              />
-              <% if (itemShowClear) { %>
-                <button type="button" class="btn-clear active"><span class="sr-only">입력 내용 지우기</span></button>
-              <% } %>
-            </div>
-          <% }); %>
-        </div>
-      <% } else { %>
-        <div class="<%= inputWrapClasses %>">
+  <% if (groupItems) { %>
+    <div class="input-group <%= dash %>">
+      <% groupItems.forEach((item, index) => { %>
+        <%
+          const itemUniqueId = `${uniqueId}-group-${index}`;
+          const itemValue = item.value || '';
+          const itemPlaceholder = item.placeholder || '';
+          const itemAriaLabel = item.ariaLabel || `${title} ${index + 1}번째 자리`; // 접근성 레이블
+          const itemDisabled = item.disabled || disabled; // 그룹 전체 disabled 상속
+          const itemReadonly = item.readonly || readonly; // 그룹 전체 readonly 상속
+          const itemShowClear = (item.showClearButton !== undefined ? Boolean(item.showClearButton) : showClearButton) && !itemDisabled && !itemReadonly; // 개별 클리어 버튼 표시 여부
+          const itemSlot = item.slot || '';
+          const itemWrapClasses = [ `${projectName}-input`, size, itemDisabled ? 'disabled' : '', itemReadonly ? 'readonly' : '' ].filter(Boolean).join(' ');
+        %>
+        <div class="<%= itemWrapClasses %>">
           <input
             type="<%= type %>"
-            id="<%= uniqueId %>"
-            name="<%= name %>"
-            value="<%= value %>"
-            placeholder="<%= placeholder %>"
+            id="<%= itemUniqueId %>"
+            value="<%= itemValue %>"
+            placeholder="<%= itemPlaceholder %>"
+            aria-label="<%= itemAriaLabel %>"
             <%= required ? 'required' : '' %>
-            <%= disabled ? 'disabled' : '' %>
-            <%= readonly ? 'readonly' : '' %>
+            <%= itemDisabled ? 'disabled' : '' %>
+            <%= itemReadonly ? 'readonly' : '' %>
           />
-          <% if (showClearButton) { %>
-            <button type="button" class="btn-clear active"><span class="sr-only">입력 내용 지우기</span></button>
+          <% if (itemShowClear) { %>
+            <button type="button" class="btn ico-clear active"><span class="sr-only">입력 내용 지우기</span></button>
           <% } %>
+          <%- itemSlot -%>
         </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <div class="<%= inputWrapClasses %>">
+      <input
+        type="<%= type %>"
+        id="<%= uniqueId %>"
+        name="<%= name %>"
+        value="<%= value %>"
+        placeholder="<%= placeholder %>"
+        <%= required ? 'required' : '' %>
+        <%= disabled ? 'disabled' : '' %>
+        <%= readonly ? 'readonly' : '' %>
+      />
+      <% if (showClearButton) { %>
+        <button type="button" class="btn ico-clear active"><span class="sr-only">입력 내용 지우기</span></button>
       <% } %>
-
+      <%- slot -%>
+    </div>
+  <% } %>
 <% if (title) { -%>
   </div>
 </div>

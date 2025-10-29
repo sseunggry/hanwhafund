@@ -19,16 +19,28 @@
           </div>
 
           <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>
-                  버튼은 &lt;button type="button"&gt;태그 혹은 &lt;a
-                  href=""&gt;를 사용 가능.(HTML5 기본 규칙을 따름)
-                </li>
-                <li>
-                  단, PDF 호출 및 다운로드의 경우 &lt;a href=""&gt;를 사용.
-                </li>
-              </ul>
+            <div class="tit-xxsm">
+              <span class="txt">default</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  // size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인(비활성화)',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
             </div>
           </div>
 
@@ -40,13 +52,13 @@
             <div class="group">
               <div class="hls_preview">
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(.primary)',
                   hierarchy: 'primary',
                   size: 'large'
                 }) -%>
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(비활성화)',
                   hierarchy: 'primary',
                   disabled: true,
@@ -68,13 +80,13 @@
             <div class="group">
               <div class="hls_preview">
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(.secondary)',
                   hierarchy: 'secondary',
                   size: 'large'
                 }) -%>
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(비활성화)',
                   hierarchy: 'secondary',
                   disabled: true,
@@ -96,13 +108,13 @@
             <div class="group">
               <div class="hls_preview">
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(.tertiary)',
                   hierarchy: 'tertiary',
                   size: 'large'
                 }) -%>
                 <%- include('../../components/button.ejs', {
-                  variant: 'text',
+                  variant: '',
                   label: '확인(비활성화)',
                   hierarchy: 'tertiary',
                   disabled: true,
@@ -115,384 +127,169 @@
               </div>
             </div>
           </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Alert</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <button type="button" class="btn alert">
-                <span>확인(.alert)</span>
-              </button>
-              <button type="button" class="btn alert" disabled>
-                <span>확인(비활성화)</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Outlined</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <button type="button" class="btn outlined">
-                <span>확인(.outlined)</span>
-              </button>
-              <button type="button" class="btn outlined" disabled>
-                <span>확인(비활성화)</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">
-                  Outlined(글자색상: var(--ssf-black); - #0b0d0f)
-                </span>
-              </div>
-            </div>
-
-            <div class="group">
-              <button type="button" class="btn outlined type2">
-                <span>확인(.outlined.type2)</span>
-              </button>
-              <button type="button" class="btn outlined type2" disabled>
-                <span>확인(비활성화)</span>
-              </button>
-            </div>
-          </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">크기별 Button</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">크기별 Button</span>
           </div>
 
           <div class="group">
             <div class="module-box option-bg">
               <ul class="note-list depth-1">
-                <li>
-                  .btn.optin-xx(사이즈 class)를 선언하면 해당 사이즈가 적용됨.
-                </li>
+                <li>.btn.small, medium, large (사이즈 class)를 선언하면 해당 사이즈가 적용됨.</li>
                 <li>사이즈 선언이 없을 경우 Basic(56h)가 default로 선언됨.</li>
               </ul>
             </div>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <h4 class="title-min">
-                <span class="txt">Basic(56h)</span>
-              </h4>
+            <div class="hls_preview">
+              <%- include('../../components/button.ejs', {
+                variant: '',
+                label: '버튼 xlarge - 64h',
+                hierarchy: 'primary',
+                size: 'xlarge',
+              }) -%>
+              <%- include('../../components/button.ejs', {
+                variant: '',
+                label: '버튼 large - 56h',
+                hierarchy: 'primary',
+                size: 'large',
+              }) -%>
+              <%- include('../../components/button.ejs', {
+                variant: '',
+                label: '버튼 medium - 48h',
+                hierarchy: 'primary',
+                size: 'medium',
+              }) -%>
+              <%- include('../../components/button.ejs', {
+                variant: '',
+                label: '버튼 small - 32h',
+                hierarchy: 'primary',
+                size: 'small',
+              }) -%>
             </div>
-
-            <div class="group">
-              <ul class="note-list depth-1">
-                <li>
-                  일반적인 버튼으로써 화면 내 흐름을 위한 설정, 선택, 신청, 이동
-                  들 기능을 담당
-                </li>
-                <li>
-                  class로 크기를 제어해야 하는 경우
-                  <strong>.option-lg</strong>
-                  추가
-                </li>
-              </ul>
-              <p class="note-txt"></p>
-
-              <div class="group">
-                <button type="button" class="btn primary">
-                  <span>버튼Basic-56h</span>
-                </button>
-                <button type="button" class="btn primary option-lg">
-                  <span>버튼Basic-56h(.option-lg)</span>
-                </button>
-              </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">텍스트 Button</span>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <h4 class="title-min">
-                <span class="txt">버튼Dialog-48h(.option-md)</span>
-              </h4>
-            </div>
-
-            <div class="group">
-              <p class="note-txt">다이얼로그 팝업 하단에 사용하는 버튼</p>
-
-              <div class="group">
-                <button type="button" class="btn primary option-md">
-                  <span>버튼48(.option-md)</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="list-head">
-                <h4 class="title-tiny">
-                  <span class="txt">
-                    버튼Dialog-48h(.option-md.option-round)
-                  </span>
-                </h4>
-              </div>
-              <p class="note-txt">
-                컨텐츠 중간 혹은 내부의 흐름을 위해 배치하여 사용하는 버튼으로
-                2단까지 사용 가능
-              </p>
-
-              <div class="group">
-                <button
-                  type="button"
-                  class="btn secondary option-md option-round"
-                >
-                  <span>버튼48(.option-md)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <h4 class="title-min">
-                <span class="txt">버튼-40h(.option-sm)</span>
-              </h4>
-            </div>
-            <ul class="note-list depth-1">
-              <li>컨텐츠 중간 혹은 페이지 내부의 유틸리티 기능 등에 제공</li>
-              <li>기본 폰트 크기 1.4rem/bold</li>
-              <li>예외적으로 금액 적용 버튼은 폰트크기 1.6rem/normal</li>
-            </ul>
-            <br />
-
-            <div class="group">
-              <button type="button" class="btn outlined option-sm">
-                <span>최대 2,000,000원 입력(.outlined.option-sm)</span>
-              </button>
-              <button type="button" class="btn secondary option-sm">
-                <span>1,990,000원으로 변경(.secondary.option-sm)</span>
-              </button>
-              <button type="button" class="btn secondary option-sm error">
-                <span>1,990,000원으로 변경(.secondary.option-sm error)</span>
-              </button>
-            </div>
-
-            <br />
-
-            <div class="group">
-              <div class="btn-wrap option-array">
-                <button
-                  type="button"
-                  class="btn secondary option-sm icon i-right shortcut"
-                >
-                  <span>전자민원 신청</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn secondary option-sm icon i-right shortcut"
-                >
-                  <span>지점/서비스망 찾기</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn tertiary option-sm icon i-right shortcut"
-                >
-                  <span>보험료 납입</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn tertiary option-sm icon i-right shortcut"
-                >
-                  <span>금융분쟁판례</span>
-                </button>
-              </div>
-            </div>
-
-            <br />
-
             <div class="tit-xxsm">
-              <span class="txt">예외) 금액 적용 버튼</span>
-            </div>
-
-            <br />
-
-            <ul class="form-field">
-              <li class="form-list">
-                <div class="btn-wrap">
-                  <button type="button" class="btn outlined type2 option-sm">
-                    <span>전액</span>
-                  </button>
-                  <button type="button" class="btn outlined type2 option-sm">
-                    <span>100만</span>
-                  </button>
-                  <button type="button" class="btn outlined type2 option-sm">
-                    <span>50만</span>
-                  </button>
-                  <button type="button" class="btn outlined type2 option-sm">
-                    <span>10만</span>
-                  </button>
-                  <button type="button" class="btn outlined type2 option-sm">
-                    <span>5만</span>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <h4 class="title-min">
-                <span class="txt">버튼-32h(.option-xsm, .option-min)</span>
-              </h4>
+              <span class="txt">text</span>
             </div>
 
             <div class="group">
-              <div class="group">
-                <button
-                  type="button"
-                  class="btn primary option-xsm option-round"
-                >
-                  <span>버튼-32h(.option-xsm.option-round)</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn secondary option-xsm option-round"
-                >
-                  <span>secondary-32h(.option-xsm.option-round)</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn outlined option-xsm option-round"
-                >
-                  <span>outlined-32h(.option-xsm.option-round)</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn outlined option-xsm option-round"
-                  disabled
-                >
-                  <span>outlined-비활성화(.option-xsm.option-round)</span>
-                </button>
-                <button
-                  type="button"
-                  class="btn outlined option-xsm option-round icon arrow i-right"
-                >
-                  <span>
-                    우측아이콘 조합-30h(.outlined.option-min.option-round.icon)
-                  </span>
-                </button>
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '지난 보고서 전체보기',
+                  size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '지난 보고서 전체보기(비활성화)',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">text primary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '지난 보고서 전체보기',
+                  hierarchy: 'primary',
+                  size: 'large'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '지난 보고서 전체보기(비활성화)',
+                  hierarchy: 'primary',
+                  disabled: true,
+                  size: 'large'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">아이콘 조합 버튼</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">아이콘 조합 버튼</span>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">아이콘 좌측배치(Default)</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">아이콘(Default)</span>
             </div>
 
             <div class="group">
-              <button
-                type="button"
-                class="btn outlined option-xsm option-round icon download"
-                onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-              >
-                <span>다운로드 버튼</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon download"
-                onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-              >
-                <span>secondary 버튼</span>
-              </button>
-              <button
-                type="button"
-                class="btn outlined option-xsm option-round icon print"
-              >
-                <span>운용현황보고서 출력</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon plus"
-              >
-                <span>세대원 추가</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon refresh"
-              >
-                <span>새로고침</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon write"
-              >
-                <span>글쓰기</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon delete"
-              >
-                <span>삭제</span>
-              </button>
-              <button
-                type="button"
-                class="btn outlined option-xsm option-round icon record"
-              >
-                <span>듣기</span>
-              </button>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">아이콘 우측배치(.icon.i-right)</span>
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '다운로드',
+                  size: 'large',
+                  icon: 'download'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'text',
+                  label: '지난 보고서 전체보기',
+                  size: 'large',
+                  preIcon: 'file',
+                  icon: 'arrow-right'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'icon',
+                  label: '공유',
+                  size: 'xlarge',
+                  icon: 'share',
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'icon',
+                  label: '검색',
+                  size: 'xxxlarge',
+                  icon: 'search',
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'icon',
+                  label: '메뉴',
+                  size: 'xxxlarge',
+                  icon: 'menu',
+                }) -%>
               </div>
-            </div>
-            <div class="group">
-              <button
-                type="button"
-                class="btn outlined option-xsm option-round icon i-right download"
-              >
-                <span>우측다운로드 버튼</span>
-              </button>
-              <button
-                type="button"
-                class="btn secondary option-xsm option-round icon i-right download"
-              >
-                <span>secondary 버튼</span>
-              </button>
-              <button
-                type="button"
-                class="btn outlined option-xsm option-round icon i-right print"
-              >
-                <span>운용현황보고서 출력</span>
-              </button>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="section">
+        <!-- <section class="section">
           <div class="list-head">
             <div class="tit-xsm">
               <span class="txt">텍스트 버튼</span>
@@ -587,9 +384,177 @@
               </a>
             </div>
           </div>
-        </section>
+        </section> -->
 
         <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">라인 버튼</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <%- include('../../components/button.ejs', {
+                  variant: 'line',
+                  label: '집합투자규약',
+                  size: 'xlarge',
+                  icon: 'download'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: 'line',
+                  label: 'IBK투자증권',
+                  size: 'xlarge',
+                  icon: 'link'
+                }) -%>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인 - column</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="btn-wrap column">
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: '집합투자규약',
+                    size: 'xlarge',
+                    icon: 'download'
+                  }) -%>
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: 'IBK투자증권',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인 - grid-3</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="btn-wrap grid-3">
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: 'IBK투자증권',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: 'KB증권',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: 'LS증권',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: '대신증권',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                  <%- include('../../components/button.ejs', {
+                    variant: 'line',
+                    label: '미래에셋자산운용',
+                    size: 'xlarge',
+                    icon: 'link'
+                  }) -%>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.4rem(.texted.type-sm)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-sm">
+                <span>텍스트버튼 폰트크기 1.4rem(.texted.type-sm)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.8rem(.texted.type-lg)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-lg">
+                <span>텍스트버튼 폰트크기 1.8rem(.texted.type-lg)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-lg type-c-red">
+                <span>동의 철회</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  Text UnderLine 추가(.texted.type-underline)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-underline">
+                <span>
+                  텍스트버튼 Text UnderLine 추가 button 태그일
+                  경우(.texted.type-underline)
+                </span>
+              </button>
+              <br />
+              <a type="button" class="btn texted type-underline">
+                <span>텍스트버튼 Text UnderLine 추가 a 태그일 경우</span>
+              </a>
+            </div>
+          </div> -->
+        </section>
+
+        <!-- <section class="section">
           <div class="list-head">
             <div class="tit-xsm">
               <span class="txt">블릿 버튼</span>
@@ -623,9 +588,9 @@
               </span>
             </button>
           </div>
-        </section>
+        </section> -->
 
-        <section class="section">
+        <!-- <section class="section">
           <div class="list-head">
             <div class="tit-xsm">
               <span class="txt">아이콘 + 텍스트 버튼</span>
@@ -637,7 +602,7 @@
               <span>텍스트버튼(.texted)</span>
             </button>
           </div>
-        </section>
+        </section> -->
 
         <section class="section">
           <div class="list-head">
@@ -683,220 +648,162 @@
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">button Group - Basic</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 1개일 때</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">버튼이 하나일 때</span>
-                        </div>
-                      </div>
-                      <!-- 버튼이 하나일 때 (s) -->
-                      <div class="btn-wrap">
-                        <button type="button" class="btn primary">
-                          <span>확인</span>
-                        </button>
-                      </div>
-                      <!--// 버튼이 하나일 때 (e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">버튼이 둘일 때</span>
-                        </div>
-                      </div>
-                      <!-- 버튼이 둘일 때 (s) -->
-                      <div class="btn-wrap">
-                        <button type="button" class="btn secondary">
-                          <span>보험료 추가 납입</span>
-                        </button>
-                        <button type="button" class="btn primary">
-                          <span>확인</span>
-                        </button>
-                      </div>
-                      <!-- 버튼이 둘일 때 (s) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">
-                            3:7 비율(.btn.btnsize-ratio-3)
-                          </span>
-                        </div>
-                      </div>
-                      <!-- 3:7 비율(.btn.btnsize-ratio-3) (s) -->
-                      <div class="btn-wrap">
-                        <button
-                          type="button"
-                          class="btn secondary btnsize-ratio-3"
-                        >
-                          <span>취소</span>
-                        </button>
-                        <button type="button" class="btn primary">
-                          <span>확인</span>
-                        </button>
-                      </div>
-                      <!--// 3:7 비율(.btn.btnsize-ratio-3) (e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">
-                            스탭에서 사용(step2부터 사용됨)-(PC일때 이전버튼
-                            노출 3:7비율)
-                          </span>
-                        </div>
-                      </div>
-                      <!-- 스탭에서 사용(step2부터 사용됨)-(PC일때 이전버튼 노출 3:7비율)(s) -->
-                      <div class="btn-wrap option-fixed">
-                        <!-- 이전버튼 : pc에서만 노출(s) -->
-                        <button
-                          type="button"
-                          class="btn secondary ui-pagestep-prev btn-page-desktopshow"
-                        >
-                          <span>이전</span>
-                        </button>
-                        <!--// 이전버튼 : pc에서만 노출(e) -->
-                        <button
-                          type="button"
-                          class="btn primary ui-pagestep-next"
-                        >
-                          <span>다음</span>
-                        </button>
-                      </div>
-                      <!--// 스탭에서 사용(step2부터 사용됨)-(PC일때 이전버튼 노출 3:7비율)(e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">더보기 버튼(넘버링 있음)</span>
-                        </div>
-                      </div>
-
-                      <!-- 더보기 버튼(넘버링 있음)(s) -->
-                      <div class="btn-wrap">
-                        <button type="button" class="btn tertiary">
-                          <span>더보기</span>
-                          <span class="page-num">
-                            <strong>1</strong>
-                            <em>10</em>
-                          </span>
-                        </button>
-                      </div>
-                      <!--// 더보기 버튼(넘버링 있음)(e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">더보기 버튼(넘버링 없음)</span>
-                        </div>
-                      </div>
-
-                      <!-- 더보기 버튼(넘버링 없음)(s) -->
-                      <div class="btn-wrap">
-                        <button type="button" class="btn tertiary">
-                          <span class="page-num">더보기</span>
-                        </button>
-                      </div>
-                      <!--// 더보기 버튼(넘버링 없음)(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Button Group - 상하배열(.option-full)</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 2개일 때</span>
             </div>
 
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>
-                    .option-md.option-round.secondary 혹은
-                    .option-md.option-round.outlined 일때 텍스트사이즈 1.8rem
-                  </li>
-                </ul>
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '취소',
+                  size: 'large',
+                  hierarchy: 'secondary'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                  hierarchy: 'primary'
+                }) -%>
               </div>
             </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 3개일 때</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap grid-3">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '취소',
+                  size: 'large',
+                  hierarchy: 'secondary'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                  hierarchy: 'primary'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                  hierarchy: ''
+                }) -%>
               </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="btn-wrap option-full">
-                        <div class="btn-wrap option-full">
-                          <button type="button" class="btn primary">
-                            <span>자세히 보기</span>
-                          </button>
-                          <button type="button" class="btn texted option-lg">
-                            <span>오늘 하루 열지 않기</span>
-                          </button>
-                        </div>
-                      </div>
-                      <br />
-                      <br />
-                      <div class="btn-wrap option-full">
-                        <button
-                          type="button"
-                          class="btn secondary option-md option-round"
-                        >
-                          <span>청구 대상자에게 문자 보내기</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-md option-round"
-                        >
-                          <span>보험계약대출 안내</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-md option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>보험계약대출 약정서</span>
-                        </button>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">3:7 비율(.btn.ratio-3)</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '취소',
+                  size: 'large',
+                  hierarchy: 'secondary',
+                  addClass: 'ratio-3',
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                  hierarchy: 'primary'
+                }) -%>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">더보기 버튼(넘버링 있음)</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '더보기',
+                  size: 'large',
+                  hierarchy: 'tertiary',
+                  slot: `
+                  <span class="page-num">
+                    (<strong>1</strong>/<em>10</em>)
+                  </span>`
+                }) -%>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼 상하배열</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap column">
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '취소',
+                  size: 'large',
+                  hierarchy: 'secondary'
+                }) -%>
+                <%- include('../../components/button.ejs', {
+                  variant: '',
+                  label: '확인',
+                  size: 'large',
+                  hierarchy: 'primary'
+                }) -%>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
 
@@ -1212,214 +1119,6 @@
                             <span class="">관심상품 등록</span>
                           </div>
                         </label>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELButtonTag</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">Single</span>
-                        </div>
-                      </div>
-                      <a href="javascript:;" class="ui-chip-tag">
-                        <span class="chip-txt">계약내용 확인</span>
-                      </a>
-
-                      <br />
-                      <br />
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">Deleted Icon</span>
-                        </div>
-                      </div>
-                      <a href="javascript:;" class="ui-chip-tag in-del">
-                        <span class="chip-txt">계약내용 확인</span>
-                        <button class="chip-del">
-                          <span>삭제</span>
-                        </button>
-                      </a>
-
-                      <br />
-                      <br />
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">목록형</span>
-                        </div>
-                      </div>
-                      <ul class="list-chips">
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">계약내용 확인</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">보험료 납입</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                      </ul>
-
-                      <br />
-                      <br />
-                      <br />
-
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">좌우 스크롤 목록형</span>
-                        </div>
-                      </div>
-                      <ul class="list-chips option-scroll">
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">계약내용 확인</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">보험료 납입</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="javascript:;" class="ui-chip-tag in-del">
-                            <span class="chip-txt">여행보험 기간 변경</span>
-                            <button class="chip-del">
-                              <span>삭제</span>
-                            </button>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">EtcButtonTag</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="list-head">
-                        <div class="tit-xxsm">
-                          <span class="txt">
-                            Toggle 형 : 예/아니요 클릭시 경고창을 띄워야 하는
-                            경우, 기본선택 false (라디오버튼 타입 웹접근성 대안)
-                          </span>
-                        </div>
-                      </div>
-
-                      <div
-                        class="btn-wrap option-choose"
-                        fui-button="defaultSelect: false"
-                      >
-                        <button type="button" class="btn toggle fui-item">
-                          <span>예</span>
-                        </button>
-                        <button type="button" class="btn toggle fui-item">
-                          <span>아니요</span>
-                        </button>
                       </div>
                     </div>
                   </section>

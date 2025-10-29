@@ -1,0 +1,48 @@
+@use "../util" as *;
+
+// [class*=ico-]{
+//   &::before{
+//     content: '';
+//     display: inline-flex;
+//     width: 2rem;
+//     height: 2rem;
+//     order: -1;
+//     flex-shrink: 0;
+//   }
+
+//   // &.i-right{
+//   //   &::before{
+//   //     order: -1;
+//   //   }
+//   // }
+//   &[class$="-right"]::before {
+//     order: 1;
+//   }
+// }
+$ico-list: download, file, arrow-right, share, search, menu, link, close;
+
+.svg-icon{
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+}
+.icon{
+  @each $name in $ico-list {
+    &-#{$name} {
+      // @include svg-icon(2rem);
+      @include icon-set(#{$name});
+    }
+  }
+  &-clear{
+    @include icon-set("delete-fill", pure);
+  }
+  // &-share{
+  //   @include bg('icon/ico-share.svg');
+  // }
+  // &-file{
+  //   @include bg('icon/ico-file.png');
+  // }
+  // &-arrow-right{
+  //   @include bg('icon/ico-arrow-right.png');
+  // }
+}

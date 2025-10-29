@@ -4,24 +4,24 @@
 /* 툴팁 */
 // 사이즈 정의
 @mixin tooltip-size-variable() {
-  --#{$prefix}-tooltip--padding-y: var(--#{$prefix}-padding-3);
-  --#{$prefix}-tooltip--padding-x: var(--#{$prefix}-padding-5);
-  --#{$prefix}-tooltip--radius: var(--#{$prefix}-radius-medium);
-  --#{$prefix}-tooltip--contents-small-font-size: var(--#{$prefix}-small-font-size-body-small);
-  --#{$prefix}-tooltip--contents-medium-font-size: var(--#{$prefix}-medium-font-size-body-small);
-  --#{$prefix}-tooltip--contents-large-font-size: var(--#{$prefix}-large-font-size-body-small);
+  --#{$prefix}-tooltip--padding-y: 0.8rem;
+  --#{$prefix}-tooltip--padding-x: 1.2rem;
+  --#{$prefix}-tooltip--radius: 1rem;
+  --#{$prefix}-tooltip--contents-mobile-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-tablet-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-pc-font-size: 1.5rem;
   --#{$prefix}-tooltip--contents-letter-spacing: var(--#{$prefix}-typo-letter-spacing-0);
-  --#{$prefix}-tooltip--contents-gap: var(--#{$prefix}-gap-3);
+  --#{$prefix}-tooltip--contents-gap: 0.8rem;
   --#{$prefix}-tooltip--contents-icon-size: var(--#{$prefix}-number-10);
 
   // Popover
-  --#{$prefix}-tooltip--popover-padding: var(--#{$prefix}-padding-8);
-  --#{$prefix}-tooltip--popover-radius: var(--#{$prefix}-radius-max);
-  --#{$prefix}-tooltip--popover-radius: var(--#{$prefix}-radius-max);
-  --#{$prefix}-tooltip--popover-title-small-font-size: var(--#{$prefix}-small-font-size-heading-xsmall); 
-  --#{$prefix}-tooltip--popover-title-medium-font-size: var(--#{$prefix}-medium-font-size-heading-xsmall); 
-  --#{$prefix}-tooltip--popover-title-large-font-size: var(--#{$prefix}-large-font-size-heading-xsmall); 
-  --#{$prefix}-tooltip--popover-btn-close-size: var(--#{$prefix}-size-small); 
+  --#{$prefix}-tooltip--popover-padding: 2.4rem;
+  --#{$prefix}-tooltip--popover-radius: 100rem;
+  --#{$prefix}-tooltip--popover-radius: 100rem;
+  --#{$prefix}-tooltip--popover-title-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall); 
+  --#{$prefix}-tooltip--popover-title-tablet-font-size: var(--#{$prefix}-tablet-font-size--heading-xsmall); 
+  --#{$prefix}-tooltip--popover-title-pc-font-size: var(--#{$prefix}-pc-font-size--heading-xsmall); 
+  --#{$prefix}-tooltip--popover-btn-close-size: 3.2rem; 
   --#{$prefix}-tooltip--popover-btn-close-position: var(--#{$prefix}-number-7); 
   --#{$prefix}-tooltip--popover-contents-small-gap: var(--#{$prefix}-small-gap-layout-title-body-small);
   --#{$prefix}-tooltip--popover-contents-medium-gap: var(--#{$prefix}-medium-gap-layout-title-body-small);
@@ -30,19 +30,19 @@
 }
 
 // 컬러 정의
-@mixin tooltip-color-variable($mode: light) {
-  --#{$prefix}-tooltip--inline-color-text: var(--#{$prefix}-#{$mode}-color-text-basic-inverse);
-  --#{$prefix}-tooltip--inline-color-text-light: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-tooltip--box-color-text: var(--#{$prefix}-#{$mode}-color-text-basic);
-  --#{$prefix}-tooltip--color-surface: var(--#{$prefix}-#{$mode}-color-surface-inverse);
-  --#{$prefix}-tooltip--color-surface-light: var(--#{$prefix}-#{$mode}-color-surface-elevated-03);
-  --#{$prefix}-tooltip--box-color-surface: var(--#{$prefix}-#{$mode}-color-surface-white-subtler);
-  --#{$prefix}-tooltip--box-shadow: var(--#{$prefix}-#{$mode}-color-alpha-shadow1);
-  --#{$prefix}-tooltip--box-shadow2: var(--#{$prefix}-#{$mode}-color-alpha-shadow2);
+@mixin tooltip-color-variable() {
+  --#{$prefix}-tooltip--inline-color-text: var(--#{$prefix}-color-text-white);
+  --#{$prefix}-tooltip--inline-color-text-light: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tooltip--box-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tooltip--color-surface: var(--#{$prefix}-color-surface-inverse);
+  --#{$prefix}-tooltip--color-surface-light: var(--#{$prefix}-color-surface-elevated-03);
+  --#{$prefix}-tooltip--box-color-surface: var(--#{$prefix}-color-surface-white-subtler);
+  --#{$prefix}-tooltip--box-shadow: var(--#{$prefix}-color-alpha-shadow1);
+  --#{$prefix}-tooltip--box-shadow2: var(--#{$prefix}-color-alpha-shadow2);
   
   // Popover
-  --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-#{$mode}-color-border-neutral);
-  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-#{$mode}-color-text-bolder);
+  --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-color-border-neutral);
+  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text-bolder);
 }
 
 .#{$prefix}-tooltip-btn{
@@ -54,7 +54,7 @@
 }
 
 .#{$prefix}-tooltip {
-  @include tooltip-color-variable(map.get($modes, 'light'));
+  @include tooltip-color-variable();
   @include tooltip-size-variable;
 
   & {
@@ -66,7 +66,7 @@
   	transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
     white-space: nowrap;
     color: var(--#{$prefix}-tooltip--inline-color-text);
-    font-size: var(--#{$prefix}-tooltip--contents-small-font-size);
+    font-size: var(--#{$prefix}-tooltip--contents-pc-font-size);
     letter-spacing: var(--#{$prefix}-tooltip--contents-letter-spacing);
     border-radius: var(--#{$prefix}-tooltip--radius);
     padding: var(--#{$prefix}-tooltip--padding-y) var(--#{$prefix}-tooltip--padding-x);
@@ -74,6 +74,16 @@
     box-shadow: 0 0 0.2rem 0 var(--#{$prefix}-tooltip--box-shadow), 0 0.4rem 0.8rem 0 var(--#{$prefix}-tooltip--box-shadow2);
     top: 0;
     left: 0;
+
+    // responsive Tablet
+    @include mq(tablet) {
+      font-size: var(--#{$prefix}-tooltip--contents-tablet-font-size);
+    }
+
+    // responsive DeskTop
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-tooltip--contents-mobile-font-size);
+    }
   }
 
   &.active {
@@ -145,7 +155,7 @@
       padding-right: var(--#{$prefix}-tooltip--popover-padding);
 
       .popover-title{
-        font-size: var(--#{$prefix}-tooltip--popover-title-small-font-size);
+        font-size: var(--#{$prefix}-tooltip--popover-title-mobile-font-size);
         color: var(--#{$prefix}-tooltip--popover-title-color-text);
       }
     }
@@ -202,27 +212,6 @@
         transform: translateX(-50%) rotate(-135deg);
       }
     }
-  }
-}
-
-// 고대비모드
-@include color-mode($mode: high-contrast) {
-  .#{$prefix}-tooltip {
-    @include tooltip-color-variable(map.get($modes, 'high-contrast'));
-  }
-}
-
-// responsive Tablet
-@include size-medium-to-large {
-  .#{$prefix}-tooltip {
-    font-size: var(--#{$prefix}-tooltip--contents-medium-font-size);
-  }
-}
-
-// responsive DeskTop
-@include size-large-more {
-  .#{$prefix}-tooltip {
-    font-size: var(--#{$prefix}-tooltip--contents-large-font-size);
   }
 }
 

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <%- include('../layouts/head.ejs') %>
+  <%- include('../../layouts/head.ejs') %>
 </head>
 <body>
-  <%- include('../layouts/header.ejs') %>
+  <%- include('../../layouts/header.ejs') %>
   
   <div class="container">
     <h1>🎉 성공 dsdfsdf!</h1>
     <p>설정이 정상 작동합니다.</p>
 
-		<%- include('../components/button.ejs') %>
+		<%- include('../../components/button.ejs') %>
 		
-		<%- include('../components/tab.ejs', {
+		<%- include('../../components/tab.ejs', {
 			active: 1,
 			variant: 'line',
 			tablist: ['탭 1', '탭 2', '탭 3', '탭 4'],
@@ -25,7 +25,7 @@
 		}) %>
 		
 
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '클릭하세요',
 			hierarchy: 'secondary',
@@ -36,7 +36,7 @@
 			size: 'large'
 		}) %>
 
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '클릭하세요',
 			hierarchy: 'secondary',
@@ -46,7 +46,7 @@
 			size: 'large'
 		}) %>
 
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '클릭하세요',
 			hierarchy: 'secondary',
@@ -57,19 +57,19 @@
 		}) %>
 
 
-		<%- include('../components/badge.ejs', {
+		<%- include('../../components/badge.ejs', {
 			label: '',
 			variant: 'outline',
 			color: 'primary',
 			size: 'large',
 		}) %>
-		<%- include('../components/badge.ejs', {
+		<%- include('../../components/badge.ejs', {
 			label: '',
 			variant: 'solid',
 			color: 'secondary',
 			size: 'medium',
 		}) %>
-		<%- include('../components/badge.ejs', {
+		<%- include('../../components/badge.ejs', {
 			label: '',
 			variant: 'solid-pastel',
 			color: 'tertiary',
@@ -78,7 +78,7 @@
 
 
 
-		<%- include('../components/select.ejs', {
+		<%- include('../../components/select.ejs', {
 			title: "통신사",
 			placeholder: "통신사를 선택하세요",
 			size: 'large',
@@ -90,13 +90,13 @@
 			]
 		}) %>
 
-		<%- include('../components/select.ejs', {
+		<%- include('../../components/select.ejs', {
 			options: [
 				{ value: 'opt1', text: '옵션 1' },
 				{ value: 'opt2', text: '옵션 2', selected: true}
 			]
 		}) %>
-		<%- include('../components/select.ejs', {
+		<%- include('../../components/select.ejs', {
 			variant: 'text',
 			options: [
 				{ value: 'opt11', text: '옵션 11' , disabled: true },
@@ -104,7 +104,7 @@
 				{ value: 'opt31', text: '옵션 31' }
 			]
 		}) %>
-		<%- include('../components/select.ejs', {
+		<%- include('../../components/select.ejs', {
 			variant: 'filter',
 			options: [
 				{ value: 'opt4', text: '옵션 4' },
@@ -116,24 +116,24 @@
 
 
 
-		<%- include('../components/tag.ejs', {
+		<%- include('../../components/tag.ejs', {
 			tagList: ['태그1', '태그2', '태그3'],
 			variant: 'sorting',
 			size: 'large',
 		}) %>
-		<%- include('../components/tag.ejs') %>
+		<%- include('../../components/tag.ejs') %>
 
-		<%- include('../components/checkbox.ejs', {
+		<%- include('../../components/checkbox.ejs', {
 			label: '',
 			variant: '',
 			size: 'large',
 		}) %>
-		<%- include('../components/checkbox.ejs', {
+		<%- include('../../components/checkbox.ejs', {
 			label: '',
 			variant: 'check',
 			size: '',
 		}) %>
-		<%- include('../components/checkbox.ejs', {
+		<%- include('../../components/checkbox.ejs', {
 			label: '한화2.2배레버리지인덱스증권투자신탁',
 			slot: `
 			<div class="chk-con fund-item">
@@ -169,12 +169,12 @@
 		}) %>
 
 
-		<%- include('../components/radio.ejs', {
+		<%- include('../../components/radio.ejs', {
 			label: '',
 			variant: 'check',
 			size: '',
 		}) %>
-		<%- include('../components/radio.ejs', {
+		<%- include('../../components/radio.ejs', {
 			label: '한화2.2배레버리지인덱스증권투자신탁',
 			slot: `
 			<div class="chk-con fund-item">
@@ -191,7 +191,7 @@
 
 
 		<h3>싱글 선택 (Radio)</h3>
-		<%- include('../components/chip.ejs', {
+		<%- include('../../components/chip.ejs', {
 			variant: 'single', // 기본값이므로 생략 가능
 			size: 'large',
 			name: 'favoriteFruit', // 라디오 그룹 이름 지정
@@ -202,7 +202,7 @@
 			]
 		}) %>
 		<h3>다중 선택 (Checkbox)</h3>
-		<%- include('../components/chip.ejs', {
+		<%- include('../../components/chip.ejs', {
 			variant: 'multi',
 			size: 'medium',
 			name: 'topics', // 체크박스 그룹 이름 지정
@@ -213,7 +213,7 @@
 			]
 		}) %>
 		<h3>버튼 그룹</h3>
-		<%- include('../components/chip.ejs', {
+		<%- include('../../components/chip.ejs', {
 			variant: 'button',
 			size: 'small',
 			items: [
@@ -224,26 +224,26 @@
 		}) %>
 
 
-		<%- include('../components/segmentControl.ejs', {
+		<%- include('../../components/segmentControl.ejs', {
 			size: 'small',
 			items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
 		}) %>
 
-		<%- include('../components/segmentControl.ejs', {
+		<%- include('../../components/segmentControl.ejs', {
 			// size: 'small',
 			tag: 'button',
 			items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
 		}) %>
 
 
-		<%#- include('../components/spinner.ejs', {
+		<%#- include('../../components/spinner.ejs', {
 			text: '데이터 로딩 중...',
 		}) %>
-		<%#- include('../components/spinner.ejs') %>
+		<%#- include('../../components/spinner.ejs') %>
 
 
 
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '공유하기',
 			hierarchy: 'tertiary',
@@ -252,14 +252,14 @@
 			targetId: 'popover-share',
 			addClass: 'btn-toggle-popover'
 		}) %>
-		<%- include('../components/popover.ejs', {
+		<%- include('../../components/popover.ejs', {
 			id: 'popover-share',
 			active: true,
 			// text: '',
 		}) %>
 
 
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '모달',
 			hierarchy: 'tertiary',
@@ -268,7 +268,7 @@
 			targetId: 'modal-sample-01',
 			addClass: 'btn-open-modal'
 		}) %>
-		<%- include('../components/modal.ejs', {
+		<%- include('../../components/modal.ejs', {
 			id: 'modal-sample-01',
 			title: 'modal',
 			content: '<p>기본 모달 입니다.</p>'
@@ -276,7 +276,7 @@
 			// text: '',
 		}) %>
 
-		<%- include('../components/stepIndicator.ejs', {
+		<%- include('../../components/stepIndicator.ejs', {
 			activeStep: 3, // 3번째 스텝 활성화
 			orientation: 'vertical',
 			items: [
@@ -290,7 +290,7 @@
 
 
 		<%# --- Textarea --- %>
-		<%- include('../components/textarea.ejs', {
+		<%- include('../../components/textarea.ejs', {
 			title: "자기소개",
 			placeholder: "자신을 소개해주세요...",
 			maxlength: 200, // 글자 수 제한 및 카운트 표시
@@ -299,7 +299,7 @@
 		}) %>
 
 		<%# --- 단일 Input --- %>
-		<%- include('../components/input.ejs', {
+		<%- include('../../components/input.ejs', {
 			title: "아이디",
 			type: "text",
 			placeholder: "아이디 입력",
@@ -308,7 +308,7 @@
 		}) %>
 
 		<%# --- 비밀번호 Input --- %>
-		<%- include('../components/input.ejs', {
+		<%- include('../../components/input.ejs', {
 			title: "비밀번호",
 			type: "password",
 			placeholder: "비밀번호 입력",
@@ -317,7 +317,7 @@
 		}) %>
 
 		<%# --- 그룹 Input (Dash 스타일) --- %>
-		<%- include('../components/input.ejs', {
+		<%- include('../../components/input.ejs', {
 			title: "주민등록번호",
 			type: "text", // 필요 시 number 등으로 변경
 			size: 'medium',
@@ -328,7 +328,7 @@
 			]
 		}) %>
 		<%# --- 그룹 Input --- %>
-		<%- include('../components/input.ejs', {
+		<%- include('../../components/input.ejs', {
 			title: "이메일",
 			type: "text", // 필요 시 number 등으로 변경
 			size: 'medium',
@@ -339,7 +339,7 @@
 		}) %>
 
 		<%# --- 기본 모달 --- %>
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '기본 모달 열기',
 			hierarchy: 'tertiary',
@@ -348,7 +348,7 @@
 			targetId: 'myModal1',
 			addClass: 'btn-open-modal'
 		}) %>
-		<%- include('../components/modal.ejs', {
+		<%- include('../../components/modal.ejs', {
 			id: 'myModal1',
 			title: '기본 모달 제목',
 			content: '<p>모달 내용입니다. 확인 또는 취소 버튼을 누르세요.</p>',
@@ -359,7 +359,7 @@
 		}) %>
 
 		<%# --- 바텀 시트 (세로 버튼) --- %>
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '바텀 시트 열기',
 			hierarchy: 'tertiary',
@@ -368,7 +368,7 @@
 			targetId: 'myBottomSheet',
 			addClass: 'btn-open-bottom-sheet'
 		}) %>
-		<%- include('../components/modal.ejs', {
+		<%- include('../../components/modal.ejs', {
 			id: 'myBottomSheet',
 			variant: 'bottom-sheet',
 			title: '바텀 시트 제목',
@@ -383,7 +383,7 @@
 		}) %>
 
 		<%# --- 풀스크린 모달 (내용 스크롤) --- %>
-		<%- include('../components/button.ejs', {
+		<%- include('../../components/button.ejs', {
 			variant: 'text',
 			label: '풀스크린 모달 열기',
 			hierarchy: 'tertiary',
@@ -392,7 +392,7 @@
 			targetId: 'myFullModal',
 			addClass: 'btn-open-modal'
 		}) %>
-		<%- include('../components/modal.ejs', {
+		<%- include('../../components/modal.ejs', {
 			id: 'myFullModal',
 			variant: 'full',
 			title: '긴 내용의 모달',
@@ -404,7 +404,7 @@
 		}) %>
 
 
-		<%- include('../components/accordion.ejs', {
+		<%- include('../../components/accordion.ejs', {
 			items: [
 				{title: '제목1', content: '<p>내용1</p>', active: true },
 				{title: '제목2', content: '<p>내용2</p>' },
@@ -414,6 +414,6 @@
 
   </div>
 
-	<%- include('../layouts/footer.ejs') %>
+	<%- include('../../layouts/footer.ejs') %>
 </body>
 </html>
