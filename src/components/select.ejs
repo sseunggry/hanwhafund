@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf';
   const title = localsSafe.title || ''; // form-group용 라벨 텍스트
   const options = Array.isArray(localsSafe.options) ? localsSafe.options : [{ value: 'option1', text: '옵션1'}]; // [{ value: 'v1', text: 'T1', selected: true, disabled: false }, ...]
   const placeholder = localsSafe.placeholder || ''; // 선택적 플레이스홀더
@@ -9,7 +8,7 @@
 	const variant = localsSafe.variant || ''; //box(기본), text, filter 
   const addClass = localsSafe.addClass || '';
   const selectClasses = [
-    `${projectName}-form-select`,
+    `form-select`,
 		variant,
     size,
     addClass,
@@ -42,13 +41,13 @@
 		selectedValueText = '옵션 없음'; // 옵션 배열 자체가 비었을 때
   }
 -%>
-<% if (title) { -%>
+<%_ if (title) { -%>
 <div class="form-group">
   <div class="form-tit">
     <label for="<%= buttonId %>"><%= title %></label>
   </div>
   <div class="form-conts">
-<% } -%>
+<%_ } -%>
     <div class="<%= selectClasses %>">
       <select
         class="sr-only"
@@ -59,7 +58,7 @@
         <%- disabled %>
 				<%- placeholder ? `data-placeholder="${placeholder}"` : '' %>
       >
-        <% options.forEach(option => { %>
+        <%_ options.forEach(option => { -%>
 					<option 
 						value="<%= option.value %>"
 						<%= initialSelectedValue === option.value ? 'selected' : '' %>
@@ -67,9 +66,8 @@
 					>
 						<%= option.text %>
 					</option>
-        <% }); %>
+        <%_ }); -%>
       </select>
-
 			<%# --- 커스텀 셀렉트 UI --- %>
 			<button
 				type="button"
@@ -84,7 +82,6 @@
 			>
 				<span class="select-value <%= (placeholder && !initialSelectedValue) ? 'placeholder' : '' %>"><%= selectedValueText %></span>
 			</button>
-
 			<%# 리스트박스는 옵션들을 포함 %>
 			<ul
 				id="<%= listboxId %>"
@@ -94,7 +91,7 @@
 				hidden
 				style="--form-select-listbox-option-length: <%= options.length %>"
 			>
-				<% options.forEach(option => { %>
+				<%_ options.forEach(option => { -%>
 					<li
 						class="select-option <%= option.disabled ? 'disabled' : '' %>"
 						role="option"
@@ -103,10 +100,10 @@
 						<%- option.disabled ? 'aria-disabled="true"' : '' %>
 						tabindex="-1"
 					><%= option.text %></li>
-				<% }); %>
+				<%_ }); -%>
 			</ul>
     </div>
-<% if (title) { -%>
+<%_ if (title) { -%>
   </div>
 </div>
-<% } -%>
+<%_ } -%>

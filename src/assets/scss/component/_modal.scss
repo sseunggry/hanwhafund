@@ -82,7 +82,7 @@ $modal-size: (
     opacity 0.2s;
 }
 
-.#{$prefix}-modal {
+.modal {
   @include modal-color-variable();
   @include modal-size-variable;
   @include modal-default;
@@ -189,7 +189,7 @@ $modal-size: (
         @include ellipsis(1);
 
         font-size: var(--#{$prefix}-modal--header-pc-font-size);
-        font-weight: var(--#{$prefix}-font-weight-bold);
+        font-weight: 700;
         text-align: center;
 
         @include mq(tablet) {
@@ -250,7 +250,7 @@ $modal-size: (
         padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--small-padding) var(--#{$prefix}-modal--small-padding);
       }
 
-      .#{$prefix}-btn {
+      .btn {
         @include flex-size(1, 1);
 
         min-width: var(--#{$prefix}-modal--btn-size-min-width);
@@ -268,7 +268,7 @@ $modal-size: (
           gap: var(--#{$prefix}-modal--small-btn-column-gap);
         }
 
-        .#{$prefix}-btn {
+        .btn {
           width: 100%;
         }
       }
@@ -377,7 +377,7 @@ $modal-size: (
       &.btn-wrap {
         padding: var(--#{$prefix}-modal--bottom-sheet-btn-padding-top) var(--#{$prefix}-modal--bottom-sheet-btn-padding-side) var(--#{$prefix}-modal--bottom-sheet-btn-padding-bottom);
 
-        .#{$prefix}-btn {
+        .btn {
           flex: 1;
 
           &.primary {
@@ -386,7 +386,7 @@ $modal-size: (
         }
 
         &.column {
-          .#{$prefix}-btn {
+          .btn {
             flex: none;
           }
         }
@@ -403,7 +403,7 @@ $modal-size: (
 
 /* mobile */
 @include mq(mobile) {
-  .#{$prefix}-modal {
+  .modal {
     &:not([data-type="bottom-sheet"]) {
       // 기본 스타일(bottom-sheet제외)
       .modal-dialog {

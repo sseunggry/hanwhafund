@@ -19,23 +19,18 @@
 					</div>
 
           <div class="group">
-						<%- include('../../components/tab.ejs', {
-							variant: 'line',
-							tablist: ['PREVIEW', 'CODE'],
-							contents: [
-								`
-								<div class="hls_preview">
-									<p class="tit-xlg">H1 48 (.tit-xlg) </p>
-									<p class="tit-lg">H2 40 (.tit-lg) </p>
-									<p class="tit-md">H3 32 (.tit-md) </p>
-									<p class="tit-sm">H4 28 (.tit-sm) </p>
-									<p class="tit-xsm">H5 24 (.tit-xsm) </p>
-									<p class="tit-xxsm">H6 21 (.tit-xxsm) </p>
-								</div>
-								`,
-								`<pre><code class="hls language-html"></code></pre>`,
-							],
-						}) %>
+            <div class="hls_preview">
+              <p class="tit-xlg">H1 48 (.tit-xlg) </p>
+              <p class="tit-lg">H2 40 (.tit-lg) </p>
+              <p class="tit-md">H3 32 (.tit-md) </p>
+              <p class="tit-sm">H4 28 (.tit-sm) </p>
+              <p class="tit-xsm">H5 24 (.tit-xsm) </p>
+              <p class="tit-xxsm">H6 21 (.tit-xxsm) </p>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
           </div>
         </section>
 
@@ -54,25 +49,20 @@
             </div>
           </div>
 
-					<div class="group">
-						<%- include('../../components/tab.ejs', {
-							variant: 'line',
-							tablist: ['PREVIEW', 'CODE'],
-							contents: [
-								`
-								<div class="hls_preview">
-									<p class="txt-xxlg">txt 40 (.txt-xxlg) </p>
-									<p class="txt-xlg">txt 32 (.txt-xlg) </p>
-									<p class="txt-lg">txt 24 (.txt-lg) </p>
-									<p class="txt-md">txt 21 (.txt-md) </p>
-									<p class="txt-sm">txt 18 (.txt-sm) </p>
-									<p class="txt-xsm">txt 16 (.txt-xsm) </p>
-									<p class="txt-xxsm">txt 15 (.txt-xxsm) </p>
-								</div>
-								`,
-								`<pre><code class="hls language-html"></code></pre>`,
-							],
-						}) %>
+          <div class="group">
+            <div class="hls_preview">
+              <p class="txt-xxlg">txt 40 (.txt-xxlg) </p>
+              <p class="txt-xlg">txt 32 (.txt-xlg) </p>
+              <p class="txt-lg">txt 24 (.txt-lg) </p>
+              <p class="txt-md">txt 21 (.txt-md) </p>
+              <p class="txt-sm">txt 18 (.txt-sm) </p>
+              <p class="txt-xsm">txt 16 (.txt-xsm) </p>
+              <p class="txt-xxsm">txt 15 (.txt-xxsm) </p>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
           </div>
         </section>
 
@@ -91,27 +81,22 @@
             </div>
           </div>
 
-					<div class="group">
-						<%- include('../../components/tab.ejs', {
-							variant: 'line',
-							tablist: ['PREVIEW', 'CODE'],
-							contents: [
-								`
-								<div class="hls_preview">
-									<p class="fw-el">폰트굵기 100 (.fw-el) - ExtraLight</p>
-									<p class="fw-sl">폰트굵기 200 (.fw-sl) - SemiLight</p>
-									<p class="fw-l">폰트굵기 300 (.fw-l) - Light</p>
-									<p class="fw-r">폰트굵기 400 (.fw-r) - Regular</p>
-									<p class="fw-m">폰트굵기 500 (.fw-m) - Medium</p>
-									<p class="fw-sb">폰트굵기 600 (.fw-sb) - SemiBold</p>
-									<p class="fw-b">폰트굵기 700 (.fw-b) - Bold</p>
-									<p class="fw-eb">폰트굵기 800 (.fw-eb) - ExtraBold</p>
-									<p class="fw-hb">폰트굵기 900 (.fw-hb) - HeavyBold</p>
-								</div>
-								`,
-								`<pre><code class="hls language-html"></code></pre>`,
-							],
-						}) %>
+          <div class="group">
+            <div class="hls_preview">
+              <p class="fw-el">폰트굵기 100 (.fw-el) - ExtraLight</p>
+              <p class="fw-sl">폰트굵기 200 (.fw-sl) - SemiLight</p>
+              <p class="fw-l">폰트굵기 300 (.fw-l) - Light</p>
+              <p class="fw-r">폰트굵기 400 (.fw-r) - Regular</p>
+              <p class="fw-m">폰트굵기 500 (.fw-m) - Medium</p>
+              <p class="fw-sb">폰트굵기 600 (.fw-sb) - SemiBold</p>
+              <p class="fw-b">폰트굵기 700 (.fw-b) - Bold</p>
+              <p class="fw-eb">폰트굵기 800 (.fw-eb) - ExtraBold</p>
+              <p class="fw-hb">폰트굵기 900 (.fw-hb) - HeavyBold</p>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
           </div>
         </section>
 
@@ -132,30 +117,25 @@
             </div>
           </div>
 
-					<div class="group">
-						<%- include('../../components/tab.ejs', {
-							variant: 'line',
-							tablist: ['PREVIEW', 'CODE'],
-							contents: [
-								`
-								<div class="hls_preview">
-									<p class="fc-primary">fc-primary(#0068ff)</p>
-									<p class="fc-secondary" style="background-color: var(--ssf-black)">fc-secondary(#eef6ff)</p>
-									<p class="fc-black">fc-black(#0b0d0f)</p>
-									<p class="fc-origin-black">fc-origin-black(#000)</p>
-									<p class="fc-default">fc-default(#868a93)</p>
-									<p class="fc-white" style="background-color: var(--ssf-black)">fc-white(#fff)</p>
-									<p class="fc-alert">fc-alert(#ff6060)</p>
-									<p class="fc-red">fc-red(#ff6060)</p>
-									<p class="fc-yellow">fc-yellow(#ff9445)</p>
-									<p class="fc-orange">fc-orange(#ffc000)</p>
-									<p class="fc-increase">fc-increase(#f50057)</p>
-									<p class="fc-decrease">fc-decrease(#286ef1)</p>
-								</div>
-								`,
-								`<pre><code class="hls language-html"></code></pre>`,
-							],
-						}) %>
+          <div class="group">
+            <div class="hls_preview">
+              <p class="fc-primary">fc-primary(#0068ff)</p>
+              <p class="fc-secondary" style="background-color: var(--ssf-black)">fc-secondary(#eef6ff)</p>
+              <p class="fc-black">fc-black(#0b0d0f)</p>
+              <p class="fc-origin-black">fc-origin-black(#000)</p>
+              <p class="fc-default">fc-default(#868a93)</p>
+              <p class="fc-white" style="background-color: var(--ssf-black)">fc-white(#fff)</p>
+              <p class="fc-alert">fc-alert(#ff6060)</p>
+              <p class="fc-red">fc-red(#ff6060)</p>
+              <p class="fc-yellow">fc-yellow(#ff9445)</p>
+              <p class="fc-orange">fc-orange(#ffc000)</p>
+              <p class="fc-increase">fc-increase(#f50057)</p>
+              <p class="fc-decrease">fc-decrease(#286ef1)</p>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
           </div>
         </section>
       </div>

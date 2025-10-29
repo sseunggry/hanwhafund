@@ -39,7 +39,7 @@
   --#{$prefix}-pagination--color-action-disabled: var(--#{$prefix}-color-action-transparency);
 }
 
-.#{$prefix}-pagination {
+.pagination {
   @include pagination-color-variable();
   @include pagination-size-variable;
 
@@ -161,7 +161,7 @@
 
       &.active {
         background-color: var(--#{$prefix}-pagination--color-action-active);
-        font-weight: var(--#{$prefix}-font-weight-bold);
+        font-weight: 700;
         color: var(--#{$prefix}-pagination--color-text-active);
       }
     }
@@ -172,7 +172,7 @@
   }
 
 	//select
-	.#{$prefix}-form-select{
+	.form-select{
 		width: auto;
 		font-size: var(--#{$prefix}-pagination--total-pc-font-size);
 
@@ -192,7 +192,7 @@
 }
 // 태블릿 & 모바일 전용 속성
 @include mq(mobile) {
-  .#{$prefix}-pagination {
+  .pagination {
     .page-links {
 			.page-link{
 				&:nth-child(5),

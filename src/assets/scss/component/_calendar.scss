@@ -45,7 +45,7 @@
 }
 
 // #{$prefix}-calendar-area
-.#{$prefix}-calendar-area {
+.calendar-area {
   @include calendar-color-variable();
   @include calendar-size-variable;
 
@@ -75,7 +75,7 @@
 
       padding: 2.4rem;
       font-size: var(--#{$prefix}-calendar--head-pc-font-size);
-      font-weight: var(--#{$prefix}-font-weight-bold);
+      font-weight: 700;
       gap: 1.6rem;
 
       .btn-cal-move {
@@ -227,7 +227,7 @@
             top: 4.6rem;
             left: var(--#{$prefix}-calendar--table-wrap-padding);
             color: var(--#{$prefix}-calendar--color-text-sub);
-            font-weight: var(--#{$prefix}-font-weight-bold);
+            font-weight: 700;
             font-size: var(--#{$prefix}-calendar--table-caption-pc-font-size);
           }
 
@@ -318,7 +318,7 @@
 
                     content: '이벤트';
                     font-size: 1rem;
-                    font-weight: var(--#{$prefix}-font-weight-bold);
+                    font-weight: 700;
                   }
                 }
               }
@@ -381,7 +381,7 @@
         border-top: 1px solid var(--#{$prefix}-calendar--action-btn-wrap-color-border);
         background-color: var(--#{$prefix}-calendar--action-btn-wrap-color-surface);
 
-        & .#{$prefix}-btn:first-child {
+        & .btn:first-child {
           margin-right: auto;
         }
       }
@@ -457,7 +457,7 @@
 }
 
 @media (width <= 440px) {
-  .#{$prefix}-calendar-area {
+  .calendar-area {
     .calendar-wrap {
       $w: calc(100vw - (var(--#{$prefix}-contents-padding-x) * 2));
 

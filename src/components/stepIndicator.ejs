@@ -1,12 +1,11 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf';
   const activeStep = Number(localsSafe.activeStep) || 1; // 기본값: 1번째 스텝
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];  // items: [{ title: '스텝1 제목', desc: '스텝1 설명' }, ...]
   const direction = localsSafe.orientation || 'vertical'; // vertical, horizontal
   const addClass = localsSafe.addClass || ''; // 추가 클래스
   const wrapClasses = [
-    `${projectName}-step-wrap`,
+    `step-wrap`,
     direction, // 'horizontal' 또는 'vertical' 클래스 추가
     addClass
   ].filter(Boolean).join(' ');

@@ -50,7 +50,7 @@
       color: var(--#{$prefix}-input--color-text);
     }
 
-    .#{$prefix}-input {
+    .input {
       background-color: var(--#{$prefix}-input--color-surface-readonly);
     }
 
@@ -68,7 +68,7 @@
     border-color: var(--#{$prefix}-input--color-border-disabled);
     color: var(--#{$prefix}-input--color-text-disabled);
 
-    .#{$prefix}-input {
+    .input {
       background-color: var(--#{$prefix}-input--color-surface-disabled);
     }
 
@@ -140,7 +140,7 @@
 			}
 		}
 
-		.#{$prefix}-input {
+		.input {
 			padding: 0;
 			border: none;
 		}
@@ -225,12 +225,12 @@
       // input안에 button 노출
       position: relative;
 
-      .#{$prefix}-input {
+      .input {
         padding-right: var(--#{$prefix}-form-group--icon-padding-right);
       }
 
       .btn-group,
-      .#{$prefix}-btn {
+      .btn {
         // form control 우측에 버튼 정렬
         @include position($t: 50%, $r: 2rem); // form control large 사이즈에만 버튼 들어감
 
@@ -243,7 +243,7 @@
 
         gap: 0.8rem;
 
-        .#{$prefix}-btn {
+        .btn {
           position: static;
           transform: translateY(0);
         }
@@ -255,7 +255,7 @@
 
         @at-root .form-conts {
           &[data-delete='true'] {
-            .#{$prefix}-input:not(:placeholder-shown) {
+            .input:not(:placeholder-shown) {
               ~ .btn-delete-input {
                 display: flex;
               }
@@ -339,7 +339,7 @@
   }
 }
 
-.#{$prefix}-form-checks-inline {
+.form-checks-inline {
   display: flex;
   gap: 1.2rem;
 }
@@ -388,10 +388,10 @@
 	&.dash {
 		gap: var(--#{$prefix}-form-input--dash-gap);
 
-		.#{$prefix}-input{
+		.input{
 			position: relative;
 
-			& + .#{$prefix}-input::before {
+			& + .input::before {
 				content: "";
 				display: inline-flex;
 				align-items: center;
@@ -436,12 +436,12 @@
   }
 
   .input-group {
-    .#{$prefix}-form-select {
+    .form-select {
       width: auto;
     }
   }
 
-  .#{$prefix}-btn {
+  .btn {
     &.ico-sch-plus {
       &::before {
         @include square(var(--#{$prefix}-size-height-4));
@@ -454,11 +454,11 @@
   display: flex;
   position: relative;
 
-  .#{$prefix}-input {
+  .input {
     padding: 0 var(--#{$prefix}-size-height-7) 0 1.6rem;
 
     &.xlarge {
-      font-weight: var(--#{$prefix}-font-weight-bold);
+      font-weight: 700;
       padding: 0 7.2rem 0 2.4rem;
     }
   }
@@ -488,7 +488,7 @@
   }
 
   .sch-input {
-    .#{$prefix}-input {
+    .input {
       &.xlg {
         padding: 0 var(--#{$prefix}-number-16) 0 var(--#{$prefix}-number-8);
 

@@ -46,7 +46,7 @@
   }
 }
 
-.#{$prefix}-toast-container {
+.toast-container {
   @include toast-size-variable;
   @include flex-layout($jc: center, $fd: column);
 
@@ -56,7 +56,7 @@
   gap: var(--#{$prefix}-toast--group-gap);
   pointer-events: none;
 
-  .#{$prefix}-toast {
+  .toast {
     @include toast-color-variable();
 
     width: fit-content;
@@ -139,15 +139,15 @@
 
   /* 위치별 애니메이션 시작점 설정 */
 
-  &.top-left .#{$prefix}-toast,
-  &.top-center .#{$prefix}-toast,
-  &.top-right .#{$prefix}-toast {
+  &.top-left .toast,
+  &.top-center .toast,
+  &.top-right .toast {
     transform: translateY(-100%);
   }
 
   /* Toast가 보이는 상태의 스타일 */
-  .#{$prefix}-toast{
-    &.#{$prefix}-toast--visible {
+  .toast{
+    &.toast--visible {
       opacity: 1;
       transform: translateY(0);
     }

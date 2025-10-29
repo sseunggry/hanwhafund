@@ -44,7 +44,7 @@
   --#{$prefix}-tab--small-button-trigger-color-action: var(--#{$prefix}-color-action-neutral-active);
 }
 
-.#{$prefix}-tab-area {
+.tab-area {
   @include flex-layout($fd: column);
 
   gap: var(--#{$prefix}-gap-8);
@@ -82,7 +82,7 @@
     border: 1px solid var(--#{$prefix}-tab--button-color-border);
     font-size: var(--#{$prefix}-tab--button-pc-font-size);
     color: var(--#{$prefix}-tab--button-color-text);
-    font-weight: var(--#{$prefix}-font-weight-bold);
+    font-weight: 700;
     transition: var(--#{$prefix}-transition-base);
 
 		@include mq(tablet) {

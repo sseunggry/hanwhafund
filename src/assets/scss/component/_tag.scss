@@ -54,7 +54,7 @@
       &.#{$size} {
         @include tag-wrapper(#{$size});
 
-        .#{$prefix}-btn-tag {
+        .btn-tag {
           @include tag(#{$size});
 
           .btn-delete {
@@ -147,7 +147,7 @@
 	--#{$prefix}-btn-tag--button-color-gradient-end: var(--#{$prefix}-color-alpha-base100);
 }
 
-.#{$prefix}-tag-wrap {
+.tag-wrap {
   @include tag-color-variable();
   @include tag-size-variable;
 
@@ -158,7 +158,7 @@
     flex-wrap: wrap;
   }
 
-  .#{$prefix}-btn-tag {
+  .btn-tag {
     @include flex-layout($d: inline-flex, $ai: center);
 
     position: relative;
@@ -225,7 +225,7 @@
 		overflow-x: scroll;
 		flex-wrap: nowrap;
 
-		.#{$prefix}-btn-tag {
+		.btn-tag {
 			flex-shrink: 0;
 		}
 	}
@@ -235,7 +235,7 @@
 		flex-wrap: nowrap;
 		transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 
-		.#{$prefix}-btn-tag {
+		.btn-tag {
 			flex-shrink: 0;
 		}
 

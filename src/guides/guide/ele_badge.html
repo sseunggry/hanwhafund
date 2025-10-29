@@ -29,23 +29,9 @@
 
           <div class="group">
             <div class="hls_preview">
-              <div class="hwf-badge-wrap">
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'rating1', label: '1등급' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'rating2', label: '2등급' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'rating3', label: '3등급' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'rating4', label: '4등급' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'rating5', label: '5등급' 
-                }) -%>
-              </div>
+              <%- include('../../components/badge.ejs', { 
+                  variant: 'solid', color: 'rating1', label: '1등급' 
+              }) -%>
             </div>
             <button class="btn-code-toggle">View Code</button>
             <div class="hls-wrap">
@@ -70,17 +56,22 @@
 
           <div class="group">
             <div class="hls_preview">
-              <div class="hwf-badge-wrap">
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'domestic', label: '국내' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'stock', label: '주식' 
-                }) -%>
-                <%- include('../../components/badge.ejs', { 
-                    variant: 'solid', color: 'global', label: '글로벌' 
-                }) -%>
-              </div>
+              <%- include('../../components/badge.ejs', { 
+                items: [
+                  { label: '국내', variant: 'solid', color: 'domestic' },
+                  { label: '주식', variant: 'solid', color: 'stock' },
+                  { label: '글로벌', variant: 'solid', color: 'global' }
+                ]
+              }) -%>
+              <%- include('../../components/badge.ejs', { 
+                items: [
+                  { label: '1등급', variant: 'solid', color: 'rating1' },
+                  { label: '2등급', variant: 'solid', color: 'rating2' },
+                  { label: '3등급', variant: 'solid', color: 'rating3' },
+                  { label: '4등급', variant: 'solid', color: 'rating4' },
+                  { label: '5등급', variant: 'solid', color: 'rating5' },
+                ]
+              }) -%>
             </div>
             <button class="btn-code-toggle">View Code</button>
             <div class="hls-wrap">

@@ -165,7 +165,7 @@ $form-select-variants: (
   }
 }
 
-.#{$prefix}-form-select {
+.form-select {
   $box-config: map.get($form-select-variants, "box");
   $text-config: map.get($form-select-variants, "text");
   $filter-config: map.get($form-select-variants, "filter");
@@ -263,7 +263,7 @@ $form-select-variants: (
 
         &[aria-selected="true"] {
           color: var(--#{$prefix}-form-select-listbox--color-text-selected);
-          font-weight: var(--#{$prefix}-font-weight-bold);
+          font-weight: 700;
           background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
 
           &::after {

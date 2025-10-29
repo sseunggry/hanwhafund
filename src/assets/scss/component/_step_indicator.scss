@@ -34,7 +34,7 @@
   --#{$prefix}-step--color-simple-step-active: var(--#{$prefix}-color-text-white);
 }
 
-.#{$prefix}-step-wrap {
+.step-wrap {
   @include step-color-variable();
   @include step-size-variable;
 

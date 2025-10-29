@@ -51,13 +51,13 @@ const commonJs = {
   },
   customSelect: {
     SELECTORS: {
-      WRAPPER: `.${projectName}-form-select`,
+      WRAPPER: `.form-select`,
       NATIVE_SELECT: 'select.sr-only',
       BUTTON: '.select-button',
       VALUE: '.select-value',
       LISTBOX: '.select-listbox',
       OPTION: '.select-option',
-      OPEN_BUTTON: `.${projectName}-form-select .select-button[aria-expanded="true"]`,
+      OPEN_BUTTON: `.form-select .select-button[aria-expanded="true"]`,
     },
     init: function () {
       const $wrappers = $(this.SELECTORS.WRAPPER);
@@ -288,7 +288,7 @@ const commonJs = {
   },
   segmentControl: {
     SELECTORS: {
-      WRAPPER: `.${projectName}-segment-control`,
+      WRAPPER: '.segment-control',
       CONTROL_BTN: '.control-button[role="radio"]',
       NATIVE_RADIO: 'input[type="radio"]',
       CONTROL_LABEL: 'label.control-button',
@@ -304,8 +304,8 @@ const commonJs = {
         if ($wrapper.data('segment-control-initialized')) return;
         $wrapper.data('segment-control-initialized', true);
 
-        const isButtonMode = $wrapper.hasClass('tag-button');
-        if (isButtonMode) {
+        const $buttons = $wrapper.find(self.SELECTORS.CONTROL_BTN);
+        if ($buttons.length > 0) {
           const $buttons = $wrapper.find(self.SELECTORS.CONTROL_BTN);
           $buttons.on('click', function (e) {
             const $this = $(this);
@@ -538,11 +538,11 @@ const commonJs = {
     SELECTORS: {
       OPEN_TRIGGERS: ".btn-open-modal, .btn-open-bottom-sheet",
       CLOSE_TRIGGERS: ".btn-close-modal",
-      MODAL_WRAPPER: `.${projectName}-modal`,
-      OPEN_MODAL_INSTANCE: `.${projectName}-modal.in:not(.sample)`,
+      MODAL_WRAPPER: `.modal`,
+      OPEN_MODAL_INSTANCE: `.modal.in:not(.sample)`,
       CONTENT: ".modal-content",
       BACKDROP: ".modal-back",
-      MODAL_FULL: `.${projectName}-modal[data-type="full"]`,
+      MODAL_FULL: `.modal[data-type="full"]`,
       OPENED_TRIGGER_BTN: (id) => `.modal-opened[data-modal-id="${id}"]` // 동적 셀렉터
     },
     outsideClickHandlers: {},
@@ -692,10 +692,9 @@ const commonJs = {
     }
   },
   accordion: {
-    // [추가] 셀렉터 상수화
     SELECTORS: {
       BUTTON: ".btn-accordion",
-      WRAPPER: `.${projectName}-accordion`,
+      WRAPPER: `.accordion`,
       ITEM: ".accordion-item",
       COLLAPSE: ".accordion-collapse",
     },
@@ -753,7 +752,7 @@ const commonJs = {
   },
   tab: {
     SELECTORS: {
-      WRAPPER: `.${projectName}-tab-area`,
+      WRAPPER: `.tab-area`,
       TAB_LIST: "ul[role='tablist']",
       TAB_ITEM: "li[role='tab']",
       TAB_PANEL: ".tab-conts",

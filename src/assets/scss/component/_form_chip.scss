@@ -6,11 +6,11 @@
   gap: 0.8rem;
 
 	&.full{
-		.#{$prefix}-form-chip {
+		.form-chip {
 			flex: 1;
 			text-align: center;
 
-			.#{$prefix}-form-chip-outline {
+			.form-chip-outline {
 				width: 100%;
 				justify-content: center;
 
@@ -33,7 +33,7 @@
 			}
 		}
 
-		.#{$prefix}-form-chip-outline {
+		.form-chip-outline {
 			width: 100%;
 			justify-content: center;
 
@@ -185,7 +185,7 @@
   }
 }
 
-.#{$prefix}-form-chip {
+.form-chip {
   @include form-chip-color-variable();
   @include form-chip-size-variable;
 

@@ -19,7 +19,7 @@
   --#{$prefix}-spinner--color-border-active: #f54500;
 }
 
-.#{$prefix}-spinner {
+.spinner {
   @include spinner-color-variable();
   @include spinner-size-variable;
   @include flex-layout($jc: center, $ai: center);
@@ -50,7 +50,7 @@
       radius: 100%;
     }
 
-    animation: spin var(--#{$prefix}-spinner--animation-duration) infinitelinear;
+    animation: spin var(--#{$prefix}-spinner--animation-duration) infinite linear;
   }
 }
 
@@ -60,7 +60,7 @@
 
   position: relative;
 
-  .#{$prefix}-spinner {
+  .spinner {
     position: absolute;
     justify-content: flex-end;
     padding: 0 var(--#{$prefix}-spinner-form-spinner-padding-x);

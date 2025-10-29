@@ -1,10 +1,9 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const size = localsSafe.size || 'medium'; // small, medium, large
   const text = localsSafe.text || '';
 	const classes = [
-    `${projectName}-spinner`,
+    `spinner`,
     size,
   ].filter(Boolean).join(' ');
 -%>

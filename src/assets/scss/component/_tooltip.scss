@@ -45,7 +45,7 @@
   --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text-bolder);
 }
 
-.#{$prefix}-tooltip-btn{
+.tooltip-btn{
 
   &:disabled{
     pointer-events: none;
@@ -53,7 +53,7 @@
   }
 }
 
-.#{$prefix}-tooltip {
+.tooltip {
   @include tooltip-color-variable();
   @include tooltip-size-variable;
 
@@ -216,7 +216,7 @@
 }
 
 @media (width <= 420px) {
-  .#{$prefix}-tooltip {
+  .tooltip {
     width: calc(100% - (var(--#{$prefix}-contents-padding-x) * 2));
 
     @include position-center(x);

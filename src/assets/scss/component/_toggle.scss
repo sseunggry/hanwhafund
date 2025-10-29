@@ -163,7 +163,7 @@
   background-color: var(--#{$prefix}-form-toggle-switch--icon-check-color-checked);
 }
 
-.#{$prefix}-form-toggle-switch {
+.form-toggle-switch {
   @include form-toggle-switch-color-variable();
   @include form-toggle-switch-size-variable;
 

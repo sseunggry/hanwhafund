@@ -1,14 +1,35 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
+  const items = localsSafe.items;
+-%>
+<%_ if (Array.isArray(items) && items.length > 0) { -%>
+<div class="badge-wrap">
+<%_ items.forEach(item => { -%>
+  <%_
+    const variant = item.variant || 'outline';
+    const color = item.color || 'primary';
+    const label = item.label || 'badge';
+    // const size = item.size || 'medium'; // size가 필요하다면 이 주석을 해제
+    const classes = [
+      `badge`,
+      `${variant}-${color}`,
+      // size, // 원본 템플릿의 주석 유지
+    ].filter(Boolean).join(' ');
+  -%>
+  <span class="<%= classes %>"><%= label %></span>
+<%_ }); -%>
+</div>
+<%_ } else { -%>
+<%
   const variant = localsSafe.variant || 'outline'; // outline, solid, solid-pastel
   const color = localsSafe.color || 'primary'; // primary, secondary, tertiary
-  const size = localsSafe.size || 'medium'; // medium, large
   const label = localsSafe.label || 'badge';
-	const classes = [
-    `${projectName}-badge`,
+  // const size = localsSafe.size || 'medium';
+  const classes = [
+    `badge`,
     `${variant}-${color}`,
-    // size,
+    // size, // 원본 템플릿의 주석 유지
   ].filter(Boolean).join(' ');
 -%>
 <span class="<%= classes %>"><%= label %></span>
+<%_ } -%>

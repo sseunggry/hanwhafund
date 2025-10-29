@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
   const size = localsSafe.size || 'medium';
   const placeholder = localsSafe.placeholder || '';
@@ -25,7 +24,7 @@
   ].filter(Boolean).join(' ');
 
   const textareaClasses = [
-     `${projectName}-input`, // input과 유사한 스타일 적용 위해
+     `input`, // input과 유사한 스타일 적용 위해
      size
   ].filter(Boolean).join(' ');
 

@@ -604,7 +604,7 @@
           </div>
         </section> -->
 
-        <section class="section">
+        <!-- <section class="section">
           <div class="list-head">
             <div class="tit-xsm">
               <span class="txt">아이콘 버튼(.ico-xxx)</span>
@@ -638,13 +638,11 @@
           </div>
 
           <div class="group"></div>
-        </section>
+        </section> -->
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">button Group</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">button Group</span>
           </div>
 
           <div class="group">
@@ -792,13 +790,13 @@
                   label: '취소',
                   size: 'large',
                   hierarchy: 'secondary'
-                }) -%>
+                }) %>
                 <%- include('../../components/button.ejs', {
                   variant: '',
                   label: '확인',
                   size: 'large',
                   hierarchy: 'primary'
-                }) -%>
+                }) %>
               </div>
             </div>
             <button class="btn-code-toggle">View Code</button>
@@ -806,281 +804,9 @@
               <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Button Group - 반응배열(.option-react)</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>상하좌우 gap: 1.6rem</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="btn-wrap option-react">
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>갑상선암수술후 특정호르몬허가치료</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>다운로드</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon print"
-                        >
-                          <span>인쇄하기</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>
-                            표적항암약물 특정항암호르몬약물허가치료 확인서
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Button Group - 반응배열(.option-array)</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>상하좌우 gap: 0.8rem</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="list-head">
-                        <h4 class="title-tiny">
-                          <span class="txt">좌측배열(.option-array)</span>
-                        </h4>
-                      </div>
-
-                      <!-- 좌측배열(.option-array)(s) -->
-                      <div class="btn-wrap option-array">
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>청약서부본</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon print"
-                        >
-                          <span>인쇄하기</span>
-                        </button>
-                      </div>
-                      <!--// 좌측배열(.option-array)(e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <h4 class="title-tiny">
-                          <span class="txt">
-                            중앙배열(.option-array-center)
-                          </span>
-                        </h4>
-                      </div>
-
-                      <!-- 중앙배열(.option-array-center)(s) -->
-                      <div class="btn-wrap option-array-center">
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>청약서부본</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon print"
-                        >
-                          <span>인쇄하기</span>
-                        </button>
-                      </div>
-                      <!--// 중앙배열(.option-array-center)(e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <h4 class="title-tiny">
-                          <span class="txt">우측배열(.option-array-end)</span>
-                        </h4>
-                      </div>
-
-                      <!-- 우측배열(.option-array-end)(s) -->
-                      <div class="btn-wrap option-array-end">
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>청약서부본</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon print"
-                        >
-                          <span>인쇄하기</span>
-                        </button>
-                      </div>
-                      <!--// 우측배열(.option-array-end)(e) -->
-
-                      <br />
-
-                      <div class="list-head">
-                        <h4 class="title-tiny">
-                          <span class="txt">
-                            좌우배열(.option-array-spacebetween)
-                          </span>
-                        </h4>
-                      </div>
-
-                      <!-- 우측배열(.option-array-spacebetween)(s) -->
-                      <div class="btn-wrap option-array-spacebetween">
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon download"
-                          onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        >
-                          <span>청약서부본</span>
-                        </button>
-                        <button
-                          type="button"
-                          class="btn outlined option-xsm option-round icon print"
-                        >
-                          <span>인쇄하기</span>
-                        </button>
-                      </div>
-                      <!--// 우측배열(.option-array-spacebetween)(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="tit-xxsm">
-                <span class="txt">Button Group - 반응형에 따른 제어</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>
-                    PC에서만 보이는 버튼(.pc-only-btn) / 모바일에서만 보여야 할
-                    경우(.mob-only)
-                  </li>
-                  <li>Break Point: 1024px</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="btn-wrap option-array">
-                      <button
-                        type="button"
-                        class="btn outlined option-xsm option-round icon download"
-                        onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                      >
-                        <span>가입확인서</span>
-                      </button>
-                      <button
-                        type="button"
-                        class="btn outlined option-xsm option-round icon download mob-only"
-                        onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                      >
-                        <span>모바일만 보임</span>
-                      </button>
-                      <!-- pc only -->
-                      <button
-                        type="button"
-                        class="btn outlined option-xsm option-round icon download pc-only-btn"
-                        onclick="ih.fileDownload('http://samsungfire.com/test.pdf', null, {filename:'저장될파일명.확장자명'});"
-                        id="uE_010_010_024"
-                      >
-                        <span>PC만 보임</span>
-                      </button>
-                      <!-- //pc only -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
-        <section class="section">
+        <!-- <section class="section">
           <div class="list-head">
             <div class="tit-xsm">
               <span class="txt">기타 버튼타입</span>
@@ -1131,7 +857,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       </div>
     </div> 
   </body>

@@ -20,17 +20,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">셀렉트박스</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">셀렉트박스</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">SelectBox Primary</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">SelectBox 기본(박스형)</span>
           </div>
 
           <div class="group">
@@ -44,376 +40,119 @@
           </div>
 
           <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect1_1" class="label-txt">Select Label</label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect1_1" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="" disabled>비활성화</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
+            <div class="hls_preview">
+              <div class="form-select medium">
+                <select class="sr-only" name="select-6xptt3d" id="select-6xptt3d-native" tabindex="-1" aria-hidden="true" data-placeholder="통신사를 선택하세요">
+                  <option value="lg">LG U+</option>
+                  <option value="kt">KT</option>
+                  <option value="skt">SKT</option>
+                </select>
 
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect2_1" class="label-txt">비활성화</label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect2_1" title="제목" disabled>
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기텍스트가길경우확인해보기</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
+                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-6xptt3d-listbox" tabindex="0" aria-controls="select-6xptt3d-listbox">
+                  <span class="select-value placeholder">통신사를 선택하세요</span>
+                </button>
 
-                      <!-- 필수입력 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetSelect1_1_1" class="label-txt">
-                            필수입력
-                            <span class="bullet-must">
-                              <em class="sr-only">필수입력</em>
-                            </span>
-                          </label>
-                        </div>
-                        <div class="ui-select md" fui-selectbox>
-                          <select id="targetSelect1_1_1" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택 2번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                            <option value="">선택 4번</option>
-                            <option value="">선택 5번</option>
-                            <option value="">선택 6번</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// 필수입력 (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+                <ul id="select-6xptt3d-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+                  <li class="select-option" role="option" data-value="lg" aria-selected="false" tabindex="-1">LG U+</li>
+                  <li class="select-option" role="option" data-value="kt" aria-selected="false" tabindex="-1">KT</li>
+                  <li class="select-option" role="option" data-value="skt" aria-selected="false" tabindex="-1">SKT</li>
+                </ul>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELDropdown</span>
+          <div class="tit-xsm">
+            <span class="txt">SelectBox outline</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>셀렉트박스 기본형태</li>
+                <li>모바일 : 바텀시트 팝업 / PC : 드롭다운 메뉴</li>
+                <li>필수입력 .bullet-must는 .label-txt상이 아닌 단독으로도 사용가능(모듈 &gt; 리스트 참조)</li>
+              </ul>
             </div>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Box Type-Primary(.ui-select.option-box)</span>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="ui-select option-box" fui-selectbox>
-                          <select id="targetSelectBox1_1" title="계약선택">
-                            <option value="" selected>IRP개인(S123456789012)</option>
-                            <option value="">DC(S123456789012)</option>
-                            <option value="">확정연금(S123456789012)</option>
-                            <option value="">혼합형(S123456789012+S123456789012)</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
-                    </div>
-                  </section>
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="select-o4f0qjs-button">통신사</label>
                 </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+                <div class="form-conts">
+                  <div class="form-select outline large">
+                    <select class="sr-only" name="select-o4f0qjs" id="select-o4f0qjs-native" tabindex="-1" aria-hidden="true" data-placeholder="통신사를 선택하세요">
+                      <option value="lg">LG U+</option>
+                      <option value="kt">KT</option>
+                      <option value="skt">SKT</option>
+                    </select>
+
+                    <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-o4f0qjs-listbox" tabindex="0" aria-controls="select-o4f0qjs-listbox">
+                      <span class="select-value placeholder">통신사를 선택하세요</span>
+                    </button>
+
+                    <ul id="select-o4f0qjs-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+                      <li class="select-option" role="option" data-value="lg" aria-selected="false" tabindex="-1">LG U+</li>
+                      <li class="select-option" role="option" data-value="kt" aria-selected="false" tabindex="-1">KT</li>
+                      <li class="select-option" role="option" data-value="skt" aria-selected="false" tabindex="-1">SKT</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">Box Type-Outlined(.ui-select.option-box.outlined)</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>공시실에서 사용</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 공시실일 경우 환경 만들기(s) -->
-                      <section class="page-layout-desktop">
-                        <!-- Normal (s)-->
-                        <div class="form-wrap">
-                          <div class="ui-select option-box outlined" fui-selectbox>
-                            <select id="targetSelectBox2_1" title="결제방식 선택">
-                              <option value="">일시납</option>
-                              <option value="">2회 연속(자동이체)</option>
-                              <option value="">2회납</option>
-                              <option value="">2회비연속(자동이체)</option>
-                              <option value="" disabled>3회연속(자동이체)</option>
-                              <option value="" selected>3회연속(카드/의무담보분납)</option>
-                              <option value="">4회연속(자동이체)</option>
-                              <option value="">5회연속(자동이체)</option>
-                              <option value="">6회연속(자동이체)</option>
-                              <option value="">10회연속(자동이체)</option>
-                            </select>
-                          </div>
-                        </div>
-                        <!--// Normal (e)-->
-
-                        <!-- Disabled (s)-->
-                        <div class="form-wrap">
-                          <div class="ui-select option-box outlined" fui-selectbox>
-                            <select id="targetSelectBox2_2" title="결제방식 선택" disabled>
-                              <option value="">일시납</option>
-                              <option value="">2회 연속(자동이체)</option>
-                              <option value="">2회납</option>
-                              <option value="">2회비연속(자동이체)</option>
-                              <option value="">3회연속(자동이체)</option>
-                              <option value="" selected>3회연속(카드/의무담보분납)</option>
-                              <option value="">4회연속(자동이체)</option>
-                              <option value="">5회연속(자동이체)</option>
-                              <option value="">6회연속(자동이체)</option>
-                              <option value="">10회연속(자동이체)</option>
-                            </select>
-                          </div>
-                        </div>
-                        <!--// Disabled (e)-->
-                      </section>
-                      <!--// 공시실일 경우 환경 만들기(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">SelectBox Complex</span>
+          <div class="tit-xsm">
+            <span class="txt">SelectBox text</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>셀렉트박스 기본형태</li>
+                <li>모바일 : 바텀시트 팝업 / PC : 드롭다운 메뉴</li>
+                <li>필수입력 .bullet-must는 .label-txt상이 아닌 단독으로도 사용가능(모듈 &gt; 리스트 참조)</li>
+              </ul>
             </div>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">텍스트 + 셀렉트박스(.xsm) 혼합형</span>
-              </div>
-            </div>
+            <div class="hls_preview">
+              <div class="form-select text xlarge">
+                <select class="sr-only" name="select-gip59wa" id="select-gip59wa-native" tabindex="-1" aria-hidden="true" data-placeholder="선택하세요">
+                  <option value="c">C-e(수수료미징구-온라인)</option>
+                  <option value="b">B-e(수수료미징구-온라인)</option>
+                  <option value="d">D-e(수수료미징구-온라인)</option>
+                </select>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 텍스트 + 셀렉트박스(.xsm) 혼합형 (s)-->
-                      <div class="form-wrap">
-                        <label for="targetSelect3_1" class="label-subject">Select Label(.xsm) 혼합형</label>
-                        <!-- PC일때 Select 드롭다운 값 수정이 필요할 경우 fui-selectbox="minWidth:200;" 경우에 따라 200px 수치를 조정 -->
-                        <div class="ui-select xsm" fui-selectbox="minWidth:200;">
-                          <select id="targetSelect3_1" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// 텍스트 + 셀렉트박스(.xsm) 혼합형 (e)-->
+                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-gip59wa-listbox" tabindex="0" aria-controls="select-gip59wa-listbox">
+                  <span class="select-value placeholder">선택하세요</span>
+                </button>
 
-                      <!-- 혼합형-오른쪽(.option-right)(s) -->
-                      <div class="form-wrap option-right">
-                        <label for="targetSelect3_2" class="label-subject">혼합형-오른쪽(.option-right)</label>
-                        <!-- PC일때 Select 드롭다운 값 수정이 필요할 경우 fui-selectbox="pos:bottom-right;minWidth:200;" 경우에 따라 pos:bottom-right; 드롭다운 포지션 위치 우측으로 넓이는 200px 수치를 조정 -->
-                        <div class="ui-select xsm" fui-selectbox="pos:bottom-right;minWidth:200;">
-                          <select id="targetSelect3_2" title="제목">
-                            <option value="" selected>선택하세요</option>
-                            <option value="">김삼성</option>
-                            <option value="">선택1번</option>
-                            <option value="">선택 선택 최고의 선택</option>
-                          </select>
-                        </div>
-                      </div>
-                      <!--// 혼합형-오른쪽(.option-right)(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">텍스트 + 셀렉트박스(.xsm) 혼합형(페이지내 최상단에 검색 혼합형일 경우)</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>Dropdown (텍스트 + 셀렉트박스(.xsm)) 페이지 내 최상단에 있을 경우에 대한 가이드 : Header와 Contents 여백이 4rem이지만, 텍스트 + 셀렉트박스(.xsm)이 일 경우는 2rem으로 바뀜(2024-07-15. 정의)</li>
+                <ul id="select-gip59wa-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+                  <li class="select-option" role="option" data-value="c" aria-selected="false" tabindex="-1">C-e(수수료미징구-온라인)</li>
+                  <li class="select-option" role="option" data-value="b" aria-selected="false" tabindex="-1">B-e(수수료미징구-온라인)</li>
+                  <li class="select-option" role="option" data-value="d" aria-selected="false" tabindex="-1">D-e(수수료미징구-온라인)</li>
                 </ul>
               </div>
             </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .content(s) -->
-                      <div class="content">
-                        <!-- [D] 내부 콘텐츠 영역(s) -->
-                        <!-- .section(s) -->
-                        <section class="section has-foot-space">
-                          <div class="form-wrap option-right space-mb-5 space-mt-minus5">
-                            <label for="targetSelect3_2" class="label-subject">청구번호</label>
-                            <div class="ui-select xsm" fui-selectbox="minWidth: 280; pos: bottom-right">
-                              <select id="targetSelect3_2" title="청구 번호">
-                                <option value="" selected>20220629-37789</option>
-                                <option value="">20200613-37359</option>
-                                <option value="">20200613-37360</option>
-                                <option value="">20200613-37361</option>
-                              </select>
-                            </div>
-                          </div>
-                          <!-- [M] 2024-03-25 : select 위치 변경(e) -->
-                          <!-- .ui-tab(s) -->
-                          <div class="ui-tab" fui-tab>
-                            <!-- .ui-tab-btns(s) -->
-                            <div class="ui-tab-btns" role="tablist">
-                              <div class="ui-floating">
-                                <div class="ui-floating-wrap">
-                                  <a href="javascript:;" class="ui-tab-btn selected">
-                                    <span>청구정보</span>
-                                  </a>
-                                  <!-- [M] 2024-05-02 : 텍스트 변경 -->
-                                  <a href="javascript:;" class="ui-tab-btn">
-                                    <span>수령내역</span>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                            <!--// .ui-tab-btns(e) -->
-
-                            <!-- .ui-tab-pnls(s) -->
-                            <div class="ui-tab-pnls">
-                              <!-- 1탭 패널(s) -->
-                              <section class="ui-tab-pnl">
-                                <!-- .group(s) -->
-                                <div class="group">청구정보 탭 내용</div>
-                                <!--// .group(e) -->
-                              </section>
-                              <!--// 1탭 패널(e) -->
-
-                              <!-- 2탭 패널(s) -->
-                              <section class="ui-tab-pnl">
-                                <!-- .group(s) -->
-                                <div class="group">수령내역 탭 내용</div>
-                                <!--// .group(e) -->
-                              </section>
-                              <!-- 2탭 패널(e) -->
-                            </div>
-                            <!--// .ui-tab-pnls(e) -->
-                          </div>
-                          <!--// .ui-tab(e) -->
-                        </section>
-                        <!--// .section(e) -->
-
-                        <!--// [D] 내부 콘텐츠 영역(e) -->
-                      </div>
-                      <!--// .content(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="group">
-              <a href="/v2/html/claim/M3_05_002_003.html" class="btn outlined option-md" target="_blank" title="새창열림">
-                <span>샘플확인</span>
-              </a>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>

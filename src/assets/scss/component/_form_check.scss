@@ -11,7 +11,7 @@ label {
   display: inline-flex;
 }
 
-.#{$prefix}-check-area {
+.check-area {
   display: flex;
   gap: 2rem;
 
@@ -97,7 +97,7 @@ label {
               @include form-check-button(#{$size});
             }
 
-            + .#{$prefix}-form-check-cnt {
+            + .form-check-cnt {
               @include form-check-additional-text(#{$size});
             }
           }
@@ -264,7 +264,7 @@ label {
 @mixin form-check-additional-text($size) {
   padding-left: calc(var(--#{$prefix}-form-check--button-size-#{$size}) + var(--#{$prefix}-form-check--gap));
 
-  .#{$prefix}-form-check-p {
+  .form-check-p {
     font-size: var(--#{$prefix}-form-check--additional-text-pc-font-size--#{$size});
 
     @include mq(tablet) {
@@ -309,7 +309,7 @@ label {
   --#{$prefix}-form-check--additional-text-color-text: var(--#{$prefix}-color-text-subtle);
 }
 
-.#{$prefix}-form-check {
+.form-check {
   @include form-check-color-variable();
   @include form-check-size-variable;
 
@@ -547,10 +547,10 @@ label {
   }
 
   // 부가설명
-  .#{$prefix}-form-check-cnt {
+  .form-check-cnt {
     margin-top: var(--#{$prefix}-padding-2);
 
-    .#{$prefix}-form-check-p {
+    .form-check-p {
       color: var(--#{$prefix}-form-check--additional-text-color-text);
     }
   }

@@ -100,7 +100,7 @@
   background-color: var(--#{$prefix}-badge--color-#{$color}-element);
 }
 
-.#{$prefix}-badge {
+.badge {
   @include badge-size-variable;
   @include badge-color-variable();
 
@@ -122,7 +122,7 @@
   }
 }
 
-.#{$prefix}-badge-wrap {
+.badge-wrap {
   --#{$prefix}-badge--wrap-gap: 0.4rem;
 
   display: flex;

@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-	const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const active = Number(localsSafe.active) || 0; // 활성 탭 인덱스 (기본값: 0)
   const variant = localsSafe.variant || 'line'; // 탭 스타일 (기본값: line)
 	const full = localsSafe.full ? 'full' : ''; // 전체 너비 여부
@@ -15,7 +14,7 @@
 
 	const uniqueId = `tab-${Math.random().toString(36).substring(2, 9)}`;
 -%>
-<div class="<%= projectName %>-tab-area">
+<div class="tab-area">
   <div class="tab <%= classes %>">
     <ul role="tablist">
       <% tablist.forEach(function(label, idx) { -%>

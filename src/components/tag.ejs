@@ -1,21 +1,19 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const variant = localsSafe.variant || 'link'; // link, sorting
   const size = localsSafe.size || 'medium'; // medium, large
 	const tagList = Array.isArray(localsSafe.tagList) ? localsSafe.tagList : ['태그'];
-  // const label = localsSafe.label || 'tag';
 	const classes = [
-    `${projectName}-tag-wrap`,
+    `tag-wrap`,
     size,
   ].filter(Boolean).join(' ');
 -%>
-<div class="<%= projectName %>-tag-wrap <%= size %>">
+<div class="<%= classes %>">
 	<% tagList.forEach(function(label, idx) { -%>
 		<% if (variant === 'link') { -%>
-			<a href="#" class="link <%= projectName %>-btn-tag"><%= label %></a>
+			<a href="#" class="link btn-tag"><%= label %></a>
 		<% } else { -%>
-			<span class="<%= projectName %>-btn-tag">
+			<span class="btn-tag">
 				<%= label %>
 				<button type="button" class="btn-delete"><span class="sr-only">삭제</span></button>
 			</span>

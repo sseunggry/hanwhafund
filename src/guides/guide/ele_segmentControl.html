@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+		 <%- include('../_inc/guide_head.ejs', {
+			title: '세그먼트 컨트롤',
+		}) %>
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="tit-lg">
+          <span class="txt">세그먼트 컨트롤</span>
+        </div>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Radio 타입</span>
+          </div>
+
+          <!-- <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  크기는 (.fz-변수) !important로 기본 선언되어 우선 순위로 선언
+                </li>
+              </ul>
+            </div>
+          </div> -->
+
+          <div class="group">
+            <div class="hls_preview">
+              <%- include('../../components/segmentControl.ejs', {
+                items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
+              }) -%>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Button 타입</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <%- include('../../components/segmentControl.ejs', {
+                tag: 'button',
+                items: ['오늘', '일주일', '한 달', '일 년', '기간선택']
+              }) -%>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

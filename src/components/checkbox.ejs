@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const variant = localsSafe.variant || ''; // checkbox, check(체크 아이콘)
   const size = localsSafe.size || 'medium'; // medium, large
   const state = localsSafe.state || ''; // default, checked
@@ -10,7 +9,7 @@
 	const slot = localsSafe.slot || ''; // 추가 내용 넣기
 	const addClass = localsSafe.addClass || ''; 
 	const classes = [
-    `${projectName}-form-check`,
+    `form-check`,
     size,
 		variant === 'check' ? 'check-icon' : '', 
 		iconPos === 'right' ? 'icon-right' : '',
@@ -27,11 +26,11 @@
 		<%= disabled %>
 	>
 	<label for="<%= uniqueId %>">
-		<% if (slot) { -%>
+		<%_ if (slot) { -%>
 			<span class="sr-only"><%= label %></span>
-			<%- slot %>
-		<% } else { -%>
+      <%- slot %>
+		<%_ } else { -%>
 			<span><%= label %></span>
-		<% } -%>
+		<%_ } -%>
 	</label>
 </div>

@@ -1,55 +1,54 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf';
   const type = localsSafe.type || 'singleOpen'; // type: singleOpen(기본), multiOpen
   const size = localsSafe.size || 'medium'; // 예: small, medium, large
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : []; // items: [{ title: '제목1', content: '<p>내용1</p>', active: true }, ...]
   const addClass = localsSafe.addClass || ''; // 추가 클래스
   const accordionClasses = [
-    `${projectName}-accordion`,
+    `accordion`,
     size,
     addClass
   ].filter(Boolean).join(' ');
 
   const accordionId = `accordion-${Math.random().toString(36).substring(2, 9)}`;
 -%>
-<% if (items.length > 0) { %>
+<%_ if (items.length > 0) { -%>
 <div class="<%= accordionClasses %>" data-type="<%= type %>">
-  <% items.forEach((item, index) => { %>
-    <%
-      const isActive = item.active || false; // 초기 열림 상태
-      const isDisabled = item.disabled || false; // 비활성화 상태 (선택적)
-      const headerId = `accordionHeader-${accordionId}-${index}`;
-      const collapseId = `accordionCollapse-${accordionId}-${index}`;
-      const itemClasses = [ 'accordion-item', isActive ? 'active' : '', isDisabled ? 'disabled' : ''].filter(Boolean).join(' ');
-      const collapseClasses = ['accordion-collapse','collapse',isActive ? 'active' : ''].filter(Boolean).join(' ');
-    %>
-    <div class="<%= itemClasses %>">
-      <h5 class="accordion-header" id="<%= headerId %>">
-        <button
-          type="button"
-          class="btn-accordion"
-          aria-controls="<%= collapseId %>"
-          aria-expanded="<%= isActive ? 'true' : 'false' %>"
-          <%= isDisabled ? 'disabled' : '' %>
-        >
-          <div class="title-wrap">
-            <span class="title"><%- item.title || `아코디언 ${index + 1}` %></span>
-          </div>
-        </button>
-      </h5>
-      <div
-        class="<%= collapseClasses %>"
-        id="<%= collapseId %>"
-        aria-labelledby="<%= headerId %>"
-        role="region"
-        <%= isActive ? '' : 'hidden' %>
+<%_ items.forEach((item, index) => { -%>
+  <%_
+    const isActive = item.active || false; // 초기 열림 상태
+    const isDisabled = item.disabled || false; // 비활성화 상태 (선택적)
+    const headerId = `accordionHeader-${accordionId}-${index}`;
+    const collapseId = `accordionCollapse-${accordionId}-${index}`;
+    const itemClasses = [ 'accordion-item', isActive ? 'active' : '', isDisabled ? 'disabled' : ''].filter(Boolean).join(' ');
+    const collapseClasses = ['accordion-collapse','collapse',isActive ? 'active' : ''].filter(Boolean).join(' ');
+  -%>
+  <div class="<%= itemClasses %>">
+    <h5 class="accordion-header" id="<%= headerId %>">
+      <button
+        type="button"
+        class="btn-accordion"
+        aria-controls="<%= collapseId %>"
+        aria-expanded="<%= isActive ? 'true' : 'false' %>"
+        <%= isDisabled ? 'disabled' : '' %>
       >
-        <div class="accordion-body">
-          <%- item.content || '<p>콘텐츠 없음</p>' %>
+        <div class="title-wrap">
+          <span class="title"><%- item.title || `아코디언 ${index + 1}` %></span>
         </div>
+      </button>
+    </h5>
+    <div
+      class="<%= collapseClasses %>"
+      id="<%= collapseId %>"
+      aria-labelledby="<%= headerId %>"
+      role="region"
+      <%= isActive ? '' : 'hidden' %>
+    >
+      <div class="accordion-body">
+        <%- item.content || '<p>콘텐츠 없음</p>' %>
       </div>
     </div>
-  <% }); %>
+  </div>
+<%_ }); -%>
 </div>
-<% } %>
+<%_ } -%>

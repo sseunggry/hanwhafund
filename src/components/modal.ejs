@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf';
   const id = localsSafe.id || 'modal-default';
   const title = localsSafe.title || ''; // 모달 제목 (HTML 가능)
   const content = localsSafe.content || ''; // 모달 본문 내용 (HTML 가능)
@@ -13,7 +12,7 @@
 
   const titleId = `tit_${id}`;
   const modalClasses = [
-    `${projectName}-modal`,
+    `modal`,
     'fade',
     variant,
     addClass
@@ -57,7 +56,7 @@
               const btnText = button.text || '버튼';
               // 기본 클래스 + 사용자 정의 클래스 + 닫기 클래스(action 기준)
               const btnClasses = [
-                `${projectName}-btn`, // 기본 버튼 클래스 (pds-btn 대체 또는 병행)
+                `btn`, // 기본 버튼 클래스 (pds-btn 대체 또는 병행)
                 button.class || 'medium primary', // 기본값 설정
                 button.action === 'close' ? 'btn-close-modal' : '' // 닫기 액션 시 클래스 추가
               ].filter(Boolean).join(' ');
@@ -81,7 +80,7 @@
       <% if (showCloseBtn) { %>
         <button
           type="button"
-          class="<%= projectName %>-btn icon btn-close btn-close-modal"
+          class="btn icon btn-close btn-close-modal"
           aria-controls="<%= id %>"
         >
           <span class="sr-only">닫기</span>

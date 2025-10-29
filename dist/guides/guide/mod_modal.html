@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>모달 &gt; 가이드</title>
+    <title>팝업 &gt; 가이드</title>
 
     <link href="./assets/css/prism.css" rel="stylesheet" />
     <link href="./assets/css/index.css" rel="stylesheet" />
@@ -20,863 +20,182 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">모달</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">모달</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">탭에 관한 기본 스크립트 가이드</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">기본 모달</span>
           </div>
 
-          <div class="group">
-            <a class="btn outlined option-md" href="../script_guide/tab.html" title="새창열림" target="_blank">
-              <span>스크립트 가이드 확인</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELTab</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>전체적인 내용 구분을 위해 화면 헤더 영역 및 콘텐츠 영역 상단에서 사용하는 탭</li>
-                  <li>콘텐츠 영역 상단에서 사용하는 밑줄 형태</li>
-                  <li>
-                    화면 개수가 화면 가로 너비를 초과하는 경우 가로스크롤
-                    <strong class="fc-red">불가능</strong>
-                  </li>
-                  <li>
-                    <strong class="fc-red">[!디자인 가이드, 반드시 확인!]</strong>
-                    기본적으로 .section은 상단 4rem에 대한 디자인 여백 가이드 존재 함.
-                    <br />
-                    바닥페이지(모바일에서만), 팝업 최상단에 첫 콘텐츠가 탭일 경우
-                    <strong class="fc-red">margin-top: -4rem</strong>
-                    이 적용 됨.(위에 붙어야 함.)
-                    <br />
-                    만약 경우에 따라 상단 콘텐츠의 삭제여부에 따라 적용되어야 할 경우
-                    <strong class="fc-red">.first-tab-space</strong>
-                    부여로 적용 가능
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="btn-wrap option-array">
-                <a class="btn outlined option-md" href="/v2/html/bizcomm/M14_03_001_001.html" title="새창열림" target="_blank">
-                  <span>첫 콘텐츠 일 경우 샘플페이지</span>
-                </a>
-                <a class="btn outlined option-md" href="/v2/html/claim/M3_05_002_003.html" title="새창열림" target="_blank">
-                  <span>상단 콘텐츠의 삭제여부에 관한 샘플페이지</span>
-                </a>
-              </div>
-              <p class="note-txt">
-                ※
-                <strong>상단 콘텐츠의 삭제여부에 관한 샘플페이지</strong>
-                의 경우 청구번호가 1건 일 경우 display: none으로 숨김처리 됨. 그럴경우 .ui-tab
-                <strong class="fc-red">.first-tab-space</strong>
-                부여로 margin-top: -4rem; 적용해야 함.
-              </p>
-            </div>
-
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름1</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름2</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <div>탭내용1</div>
-
-                            <section class="section option-line-lg space-tip space-half-pt-4">
-                              <div class="accordion-wrap tipbox-wrap" fui-accordion>
-                                <dl class="accordion-box">
-                                  <dt class="accordion-head">
-                                    <button class="btn-fold" type="button">
-                                      <span>확인해 주세요</span>
-                                    </button>
-                                  </dt>
-                                  <dd class="accordion-body">
-                                    <ul class="note-list depth-1">
-                                      <li>테스트 확인해주세요.11</li>
-                                      <li>회사에서 가입한 단체보험의 질병/상해 보험금도 청구할 수 있습니다.</li>
-                                    </ul>
-                                  </dd>
-                                </dl>
-                              </div>
-                            </section>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용2</div>
-
-                            <section class="section option-line-lg space-tip space-half-pt-4">
-                              <div class="accordion-wrap tipbox-wrap" fui-accordion>
-                                <dl class="accordion-box is-open">
-                                  <dt class="accordion-head">
-                                    <button type="button">
-                                      <span>확인해 주세요2</span>
-                                    </button>
-                                  </dt>
-                                  <dd class="accordion-body">
-                                    <ul class="note-list depth-1">
-                                      <li>테스트 확인해주세요.22</li>
-                                    </ul>
-                                  </dd>
-                                </dl>
-                              </div>
-                            </section>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">ELTabContent</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>전체적인 내용 구분을 위해 화면 헤더 영역 및 콘텐츠 영역 상단에서 사용하는 탭</li>
-                  <li>콘텐츠 영역 상단에서 사용하는 밑줄 형태</li>
-                  <li>화면 개수가 화면 가로 너비를 초과하는 경우 가로스크롤 가능</li>
-                  <li>
-                    .ui-tab-btns
-                    <strong class="fc-black">.option-slide</strong>
-                    을 추가
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns option-slide" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름1</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름탭이름탭이름탭이름탭이름2</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름3</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름탭이름탭이름탭이름탭이름탭이름탭이름탭이름탭이름탭이름탭이름4</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름5</span>
-                              </a>
-                            </div>
-                            <button class="btn-slide btn-sld-prev" type="button">
-                              <span>앞으로</span>
-                            </button>
-                            <button class="btn-slide btn-sld-next" type="button">
-                              <span>뒤로</span>
-                            </button>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl">
-                            <div>탭내용1</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용2</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용3</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용4</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용5</div>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">탭 상단영역 고정 방법</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>탭이 스크롤시 Header영역 혹은 팝업 Header영역에 고정해야 하는 경우 사용</li>
-                  <li>
-                    바닥페이지의 경우 &lt;div class="ui-floating" fui-sticky="offset:
-                    <strong class="fc-black">#baseHeader</strong>
-                    "&gt; 로 offset:#baseHeader를 사용
-                  </li>
-                  <li>
-                    모달풀팝업의 경우 &lt;div class="ui-floating" fui-sticky="offset:
-                    <strong class="fc-black">.ui-modal-tit</strong>
-                    "&gt; 로 offset:.ui-modal-tit를 사용
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="list-head">
-                        <div class="title-min">
-                          <span class="txt">바닥페이지 Header 하단영역 고정</span>
-                        </div>
-                      </div>
-
-                      <!-- 바닥페이지 Header 하단영역 고정(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns" role="tablist">
-                          <div class="ui-floating" fui-sticky="offset:#baseHeader">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn selected" href="javascript:;">
-                                <span>직접 입력</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>상품별 입력</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <div>탭내용1</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용2</div>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// 바닥페이지 Header 하단영역 고정(e) -->
-
-                      <div class="list-head">
-                        <div class="title-min">
-                          <span class="txt">Popup 제목영역 하단 고정</span>
-                        </div>
-                      </div>
-
-                      <!-- Popup 제목영역 하단 고정(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns" role="tablist">
-                          <div class="ui-floating" fui-sticky="offset:.ui-modal-tit">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn selected" href="javascript:;">
-                                <span>직접 입력</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>상품별 입력</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <div>탭내용1</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용2</div>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// Popup 제목영역 하단 고정(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELTabContent - Bubble Type</span>
-            </div>
-          </div>
-
-          <div class="group">
+          <!-- <div class="group">
             <div class="module-box option-bg">
               <ul class="note-list depth-1">
+                <li>전체적인 내용 구분을 위해 화면 헤더 영역 및 콘텐츠 영역 상단에서 사용하는 탭</li>
+                <li>콘텐츠 영역 상단에서 사용하는 밑줄 형태</li>
+                <li>화면 개수가 화면 가로 너비를 초과하는 경우 가로스크롤 <strong class="fc-red">불가능</strong></li>
                 <li>
-                  .ui-tab-btns
-                  <strong class="fc-black">.option-bubble</strong>
+                  <strong class="fc-red">[!디자인 가이드, 반드시 확인!]</strong>
+                  기본적으로 .section은 상단 4rem에 대한 디자인 여백 가이드 존재 함.
+                  <br />
+                  바닥페이지(모바일에서만), 팝업 최상단에 첫 콘텐츠가 탭일 경우
+                  <strong class="fc-red">margin-top: -4rem</strong>
+                  이 적용 됨.(위에 붙어야 함.)
+                  <br />
+                  만약 경우에 따라 상단 콘텐츠의 삭제여부에 따라 적용되어야 할 경우
+                  <strong class="fc-red">.first-tab-space</strong>
+                  부여로 적용 가능
                 </li>
               </ul>
             </div>
-          </div>
+          </div> -->
 
           <div class="group">
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns option-bubble" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>추천</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>신용</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>담보</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>투자성향에 따름</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>투자성향과 상관없음</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <div>탭내용 - 1. 추천</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용 - 2. 신용</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용 - 3. 담보</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용 - 4. 투자성향애 따름</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용 - 5. 투자성향과 상관없음</div>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
+            <div class="hls_preview">
+              <button type="button" class="btn large btn-open-modal" aria-controls="myModal1">
+                <span>기본 모달 열기</span>
+              </button>
+              <div id="myModal1" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_myModal1" data-type="modal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myModal1" class="modal-title">기본 모달 제목</h2>
                     </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+
+                    <div class="modal-conts">
+                      <div class="conts-area">
+                        <p>모달 내용입니다. 확인 또는 취소 버튼을 누르세요.</p>
+                      </div>
+                    </div>
+
+                    <div class="modal-btn btn-wrap default">
+                      <button type="button" class="btn medium tertiary btn-close-modal" aria-controls="myModal1">취소</button>
+
+                      <button type="button" class="btn medium primary" onclick="alert('확인됨!');">확인</button>
+                    </div>
+
+                    <button type="button" class="btn icon btn-close btn-close-modal" aria-controls="myModal1">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
                   </div>
                 </div>
+                <div class="modal-back in"></div>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELTabDetail</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">풀스크린 모달</span>
           </div>
 
           <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>콘텐츠 영역에서 사용하는 기본 형태</li>
-                <li>
-                  .ui-tab-btns
-                  <strong class="fc-black">.option-box</strong>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns option-box" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름1</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>탭이름2</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl">
-                            <div>탭내용1</div>
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <div>탭내용2</div>
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
+            <div class="hls_preview">
+              <button type="button" class="btn large btn-open-modal" aria-controls="myFullModal">
+                <span>풀스크린 모달 열기</span>
+              </button>
+              <div id="myFullModal" class="modal fade full" role="dialog" aria-modal="true" aria-labelledby="tit_myFullModal" data-type="full">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myFullModal" class="modal-title">긴 내용의 모달</h2>
                     </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+
+                    <div class="modal-conts" tabindex="&#34;0&#34;">
+                      <div class="conts-area">
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                        <p>내용... (아주 긴 내용)</p>
+                      </div>
+                    </div>
+
+                    <div class="modal-btn btn-wrap default">
+                      <button type="button" class="btn large primary btn-close-modal" aria-controls="myFullModal">닫기</button>
+                    </div>
+
+                    <button type="button" class="btn icon btn-close btn-close-modal" aria-controls="myFullModal">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
                   </div>
                 </div>
+                <div class="modal-back in"></div>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Custom</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">바텀 시트</span>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">탭 in 탭</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>ELTab안에 ELTabContent 조합</li>
-                  <li>
-                    .ui-tab-btns
-                    <strong class="fc-black">.option-box</strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>원리금보장형</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>원리금비보장형</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <!-- .ui-tab(s) / 탭 in 탭 -->
-                            <div class="ui-tab" fui-tab>
-                              <!-- .ui-tab-btns(s) -->
-                              <div class="ui-tab-btns option-bubble" role="tablist">
-                                <div class="ui-floating">
-                                  <div class="ui-floating-wrap">
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>투자성향에 따름</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>투자성향과 상관없음</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!--// .ui-tab-btns(e) -->
-
-                              <!-- .ui-tab-pnls(s) -->
-                              <div class="ui-tab-pnls">
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-1. 투자성향애 따름</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-2. 투자성향과 상관없음</div>
-                                </section>
-                              </div>
-                              <!--// .ui-tab-pnls(e) -->
-                            </div>
-                            <!--// .ui-tab(e) / 탭 in 탭 -->
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <!-- .ui-tab(s) / 탭 in 탭 -->
-                            <div class="ui-tab" fui-tab>
-                              <!-- .ui-tab-btns(s) -->
-                              <div class="ui-tab-btns option-bubble" role="tablist">
-                                <div class="ui-floating">
-                                  <div class="ui-floating-wrap">
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>추천</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>신용</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>담보</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!--// .ui-tab-btns(e) -->
-
-                              <!-- .ui-tab-pnls(s) -->
-                              <div class="ui-tab-pnls">
-                                <section class="ui-tab-pnl selected">
-                                  <div>탭내용 - 2-1. 추천</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 2-2. 신용</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 2-3. 담보</div>
-                                </section>
-                              </div>
-                              <!--// .ui-tab-pnls(e) -->
-                            </div>
-                            <!--// .ui-tab(e) / 탭 in 탭 -->
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
+            <div class="hls_preview">
+              <button type="button" class="btn large btn-open-bottom-sheet" aria-controls="myBottomSheet">
+                <span>바텀 시트 열기</span>
+              </button>
+              <div id="myBottomSheet" class="modal fade bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_myBottomSheet" data-type="bottom-sheet">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myBottomSheet" class="modal-title">바텀 시트 제목</h2>
                     </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+
+                    <div class="modal-conts">
+                      <div class="conts-area">
+                        <p>옵션을 선택하세요.</p>
+                      </div>
+                    </div>
+
+                    <div class="modal-btn btn-wrap column">
+                      <button type="button" class="btn medium primary btn-close-modal" aria-controls="myBottomSheet">옵션 1</button>
+
+                      <button type="button" class="btn medium secondary btn-close-modal" aria-controls="myBottomSheet">옵션 2</button>
+
+                      <button type="button" class="btn medium text-secondary btn-close-modal" aria-controls="myBottomSheet">취소</button>
+                    </div>
+
+                    <button type="button" class="btn icon btn-close btn-close-modal" aria-controls="myBottomSheet">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
                   </div>
                 </div>
+                <div class="modal-back in"></div>
               </div>
             </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">탭 in 탭(.option-slide)</span>
-              </div>
-            </div>
-
-            <div class="group">
-              <div class="module-box option-bg">
-                <ul class="note-list depth-1">
-                  <li>ELTab안에 ELTabContent 조합</li>
-                  <li>
-                    .ui-tab-btns
-                    <strong class="fc-black">.option-box</strong>
-                  </li>
-                  <li>스와이프 기능</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab>
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .ui-tab(s) -->
-                      <div class="ui-tab" fui-tab>
-                        <!-- .ui-tab-btns(s) -->
-                        <div class="ui-tab-btns" role="tablist">
-                          <div class="ui-floating">
-                            <div class="ui-floating-wrap">
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>원리금보장형</span>
-                              </a>
-                              <a class="ui-tab-btn" href="javascript:;">
-                                <span>원리금비보장형</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <!--// .ui-tab-btns(e) -->
-
-                        <!-- .ui-tab-pnls(s) -->
-                        <div class="ui-tab-pnls">
-                          <section class="ui-tab-pnl selected">
-                            <!-- .ui-tab(s) / 탭 in 탭 -->
-                            <div class="ui-tab" fui-tab>
-                              <!-- .ui-tab-btns(s) -->
-                              <div class="ui-tab-btns option-bubble option-slide" role="tablist">
-                                <div class="ui-floating">
-                                  <div class="ui-floating-wrap">
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>투자성향에 따름</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>투자성향과 상관없음</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>스와이프1</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>스와이프2</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>스와이프3</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>스와이프4</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>스와이프5</span>
-                                    </a>
-                                  </div>
-                                  <button class="btn-slide btn-sld-prev" type="button">
-                                    <span>앞으로</span>
-                                  </button>
-                                  <button class="btn-slide btn-sld-next" type="button">
-                                    <span>뒤로</span>
-                                  </button>
-                                </div>
-                              </div>
-                              <!--// .ui-tab-btns(e) -->
-
-                              <!-- .ui-tab-pnls(s) -->
-                              <div class="ui-tab-pnls">
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-1. 투자성향애 따름</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-2. 투자성향과 상관없음</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-3. 스와이프1</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-4. 스와이프2</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-5. 스와이프3</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-6. 스와이프4</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 1-7. 스와이프5</div>
-                                </section>
-                              </div>
-                              <!--// .ui-tab-pnls(e) -->
-                            </div>
-                            <!--// .ui-tab(e) / 탭 in 탭 -->
-                          </section>
-
-                          <section class="ui-tab-pnl">
-                            <!-- .ui-tab(s) / 탭 in 탭 -->
-                            <div class="ui-tab" fui-tab>
-                              <!-- .ui-tab-btns(s) -->
-                              <div class="ui-tab-btns option-bubble" role="tablist">
-                                <div class="ui-floating">
-                                  <div class="ui-floating-wrap">
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>추천</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>신용</span>
-                                    </a>
-                                    <a class="ui-tab-btn" href="javascript:;">
-                                      <span>담보</span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                              <!--// .ui-tab-btns(e) -->
-
-                              <!-- .ui-tab-pnls(s) -->
-                              <div class="ui-tab-pnls">
-                                <section class="ui-tab-pnl selected">
-                                  <div>탭내용 - 2-1. 추천</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 2-2. 신용</div>
-                                </section>
-
-                                <section class="ui-tab-pnl">
-                                  <div>탭내용 - 2-3. 담보</div>
-                                </section>
-                              </div>
-                              <!--// .ui-tab-pnls(e) -->
-                            </div>
-                            <!--// .ui-tab(e) / 탭 in 탭 -->
-                          </section>
-                        </div>
-                        <!--// .ui-tab-pnls(e) -->
-                      </div>
-                      <!--// .ui-tab(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>

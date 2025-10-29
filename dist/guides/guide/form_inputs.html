@@ -20,17 +20,13 @@
   <body>
     <div id="guideWrap">
       <div class="main_content">
-        <div class="list-head">
-          <div class="tit-lg">
-            <span class="txt">텍스트 필드</span>
-          </div>
+        <div class="tit-lg">
+          <span class="txt">텍스트 필드</span>
         </div>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Input Basic</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">Input Basic</span>
           </div>
 
           <div class="group">
@@ -45,128 +41,47 @@
           </div>
 
           <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_1" class="label-txt">Normal</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_1" name="" value="" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_2" class="label-txt">Completed</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_2" name="" value="김삼성" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_3" class="label-txt">Error</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md is-error" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_3" name="" value="잘못입력했어요" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_4" class="label-txt">Disabled</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_4" name="" value="Disabled" placeholder="내용을 입력해주세요" disabled />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_5" class="label-txt">Readonly</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_5" name="" value="Readonly" placeholder="내용을 입력해주세요" readonly />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .readonly 예외 라인 필요한 경우 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_6" class="label-txt">Readonly 예외 라인 필요한 경우(.readonly-line)</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md readonly-line" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_6" name="" value="Readonly 예외 라인 필요한 경우" placeholder="내용을 입력해주세요" readonly />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- 필수입력 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput1_7" class="label-txt">
-                            필수입력
-                            <span class="bullet-must">
-                              <em class="sr-only">필수입력</em>
-                            </span>
-                          </label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput1_7" name="" value="" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// 필수입력 (e)-->
-                    </div>
-                  </section>
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="input-rkb0x0p">아이디</label>
                 </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+                <div class="form-conts">
+                  <div class="input large">
+                    <input type="text" id="input-rkb0x0p" name="" value="" placeholder="아이디 입력" required />
                   </div>
                 </div>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="input-pbpook7">비밀번호</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large">
+                    <input type="password" id="input-pbpook7" name="" value="" placeholder="비밀번호 입력" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Input Secondary</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">그룹 Input (Dash 스타일)</span>
           </div>
 
           <div class="group">
@@ -180,89 +95,75 @@
           </div>
 
           <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap in-label">
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <label for="targetInput2_1" class="label-txt">Inner Label</label>
-                          <input type="text" class="inp-base inp-ani" id="targetInput2_1" name="" value="" placeholder="" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap in-label is-focus">
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <label for="targetInput2_2" class="label-txt">Inner Label : Completed</label>
-                          <input type="text" class="inp-base inp-ani" id="targetInput2_2" name="" value="김삼성" placeholder="" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap in-label is-focus">
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md is-error" fui-input>
-                          <label for="targetInput2_3" class="label-txt">Inner Label : Error</label>
-                          <input type="text" class="inp-base inp-ani" id="targetInput2_3" name="" value="잘못입력했어요" placeholder="" />
-                          <!-- <span class="error-mes on">에러문구가 나옵니다.</span> -->
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-
-                      <div class="form-wrap in-label is-focus">
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <label for="targetInput2_3" class="label-txt">Inner Label : Disabled</label>
-                          <input type="text" class="inp-base inp-ani" id="targetInput2_3" name="" value="Disabled" placeholder="" disabled />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap in-label is-focus">
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md" fui-input>
-                          <label for="targetInput2_3" class="label-txt">Inner Label : Readonly</label>
-                          <input type="text" class="inp-base inp-ani" id="targetInput2_3" name="" value="Readonly" placeholder="" readonly />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// .form-wrap (e)-->
-                    </div>
-                  </section>
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <span>주민등록번호</span>
                 </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+                <div class="form-conts">
+                  <div class="input-group dash">
+                    <div class="input large">
+                      <input type="number" id="input-w92a2qc-group-0" value="" placeholder="앞자리" aria-label="주민등록번호 앞자리" />
+                    </div>
+
+                    <div class="input large">
+                      <input type="number" id="input-w92a2qc-group-1" value="" placeholder="뒷자리" aria-label="주민등록번호 뒷자리" />
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Input Complex</span>
+          <div class="tit-xsm">
+            <span class="txt">그룹 Input</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>placeholder가 label인 형태로 힌트 텍스트를 별도로 사용하면 안됨.</li>
+                <li>사용자가 텍스트 필드에 포커스가 들어가면 placeholder의 텍스트가 label로 이동하는 상호작용이 일어남</li>
+                <li>텍스트 필드에 포커스가 들어가면 .form-wrap에 .is-focus가 들어감. 텍스트 없는 상태에서 포커스 아웃 될 경우 .is-focus 삭제됨.</li>
+              </ul>
             </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <span>이메일</span>
+                </div>
+                <div class="form-conts">
+                  <div class="input-group">
+                    <div class="input large">
+                      <input type="text" id="input-m41rkf4-group-0" value="" placeholder="앞자리" aria-label="이메일 1번째 자리" />
+                    </div>
+
+                    <div class="input large">
+                      <input type="text" id="input-m41rkf4-group-1" value="" placeholder="뒷자리" aria-label="이메일 2번째 자리" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Input Complex</span>
           </div>
 
           <div class="group">
@@ -274,11 +175,9 @@
             </div>
           </div>
 
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">unit 조합</span>
-              </div>
+          <!-- <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">unit 조합</span>
             </div>
 
             <div class="mui_tabs" fui-tab="">
@@ -290,21 +189,26 @@
                 <div class="ui-tab-pnl selected">
                   <section class="section fui-mg-center">
                     <div class="hls_preview">
-                      <!-- unit 조합 (s)-->
                       <div class="form-wrap">
                         <div class="form-name">
-                          <label for="targetInputUnit1_1" class="label-txt">label unit</label>
+                          <label for="targetInputUnit1_1" class="label-txt">
+                            label unit
+                          </label>
                         </div>
-                        <!-- .input* (s)-->
                         <div class="input-wrap md has-button search" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInputUnit1_1" name="" value="" placeholder="입력해주세요." />
+                          <input
+                            type="text"
+                            class="inp-base inp-ani"
+                            id="targetInputUnit1_1"
+                            name=""
+                            value=""
+                            placeholder="입력해주세요."
+                          />
                           <div class="combine">
                             <span>만원</span>
                           </div>
                         </div>
-                        <!--// .input* (e)-->
                       </div>
-                      <!--// unit 조합 (e)-->
                     </div>
                   </section>
                 </div>
@@ -313,479 +217,102 @@
                     <pre><code class="hls" data-language="html"></code></pre>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">image 조합</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="form-group">
+                  <div class="form-tit">
+                    <label for="input-62x99sv">검색</label>
+                  </div>
+                  <div class="form-conts">
+                    <div class="input large">
+                      <input type="text" id="input-62x99sv" name="" value="" placeholder="검색어 입력" />
+
+                      <button type="button" class="btn icon xlarge">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
 
           <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">image 조합</span>
-              </div>
+            <div class="tit-xxsm">
+              <span class="txt">button 조합</span>
             </div>
 
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 검색 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInput4_1" class="label-txt">검색</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md has-button search" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInput4_1" name="" value="" placeholder="검색어 입력" />
-                          <div class="combine">
-                            <button type="button" class="btn ico-search">
-                              <span class="sr-only">검색</span>
-                            </button>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// 검색 (e)-->
+            <div class="group">
+              <div class="hls_preview">
+                <div class="form-group">
+                  <div class="form-tit">
+                    <label for="input-di7kvhz">검색</label>
+                  </div>
+                  <div class="form-conts">
+                    <div class="input large">
+                      <input type="text" id="input-di7kvhz" name="" value="" placeholder="검색어 입력" />
+
+                      <button type="button" class="btn small">
+                        <span>확인</span>
+                      </button>
                     </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
-                <span class="txt">button 조합</span>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- 버튼조합 (s)-->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInputBtn1_1" class="label-txt">버튼조합</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap md has-button search" fui-input>
-                          <input type="text" class="inp-base inp-ani" id="targetInputBtn1_1" name="" value="" placeholder="placeholder" />
-                          <div class="combine">
-                            <button type="button" class="btn secondary option-xsm option-round">
-                              <span>버튼</span>
-                            </button>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// 버튼조합 (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
               </div>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELInputVerificationIndependent</span>
-            </div>
+          <div class="tit-xsm">
+            <span class="txt">Text Area</span>
           </div>
 
           <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>간편인증(생년월일) 입력시 사용(스마트링크)</li>
-              </ul>
-            </div>
-          </div>
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit"><label for="textarea-juvbi0k">자기소개</label></div>
+                <div class="form-conts">
+                  <div class="textarea-wrap large">
+                    <textarea id="textarea-juvbi0k" class="input large" name="" placeholder="자신을 소개해주세요..." maxlength="&#34;200&#34;" required></textarea>
 
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form-wrap (s)-->
-                      <div class="form-wrap option-independent">
-                        <div class="item-row">
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 첫번째 자리" />
-                            </div>
-                          </div>
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 두번째 자리" />
-                            </div>
-                          </div>
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 세번째 자리" />
-                            </div>
-                          </div>
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 네번째 자리" />
-                            </div>
-                          </div>
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 다섯번째 자리" />
-                            </div>
-                          </div>
-                          <div class="unit">
-                            <div class="input-wrap">
-                              <input type="tel" class="inp-base inp-birth" value="" maxlength="1" title="생년월일 여섯번째 자리" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!--// .form-wrap (e)-->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
+                    <p class="textarea-count">
+                      <span class="count-now">0</span>
+                      <span class="count-total">/200</span>
+                    </p>
                   </div>
                 </div>
               </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
             </div>
           </div>
         </section>
 
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELInputVerificationMasking</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>간편비밀번호 마스킹처리</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- .form(s) -->
-                      <div class="form align-center">
-                        <!-- .form-wrap (s)-->
-                        <div class="form-wrap">
-                          <div class="form-name sr-only">
-                            <label for="" class="label-txt">비밀번호 입력</label>
-                          </div>
-                          <div class="input-wrap option-pw-item">
-                            <input type="tel" id="" value="" class="lb-passwd" maxlength="6" title="비밀번호 입력" />
-                          </div>
-                        </div>
-                        <!--// .form-wrap (e)-->
-                      </div>
-                      <!--// .form(s) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">Text Area</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetAera1_1" class="label-txt">TextArea</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap">
-                          <textarea class="inp-base inp-ani ui-autoheight" id="targetAera1_1" placeholder="내용을 입력하세요 (1,500자 이내)"></textarea>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="list-head">
-            <div class="tit-xsm">
-              <span class="txt">ELInputBox</span>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>Box형태의 인풋</li>
-                <li>공시실에서 사용</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- Basic(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox1_1" class="label-txt">Basic</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox1_1" name="" value="" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Basic(e) -->
-
-                      <!-- Completed(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox1_2" class="label-txt">Completed</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox1_2" name="" value="김삼성" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Completed(e) -->
-
-                      <!-- Error(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox1_3" class="label-txt">Error</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box is-error" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox1_3" name="" value="잘못입력했어요" placeholder="내용을 입력해주세요" />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Error(e) -->
-
-                      <!-- Disabled(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox1_4" class="label-txt">Disabled</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox1_4" name="" value="" placeholder="비활성화" disabled />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Disabled(e) -->
-
-                      <!-- Readonly(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox1_5" class="label-txt">Readonly</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox1_5" name="" value="readonly" placeholder="내용을 입력해주세요" readonly />
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Readonly(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <!-- <section class="section">
           <div class="group">
             <div class="list-head">
-              <div class="title-min">
-                <span class="txt">ELInputBoxAmount</span>
-              </div>
-            </div>
-
-            <div class="mui_tabs" fui-tab="">
-              <div class="ui-tab-btns">
-                <a class="ui-tab-btn" href="#none">PREVIEW</a>
-                <a class="ui-tab-btn" href="#none">MARKUP</a>
-              </div>
-              <div class="ui-tab-pnls">
-                <div class="ui-tab-pnl selected">
-                  <section class="section fui-mg-center">
-                    <div class="hls_preview">
-                      <!-- Basic(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_1" class="label-txt">Basic</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox2_1" name="" value="" placeholder="입력" />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Basic(e) -->
-
-                      <!-- Completed(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_2" class="label-txt">Completed</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox2_2" name="" value="1,000" placeholder="입력" />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Completed(e) -->
-
-                      <!-- Error(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_3" class="label-txt">Error</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button is-error" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox2_3" name="" value="1,000" placeholder="입력" />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Error(e) -->
-
-                      <!-- Disabled(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_4" class="label-txt">Disabled</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox2_4" name="" value="" placeholder="입력" disabled />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Disabled(e) -->
-
-                      <!-- Readonly(s) -->
-                      <div class="form-wrap">
-                        <div class="form-name">
-                          <label for="targetInpBox2_5" class="label-txt">Readonly</label>
-                        </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox2_5" name="" value="1,000" placeholder="입력" readonly />
-                          <div class="combine">
-                            <span>만원</span>
-                          </div>
-                        </div>
-                        <!--// .input* (e)-->
-                      </div>
-                      <!--// Readonly(e) -->
-                    </div>
-                  </section>
-                </div>
-                <div class="ui-tab-pnl">
-                  <div>
-                    <pre><code class="hls" data-language="html"></code></pre>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="list-head">
-              <div class="title-min">
+              <div class="tit-xxsm">
                 <span class="txt">ELInputBoxIcon</span>
               </div>
             </div>
@@ -799,59 +326,88 @@
                 <div class="ui-tab-pnl selected">
                   <section class="section fui-mg-center">
                     <div class="hls_preview">
-                      <!-- 검색(s) -->
                       <div class="form-wrap">
                         <div class="form-name">
-                          <label for="targetInpBox3_1" class="label-txt">검색</label>
+                          <label for="targetInpBox3_1" class="label-txt">
+                            검색
+                          </label>
                         </div>
-                        <!-- .input* (s)-->
-                        <div class="input-wrap sm option-box has-button search" fui-input>
-                          <input type="text" class="inp-base" id="targetInpBox3_1" name="" value="" placeholder="입력" />
+                        <div
+                          class="input-wrap sm option-box has-button search"
+                          fui-input
+                        >
+                          <input
+                            type="text"
+                            class="inp-base"
+                            id="targetInpBox3_1"
+                            name=""
+                            value=""
+                            placeholder="입력"
+                          />
                           <div class="combine">
                             <button type="button" class="btn ico-search">
                               <span class="sr-only">검색</span>
                             </button>
                           </div>
                         </div>
-                        <!--// .input* (e)-->
                       </div>
-                      <!--// 검색(e) -->
 
-                      <!-- 주소 삭제버튼 조합(s) -->
                       <div class="form-wrap uAddress">
                         <div class="form-wrap">
                           <div class="form-name">
-                            <label for="targetInputAddress_2" class="label-txt">주소검색+삭제버튼 조합</label>
+                            <label for="targetInputAddress_2" class="label-txt">
+                              주소검색+삭제버튼 조합
+                            </label>
                           </div>
                           <div class="item-row gap-0-2">
                             <div class="unit filled">
-                              <!-- .input* (s)-->
-                              <div class="input-wrap sm option-box has-button address" fui-input>
-                                <input type="text" class="inp-base" id="targetInputAddress_3" name="" value="" placeholder="주소 검색" readonly />
+                              <div
+                                class="input-wrap sm option-box has-button address"
+                                fui-input
+                              >
+                                <input
+                                  type="text"
+                                  class="inp-base"
+                                  id="targetInputAddress_3"
+                                  name=""
+                                  value=""
+                                  placeholder="주소 검색"
+                                  readonly
+                                />
                                 <div class="combine">
                                   <button type="button" class="btn ico-search">
                                     <span class="sr-only">검색</span>
                                   </button>
                                 </div>
                               </div>
-                              <!--// .input* (e)-->
                             </div>
                             <div class="unit fixed">
-                              <button type="button" class="btn tertiary option-xsm option-round">
+                              <button
+                                type="button"
+                                class="btn tertiary option-xsm option-round"
+                              >
                                 <span>삭제</span>
                               </button>
                             </div>
                           </div>
                         </div>
                         <div class="form-wrap">
-                          <!-- .input* (s)-->
-                          <div class="input-wrap sm option-box readonly-line" fui-input>
-                            <input type="text" class="inp-base" id="targetInputAddress_3_1" name="" value="" placeholder="" disabled />
+                          <div
+                            class="input-wrap sm option-box readonly-line"
+                            fui-input
+                          >
+                            <input
+                              type="text"
+                              class="inp-base"
+                              id="targetInputAddress_3_1"
+                              name=""
+                              value=""
+                              placeholder=""
+                              disabled
+                            />
                           </div>
-                          <!--// .input* (e)-->
                         </div>
                       </div>
-                      <!-- 검색(e) -->
                     </div>
                   </section>
                 </div>
@@ -863,13 +419,8 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       </div>
     </div>
-    <!-- <script>
-      $(document).ready(function () {
-        $plugins.uiTextareaAutoHeight();
-      });
-    </script>  -->
   </body>
 </html>

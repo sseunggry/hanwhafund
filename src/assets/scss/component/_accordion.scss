@@ -36,7 +36,7 @@
   --#{$prefix}-accordion--color-icon: var(--#{$prefix}-color-icon-gray);
 }
 
-.#{$prefix}-accordion {
+.accordion {
   @include accordion-color-variable();
   @include accordion-size-variable;
 
@@ -182,7 +182,7 @@
 }
 
 @include mq(mobile) {
-  .#{$prefix}-accordion {
+  .accordion {
     --#{$prefix}-accordion--padding: 1.6rem;
     --#{$prefix}-accordion--line-padding: 1.2rem;
     --#{$prefix}-accordion--button-icon-size: var(--#{$prefix}-icon--size-medium);

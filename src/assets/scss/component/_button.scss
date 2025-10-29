@@ -216,7 +216,7 @@ $button-icon-size: (
   background-color: var(--#{$prefix}-color-#{$color}-text);
 }
 
-.#{$prefix}-btn {
+.btn {
   @include button-size-variable;
   @include button-color-variable;
 
@@ -414,7 +414,7 @@ $button-icon-size: (
   &.column {
     flex-direction: column;
 
-    .#{$prefix}-btn {
+    .btn {
       flex: none;
     }
   }
@@ -424,7 +424,7 @@ $button-icon-size: (
     grid-template-columns: repeat(3, 1fr);
   }
 
-  &:has(.#{$prefix}-btn.line) {
+  &:has(.btn.line) {
     &.column {
       gap: 0;
 
@@ -441,7 +441,7 @@ $button-icon-size: (
     }
   }
 
-  .#{$prefix}-btn {
+  .btn {
     flex: 1;
   }
 }

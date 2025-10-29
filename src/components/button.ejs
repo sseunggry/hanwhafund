@@ -1,6 +1,5 @@
 <%
   const localsSafe = locals || {};
-  const projectName = localsSafe.projectName || 'hwf'; // 공통 변수
   const tag = localsSafe.tag === 'a' ? 'a' : 'button'; // a 또는 button
   const variant = localsSafe.variant || ''; // default, text, link, icon
   const hierarchy = localsSafe.hierarchy || ''; // primary, secondary, tertiary
@@ -15,7 +14,7 @@
 	const iconOnly = localsSafe.iconOnly || '';
 	const targetId = localsSafe.targetId || '';
 	const classes = [
-    `${projectName}-btn`,
+    `btn`,
     variant,
     variant === 'icon' ? '' : hierarchy,
     size,
@@ -29,9 +28,9 @@
   class="<%= classes -%>"
 	<%- targetId ? `aria-controls="${targetId}"` : '' -%>
 >
-	<%- preSlot -%>
-	<%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' -%>
-	<%- variant === 'icon' ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` -%>
-  <%- icon ? `<i class="svg-icon icon-${icon}"></i>` : '' -%>
-  <%- slot %>
+<%- preSlot %>
+<%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' %>
+<%- variant === 'icon' ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` %>
+<%- icon ? `<i class="svg-icon icon-${icon}"></i>` : '' %>
+<%- slot %>
 </<%= tag -%>> 
