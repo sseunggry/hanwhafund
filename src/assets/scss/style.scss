@@ -8,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 1.6rem;
-  max-width: 168rem;
+  max-width: calc(168rem + 1.6rem*2);
   width: 100%;
 }
 
@@ -100,7 +100,6 @@ section .inner {
         }
         .fund-summary {
           display: flex;
-          align-items: center;
           padding: 4rem;
           background-color: rgba(255, 255, 255, 0.1);
 
@@ -194,6 +193,125 @@ section .inner {
 							border-radius: 50%;
 							background-color: #fff;
 						}
+          }
+        }
+      }
+    }
+    .section-detail{
+      .top-fixed{
+        border-bottom: 0.1rem solid #EBEAEA;
+
+        .inner{
+          display: flex;
+          align-items: center;
+          height: 8rem;
+        }
+        .info{
+          display: flex;
+          align-items: center;
+
+          &.logo{
+            &::before{
+              content: '';
+              flex-shrink: 0;
+              display: inline-block;
+              width: 2.7rem;
+              height: 2.4rem;
+              @include bg('logo-symbol.svg');
+            }
+          }
+          .name{
+            margin-left: 1.6rem;
+            margin-right: 2.4rem;
+            font-size: 1.8em;
+            color: #151414;
+          }
+        }
+        .btn-wrap{
+          margin-left: auto;
+          width: fit-content;
+          gap: 4rem;
+        }
+      }
+
+      .sidebar-layout{
+        overflow: hidden;
+        display: flex;
+        background-color: #F3F2F1;
+
+        .siderbar-inner{
+          display: flex;
+          padding: 0 1.6rem;
+          max-width: calc(168rem + 1.6rem*2);
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .sidebar{
+          flex-shrink: 0;
+          padding-top: 6.4rem;
+          padding-left: 1.6rem;
+          width: 15.47%;
+          font-size: 2.4rem;
+          font-weight: 700;          
+
+
+          li{
+            margin-bottom: 1.6rem;
+            padding: 1.4rem;
+            color: #757170;
+
+            &:last-child{
+              margin-bottom: 0;
+            }
+
+            &.active{
+              color: #151414;
+              background: linear-gradient(90deg, rgba(223, 188, 165, 0.00) 0%, rgba(244, 178, 134, 0.70) 100%);
+
+              &::before{
+                content: '';
+                display: inline-block;
+                margin-right: 0.4rem;
+                width: 0.6rem;
+                height: 0.6rem;
+                background-color: #F54500;
+                vertical-align: top;
+              }
+            }
+          }
+        }
+        .sidebar-cont{
+          position: relative;
+
+          &::before{
+            z-index: 0;
+            content:"";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200%;
+            height: 100%;
+            background-color: #F3F2F1;
+          }
+
+          .cont-wrap{
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            padding: 8rem 0 12rem 8.45%;
+            background-color: #fff;
+
+            &::before{
+              z-index: -1;
+              content:"";
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 200%;
+              height: 100%;
+              background-color: #fff;
+            }
           }
         }
       }

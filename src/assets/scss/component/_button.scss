@@ -4,7 +4,7 @@
 @use "sass:list";
 
 /* 버튼 / 링크 */
-// 사이즈 정의
+
 // 1. 사이즈 맵
 $button-size: (
   small: (
@@ -104,8 +104,8 @@ $button-icon-size: (
   medium: 1.6rem,
   large: 2rem,
   xlarge: 2.4rem,
-  xxlarge: 3rem,
-  xxxlarge: 3.2rem,
+  xxlarge: 4rem,
+  xxxlarge: 4.8rem,
 ) !default;
 
 // [Mixin] 사이즈 CSS 변수 정의
@@ -122,35 +122,23 @@ $button-icon-size: (
   --#{$prefix}-color-button-primary-fill: var(--hwf-color-primary-60);
   --#{$prefix}-color-button-primary-fill-hover: var(--hwf-color-primary-70);
   --#{$prefix}-color-button-primary-fill-pressed: var(--hwf-color-primary-80);
-
   --#{$prefix}-color-button-secondary-fill: var(--hwf-color-secondary-10);
   --#{$prefix}-color-button-secondary-fill-hover: var(--hwf-color-secondary-20);
   --#{$prefix}-color-button-secondary-fill-pressed: var(--hwf-color-secondary-30);
   --#{$prefix}-color-button-secondary-border: var(--hwf-orange-20);
-
   --#{$prefix}-color-button-tertiary-fill: #f3f2f1;
   --#{$prefix}-color-button-tertiary-fill-hover: #ddd;
   --#{$prefix}-color-button-tertiary-fill-pressed: #ddd;
-
   --#{$prefix}-color-button-black-fill: #121212;
   --#{$prefix}-color-button-black-fill-hover: #000;
   --#{$prefix}-color-button-black-fill-pressed: #000;
-
   --#{$prefix}-color-button-disabled-fill: #cdd1d5;
   --#{$prefix}-color-button-disabled-border: #cdd1d5;
-
   --#{$prefix}-color-button-text-fill: #ffffff00; // transparent
   --#{$prefix}-color-button-text-fill-hover: #f5f5f5;
   --#{$prefix}-color-button-text-fill-pressed: #eee;
-
-  // --#{$prefix}-color-text-primary: var(--hwf-color-primary-60);
-  // --#{$prefix}-color-text-secondary: var(--hwf-color-primary-30);
-  // --#{$prefix}-color-text-disabled-on: #6d7882;
-  // --#{$prefix}-color-text: #333333;
-  // --#{$prefix}-color-disabled-text: #aaa;
   --#{$prefix}-color-transparency-border: #0000;
 
-  // 맵을 기반으로 CSS 변수 생성
   @each $color, $types in $button-color-variable {
     @each $type, $value in $types {
       --#{$prefix}-button--color-#{$color}-#{$type}: #{$value};
@@ -158,10 +146,10 @@ $button-icon-size: (
   }
 }
 
+// [Mixin] 버튼 사이즈 적용
 @mixin btn-size($size) {
   gap: var(--#{$prefix}-button--gap-#{$size});
   height: var(--#{$prefix}-button--size-height-#{$size});
-  // min-height: var(--#{$prefix}-button--size-height-#{$size});
   padding: var(--#{$prefix}-button--padding-y-#{$size}) var(--#{$prefix}-button--padding-x-#{$size});
   border-radius: var(--#{$prefix}-button--radius-#{$size});
   font-size: var(--#{$prefix}-button--mobile-font-size-#{$size});
@@ -175,23 +163,15 @@ $button-icon-size: (
     font-size: var(--#{$prefix}-button--pc-font-size--#{$size});
   }
 
-  // 아이콘 크기 변수명에서 'text-' 또는 'link-' 접두사를 제거합니다.
-  $icon-size-unit: $size;
-  @if string.index(#{$size}, "text-") == 1 {
-    $icon-size-unit: string.slice(#{$size}, 6);
-  } @else if string.index(#{$size}, "link-") == 1 {
-    $icon-size-unit: string.slice(#{$size}, 6);
-  }
-
   & {
-    .ico {
-      // @include square(var(--#{$prefix}-icon--size-#{$icon-size-unit}));
+    // [FIX] .ico -> .svg-icon으로 수정
+    .svg-icon {
       @include square(var(--#{$prefix}-button--icon-size-#{$size}));
     }
   }
 }
 
-// 컬러별 variable
+// [Mixin] 버튼 컬러 적용
 @mixin btn-color($color) {
   background-color: var(--#{$prefix}-button--color-#{$color}-fill);
   border-color: var(--#{$prefix}-button--color-#{$color}-border);
@@ -216,11 +196,12 @@ $button-icon-size: (
   background-color: var(--#{$prefix}-color-#{$color}-text);
 }
 
+/* Base Button */
 .btn {
   @include button-size-variable;
   @include button-color-variable;
 
-  // 기본버튼: black large
+  /* --- Base Styles --- */
   @include flex-layout($d: inline-flex, $ai: center, $jc: center);
   width: auto;
   border-style: solid;
@@ -229,39 +210,9 @@ $button-icon-size: (
   white-space: nowrap;
   transition: var(--#{$prefix}-transition-base);
 
+  /* --- Default Presentation (large, black) --- */
   @include btn-size(large);
   @include btn-color(black);
-
-  @each $size, $types in $button-size {
-    &.#{$size} {
-      @include btn-size(#{$size});
-    }
-  }
-  @each $color, $types in $button-color-variable {
-    &.#{$color} {
-      @include btn-color(#{$color});
-
-      &:hover {
-        @include btn-color-hover(#{$color});
-      }
-
-      &:active,
-      &:focus {
-        @include btn-color-pressed(#{$color});
-      }
-
-      &[disabled],
-      &.disabled {
-        @include btn-color-disabled(#{$color});
-
-        cursor: default;
-
-        &:hover {
-          @include btn-color-disabled(#{$color});
-        }
-      }
-    }
-  }
 
   .svg-icon {
     @include btn-color-icon(white);
@@ -280,19 +231,49 @@ $button-icon-size: (
   &[disabled],
   &.disabled {
     @include btn-color-disabled(black);
-
     cursor: default;
-
     &:hover {
       @include btn-color-disabled(black);
     }
   }
 
+  /* --- Size Overrides --- */
+  @each $size, $types in $button-size {
+    &.#{$size} {
+      @include btn-size(#{$size});
+    }
+  }
+
+  /* --- Color Overrides --- */
+  @each $color, $types in $button-color-variable {
+    &.#{$color} {
+      @include btn-color(#{$color});
+
+      &:hover {
+        @include btn-color-hover(#{$color});
+      }
+
+      &:active,
+      &:focus {
+        @include btn-color-pressed(#{$color});
+      }
+
+      &[disabled],
+      &.disabled {
+        @include btn-color-disabled(#{$color});
+        cursor: default;
+        &:hover {
+          @include btn-color-disabled(#{$color});
+        }
+      }
+    }
+  }
+
+  /* --- Variant: Text Button (.text) --- */
   &.text {
     padding: 0;
     height: auto;
     color: #121212;
-    // background-color: var(--#{$prefix}-color-button-text-fill);
     background-color: transparent;
     border-color: transparent;
 
@@ -314,9 +295,11 @@ $button-icon-size: (
     }
 
     &:hover {
+      background-color: var(--#{$prefix}-color-button-text-fill-hover);
     }
     &:active,
     &:focus {
+      background-color: var(--#{$prefix}-color-button-text-fill-pressed);
     }
     &[disabled],
     &.disabled {
@@ -326,11 +309,11 @@ $button-icon-size: (
 
       &:hover {
         background-color: transparent;
-        border-color: transparent;
       }
     }
   }
 
+  /* --- Variant: Line Button (.line) --- */
   &.line {
     color: var(--#{$prefix}-color-text-basic);
     background-color: transparent;
@@ -342,66 +325,129 @@ $button-icon-size: (
     .svg-icon {
       background-color: #333;
     }
+
+    &:hover {
+      background-color: var(--#{$prefix}-color-button-text-fill-hover);
+    }
+    &:active,
+    &:focus {
+      background-color: var(--#{$prefix}-color-button-text-fill-pressed);
+    }
+    &[disabled],
+    &.disabled {
+      color: var(--#{$prefix}-color-text-disabled-on);
+      background-color: transparent;
+      border-color: #aaa; // 비활성화 테두리 색상 예시
+      .svg-icon {
+        background-color: #aaa;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
   }
 
-  /* icon 버튼 (텍스트 없음) */
+  /* --- Variant: Icon Button (.icon) --- */
   &.icon {
     @each $size, $value in $button-icon-size {
       --#{$prefix}-button--icon-size-#{$size}: #{$value};
     }
 
-    // 기본 세팅
+    // 기본 (투명 배경)
     @include square(var(--#{$prefix}-button--icon-size-large));
     padding: 0 !important;
     background-color: transparent;
-    border-color: transparent;
-    // border-color: var(--#{$prefix}-color-transparency-border);
+    border: none;
     color: inherit;
-
-    &:hover,
-    &:active {
-      background-color: inherit;
-    }
-
-    @each $size, $value in $button-icon-size {
-      &.#{$size} {
-        @include square(var(--#{$prefix}-button--icon-size-#{$size}));
-
-        // icon size
-        .svg-icon {
-          @include square(100%);
-        }
-      }
-    }
 
     .svg-icon {
       background-color: var(--#{$prefix}-color-default-text);
     }
 
-    // 새로고침, 토글 등 보더 아이콘 버튼 형태
-    // &.border {
-    //   background-color: var(--#{$prefix}-color-action-default);
-    //   border: 0.1rem solid var(--#{$prefix}-color-border-neutral-light);
-    //   border-radius: var(--#{$prefix}-radius-full);
+    // 기본 hover/active 상태 (투명 배경용)
+    &:hover {
+      background-color: var(--#{$prefix}-color-button-text-fill-hover);
+    }
+    &:active,
+    &:focus {
+      background-color: var(--#{$prefix}-color-button-text-fill-pressed);
+    }
 
-    //   // icon size 1.6rem
-    //   &.large {
-    //     .svg-icon {
-    //       @include square(var(--#{$prefix}-icon--size-xsmall));
-    //     }
-    //   }
+    // 크기 클래스
+    @each $size, $value in $button-icon-size {
+      &.#{$size} {
+        @include square(var(--#{$prefix}-button--icon-size-#{$size}));
+        .svg-icon {
+          @include square(100%); // 기본: 100%
+        }
+      }
+    }
 
-    //   &.xlarge {
-    //     .svg-icon {
-    //       @include square(var(--#{$prefix}-icon--size-xlarge));
-    //     }
-    //   }
+    // --- Icon Modifiers ---
+    &.round {
+      border-radius: 50%;
+    }
 
-    //   &[disabled],
-    //   &.disabled {
-    //     background-color: var(--#{$prefix}-#{map.get($modes, "light")}-color-button-disabled-fill);
-    //   }
-    // }
+    // [New Logic] 배경색 아이콘 svg-icon 크기 조정
+    &[class*="bg-"] {
+      // 기본 (small, medium 등)
+      .svg-icon {
+        @include square(60%);
+      }
+      // xxlarge 오버라이드
+      &.xxlarge {
+        .svg-icon {
+          @include square(2.4rem);
+        }
+      }
+      // xxxlarge 오버라이드
+      &.xxxlarge {
+        .svg-icon {
+          @include square(3rem);
+        }
+      }
+    }
+
+    // 배경색 Modifiers (hover 상태 포함)
+    &.bg-deep-gray {
+      background-color: #343232;
+      .svg-icon {
+        background-color: #fff;
+      }
+      &:hover {
+        background-color: #000; // black-fill-hover 와 유사
+      }
+      &:active,
+      &:focus {
+        background-color: #000; // black-fill-pressed 와 유사
+      }
+    }
+    &.bg-gray {
+      background-color: rgba(255, 255, 255, 0.20);
+      .svg-icon {
+        background-color: #fff;
+      }
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.30);
+      }
+      &:active,
+      &:focus {
+        background-color: rgba(255, 255, 255, 0.40);
+      }
+    }
+    &.bg-white {
+      background-color: #fff;
+      .svg-icon {
+        background-color: var(--#{$prefix}-color-default-text); // 흰 배경이므로 아이콘 색상 필요
+      }
+      &:hover {
+        background-color: #f5f5f5; // text-fill-hover
+      }
+      &:active,
+      &:focus {
+        background-color: #eee; // text-fill-pressed
+      }
+    }
   }
 }
 

@@ -29,7 +29,7 @@
   const itemDisabled = item.disabled ? 'disabled' : '';
   const isChecked = index === initialCheckedIndex;
   const uniqueId = `segment-${index}-${Math.random().toString(36).substring(2, 9)}`;
-  const controlClasses = ['control-button', itemDisabled].filter(Boolean).join(' ');
+  const controlClasses = ['control-btn', itemDisabled].filter(Boolean).join(' ');
 -%>
 <%_ if (tag === 'radio') { -%>
   <%# 네이티브 라디오 + 라벨 방식 %>

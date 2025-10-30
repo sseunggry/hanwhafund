@@ -1,6 +1,7 @@
 <%
   const localsSafe = locals || {};
   const tag = localsSafe.tag === 'a' ? 'a' : 'button'; // a 또는 button
+  const url = localsSafe.url || '#!';
   const variant = localsSafe.variant || ''; // default, text, link, icon
   const hierarchy = localsSafe.hierarchy || ''; // primary, secondary, tertiary
   const size = localsSafe.size || 'large'; // xsmall, small, medium, large
@@ -23,7 +24,7 @@
   ].filter(Boolean).join(' ');
 -%>
 <<%= tag -%>
-  <%- tag === 'button' ? `type="button"` : `href="#!"` -%>
+  <%- tag === 'button' ? `type="button"` : `href="${url}"` -%>
 	<%= disabled -%>
   class="<%= classes -%>"
 	<%- targetId ? `aria-controls="${targetId}"` : '' -%>

@@ -11,8 +11,8 @@
 			<%- include('../../layouts/header.ejs') %>
 			<!-- // header -->
 			
-			<!-- contents -->
-			<main class="contents fund-main">
+			<!-- container -->
+			<main class="container fund-main">
 				<section class="section-visual">
 					<div class="inner">
 						<div class="fund-info">
@@ -22,7 +22,14 @@
 									<li>주식</li>
 									<li>글로벌</li>
 								</ul>
-								<button type="button" class="btn-share"><span class="sr-only">공유하기</span></button>
+								<%- include('../../components/button.ejs', {
+									variant: 'icon',
+									label: '공유하기',
+									size: 'xxlarge',
+									icon: 'share',
+									addClass: 'bg-gray round'
+								}) -%>
+								<!-- <button type="button" class="btn-share"><span class="sr-only">공유하기</span></button> -->
 							</div>
 							<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
 							<div class="fund-actions">
@@ -100,8 +107,96 @@
 						</div>
 					</div>
 				</section>
+				<section class="section-detail">
+					<div class="top-fixed">
+						<div class="inner">
+							<div class="info logo">
+								<p class="name">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</p>
+								<%- include('../../components/button.ejs', {
+									variant: '',
+									hierarchy: 'secondary',
+									label: '클래스 비교',
+									size: 'small',
+								}) -%>
+							</div>
+							<div class="btn-wrap">
+								<%- include('../../components/button.ejs', {
+									variant: 'text',
+									// hierarchy: 'secondary',
+									label: 'AI 펀드 브리핑',
+									size: 'small',
+								}) -%>
+								<%- include('../../components/button.ejs', {
+									variant: 'icon',
+									label: '공유',
+									size: 'xxlarge',
+									icon: 'share',
+									addClass: 'bg-white'
+								}) -%>
+							</div>
+						</div>
+					</div>
+					<div class="sidebar-layout">
+						<aside class="sidebar">
+							<ul>
+								<li class="active"><a href="#performance" aria-current="page">수익률</a></li>
+								<li><a href="#assets">자산구성</a></li>
+								<li><a href="#fees">보수 및 수수료</a></li>
+								<li><a href="#info">상품정보</a></li>
+							</ul>
+						</aside>
+						<div class="sidebar-cont">
+							<div id="performance" class="cont-wrap">
+								<div class="tit-wrap">
+									<p class="txt-m">이 상품의 지난 기록을 살펴볼까요?</p>
+									<h2 class="tit-xlg">수익률</h2>
+								</div>
+								<div class="graph-wrap">
+									<p class="date">기준일 2025.10.17</p>
+									<div class="graph-filter">
+										<%- include('../../components/segmentControl.ejs', {
+											tag: 'button',
+											items: [
+												{ label: '1주' },
+												{ label: '1개월' },
+												{ label: '3개월' },
+												{ label: '6개월' },
+												{ label: '1년' },
+												{ label: '3년' },
+												{ label: '5년' },
+												{ label: '연초이후' },
+												{ label: '설정이후' }
+											]
+										}) -%>
+										<%- include('../../components/button.ejs', {
+											label: '검색',
+											size: 'large',
+										}) -%>
+									</div>
+									<div class="graph" style="height: 500px; background: #eee;">
+									</div>
+								</div>
+								<div class="group">
+									<h3 class="tit-sm">기간별 수익률 <span class="desc">단위 %</span></h3>
+									<%- include('../../components/table.ejs', { 
+										caption: '기간별 수익률',
+										colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
+										thead: ['구분', '1주', '1개월', '3개월', '6개월', '1년', '3년', '5년', '연초이후', '설정이후'],
+										tbody: [
+											['펀드 수익률', '2.13', '59.16', '66.89', '46.07', '59.50', '62.11', '80.12', '4.12', '2.12'],
+											['벤치마크 수익률', '4.78', '58.58', '62.25', '41.47', '40.75', '42.12', '40.21', '5.45', '3.98']
+										]
+									}) %>
+								</div>
+								<div class="group">
+									<h3 class="tit-sm">위험수준</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 			</main>
-			<!-- // contents -->
+			<!-- // container -->
 			
 			<!-- footer -->
 			<%- include('../../layouts/footer.ejs') %>

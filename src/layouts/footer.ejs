@@ -28,8 +28,9 @@
 			<div class="util">
 				<div class="family-site">
 					<%- include('../components/select.ejs', {
-						size: 'small',
+						size: 'medium',
 						name: 'family-site',
+						addClass: 'gray ico-plus',
 						placeholder: '패밀리 사이트',
 						options: [
 							{ value: 'site1', text: '사이트 1' },
@@ -38,9 +39,39 @@
 					}) -%>
 				</div>
 				<ul class="sns-list">
-					<li class="ico-youtube"><a href="#!"><span class="sr-only">youtube</span></a></li>
+					<li>
+						<%- include('../components/button.ejs', {
+							tag: 'a',
+							variant: 'icon',
+							label: 'youtube',
+							size: 'xxxlarge',
+							icon: 'youtube',
+							addClass: 'bg-deep-gray round'
+						}) -%>
+					</li>
+					<li>
+						<%- include('../components/button.ejs', {
+							tag: 'a',
+							variant: 'icon',
+							label: 'instagram',
+							size: 'xxxlarge',
+							icon: 'instagram',
+							addClass: 'bg-deep-gray round'
+						}) -%>
+					</li>
+					<li>
+						<%- include('../components/button.ejs', {
+							tag: 'a',
+							variant: 'icon',
+							label: 'blog',
+							size: 'xxxlarge',
+							icon: 'blog',
+							addClass: 'bg-deep-gray round'
+						}) -%>
+					</li>
+					<!-- <li class="ico-youtube"><a href="#!"><span class="sr-only">youtube</span></a></li>
 					<li class="ico-instagram"><a href="#!"><span class="sr-only">instagram</span></a></li>
-					<li class="ico-blog"><a href="#!"><span class="sr-only">naver blog</span></a></li>
+					<li class="ico-blog"><a href="#!"><span class="sr-only">naver blog</span></a></li> -->
 				</ul>
 			</div>
 		</div>

@@ -289,9 +289,9 @@ const commonJs = {
   segmentControl: {
     SELECTORS: {
       WRAPPER: '.segment-control',
-      CONTROL_BTN: '.control-button[role="radio"]',
+      CONTROL_BTN: '.control-btn[role="radio"]',
       NATIVE_RADIO: 'input[type="radio"]',
-      CONTROL_LABEL: 'label.control-button',
+      CONTROL_LABEL: 'label.control-btn',
     },
     init: function () {
       const $wrappers = $(this.SELECTORS.WRAPPER);

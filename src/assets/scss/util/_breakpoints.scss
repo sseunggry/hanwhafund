@@ -1,7 +1,9 @@
 @use "variables" as *;
 
 @mixin mq($device) {
-  @if $device == pc-large {
+  @if $device == pc-xlarge {
+    @media (min-width: 1921px) { @content; }
+  } @else if $device == pc-large {
     @media (max-width: #{$breakpoint-pc-large}) { @content; }
   } @else if $device == pc {
     @media (max-width: #{$breakpoint-pc}) { @content; } // 노트북 이하

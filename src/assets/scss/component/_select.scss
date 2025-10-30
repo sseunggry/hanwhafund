@@ -104,7 +104,9 @@ $form-select-variants: (
 
 // 컬러 정의
 @mixin form-select-color-variable() {
-  //common
+  --#{$prefix}-color-input-surface: #fff;
+  --#{$prefix}-color-input-surface-disabled: #1e2124;
+  
   --#{$prefix}-form-select--icon-color-background: var(--#{$prefix}-color-icon-gray);
   --#{$prefix}-form-select--icon-color-background-readonly: var(--#{$prefix}-color-icon-disabled-on);
   --#{$prefix}-form-select--icon-color-background-disabled: var(--#{$prefix}-color-icon-disabled-on);
@@ -116,7 +118,7 @@ $form-select-variants: (
   --#{$prefix}-form-select--color-text-readonly: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-form-select--color-text-error: var(--#{$prefix}-color-text-subtle);
 
-  --#{$prefix}-form-select--color-background: var(--#{$prefix}-color-input-surface);
+  --#{$prefix}-form-select--color-background: #F3F2F1;;
   --#{$prefix}-form-select--color-background-readonly: var(--#{$prefix}-color-input-surface-disabled);
   --#{$prefix}-form-select--color-background-disabled: var(--#{$prefix}-color-input-surface-disabled);
   --#{$prefix}-form-select--color-background-error: var(--#{$prefix}-color-input-surface);
@@ -130,7 +132,7 @@ $form-select-variants: (
   --#{$prefix}-form-select-listbox--color-text: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-select-listbox--color-text-selected: var(--#{$prefix}-color-text-primary);
   --#{$prefix}-form-select-listbox--color-border: var(--#{$prefix}-color-border-neutral-light);
-  --#{$prefix}-form-select-listbox--color-background: var(--#{$prefix}-color-surface-elevated-03);
+  --#{$prefix}-form-select-listbox--color-background: #fff;
   --#{$prefix}-form-select-listbox--shadow-start: var(--#{$prefix}-color-alpha-shadow1);
   --#{$prefix}-form-select-listbox--shadow-end: var(--#{$prefix}-color-alpha-shadow2);
 
@@ -186,7 +188,6 @@ $form-select-variants: (
     position: relative;
     display: flex;
     align-items: center;
-    background-color: var(--#{$prefix}-form-select--color-background) !important;
     border: 0.1rem solid transparent;
     // border: 0.1rem solid var(--#{$prefix}-form-select--color-border);
     font-family: inherit;
@@ -194,7 +195,9 @@ $form-select-variants: (
     transition: var(--#{$prefix}-transition-base);
     text-align: left;
     cursor: pointer;
+    // @include bg('icon/ico-angle.svg', $pos: center right, $color: var(--#{$prefix}-form-select--color-background));
     @include icon-set(angle, $effect: pure);
+    background-color: var(--#{$prefix}-form-select--color-background) !important;
 
     &:not(.text, .filter) {
       width: 100%;
@@ -282,6 +285,37 @@ $form-select-variants: (
         &:active {
           background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
         }
+      }
+    }
+
+    &.ico-plus{
+      @include icon-set(plus, $effect: pure);
+    }
+
+    &.gray{
+      color: #fff;
+      background-color: #312D2A !important;
+
+      .select-button{
+        .select-value{
+          color: #fff;
+        }
+      }
+
+      &:focus,
+      &:focus-within,
+      &.focus {
+        color: #fff;
+
+        .select-button {
+          .select-value {
+            color: #fff;
+          }
+        }
+      }
+
+      &.completed {
+        color: #fff;
       }
     }
   }
@@ -389,7 +423,8 @@ $form-select-variants: (
 
   // --- Variant: outline (라인 스타일) ---
   &.outline {
-    border: 0.1rem solid #333333;
+    background-color: #fff !important;
+    border: 0.1rem solid #151414;
 
     &:focus,
     &:focus-within,
