@@ -90,8 +90,9 @@ module.exports = {
       let outputFilename = relativePath;
 
       if (relativePath.startsWith('pages' + path.sep)) {
-        const name = path.basename(file, '.html');
-        outputFilename = `html/${name}.html`;
+        // const name = path.basename(file, '.html');
+        // outputFilename = `html/${name}.html`;
+				outputFilename = relativePath.replace('pages', 'html');
       }
 
       return new HtmlWebpackPlugin({

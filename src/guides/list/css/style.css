@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "SS";
   src:
     url(../../../../../v2/resources/font/SS-regular.woff2) format("woff2"),
@@ -15,7 +15,7 @@
   font-style: normal;
   font-weight: 700;
   text-rendering: optimizeLegibility;
-}
+} */
 *,
 :before,
 :after {

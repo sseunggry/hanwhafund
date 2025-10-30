@@ -1,4 +1,5 @@
 const iaPageAData = {
+	language: "ko",
 	list: [
 		// --- 메인 ---
 		{ createDate: "",  modifyDate: "",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "",  memo: [] },

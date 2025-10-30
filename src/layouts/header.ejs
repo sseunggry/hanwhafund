@@ -1,9 +1,41 @@
-<header>
-  <h1>logo</h1>
-  <nav class="nav-menu">
+<header class="header">
+	<div class="header-top">
+		<ul>
+			<li class="logo-plusetf"><a href="#!"><span class="sr-only">PLUS ETF</span></a></li>
+			<li class="logo-pine"><a href="#!"><span class="sr-only">PINE</span></a></li>
+		</ul>
+	</div>
+  <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+  <nav class="nav">
     <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="/pages/main.html">Main</a></li>
+      <li><a href="#!">한화펀드</a></li>
+      <li><a href="#!">인사이트</a></li>
+      <li><a href="#!">공시안내</a></li>
+      <li><a href="#!">회사소개</a></li>
     </ul>
   </nav>
+	<div class="util">
+		<div class="lang">
+			<%- include('../components/select.ejs', {
+				variant: 'text',
+				size: 'small',
+				options: [
+					{ value: 'KR', text: 'KR' },
+					{ value: 'EN', text: 'EN' },
+				]
+			}) -%>
+		</div>
+		<%- include('../components/button.ejs', {
+			variant: 'icon',
+			label: '검색',
+			size: 'xxxlarge',
+			icon: 'search',
+		}) -%>
+		<%- include('../components/button.ejs', {
+			variant: 'icon',
+			label: '메뉴',
+			size: 'xxxlarge',
+			icon: 'menu',
+		}) -%>
+	</div>
 </header>

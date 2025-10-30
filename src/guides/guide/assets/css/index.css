@@ -85,10 +85,10 @@ caption {
 }
 .nav_lists .tree-title {
   padding-left: 2.8rem;
-  background: url(/src/docs/images/folder.gif) no-repeat 5px 2px;
+  /* background: url(/src/docs/images/folder.gif) no-repeat 5px 2px; */
 }
 .nav_lists .tree-title.open {
-  background-image: url(/src/docs/images/folderopen.gif);
+  /* background-image: url(/src/docs/images/folderopen.gif); */
 }
 .nav_lists .nav_lists {
   padding-left: 0.8rem;
@@ -125,7 +125,7 @@ caption {
 .nav_lists .blank {
   display: inline-block;
   text-indent: -999em;
-  background: #ddd url(/src/docs/images/icon_popup.gif) no-repeat center;
+  /* background: #ddd url(/src/docs/images/icon_popup.gif) no-repeat center; */
   width: 2rem;
   height: 1.8rem;
   vertical-align: middle;

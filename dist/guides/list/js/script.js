@@ -58,6 +58,8 @@ const iaData = {
 		const $tbody = $(`#${tabId} .data-list tbody`);
 		let tableRowsHTML = "";
 
+		const langPath = (dataObject && dataObject.language) ? dataObject.language : 'ko';
+
 		if (dataObject && dataObject.list && dataObject.list.length > 0) {
 			$.each(dataObject.list, (index, item) => {
 				let rowClass = "";
@@ -65,7 +67,7 @@ const iaData = {
 
 				let finalLink = item.link;
 				if (!finalLink || finalLink === '#') {
-					finalLink = item.pageID ? `../pages/${item.pageID}.html` : '-';
+					finalLink = item.pageID ? `../html/${langPath}/${item.pageID}.html` : '-';
 				}
 
 				tableRowsHTML += `<tr class="${rowClass}">`;
@@ -290,50 +292,6 @@ const iaData = {
 		});
 	},
 };
-
-// --- 데이터 병합 및 각 탭에 데이터 설정 ---
-// 주의: 모든 데이터 파일(iaPageAData1, iaPageAData2, ...)이 로드된 후 실행되어야 함
-// 각 카테고리별 병합 예시 (모든 카테고리에 대해 필요)
-/*
-const iaPageAData = { list: [] };
-if (typeof iaPageAData1 !== 'undefined') $.each(iaPageAData1.list, function () { iaPageAData.list.push(this); });
-// if (typeof iaPageBData1 !== 'undefined') $.each(iaPageBData1.list, function () { iaPageAData.list.push(this); });
-
-// 다른 카테고리 데이터도 병합 (예: iaPageBData, iaPageCData ...)
-// const iaPageBData = { list: [] };
-// if (typeof iaPageBData1 !== 'undefined') $.each(iaPageBData1.list, function () { iaPageBData.list.push(this); });
-// ...
-
-// 전체 데이터 병합 (모든 카테고리 병합)
-const iaAllData = { list: [] };
-if (iaPageAData && iaPageAData.list) $.each(iaPageAData.list, function () { iaAllData.list.push(this); });
-// if (iaPageBData && iaPageBData.list) $.each(iaPageBData.list, function () { iaAllData.list.push(this); });
-// ... (모든 카테고리 데이터 추가) ...
-*/
-
-// --- 각 탭별로 데이터 설정 함수 호출 ---
-// $(document).ready(function () { // DOM 로드 후 실행 보장
-// 	// 깊은 복사로 원본 데이터 유지
-// 	const allData = JSON.parse(JSON.stringify(iaAllData || { list: [] }));
-// 	iaData.set("tabAll", allData);
-
-// 	const pageAData = JSON.parse(JSON.stringify(iaPageAData || { list: [] }));
-// 	iaData.set("tabPageA", pageAData);
-// 	if (typeof iaPageAData1 !== 'undefined') { // 개별 데이터 파일별 탭 설정
-// 		const pageAData1 = JSON.parse(JSON.stringify(iaPageAData1));
-// 		iaData.set("tabPageA1", pageAData1);
-// 	}
-// 	if (typeof iaPageBData1 !== 'undefined') { // 개별 데이터 파일별 탭 설정
-// 		const pageBData1 = JSON.parse(JSON.stringify(iaPageBData1));
-// 		iaData.set("tabPageB1", pageBData1);
-// 	}
-
-// 	// --- 초기화 실행 ---
-// 	iaData.init();   // 테이블 필터링, 정렬 등 기능 초기화 (옵션 설정 포함)
-// 	iaMemo.init();   // 메모 더보기/닫기 기능 초기화
-// 	commUiFnTab.init(); // 탭 기능 초기화
-// });
-
 
 // --- IA 메모 관련 객체 및 초기화 ---
 const iaMemo = {

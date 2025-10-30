@@ -1,4 +1,5 @@
 const iaPageBData = {
+	language: "en",
 	list: [
 		// --- 메인 ---
 		{ createDate: "",  modifyDate: "",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "",  memo: [] },
@@ -7,7 +8,7 @@ const iaPageBData = {
 		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "Our Company ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "EN_CP_01", link: "", isAdminLinked: true, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "Management Status", depth2: "Summary of Consolidated Statement of Comprehensive Income", depth3: "-", pageName: "요약 연결포괄 손익계산서", pageType: "tab", pageID: "EN_CP_02_01", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "-", depth2: "Summary of Consolidated Statement of Financial Position", depth3: "-", pageName: "요약 연결재무상태표", pageType: "tab", pageID: "EN_CP_02_02", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "The Hanwha Finance", depth2: "-", depth3: "-", pageName: "한화금융", pageType: "page", pageID: "EN_CP_03", link: "", isAdminLinked: true, status: "", memo: ['영문만 있음'], },
+		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "The Hanwha Finance", depth2: "-", depth3: "-", pageName: "한화금융", pageType: "page", pageID: "EN_CP_03", link: "", isAdminLinked: true, status: "", memo: [{ detail: '영문만 있음' }], },
 
 		// --- Major Businesses ---
 		{ createDate: "", modifyDate: "", category: "Major Businesses", depth1: "PE", depth2: "-", depth3: "-", pageName: "주요비즈니스PE", pageType: "tab", pageID: "EM_MB_01", link: "", isAdminLinked: true, status: "", memo: [], },
@@ -25,7 +26,7 @@ const iaPageBData = {
 		{ createDate: "", modifyDate: "", category: "Global Network", depth1: "Abu Dhabi", depth2: "-", depth3: "-", pageName: "글로벌네트워크_아부다비", pageType: "page", pageID: "EN_GN_03", link: "", isAdminLinked: true, status: "", memo: [], },
 
 		// --- Contact Us ---
-		{ createDate: "", modifyDate: "", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "", memo: ['영문만 있음'], },
+		{ createDate: "", modifyDate: "", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "", memo: [], },
 
 		// --- Site Map ---
 		{ createDate: "", modifyDate: "", category: "Site Map", depth1: "-", depth2: "-", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "EU_SM_01", link: "", isAdminLinked: false, status: "", memo: [], },
