@@ -1,3 +1,51 @@
-<footer>
-  <p>footer !!!</p>
+<footer class="footer">
+	<div class="inner">
+		<div class="footer-top">
+			<div class="logo"><span class="sr-only">한화자산운용</span></div>
+		</div>
+		<div class="footer-con">
+			<ul class="address">
+				<li>07345 서울시 영등포구 63로 50 한화금융센터</li>
+				<li>대표번호 02-6950-0000 </li>
+				<li>팩스 02-6950-0009</li>
+				<li>한화자산운용㈜ 준법감시인 심사필 제2025-525호(2025.10.02~2026.10.01)</li>
+			</ul>
+			<div class="nav">
+				<ul class="link-list">
+					<li><a href="#!">스튜어드십코드</a></li>
+					<li><a href="#!">개인정보처리방침</a></li>
+					<li><a href="#!">신용정보활용체계</a></li>
+					<li><a href="#!">고객정보취급방침</a></li>
+					<li><a href="#!">이메일무단수집거부</a></li>
+				</ul>
+				<ul class="link-list">
+					<li><a href="#!">윤리경영</a></li>
+					<li><a href="#!">법적고시</a></li>
+					<li><a href="#!">보험금융상품등록</a></li>
+					<li><a href="#!">금융소비자보호포탈</a></li>
+				</ul>
+			</div>
+			<div class="util">
+				<div class="family-site">
+					<%- include('../components/select.ejs', {
+						size: 'small',
+						name: 'family-site',
+						placeholder: '패밀리 사이트',
+						options: [
+							{ value: 'site1', text: '사이트 1' },
+							{ value: 'site2', text: '사이트 2' },
+						]
+					}) -%>
+				</div>
+				<ul class="sns-list">
+					<li class="ico-youtube"><a href="#!"><span class="sr-only">youtube</span></a></li>
+					<li class="ico-instagram"><a href="#!"><span class="sr-only">instagram</span></a></li>
+					<li class="ico-blog"><a href="#!"><span class="sr-only">naver blog</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+		</div>
+	</div>
 </footer>

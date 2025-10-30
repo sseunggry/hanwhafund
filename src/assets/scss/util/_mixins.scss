@@ -33,6 +33,10 @@
   font-style: $style;
 }
 
+@mixin bg($url, $pos: center, $size: cover, $color: null) {
+	background: $color url(#{$base-url}images/#{$url}) no-repeat $pos / $size;
+}
+
 // focus color
 @mixin focus($offset: -0.4rem, $color: var(--#{$prefix}-light-color-border-primary), $alpha: 0.8) {
   box-shadow: var(--#{$prefix}-box-shadow-outline-inset);

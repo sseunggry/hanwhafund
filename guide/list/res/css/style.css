@@ -673,7 +673,7 @@ td .note-list.option-fold.is-open > li {
 }
 .ia-list-main .data-body {
   position: relative;
-  max-height: calc(100vh - 7.2rem - 10.8rem);
+  max-height: calc(100vh - 21rem);
   overflow-y: auto;
 }
 .ia-list-main .data-list > thead > tr > th {

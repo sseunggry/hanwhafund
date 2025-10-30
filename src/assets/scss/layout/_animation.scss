@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "../util";
+@use "../util" as *;
 
 /* animation */
 [data-aos^=fade][data-aos^=fade].aos-animate{transition-duration: 0.6s;}

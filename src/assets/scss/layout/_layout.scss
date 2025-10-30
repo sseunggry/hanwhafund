@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import "../util";
+@use "../util" as *;
 
 /* layout */
 body{font-size: 14px;}

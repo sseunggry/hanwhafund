@@ -1,4 +1,4 @@
-@import "header";
-@import "footer";
-@import "layout";
-@import "animation";
+@forward "header";
+@forward "footer";
+@forward "layout";
+@forward "animation";

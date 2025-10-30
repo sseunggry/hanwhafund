@@ -6,15 +6,101 @@
 		}) -%>
 	</head>
 	<body>
-		<div class="wrap page-main">
+		<div class="wrap page-fund">
 			<!-- header -->
 			<%- include('../../layouts/header.ejs') %>
 			<!-- // header -->
 			
 			<!-- contents -->
-			<div class="contents">
-			
-			</div>
+			<main class="contents fund-main">
+				<section class="section-visual">
+					<div class="inner">
+						<div class="fund-info">
+							<div class="fund-top">
+								<ul class="category">
+									<li>국내</li>
+									<li>주식</li>
+									<li>글로벌</li>
+								</ul>
+								<button type="button" class="btn-share"><span class="sr-only">공유하기</span></button>
+							</div>
+							<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
+							<div class="fund-actions">
+								<%- include('../../components/select.ejs', {
+									variant: 'text',
+									name: 'fund-code-select',
+									size: 'large',
+									addClass: 'fc-white',
+									options: [
+										{ value: 'A', text: 'A(수수료선취-오프라인)' },
+										{ value: 'Ae', text: 'Ae(수수료선취-온라인)' },
+										{ value: 'C4', text: 'C4(수수료미징구-오프라인-보수체감)' },
+										{ value: 'Ce', text: 'Ce(수수료미징구-온라인)' },
+										{ value: 'S', text: 'S(수수료후취-온라인슈퍼)' },
+									]
+								}) -%>
+								<%- include('../../components/button.ejs', {
+                  variant: 'primary',
+                  label: '클래스 비교',
+                  size: 'medium'
+                }) -%>
+							</div>
+							<ul class="fund-summary">
+								<li>
+									<p class="tit">기준가(전일대비)</p>
+									<p class="value">
+										<strong>1,220.00</strong>
+										<span class="unit">원</span>
+									</p>
+									<p class="change up">+19.24원(1.60%)</p>
+									<!-- <p class="change down">+19.24원(1.60%)</p> -->
+								</li>
+								<li>
+									<p class="tit">수익률(1주 기준)</p>
+									<p class="value">
+										<strong>6.48</strong>
+										<span class="unit">%</span>
+									</p>
+									<p class="change up">+1.60%</p>
+									<!-- <p class="change down">+19.24원(1.60%)</p> -->
+								</li>
+								<li>
+									<p class="tit">총보수(연기준)</p>
+									<p class="value">
+										<strong>0.5090</strong>
+										<span class="unit">%</span>
+									</p>
+								</li>
+								<li>
+									<p class="tit">순자산</p>
+									<p class="value">
+										<strong>33.3</strong>
+										<span class="unit">억원</span>
+									</p>
+								</li>
+							</ul>
+						</div>
+						<div class="fund-ai">
+							<h3 class="tit">AI 펀드 브리핑</h3>
+							<dl class="desc-wrap">
+								<dt>펀드 특징</dt>
+								<dd>국내 우량 채권에 안정적으로 투자 낮은 위험등급(5등급)으로 꾸준한 이자 수익을 추구하는 채권형 펀드</dd>
+							</dl>
+							<dl class="desc-wrap">
+								<dt>투자 포인트</dt>
+								<dd>장기 안정적 성과 + 분산투자로 신용위험 완화</dd>
+								<dd>저평가 회사채 발굴로 추가 수익 기회</dd>
+								<dd>ESG 평가 반영으로 지속가능한 투자</dd>
+							</dl>
+							<dl class="desc-wrap">
+								<dt>투자 포인트</dt>
+								<dd>예금 이상의 수익을 원하면서도 안정성을 중시하는 투자자</dd>
+								<dd>장기적으로 꾸준히 자산을 불리고 싶은 투자자</dd>
+							</dl>
+						</div>
+					</div>
+				</section>
+			</main>
 			<!-- // contents -->
 			
 			<!-- footer -->

@@ -28,11 +28,16 @@ html{
 .mo-only{display: none !important;}
 
 .flex{display: flex;}
-.flex-end{@include flex-layout($jc: 'flex-end !important');}
-.flex-center{@include flex-layout($jc: 'center !important');}
-.flex-start{@include flex-layout($jc: 'flex-start !important');}
-.flex-between{@include flex-layout($jc: 'space-between !important');}
+.justify-start{justify-content: flex-start !important;}
+.justify-end{justify-content: flex-end !important;}
+.justify-center{justify-content: center !important;}
+.justify-between{justify-content: space-between !important;}
+.align-start{align-items: flex-start !important;}
+.align-end{align-items: flex-end !important;}
+.align-center{align-items: center !important;}
+.align-between{align-items: space-between !important;}
 
-.flex-column{flex-direction: column !important;};
+.flex-col{flex-direction: column !important;};
+.flex-row{flex-direction: row !important;};
 
 .fc-white{color: #fff !important;}
