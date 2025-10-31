@@ -68,7 +68,7 @@
         @include color-text(#{$color});
       }
 
-      &.solid-#{'#{$color}'} {
+      &.#{'#{$color}'} {
         color: var(--#{$prefix}-badge--color-text-basic);
         @include color-background(#{$color});
       }

@@ -6,13 +6,13 @@
 <div class="badge-wrap">
 <%_ items.forEach(item => { -%>
   <%_
-    const variant = item.variant || 'outline';
+    const variant = item.variant || 'solid';
     const color = item.color || 'primary';
     const label = item.label || 'badge';
     // const size = item.size || 'medium'; // size가 필요하다면 이 주석을 해제
     const classes = [
       `badge`,
-      `${variant}-${color}`,
+      variant === 'solid' ? `${color}` : `${variant}-${color}`,
       // size, // 원본 템플릿의 주석 유지
     ].filter(Boolean).join(' ');
   -%>
@@ -21,13 +21,13 @@
 </div>
 <%_ } else { -%>
 <%
-  const variant = localsSafe.variant || 'outline'; // outline, solid, solid-pastel
+  const variant = localsSafe.variant || 'solid'; // outline, solid, solid-pastel
   const color = localsSafe.color || 'primary'; // primary, secondary, tertiary
   const label = localsSafe.label || 'badge';
   // const size = localsSafe.size || 'medium';
   const classes = [
     `badge`,
-    `${variant}-${color}`,
+    variant === 'solid' ? `${color}` : `${variant}-${color}`,
     // size, // 원본 템플릿의 주석 유지
   ].filter(Boolean).join(' ');
 -%>

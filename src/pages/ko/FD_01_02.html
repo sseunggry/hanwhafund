@@ -110,7 +110,7 @@
 				<section class="section-detail">
 					<div class="top-fixed">
 						<div class="inner">
-							<div class="info logo">
+							<div class="summary">
 								<p class="name">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</p>
 								<%- include('../../components/button.ejs', {
 									variant: '',
@@ -136,60 +136,212 @@
 							</div>
 						</div>
 					</div>
-					<div class="sidebar-layout">
-						<aside class="sidebar">
-							<ul>
-								<li class="active"><a href="#performance" aria-current="page">수익률</a></li>
-								<li><a href="#assets">자산구성</a></li>
-								<li><a href="#fees">보수 및 수수료</a></li>
-								<li><a href="#info">상품정보</a></li>
-							</ul>
-						</aside>
-						<div class="sidebar-cont">
-							<div id="performance" class="cont-wrap">
-								<div class="tit-wrap">
-									<p class="txt-m">이 상품의 지난 기록을 살펴볼까요?</p>
-									<h2 class="tit-xlg">수익률</h2>
-								</div>
-								<div class="graph-wrap">
-									<p class="date">기준일 2025.10.17</p>
-									<div class="graph-filter">
-										<%- include('../../components/segmentControl.ejs', {
-											tag: 'button',
-											items: [
-												{ label: '1주' },
-												{ label: '1개월' },
-												{ label: '3개월' },
-												{ label: '6개월' },
-												{ label: '1년' },
-												{ label: '3년' },
-												{ label: '5년' },
-												{ label: '연초이후' },
-												{ label: '설정이후' }
+					<div class="layout-sidebar">
+						<div class="layout-inner">
+							<aside class="sidebar">
+								<ul>
+									<li class="active"><a href="#performance" aria-current="page">수익률</a></li>
+									<li><a href="#assets">자산구성</a></li>
+									<li><a href="#fees">보수 및 수수료</a></li>
+									<li><a href="#info">상품정보</a></li>
+								</ul>
+							</aside>
+
+							<div class="layout-content">
+								<div id="performance" class="cont-group">
+									<div class="tit-wrap">
+										<p class="txt-lg">이 상품의 지난 기록을 살펴볼까요?</p>
+										<h2 class="tit-xlg">수익률</h2>
+									</div>
+									<div class="chart-wrap line">
+										<p class="date">기준일 2025.10.17</p>
+										<div class="filter">
+											<%- include('../../components/segmentControl.ejs', {
+												tag: 'button',
+												items: [
+													{ label: '1주' },
+													{ label: '1개월' },
+													{ label: '3개월' },
+													{ label: '6개월' },
+													{ label: '1년' },
+													{ label: '3년' },
+													{ label: '5년' },
+													{ label: '연초이후' },
+													{ label: '설정이후' }
+												]
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												label: '검색',
+												size: 'large',
+											}) -%>
+										</div>
+										<div class="chart-area">
+											<!-- Chart 영역 -->
+										</div>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">기간별 수익률 <small class="txt-sm fw-r fc-gray">단위 %</small></h3>
+										<%- include('../../components/table.ejs', { 
+											caption: '기간별 수익률',
+											colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
+											thead: ['구분', '1주', '1개월', '3개월', '6개월', '1년', '3년', '5년', '연초이후', '설정이후'],
+											tbody: [
+												['펀드 수익률', '2.13', '59.16', '66.89', '46.07', '59.50', '62.11', '80.12', '4.12', '2.12'],
+												['벤치마크 수익률', '4.78', '58.58', '62.25', '41.47', '40.75', '42.12', '40.21', '5.45', '3.98']
 											]
-										}) -%>
-										<%- include('../../components/button.ejs', {
-											label: '검색',
-											size: 'large',
-										}) -%>
+										}) %>
 									</div>
-									<div class="graph" style="height: 500px; background: #eee;">
+									<div class="group-wrap">
+										<h3 class="tit-sm">위험수준</h3>
+										<div class="chart-wrap bar">
+											<ul class="chart-area">
+												<li class="level level1">
+													<span class="bar"></span>
+													<p class="label">매우 낮음</p>
+												</li>
+												<li class="level level2">
+													<span class="bar"></span>
+													<p class="label">낮음</p>
+												</li>
+												<li class="level level3">
+													<span class="bar"></span>
+													<p class="label">보통</p>
+												</li>
+												<li class="level level4 active">
+													<span class="bar"></span>
+													<p class="label">다소 높음</p>
+												</li>
+												<li class="level level5">
+													<span class="bar"></span>
+													<p class="label">높음</p>
+												</li>
+												<li class="level level6">
+													<span class="bar"></span>
+													<p class="label">매우 높음</p>
+												</li>
+											</ul>
+											<div class="chart-summary">
+												<div class="txt-wrap">
+													<%- include('../../components/badge.ejs', { 
+															variant: 'solid', color: 'rating4', label: '4등급' 
+													}) -%>
+													<p class="tit-sm">다소 높은 위험</p>
+												</div>
+												<p class="desc">단기적으로 큰 손실이 발생할 수 있으므로 장기 투자가 필요합니다</p>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="group">
-									<h3 class="tit-sm">기간별 수익률 <span class="desc">단위 %</span></h3>
-									<%- include('../../components/table.ejs', { 
-										caption: '기간별 수익률',
-										colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
-										thead: ['구분', '1주', '1개월', '3개월', '6개월', '1년', '3년', '5년', '연초이후', '설정이후'],
-										tbody: [
-											['펀드 수익률', '2.13', '59.16', '66.89', '46.07', '59.50', '62.11', '80.12', '4.12', '2.12'],
-											['벤치마크 수익률', '4.78', '58.58', '62.25', '41.47', '40.75', '42.12', '40.21', '5.45', '3.98']
-										]
-									}) %>
-								</div>
-								<div class="group">
-									<h3 class="tit-sm">위험수준</h3>
+								<div id="assets" class="cont-group">
+									<div class="tit-wrap">
+										<p class="txt-lg">이 상품은 여기에 투자하고 있어요!</p>
+										<h2 class="tit-xlg">자산구성</h2>
+									</div>
+									<div class="chart-wrap doughnut">
+										<div class="chart-area">
+											<!-- Chart 영역 -->
+											<dl class="doughnut-txt">
+												<dt class="label">수익증권비</dt>
+												<dd class="value">81.5</dd>
+											</dl>
+										</div>
+										<div class="chart-legend">
+											<ul class="legend-list">
+												<li>
+													<span class="key"></span>
+													<span class="label">수익증권비</span>
+													<span class="value">81.5%</span>
+												</li>
+												<li>
+													<span class="key"></span>
+													<span class="label">현금비</span>
+													<span class="value">13%</span>
+												</li>
+												<li>
+													<span class="key"></span>
+													<span class="label">주식비</span>
+													<span class="value">5.5%</span>
+												</li>
+											</ul>
+											<p class="date">기준일 2025.10.17</p>
+										</div>
+									</div>
+									<div class="group-flex-wrap">
+										<div class="group-wrap">
+											<h3 class="tit-sm line">주식 보유 비중 TOP 5</h3>
+											<div class="chart-wrap pie">
+												<div class="chart-area">
+													<!-- Chart 영역 -->
+												</div>
+												<div class="chart-legend">
+													<ul class="legend-list">
+														<li>
+															<span class="key"></span>
+															<span class="label">삼성전자</span>
+															<span class="value">20.51%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">SK하이닉스</span>
+															<span class="value">9.07%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">LG에너지솔루션</span>
+															<span class="value">3.15%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">삼성바이오로직스</span>
+															<span class="value">2.96%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">효성중공업</span>
+															<span class="value">2.54%</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+										<div class="group-wrap">
+											<h3 class="tit-sm line">채권 보유 비중 TOP 5</h3>
+											<div class="chart-wrap pie">
+												<div class="chart-area">
+													<!-- Chart 영역 -->
+												</div>
+												<div class="chart-legend">
+													<ul class="legend-list">
+														<li>
+															<span class="key"></span>
+															<span class="label">국고02750-5409(국고24-8)</span>
+															<span class="value">6.7%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">국고03500-3406(국고24-5)</span>
+															<span class="value">6.5%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">삼성카드2693</span>
+															<span class="value">5.2%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">신한카드2234-2</span>
+															<span class="value">4.8%</span>
+														</li>
+														<li>
+															<span class="key"></span>
+															<span class="label">HD현대14-3</span>
+															<span class="value">3.4%</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

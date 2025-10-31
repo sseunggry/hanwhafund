@@ -46,6 +46,21 @@
                 <!-- <li>회사소개 영문:<strong class="fc-red">.page-company.eng</strong></li> -->
               </ul>
             </div>
+
+						<div class="tit-sm">
+							<span class="txt">하위 화면별로 구분 Class 부여 규칙</span>
+						</div>
+
+            <div class="module-box option-bg">
+              | 레벨            | 클래스 예시                                             | 역할 / 설명                               |
+							| ------------- | -------------------------------------------------- | ------------------------------------- |
+							| **페이지 단위**    | `.section-detail`                                  | 페이지 전체 컨테이너                           |
+							| **레이아웃 단위**   | `.layout-sidebar`, `.layout-content`               | 페이지 레이아웃 구성                           |
+							| **콘텐츠 영역 단위** | `.cont-area`                                       | 주요 콘텐츠를 담는 큰 영역 (예: 그래프 영역, 데이터 영역 등) |
+							| **콘텐츠 그룹 단위** | `.cont-group`                                      | 하나의 콘텐츠 블록 단위, 여러 개 반복 가능             |
+							| **세부 묶음 단위**  | `.group-wrap`                                      | `cont-group` 내부에서 논리적으로 묶이는 하위 영역     |
+							| **요소 단위**     | `.tit-wrap`, `.img-wrap`, `.txt-wrap`, `.btn-wrap` | 시각적 요소 감싸기                            |
+            </div>
           </div>
         </section>
 

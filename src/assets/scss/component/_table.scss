@@ -93,7 +93,9 @@
     
     thead{
       th {
-        height: 4rem;
+				height: 4rem;
+				font-size: 1.5rem;
+				color: #151414;
         background-color: #F3F2F1;
       }
     }
@@ -101,9 +103,11 @@
     tbody {
       td {
         height: 6.4rem;
-        background-color: #fff;
         text-align: center;
+				font-size: 1.8rem;
+				color: #514E4D;
         border-bottom: 0.1rem solid #E7E5E4;
+        background-color: #fff;
       }
     }
 

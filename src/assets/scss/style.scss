@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "sass:list";
 @use "./util" as *;
 @use "./base" as *;
 @use "./component" as *;
@@ -7,8 +8,8 @@
 .inner {
   margin-left: auto;
   margin-right: auto;
-  padding: 0 1.6rem;
-  max-width: calc(168rem + 1.6rem*2);
+  padding: 0 var(--#{$prefix}-layout-pc-padding-x);
+  max-width: calc(var(--#{$prefix}-layout-pc-width) + var(--#{$prefix}-layout-pc-padding-x)*2);
   width: 100%;
 }
 
@@ -206,20 +207,18 @@ section .inner {
           align-items: center;
           height: 8rem;
         }
-        .info{
+        .summary{
           display: flex;
           align-items: center;
 
-          &.logo{
-            &::before{
-              content: '';
-              flex-shrink: 0;
-              display: inline-block;
-              width: 2.7rem;
-              height: 2.4rem;
-              @include bg('logo-symbol.svg');
-            }
-          }
+					&::before{
+						content: '';
+						flex-shrink: 0;
+						display: inline-block;
+						width: 2.7rem;
+						height: 2.4rem;
+						@include bg('logo-symbol.svg');
+					}
           .name{
             margin-left: 1.6rem;
             margin-right: 2.4rem;
@@ -234,15 +233,14 @@ section .inner {
         }
       }
 
-      .sidebar-layout{
+      .layout-sidebar{
         overflow: hidden;
         display: flex;
         background-color: #F3F2F1;
 
-        .siderbar-inner{
+        .layout-inner{
           display: flex;
-          padding: 0 1.6rem;
-          max-width: calc(168rem + 1.6rem*2);
+          max-width: calc(var(--#{$prefix}-layout-pc-width) + var(--#{$prefix}-layout-pc-padding-x)*2);
           width: 100%;
           margin: 0 auto;
         }
@@ -250,7 +248,7 @@ section .inner {
         .sidebar{
           flex-shrink: 0;
           padding-top: 6.4rem;
-          padding-left: 1.6rem;
+          padding-left: var(--#{$prefix}-layout-pc-padding-x);
           width: 15.47%;
           font-size: 2.4rem;
           font-weight: 700;          
@@ -281,7 +279,7 @@ section .inner {
             }
           }
         }
-        .sidebar-cont{
+        .layout-content{
           position: relative;
 
           &::before{
@@ -295,11 +293,14 @@ section .inner {
             background-color: #F3F2F1;
           }
 
-          .cont-wrap{
+          .cont-group{
+						display: flex;
+						flex-direction: column;
+						gap: 6.4rem;
             margin-bottom: 10px;
             position: relative;
             z-index: 1;
-            padding: 8rem 0 12rem 8.45%;
+            padding: 8rem var(--#{$prefix}-layout-pc-padding-x) 12rem 8.45%;
             background-color: #fff;
 
             &::before{
@@ -312,6 +313,259 @@ section .inner {
               height: 100%;
               background-color: #fff;
             }
+
+						.tit-wrap{
+							display: flex;
+							flex-direction: column;
+							gap: 2.4rem;
+						}
+
+						.chart-wrap{
+							display: flex;
+							gap: 2.4rem 1.6rem;
+							align-items: center;
+							justify-content: space-between;
+							// flex-direction: column;
+							// gap: 2.4rem;
+
+							// &.column{
+							// 	align-items: flex-start;
+							// 	flex-direction: column;
+							// 	gap: 2.4rem;
+							// }
+							// &.center{
+							// 	column-gap: 10rem;
+							// 	justify-content: center;
+							// }
+
+							.chart-area{
+								flex-shrink: 0;
+								background-color: #f8f8f8; //임시
+							}
+							.chart-summary{
+								width: 43.38%;
+
+								.txt-wrap{
+									display: flex;
+									align-items: center;
+									gap: 1.3rem;
+								}
+								.desc{
+									margin-top: 1.6rem;
+									color: #514E4D;
+									font-size: 1.8rem;
+								}
+							}
+							.chart-legend{
+								.legend-list{
+									color: #151414;
+									font-size: 1.8rem;
+
+									li{
+										display: flex;
+										align-items: center;
+										gap: 1rem;
+										min-height: 6.4rem;
+										border-bottom: 0.1rem solid #EBEAEA;
+									}
+									.key{
+										width: 1.6rem;
+										height: 1.6rem;
+										border-radius: 0.2rem;
+										background-color: #ddd;
+									}
+									.label{
+										
+									}
+									.value{
+										margin-left: auto;
+										font-weight: 700;
+									}
+								}
+
+								.date{
+									margin-top: 1.6rem;
+									text-align: right;
+								}
+							}
+
+							&.line{
+								align-items: flex-start;
+								flex-direction: column;
+								gap: 2.4rem;
+
+								.chart-area{
+									width: 100%;
+									height: 44rem;
+								}
+							}
+							&.bar{
+								.chart-area{
+									flex-shrink: 0;
+									display: flex;
+									gap: 0.4rem;
+									width: 48.15%;
+									align-items: flex-end; 
+									text-align: center;
+	
+									.level{
+										flex: 1;
+	
+										&.active{
+											.bar{
+												height: 6rem;
+											}
+										}
+									}
+									.bar{
+										display: inline-block;
+										width: 100%;
+										height: 0.5rem;
+									}
+									.label{
+										margin-top: 1rem;
+										color: #514E4D;
+										font-size: 1.8rem;
+									}
+	
+									$levelColor : #119EFF, #00CECF, #FFB80D, #FE6220, #FF4891, #F91D00;
+									@for $i from 1 through list.length($levelColor) {
+										.level#{$i} .bar {
+											background-color: list.nth($levelColor, $i);
+										}
+									}
+								}
+							}
+							&.doughnut{
+								column-gap: 10rem;
+								justify-content: center;
+
+								.chart-area{
+									position: relative;
+									width: 38rem;
+									height: 38rem;
+	
+									.doughnut-txt{
+										position: absolute;
+										top: 50%;
+										left: 50%;
+										transform: translate(-50%, -50%);
+										color: #151414;
+										text-align: center;
+	
+										.label{
+											font-size: 1.8rem;
+											font-weight: 500;
+										}
+										.value{
+											margin-top: 1.2rem;
+											font-size: 5.6rem;
+											font-weight: 600;
+											line-height: 1;
+										}
+									}
+								}
+								.chart-legend{
+									width: 18.46%;
+								}
+							}
+							&.pie{
+								.chart-area{
+									margin: 0 4rem;
+									width: 20rem;
+									height: 20rem;
+								}
+							}
+
+							.date {
+								color: #757170;
+								font-size: 1.8rem;
+							}
+							.filter{
+
+							}
+						}
+
+						.group-flex-wrap{
+							display: flex;
+							gap: 4.8rem;
+
+							.group-wrap{
+								flex: 1;
+							}
+						}
+
+						.group-wrap{
+							display: flex;
+							flex-direction: column;
+							gap: 2.4rem;
+
+							[class*=tit-]{
+								display: flex;
+								align-items: baseline;
+								gap: 1.6rem;
+							}
+
+							&.spacing-lg{
+								gap: 4rem;
+							}
+						}
+
+						// .graph-item{
+						// 	display: flex;
+						// 	justify-content: space-between;
+						// 	gap: 2rem;
+
+						// 	.graph-bar{
+						// 		flex-shrink: 0;
+						// 		display: flex;
+						// 		gap: 0.4rem;
+						// 		width: 48.15%;
+						// 		align-items: flex-end; 
+  					// 		text-align: center;
+
+						// 		.level{
+						// 			flex: 1;
+
+						// 			&.active{
+						// 				.bar{
+						// 					height: 6rem;
+						// 				}
+						// 			}
+						// 		}
+						// 		.bar{
+						// 			display: inline-block;
+						// 			width: 100%;
+						// 			height: 0.5rem;
+						// 		}
+						// 		.label{
+						// 			margin-top: 1rem;
+						// 			color: #514E4D;
+						// 			font-size: 1.8rem;
+						// 		}
+
+						// 		$levelColor : #119EFF, #00CECF, #FFB80D, #FE6220, #FF4891, #F91D00;
+						// 		@for $i from 1 through list.length($levelColor) {
+						// 			.level#{$i} .bar {
+						// 				background-color: list.nth($levelColor, $i);
+						// 			}
+						// 		}
+						// 	}
+						// 	.graph-info{
+						// 		width: 43.38%;
+
+						// 		.txt-wrap{
+						// 			display: flex;
+						// 			align-items: center;
+						// 			gap: 1.3rem;
+						// 		}
+						// 		.desc{
+						// 			margin-top: 1.6rem;
+						// 			color: #514E4D;
+						// 			font-size: 1.8rem;
+						// 		}
+						// 	}
+						// }
           }
         }
       }
