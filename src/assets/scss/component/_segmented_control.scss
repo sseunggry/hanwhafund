@@ -89,7 +89,8 @@
   @include segment-control-color-variable();
   @include segment-control-size-variable;
 
-	display: inline-flex;
+	display: flex;
+  justify-content: space-between;
 	background-color: var(--#{$prefix}-segment-control--color-background);
 	
 	.control-btn {

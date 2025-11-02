@@ -1,6 +1,12 @@
 @use "variables" as *;
+@use "sass:meta";
 
 @mixin mq($device) {
+  // 숫자가 맞다면 'px' 단위를 붙여서 max-width로 바로 출력
+  @if meta.type-of($device) == 'number' {
+    @media (max-width: #{$device}px) { @content; }
+  }
+
   @if $device == pc-xlarge {
     @media (min-width: 1921px) { @content; }
   } @else if $device == pc-large {

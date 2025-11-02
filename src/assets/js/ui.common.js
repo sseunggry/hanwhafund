@@ -853,7 +853,7 @@ const commonJs = {
       });
     },
   },
-  lnb: {
+  lnb2: {
     isClickScrolling: false, // 클릭으로 스크롤 중인지 확인하는 플래그
     $links: null,
     $sections: null,
@@ -974,6 +974,164 @@ const commonJs = {
       // 스크롤 이벤트에 'throttle'을 적용하여 0.1초마다 실행
       window.addEventListener('scroll', this.throttle(this.handleScroll, 100));
     },
+    setActiveIndicator: function($anchor) {
+      if (!$anchor || !$anchor.length) return;
+      if ($anchor.parent().hasClass('active')) return;
+      
+      this.$links.parent().removeClass('active');
+      $anchor.parent().addClass('active');
+    }
+  },
+  lnb: {
+    isClickScrolling: false, // 클릭으로 스크롤 중인지 확인
+    $links: null,
+    $sections: null,
+    $sidebar: null,
+    $sidebarContainer: null,
+    scrollOffset: 80,       // LNB 클릭/스파이 기준선 (init에서 재계산)
+    topFixedHeight: 80,     // .top-fixed 높이 (init에서 재계산)
+    sidebarHeight: 0,
+    containerTop: 0,
+    containerHeight: 0,
+    triggerPoint: 0,        // LNB가 fixed가 되는 스크롤 지점
+    stopPoint: 0,           // LNB가 fixed를 멈추는 스크롤 지점
+    handleScroll: null,
+    scrollEndTimer: null,
+    
+    // [헬퍼] 스크롤 이벤트의 과도한 호출을 방지 (0.1초마다 1번)
+    throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    },
+
+    init: function() {
+      this.$links = $('.layout-sidebar .sidebar li a[href^="#"]');
+      this.$sections = $('.layout-sidebar .layout-content .cont-group[id]');
+      this.$sidebar = $('.sidebar');
+      this.$sidebarContainer = $('.layout-sidebar'); 
+      const $topFixed = $('.top-fixed');
+
+      if (this.$links.length === 0 || this.$sections.length === 0 || !this.$sidebar.length) return;
+
+      // 2. 고정(Fixed)에 필요한 모든 값 계산
+      this.topFixedHeight = $topFixed.length ? $topFixed.outerHeight() : 0; 
+      this.scrollOffset = this.topFixedHeight;     // LNB 클릭/스파이 기준선
+      
+      const sidebarHeight = this.$sidebar.outerHeight();
+      const containerTop = this.$sidebarContainer.offset().top;
+      const containerHeight = this.$sidebarContainer.outerHeight();
+
+      // 3. 'fixed' 시작/종료 스크롤 지점 계산
+      // this.triggerPoint = this.$sidebar.offset().top - this.topFixedHeight;
+      this.triggerPoint = $topFixed.length ? $topFixed.offset().top : 0;
+      this.stopPoint = (containerTop + containerHeight) - sidebarHeight - this.topFixedHeight;
+
+      this.setupClickHandlers();
+      this.initScrollSpy();
+    },
+
+    /**
+     * 기능 1: LNB 메뉴 클릭 (scrollIntoView 사용)
+     */
+    setupClickHandlers: function() {
+      const self = this;
+      
+      // 스크롤 종료 감지 리스너
+      const scrollEndListener = () => {
+        clearTimeout(self.scrollEndTimer); 
+        self.scrollEndTimer = setTimeout(() => {
+          self.isClickScrolling = false;
+          $(window).off('scroll.clickEnd'); 
+        }, 150);
+      };
+
+      this.$links.on('click', function(e) {
+        e.preventDefault();
+        const $link = $(this);
+        const $targetSection = $($link.attr('href'));
+        
+        if ($targetSection.length) {
+          self.isClickScrolling = true;
+          self.setActiveIndicator($link); 
+          $targetSection[0].scrollIntoView({ behavior: 'smooth' });
+          $(window).off('scroll.clickEnd'); 
+          $(window).on('scroll.clickEnd', scrollEndListener);
+        }
+      });
+    },
+
+    /**
+     * 기능 2: 스크롤 스파이 & Fixed 토글
+     */
+    initScrollSpy: function() {
+      const self = this;
+      
+      this.handleScroll = () => {
+        const scrollY = $(window).scrollTop();
+
+        if (self.isClickScrolling) return;
+
+        // --- 기능 2a: LNB Fixed 위치 제어 ---
+        if (!self.isClickScrolling) { 
+          if (scrollY >= self.triggerPoint) {
+            if (scrollY >= self.stopPoint) {
+              // [상태 3] 맨 밑 도달: fixed 풀고, 하단에 고정
+              self.$sidebar.removeClass('fixed').css({'top':'auto', 'bottom':'0'});
+            } else {
+              // [상태 2] 중간 스크롤: fixed 적용 및 top 값 주입
+              self.$sidebar.addClass('fixed').css({
+                'top': self.topFixedHeight + 'px'
+              });
+            }
+          } else {
+            // [상태 1] 맨 위: 모든 클래스/스타일 제거
+            self.$sidebar.removeClass('fixed').css({'top': '', 'bottom':''});
+          }
+        }
+
+        // --- 기능 2b: 스크롤 스파이 (메뉴 활성화) ---
+        if (self.isClickScrolling) return; 
+
+        const winHeight = $(window).height();
+        const scrollHeight = $(document).height();
+        const $firstLink = self.$links.first();
+        const $lastLink = self.$links.last();
+        const firstSecTop = self.$sections.first().length ? self.$sections.first().offset().top : 0;
+
+        if (scrollY + winHeight >= scrollHeight - 10) {
+          self.setActiveIndicator($lastLink);
+          return;
+        }
+        if (scrollY < firstSecTop - self.scrollOffset) {
+          self.setActiveIndicator($firstLink);
+          return;
+        }
+
+        for (let i = self.$sections.length - 1; i >= 0; i--) {
+          const $currentSection = self.$sections.eq(i);
+          const sectionTop = $currentSection.offset().top - self.scrollOffset;
+
+          if (scrollY >= sectionTop - 150 - 1) { 
+            const id = $currentSection.attr('id');
+            const $navLink = self.$links.filter(`[href="#${id}"]`);
+            self.setActiveIndicator($navLink);
+            return; 
+          }
+        }
+      };
+
+      // $(window).on('scroll.lnbScroll', this.throttle(this.handleScroll, 20));
+      $(window).on('scroll.lnbScroll', this.handleScroll);
+    },
+
     setActiveIndicator: function($anchor) {
       if (!$anchor || !$anchor.length) return;
       if ($anchor.parent().hasClass('active')) return;

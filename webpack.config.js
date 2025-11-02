@@ -35,6 +35,7 @@ module.exports = {
       return `${filepath}/[name][ext]`; // 예: src/assets/images/logo.png -> assets/images/logo.png
     },
   },
+  devtool: isProduction ? false : 'source-map',
   target: 'web',
   module: {
     rules: [
@@ -59,7 +60,12 @@ module.exports = {
         use: [
 					MiniCssExtractPlugin.loader,
 					// 'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            }
+          },
           {
             loader: 'sass-loader',
             options: {

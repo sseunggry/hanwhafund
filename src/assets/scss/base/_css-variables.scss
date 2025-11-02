@@ -11,7 +11,7 @@
 
   // content
   --#{$prefix}-content-pc-width: 168rem;
-  --#{$prefix}-content-pc-padding-x: 1.6rem;
+  --#{$prefix}-content-pc-padding-x: 4rem;
   --#{$prefix}-content-wrap-width: calc(var(--#{$prefix}-content-pc-width) + var(--#{$prefix}-content-pc-padding-x) * 2);
 
   // font-size (pc)
