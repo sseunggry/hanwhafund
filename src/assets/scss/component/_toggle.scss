@@ -117,11 +117,11 @@
 // switch 전체영역 사이즈 정의
 @mixin form-toggle-switch($size) {
   gap: var(--#{$prefix}-form-toggle-switch--gap);
-  font-size: var(--#{$prefix}-form-toggle-switch--pc-font-size--#{$size});
+  font-size: var(--#{$prefix}-form-toggle-switch--pc-font-size-#{$size});
   line-height: var(--#{$prefix}-form-toggle-switch--button-size-height-#{$size});
 
 	@include mq(tablet) {
-		font-size: var(--#{$prefix}-form-toggle-switch--tablet-font-size--#{$size});
+		font-size: var(--#{$prefix}-form-toggle-switch--tablet-font-size-#{$size});
 	}
   @include mq(mobile) {
     font-size: var(--#{$prefix}-form-toggle-switch--mobile-font-size-#{$size});

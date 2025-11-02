@@ -42,7 +42,7 @@
   
   // Popover
   --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-color-border-neutral);
-  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text-bolder);
+  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text);
 }
 
 .tooltip-btn{

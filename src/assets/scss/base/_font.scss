@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @use "../util" as *;
 
-$fonts-style-ko: ( Thin: 100, ExtraLight: 200, Light: 300, Regular: 400, Medium: 500, SemiBold: 600, Bold: 700, ExtraBold: 800, Black: 900);
+$fonts-style-kr: ( Thin: 100, ExtraLight: 200, Light: 300, Regular: 400, Medium: 500, SemiBold: 600, Bold: 700, ExtraBold: 800, Black: 900);
 $fonts-style-en: ( XLight: 200, Light: 300, Regular: 400, Medium: 500, Bold: 700, XBold: 800, Black: 900, XBlack: 900);
 
-@each $font, $weight in $fonts-style-ko {
-  $font-name: $font-ko;
+@each $font, $weight in $fonts-style-kr {
+  $font-name: $font-kr;
   @font-face {
     @include font( #{$font-name}, "#{$font-name}-#{$font}", ("opentype", "truetype"), #{$weight} );
   }

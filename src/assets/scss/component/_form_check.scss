@@ -180,10 +180,10 @@ label {
 // checkbox radio 공통 사이즈 정의
 @mixin form-check($size) {
   gap: var(--#{$prefix}-form-check--gap);
-  font-size: var(--#{$prefix}-form-check--pc-font-size--#{$size});
+  font-size: var(--#{$prefix}-form-check--pc-font-size-#{$size});
 
 	@include mq(tablet) {
-		font-size: var(--#{$prefix}-form-check--tablet-font-size--#{$size});
+		font-size: var(--#{$prefix}-form-check--tablet-font-size-#{$size});
 	}
 	
   @include mq(mobile) {
@@ -265,10 +265,10 @@ label {
   padding-left: calc(var(--#{$prefix}-form-check--button-size-#{$size}) + var(--#{$prefix}-form-check--gap));
 
   .form-check-p {
-    font-size: var(--#{$prefix}-form-check--additional-text-pc-font-size--#{$size});
+    font-size: var(--#{$prefix}-form-check--additional-text-pc-font-size-#{$size});
 
     @include mq(tablet) {
-			font-size: var(--#{$prefix}-form-check--additional-text-tablet-font-size--#{$size});
+			font-size: var(--#{$prefix}-form-check--additional-text-tablet-font-size-#{$size});
 		}
     @include mq(mobile) {
       font-size: var(--#{$prefix}-form-check--additional-text-mobile-font-size-#{$size});
@@ -284,7 +284,7 @@ label {
   --#{$prefix}-color-border-neutral: #b1b8be;
   --#{$prefix}-color-element-primary: #F54500;
 
-  --#{$prefix}-form-check--color-text: var(--#{$prefix}-color-text-bolder);
+  --#{$prefix}-form-check--color-text: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-check--color-text-disabled: var(--#{$prefix}-color-text-disabled);
   --#{$prefix}-form-check--color-text-sub: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-form-check--color-text-sub-disabled: var(--#{$prefix}-color-text-disabled);

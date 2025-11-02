@@ -17,7 +17,7 @@
 					<div class="inner">
 						<div class="fund-info">
 							<div class="fund-top">
-								<ul class="category">
+								<ul class="pipe-list">
 									<li>국내</li>
 									<li>주식</li>
 									<li>글로벌</li>
@@ -34,10 +34,10 @@
 							<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
 							<div class="fund-actions">
 								<%- include('../../components/select.ejs', {
-									variant: 'text',
+									variant: 'underline',
 									name: 'fund-code-select',
 									size: 'large',
-									addClass: 'fc-white',
+									addClass: 'white',
 									options: [
 										{ value: 'A', text: 'A(수수료선취-오프라인)' },
 										{ value: 'Ae', text: 'Ae(수수료선취-온라인)' },
@@ -54,7 +54,16 @@
 							</div>
 							<ul class="fund-summary">
 								<li>
-									<p class="tit">기준가(전일대비)</p>
+									<p class="tit">
+										기준가(전일대비)
+										<%- include('../../components/button.ejs', {
+											tag: 'a',
+											variant: 'icon',
+											label: '더보기',
+											size: 'xlarge',
+											icon: 'plus-fill',
+										}) -%>
+									</p>
 									<p class="value">
 										<strong>1,220.00</strong>
 										<span class="unit">원</span>
@@ -88,7 +97,9 @@
 							</ul>
 						</div>
 						<div class="fund-ai">
-							<h3 class="tit">AI 펀드 브리핑</h3>
+							<div class="tit-wrap">
+								<h3 class="tit">AI 펀드 브리핑</h3>
+							</div>
 							<dl class="desc-wrap">
 								<dt>펀드 특징</dt>
 								<dd>국내 우량 채권에 안정적으로 투자 낮은 위험등급(5등급)으로 꾸준한 이자 수익을 추구하는 채권형 펀드</dd>
@@ -120,7 +131,8 @@
 								}) -%>
 							</div>
 							<div class="btn-wrap">
-								<%- include('../../components/button.ejs', {
+								<p class="txt">AI 펀드 브리핑</p>
+								<%#- include('../../components/button.ejs', {
 									variant: 'text',
 									// hierarchy: 'secondary',
 									label: 'AI 펀드 브리핑',
@@ -148,9 +160,9 @@
 							</aside>
 
 							<div class="layout-content">
-								<div id="performance" class="cont-group">
-									<div class="tit-wrap">
-										<p class="txt-lg">이 상품의 지난 기록을 살펴볼까요?</p>
+								<section id="performance" class="cont-group">
+									<div class="section-tit-wrap">
+										<p class="txt-lg txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
 										<h2 class="tit-xlg">수익률</h2>
 									</div>
 									<div class="chart-wrap line">
@@ -170,16 +182,29 @@
 													{ label: '설정이후' }
 												]
 											}) -%>
-											<%- include('../../components/button.ejs', {
-												label: '검색',
-												size: 'large',
-											}) -%>
+											<div class="form-calendar-group">
+												<%- include('../../components/calendar-range.ejs', {
+													size: 'large'
+												}) -%>
+												<%#- include('../../components/input.ejs', {
+													type: "text",
+													size: 'large',
+													group: [
+														{ placeholder: 'YYYY-MM-DD'},
+														{ placeholder: 'YYYY-MM-DD'}
+													],
+												}) -%>
+												<%- include('../../components/button.ejs', {
+													label: '검색',
+													size: 'large',
+												}) -%>
+											</div>
 										</div>
 										<div class="chart-area">
 											<!-- Chart 영역 -->
 										</div>
 									</div>
-									<div class="group-wrap spacing-lg">
+									<div class="group-wrap gap-40">
 										<h3 class="tit-sm">기간별 수익률 <small class="txt-sm fw-r fc-gray">단위 %</small></h3>
 										<%- include('../../components/table.ejs', { 
 											caption: '기간별 수익률',
@@ -231,10 +256,10 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<div id="assets" class="cont-group">
-									<div class="tit-wrap">
-										<p class="txt-lg">이 상품은 여기에 투자하고 있어요!</p>
+								</section>
+								<section id="assets" class="cont-group">
+									<div class="section-tit-wrap">
+										<p class="txt-lg txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
 										<h2 class="tit-xlg">자산구성</h2>
 									</div>
 									<div class="chart-wrap doughnut">
@@ -268,7 +293,7 @@
 									</div>
 									<div class="group-flex-wrap">
 										<div class="group-wrap">
-											<h3 class="tit-sm line">주식 보유 비중 TOP 5</h3>
+											<h3 class="tit-sm line-bottom pb-24">주식 보유 비중 TOP 5</h3>
 											<div class="chart-wrap pie">
 												<div class="chart-area">
 													<!-- Chart 영역 -->
@@ -305,7 +330,7 @@
 											</div>
 										</div>
 										<div class="group-wrap">
-											<h3 class="tit-sm line">채권 보유 비중 TOP 5</h3>
+											<h3 class="tit-sm line-bottom pb-24">채권 보유 비중 TOP 5</h3>
 											<div class="chart-wrap pie">
 												<div class="chart-area">
 													<!-- Chart 영역 -->
@@ -342,6 +367,409 @@
 											</div>
 										</div>
 									</div>
+								</section>
+								<section id="fees" class="cont-group">
+									<div class="section-tit-wrap">
+										<p class="txt-lg txt-gradient">투자 전 비용도 함께 확인하세요</p>
+										<h2 class="tit-xlg">보수 및 수수료</h2>
+									</div>
+									<div class="group-wrap">
+										<div class="box-wrap">
+											<div class="box-item line-top">
+												<p class="tit-sm icon-buy flex-col">매입할 때</p>
+												<div class="fee-box">
+													<div class="txt-wrap">
+														<p class="tit">선취판매 수수료</p>
+														<p class="sub-txt">없음</p>
+													</div>
+												</div>
+											</div>
+											<div class="box-item line-top">
+												<p class="tit-sm icon-invest flex-col">투자기간 동안</p>
+												<div class="fee-box">
+													<div class="txt-wrap">
+														<p class="tit">총 보수</p>
+														<p class="sub-txt">연 0.5090%</p>
+													</div>
+													<div class="txt-wrap flex justify-center gap-16">
+														<dl class="desc">
+															<dt>운용보수</dt>
+															<dd>0.290%</dd>
+														</dl>
+														<dl class="desc">
+															<dt>판매보수</dt>
+															<dd>0.2810%</dd>
+														</dl>
+														<dl class="desc">
+															<dt>수탁보수</dt>
+															<dd>0.0200%</dd>
+														</dl>
+														<dl class="desc">
+															<dt>사무보수</dt>
+															<dd>0.0130%</dd>
+														</dl>
+													</div>
+												</div>
+											</div>
+											<div class="box-item line-top">
+												<p class="tit-sm icon-sell flex-col">환매할 때</p>
+												<div class="fee-box">
+													<div class="txt-wrap">
+														<p class="tit">후취판매 수수료</p>
+														<p class="sub-txt">없음</p>
+													</div>
+													<div class="txt-wrap">
+														<p class="tit">환매 수수료</p>
+														<p class="sub-txt">없음</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap">
+										<h3 class="tit-sm">매입/환매지급 기준</h3>
+										<div class="box-wrap">
+											<div class="guide-item line-bottom">
+												<p class="tit bg-orange">매입기준가 적용일</p>
+												<div class="info-box">
+													<dl>
+														<dt class="icon-day">오후 3시 30분 이전</dt>
+														<dd>2영업일 기준가 2영업일 매입</dd>
+													</dl>
+													<dl>
+														<dt class="icon-night">오후 3시 30분 이후</dt>
+														<dd>3영업일 기준가 3영업일 매입</dd>
+													</dl>
+												</div>
+											</div>
+											<div class="guide-item line-bottom">
+												<p class="tit bg-indigo">환매기준가 적용일</p>
+												<div class="info-box">
+													<dl>
+														<dt class="icon-day">오후 3시 30분 이전</dt>
+														<dd>2영업일 기준가 2영업일 매입</dd>
+													</dl>
+													<dl>
+														<dt class="icon-night">오후 3시 30분 이후</dt>
+														<dd>3영업일 기준가 3영업일 매입</dd>
+													</dl>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section id="info" class="cont-group">
+									<div class="section-tit-wrap">
+										<p class="txt-lg txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
+										<h2 class="tit-xlg">상품정보</h2>
+									</div>
+									<div class="group-wrap">
+										<div class="overlay-box-wrap">
+											<div class="visual-box">
+												<p class="tit-md fw-sb">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</p>
+												<ul class="pipe-list">
+													<li>국내</li>
+													<li>주식</li>
+													<li>글로벌</li>
+												</ul>
+											</div>
+											<div class="info-box">
+												<div class="product-info-wrap">
+													<dl>
+														<dt>설정일</dt>
+														<dd>2020.01.01</dd>
+													</dl>
+													<dl>
+														<dt>담당 펀드매니저</dt>
+														<dd>김운용</dd>
+													</dl>
+													<dl class="w-full">
+														<dt>벤치마크</dt>
+														<dd>KOSPI200 X 220% + MMI_CD X -120%</dd>
+													</dl>
+
+													<% let btnDownload = '';
+														btnDownload += include('../../components/button.ejs', { label: '다운로드', size: 'large', icon: 'download', addClass: 'icon-mo-only'});
+													-%>
+													<%- include('../../components/select.ejs', {
+														variant: 'outline',
+														title: "관련공시",
+														placeholder: "관련공시 전체보기",
+														size: 'large',
+														options: [
+															{ value: 'option1', text: '관련공시1' },
+															{ value: 'option2', text: '관련공시2' },
+															{ value: 'option3', text: '관련공시3' }
+														],
+														slot: btnDownload,
+													}) -%>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap gap-40">
+										<h3 class="tit-sm">관련자료</h3>
+										<div class="box-wrap gap-80 pd-lg bg-gray align-center">
+											<div class="reference-box">
+												<div class="download-wrap">
+													<div class="txt-wrap">
+														<p class="tit">자산운용보고서</p>
+														<p class="desc">운용기간 2025.05.31 ~2025.08.30</p>
+													</div>
+													<%- include('../../components/button.ejs', {
+														variant: '',
+														hierarchy: '',
+														label: '다운로드',
+														size: 'large',
+														icon: 'download'
+													}) -%>
+												</div>
+												<div class="btn-wrap array-left line">
+													<%- include('../../components/button.ejs', {
+														tag: 'a',
+														variant: 'text',
+														label: '지난 보고서 전체보기',
+														size: 'large',
+														preIcon: 'file',
+														icon: 'arrow-right'
+													}) -%>
+												</div>
+											</div>
+											<div class="btn-wrap column">
+												<%- include('../../components/button.ejs', {
+													tag: 'a',
+													variant: 'line',
+													label: '집합투자규약',
+													size: 'xlarge',
+													icon: 'download'
+												}) -%>
+												<%- include('../../components/button.ejs', {
+													tag: 'a',
+													variant: 'line',
+													label: '투자설명서',
+													size: 'xlarge',
+													icon: 'download'
+												}) -%>
+												<%- include('../../components/button.ejs', {
+													tag: 'a',
+													variant: 'line',
+													label: '간이투자설명서',
+													size: 'xlarge',
+													icon: 'download'
+												}) -%>
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap gap-40">
+										<h3 class="tit-sm">판매사</h3>
+										<div class="btn-wrap grid-3">
+											<%- include('../../components/button.ejs', {
+												variant: 'line',
+												label: 'IBK투자증권',
+												size: 'xlarge',
+												icon: 'link'
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												variant: 'line',
+												label: 'KB증권',
+												size: 'xlarge',
+												icon: 'link'
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												variant: 'line',
+												label: 'LS증권',
+												size: 'xlarge',
+												icon: 'link'
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												variant: 'line',
+												label: '대신증권',
+												size: 'xlarge',
+												icon: 'link'
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												variant: 'line',
+												label: '미래에셋자산운용',
+												size: 'xlarge',
+												icon: 'link'
+											}) -%>
+										</div>
+										<p class="note-txt">펀드 가입은 판매사 홈페이지에서 할 수 있습니다.</p>
+									</div>
+									<div class="group-wrap">
+										<h2 class="tit-xlg">투자하시기 전, 꼭 확인하세요!</h2>
+										<p class="note-refer">
+											자산구성현황 및 주요 보유업종, 보유자산 내역은 운용펀드 기준이며 기준일로부터 1개월 전 자료이니 착오 없으시기 바랍니다.
+										</p>
+										<div class="box-wrap bg-gray">
+											<%- include('../../components/note-list.ejs', { 
+												depth: 1,
+												items: [
+													'이 금융상품은 예금자보호법에 따라 보호되지 않습니다.', 
+													'집합투자증권은 자산가격 변동, 환율 변동, 신용등급 하락 등에 따라 투자원금의 손실(0~100%)이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.', 
+													'가입하시기 전에 투자대상, 환매방법 및 보수 등에 관하여 투자설명서 및 약관을 반드시 읽어보시기 바랍니다.',
+													'당사는 이 금융투자상품&lt;집합투자증권&gt;에 관하여 충분히 설명할 의무가 있으며, 투자자는 투자에 앞서 그러한 설명을 충분히 들으시기 바랍니다.',
+													'과거의 운용실적이 미래의 수익을 보장하는 것은 아닙니다.',
+													'해외투자상품에의 투자는 투자대상국가의 시장, 정치, 경제상황 환율변동 등에 따른 위험으로 자산가치가 변동되어 손실이 발생할 수 있습니다. 파생상품은 높은 가격 변동성으로 단기간에 투자원금의 전부 또는 상당부분을 잃을 수 있으며, 장외파생상품에 투자하는 경우 거래 상대방이 계약조건을 이행하지 못할 위험이 있습니다.',
+													'재형저축 및 연금저축펀드에 대한 과세내용은 조세특례제한법 등 관련 법령의 변경에 따라 달라질 수 있습니다.',
+													'재간접형 펀드의 경우, 피투자펀드 보수 및 증권거래 비용 등 추가비용이 발생할 수 있습니다.',
+													'MMF의 경우 장부가와 시가의 괴리가 ±0.5%이상일 경우 기준가격 적용기준이 달라질 수 있습니다.',
+													'레버리지 펀드는 투자원금 손실이 크게 확대될 수 있습니다.'
+												],
+											}) -%>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section-trend">
+					<div class="inner">
+						<div class="cont-group">
+							<div class="section-tit-wrap">
+								<h2 class="tit-xxlg txt-en txt-gradient">Investment Trend</h2>
+								<p class="txt-lg">지금 인기있는 펀드를 확인해보세요</p>
+							</div>
+							<div class="card-list-wrap">
+								<ul class="card-list">
+									<li class="card-item">
+										<a href="#!">
+											<%- include('../../components/badge.ejs', { 
+												items: [
+													{ label: '국내', variant: 'solid', color: 'domestic' },
+													{ label: '주식', variant: 'solid', color: 'stock' },
+													{ label: '글로벌', variant: 'solid', color: 'global' }
+												]
+											}) -%>
+											<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											<div class="chart-area line">
+												<div class="chart">
+													<!-- Chart 영역 -->
+												</div>
+											</div>
+	
+											<div class="info-list">
+												<dl class="txt-empahsis">
+													<dt>3개월 수익률</dt>
+													<dd>2.56<small>%</small></dd>
+												</dl>
+												<dl>
+													<dt>기준가</dt>
+													<dd>1,452.33원</dd>
+												</dl>
+												<dl>
+													<dt>순자산</dt>
+													<dd>3억원</dd>
+												</dl>
+											</div>
+										</a>
+									</li>
+									<li class="card-item">
+										<a href="#!">
+											<%- include('../../components/badge.ejs', { 
+												items: [
+													{ label: '국내', variant: 'solid', color: 'domestic' },
+													{ label: '주식', variant: 'solid', color: 'stock' },
+													{ label: '글로벌', variant: 'solid', color: 'global' }
+												]
+											}) -%>
+											<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											<div class="chart-area line">
+												<div class="chart">
+													<!-- Chart 영역 -->
+												</div>
+											</div>
+	
+											<div class="info-list">
+												<dl class="txt-emphasis">
+													<dt>3개월 수익률</dt>
+													<dd>2.56<small>%</small></dd>
+												</dl>
+												<dl>
+													<dt>기준가</dt>
+													<dd>1,452.33원</dd>
+												</dl>
+												<dl>
+													<dt>순자산</dt>
+													<dd>3억원</dd>
+												</dl>
+											</div>
+										</a>
+									</li>
+									<li class="card-item">
+										<a href="#!">
+											<%- include('../../components/badge.ejs', { 
+												items: [
+													{ label: '국내', variant: 'solid', color: 'domestic' },
+													{ label: '주식', variant: 'solid', color: 'stock' },
+													{ label: '글로벌', variant: 'solid', color: 'global' }
+												]
+											}) -%>
+											<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											<div class="chart-area line">
+												<div class="chart">
+													<!-- Chart 영역 -->
+												</div>
+											</div>
+	
+											<div class="info-list">
+												<dl class="txt-empahsis">
+													<dt>3개월 수익률</dt>
+													<dd>2.56<small>%</small></dd>
+												</dl>
+												<dl>
+													<dt>기준가</dt>
+													<dd>1,452.33원</dd>
+												</dl>
+												<dl>
+													<dt>순자산</dt>
+													<dd>3억원</dd>
+												</dl>
+											</div>
+										</a>
+									</li>
+									<li class="card-item">
+										<a href="#!">
+											<%- include('../../components/badge.ejs', { 
+												items: [
+													{ label: '국내', variant: 'solid', color: 'domestic' },
+													{ label: '주식', variant: 'solid', color: 'stock' },
+													{ label: '글로벌', variant: 'solid', color: 'global' }
+												]
+											}) -%>
+											<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											<div class="chart-area line">
+												<div class="chart">
+													<!-- Chart 영역 -->
+												</div>
+											</div>
+	
+											<div class="info-list">
+												<dl class="txt-empahsis">
+													<dt>3개월 수익률</dt>
+													<dd>2.56<small>%</small></dd>
+												</dl>
+												<dl>
+													<dt>기준가</dt>
+													<dd>1,452.33원</dd>
+												</dl>
+												<dl>
+													<dt>순자산</dt>
+													<dd>3억원</dd>
+												</dl>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<div class="btn-wrap array-center">
+									<%- include('../../components/button.ejs', {
+										tag: 'a',
+										label: '더보기',
+										size: 'large',
+										hierarchy: 'tertiary',
+										addClass: 'more',
+									}) -%>
 								</div>
 							</div>
 						</div>

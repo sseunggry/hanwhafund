@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 @use "../util" as *;
 
 /* 달력 */
@@ -44,7 +44,28 @@
   --#{$prefix}-calendar--action-btn-wrap-color-surface: var(--#{$prefix}-color-surface-white);
 }
 
-// #{$prefix}-calendar-area
+.form-calendar-group{
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.calendar-group {
+  gap: 0;
+
+  .calendar{
+    width: 17.9rem;
+  }
+  .calendar:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+  .calendar:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
 .calendar-area {
   @include calendar-color-variable();
   @include calendar-size-variable;
@@ -316,7 +337,7 @@
                     @include position($b: -38%);
                     @include position-center(x);
 
-                    content: '이벤트';
+                    content: "이벤트";
                     font-size: 1rem;
                     font-weight: 700;
                   }

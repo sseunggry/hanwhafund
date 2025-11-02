@@ -64,7 +64,7 @@
 			width: 0.4rem;
 			height: 0.4rem;
 			background-color: var(--#{$prefix}-note-list--color-text-depth1);
-			border-radius: 50%;
+			border-radius: var(--#{$prefix}-radius-max);
 			transform: translateY(-50%);
 		}
 		// > .note-list { //2depth
@@ -145,16 +145,20 @@
 	}
 }
 .note-txt {//참고 또는 info성 텍스트
-	--#{$prefix}-note-txt--margin-top: var(--#{$prefix}-space-9);
-	--#{$prefix}-note-txt--color-text: var(--#{$prefix}-color-text-subtle);
+	// --#{$prefix}-note-txt--margin-top: var(--#{$prefix}-space-9);
+	--#{$prefix}-note-txt--color-text: #757170;
 
-	margin-top: var(--#{$prefix}-note-txt--margin-top);
+	// margin-top: var(--#{$prefix}-note-txt--margin-top);
 	color: var(--#{$prefix}-note-txt--color-text);
+	font-size: 1.6rem;
 }
 .note-refer {
 	display: flex;
 	align-items: center;
 	gap: 0.4rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #151414;
 
 	&::before{
 		content: '';

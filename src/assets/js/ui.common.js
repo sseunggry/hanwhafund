@@ -14,6 +14,10 @@ const commonJs = {
     this.modal.setFullModalContentHeight();
     this.accordion.init();
     this.tab.init();
+    this.lnb.init();
+
+    this.initDatepickers();
+    this.initDateRangePickers();
 
     this.bindGlobalEvents();
   },
@@ -272,15 +276,30 @@ const commonJs = {
         });
         
         // 초기 상태 적용
-        const initialValue = $select.val();
-        const $initialOption = $options.filter(`[data-value="${initialValue}"]`);
-        if (initialValue && $initialOption.length) {
-          $valueSpan.text($initialOption.text()).removeClass('placeholder');
-        } else if (placeholder) {
-          $valueSpan.text(placeholder).addClass('placeholder');
+        // const initialValue = $select.val();
+        // const $initialOption = $options.filter(`[data-value="${initialValue}"]`);
+        // if (initialValue && $initialOption.length) {
+        //   $valueSpan.text($initialOption.text()).removeClass('placeholder');
+        // } else if (placeholder) {
+        //   $valueSpan.text(placeholder).addClass('placeholder');
+        // } else {
+        //   if ($valueSpan.text() !== '옵션 없음' && $valueSpan.text() !== '선택') {
+        //     $valueSpan.removeClass('placeholder');
+        //   }
+        // }
+        if ($valueSpan.hasClass('placeholder')) {
+          $select.val('');
         } else {
-          if ($valueSpan.text() !== '옵션 없음' && $valueSpan.text() !== '선택') {
-            $valueSpan.removeClass('placeholder');
+          const renderedText = $valueSpan.text();
+          const $selectedOption = $options.filter(function() {
+            return $(this).text() === renderedText;
+          }).first();
+
+          if ($selectedOption.length) {
+            const selectedValue = $selectedOption.data('value');
+            if ($select.val() !== selectedValue) {
+              $select.val(selectedValue);
+            }
           }
         }
       });
@@ -833,6 +852,246 @@ const commonJs = {
         }
       });
     },
+  },
+  lnb: {
+    isClickScrolling: false, // 클릭으로 스크롤 중인지 확인하는 플래그
+    $links: null,
+    $sections: null,
+    scrollOffset: 80,
+    handleScroll: null, // handleScroll 함수를 저장할 변수
+    scrollEndTimer: null, // 스크롤 종료 감지를 위한 타이머
+    
+    // [헬퍼] 스크롤 이벤트의 과도한 호출을 방지
+    throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      };
+    },
+
+    init: function() {
+      this.$links = $('.layout-sidebar .sidebar li a[href^="#"]');
+      this.$sections = $('.layout-sidebar .layout-content .cont-group[id]');
+
+      if (this.$links.length === 0 || this.$sections.length === 0) return;
+
+      const $topFixed = $('.top-fixed');
+      if ($topFixed.length) {
+        this.scrollOffset = $topFixed.outerHeight() + 24; 
+      }
+
+      this.setupClickHandlers();
+      this.initScrollSpy();
+    },
+    // LNB 메뉴 클릭 이벤트 설정
+    setupClickHandlers: function() {
+      const self = this;
+      
+      const scrollEndListener = () => {
+        clearTimeout(self.scrollEndTimer); // 기존 타이머 클리어
+        self.scrollEndTimer = setTimeout(() => {
+          // 150ms 동안 스크롤 이벤트가 없으면, 스크롤이 멈춘 것으로 간주
+          self.isClickScrolling = false;
+          $(window).off('scroll.clickEnd'); // 이 리스너 자체를 제거
+        }, 150); // 150ms (0.15초)
+      };
+
+      this.$links.on('click', function(e) {
+        e.preventDefault();
+        const $link = $(this);
+        const $targetSection = $($link.attr('href'));
+        
+        if ($targetSection.length) {
+          self.isClickScrolling = true;
+          self.setActiveIndicator($link); 
+
+          // [수정] 네이티브 scrollIntoView 사용
+          $targetSection[0].scrollIntoView({ behavior: 'smooth' });
+
+          // [수정] 1초 setTimeout 대신, 스크롤 종료 감지 리스너를 등록
+          $(window).off('scroll.clickEnd'); // 만약을 위해 기존 리스너 제거
+          $(window).on('scroll.clickEnd', scrollEndListener);
+        }
+      });
+    },
+    initScrollSpy: function() {
+      const self = this;
+      
+      // '활성화 라인'의 기준이 될 오프셋 값을 CSS에서 가져옵니다.
+      // const $firstSection = this.$sections.first();
+      // if ($firstSection.length) {
+      //   scrollOffset = parseFloat(window.getComputedStyle($firstSection[0]).scrollMarginTop);
+      // }
+
+      // 스크롤 시 실행될 함수
+      this.handleScroll = () => {
+        if (self.isClickScrolling) return;
+
+        const scrollY = $(window).scrollTop();
+        const winHeight = $(window).height();
+        const scrollHeight = $(document).height();
+
+        const $firstLink = this.$links.first();
+        const $lastLink = this.$links.last();
+        
+        const firstSecTop = this.$sections.first().length ? this.$sections.first().offset().top : 0;
+
+        // [엣지 케이스 1] 스크롤이 페이지 최하단에 닿았을 때
+        if (scrollY + winHeight >= scrollHeight - 10) { // 10px 여유
+          self.setActiveIndicator($lastLink);
+          return;
+        }
+
+        // [엣지 케이스 2] 스크롤이 첫 섹션보다 위에 있을 때
+        if (scrollY < firstSecTop - self.scrollOffset) {
+          self.setActiveIndicator($firstLink);
+          return;
+        }
+
+        // [메인 로직] 현재 스크롤 위치에 맞는 섹션 찾기
+        for (let i = this.$sections.length - 1; i >= 0; i--) {
+          const $currentSection = this.$sections.eq(i);
+          
+          // 섹션의 활성화 라인 = 섹션의 실제 top 위치 - 고정 헤더 높이
+          const sectionTop = $currentSection.offset().top - self.scrollOffset;
+
+          // 스크롤 위치가 섹션의 활성화 라인보다 아래에 있으면
+          if (scrollY >= sectionTop - 1) {
+            const id = $currentSection.attr('id');
+            const $navLink = this.$links.filter(`[href="#${id}"]`);
+            self.setActiveIndicator($navLink);
+            return; // 찾았으므로 루프 중단
+          }
+        }
+      };
+
+      // 스크롤 이벤트에 'throttle'을 적용하여 0.1초마다 실행
+      window.addEventListener('scroll', this.throttle(this.handleScroll, 100));
+    },
+    setActiveIndicator: function($anchor) {
+      if (!$anchor || !$anchor.length) return;
+      if ($anchor.parent().hasClass('active')) return;
+      
+      this.$links.parent().removeClass('active');
+      $anchor.parent().addClass('active');
+    }
+  },
+
+  initDatepickers: function() {
+    $('.calendar-input .input.datepicker').each(function() {
+      const $input = $(this);
+      const $wrapper = $input.closest('.calendar-input');
+      const $button = $wrapper.find('.form-btn-datepicker');
+
+      $input.datepicker({
+        format: 'yyyy.mm.dd',
+        autohide: true,
+        language: 'ko-KR', // 언어팩 필요
+        
+        // [중요] 달력 버튼으로 팝업 열기
+        trigger: $button[0],
+        
+        // [중요] CSS 커스텀을 위한 클래스
+        container: '.calendar-area-wrapper', // 라이브러리가 생성할 팝업의 래퍼 클래스
+        template: `
+          <div class="datepicker-container">
+            <div class="datepicker-panel">
+              <div class="datepicker-header">
+                <div class="datepicker-title"></div>
+                <div class="datepicker-controls">
+                  <button type="button" class="btn-cal-move prev"></button>
+                  <button type="button" class="btn-cal-move next"></button>
+                </div>
+              </div>
+              <div class="datepicker-view"></div>
+              <div class="datepicker-footer"></div>
+            </div>
+          </div>
+        `
+      });
+    });
+  },
+  initDateRangePickers: function() {
+    const $rangeWrappers = $('.calendar-group');
+    // const $calendarInput = $('.calendar-group.calendar.input');
+
+    $rangeWrappers.each(function() {
+      const $wrapper = $(this);
+      const $startInput = $wrapper.find('input[id*="-start"]');
+      const $endInput = $wrapper.find('input[id*="-end"]');
+      const $button = $wrapper.find('.form-btn-datepicker');
+
+      $startInput.daterangepicker({
+        "startDate": moment(), // 오늘 날짜로 시작 (moment.js 필요)
+        // "endDate": moment().add(7, 'days'), // 7일 뒤로 끝
+        "autoApply": true, // 날짜 선택 시 바로 적용
+        "linkedCalendars": false, // 두 달력이 따로 움직이게 설정
+        "autoUpdateInput": false, // 라이브러리가 첫 번째 input을 자동으로 채우는 것을 방지
+        "locale": { // [중요] 한글화 설정
+          "format": "YYYY.MM.DD",
+          "separator": " - ",
+          "applyLabel": "확인",
+          "cancelLabel": "취소",
+          "fromLabel": "부터",
+          "toLabel": "까지",
+          "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+          "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        },
+        "template": `
+          <div class="daterangepicker calendar-wrap"> 
+            <div class="ranges"><ul></ul></div>
+            
+            <div class="drp-calendar left">
+              <div class="calendar-head">
+                <button class="prev" type="button"><span></span></button>
+                <div class="calendar-title"></div>
+                <button class="next" type="button"><span></span></button>
+              </div>
+              <div class="calendar-body">
+                <table class="calendar-table">
+                  <thead></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="drp-calendar right">
+              <div class="calendar-head">
+                <button class="prev" type="button"><span></span></button>
+                <div class="calendar-title"></div>
+                <button class="next" type="button"><span></span></button>
+              </div>
+              <div class="calendar-body">
+                <table class="calendar-table">
+                  <thead></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="drp-buttons calendar-footer">
+              <%# [수정] 라이브러리의 기본 클래스(cancelBtn, applyBtn)를 꼭 포함해야 합니다. %>
+              <button class="cancelBtn btn small tertiary" type="button">취소</button>
+              <button class="applyBtn btn small primary" type="button">확인</button>
+            </div>
+          </div>
+        `
+      }, function(start, end, label) {
+        $startInput.val(start.format('YYYY.MM.DD'));
+        $endInput.val(end.format('YYYY.MM.DD'));
+      });
+
+      // 커스텀 버튼(달력 아이콘)으로 캘린더 열기
+      $button.on('click', function() {
+        $startInput.trigger('click');
+      });
+    });
   }
 };
 

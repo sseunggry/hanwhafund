@@ -60,7 +60,12 @@ module.exports = {
 					MiniCssExtractPlugin.loader,
 					// 'style-loader',
           'css-loader',
-          'sass-loader'
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            }
+          }
         ],
       },
 			{

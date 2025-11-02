@@ -5,27 +5,27 @@
 $input-size: (
 	small: (
 		size-height: 4rem,
-		radius: 0.2rem,
-		pc-font-size: 1.5rem,
-		tablet-font-size: 1.5rem,
-		mobile-font-size: 1.5rem,
 		button-clear-size: 1.6rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-small),
 	),
 	medium: (
 		size-height: 4.8rem,
-		radius: 0.2rem,
-		pc-font-size: 1.6rem,
-		tablet-font-size: 1.6rem,
-		mobile-font-size: 1.6rem,
 		button-clear-size: 1.8rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-medium),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-medium),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-medium),
 	),
 	large: (
 		size-height: 5.6rem,
-		radius: 0.4rem,
-		pc-font-size: 1.8rem,
-		tablet-font-size: 1.8rem,
-		mobile-font-size: 1.8rem,
 		button-clear-size: 2rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-large),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-large),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-large),
 	),
 ) !default;
 
@@ -42,30 +42,22 @@ $input-size: (
   }
 }
 
-@mixin input-size($unit) {
-  height: var(--#{$prefix}-input--size-height-#{$unit});
-  border-radius: var(--#{$prefix}-input--radius-#{$unit});
-  font-size: var(--#{$prefix}-input--pc-font-size-#{$unit});
+@mixin input-size($size) {
+  height: var(--#{$prefix}-input--size-height-#{$size});
+  border-radius: var(--#{$prefix}-input--radius-#{$size});
+  font-size: var(--#{$prefix}-input--pc-font-size-#{$size});
 
 	@include mq(tablet) {
-		font-size: var(--#{$prefix}-input--tablet-font-size-#{$unit});
+		font-size: var(--#{$prefix}-input--tablet-font-size-#{$size});
 	}
 
   @include mq(mobile) {
-    font-size: var(--#{$prefix}-input--mobile-font-size-#{$unit});
+    font-size: var(--#{$prefix}-input--mobile-font-size-#{$size});
   }
 }
 
 // 컬러 정의
 @mixin input-color-variable() {
-  --#{$prefix}-color-input-surface: #fff;
-  --#{$prefix}-color-input-surface-disabled: #1e2124;
-
-  --#{$prefix}-color-input-border: #cdd1d5;
-  --#{$prefix}-color-input-border-active: #FF3A08;
-  --#{$prefix}-color-input-border-disabled: #cdd1d5;
-  --#{$prefix}-color-input-border-error: #de3412;
-
   --#{$prefix}-input--color-surface: var(--#{$prefix}-color-input-surface);
   --#{$prefix}-input--color-surface-readonly: var(--#{$prefix}-color-input-surface-disabled);
   --#{$prefix}-input--color-surface-disabled: var(--#{$prefix}-color-input-surface-disabled);

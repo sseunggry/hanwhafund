@@ -94,11 +94,11 @@
   height: var(--#{$prefix}-btn-tag--size-height-#{$size});
   padding: 0.8rem var(--#{$prefix}-btn-tag--padding-x-#{$size});
   border-radius: var(--#{$prefix}-btn-tag--size-height-#{$size});
-  font-size: var(--#{$prefix}-btn-tag--pc-font-size--#{$size});
+  font-size: var(--#{$prefix}-btn-tag--pc-font-size-#{$size});
   line-height: var(--#{$prefix}-line-height-none);
 
 	@include mq(tablet) {
-		font-size: var(--#{$prefix}-btn-tag--tablet-font-size--#{$size});
+		font-size: var(--#{$prefix}-btn-tag--tablet-font-size-#{$size});
 	}
 
   @include mq(mobile) {

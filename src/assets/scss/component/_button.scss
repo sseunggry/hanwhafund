@@ -12,44 +12,44 @@ $button-size: (
     padding-x: 1.6rem,
     padding-y: 0,
     gap: 0.2rem,
-    radius: 0.2rem,
-    icon-size: 1.4rem,
-    mobile-font-size: 1.4rem,
-    tablet-font-size: 1.4rem,
+    radius: var(--#{$prefix}-radius-medium),
+    icon-size: var(--#{$prefix}-icon-size-small),
     pc-font-size: 1.4rem,
+    tablet-font-size: 1.4rem,
+    mobile-font-size: 1.4rem,
   ),
   medium: (
     size-height: 4.8rem,
     padding-x: 2.4rem,
     padding-y: 0,
     gap: 0.4rem,
-    radius: 0.2rem,
-    icon-size: 1.6rem,
-    mobile-font-size: 1.8rem,
-    tablet-font-size: 1.8rem,
-    pc-font-size: 1.8rem,
+    radius: var(--#{$prefix}-radius-medium),
+    icon-size: var(--#{$prefix}-icon-size-medium),
+    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
   ),
   large: (
     size-height: 5.6rem,
     padding-x: 2.4rem,
     padding-y: 0,
     gap: 0.8rem,
-    radius: 0.4rem,
-    icon-size: 2rem,
-    mobile-font-size: 1.8rem,
-    tablet-font-size: 1.8rem,
-    pc-font-size: 1.8rem,
+    radius: var(--#{$prefix}-radius-medium),
+    icon-size: var(--#{$prefix}-icon-size-large),
+    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
   ),
   xlarge: (
     size-height: 6.4rem,
     padding-x: 1.6rem,
     padding-y: 0,
-    gap: 0.4rem,
-    radius: 0.6rem,
-    icon-size: 2rem,
-    mobile-font-size: 1.8rem,
-    tablet-font-size: 1.8rem,
-    pc-font-size: 1.8rem,
+    gap: 1.2rem,
+    radius: var(--#{$prefix}-radius-medium),
+    icon-size: var(--#{$prefix}-icon-size-large),
+    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
   ),
 ) !default;
 
@@ -93,19 +93,8 @@ $button-color-variable: (
     border: var(--#{$prefix}-color-button-black-fill),
     border-disabled: var(--#{$prefix}-color-button-disabled-border),
     text: var(--#{$prefix}-color-text-white),
-    text-disabled: var(--#{$prefix}-color-text-disabled-on),
+    text-disabled: var(--#{$prefix}-color-button-text-disabled),
   ),
-) !default;
-
-// 3. 아이콘 사이즈 맵
-$button-icon-size: (
-  xsmall: 1.2rem,
-  small: 1.4rem,
-  medium: 1.6rem,
-  large: 2rem,
-  xlarge: 2.4rem,
-  xxlarge: 4rem,
-  xxxlarge: 4.8rem,
 ) !default;
 
 // [Mixin] 사이즈 CSS 변수 정의
@@ -119,26 +108,6 @@ $button-icon-size: (
 
 // [Mixin] 컬러 CSS 변수 정의
 @mixin button-color-variable() {
-  --#{$prefix}-color-button-primary-fill: var(--hwf-color-primary-60);
-  --#{$prefix}-color-button-primary-fill-hover: var(--hwf-color-primary-70);
-  --#{$prefix}-color-button-primary-fill-pressed: var(--hwf-color-primary-80);
-  --#{$prefix}-color-button-secondary-fill: var(--hwf-color-secondary-10);
-  --#{$prefix}-color-button-secondary-fill-hover: var(--hwf-color-secondary-20);
-  --#{$prefix}-color-button-secondary-fill-pressed: var(--hwf-color-secondary-30);
-  --#{$prefix}-color-button-secondary-border: var(--hwf-orange-20);
-  --#{$prefix}-color-button-tertiary-fill: #f3f2f1;
-  --#{$prefix}-color-button-tertiary-fill-hover: #ddd;
-  --#{$prefix}-color-button-tertiary-fill-pressed: #ddd;
-  --#{$prefix}-color-button-black-fill: #121212;
-  --#{$prefix}-color-button-black-fill-hover: #000;
-  --#{$prefix}-color-button-black-fill-pressed: #000;
-  --#{$prefix}-color-button-disabled-fill: #cdd1d5;
-  --#{$prefix}-color-button-disabled-border: #cdd1d5;
-  --#{$prefix}-color-button-text-fill: #ffffff00; // transparent
-  --#{$prefix}-color-button-text-fill-hover: #f5f5f5;
-  --#{$prefix}-color-button-text-fill-pressed: #eee;
-  --#{$prefix}-color-transparency-border: #0000;
-
   @each $color, $types in $button-color-variable {
     @each $type, $value in $types {
       --#{$prefix}-button--color-#{$color}-#{$type}: #{$value};
@@ -152,19 +121,18 @@ $button-icon-size: (
   height: var(--#{$prefix}-button--size-height-#{$size});
   padding: var(--#{$prefix}-button--padding-y-#{$size}) var(--#{$prefix}-button--padding-x-#{$size});
   border-radius: var(--#{$prefix}-button--radius-#{$size});
-  font-size: var(--#{$prefix}-button--mobile-font-size-#{$size});
+  font-size: var(--#{$prefix}-button--pc-font-size-#{$size});
   font-weight: 400;
 
   @include mq(tablet) {
-    font-size: var(--#{$prefix}-button--tablet-font-size--#{$size});
+    font-size: var(--#{$prefix}-button--tablet-font-size-#{$size});
   }
 
   @include mq(mobile) {
-    font-size: var(--#{$prefix}-button--pc-font-size--#{$size});
+    font-size: var(--#{$prefix}-button--mobile-font-size-#{$size});
   }
 
   & {
-    // [FIX] .ico -> .svg-icon으로 수정
     .svg-icon {
       @include square(var(--#{$prefix}-button--icon-size-#{$size}));
     }
@@ -193,7 +161,7 @@ $button-icon-size: (
 }
 
 @mixin btn-color-icon($color) {
-  background-color: var(--#{$prefix}-color-#{$color}-text);
+  background-color: var(--#{$prefix}-color-text-#{$color});
 }
 
 /* Base Button */
@@ -273,12 +241,12 @@ $button-icon-size: (
   &.text {
     padding: 0;
     height: auto;
-    color: #121212;
-    background-color: transparent;
-    border-color: transparent;
+    color: var(--#{$prefix}-color-text-basic);
+    background-color: var(--#{$prefix}-color-button-text-fill);
+    border-color: var(--#{$prefix}-color-button-text-fill);
 
     .svg-icon {
-      background-color: var(--#{$prefix}-color-default-text);
+      background-color: var(--#{$prefix}-color-text-basic);
     }
 
     &.primary {
@@ -313,17 +281,31 @@ $button-icon-size: (
     }
   }
 
+  /* --- Variant: link Button (.text) --- */
+  &.link {
+    border-radius: var(--#{$prefix}-radius-large);
+
+    &.medium {
+      padding: 0 2.4rem;
+    }
+    &.large {
+      padding: 0 4rem;
+    }
+  }
+
   /* --- Variant: Line Button (.line) --- */
   &.line {
+    justify-content: space-between;
+    padding: 0 1.6rem;
     color: var(--#{$prefix}-color-text-basic);
-    background-color: transparent;
-    border-color: #333333;
+    background-color: var(--#{$prefix}-color-button-text-fill);
+    border-color: var(--#{$prefix}-color-text-basic);
     border-left: 0;
     border-right: 0;
     border-radius: 0;
 
     .svg-icon {
-      background-color: #333;
+      background-color: var(--#{$prefix}-color-text-basic);
     }
 
     &:hover {
@@ -337,9 +319,9 @@ $button-icon-size: (
     &.disabled {
       color: var(--#{$prefix}-color-text-disabled-on);
       background-color: transparent;
-      border-color: #aaa; // 비활성화 테두리 색상 예시
+      border-color: var(--#{$prefix}-color-button-disabled-border);
       .svg-icon {
-        background-color: #aaa;
+        background-color: var(--#{$prefix}-color-button-disabled-border);
       }
       &:hover {
         background-color: transparent;
@@ -349,19 +331,19 @@ $button-icon-size: (
 
   /* --- Variant: Icon Button (.icon) --- */
   &.icon {
-    @each $size, $value in $button-icon-size {
+    @each $size, $value in $icon-size {
       --#{$prefix}-button--icon-size-#{$size}: #{$value};
     }
 
     // 기본 (투명 배경)
     @include square(var(--#{$prefix}-button--icon-size-large));
     padding: 0 !important;
-    background-color: transparent;
+    background-color: var(--#{$prefix}-color-button-text-fill);
     border: none;
     color: inherit;
 
     .svg-icon {
-      background-color: var(--#{$prefix}-color-default-text);
+      background-color: var(--#{$prefix}-color-text-basic);
     }
 
     // 기본 hover/active 상태 (투명 배경용)
@@ -374,7 +356,7 @@ $button-icon-size: (
     }
 
     // 크기 클래스
-    @each $size, $value in $button-icon-size {
+    @each $size, $value in $icon-size {
       &.#{$size} {
         @include square(var(--#{$prefix}-button--icon-size-#{$size}));
         .svg-icon {
@@ -385,22 +367,20 @@ $button-icon-size: (
 
     // --- Icon Modifiers ---
     &.round {
-      border-radius: 50%;
+      border-radius: var(--#{$prefix}-radius-max);
     }
 
-    // [New Logic] 배경색 아이콘 svg-icon 크기 조정
+    // 배경색 아이콘 svg-icon 크기 조정
     &[class*="bg-"] {
       // 기본 (small, medium 등)
       .svg-icon {
         @include square(60%);
       }
-      // xxlarge 오버라이드
       &.xxlarge {
         .svg-icon {
-          @include square(2.4rem);
+          @include square(var(--#{$prefix}-icon-size-xlarge)); //2.4rem
         }
       }
-      // xxxlarge 오버라이드
       &.xxxlarge {
         .svg-icon {
           @include square(3rem);
@@ -410,42 +390,68 @@ $button-icon-size: (
 
     // 배경색 Modifiers (hover 상태 포함)
     &.bg-deep-gray {
-      background-color: #343232;
+      background-color: var(--#{$prefix}-color-neutral-80);
       .svg-icon {
-        background-color: #fff;
+        background-color: var(--#{$prefix}-color-text-white);
       }
+
       &:hover {
-        background-color: #000; // black-fill-hover 와 유사
+        background-color: #000;
       }
       &:active,
       &:focus {
-        background-color: #000; // black-fill-pressed 와 유사
+        background-color: #000;
       }
     }
     &.bg-gray {
-      background-color: rgba(255, 255, 255, 0.20);
+      background-color: rgba(255, 255, 255, 0.2);
       .svg-icon {
-        background-color: #fff;
+        background-color: var(--#{$prefix}-color-text-white);
       }
       &:hover {
-        background-color: rgba(255, 255, 255, 0.30);
+        background-color: rgba(255, 255, 255, 0.3);
       }
       &:active,
       &:focus {
-        background-color: rgba(255, 255, 255, 0.40);
+        background-color: rgba(255, 255, 255, 0.4);
       }
     }
     &.bg-white {
       background-color: #fff;
       .svg-icon {
-        background-color: var(--#{$prefix}-color-default-text); // 흰 배경이므로 아이콘 색상 필요
+        background-color: var(--#{$prefix}-color-text-basic); // 흰 배경이므로 아이콘 색상 필요
       }
       &:hover {
-        background-color: #f5f5f5; // text-fill-hover
+        background-color: #f5f5f5;
       }
       &:active,
       &:focus {
-        background-color: #eee; // text-fill-pressed
+        background-color: #eee;
+      }
+    }
+  }
+
+  //더보기 버튼일 경우
+  &.more {
+    &.medium {
+      padding: 0 3.2rem;
+    }
+    &.large {
+      padding: 0 4rem;
+    }
+  }
+
+  //mobile
+  @include mq(mobile) {
+    &.icon-mo-only {
+      span {
+        @include sr-only;
+      }
+      @each $size, $types in $button-size {
+        &.#{$size} {
+          padding: 0;
+          width: var(--#{$prefix}-button--size-height-#{$size});
+        }
       }
     }
   }
@@ -489,5 +495,18 @@ $button-icon-size: (
 
   .btn {
     flex: 1;
+  }
+
+  &.array-left {
+    .btn {
+      justify-content: flex-start;
+    }
+  }
+  &.array-center {
+    .btn {
+      margin: 0 auto;
+      width: fit-content;
+      flex: none;
+    }
   }
 }

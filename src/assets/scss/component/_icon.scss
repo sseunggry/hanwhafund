@@ -19,7 +19,8 @@
 //     order: 1;
 //   }
 // }
-$ico-list: download, file, arrow-right, share, search, menu, link, close, youtube, instagram, blog;
+$ico-list: download, file, arrow-right, share, search, menu, link, close, youtube, instagram, blog, calendar;
+$ico-pure-list: plus-fill;
 
 .svg-icon{
   display: inline-flex;
@@ -33,9 +34,18 @@ $ico-list: download, file, arrow-right, share, search, menu, link, close, youtub
       @include icon-set(#{$name});
     }
   }
+  @each $name in $ico-pure-list {
+    &-#{$name} {
+      // @include svg-icon(2rem);
+      @include icon-set(#{$name}, pure);
+    }
+  }
   &-clear{
     @include icon-set("delete-fill", pure);
   }
+  // &-plus-fill{
+  //   @include icon-set("plus-fill", pure);
+  // }
   // &-share{
   //   @include bg('icon/ico-share.svg');
   // }

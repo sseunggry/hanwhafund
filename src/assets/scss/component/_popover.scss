@@ -24,7 +24,6 @@
   --#{$prefix}-contextual-help--action-btn-color-background-pressed: var(--#{$prefix}-color-action-secondary-pressed);
   --#{$prefix}-contextual-help--action-icon-color-information: var(--#{$prefix}-color-icon-information);
   --#{$prefix}-contextual-help--popover-color-text-basic: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-contextual-help--popover-color-text-bolder: var(--#{$prefix}-color-text-bolder);
   --#{$prefix}-contextual-help--popover-color-border: var(--#{$prefix}-color-border-gray);
   --#{$prefix}-contextual-help--popover-color-background: var(--#{$prefix}-color-surface-white-subtler);
   --#{$prefix}-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--#{$prefix}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--#{$prefix}-color-alpha-shadow3);
@@ -101,7 +100,7 @@
     .tooltip-title {
       @include ellipsis(1);
 
-      color: var(--#{$prefix}-contextual-help--popover-color-text-bolder);
+      color: var(--#{$prefix}-contextual-help--popover-color-text-basic);
       font-size: var(--#{$prefix}-contextual-help--popover-title-pc-font-size);
       padding-right: 1.6rem;
     }

@@ -1,6 +1,7 @@
 <%
   const localsSafe = locals || {};
   const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
+  const ariaLabel = localsSafe.ariaLabel || '';
   const groupItems = Array.isArray(localsSafe.group) ? localsSafe.group : null;
   const type = localsSafe.type || 'text'; // input 타입 (text, password, number 등)
   const size = localsSafe.size || 'large';
@@ -34,7 +35,6 @@
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
 	<div class="form-tit">
-		<%# 그룹 입력 시 span, 단일 입력 시 label %>
 		<% if (groupItems) { %>
 			<span><%= title %></span>
 		<% } else { %>
@@ -50,7 +50,8 @@
           const itemUniqueId = `${uniqueId}-group-${index}`;
           const itemValue = item.value || '';
           const itemPlaceholder = item.placeholder || '';
-          const itemAriaLabel = item.ariaLabel || `${title} ${index + 1}번째 자리`; // 접근성 레이블
+          const defaultAriaLabel = title ? `${title} ${index + 1}번째 자리` : '';
+          const itemAriaLabel = item.ariaLabel || defaultAriaLabel;
           const itemDisabled = item.disabled || disabled; // 그룹 전체 disabled 상속
           const itemReadonly = item.readonly || readonly; // 그룹 전체 readonly 상속
           const itemShowClear = (item.showClearButton !== undefined ? Boolean(item.showClearButton) : showClearButton) && !itemDisabled && !itemReadonly; // 개별 클리어 버튼 표시 여부
@@ -83,6 +84,9 @@
         name="<%= name %>"
         value="<%= value %>"
         placeholder="<%= placeholder %>"
+        <% if (!title && ariaLabel) { %>
+          aria-label="<%= ariaLabel %>"
+        <% } %>
         <%= required ? 'required' : '' %>
         <%= disabled ? 'disabled' : '' %>
         <%= readonly ? 'readonly' : '' %>

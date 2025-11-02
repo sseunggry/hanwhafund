@@ -1,12 +1,14 @@
 <%
   const localsSafe = locals || {};
   const title = localsSafe.title || ''; // form-group용 라벨 텍스트
+	const ariaLabel = localsSafe.ariaLabel || '';
   const options = Array.isArray(localsSafe.options) ? localsSafe.options : [{ value: 'option1', text: '옵션1'}]; // [{ value: 'v1', text: 'T1', selected: true, disabled: false }, ...]
   const placeholder = localsSafe.placeholder || ''; // 선택적 플레이스홀더
   const size = localsSafe.size || 'medium';
   const disabled = localsSafe.disabled ? 'disabled' : '';
 	const variant = localsSafe.variant || ''; //box(기본), text, filter 
   const addClass = localsSafe.addClass || '';
+	const slot = localsSafe.slot || '';
   const selectClasses = [
     `form-select`,
 		variant,
@@ -48,62 +50,72 @@
   </div>
   <div class="form-conts">
 <%_ } -%>
-    <div class="<%= selectClasses %>">
-      <select
-        class="sr-only"
-        name="<%= localsSafe.name || uniqueId %>"
-				id="<%= uniqueId %>-native"
-        tabindex="-1"
-        aria-hidden="true"
-        <%- disabled %>
-				<%- placeholder ? `data-placeholder="${placeholder}"` : '' %>
-      >
-        <%_ options.forEach(option => { -%>
-					<option 
-						value="<%= option.value %>"
-						<%= initialSelectedValue === option.value ? 'selected' : '' %>
-						<%= option.disabled ? 'disabled' : '' %>
-					>
-						<%= option.text %>
-					</option>
-        <%_ }); -%>
-      </select>
-			<%# --- 커스텀 셀렉트 UI --- %>
-			<button
-				type="button"
-				role="combobox" 
-				class="select-button"
-				aria-haspopup="listbox" 
-				aria-expanded="false" 
-				aria-controls="<%= listboxId %>"
-				<%- disabled ? 'disabled' : '' %>
-				tabindex="0" 
-				aria-controls="<%= listboxId %>"
-			>
-				<span class="select-value <%= (placeholder && !initialSelectedValue) ? 'placeholder' : '' %>"><%= selectedValueText %></span>
-			</button>
-			<%# 리스트박스는 옵션들을 포함 %>
-			<ul
-				id="<%= listboxId %>"
-				class="select-listbox"
-				role="listbox"
-				tabindex="-1"
-				hidden
-				style="--form-select-listbox-option-length: <%= options.length %>"
-			>
-				<%_ options.forEach(option => { -%>
-					<li
-						class="select-option <%= option.disabled ? 'disabled' : '' %>"
-						role="option"
-						data-value="<%= option.value %>"
-						aria-selected="<%= option.selected ? 'true' : 'false' %>"
-						<%- option.disabled ? 'aria-disabled="true"' : '' %>
-						tabindex="-1"
-					><%= option.text %></li>
-				<%_ }); -%>
-			</ul>
+		<%_ if (slot) { -%>
+    <div class="input-group">
+    <%_ } -%>
+			<div class="<%= selectClasses %>">
+				<select
+					class="sr-only"
+					name="<%= localsSafe.name || uniqueId %>"
+					id="<%= uniqueId %>-native"
+					tabindex="-1"
+					aria-hidden="true"
+					<%- disabled %>
+					<%- placeholder ? `data-placeholder="${placeholder}"` : '' %>
+					<% if (!title && ariaLabel) { %>
+						aria-label="<%= ariaLabel %>"
+					<% } %>
+				>
+					<%_ options.forEach(option => { -%>
+						<option 
+							value="<%= option.value %>"
+							<%= initialSelectedValue === option.value ? 'selected' : '' %>
+							<%= option.disabled ? 'disabled' : '' %>
+						>
+							<%= option.text %>
+						</option>
+					<%_ }); -%>
+				</select>
+				<%# --- 커스텀 셀렉트 UI --- %>
+				<button
+					type="button"
+					role="combobox" 
+					class="select-button"
+					aria-haspopup="listbox" 
+					aria-expanded="false" 
+					aria-controls="<%= listboxId %>"
+					<%- disabled ? 'disabled' : '' %>
+					tabindex="0" 
+					aria-controls="<%= listboxId %>"
+				>
+					<span class="select-value <%= (placeholder && !initialSelectedValue) ? 'placeholder' : '' %>"><%= selectedValueText %></span>
+				</button>
+				<%# 리스트박스는 옵션들을 포함 %>
+				<ul
+					id="<%= listboxId %>"
+					class="select-listbox"
+					role="listbox"
+					tabindex="-1"
+					hidden
+					style="--form-select-listbox-option-length: <%= options.length %>"
+				>
+					<%_ options.forEach(option => { -%>
+						<li
+							class="select-option <%= option.disabled ? 'disabled' : '' %>"
+							role="option"
+							data-value="<%= option.value %>"
+							aria-selected="<%= option.selected ? 'true' : 'false' %>"
+							<%- option.disabled ? 'aria-disabled="true"' : '' %>
+							tabindex="-1"
+						><%= option.text %></li>
+					<%_ }); -%>
+				</ul>
+			</div>
+		<%_ if (slot) { -%>
+      <%- slot %>
     </div>
-<%_ if (title) { -%>
+    <%_ } -%>
+<% if (title) { -%>
   </div>
 </div>
-<%_ } -%>
+<% } -%>

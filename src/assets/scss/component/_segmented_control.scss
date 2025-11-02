@@ -29,7 +29,7 @@
 			padding: 0 0.8rem,
       button-height: 5.6rem,
 			button-padding: 2.4rem,
-			gap: 0.8rem,
+			gap: 0.4rem,
       radius: 0.2rem,
       pc-font-size: 1.8rem,
       tablet-font-size: 1.8rem,
@@ -50,7 +50,7 @@
     // 사이즈 별 class
     @each $size, $types in $segment-control-size {
       &.#{$size} {
-				gap: var(--#{$prefix}-segment-control--gap-#{$size});
+				// gap: var(--#{$prefix}-segment-control--gap-#{$size});
 				padding: var(--#{$prefix}-segment-control--padding-#{$size});
 				border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
 				font-size: var(--#{$prefix}-segment-control--pc-font-size-#{$size});

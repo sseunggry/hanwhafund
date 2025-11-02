@@ -157,7 +157,7 @@
   gap: var(--#{$prefix}-form-chip--gap);
   padding: 0 var(--#{$prefix}-form-chip--padding-x-#{$size});
   height: var(--#{$prefix}-form-chip--size-height-#{$size});
-  font-size: var(--#{$prefix}-form-chip--pc-font-size--#{$size});
+  font-size: var(--#{$prefix}-form-chip--pc-font-size-#{$size});
   // color: var(--#{$prefix}-form-chip--color-text);
   // background-color: var(--#{$prefix}-form-chip--color-action);
   // border: 0.1rem solid var(--#{$prefix}-form-chip--color-border);
@@ -167,7 +167,7 @@
   transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
 
   @include mq(tablet) {
-		font-size: var(--#{$prefix}-form-chip--tablet-font-size--#{$size});
+		font-size: var(--#{$prefix}-form-chip--tablet-font-size-#{$size});
 	}
   @include mq(mobile) {
     font-size: var(--#{$prefix}-form-chip--mobile-font-size-#{$size});
