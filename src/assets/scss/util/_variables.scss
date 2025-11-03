@@ -19,9 +19,12 @@ $f-trust: $font-en, sans-serif;
 $breakpoint-pc-large: 1440px !default;
 $breakpoint-pc: 1280px !default;
 $breakpoint-tablet: 1024px !default;
-$breakpoint-tablet-small: 768px !default;
-$breakpoint-mobile-large: 480px !default;
-$breakpoint-mobile: 360px !default;
+// $breakpoint-tablet-small: 768px !default;
+// $breakpoint-mobile-large: 480px !default;
+// $breakpoint-mobile: 360px !default;
+$breakpoint-mobile: 768px !default;
+$breakpoint-mobile-medium: 480px !default;
+$breakpoint-mobile-small: 360px !default;
 
 // SVG ICON SIZE
 // $icon-sizes: (

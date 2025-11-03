@@ -95,8 +95,30 @@
 }
 
 
+@include mq(pc){
+	.header{
+		.header-con{
+			.nav{
+				ul{
+					gap: 4rem;
+				}
+			}
+		}
+	}
+}
 @include mq(tablet){
-	
+	.header{
+		.header-con{
+			.nav{
+				display: none;
+			}
+			.util{
+				.lang{
+					display: none;
+				}
+			}
+		}
+	}
 }
 @include mq(mobile){
 

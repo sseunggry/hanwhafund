@@ -104,6 +104,8 @@ const commonJs = {
               }
             }
           }
+					$wrapper.removeClass('active');
+
           // data 속성 초기화
           $wrapper.removeData('original-text');
           $wrapper.removeData('is-placeholder');
@@ -138,10 +140,14 @@ const commonJs = {
             $(this).attr('aria-expanded', 'false');
             $otherListbox.attr('hidden', true);
             $(document).off('click.customSelect.' + otherListboxId);
+
+						$otherWrapper.removeClass('active');
           });
 
           $wrapper.data('original-text', $valueSpan.text());
           $wrapper.data('is-placeholder', $valueSpan.hasClass('placeholder'));
+
+					$wrapper.addClass('active');
 
           $listbox.removeAttr('hidden');
           $button.attr('aria-expanded', 'true');
@@ -183,7 +189,7 @@ const commonJs = {
 
         const handleOutsideClick = (event) => {
           if ($(event.target).closest($wrapper).length === 0) {
-            closeListbox(true); // [수정]
+            closeListbox(true); 
           }
         };
 
@@ -208,7 +214,7 @@ const commonJs = {
           if (!isListboxOpen && ['Enter', ' ', 'ArrowDown', 'ArrowUp'].includes(e.key)) { e.preventDefault(); openListbox(); }
           else if (isListboxOpen && (e.key === 'Escape' || e.key === 'Tab')) { 
             e.preventDefault(); 
-            closeListbox(true); // [수정]
+            closeListbox(true); 
           }
         });
 
@@ -911,10 +917,10 @@ const commonJs = {
           self.isClickScrolling = true;
           self.setActiveIndicator($link); 
 
-          // [수정] 네이티브 scrollIntoView 사용
+          //  네이티브 scrollIntoView 사용
           $targetSection[0].scrollIntoView({ behavior: 'smooth' });
 
-          // [수정] 1초 setTimeout 대신, 스크롤 종료 감지 리스너를 등록
+          //  1초 setTimeout 대신, 스크롤 종료 감지 리스너를 등록
           $(window).off('scroll.clickEnd'); // 만약을 위해 기존 리스너 제거
           $(window).on('scroll.clickEnd', scrollEndListener);
         }

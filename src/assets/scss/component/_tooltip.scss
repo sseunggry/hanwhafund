@@ -7,25 +7,23 @@
   --#{$prefix}-tooltip--padding-y: 0.8rem;
   --#{$prefix}-tooltip--padding-x: 1.2rem;
   --#{$prefix}-tooltip--radius: 1rem;
-  --#{$prefix}-tooltip--contents-mobile-font-size: 1.5rem;
-  --#{$prefix}-tooltip--contents-tablet-font-size: 1.5rem;
   --#{$prefix}-tooltip--contents-pc-font-size: 1.5rem;
-  --#{$prefix}-tooltip--contents-letter-spacing: var(--#{$prefix}-typo-letter-spacing-0);
+  --#{$prefix}-tooltip--contents-tablet-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-mobile-font-size: 1.5rem;
   --#{$prefix}-tooltip--contents-gap: 0.8rem;
-  --#{$prefix}-tooltip--contents-icon-size: var(--#{$prefix}-number-10);
+  --#{$prefix}-tooltip--contents-icon-size: 2.4rem;
 
   // Popover
   --#{$prefix}-tooltip--popover-padding: 2.4rem;
-  --#{$prefix}-tooltip--popover-radius: 100rem;
-  --#{$prefix}-tooltip--popover-radius: 100rem;
-  --#{$prefix}-tooltip--popover-title-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall); 
-  --#{$prefix}-tooltip--popover-title-tablet-font-size: var(--#{$prefix}-tablet-font-size--heading-xsmall); 
-  --#{$prefix}-tooltip--popover-title-pc-font-size: var(--#{$prefix}-pc-font-size--heading-xsmall); 
-  --#{$prefix}-tooltip--popover-btn-close-size: 3.2rem; 
-  --#{$prefix}-tooltip--popover-btn-close-position: var(--#{$prefix}-number-7); 
-  --#{$prefix}-tooltip--popover-contents-small-gap: var(--#{$prefix}-small-gap-layout-title-body-small);
-  --#{$prefix}-tooltip--popover-contents-medium-gap: var(--#{$prefix}-medium-gap-layout-title-body-small);
-  --#{$prefix}-tooltip--popover-contents-large-gap: var(--#{$prefix}-large-gap-layout-title-body-small);
+  --#{$prefix}-tooltip--popover-radius: 0.4rem;
+  --#{$prefix}-tooltip--popover-title-pc-font-size: 1.8rem; 
+  --#{$prefix}-tooltip--popover-title-tablet-font-size: 1.8rem; 
+  --#{$prefix}-tooltip--popover-title-mobile-font-size: 1.8rem; 
+  --#{$prefix}-tooltip--popover-btn-close-size: 2.4rem; 
+  --#{$prefix}-tooltip--popover-btn-close-position: 2.4rem; 
+  --#{$prefix}-tooltip--popover-contents-large-gap: 2.4rem;
+  --#{$prefix}-tooltip--popover-contents-medium-gap: 2.4rem;
+  --#{$prefix}-tooltip--popover-contents-small-gap: 2.4rem;
   --#{$prefix}-tooltip--margin-x: 2.4rem;
 }
 
@@ -34,15 +32,15 @@
   --#{$prefix}-tooltip--inline-color-text: var(--#{$prefix}-color-text-white);
   --#{$prefix}-tooltip--inline-color-text-light: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-tooltip--box-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tooltip--box-color-surface: #fff;
   --#{$prefix}-tooltip--color-surface: var(--#{$prefix}-color-surface-inverse);
   --#{$prefix}-tooltip--color-surface-light: var(--#{$prefix}-color-surface-elevated-03);
-  --#{$prefix}-tooltip--box-color-surface: var(--#{$prefix}-color-surface-white-subtler);
   --#{$prefix}-tooltip--box-shadow: var(--#{$prefix}-color-alpha-shadow1);
   --#{$prefix}-tooltip--box-shadow2: var(--#{$prefix}-color-alpha-shadow2);
   
   // Popover
-  --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-color-border-neutral);
-  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text);
+  --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-color-sub-20);
+  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text-basic);
 }
 
 .tooltip-btn{
@@ -67,7 +65,6 @@
     white-space: nowrap;
     color: var(--#{$prefix}-tooltip--inline-color-text);
     font-size: var(--#{$prefix}-tooltip--contents-pc-font-size);
-    letter-spacing: var(--#{$prefix}-tooltip--contents-letter-spacing);
     border-radius: var(--#{$prefix}-tooltip--radius);
     padding: var(--#{$prefix}-tooltip--padding-y) var(--#{$prefix}-tooltip--padding-x);
     background-color: var(--#{$prefix}-tooltip--color-surface);
@@ -129,20 +126,21 @@
 
   &.tooltip-popover {
     white-space: normal;
-    max-width: 36rem;
+    max-width: 48rem;
     border: 0.1rem solid var(--#{$prefix}-tooltip--popover-color-border);
     border-radius: var(--#{$prefix}-tooltip--popover-radius);
     padding: var(--#{$prefix}-tooltip--popover-padding);
     color: var(--#{$prefix}-tooltip--box-color-text);
-    background-color: var(--#{$prefix}-tooltip--color-surface-light);
+    background-color: var(--#{$prefix}-tooltip--box-color-surface);
 
     &::before {
-      --tooltip-arrow-size: 1.2rem;
+			display: none;
+      // --tooltip-arrow-size: 1.2rem;
 
-      border: 0.1rem solid var(--#{$prefix}-tooltip--popover-color-border);
-      border-top-color: transparent;
-      border-left-color: transparent;
-      background-color: var(--#{$prefix}-tooltip--color-surface-light);
+      // border: 0.1rem solid var(--#{$prefix}-tooltip--popover-color-border);
+      // border-top-color: transparent;
+      // border-left-color: transparent;
+      // background-color: var(--#{$prefix}-tooltip--color-surface-light);
     }
 
     .tooltip-inner{

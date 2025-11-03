@@ -1,0 +1,964 @@
+@charset "UTF-8";
+@use "sass:list";
+@use "../util" as *;
+
+.page-fund {
+  .fund-main {
+    .section-visual {
+      padding: 10rem 0 8rem;
+      @include bg("img-fund-main-visual.png");
+
+      .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .fund-info {
+        width: 58%;
+
+        .fund-top {
+          display: flex;
+          align-items: center;
+          gap: 2.4rem;
+          margin-bottom: 2.4rem;
+
+          .btn-share {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: var(--#{$prefix}-radius-max);
+            background-color: rgba(255, 255, 255, 0.2);
+
+            &::after {
+              content: "";
+              display: inline-block;
+              @include icon-set("share");
+              @include square(2.4rem);
+              background-color: #fff;
+            }
+          }
+        }
+        .fund-tit {
+          margin-bottom: 4rem;
+          font-weight: 600;
+        }
+        .fund-actions {
+          display: flex;
+          align-items: center;
+          gap: 4rem;
+          margin-bottom: 4rem;
+
+					.form-select{
+						width: 48rem;
+					}
+        }
+        .fund-summary {
+					--fund-summary-li-gap: 4.94%;
+
+          display: flex;
+					// display: grid;
+					// grid-template-columns: repeat(4, 1fr);
+          padding: 4rem;
+					gap: var(--fund-summary-li-gap);
+					background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(2rem);
+
+          li {
+						position: relative;
+						padding-right: var(--fund-summary-li-gap);
+            
+						&::after{
+							content: '';
+							position: absolute;
+							top: 50%;
+							right: 0;
+							transform: translateY(-50%);
+							display: block;
+							width: 0.1rem;
+							height: 100%;
+							background-color: rgba(255, 255, 255, 0.15);
+						}
+
+						&:last-child{
+							padding-right: 0;
+
+							&::after{
+								display: none;
+							}
+						}
+          }
+
+          .tit {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: rgba(255, 255, 255, 0.8);
+          }
+          .value {
+            display: flex;
+            align-items: baseline;
+            color: #fff;
+            font-size: 4rem;
+            font-weight: 600;
+
+            .unit {
+              display: inline-block;
+              margin-left: 0.2rem;
+              margin-bottom: 0.8rem;
+              font-size: 2.1rem;
+              font-weight: 400;
+            }
+          }
+          .change {
+						display: inline-flex;
+						align-items: center;
+						padding: 0 0.8rem;
+						height: 3.2rem;
+						border-radius: 0.2rem;
+						background-color: rgba(0, 0, 0, 0.40);
+
+            &.up {
+              color: #FF6D41;
+            }
+            &.down {
+              color: #04C0FF;
+            }
+          }
+        }
+      }
+      .fund-ai {
+        flex-shrink: 0;
+        // display: flex;
+        // flex-direction: column;
+        // gap: 2.4rem;
+        // padding: 4rem;
+        width: 33%;
+        // @include bg("img-fund-main-ai-bg.png");
+
+        .tit-wrap{
+          padding: 2.1rem 3.2rem;
+          border-top: 0.1rem solid rgba(255, 255, 255, 0.12);
+          border-right: 0.1rem solid rgba(255, 255, 255, 0.12);
+          border-left: 0.1rem solid rgba(255, 255, 255, 0.12);
+          background: rgba(251, 182, 182, 0.24);
+          backdrop-filter: blur(2rem);
+
+          .tit {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #fff;
+  
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 2.4rem;
+              height: 2.4rem;
+              @include icon-set("ai-star", pure);
+            }
+          }
+        }
+        .desc-wrap {
+					padding: 2.4rem 3.2rem;
+          color: #fff;
+					border-right: 0.1rem solid rgba(255, 255, 255, 0.12);
+					border-bottom: 0.1rem solid rgba(255, 255, 255, 0.12);
+					border-left: 0.1rem solid rgba(255, 255, 255, 0.12);
+					background: rgba(251, 182, 182, 0.12);
+					backdrop-filter: blur(5rem);
+
+          dt {
+            margin-bottom: 1.6rem;
+            // padding: 0.4rem 1.2rem;
+            // font-size: 1.6rem;
+            font-weight: 700;
+            // background: linear-gradient(90deg, rgba(255, 85, 50, 0.8) 0%, rgba(4, 2, 30, 0.7) 100%);
+          }
+          dd {
+            position: relative;
+            padding-left: 1.2rem;
+
+            margin-bottom: 0.4rem;
+
+            &:last-child::before {
+              margin-bottom: 0;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 1.15rem;
+              left: 0;
+              display: block;
+              width: 0.4rem;
+              height: 0.4rem;
+              border-radius: var(--#{$prefix}-radius-max);
+              background-color: #fff;
+            }
+          }
+        }
+      }
+
+			@include mq(1740){
+				.fund-info{
+					.fund-summary{
+						--fund-summary-li-gap: 4.8rem;
+		
+						display: grid;
+						grid-template-columns: repeat(2, 1fr);
+		
+						li{
+							&:nth-child(2n){
+								&::after{
+									display: none;
+								}
+							}
+						}
+					}
+				}
+			}
+			@include mq(1500){
+				.fund-ai{
+					width: 37%;
+				}
+			}
+			@include mq(pc){
+				.inner{
+					flex-direction: column;
+					gap: 4rem;
+				}
+
+				.fund-info{
+					width: 100%;
+				}
+				.fund-ai{
+					width: 100%;
+				}
+			}
+    }
+    .section-detail {
+      --top-fixed-height: 8rem;
+      --layout-sidebar-nav-width: 26rem;
+
+      .top-fixed {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        height: var(--top-fixed-height);
+        background-color: #fff;
+        border-bottom: 0.1rem solid #ebeaea;
+
+        .inner {
+          display: flex;
+          align-items: center;
+					gap: 2rem;
+        }
+        .summary {
+          display: flex;
+          align-items: center;
+
+          &::before {
+            content: "";
+            flex-shrink: 0;
+            display: inline-block;
+            width: 2.7rem;
+            height: 2.4rem;
+            @include bg("logo-symbol.svg");
+          }
+          .name {
+            margin-left: 1.6rem;
+            margin-right: 2.4rem;
+
+            
+          }
+        }
+        .btn-wrap {
+          margin-left: auto;
+          width: fit-content;
+          gap: 4rem;
+        }
+      }
+
+      .layout-sidebar {
+        overflow: hidden;
+        background-color: #f3f2f1;
+
+        .layout-inner {
+          position: relative;
+          max-width: var(--#{$prefix}-content-wrap-width);
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        .sidebar {
+          position: absolute;
+          top: 0;
+					right: 0;
+          z-index: 9;
+          flex-shrink: 0;
+          padding-top: 6.4rem;
+          padding-right: var(--#{$prefix}-content-padding-x);
+          padding-bottom: 6.4rem;
+          // width: 15.47%;
+          width: var(--layout-sidebar-nav-width);
+          font-size: 2.4rem;
+          font-weight: 700;
+
+          &.fixed{
+            position: fixed;
+          }
+
+          li {
+            margin-bottom: 1.6rem;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+            a{
+              display: block;
+              padding: 1.4rem 5.4rem;
+              color: var(--#{$prefix}-color-text-subtler);
+            }
+
+            &.active {
+              a{
+                color: var(--#{$prefix}-color-text-basic);
+                // background: linear-gradient(90deg, rgba(223, 188, 165, 0) 0%, rgba(244, 178, 134, 0.7) 100%);
+								background: linear-gradient(90deg, rgba(244, 178, 134, 0.70) 0%, rgba(223, 188, 165, 0.00) 100%);
+
+                &::before {
+                  content: "";
+                  display: inline-block;
+                  margin-right: 0.4rem;
+                  width: 0.6rem;
+                  height: 0.6rem;
+                  background-color: #f54500;
+                  vertical-align: top;
+                }
+              }
+            }
+          }
+        }
+        .layout-content {
+          position: relative;
+
+          .cont-group {
+            position: relative;
+            z-index: 1;
+            margin-right: auto;
+            margin-bottom: 2.4rem;
+						padding: 8rem 7.94% 12rem var(--#{$prefix}-content-padding-x);
+            // padding: 8rem var(--#{$prefix}-content-padding-x) 12rem 7.94%;
+            width: calc(100% - var(--layout-sidebar-nav-width));
+            background-color: #fff;
+
+            &[id]{
+              scroll-margin-top: calc(var(--top-fixed-height) + 2.4rem);
+            }
+
+            &::before {
+							content: "";
+              position: absolute;
+              z-index: -1;
+              right: 0;
+              top: 0;
+							// width: calc(100vw - 50%);
+              width: 200%;
+              height: 100%;
+              background-color: #fff;
+            }
+            
+          }
+        }
+      }
+
+			.chart-wrap {
+				display: flex;
+				gap: 2.4rem 1.6rem;
+				align-items: center;
+				justify-content: space-between;
+
+				.chart-area {
+					flex-shrink: 0;
+					background-color: #f8f8f8; //임시
+				}
+				.chart-summary {
+					width: 43.38%;
+
+					.txt-wrap {
+						display: flex;
+						align-items: center;
+						gap: 1.3rem;
+					}
+					.desc {
+						margin-top: 1.6rem;
+						color: #514e4d;
+					}
+				}
+				.chart-legend {
+					.legend-list {
+						li {
+							display: flex;
+							align-items: center;
+							gap: 1rem;
+							min-height: 6.4rem;
+							border-bottom: 0.1rem solid #ebeaea;
+						}
+						.key {
+							flex-shrink: 0;
+							width: 1.6rem;
+							height: 1.6rem;
+							border-radius: 0.2rem;
+							background-color: #ddd;
+						}
+						.value {
+							margin-left: auto;
+							font-weight: 700;
+						}
+					}
+
+					.date {
+						margin-top: 1.6rem;
+						text-align: right;
+					}
+				}
+
+				&.line {
+					align-items: flex-start;
+					flex-direction: column;
+					gap: 2.4rem;
+
+					.chart-area {
+						width: 100%;
+						height: 44rem;
+					}
+				}
+				&.bar {
+					.chart-area {
+						flex-shrink: 0;
+						display: flex;
+						gap: 0.4rem;
+						width: 48.15%;
+						align-items: flex-end;
+						text-align: center;
+						background-color: #fff;
+
+						.level {
+							flex: 1;
+
+							&.active {
+								.bar {
+									height: 6rem;
+								}
+							}
+						}
+						.bar {
+							display: inline-block;
+							width: 100%;
+							height: 0.5rem;
+						}
+						.label {
+							margin-top: 1rem;
+							color: #514e4d;
+						}
+
+						$levelColor: #119eff, #00cecf, #ffb80d, #fe6220, #ff4891, #f91d00;
+						@for $i from 1 through list.length($levelColor) {
+							.level#{$i} .bar {
+								background-color: list.nth($levelColor, $i);
+							}
+						}
+					}
+				}
+				&.doughnut {
+					column-gap: 10rem;
+					justify-content: center;
+
+					.chart-area {
+						position: relative;
+						width: 38rem;
+						// height: 38rem;
+
+						&::before {
+							content: "";
+							display: block;
+							padding-top: 100%;
+						}
+
+						.chart {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+						}
+
+
+						.doughnut-txt {
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+							
+							text-align: center;
+
+							.label {
+								font-weight: 500;
+							}
+							.value {
+								margin-top: 1.2rem;
+								font-size: 5.6rem;
+								font-weight: 600;
+								line-height: 1;
+							}
+						}
+					}
+					.chart-legend {
+						width: 24rem;
+					}
+				}
+				&.pie {
+					.chart-area {
+						position: relative;
+						margin: 0 4rem;
+						width: 20rem;
+						// height: 20rem;
+
+						&::before {
+							content: "";
+							display: block;
+							padding-top: 100%;
+						}
+
+						.chart {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+						}
+					}
+				}
+
+				.date {
+					color: var(--#{$prefix}-color-text-subtler);
+				}
+				.filter {
+					display: flex;
+					justify-content: space-between;
+					gap: 2.4rem;
+					width: 100%;
+
+					.segment-control{
+						width: 100%;
+					}
+				}
+			}
+
+			.group-flex-wrap {
+				display: flex;
+				gap: 4.8rem;
+
+				.group-wrap {
+					flex: 1;
+				}
+			}
+
+			.group-wrap {
+				display: flex;
+				flex-direction: column;
+				gap: 2.4rem;
+
+				[class*="tit-"] {
+					display: flex;
+					align-items: baseline;
+					gap: 1.6rem;
+				}
+
+				&.spacing-lg {
+					gap: 4rem;
+				}
+			}
+
+			.box-wrap {
+				display: flex;
+				gap: 2.4rem;
+
+				&.bg-gray {
+					padding: 2.4rem;
+					background-color: #f3f2f1;
+				}
+				&.pd-lg {
+					padding: 4rem;
+				}
+
+				.box-item {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					padding: 3.2rem 2rem 0;
+				}
+			}
+
+			.fee-wrap{
+				display: flex;
+				gap: 2.4rem;
+
+				.fee-item{
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					padding: 3.2rem 2rem 0;
+					background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%);
+
+					$icons: "buy", "invest", "sell";
+					@each $name in $icons {
+						.icon-#{$name} {
+							&::before {
+								content: "";
+								width: 2.4rem;
+								height: 2.4rem;
+								background-color: var(--#{$prefix}-color-neutral-90);
+								@include icon-set(#{$name});
+							}
+						}
+					}
+
+					.fee-box {
+						flex: 1;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						margin-top: 2.4rem;
+						padding: 2.4rem 2rem;
+						height: 100%;
+						text-align: center;
+						background-color: #fff;
+
+						.txt-wrap {
+							&::after {
+								content: "";
+								display: block;
+								margin: 2.4rem 0;
+								width: 100%;
+								height: 0.1rem;
+								background-color: #ebeaea;
+							}
+
+							&:last-child::after {
+								display: none;
+							}
+						}
+						.sub-txt-wrap{
+							display: flex;
+							justify-content: center;
+							gap: 1.6rem;
+						}
+						
+						.tit {
+							font-size: 2.1rem;
+						}
+						.sub-txt {
+							color: var(--#{$prefix}-color-text-primary);
+							font-size: 3.2rem;
+							font-weight: 700;
+						}
+						.desc {
+							display: flex;
+							flex-direction: column;
+							gap: 0.8rem;
+							
+							font-size: 1.5rem;
+						}
+					}
+				}
+			}
+
+			.guide-wrap{
+				display: flex;
+				gap: 2.4rem;
+
+				.guide-item {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					padding: 3.2rem 2rem 0;
+
+					.tit {
+						padding: 1.4rem;
+						color: #fff;
+						font-size: 2.4rem;
+						font-weight: 600;
+						text-align: center;
+
+						&.bg-orange {
+							background-color: var(--#{$prefix}-color-orange-base);
+						}
+						&.bg-indigo {
+							background-color: var(--#{$prefix}-color-navy-base);
+						}
+					}
+
+					.info-box {
+						display: flex;
+						padding: 4rem 0;
+
+						dl {
+							flex: 1;
+							text-align: center;
+							border-right: 0.1rem solid #ebeaea;
+
+							&:last-child {
+								border-right: none;
+							}
+						}
+						dt {
+							
+							font-size: 2.1rem;
+							font-weight: 700;
+
+							$icons: day, night;
+							@each $name in $icons {
+								&.icon-#{$name} {
+									&::before {
+										content: "";
+										display: block;
+										margin: 0 auto 0.4rem;
+										width: 2.4rem;
+										height: 2.4rem;
+										@include icon-set("#{$name}");
+										background-color: var(--#{$prefix}-color-neutral-90);
+									}
+								}
+							}
+						}
+						dd {
+							margin-top: 0.8rem;
+							
+						}
+					}
+				}
+			}
+
+			.overlay-box-wrap{
+				.visual-box{
+					@include bg('img-fund-main-info-bg.png');
+
+					.pipe-list{
+						margin-top: 4rem;
+					}
+				}
+			}
+
+			.product-info-wrap {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4rem 9rem;
+
+				dl {
+					display: flex;
+					flex-direction: column;
+					gap: 0.8rem;
+				}
+				dd {
+					font-size: 2.1rem;
+					font-weight: 600;
+				}
+			}
+
+			.reference-wrap{
+				display: flex;
+				align-items: center;
+				padding: 4rem;
+				gap: 8rem;
+				background-color: #f3f2f1;
+
+				.reference-box {
+					padding: 4rem 4rem 0;
+					flex-shrink: 0;
+					width: 52.46%;
+					background-color: #fff;
+	
+					.download-wrap {
+						display: flex;
+						justify-content: space-between;
+						gap: 2.4rem;
+	
+						.tit {
+							
+							font-size: 2.4rem;
+							font-weight: 700;
+						}
+						.desc {
+							margin-top: 0.8rem;
+							color: var(--#{$prefix}-color-text-subtler);
+							font-size: 1.6rem;
+						}
+					}
+					.btn-wrap {
+						&.line {
+							margin-top: 4rem;
+							padding: 2rem 0;
+							border-top: 0.1rem solid #ebeaea;
+						}
+					}
+				}
+			}
+
+
+			@include mq(1740) {
+				.layout-sidebar{
+          .layout-content{
+            .cont-group{
+              padding-right: var(--#{$prefix}-content-padding-x);
+            }
+          }
+        }
+			}
+			@include mq(1640) {
+				.chart-wrap{
+					.filter{
+						flex-direction: column;
+					}
+				}
+			}
+			@include mq(1500) {
+				.layout-sidebar{
+          .sidebar{
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+            width: 100%;
+            height: fit-content;
+            background-color: #F3F2F1;
+
+            ul {
+              display: flex;
+            }
+            li {
+              margin-bottom: 0;
+
+              a{
+                padding-left: var(--#{$prefix}-content-padding-x);
+                padding-right: var(--#{$prefix}-content-padding-x);
+              }
+            }
+          }
+          .layout-content{
+            .cont-group{
+              margin-right: 0;
+              width: 100%;
+
+              &:first-child{
+                padding-top: calc(8rem + 6.4rem);
+              }
+            }
+          }
+        }
+			}
+
+			@include mq(pc) {
+				.chart-wrap{
+					&.pie{
+						flex-direction: column;
+
+						.chart-area{
+							width: 50%;
+						}
+						.chart-legend{
+							width: 80%;
+						}
+					}
+				}
+				.fee-wrap{
+					.fee-item{
+						.fee-box{
+							.sub-txt-wrap{
+								display: grid;
+								grid-template-columns: repeat(2, 1fr);
+							}
+						}
+					}
+				}
+			}
+			@include mq(tablet) {
+				.top-fixed{
+					.btn-wrap{
+						gap: 2rem;
+					}
+				}
+				.chart-wrap{
+					&.bar{
+						flex-direction: column;
+
+						.chart-area{
+							width: 100%;
+						}
+
+						.chart-summary{
+							padding-top: 2.4rem;
+							width: 100%;
+							border-top: 0.1rem solid #D7D6D5;
+						}
+					}
+					&.doughnut{
+						column-gap: 8rem;
+					}
+				}
+				.fee-wrap{
+					flex-direction: column;
+
+					.fee-item{
+						.fee-box{
+							.sub-txt-wrap{
+								display: grid;
+								grid-template-columns: repeat(2, 1fr);
+							}
+							.desc{
+								flex-direction: row;
+								justify-content: center;
+							}
+						}
+					}
+				}
+				.guide-wrap{
+					flex-direction: column;
+				}
+				.overlay-box-wrap{
+					flex-direction: column;
+					.visual-box{
+						width: 100%;
+					}
+					.info-box{
+						margin-top: -4rem;
+						margin-left: 0;
+						width: 100%;
+					}	
+				}
+				.reference-wrap{
+					flex-direction: column;
+					gap: 4rem;
+
+					.reference-box{
+						width: 100%;
+					}
+				}
+			}
+			@include mq(mobile) {
+				.top-fixed{
+					display: none;
+				}
+			}
+    }
+    .section-trend {
+      padding: 12rem 0;
+    }
+  }
+}

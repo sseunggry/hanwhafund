@@ -15,11 +15,11 @@
     @media (max-width: #{$breakpoint-pc}) { @content; } // 노트북 이하
   } @else if $device == tablet {
     @media (max-width: #{$breakpoint-tablet}) { @content; } // 태블릿 가로
-  } @else if $device == tablet-small {
-    @media (max-width: #{$breakpoint-tablet-small}) { @content; } // 태블릿 세로
-  } @else if $device == mobile-large {
-    @media (max-width: #{$breakpoint-mobile-large}) { @content; } // 모바일
   } @else if $device == mobile {
-    @media (max-width: #{$breakpoint-mobile}) { @content; } // 소형 모바일
+    @media (max-width: #{$breakpoint-mobile}) { @content; } // 모바일 가로
+  } @else if $device == mobile-medium {
+    @media (max-width: #{$breakpoint-mobile-medium}) { @content; } // 모바일
+  } @else if $device == mobile-small {
+    @media (max-width: #{$breakpoint-mobile-small}) { @content; } // 소형 모바일
   }
 }

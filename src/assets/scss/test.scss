@@ -89,8 +89,8 @@
 
           flex-shrink: 0;
           padding-top: 6.4rem;
-          // padding-left: var(--#{$prefix}-content-pc-padding-x);
-          padding-left: calc(5.5% + var(--#{$prefix}-content-pc-padding-x));
+          // padding-left: var(--#{$prefix}-content-padding-x);
+          padding-left: calc(5.5% + var(--#{$prefix}-content-padding-x));
           padding-bottom: 6.4rem;
           // width: 15.47%;
           
@@ -155,7 +155,7 @@
             // margin-left: auto;
             margin-bottom: 2.4rem;
             padding: 8rem 5.5% 12rem;
-            // padding: 8rem var(--#{$prefix}-content-pc-padding-x) 12rem 7.94%;
+            // padding: 8rem var(--#{$prefix}-content-padding-x) 12rem 7.94%;
             // width: calc(100% - var(--sidebar-width));
             background-color: #fff;
             // border-bottom: 2.4rem solid #F3F2F1;

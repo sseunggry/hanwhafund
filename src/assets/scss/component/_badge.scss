@@ -17,35 +17,39 @@
   // 컬러 변수 배열 생성
   $badge-color-variable: (
     domestic: (
-      element: #D05841,
+      element: var(--#{$prefix}-color-tag-point-bright-red),
       text: var(--#{$prefix}-color-text-white),
     ),
     stock: (
-      element: #CC8440,
+      element: var(--#{$prefix}-color-tag-point-vivid-orange),
       text: var(--#{$prefix}-color-text-white),
     ),
     global: (
-      element: #7759B1,
+      element: var(--#{$prefix}-color-tag-point-violet),
       text: var(--#{$prefix}-color-text-white),
     ),
     rating1: (
-      element: #000,
+      element: #119EFF,
       text: var(--#{$prefix}-color-text-white),
     ),
     rating2: (
-      element: #222,
+      element: #00CECF,
       text: var(--#{$prefix}-color-text-white),
     ),
     rating3: (
-      element: #666,
+      element: #00CECF,
       text: var(--#{$prefix}-color-text-white),
     ),
     rating4: (
-      element: #FE5B16,
+      element: #FE6220,
       text: var(--#{$prefix}-color-text-white),
     ),
     rating5: (
-      element: #000,
+      element: #FF4891,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating6: (
+      element: #F91D00,
       text: var(--#{$prefix}-color-text-white),
     ),
   ) !default;

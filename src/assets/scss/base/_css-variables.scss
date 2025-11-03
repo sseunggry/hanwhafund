@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use "../util/variables" as *;
+@use "../util/breakpoints" as *;
 
 :root {
   // base
@@ -10,9 +11,9 @@
   // --#{$prefix}-font-en: "Trust 2A Trial";
 
   // content
-  --#{$prefix}-content-pc-width: 168rem;
-  --#{$prefix}-content-pc-padding-x: 4rem;
-  --#{$prefix}-content-wrap-width: calc(var(--#{$prefix}-content-pc-width) + var(--#{$prefix}-content-pc-padding-x) * 2);
+  --#{$prefix}-content-width: 168rem;
+  --#{$prefix}-content-padding-x: 4rem;
+  --#{$prefix}-content-wrap-width: calc(var(--#{$prefix}-content-width) + var(--#{$prefix}-content-padding-x) * 2);
 
   // font-size (pc)
   --#{$prefix}-pc-font-size-en-display-large: 16rem;
@@ -179,6 +180,11 @@
   --#{$prefix}-color-gradient-line: linear-gradient(90deg, #ff4d32 25%, #803c4a 50%, #022a62 100%);
   --#{$prefix}-color-gradient-bg: linear-gradient(90deg, rgba(223, 188, 165, 0) 0%, rgba(244, 178, 134, 0.7) 100%);
 
+	//tag-color
+	--#{$prefix}-color-tag-point-bright-red: #F94339;
+	--#{$prefix}-color-tag-point-vivid-orange: #FF8401;
+	--#{$prefix}-color-tag-point-violet: #8347EB;
+
   // text-color
   --#{$prefix}-color-text-basic: var(--#{$prefix}-color-neutral-90); //#151414
   --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-neutral-70); //#514e4d
@@ -235,4 +241,9 @@
   --#{$prefix}-color-input-border-active: ;
   --#{$prefix}-color-input-border-disabled: ;
   --#{$prefix}-color-input-border-error: ;
+
+
+	@include mq(mobile){
+		--#{$prefix}-content-padding-x: 1.6rem;
+	}
 }

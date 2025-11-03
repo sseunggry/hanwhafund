@@ -183,6 +183,7 @@ $button-color-variable: (
   @include btn-color(black);
 
   .svg-icon {
+		flex-shrink: 0;
     @include btn-color-icon(white);
     transition: var(--#{$prefix}-transition-base);
   }
@@ -408,25 +409,24 @@ $button-color-variable: (
       .svg-icon {
         background-color: var(--#{$prefix}-color-text-white);
       }
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-      }
+			&:hover,
       &:active,
       &:focus {
-        background-color: rgba(255, 255, 255, 0.4);
+				background-color: var(--#{$prefix}-color-white);
+				.svg-icon {
+					background-color: var(--#{$prefix}-color-text-basic);
+				}
       }
     }
     &.bg-white {
       background-color: #fff;
       .svg-icon {
-        background-color: var(--#{$prefix}-color-text-basic); // 흰 배경이므로 아이콘 색상 필요
+        background-color: var(--#{$prefix}-color-text-basic);
       }
-      &:hover {
-        background-color: #f5f5f5;
-      }
+			&:hover,
       &:active,
       &:focus {
-        background-color: #eee;
+        background-color: var(--#{$prefix}-color-sub-5);
       }
     }
   }
