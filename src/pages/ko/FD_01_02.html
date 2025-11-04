@@ -27,8 +27,10 @@
 									label: '공유하기',
 									size: 'xxlarge',
 									icon: 'share',
-									addClass: 'bg-gray round btn-toggle-popover',
+									addClass: 'bg-gray round',
+									targetType: 'popover',
 									targetId: 'popover-share',
+									popoverPos: 'bottom-left'
 								}) -%>
 							</div>
 							<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
@@ -143,8 +145,10 @@
 									label: '공유하기',
 									size: 'xxlarge',
 									icon: 'share',
-									addClass: 'bg-white round btn-toggle-popover',
+									addClass: 'bg-white round',
+									targetType: 'popover',
 									targetId: 'popover-share',
+									popoverPos: 'bottom-right'
 								}) -%>
 							</div>
 						</div>
@@ -169,6 +173,7 @@
 									<div class="chart-wrap line">
 										<p class="date">기준일 2025.10.17</p>
 										<div class="filter">
+											<div class="scroll-wrap">
 											<%- include('../../components/segmentControl.ejs', {
 												tag: 'button',
 												items: [
@@ -183,21 +188,25 @@
 													{ label: '설정이후' }
 												]
 											}) -%>
-											<div class="form-calendar-group">
-												<%- include('../../components/calendar-range.ejs', {
-													size: 'large'
-												}) -%>
-												<%#- include('../../components/input.ejs', {
-													type: "text",
-													size: 'large',
-													group: [
-														{ placeholder: 'YYYY-MM-DD'},
-														{ placeholder: 'YYYY-MM-DD'}
-													],
-												}) -%>
+											</div>
+											<div class="pc-only">
+												<div class="form-calendar-group">
+													<%- include('../../components/calendar-range.ejs', {
+														size: 'large'
+													}) -%>
+													<%- include('../../components/button.ejs', {
+														label: '검색',
+														size: 'large',
+													}) -%>
+												</div>
+											</div>
+											<div class="tablet-mobile-only justify-end">
 												<%- include('../../components/button.ejs', {
-													label: '검색',
+													tag: 'button',
+													variant: 'text',
+													label: '직접설정',
 													size: 'large',
+													preIcon: 'filter',
 												}) -%>
 											</div>
 										</div>
@@ -207,7 +216,7 @@
 									</div>
 									<div class="group-wrap gap-40">
 										<h3 class="tit-sm">기간별 수익률 <small class="txt-sm fw-r fc-gray">단위 %</small></h3>
-										<%- include('../../components/table.ejs', { 
+										<%#- include('../../components/table.ejs', { 
 											caption: '기간별 수익률',
 											colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
 											thead: ['구분', '1주', '1개월', '3개월', '6개월', '1년', '3년', '5년', '연초이후', '설정이후'],
@@ -224,7 +233,7 @@
 											<ul class="chart-area">
 												<li class="level level1">
 													<span class="bar"></span>
-													<p class="label">매우 낮음</p>
+													<p class="label">매우 <br class="tablet-mobile-only"/> 낮음</p>
 												</li>
 												<li class="level level2">
 													<span class="bar"></span>
@@ -236,7 +245,7 @@
 												</li>
 												<li class="level level4 active">
 													<span class="bar"></span>
-													<p class="label">다소 높음</p>
+													<p class="label">다소 <br class="tablet-mobile-only"/> 높음</p>
 												</li>
 												<li class="level level5">
 													<span class="bar"></span>
@@ -244,7 +253,7 @@
 												</li>
 												<li class="level level6">
 													<span class="bar"></span>
-													<p class="label">매우 높음</p>
+													<p class="label">매우 <br class="tablet-mobile-only"/> 높음</p>
 												</li>
 											</ul>
 											<div class="chart-summary">

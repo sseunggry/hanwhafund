@@ -1,18 +1,18 @@
 <%
   const localsSafe = locals || {};
 	const id = localsSafe.id || 'popover-default';
-	const position = localsSafe.position || 'bottom'; // top, right, bottom, left
+	// const position = localsSafe.position || 'bottom'; // top, right, bottom, left
 	const title = localsSafe.title || '팝오버 제목';
 	const popSlot = localsSafe.popSlot || '<p>팝오버 내용이 여기에 들어갑니다.</p>';
 	const active = localsSafe.active ? true : false;
 	const classes = [
-    `tooltip tooltip-popover`,
+    `popover`,
 		active ? 'active' : '',
-		position
+		// position
   ].filter(Boolean).join(' ');
 -%>
 <div class="<%= classes %>" id="<%= id %>" role="dialog" aria-hidden="<%= !active %>">
-	<div class="tooltip-inner">
+	<div class="popover-inner">
 		<div class="popover-header">
 			<h2 class="popover-title"><%= title %></h2>
 		</div>
@@ -20,16 +20,14 @@
 			<%- popSlot %>
 		</div>
 	</div>
-
 	<%- include('../components/button.ejs', {
 		tag: 'button',
 		variant: 'icon',
 		label: '닫기',
-		size: 'medium',
-		addClass: 'btn-close btn-close-tooltip',
+		size: 'xlarge',
+		addClass: 'btn-close',
 		icon: 'close',
 	}) %>
-
 	<!-- <button type="button" class="btn icon btn-close popover-close-btn">
 		<span class="sr-only">닫기</span>
 		<i class="svg-icon ico-popup-close"></i>

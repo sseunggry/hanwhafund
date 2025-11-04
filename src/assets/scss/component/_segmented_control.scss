@@ -94,6 +94,7 @@
 	background-color: var(--#{$prefix}-segment-control--color-background);
 	
 	.control-btn {
+		color: var(--#{$prefix}-segment-control--button-color-text);
     border: 0.1rem solid transparent;
 		background-color: var(--#{$prefix}-segment-control--button-color-background-action);
 

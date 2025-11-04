@@ -14,6 +14,8 @@
   const slot = localsSafe.slot || '';
 	const iconOnly = localsSafe.iconOnly || '';
 	const targetId = localsSafe.targetId || '';
+	const targetType = localsSafe.targetType || ''; //modal, popover
+	const popoverPos = localsSafe.popoverPos || ''; // 예: "bottom-left", "top-center"
 	const classes = [
     `btn`,
     variant,
@@ -22,12 +24,26 @@
     addClass,
 		// iconOnly ? 'icon' : '',
   ].filter(Boolean).join(' ');
+
+	let targetAttrs = '';
+  if (targetId && targetType === 'modal') {
+    targetAttrs = `data-modal-open="${targetId}" aria-controls="${targetId}"`;
+  } else if (targetId && targetType === 'popover') {
+    targetAttrs = `data-popover-open="${targetId}" aria-controls="${targetId}" aria-haspopup="true"`;
+		if (popoverPos) {
+      targetAttrs += ` data-popover-pos="${popoverPos}"`;
+    }
+  } else if (targetId && targetType === 'tooltip') {
+    targetAttrs = `data-tooltip-open="${targetId}" aria-describedby="${targetId}"`;
+  } 
 -%>
 <<%= tag -%>
   <%- tag === 'button' ? `type="button"` : `href="${url}"` -%>
 	<%= disabled -%>
   class="<%= classes -%>"
-	<%- targetId ? `aria-controls="${targetId}"` : '' -%>
+	<%- targetAttrs -%>
+	<%#- targetId ? `data-modal-open="${targetId}"` : '' -%>
+	<%#- targetId ? `aria-controls="${targetId}"` : '' -%>
 >
 <%- preSlot %>
 <%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' %>

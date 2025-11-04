@@ -280,6 +280,13 @@ $button-color-variable: (
         background-color: transparent;
       }
     }
+
+		&.large{
+			.svg-icon{
+				width: 2.4rem;
+				height: 2.4rem;
+			}
+		}
   }
 
   /* --- Variant: link Button (.text) --- */

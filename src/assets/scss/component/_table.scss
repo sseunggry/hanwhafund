@@ -86,6 +86,7 @@
   overflow-x: auto;
   position: relative;
   padding-top: 0.1rem;
+	width: 100%;
   background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
 
   .tbl {
@@ -116,36 +117,33 @@
     }
   }
 
-  & {
-    width: 100%;
-  }
-
   &.scroll {
     overflow: auto hidden;
 
     .tbl {
 			min-width: 100rem;
-      width: 100%;
+      width: auto;
+			table-layout: auto
     }
   }
 }
 
-@include mq(mobile) {
-  .tbl-wrap {
-    overflow-x: auto;
-    width: calc(100vw - (var(--#{$prefix}-contents-padding-x) * 2));
+// @include mq(mobile) {
+//   .tbl-wrap {
+//     overflow-x: auto;
+//     width: calc(100vw - (var(--#{$prefix}-contents-padding-x) * 2));
 
-    .tbl {
-      min-width: 73.2rem;
-    }
+//     .tbl {
+//       min-width: 73.2rem;
+//     }
 
-    &.mob-scroll {
-      width: 100%;
+//     &.mob-scroll {
+//       width: 100%;
 
-      th,
-      td {
-        white-space: nowrap;
-      }
-    }
-  }
-}
+//       th,
+//       td {
+//         white-space: nowrap;
+//       }
+//     }
+//   }
+// }

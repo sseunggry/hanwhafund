@@ -82,12 +82,20 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+
+	@include mq(mobile) {
+		gap: 1.6rem;
+	}
 }
 
 .cont-group {
   display: flex;
   flex-direction: column;
   gap: 6.4rem;
+
+	@include mq(mobile) {
+		gap: 8rem;
+	}
 }
 
 //card-list

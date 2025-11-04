@@ -12,19 +12,6 @@
   --#{$prefix}-tooltip--contents-mobile-font-size: 1.5rem;
   --#{$prefix}-tooltip--contents-gap: 0.8rem;
   --#{$prefix}-tooltip--contents-icon-size: 2.4rem;
-
-  // Popover
-  --#{$prefix}-tooltip--popover-padding: 2.4rem;
-  --#{$prefix}-tooltip--popover-radius: 0.4rem;
-  --#{$prefix}-tooltip--popover-title-pc-font-size: 1.8rem; 
-  --#{$prefix}-tooltip--popover-title-tablet-font-size: 1.8rem; 
-  --#{$prefix}-tooltip--popover-title-mobile-font-size: 1.8rem; 
-  --#{$prefix}-tooltip--popover-btn-close-size: 2.4rem; 
-  --#{$prefix}-tooltip--popover-btn-close-position: 2.4rem; 
-  --#{$prefix}-tooltip--popover-contents-large-gap: 2.4rem;
-  --#{$prefix}-tooltip--popover-contents-medium-gap: 2.4rem;
-  --#{$prefix}-tooltip--popover-contents-small-gap: 2.4rem;
-  --#{$prefix}-tooltip--margin-x: 2.4rem;
 }
 
 // 컬러 정의
@@ -37,14 +24,9 @@
   --#{$prefix}-tooltip--color-surface-light: var(--#{$prefix}-color-surface-elevated-03);
   --#{$prefix}-tooltip--box-shadow: var(--#{$prefix}-color-alpha-shadow1);
   --#{$prefix}-tooltip--box-shadow2: var(--#{$prefix}-color-alpha-shadow2);
-  
-  // Popover
-  --#{$prefix}-tooltip--popover-color-border: var(--#{$prefix}-color-sub-20);
-  --#{$prefix}-tooltip--popover-title-color-text: var(--#{$prefix}-color-text-basic);
 }
 
 .tooltip-btn{
-
   &:disabled{
     pointer-events: none;
     cursor: none;
@@ -72,19 +54,16 @@
     top: 0;
     left: 0;
 
-    // responsive Tablet
     @include mq(tablet) {
       font-size: var(--#{$prefix}-tooltip--contents-tablet-font-size);
     }
 
-    // responsive DeskTop
     @include mq(mobile) {
       font-size: var(--#{$prefix}-tooltip--contents-mobile-font-size);
     }
   }
 
   &.active {
-    // display: block;
 		opacity: 1;
     visibility: visible;
     transition: opacity 0.2s ease-out, visibility 0s linear 0s;
@@ -121,50 +100,6 @@
     .svg-icon{
       @include square(var(--#{$prefix}-tooltip--contents-icon-size));
       @include flex-size(0, 0);
-    }
-  }
-
-  &.tooltip-popover {
-    white-space: normal;
-    max-width: 48rem;
-    border: 0.1rem solid var(--#{$prefix}-tooltip--popover-color-border);
-    border-radius: var(--#{$prefix}-tooltip--popover-radius);
-    padding: var(--#{$prefix}-tooltip--popover-padding);
-    color: var(--#{$prefix}-tooltip--box-color-text);
-    background-color: var(--#{$prefix}-tooltip--box-color-surface);
-
-    &::before {
-			display: none;
-      // --tooltip-arrow-size: 1.2rem;
-
-      // border: 0.1rem solid var(--#{$prefix}-tooltip--popover-color-border);
-      // border-top-color: transparent;
-      // border-left-color: transparent;
-      // background-color: var(--#{$prefix}-tooltip--color-surface-light);
-    }
-
-    .tooltip-inner{
-      align-items: flex-start;
-      flex-direction: column;
-      gap: var(--#{$prefix}-tooltip--popover-contents-small-gap);
-    }
-
-    .popover-header{
-      padding-right: var(--#{$prefix}-tooltip--popover-padding);
-
-      .popover-title{
-        font-size: var(--#{$prefix}-tooltip--popover-title-mobile-font-size);
-        color: var(--#{$prefix}-tooltip--popover-title-color-text);
-      }
-    }
-
-    .btn-close{
-      @include square(var(--#{$prefix}-tooltip--popover-btn-close-size));
-
-      position: absolute;
-      top: var(--#{$prefix}-tooltip--popover-btn-close-position);
-      right: var(--#{$prefix}-tooltip--popover-btn-close-position);
-      z-index: 1;
     }
   }
 
@@ -221,10 +156,6 @@
 
     &::before {
       display: none;
-    }
-
-    &.tooltip-popover {
-      max-width: 100%;
     }
   }
 }

@@ -46,8 +46,8 @@
                 label: '기본 모달 열기',
                 tag: 'button',
                 size: 'large',
+								targetType: 'modal',
                 targetId: 'myModal1',
-                addClass: 'btn-open-modal'
               }) %>
               <%- include('../../components/modal.ejs', {
                 id: 'myModal1',
@@ -77,6 +77,7 @@
                 label: '풀스크린 모달 열기',
                 tag: 'button',
                 size: 'large',
+								targetType: 'modal',
                 targetId: 'myFullModal',
                 addClass: 'btn-open-modal'
               }) %>
@@ -109,6 +110,7 @@
                 label: '바텀 시트 열기',
                 tag: 'button',
                 size: 'large',
+								targetType: 'modal',
                 targetId: 'myBottomSheet',
                 addClass: 'btn-open-bottom-sheet'
               }) %>

@@ -1,201 +1,97 @@
 @use 'sass:map';
 @use "../util" as *;
 
-/* 팝오버 */
-
+/* 툴팁 */
 // 사이즈 정의
-@mixin contextual-help-size-variable() {
-  --#{$prefix}-contextual-help--action-btn-radius: var(--#{$prefix}-radius-small2);
-  --#{$prefix}-contextual-help--action-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
-  --#{$prefix}-contextual-help--action-mobile-font-size: 1.5rem;
-  --#{$prefix}-contextual-help--popover-width: 36rem;
-  --#{$prefix}-contextual-help--popover-padding: 2.4rem;
-  --#{$prefix}-contextual-help--popover-radius: var(--#{$prefix}-radius-xlarge2);
-  --#{$prefix}-contextual-help--popover-title-pc-font-size: var(--#{$prefix}-pc-font-size-heading-xsmall);
-  --#{$prefix}-contextual-help--popover-title-mobile-font-size: var(--#{$prefix}-mobile-font-size-heading-xsmall);
-  --#{$prefix}-contextual-help--popover-contents-pc-font-size: var(--#{$prefix}-pc-font-size-body-small);
-  --#{$prefix}-contextual-help--popover-contents-mobile-font-size: 1.5rem;
+@mixin popover-size-variable() {
+	--#{$prefix}-popover--padding: 2.4rem;
+  --#{$prefix}-margin-x: 2.4rem;
+  --#{$prefix}-popover--radius: 0.4rem;
+  --#{$prefix}-popover--title-pc-font-size: 1.8rem; 
+  --#{$prefix}-popover--title-tablet-font-size: 1.8rem; 
+  --#{$prefix}-popover--title-mobile-font-size: 1.8rem; 
+  --#{$prefix}-popover--title-contents-gap: 2.4rem;
+  --#{$prefix}-popover--contents-pc-font-size: 1.5rem;
+  --#{$prefix}-popover--contents-tablet-font-size: 1.5rem;
+  --#{$prefix}-popover--contents-mobile-font-size: 1.5rem;
+  --#{$prefix}-popover--btn-close-size: 2.4rem; 
+  --#{$prefix}-popover--btn-close-position: 2.4rem; 
 }
 
 // 컬러 정의
-@mixin contextual-help-color-variable() {
-  --#{$prefix}-contextual-help--action-btn-color-background: var(--#{$prefix}-color-action-secondary);
-  --#{$prefix}-contextual-help--action-btn-color-background-hover: var(--#{$prefix}-color-action-secondary-hover);
-  --#{$prefix}-contextual-help--action-btn-color-background-pressed: var(--#{$prefix}-color-action-secondary-pressed);
-  --#{$prefix}-contextual-help--action-icon-color-information: var(--#{$prefix}-color-icon-information);
-  --#{$prefix}-contextual-help--popover-color-text-basic: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-contextual-help--popover-color-border: var(--#{$prefix}-color-border-gray);
-  --#{$prefix}-contextual-help--popover-color-background: var(--#{$prefix}-color-surface-white-subtler);
-  --#{$prefix}-contextual-help--popover-shadow: 0 0 0.2rem 0 var(--#{$prefix}-color-alpha-shadow2), 0 0.8rem 1.6rem 0 var(--#{$prefix}-color-alpha-shadow3);
+@mixin popover-color-variable() {
+  --#{$prefix}-popover--title-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-popover--color-border: var(--#{$prefix}-color-sub-20);
+  --#{$prefix}-popover--box-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-popover--box-color-surface: #fff;
 }
 
-.contextual-help {
-  @include contextual-help-color-variable();
-  @include contextual-help-size-variable;
-  @include flex-layout($ai: center);
+.popover-btn{
+  &:disabled{
+    pointer-events: none;
+    cursor: none;
+  }
+}
+
+.popover {
+  @include popover-color-variable();
+  @include popover-size-variable;
 
   & {
-    gap: 0.4rem;
-  }
+		position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+		opacity: 0;
+  	visibility: hidden;
+  	transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+		
+    padding: var(--#{$prefix}-popover--padding);
+    // max-width: 48rem;
+    color: var(--#{$prefix}-popover--box-color-text);
+    border: 0.1rem solid var(--#{$prefix}-popover--color-border);
+    border-radius: var(--#{$prefix}-popover--radius);
+    background-color: var(--#{$prefix}-popover--box-color-surface);
+    font-size: var(--#{$prefix}-popover--contents-pc-font-size);
+    box-shadow: 0 0.4rem 2.4rem 0 rgba(0, 0, 0, 0.12);
 
-  .tooltip-txt {
-    font-size: var(--#{$prefix}-contextual-help--action-pc-font-size);
-  }
+    @include mq(tablet) {
+      font-size: var(--#{$prefix}-popover--contents-tablet-font-size);
+    }
 
-  .tooltip-action {
-    @include flex-layout($ai: center);
-
-    position: relative;
-
-    .tooltip-btn {
-      @include flex-layout($ai: center);
-
-      border-radius: var(--#{$prefix}-contextual-help--action-btn-radius);
-      background-color: var(--#{$prefix}-contextual-help--action-btn-color-background);
-
-      &:hover {
-        background-color: var(--#{$prefix}-contextual-help--action-btn-color-background-hover);
-      }
-
-      &:active {
-        background-color: var(--#{$prefix}-contextual-help--action-btn-color-background-pressed);
-      }
-
-      .ico-tooltip {
-        background-color: var(--#{$prefix}-contextual-help--action-icon-color-information);
-      }
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-popover--contents-mobile-font-size);
     }
   }
 
-  .tooltip-popover {
-    --#{$prefix}-contextual-help--bubble-arrow-size: 1.6rem;
-    --#{$prefix}-contextual-help--bubble-arrow-margin: calc((var(--#{$prefix}-contextual-help--bubble-arrow-size) / 2) * -1);
-    --#{$prefix}-contextual-help--bubble-margin-x: 2.4rem;
-    --#{$prefix}-contextual-help--bubble-arrow-position-x: -2rem;
-
-    display: none;
-    position: absolute;
-    z-index: 10;
-    width: var(--#{$prefix}-contextual-help--popover-width);
-    padding: var(--#{$prefix}-contextual-help--popover-padding);
-    border-radius: var(--#{$prefix}-contextual-help--popover-radius);
-    background-color: var(--#{$prefix}-contextual-help--popover-color-background);
-    border: 0.1rem solid var(--#{$prefix}-contextual-help--popover-color-border);
-    box-shadow: var(--#{$prefix}-contextual-help--popover-shadow);
-
-    &::before {
-      @include pseudo;
-      @include square(var(--#{$prefix}-contextual-help--bubble-arrow-size));
-
-      display: block;
-      position: absolute;
-      margin-top: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
-      transform: rotate(45deg);
-      border: 0.1rem solid var(--#{$prefix}-contextual-help--popover-color-border);
-      border-top-color: transparent;
-      border-left-color: transparent;
-      background-color: var(--#{$prefix}-contextual-help--popover-color-background);
-    }
-
-    .tooltip-title {
-      @include ellipsis(1);
-
-      color: var(--#{$prefix}-contextual-help--popover-color-text-basic);
-      font-size: var(--#{$prefix}-contextual-help--popover-title-pc-font-size);
-      padding-right: 1.6rem;
-    }
-
-    .tooltip-contents {
-      @include flex-layout($fd: column);
-
-      color: var(--#{$prefix}-contextual-help--popover-color-text-basic);
-      font-size: var(--#{$prefix}-contextual-help--popover-contents-pc-font-size);
-      margin-top: 1.6rem;
-      gap: 0.8rem;
-    }
-
-    .tooltip-close {
-      @include position($t: var(--#{$prefix}-contextual-help--popover-padding), $r: var(--#{$prefix}-contextual-help--popover-padding));
-    }
+  &.active {
+		opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-out, visibility 0s linear 0s;
   }
 
-  &.left {
-    .tooltip-popover {
-      left: 0;
-      margin-left: var(--#{$prefix}-contextual-help--bubble-arrow-position-x);
+	.popover-header{
+		margin-bottom: var(--#{$prefix}-popover--title-contents-gap);
+		padding-right: var(--#{$prefix}-popover--padding);
 
-      &::before {
-        left: var(--#{$prefix}-contextual-help--bubble-margin-x);
-      }
-    }
-  }
+		.popover-title{
+			color: var(--#{$prefix}-popover--title-color-text);
+			font-size: var(--#{$prefix}-popover--title-pc-font-size);
+			font-weight: 700;
+		}
+	}
 
-  &.center {
-    .tooltip-popover {
-      @include position-center(x);
-
-      &::before {
-        left: 50%;
-        margin-left: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
-      }
-    }
-  }
-
-  &.right {
-    .tooltip-popover {
-      right: 0;
-      margin-right: var(--#{$prefix}-contextual-help--bubble-arrow-position-x);
-
-      &::before {
-        right: var(--#{$prefix}-contextual-help--bubble-margin-x);
-      }
-    }
-  }
-
-  &.top {
-    .tooltip-popover {
-      bottom: 100%;
-      margin-bottom: 1.6rem;
-
-      &::before {
-        top: 100%;
-      }
-    }
-  }
-
-  &.bottom {
-    .tooltip-popover {
-      top: 100%;
-      margin-top: 1.6rem;
-
-      &::before {
-        bottom: 100%;
-        transform: rotate(225deg);
-        margin-bottom: var(--#{$prefix}-contextual-help--bubble-arrow-margin);
-      }
-    }
-  }
+	.btn-close{
+		position: absolute;
+		top: var(--#{$prefix}-popover--btn-close-position);
+		right: var(--#{$prefix}-popover--btn-close-position);
+		z-index: 1;
+		// @include square(var(--#{$prefix}-popover--btn-close-size));
+	}
 }
 
-// responsive mobile
-@include mq(mobile) {
-  .contextual-help {
-    .tooltip-popover {
-      right: unset !important;
-      transform: none !important;
-      margin-left: 0 !important;
-
-      &::before {
-        display: none;
-      }
-
-      .tooltip-title {
-        font-size: var(--#{$prefix}-contextual-help--popover-title-mobile-font-size);
-      }
-
-      .tooltip-contents {
-        font-size: var(--#{$prefix}-contextual-help--popover-contents-mobile-font-size);
-      }
-    }
-  }
+@media (width <= 420px) {
+	.popover {
+		// max-width: 100%;
+	}
 }
