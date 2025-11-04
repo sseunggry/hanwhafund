@@ -1,5 +1,5 @@
 /*!*****************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/assets/scss/style.scss ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src../scss/style.scss ***!
   \*****************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /* reset */
@@ -528,151 +528,151 @@ input[type=date] {
 
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Thin.otf) format("opentype"), url(/assets/fonts/Pretendard-Thin.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Thin.otf) format("opentype"), url(../fonts/Pretendard-Thin.ttf) format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-ExtraLight.otf) format("opentype"), url(/assets/fonts/Pretendard-ExtraLight.ttf) format("truetype");
+  src: url(../fonts/Pretendard-ExtraLight.otf) format("opentype"), url(../fonts/Pretendard-ExtraLight.ttf) format("truetype");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Light.otf) format("opentype"), url(/assets/fonts/Pretendard-Light.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Light.otf) format("opentype"), url(../fonts/Pretendard-Light.ttf) format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Regular.otf) format("opentype"), url(/assets/fonts/Pretendard-Regular.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Regular.otf) format("opentype"), url(../fonts/Pretendard-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Medium.otf) format("opentype"), url(/assets/fonts/Pretendard-Medium.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Medium.otf) format("opentype"), url(../fonts/Pretendard-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-SemiBold.otf) format("opentype"), url(/assets/fonts/Pretendard-SemiBold.ttf) format("truetype");
+  src: url(../fonts/Pretendard-SemiBold.otf) format("opentype"), url(../fonts/Pretendard-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Bold.otf) format("opentype"), url(/assets/fonts/Pretendard-Bold.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Bold.otf) format("opentype"), url(../fonts/Pretendard-Bold.ttf) format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-ExtraBold.otf) format("opentype"), url(/assets/fonts/Pretendard-ExtraBold.ttf) format("truetype");
+  src: url(../fonts/Pretendard-ExtraBold.otf) format("opentype"), url(../fonts/Pretendard-ExtraBold.ttf) format("truetype");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url(/assets/fonts/Pretendard-Black.otf) format("opentype"), url(/assets/fonts/Pretendard-Black.ttf) format("truetype");
+  src: url(../fonts/Pretendard-Black.otf) format("opentype"), url(../fonts/Pretendard-Black.ttf) format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XLight.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XLight.otf) format("opentype");
   font-weight: 200;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Light.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Light.otf) format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Regular.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Regular.otf) format("opentype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Medium.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Medium.otf) format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Bold.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Bold.otf) format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XBold.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XBold.otf) format("opentype");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Black.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Black.otf) format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XBlack.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XBlack.otf) format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XLight.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XLight.otf) format("opentype");
   font-weight: 200;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Light.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Light.otf) format("opentype");
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Regular.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Regular.otf) format("opentype");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Medium.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Medium.otf) format("opentype");
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Bold.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Bold.otf) format("opentype");
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XBold.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XBold.otf) format("opentype");
   font-weight: 800;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-Black.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-Black.otf) format("opentype");
   font-weight: 900;
   font-style: italic;
 }
 @font-face {
   font-family: "Trust2ATRIAL";
-  src: url(/assets/fonts/Trust2ATRIAL-XBlack.otf) format("opentype");
+  src: url(../fonts/Trust2ATRIAL-XBlack.otf) format("opentype");
   font-weight: 900;
   font-style: italic;
 }
@@ -2843,7 +2843,7 @@ html[lang=ko-KR], html[lang=ko] {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
   background-color: var(--hwf-accordion--color-icon);
   transition: var(--hwf-transition-base);
   transform: rotate(0deg);
@@ -3454,7 +3454,7 @@ html[lang=ko-KR], html[lang=ko] {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
 }
 .tag-wrap.small.expand {
   max-height: var(--hwf-btn-tag--size-height-small);
@@ -3504,7 +3504,7 @@ html[lang=ko-KR], html[lang=ko] {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
 }
 .tag-wrap.medium.expand {
   max-height: var(--hwf-btn-tag--size-height-medium);
@@ -3554,7 +3554,7 @@ html[lang=ko-KR], html[lang=ko] {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
 }
 .tag-wrap.large.expand {
   max-height: var(--hwf-btn-tag--size-height-large);
@@ -3597,7 +3597,7 @@ html[lang=ko-KR], html[lang=ko] {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-delete.svg);
+  mask-image: url(../images/ico-delete.svg);
   background-color: var(--hwf-btn-tag--color-icon);
   line-height: var(--hwf-line-height-none);
 }
@@ -4301,7 +4301,7 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-information.svg);
+  mask-image: url(../images/ico-information.svg);
 }
 .form-group [class^=form-hint-]::before {
   display: inline-flex;
@@ -4318,9 +4318,9 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-success-fill.svg);
+  mask-image: url(../images/ico-success-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-success-fill.svg);
+  background-image: url(../images/ico-success-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -4332,9 +4332,9 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-information.svg);
+  mask-image: url(../images/ico-information.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-information.svg);
+  background-image: url(../images/ico-information.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -4346,9 +4346,9 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-error-fill.svg);
+  mask-image: url(../images/ico-error-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-error-fill.svg);
+  background-image: url(../images/ico-error-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -4603,7 +4603,7 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
   background-color: currentColor;
 }
 .form-select .select-button .select-value {
@@ -4642,7 +4642,7 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: #ddd;
 }
 .form-select .select-listbox .select-option[aria-selected=true] {
@@ -4667,7 +4667,7 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-plus.svg);
+  mask-image: url(../images/ico-plus.svg);
 }
 .form-select.small {
   height: var(--hwf-form-select--size-height-small);
@@ -4957,7 +4957,7 @@ textarea.input {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-down-fill.svg);
+  mask-image: url(../images/ico-down-fill.svg);
 }
 .form-select.text .select-listbox {
   width: max-content;
@@ -5152,7 +5152,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.small.icon-right > input[type=radio] ~ label::before {
@@ -5192,7 +5192,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.small.check-icon.icon-right > input[type=checkbox] ~ label::after {
@@ -5273,7 +5273,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.medium.icon-right > input[type=radio] ~ label::before {
@@ -5313,7 +5313,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.medium.check-icon.icon-right > input[type=checkbox] ~ label::after {
@@ -5394,7 +5394,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.large.icon-right > input[type=radio] ~ label::before {
@@ -5434,7 +5434,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check.large.check-icon.icon-right > input[type=checkbox] ~ label::after {
@@ -5545,7 +5545,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--form-check-color);
 }
 .form-check input[type=checkbox]:checked ~ label::before {
@@ -5574,7 +5574,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-indeterminate.svg);
+  mask-image: url(../images/ico-checkbox-indeterminate.svg);
   background-color: var(--hwf-form-check--checkbox-check-color-element);
 }
 .form-check input[type=checkbox]:indeterminate:disabled ~ label::before {
@@ -5777,7 +5777,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox.svg);
+  mask-image: url(../images/ico-checkbox.svg);
 }
 .form-chip.small input[type=checkbox] ~ label::before {
   background-color: var(--hwf-form-chip--checkbox-color-check);
@@ -5835,7 +5835,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox.svg);
+  mask-image: url(../images/ico-checkbox.svg);
 }
 .form-chip.medium input[type=checkbox] ~ label::before {
   background-color: var(--hwf-form-chip--checkbox-color-check);
@@ -5893,7 +5893,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox.svg);
+  mask-image: url(../images/ico-checkbox.svg);
 }
 .form-chip.large input[type=checkbox] ~ label::before {
   background-color: var(--hwf-form-chip--checkbox-color-check);
@@ -5959,7 +5959,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox.svg);
+  mask-image: url(../images/ico-checkbox.svg);
 }
 .form-chip input[type=checkbox] ~ label::before {
   background-color: var(--hwf-form-chip--checkbox-color-check);
@@ -5982,7 +5982,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-checkbox-checked.svg);
+  mask-image: url(../images/ico-checkbox-checked.svg);
   background-color: var(--hwf-form-chip--checkbox-color-check-checked);
 }
 .form-chip button {
@@ -6278,7 +6278,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-switch-on.svg);
+  mask-image: url(../images/ico-switch-on.svg);
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.23, 1);
 }
@@ -6418,7 +6418,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-angle.svg);
+  mask-image: url(../images/ico-angle.svg);
   transform: rotate(90deg);
 }
 .calendar-area .calendar-wrap .calendar-head .btn-cal-move.next::before {
@@ -6450,7 +6450,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-arrow-dropdown.svg);
+  mask-image: url(../images/ico-arrow-dropdown.svg);
 }
 .calendar-area .calendar-wrap .calendar-head .calendar-switch-wrap .btn-cal-switch:hover {
   background-color: var(--hwf-calendar--head-btn-cal-switch-color-action-hover);
@@ -7071,9 +7071,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-note-refer.svg);
+  mask-image: url(../images/ico-note-refer.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-note-refer.svg);
+  background-image: url(../images/ico-note-refer.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7089,87 +7089,87 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-download.svg);
+  mask-image: url(../images/ico-download.svg);
 }
 .icon-file {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-file.svg);
+  mask-image: url(../images/ico-file.svg);
 }
 .icon-arrow-right {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-arrow-right.svg);
+  mask-image: url(../images/ico-arrow-right.svg);
 }
 .icon-share {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-share.svg);
+  mask-image: url(../images/ico-share.svg);
 }
 .icon-search {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-search.svg);
+  mask-image: url(../images/ico-search.svg);
 }
 .icon-menu {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-menu.svg);
+  mask-image: url(../images/ico-menu.svg);
 }
 .icon-link {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-link.svg);
+  mask-image: url(../images/ico-link.svg);
 }
 .icon-close {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-close.svg);
+  mask-image: url(../images/ico-close.svg);
 }
 .icon-youtube {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-youtube.svg);
+  mask-image: url(../images/ico-youtube.svg);
 }
 .icon-instagram {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-instagram.svg);
+  mask-image: url(../images/ico-instagram.svg);
 }
 .icon-blog {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-blog.svg);
+  mask-image: url(../images/ico-blog.svg);
 }
 .icon-calendar {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-calendar.svg);
+  mask-image: url(../images/ico-calendar.svg);
 }
 .icon-filter {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-filter.svg);
+  mask-image: url(../images/ico-filter.svg);
 }
 .icon-plus-fill {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-plus-fill.svg);
+  mask-image: url(../images/ico-plus-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-plus-fill.svg);
+  background-image: url(../images/ico-plus-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7178,9 +7178,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-ai-star.svg);
+  mask-image: url(../images/ico-ai-star.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-ai-star.svg);
+  background-image: url(../images/ico-ai-star.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7189,9 +7189,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-delete-fill.svg);
+  mask-image: url(../images/ico-delete-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-delete-fill.svg);
+  background-image: url(../images/ico-delete-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7201,17 +7201,17 @@ label {
 .header .logo {
   width: 19.2rem;
   height: 4.8rem;
-  background: url(/assets/images/logo.svg) no-repeat center/cover;
+  background: url(../images/logo.svg) no-repeat center/cover;
 }
 .header .logo-plusetf a {
   width: 9.9rem;
   height: 1.2rem;
-  background: url(/assets/images/logo-plus-etf.svg) no-repeat center/cover;
+  background: url(../images/logo-plus-etf.svg) no-repeat center/cover;
 }
 .header .logo-pine a {
   width: 3.8rem;
   height: 1rem;
-  background: url(/assets/images/logo-pine.svg) no-repeat center/cover;
+  background: url(../images/logo-pine.svg) no-repeat center/cover;
 }
 .header .header-top {
   display: flex;
@@ -7261,12 +7261,12 @@ label {
 .header .header-con .util .btn-search {
   width: 4rem;
   height: 4rem;
-  background: url(/assets/images/ico-search.svg) no-repeat center/cover;
+  background: url(../images/ico-search.svg) no-repeat center/cover;
 }
 .header .header-con .util .btn-menu {
   width: 4rem;
   height: 4rem;
-  background: url(/assets/images/ico-menu.svg) no-repeat center/cover;
+  background: url(../images/ico-menu.svg) no-repeat center/cover;
 }
 
 @media (max-width: 1280px) {
@@ -7318,7 +7318,7 @@ label {
 .footer .footer-top .logo {
   width: 16rem;
   height: 4rem;
-  background: url(/assets/images/logo-w.svg) no-repeat center/cover;
+  background: url(../images/logo-w.svg) no-repeat center/cover;
 }
 .footer .footer-con {
   display: flex;
@@ -7497,7 +7497,7 @@ label {
 }
 .page-fund .fund-main .section-visual {
   padding: 10rem 0 8rem;
-  background: url(/assets/images/img-fund-main-visual.png) no-repeat center/cover;
+  background: url(../images/img-fund-main-visual.png) no-repeat center/cover;
 }
 .page-fund .fund-main .section-visual .inner {
   display: flex;
@@ -7528,7 +7528,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-share.svg);
+  mask-image: url(../images/ico-share.svg);
   width: 2.4rem;
   height: 2.4rem;
   background-color: #fff;
@@ -7639,9 +7639,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-ai-star.svg);
+  mask-image: url(../images/ico-ai-star.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-ai-star.svg);
+  background-image: url(../images/ico-ai-star.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -7797,7 +7797,7 @@ label {
   display: inline-block;
   width: 2.7rem;
   height: 2.4rem;
-  background: url(/assets/images/logo-symbol.svg) no-repeat center/cover;
+  background: url(../images/logo-symbol.svg) no-repeat center/cover;
 }
 .page-fund .fund-main .section-detail .top-fixed .summary .name {
   margin-left: 1.6rem;
@@ -8109,7 +8109,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-buy.svg);
+  mask-image: url(../images/ico-buy.svg);
 }
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .icon-invest::before {
   content: "";
@@ -8119,7 +8119,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-invest.svg);
+  mask-image: url(../images/ico-invest.svg);
 }
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .icon-sell::before {
   content: "";
@@ -8129,7 +8129,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-sell.svg);
+  mask-image: url(../images/ico-sell.svg);
 }
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box {
   flex: 1;
@@ -8219,7 +8219,7 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-day.svg);
+  mask-image: url(../images/ico-day.svg);
   background-color: var(--hwf-color-neutral-90);
 }
 .page-fund .fund-main .section-detail .guide-wrap .guide-item .info-box dt.icon-night::before {
@@ -8231,14 +8231,14 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-night.svg);
+  mask-image: url(../images/ico-night.svg);
   background-color: var(--hwf-color-neutral-90);
 }
 .page-fund .fund-main .section-detail .guide-wrap .guide-item .info-box dd {
   margin-top: 0.8rem;
 }
 .page-fund .fund-main .section-detail .overlay-box-wrap .visual-box {
-  background: url(/assets/images/img-fund-main-info-bg.png) no-repeat center/cover;
+  background: url(../images/img-fund-main-info-bg.png) no-repeat center/cover;
 }
 .page-fund .fund-main .section-detail .overlay-box-wrap .visual-box .pipe-list {
   margin-top: 4rem;
@@ -8717,9 +8717,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-kakao-fill.svg);
+  mask-image: url(../images/ico-kakao-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-kakao-fill.svg);
+  background-image: url(../images/ico-kakao-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -8728,9 +8728,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-blog-fill.svg);
+  mask-image: url(../images/ico-blog-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-blog-fill.svg);
+  background-image: url(../images/ico-blog-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -8739,9 +8739,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-instagram-fill.svg);
+  mask-image: url(../images/ico-instagram-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-instagram-fill.svg);
+  background-image: url(../images/ico-instagram-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
@@ -8750,9 +8750,9 @@ label {
   mask-repeat: no-repeat;
   mask-position: center center;
   mask-size: contain;
-  mask-image: url(/assets/images/ico-copy-fill.svg);
+  mask-image: url(../images/ico-copy-fill.svg);
   mask-image: none;
-  background-image: url(/assets/images/ico-copy-fill.svg);
+  background-image: url(../images/ico-copy-fill.svg);
   background-color: transparent !important;
   background-size: contain;
   background-repeat: no-repeat;
