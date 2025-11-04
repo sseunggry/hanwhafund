@@ -46,23 +46,24 @@ html{
 .fc-gray{color: var(var(--#{$prefix}-color-neutral-70)) !important;}
 
 .w-full{width: 100% !important;}
+.scroll-wrap{overflow-x: auto;}
 
 .pc-only{display: flex !important;}
 .tablet-only{display: none !important;}
 .mobile-only{display: none !important;}
-.tablet-mobile-only{display: none !important;}
+// .tablet-mobile-only{display: none !important;}
 
 @include mq(tablet){
-	.pc-only{display: none !important;}
+	// .pc-only{display: none !important;}
 	.tablet-only{display: flex !important;}
-	.mobile-only{display: none !important;}
-	.tablet-mobile-only{display: flex !important;}
+	// .mobile-only{display: none !important;}
+	// .tablet-mobile-only{display: flex !important;}
 }
 @include mq(mobile){
 	.pc-only{display: none !important;}
-	.tablet-only{display: none !important;}
+	// .tablet-only{display: none !important;}
 	.mobile-only{display: flex !important;}
-	.tablet-mobile-only{display: flex !important;}
+	// .tablet-mobile-only{display: flex !important;}
 }
 
 
@@ -189,42 +190,42 @@ $fw-sizes: (
   -webkit-text-fill-color: transparent;
 }
 
-@include mq(mobile){
-	$tit-sizes: (
-		// "xxlg": (size: 6.4rem, lh: 1.1),
-		"xlg": (size: 3.2rem, lh: 1.5),
-		"lg": (size: 2.8rem, lh: 1.5),
-		// "md": (size: 3.2rem, lh: 1.5),
-		"sm": (size: 2.4rem, lh: 1.5),
-		// "xsm": (size: 2.4rem, lh: 1.5),
-		// "xxsm": (size: 2.1rem, lh: 1.5)
-	);
+@include mq(mobile) {
+  // 1. 모바일에서 사용할 맵을 '새로운 변수명'으로 정의합니다.
+  // [중요] PC 버전에 있던 모든 키(xsm, xxsm 등)에 대한
+  // 모바일 값을 정의해야 PC 크기가 상속되지 않습니다.
+  $tit-sizes-mobile: (
+    "xxlg": (size: 4rem, lh: 1.2),
+    "xlg": (size: 3.2rem, lh: 1.5),
+    "lg": (size: 2.8rem, lh: 1.5),
+    "md": (size: 2.8rem, lh: 1.5),
+    "sm": (size: 2.4rem, lh: 1.5),
+    // "xsm": (size: 2.1rem, lh: 1.5), 
+    // "xxsm": (size: 1.8rem, lh: 1.5) 
+  );
 
-	// 본문 텍스트 데이터 맵
-	$txt-sizes: (
-		// "xxlg": (size: 4rem, lh: 1.5),
-		// "xlg": (size: 3.2rem, lh: 1.4),
-		"lg": (size: 2.1rem, lh: 1.5),
-		// "md": (size: 2.1rem, lh: 1.5),
-		// "sm": (size: 1.8rem, lh: 1.5),
-		// "xsm": (size: 1.6rem, lh: 1.5),
-		// "xxsm": (size: 1.5rem, lh: 1.5),
-	);
+  // 2. 모바일 본문 텍스트 맵도 모두 정의합니다.
+  $txt-sizes-mobile: (
+    // "xxlg": (size: 3.2rem, lh: 1.5), 
+    // "xlg": (size: 2.8rem, lh: 1.4), 
+    "lg": (size: 2.1rem, lh: 1.5),
+    // "md": (size: 1.8rem, lh: 1.5), 
+    // "sm": (size: 1.6rem, lh: 1.5), 
+    // "xsm": (size: 1.5rem, lh: 1.5), 
+    // "xxsm": (size: 1.4rem, lh: 1.5) 
+  );
 
-	// 타이틀 클래스 생성
-	@each $name, $props in $tit-sizes {
-		.tit-#{$name} {
-			font-size: map.get($props, size);
-			line-height: map.get($props, lh);
-			font-weight: 700;
-		}
-	}
+  @each $name, $props in $tit-sizes-mobile {
+    .tit-#{$name} {
+      font-size: map.get($props, size);
+      line-height: map.get($props, lh);
+    }
+  }
 
-	// 본문 텍스트 클래스 생성
-	@each $name, $props in $txt-sizes {
-		.txt-#{$name} {
-			font-size: map.get($props, size);
-			line-height: map.get($props, lh);
-		}
-	}
+  @each $name, $props in $txt-sizes-mobile {
+    .txt-#{$name} {
+      font-size: map.get($props, size);
+      line-height: map.get($props, lh);
+    }
+  }
 }

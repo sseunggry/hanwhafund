@@ -52,7 +52,7 @@ $form-select-size: (
   --#{$prefix}-form-select--icon-color-background-readonly: var(--#{$prefix}-color-icon-disabled-on);
   --#{$prefix}-form-select--icon-color-background-disabled: var(--#{$prefix}-color-icon-disabled-on);
 
-  --#{$prefix}-form-select--color-text: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-form-select--color-text: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-select--color-text-active: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-select--color-text-completed: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-select--color-text-disabled: var(--#{$prefix}-color-text-disabled-on);
@@ -219,7 +219,6 @@ $form-select-size: (
 
         &[aria-selected="true"] {
           color: var(--#{$prefix}-form-select-listbox--color-text-selected);
-          font-weight: 700;
           background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
 
           &::after {
@@ -330,13 +329,32 @@ $form-select-size: (
   // --- Variant: outline (라인 스타일) ---
   &.outline {
     background-color: var(--#{$prefix}-color-input-surface);
-    border: 0.1rem solid var(--#{$prefix}-color-neutral-90);
+    border: 0.1rem solid var(--#{$prefix}-color-neutral-30);
 
-    &:focus,
-    &:focus-within,
-    &.focus {
-      border-color: var(--#{$prefix}-form-select--color-border-active);
+    .select-listbox{
+      left: -0.1rem;
+      width: calc(100% + 0.2rem);
     }
+
+    &.active{
+      border-radius: 0.2rem 0.2rem 0 0;
+      border-color: #FE5B16;
+      box-shadow: 0 0 0.8rem 0 rgba(245, 69, 0, 0.40);
+
+      .select-value{
+        font-weight: 600;
+      }
+      .select-listbox{
+        border-left: 0.1rem solid #AFACAC;
+        border-bottom: 0.1rem solid #AFACAC;
+        border-right: 0.1rem solid #AFACAC;
+      }
+    }
+    // &:focus,
+    // &:focus-within,
+    // &.focus {
+    //   border-color: var(--#{$prefix}-form-select--color-border-active);
+    // }
 
     &.is-error {
       border-color: var(--#{$prefix}-form-select--color-border-error);

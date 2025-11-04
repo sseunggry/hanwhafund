@@ -516,4 +516,27 @@ $button-color-variable: (
       flex: none;
     }
   }
+
+  @include mq(mobile) {
+    &.grid-3 {
+      grid-template-columns: 1fr;
+    }
+    &:has(.btn.line) {
+      &.column {
+        // gap: 0;
+
+        // .line + .line {
+        //   border-top: 0;
+        // }
+      }
+      &.grid-3 {
+        gap: 0;
+        // gap: 0 4rem;
+
+        .line + .line {
+          border-top: 0;
+        }
+      }
+    }
+  }
 }

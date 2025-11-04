@@ -97,6 +97,15 @@
 		}
 	}
 }
+@include mq(tablet-small) {
+  .footer{
+    .footer-con{
+      .nav{
+        gap: 6rem;
+      }
+    }
+  }
+}
 @include mq(mobile) {
 	.footer{
 		.footer-con{

@@ -94,7 +94,7 @@
   gap: 6.4rem;
 
 	@include mq(mobile) {
-		gap: 8rem;
+		gap: 4rem;
 	}
 }
 
@@ -106,15 +106,17 @@
 
     .card-item {
       position: relative;
-      border-left: 0.1rem solid;
-      border-image-slice: 1;
-      border-image-source: linear-gradient(to bottom, #ff4d32 25%, #803c4a 50%, #022a62 100%);
+      border-left: 0.1rem solid #DCD8D6;
+      // border-left: 0.1rem solid;
+      // border-image-slice: 1;
+      // border-image-source: linear-gradient(to bottom, #ff4d32 25%, #803c4a 50%, #022a62 100%);
 			flex: 1;
 
       &:last-child {
-        border-right: 0.1rem solid;
-        border-image-slice: 1;
-        border-image-source: linear-gradient(to bottom, #ff4d32 25%, #803c4a 50%, #022a62 100%);
+        border-right: 0.1rem solid #DCD8D6;
+        // border-right: 0.1rem solid;
+        // border-image-slice: 1;
+        // border-image-source: linear-gradient(to bottom, #ff4d32 25%, #803c4a 50%, #022a62 100%);
       }
 
       a {
@@ -199,6 +201,24 @@
 			}
 		}
 	}
+  @include mq(mobile) {
+    .card-list{
+      .card-item{
+        a{
+          padding: 2.4rem;
+        }
+        .tit{
+          font-size: 2.1rem;
+        }
+
+        .chart-area{
+          &::before{
+            padding-top: 45.62%;
+          }
+        }
+      }
+    }
+  }
 }
 
 .share-sns-list{

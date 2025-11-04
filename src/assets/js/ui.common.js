@@ -752,6 +752,172 @@ const uiTooltip = {
     $tooltip.removeClass("active");
   }
 };
+const uiLnb2 = {
+  isClickScrolling: false, // 클릭으로 스크롤 중인지 확인
+  $links: null,
+  $sections: null,
+  $sidebar: null,
+  scrollOffset: 80,       // LNB 클릭/스파이 기준선 (init에서 재계산)
+  handleScroll: null,
+  scrollEndTimer: null, // [수정] jQuery.animate 콜백으로 대체
+
+  init: function() {
+    this.$links = $('.layout-sidebar .sidebar li a[href^="#"]');
+    this.$sections = $('.layout-sidebar .layout-content .cont-group[id]');
+    this.$sidebar = $('.sidebar');
+    const $topFixed = $('.top-fixed');
+
+    if (this.$links.length === 0 || this.$sections.length === 0 || !this.$sidebar.length) return;
+
+    // this.setupClickHandlers();
+    this.initScrollSpy();
+  },
+  setupClickHandlers: function() {
+    const self = this;
+
+    this.$links.on('click.lnbClick', function(e) {
+      e.preventDefault();
+      const $link = $(this);
+      const $targetSection = $($link.attr('href'));
+      
+      if ($targetSection.length) {
+        self.isClickScrolling = true; // 스크롤 스파이 멈춤
+        self.setActiveIndicator($link); // (즉시) 클릭한 메뉴 활성화
+
+        const targetScrollTop = $targetSection.offset().top - self.scrollOffset + 1; // 1px 보정
+        
+        $('html, body').animate({
+          scrollTop: targetScrollTop
+        }, 500, () => { // 0.5초 애니메이션
+          self.isClickScrolling = false; // 스크롤 스파이 재개
+        });
+      }
+    });
+  },
+  initScrollSpy: function() {
+    const self = this;
+    
+    this.handleScroll = () => {
+      const scrollY = $(window).scrollTop();
+
+      // 클릭으로 스크롤 중이면 스파이 기능 중지
+      if (self.isClickScrolling) return;
+
+      // --- 기능 2b: 스크롤 스파이 (메뉴 활성화) ---
+      const winHeight = $(window).height();
+      const scrollHeight = $(document).height();
+      const $firstLink = self.$links.first();
+      const $lastLink = self.$links.last();
+      const firstSecTop = self.$sections.first().length ? self.$sections.first().offset().top : 0;
+
+      // 맨 아래 도달
+      if (scrollY + winHeight >= scrollHeight - 10) {
+        self.setActiveIndicator($lastLink);
+        return;
+      }
+      // 맨 위 (첫 섹션 도달 전)
+      if (scrollY < firstSecTop - self.scrollOffset) {
+        self.setActiveIndicator($firstLink);
+        return;
+      }
+
+      // 중간 섹션 탐색
+      for (let i = self.$sections.length - 1; i >= 0; i--) {
+        const $currentSection = self.$sections.eq(i);
+        const sectionTop = $currentSection.offset().top - self.scrollOffset;
+
+        if (scrollY >= sectionTop - 1) { // 1px 버퍼
+          const id = $currentSection.attr('id');
+          const $navLink = self.$links.filter(`[href="#${id}"]`);
+          self.setActiveIndicator($navLink);
+          return; 
+        }
+      }
+    };
+
+    $(window).on('scroll.lnbScroll', this.handleScroll);
+    this.handleScroll(); // 초기 로드 시 실행
+  },
+
+  setActiveIndicator: function($anchor) {
+    if (!$anchor || !$anchor.length) return;
+    if ($anchor.parent().hasClass('active')) return;
+    
+    this.$links.parent().removeClass('active');
+    $anchor.parent().addClass('active');
+  }
+};
+const uiLnb = {
+  $sidebar: null,
+  $links: null,
+  $sections: null,
+  offset: 150, 
+
+  init: function () {
+    this.$sidebar = $(".sidebar");
+    if (!this.$sidebar.length) return;
+
+    this.$links = this.$sidebar.find("a[href^='#']");
+    if (!this.$links.length) return;
+
+    this.$sections = $();
+    this.$links.each((i, link) => {
+      const $section = $($(link).attr("href"));
+      if ($section.length) {
+        this.$sections = this.$sections.add($section);
+      }
+    });
+
+    if (!this.$sections.length) return;
+    
+    $(window).on("scroll.sidebarSpy", () => {
+      this.updateActiveState();
+    });
+
+    this.updateActiveState();
+  },
+
+  updateActiveState: function () {
+    const scrollTop = $(window).scrollTop();
+    const triggerPos = scrollTop + this.offset;
+    let currentActiveId = null;
+
+    const sectionsReversed = this.$sections.get().reverse();
+    for (const section of sectionsReversed) {
+      const $section = $(section);
+      
+      if ($section.offset() && $section.offset().top <= triggerPos) {
+        currentActiveId = $section.attr("id");
+        break; // 찾았으므로 반복 중단
+      }
+    }
+
+    // 무조건 첫 번째 섹션 ID를 활성화
+    if (currentActiveId === null) {
+      currentActiveId = this.$sections.first().attr("id");
+    }
+
+    // 페이지 맨 아래 엣지 케이스 (스크롤이 끝까지 도달했을 때)
+    if (scrollTop + $(window).height() >= $(document).height() - 50) { // 50px 버퍼
+      currentActiveId = this.$sections.last().attr("id");
+    }
+
+    // 사이드바 링크에 active 클래스 적용
+    this.$links.each(function () {
+      const $link = $(this);
+      const $li = $link.closest("li");
+      const href = $link.attr("href"); // 예: "#performance"
+
+      if (href === "#" + currentActiveId) {
+        $li.addClass("active");
+        $link.attr("aria-current", "page");
+      } else {
+        $li.removeClass("active");
+        $link.removeAttr("aria-current");
+      }
+    });
+  },
+};
 
 const commonJs = {
   init: function () {
@@ -762,6 +928,7 @@ const commonJs = {
     uiPopover.init();
     uiTooltip.init();
     uiSelect.init();
+    uiLnb.init();
 
     // 전역 이벤트 바인딩
     this.bindGlobalEvents();

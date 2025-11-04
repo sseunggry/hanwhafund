@@ -246,4 +246,7 @@
 	@include mq(mobile){
 		--#{$prefix}-content-padding-x: 1.6rem;
 	}
+	@include mq(mobile-medium){
+		// --#{$prefix}-content-padding-x: 1.6rem;
+	}
 }

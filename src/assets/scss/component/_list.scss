@@ -58,14 +58,14 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: 50%;
+			top: 1.15rem;
 			left: 0.6rem;
 			display: block;
 			width: 0.4rem;
 			height: 0.4rem;
 			background-color: var(--#{$prefix}-note-list--color-text-depth1);
 			border-radius: var(--#{$prefix}-radius-max);
-			transform: translateY(-50%);
+			// transform: translateY(-50%);
 		}
 		// > .note-list { //2depth
 		// 	gap: var(--#{$prefix}-note-list--layout-gap-depth2-li-li);
@@ -154,7 +154,7 @@
 }
 .note-refer {
 	display: flex;
-	align-items: center;
+	// align-items: center;
 	gap: 0.4rem;
 	font-size: 1.8rem;
 	font-weight: 600;
@@ -162,6 +162,8 @@
 
 	&::before{
 		content: '';
+		margin-top: 0.2rem;
+		flex-shrink: 0;
 		@include svg-icon(2.4rem);
 		@include icon-set('note-refer', pure);
 	}
