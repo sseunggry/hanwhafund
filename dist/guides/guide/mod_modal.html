@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>팝업 &gt; 가이드</title>
 
-    <link href="./assets/css/prism.css" rel="stylesheet" />
-    <link href="./assets/css/index.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/prism.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
 
-    <link href="../../assets/css/style.css" rel="stylesheet" />
-    <script src="../../assets/js/jquery3.min.js"></script>
-    <script src="../../assets/js/ui.common.js"></script>
+    <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/ui.common.js"></script>
 
-    <script src="./assets/js/prism.js"></script>
-    <script src="./assets/js/guide_script.js"></script>
+    <script type="text/javascript" src="./assets/js/prism.js"></script>
+    <script type="text/javascript" src="./assets/js/guide_script.js"></script>
+    <link href="/assets/css/test.css" rel="stylesheet" />
     <link href="/assets/css/style.css" rel="stylesheet" />
   </head>
 
@@ -53,7 +57,7 @@
 
           <div class="group">
             <div class="hls_preview">
-              <button type="button" class="btn large btn-open-modal" aria-controls="myModal1">
+              <button type="button" class="btn large" data-modal-open="myModal1" aria-controls="myModal1">
                 <span>기본 모달 열기</span>
               </button>
               <div id="myModal1" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_myModal1" data-type="modal">
@@ -94,7 +98,7 @@
 
           <div class="group">
             <div class="hls_preview">
-              <button type="button" class="btn large btn-open-modal" aria-controls="myFullModal">
+              <button type="button" class="btn large btn-open-modal" data-modal-open="myFullModal" aria-controls="myFullModal">
                 <span>풀스크린 모달 열기</span>
               </button>
               <div id="myFullModal" class="modal fade full" role="dialog" aria-modal="true" aria-labelledby="tit_myFullModal" data-type="full">
@@ -153,7 +157,7 @@
 
           <div class="group">
             <div class="hls_preview">
-              <button type="button" class="btn large btn-open-bottom-sheet" aria-controls="myBottomSheet">
+              <button type="button" class="btn large btn-open-bottom-sheet" data-modal-open="myBottomSheet" aria-controls="myBottomSheet">
                 <span>바텀 시트 열기</span>
               </button>
               <div id="myBottomSheet" class="modal fade bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_myBottomSheet" data-type="bottom-sheet">

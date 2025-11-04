@@ -1,0 +1,471 @@
+/*!****************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./src/assets/scss/test.scss ***!
+  \****************************************************************************************************************************************************************************/
+.page-fund .fund-main .section-detail-test {
+  --top-fixed-height: 8rem;
+  --sidebar-width: 26rem;
+}
+.page-fund .fund-main .section-detail-test .top-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  height: var(--top-fixed-height);
+  background-color: #fff;
+  border-bottom: 0.1rem solid #ebeaea;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .inner {
+  display: flex;
+  align-items: center;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .summary {
+  display: flex;
+  align-items: center;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .summary::before {
+  content: "";
+  flex-shrink: 0;
+  display: inline-block;
+  width: 2.7rem;
+  height: 2.4rem;
+  background: url(/assets/images/logo-symbol.svg) no-repeat center/cover;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .summary .name {
+  margin-left: 1.6rem;
+  margin-right: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .btn-wrap {
+  margin-left: auto;
+  width: fit-content;
+  gap: 4rem;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .btn-wrap .txt {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+.page-fund .fund-main .section-detail-test .top-fixed .btn-wrap .txt::before {
+  content: "";
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-ai-star.svg);
+  mask-image: none;
+  background-image: url(/assets/images/ico-ai-star.svg);
+  background-color: transparent !important;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 auto;
+  background-color: #f3f2f1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-inner {
+  position: relative;
+  max-width: var(--hwf-content-wrap-width);
+  width: 100%;
+  margin: 0 auto;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar {
+  position: sticky;
+  top: var(--top-fixed-height);
+  z-index: 9;
+  flex-shrink: 0;
+  padding-top: 6.4rem;
+  padding-left: calc(5.5% + var(--hwf-content-padding-x));
+  padding-bottom: 6.4rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar ul {
+  width: var(--sidebar-width);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar li {
+  margin-bottom: 1.6rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar li:last-child {
+  margin-bottom: 0;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar li a {
+  display: block;
+  padding: 1.4rem;
+  color: var(--hwf-color-text-subtler);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar li.active a {
+  color: var(--hwf-color-text-basic);
+  background: linear-gradient(90deg, rgba(223, 188, 165, 0) 0%, rgba(244, 178, 134, 0.7) 100%);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .sidebar li.active a::before {
+  content: "";
+  display: inline-block;
+  margin-right: 0.4rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #f54500;
+  vertical-align: top;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content {
+  --content-bg-width: 200%;
+  position: relative;
+  background-color: #f3f2f1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2.4rem;
+  padding: 8rem 5.5% 12rem;
+  background-color: #fff;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group[id] {
+  scroll-margin-top: calc(var(--top-fixed-height) + 2.4rem);
+}
+@media (min-width: 1921px) {
+  .page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group {
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap {
+  display: flex;
+  gap: 2.4rem 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-area {
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-summary {
+  width: 43.38%;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-summary .txt-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-summary .desc {
+  margin-top: 1.6rem;
+  color: #514e4d;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-legend .legend-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 6.4rem;
+  border-bottom: 0.1rem solid #ebeaea;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-legend .legend-list .key {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.2rem;
+  background-color: #ddd;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-legend .legend-list .value {
+  margin-left: auto;
+  font-weight: 700;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .chart-legend .date {
+  margin-top: 1.6rem;
+  text-align: right;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.line {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.line .chart-area {
+  width: 100%;
+  height: 44rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area {
+  flex-shrink: 0;
+  display: flex;
+  gap: 0.4rem;
+  width: 48.15%;
+  align-items: flex-end;
+  text-align: center;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level {
+  flex: 1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level.active .bar {
+  height: 6rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .bar {
+  display: inline-block;
+  width: 100%;
+  height: 0.5rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .label {
+  margin-top: 1rem;
+  color: #514e4d;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level1 .bar {
+  background-color: #119eff;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level2 .bar {
+  background-color: #00cecf;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level3 .bar {
+  background-color: #ffb80d;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level4 .bar {
+  background-color: #fe6220;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level5 .bar {
+  background-color: #ff4891;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.bar .chart-area .level6 .bar {
+  background-color: #f91d00;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut {
+  column-gap: 10rem;
+  justify-content: center;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut .chart-area {
+  position: relative;
+  width: 38rem;
+  height: 38rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut .chart-area .doughnut-txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut .chart-area .doughnut-txt .label {
+  font-weight: 500;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut .chart-area .doughnut-txt .value {
+  margin-top: 1.2rem;
+  font-size: 5.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.doughnut .chart-legend {
+  width: 18.46%;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap.pie .chart-area {
+  margin: 0 4rem;
+  width: 20rem;
+  height: 20rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .date {
+  color: var(--hwf-color-text-subtler);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .chart-wrap .filter {
+  display: flex;
+  gap: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .group-flex-wrap {
+  display: flex;
+  gap: 4.8rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .group-flex-wrap .group-wrap {
+  flex: 1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .group-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .group-wrap [class*=tit-] {
+  display: flex;
+  align-items: baseline;
+  gap: 1.6rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .group-wrap.spacing-lg {
+  gap: 4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap {
+  display: flex;
+  gap: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap.bg-gray {
+  padding: 2.4rem;
+  background-color: #f3f2f1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap.pd-lg {
+  padding: 4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 3.2rem 2rem 0;
+  background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .icon-buy::before {
+  content: "";
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: var(--hwf-color-neutral-90);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-buy.svg);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .icon-invest::before {
+  content: "";
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: var(--hwf-color-neutral-90);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-invest.svg);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .icon-sell::before {
+  content: "";
+  width: 2.4rem;
+  height: 2.4rem;
+  background-color: var(--hwf-color-neutral-90);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-sell.svg);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2.4rem;
+  padding: 2.4rem 2rem;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box .txt-wrap::after {
+  content: "";
+  display: block;
+  margin: 2.4rem 0;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #ebeaea;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box .txt-wrap:last-child::after {
+  display: none;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box .txt-wrap .desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 1.5rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box .tit {
+  font-size: 2.1rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .box-item .fee-box .sub-txt {
+  color: var(--hwf-color-text-primary);
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item {
+  flex: 1;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .tit {
+  padding: 1.4rem;
+  color: #fff;
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .tit.bg-orange {
+  background-color: var(--hwf-color-orange-base);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .tit.bg-indigo {
+  background-color: var(--hwf-color-navy-base);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box {
+  display: flex;
+  padding: 4rem 0;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dl {
+  flex: 1;
+  text-align: center;
+  border-right: 0.1rem solid #ebeaea;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dl:last-child {
+  border-right: none;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dt {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dt.icon-day::before {
+  content: "";
+  display: block;
+  margin: 0 auto 0.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-day.svg);
+  background-color: var(--hwf-color-neutral-90);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dt.icon-night::before {
+  content: "";
+  display: block;
+  margin: 0 auto 0.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(/assets/images/ico-night.svg);
+  background-color: var(--hwf-color-neutral-90);
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .box-wrap .guide-item .info-box dd {
+  margin-top: 0.8rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .product-info-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem 9rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .product-info-wrap dl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .product-info-wrap dd {
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .reference-box {
+  padding: 4rem 4rem 0;
+  flex-shrink: 0;
+  width: 52.46%;
+  background-color: #fff;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .reference-box .download-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2.4rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .reference-box .download-wrap .tit {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .reference-box .download-wrap .desc {
+  margin-top: 0.8rem;
+  color: var(--hwf-color-text-subtler);
+  font-size: 1.6rem;
+}
+.page-fund .fund-main .section-detail-test .layout-sidebar-test .layout-content .cont-group .reference-box .btn-wrap.line {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 0.1rem solid #ebeaea;
+}
+
+/*# sourceMappingURL=test.css.map*/
