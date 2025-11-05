@@ -17,47 +17,49 @@
 					<div class="inner">
 						<div class="fund-info">
 							<div class="fund-top">
-								<ul class="pipe-list">
-									<li>국내</li>
-									<li>주식</li>
-									<li>글로벌</li>
-								</ul>
-								<%- include('../../components/button.ejs', {
-									variant: 'icon',
-									label: '공유하기',
-									size: 'xxlarge',
-									icon: 'share',
-									addClass: 'bg-gray round',
-									targetType: 'popover',
-									targetId: 'popover-share',
-									popoverPos: 'bottom-left'
-								}) -%>
-							</div>
-							<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
-							<div class="fund-actions">
-								<%- include('../../components/select.ejs', {
-									variant: 'underline',
-									name: 'fund-code-select',
-									size: 'large',
-									addClass: 'white',
-									options: [
-										{ value: 'A', text: 'A(수수료선취-오프라인)' },
-										{ value: 'Ae', text: 'Ae(수수료선취-온라인)' },
-										{ value: 'C4', text: 'C4(수수료미징구-오프라인-보수체감)' },
-										{ value: 'Ce', text: 'Ce(수수료미징구-온라인)' },
-										{ value: 'S', text: 'S(수수료후취-온라인슈퍼)' },
-									]
-								}) -%>
-								<%- include('../../components/button.ejs', {
-                  variant: 'primary',
-                  label: '클래스 비교',
-                  size: 'medium'
-                }) -%>
+								<div class="fund-category">
+									<ul class="pipe-list">
+										<li>국내</li>
+										<li>주식</li>
+										<li>글로벌</li>
+									</ul>
+									<%- include('../../components/button.ejs', {
+										variant: 'icon',
+										label: '공유하기',
+										size: 'xxlarge',
+										icon: 'share',
+										addClass: 'bg-gray round',
+										targetType: 'popover',
+										targetId: 'popover-share',
+										popoverPos: 'bottom-left'
+									}) -%>
+								</div>
+								<h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
+								<div class="fund-actions">
+									<%- include('../../components/select.ejs', {
+										variant: 'underline',
+										name: 'fund-code-select',
+										size: 'large',
+										addClass: 'white',
+										options: [
+											{ value: 'A', text: 'A(수수료선취-오프라인)' },
+											{ value: 'Ae', text: 'Ae(수수료선취-온라인)' },
+											{ value: 'C4', text: 'C4(수수료미징구-오프라인-보수체감)' },
+											{ value: 'Ce', text: 'Ce(수수료미징구-온라인)' },
+											{ value: 'S', text: 'S(수수료후취-온라인슈퍼)' },
+										]
+									}) -%>
+									<%- include('../../components/button.ejs', {
+										variant: 'primary',
+										label: '클래스 비교',
+										size: 'medium'
+									}) -%>
+								</div>
 							</div>
 							<ul class="fund-summary">
 								<li>
-									<p class="tit">
-										기준가(전일대비)
+									<div class="summary-tit">
+										<p class="tit">기준가(전일대비)</p>
 										<%- include('../../components/button.ejs', {
 											tag: 'a',
 											variant: 'icon',
@@ -65,34 +67,48 @@
 											size: 'xlarge',
 											icon: 'plus-fill',
 										}) -%>
-									</p>
-									<p class="value">
-										<strong>1,220.00</strong>
-										<span class="unit">원</span>
-									</p>
-									<p class="change up">+19.24원(1.60%)</p>
+									</div>
+									<div class="summary-con">
+										<p class="value">
+											<strong>1,220.00</strong>
+											<span class="unit">원</span>
+										</p>
+										<p class="change up">19.24원(1.60%)</p>
+									</div>
 								</li>
 								<li>
-									<p class="tit">수익률(1주 기준)</p>
-									<p class="value">
-										<strong>6.48</strong>
-										<span class="unit">%</span>
-									</p>
-									<p class="change down">-1.60%</p>
+									<div class="summary-tit">
+										<p class="tit">수익률(1주 기준)</p>
+									</div>
+									<div class="summary-con">
+										<p class="value">
+											<strong>6.48</strong>
+											<span class="unit">%</span>
+										</p>
+										<p class="change down">1.60%</p>
+									</div>
 								</li>
 								<li>
-									<p class="tit">총보수(연기준)</p>
-									<p class="value">
-										<strong>0.5090</strong>
-										<span class="unit">%</span>
-									</p>
+									<div class="summary-tit">
+										<p class="tit">총보수(연기준)</p>
+									</div>
+									<div class="summary-con">
+										<p class="value">
+											<strong>0.5090</strong>
+											<span class="unit">%</span>
+										</p>
+									</div>
 								</li>
 								<li>
-									<p class="tit">순자산</p>
-									<p class="value">
-										<strong>33.3</strong>
-										<span class="unit">억원</span>
-									</p>
+									<div class="summary-tit">
+										<p class="tit">순자산</p>
+									</div>
+									<div class="summary-con">
+										<p class="value">
+											<strong>33.3</strong>
+											<span class="unit">억원</span>
+										</p>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -207,6 +223,8 @@
 													label: '직접설정',
 													size: 'large',
 													preIcon: 'filter',
+													targetType: 'modal',
+               				 		targetId: 'mobilFilterBottomSheet',
 												}) -%>
 											</div>
 										</div>
@@ -518,7 +536,6 @@
 															{ value: 'option2', text: '관련공시2' },
 															{ value: 'option3', text: '관련공시3' }
 														],
-														slot: btnDownload,
 													}) -%>
 												</div>
 											</div>
@@ -834,6 +851,20 @@
 						</li>
 					</ul>
 				`
+			}) %>
+
+			<% const calendarEjs = include('../../components/calendar.ejs', { size: 'large'})  -%>
+			<%- include('../../components/modal.ejs', {
+				id: 'mobilFilterBottomSheet',
+				variant: 'bottom-sheet',
+				title: '기간설정',
+				content: `
+					${calendarEjs}
+					<div class="datepicker-inline-container"></div>
+				`,
+				buttons: [
+					{ text: '검색', class: 'large', action: 'close' },
+				],
 			}) %>
 		</div>
 	</body>

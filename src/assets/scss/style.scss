@@ -256,4 +256,10 @@
 			}
 		}
 	}	
+
+  @include mq(mobile-medium){
+    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }

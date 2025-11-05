@@ -5,9 +5,9 @@
 /* form 레이아웃 */
 // 사이즈 정의
 @mixin form-layout-size-variable() {
-  --#{$prefix}-form-group--label-pc-font-size: 1.5rem;
-  --#{$prefix}-form-group--label-tablet-font-size: 1.5rem;
-  --#{$prefix}-form-group--label-mobile-font-size: 1.5rem;
+  --#{$prefix}-form-group--label-pc-font-size: 1.8rem;
+  --#{$prefix}-form-group--label-tablet-font-size: 1.8rem;
+  --#{$prefix}-form-group--label-mobile-font-size: 1.8rem;
   --#{$prefix}-form-group--gap: 0.8rem;
   --#{$prefix}-form-group--icon-padding-right: calc(2rem * 2 + var(--#{$prefix}-icon--size-large));
   --#{$prefix}-form-group--message-pc-font-size: 1.3rem;
@@ -186,7 +186,7 @@
   .form-label {
     width: 100%;
 		font-size: var(--#{$prefix}-form-group--label-pc-font-size);
-    color: var(--#{$prefix}-color-text-subtle);
+    color: var(--#{$prefix}-color-text-basic);
 
 		@include mq(tablet) {
 			font-size: var(--#{$prefix}-form-group--label-tablet-font-size);

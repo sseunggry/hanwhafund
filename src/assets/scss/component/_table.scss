@@ -85,9 +85,18 @@
 
   overflow-x: auto;
   position: relative;
-  padding-top: 0.1rem;
 	width: 100%;
-  background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+  }
 
   .tbl {
     width: 100%;
@@ -119,6 +128,19 @@
 
   &.scroll {
     overflow: auto hidden;
+    padding-bottom: 40px;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem; 
+      height: 0.4rem;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #F3F2F1; 
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #FE5B16;
+    }
 
     .tbl {
 			min-width: 100rem;

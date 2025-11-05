@@ -48,6 +48,7 @@
   	transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
 		
     padding: var(--#{$prefix}-popover--padding);
+    max-width: calc(100vw - 4rem);
     // max-width: 48rem;
     color: var(--#{$prefix}-popover--box-color-text);
     border: 0.1rem solid var(--#{$prefix}-popover--color-border);
