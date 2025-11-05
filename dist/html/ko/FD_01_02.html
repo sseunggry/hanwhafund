@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>한화자산운용 &gt; 상품상세</title>
-    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
     <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.standalone.min.css" />
     <script type="text/javascript" src="../../assets/js/ui.common.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link href="../../assets/css/test.css" rel="stylesheet" />
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -44,16 +41,16 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-8y5jymy-native" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-ohd5102-native" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected>KR</option>
                     <option value="EN">EN</option>
                   </select>
 
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-8y5jymy-listbox" tabindex="0" aria-controls="select-8y5jymy-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ohd5102-listbox" tabindex="0" aria-controls="select-ohd5102-listbox">
                     <span class="select-value">KR</span>
                   </button>
 
-                  <ul id="select-8y5jymy-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-ohd5102-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                     <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
@@ -85,85 +82,101 @@
           <div class="inner">
             <div class="fund-info">
               <div class="fund-top">
-                <ul class="pipe-list">
-                  <li>국내</li>
-                  <li>주식</li>
-                  <li>글로벌</li>
-                </ul>
-                <button type="button" class="btn icon xxlarge bg-gray round" data-popover-open="popover-share" aria-controls="popover-share" aria-haspopup="true" data-popover-pos="bottom-left">
-                  <span class="sr-only">공유하기</span>
-                  <i class="svg-icon icon-share"></i>
-                </button>
-              </div>
-              <h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
-              <div class="fund-actions">
-                <div class="form-select underline large white">
-                  <select class="sr-only" name="fund-code-select" id="select-ib7vhsg-native" tabindex="-1" aria-hidden="true">
-                    <option value="A" selected>A(수수료선취-오프라인)</option>
-                    <option value="Ae">Ae(수수료선취-온라인)</option>
-                    <option value="C4">C4(수수료미징구-오프라인-보수체감)</option>
-                    <option value="Ce">Ce(수수료미징구-온라인)</option>
-                    <option value="S">S(수수료후취-온라인슈퍼)</option>
-                  </select>
-
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ib7vhsg-listbox" tabindex="0" aria-controls="select-ib7vhsg-listbox">
-                    <span class="select-value">A(수수료선취-오프라인)</span>
-                  </button>
-
-                  <ul id="select-ib7vhsg-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 5">
-                    <li class="select-option" role="option" data-value="A" aria-selected="false" tabindex="-1">A(수수료선취-오프라인)</li>
-                    <li class="select-option" role="option" data-value="Ae" aria-selected="false" tabindex="-1">Ae(수수료선취-온라인)</li>
-                    <li class="select-option" role="option" data-value="C4" aria-selected="false" tabindex="-1">C4(수수료미징구-오프라인-보수체감)</li>
-                    <li class="select-option" role="option" data-value="Ce" aria-selected="false" tabindex="-1">Ce(수수료미징구-온라인)</li>
-                    <li class="select-option" role="option" data-value="S" aria-selected="false" tabindex="-1">S(수수료후취-온라인슈퍼)</li>
+                <div class="fund-category">
+                  <ul class="pipe-list">
+                    <li>국내</li>
+                    <li>주식</li>
+                    <li>글로벌</li>
                   </ul>
+                  <button type="button" class="btn icon xxlarge bg-gray round" data-popover-open="popover-share" aria-controls="popover-share" aria-haspopup="true" data-popover-pos="bottom-left">
+                    <span class="sr-only">공유하기</span>
+                    <i class="svg-icon icon-share"></i>
+                  </button>
                 </div>
-                <button type="button" class="btn primary medium">
-                  <span>클래스 비교</span>
-                </button>
+                <h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
+                <div class="fund-actions">
+                  <div class="form-select underline large white">
+                    <select class="sr-only" name="fund-code-select" id="select-7kp8uol-native" tabindex="-1" aria-hidden="true">
+                      <option value="A" selected>A(수수료선취-오프라인)</option>
+                      <option value="Ae">Ae(수수료선취-온라인)</option>
+                      <option value="C4">C4(수수료미징구-오프라인-보수체감)</option>
+                      <option value="Ce">Ce(수수료미징구-온라인)</option>
+                      <option value="S">S(수수료후취-온라인슈퍼)</option>
+                    </select>
+
+                    <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-7kp8uol-listbox" tabindex="0" aria-controls="select-7kp8uol-listbox">
+                      <span class="select-value">A(수수료선취-오프라인)</span>
+                    </button>
+
+                    <ul id="select-7kp8uol-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 5">
+                      <li class="select-option" role="option" data-value="A" aria-selected="false" tabindex="-1">A(수수료선취-오프라인)</li>
+                      <li class="select-option" role="option" data-value="Ae" aria-selected="false" tabindex="-1">Ae(수수료선취-온라인)</li>
+                      <li class="select-option" role="option" data-value="C4" aria-selected="false" tabindex="-1">C4(수수료미징구-오프라인-보수체감)</li>
+                      <li class="select-option" role="option" data-value="Ce" aria-selected="false" tabindex="-1">Ce(수수료미징구-온라인)</li>
+                      <li class="select-option" role="option" data-value="S" aria-selected="false" tabindex="-1">S(수수료후취-온라인슈퍼)</li>
+                    </ul>
+                  </div>
+                  <button type="button" class="btn primary medium">
+                    <span>클래스 비교</span>
+                  </button>
+                </div>
               </div>
               <ul class="fund-summary">
                 <li>
-                  <p class="tit">
-                    기준가(전일대비)
+                  <div class="summary-tit">
+                    <p class="tit">기준가(전일대비)</p>
                     <a href="#!" class="btn icon xlarge">
                       <span class="sr-only">더보기</span>
                       <i class="svg-icon icon-plus-fill"></i>
                     </a>
-                  </p>
-                  <p class="value">
-                    <strong>1,220.00</strong>
-                    <span class="unit">원</span>
-                  </p>
-                  <p class="change up">+19.24원(1.60%)</p>
+                  </div>
+                  <div class="summary-con">
+                    <p class="value">
+                      <strong>1,220.00</strong>
+                      <span class="unit">원</span>
+                    </p>
+                    <p class="change up">19.24원(1.60%)</p>
+                  </div>
                 </li>
                 <li>
-                  <p class="tit">수익률(1주 기준)</p>
-                  <p class="value">
-                    <strong>6.48</strong>
-                    <span class="unit">%</span>
-                  </p>
-                  <p class="change down">-1.60%</p>
+                  <div class="summary-tit">
+                    <p class="tit">수익률(1주 기준)</p>
+                  </div>
+                  <div class="summary-con">
+                    <p class="value">
+                      <strong>6.48</strong>
+                      <span class="unit">%</span>
+                    </p>
+                    <p class="change down">1.60%</p>
+                  </div>
                 </li>
                 <li>
-                  <p class="tit">총보수(연기준)</p>
-                  <p class="value">
-                    <strong>0.5090</strong>
-                    <span class="unit">%</span>
-                  </p>
+                  <div class="summary-tit">
+                    <p class="tit">총보수(연기준)</p>
+                  </div>
+                  <div class="summary-con">
+                    <p class="value">
+                      <strong>0.5090</strong>
+                      <span class="unit">%</span>
+                    </p>
+                  </div>
                 </li>
                 <li>
-                  <p class="tit">순자산</p>
-                  <p class="value">
-                    <strong>33.3</strong>
-                    <span class="unit">억원</span>
-                  </p>
+                  <div class="summary-tit">
+                    <p class="tit">순자산</p>
+                  </div>
+                  <div class="summary-con">
+                    <p class="value">
+                      <strong>33.3</strong>
+                      <span class="unit">억원</span>
+                    </p>
+                  </div>
                 </li>
               </ul>
             </div>
-            <div class="fund-ai" id="fund-ai">
+            <div class="fund-briefing" id="fund-briefing">
               <div class="tit-wrap">
-                <h3 class="tit">AI 펀드 브리핑</h3>
+                <h3 class="tit">펀드 브리핑</h3>
               </div>
               <dl class="desc-wrap">
                 <dt>펀드 특징</dt>
@@ -193,9 +206,9 @@
                 </button>
               </div>
               <div class="btn-wrap">
-                <a href="#fund-ai" class="btn text large fw-sb">
+                <a href="#fund-briefing" class="btn text large fw-sb">
                   <i class="svg-icon icon-ai-star"></i>
-                  <span>AI 펀드 브리핑</span>
+                  <span>펀드 브리핑</span>
                 </a>
                 <button type="button" class="btn icon xxlarge bg-white round" data-popover-open="popover-share" aria-controls="popover-share" aria-haspopup="true" data-popover-pos="bottom-right">
                   <span class="sr-only">공유하기</span>
@@ -253,7 +266,7 @@
                                 <span class="sr-only">달력 열기</span>
                                 <i class="svg-icon icon-calendar"></i>
                               </button>
-                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-enntuce-start" value="" aria-label="기간 시작일" />
+                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-xkljhzn-start" value="" aria-label="기간 시작일" />
                             </div>
 
                             <div class="calendar input large">
@@ -261,7 +274,7 @@
                                 <span class="sr-only">달력 열기</span>
                                 <i class="svg-icon icon-calendar"></i>
                               </button>
-                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-enntuce-end" value="" aria-label="기간 종료일" />
+                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-xkljhzn-end" value="" aria-label="기간 종료일" />
                             </div>
                           </div>
                           <button type="button" class="btn large">
@@ -270,7 +283,7 @@
                         </div>
                       </div>
                       <div class="mobile-only justify-end">
-                        <button type="button" class="btn text large">
+                        <button type="button" class="btn text large" data-modal-open="mobilFilterBottomSheet" aria-controls="mobilFilterBottomSheet">
                           <i class="svg-icon icon-filter"></i>
                           <span>직접설정</span>
                         </button>
@@ -636,31 +649,25 @@
 
                           <div class="form-group">
                             <div class="form-tit">
-                              <label for="select-rsc50hd-button">관련공시</label>
+                              <label for="select-rltcsne-button">관련공시</label>
                             </div>
                             <div class="form-conts">
-                              <div class="input-group">
-                                <div class="form-select outline large">
-                                  <select class="sr-only" name="select-rsc50hd" id="select-rsc50hd-native" tabindex="-1" aria-hidden="true" data-placeholder="관련공시 전체보기">
-                                    <option value="option1">관련공시1</option>
-                                    <option value="option2">관련공시2</option>
-                                    <option value="option3">관련공시3</option>
-                                  </select>
+                              <div class="form-select outline large">
+                                <select class="sr-only" name="select-rltcsne" id="select-rltcsne-native" tabindex="-1" aria-hidden="true" data-placeholder="관련공시 전체보기">
+                                  <option value="option1">관련공시1</option>
+                                  <option value="option2">관련공시2</option>
+                                  <option value="option3">관련공시3</option>
+                                </select>
 
-                                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-rsc50hd-listbox" tabindex="0" aria-controls="select-rsc50hd-listbox">
-                                    <span class="select-value placeholder">관련공시 전체보기</span>
-                                  </button>
-
-                                  <ul id="select-rsc50hd-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
-                                    <li class="select-option" role="option" data-value="option1" aria-selected="false" tabindex="-1">관련공시1</li>
-                                    <li class="select-option" role="option" data-value="option2" aria-selected="false" tabindex="-1">관련공시2</li>
-                                    <li class="select-option" role="option" data-value="option3" aria-selected="false" tabindex="-1">관련공시3</li>
-                                  </ul>
-                                </div>
-                                <button type="button" class="btn large icon-mo-only">
-                                  <span>다운로드</span>
-                                  <i class="svg-icon icon-download"></i>
+                                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-rltcsne-listbox" tabindex="0" aria-controls="select-rltcsne-listbox">
+                                  <span class="select-value placeholder">관련공시 전체보기</span>
                                 </button>
+
+                                <ul id="select-rltcsne-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+                                  <li class="select-option" role="option" data-value="option1" aria-selected="false" tabindex="-1">관련공시1</li>
+                                  <li class="select-option" role="option" data-value="option2" aria-selected="false" tabindex="-1">관련공시2</li>
+                                  <li class="select-option" role="option" data-value="option3" aria-selected="false" tabindex="-1">관련공시3</li>
+                                </ul>
                               </div>
                             </div>
                           </div>
@@ -956,16 +963,16 @@
             <div class="util">
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-jjxo6xg-native" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                  <select class="sr-only" name="family-site" id="select-xadqnvt-native" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                     <option value="site1">사이트 1</option>
                     <option value="site2">사이트 2</option>
                   </select>
 
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-jjxo6xg-listbox" tabindex="0" aria-controls="select-jjxo6xg-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-xadqnvt-listbox" tabindex="0" aria-controls="select-xadqnvt-listbox">
                     <span class="select-value placeholder">패밀리 사이트</span>
                   </button>
 
-                  <ul id="select-jjxo6xg-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-xadqnvt-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                     <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                   </ul>
@@ -1034,6 +1041,47 @@
 		<span class="sr-only">닫기</span>
 		<i class="svg-icon ico-popup-close"></i>
 	</button> -->
+      </div>
+
+      <div id="mobilFilterBottomSheet" class="modal fade bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_mobilFilterBottomSheet" data-type="bottom-sheet">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="tit_mobilFilterBottomSheet" class="modal-title">기간설정</h2>
+            </div>
+            <div class="modal-conts">
+              <div class="conts-area">
+                <div class="input-group calendar-group">
+                  <div class="calendar input large">
+                    <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false">
+                      <span class="sr-only">달력 열기</span>
+                      <i class="svg-icon icon-calendar"></i>
+                    </button>
+                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-s0bh9xb-start" value="" aria-label="기간 시작일" />
+                  </div>
+
+                  <div class="calendar input large">
+                    <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false">
+                      <span class="sr-only">달력 열기</span>
+                      <i class="svg-icon icon-calendar"></i>
+                    </button>
+                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-s0bh9xb-end" value="" aria-label="기간 종료일" />
+                  </div>
+                </div>
+
+                <div class="datepicker-inline-container"></div>
+              </div>
+            </div>
+            <div class="modal-btn btn-wrap default">
+              <button type="button" class="btn large btn-close" aria-controls="mobilFilterBottomSheet">검색</button>
+            </div>
+            <button type="button" class="btn icon btn-close" aria-controls="mobilFilterBottomSheet">
+              <span class="sr-only">닫기</span>
+              <i class="svg-icon icon-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-back in"></div>
       </div>
     </div>
   </body>

@@ -37,7 +37,7 @@ const uiUtils = {
     $trap.off("keydown.focustrap");
   },
 	// 트리거($btn)를 기준으로 대상($el)의 위치(top, left)를 계산합니다. (tooltip, popover)
-	calculatePosition: function ($btn, $el, gap = 10) {
+	calculatePosition2: function ($btn, $el, gap = 10) {
     let primaryPosition = "bottom";
     if ($el.hasClass("top")) primaryPosition = "top";
     else if ($el.hasClass("left")) primaryPosition = "left";
@@ -91,6 +91,95 @@ const uiUtils = {
 
     // CSS 적용은 함수가 아닌 호출부에서 하도록 반환값 변경 (더 유연함)
     return { top: tooltipTop, left: tooltipLeft };
+  },
+  calculatePosition: function ($btn, $popover, gap) {
+    const btnRect = $btn[0].getBoundingClientRect();
+    const popoverWidth = $popover.outerWidth();
+    const popoverHeight = $popover.outerHeight();
+    const windowWidth = window.innerWidth;
+
+    // 팝오버에 적용된 클래스를 읽어 기본 위치 결정
+    const isTop = $popover.hasClass('top');
+    const isBottom = $popover.hasClass('bottom');
+    const isLeft = $popover.hasClass('left');
+    
+    // 정렬 (align)
+    const isAlignLeft = $popover.hasClass('align-left');
+    const isAlignRight = $popover.hasClass('align-right');
+    const isAlignTop = $popover.hasClass('align-top');
+    const isAlignBottom = $popover.hasClass('align-bottom');
+
+    let idealTop, idealLeft;
+
+    // --- 1. Y축 (top) 위치 계산 ---
+    if (isTop) {
+      idealTop = btnRect.top - popoverHeight - gap;
+    } else if (isLeft) {
+      if (isAlignTop) idealTop = btnRect.top;
+      else if (isAlignBottom) idealTop = btnRect.bottom - popoverHeight;
+      else idealTop = btnRect.top + (btnRect.height / 2) - (popoverHeight / 2); // Center
+    }
+    // ... (right도 left와 동일) ...
+    else { // 기본값: bottom
+      idealTop = btnRect.bottom + gap;
+    }
+
+    // --- 2. X축 (left) 위치 계산 (최적 맞춤 로직) ---
+    const viewportPadding = 10; // 화면 가장자리에서 최소 10px 여백
+    const windowRight = window.innerWidth - viewportPadding;
+
+    // [A] 3가지 정렬 위치를 모두 계산합니다.
+    const centerLeft = btnRect.left + (btnRect.width / 2) - (popoverWidth / 2);
+    const alignLeft = btnRect.left;
+    const alignRight = btnRect.right - popoverWidth;
+
+    // [B] 3가지 정렬이 각각 화면 안에 들어오는지(fit) 확인합니다.
+    const centerFits = (centerLeft >= viewportPadding && centerLeft + popoverWidth <= windowRight);
+    const leftFits = (alignLeft >= viewportPadding && alignLeft + popoverWidth <= windowRight);
+    const rightFits = (alignRight >= viewportPadding && alignRight + popoverWidth <= windowRight);
+
+    // [C] 사용자가 요청한 정렬을 확인합니다.
+    const requestedAlign = isAlignLeft ? 'left' : (isAlignRight ? 'right' : 'center');
+    
+    let finalLeft;
+
+    // [D] 최적의 위치를 선택합니다.
+    
+    // 1순위: 사용자가 요청한 정렬이 화면에 맞으면, 그것을 사용합니다.
+    if (requestedAlign === 'center' && centerFits) {
+      finalLeft = centerLeft;
+    } else if (requestedAlign === 'left' && leftFits) {
+      finalLeft = alignLeft;
+    } else if (requestedAlign === 'right' && rightFits) {
+      finalLeft = alignRight;
+    
+    // 2순위: 요청한 정렬이 안 맞으면, 다른 옵션 중 맞는 것을 사용합니다.
+    // (가운데 -> 왼쪽 -> 오른쪽 순서로 선호)
+    } else if (centerFits) {
+      finalLeft = centerLeft;
+    } else if (leftFits) {
+      finalLeft = alignLeft;
+    } else if (rightFits) {
+      finalLeft = alignRight;
+        
+    // 3순위: 모든 정렬이 화면을 넘어갈 때 (팝업이 뷰포트보다 클 때 등)
+    //         그때만 화면 끝에 강제로 붙입니다.
+    } else {
+      if (centerLeft + popoverWidth > windowRight) {
+        // 오른쪽으로 넘치면 오른쪽에 붙임
+        finalLeft = windowRight - popoverWidth;
+      } else {
+        // 왼쪽으로 넘치면 왼쪽에 붙임
+        finalLeft = viewportPadding;
+      }
+    }
+
+    // --- 3. 최종 위치 반환 ---
+    // (CSS top/left는 스크롤 위치가 포함되어야 함)
+    return {
+      top: idealTop + window.scrollY,
+      left: finalLeft + window.scrollX,
+    };
   },
 };
 
@@ -918,6 +1007,483 @@ const uiLnb = {
     });
   },
 };
+// const uiLnb2 = {
+//   $sidebar: null,
+//   $links: null,
+//   $sections: null,
+//   offset: 150, 
+
+//   init: function () {
+//     this.$sidebar = $(".sidebar");
+//     if (!this.$sidebar.length) return;
+
+//     this.$links = this.$sidebar.find("a[href^='#']");
+//     if (!this.$links.length) return;
+
+//     this.$sections = $();
+//     this.$links.each((i, link) => {
+//       const $section = $($(link).attr("href"));
+//       if ($section.length) {
+//         this.$sections = this.$sections.add($section);
+//       }
+//     });
+
+//     if (!this.$sections.length) return;
+    
+//     // [추가] 1. 수동 스크롤 핸들러
+//     this.setupManualScrollHandler();
+    
+//     // [기존] 2. 클릭 핸들러
+//     this.setupClickHandlers();
+
+//     // [기존] 3. 스크롤 스파이
+//     $(window).on("scroll.sidebarSpy", () => {
+//       this.updateActiveState();
+//     });
+
+//     this.updateActiveState();
+//   },
+  
+//   /**
+//    * [신규] 수동 수평 스크롤 핸들러
+//    * 사용자가 LNB를 직접 휠/터치로 스크롤하면
+//    * 진행 중인 .animate()를 즉시 중지합니다.
+//    */
+//   setupManualScrollHandler: function() {
+//     // 휠, 마우스휠(IE/Edge), 터치 시작 이벤트 감지
+//     this.$sidebar.on('wheel mousewheel touchstart', function() {
+//       // .stop(true)는 현재 애니메이션을 즉시 멈춥니다.
+//       $(this).stop(true);
+//     });
+//   },
+
+//   setupClickHandlers: function() {
+//     const self = this;
+//     this.$links.on('click', function() {
+//       const $clickedLi = $(this).closest('li');
+//       self.scrollToActiveTab($clickedLi);
+//     });
+//   },
+
+//   scrollToActiveTab: function($activeLi) {
+//     if (!this.$sidebar || !$activeLi || !$activeLi.length) return;
+
+//     const $scroller = this.$sidebar;
+//     const overflowX = $scroller.css('overflow-x');
+//     if (overflowX !== 'auto' && overflowX !== 'scroll') {
+//       return; 
+//     }
+
+//     const scrollerWidth = $scroller.innerWidth();
+//     const scrollerScrollLeft = $scroller.scrollLeft();
+//     const liOffsetLeft = $activeLi.offset().left - $scroller.offset().left;
+//     const liWidth = $activeLi.innerWidth();
+//     const liLeft = liOffsetLeft + scrollerScrollLeft;
+//     const liRight = liLeft + liWidth;
+//     const visibleLeft = scrollerScrollLeft;
+//     const visibleRight = scrollerScrollLeft + scrollerWidth;
+//     const buffer = 16; 
+//     let targetScrollLeft = null; 
+
+//     if (liRight > visibleRight) {
+//       targetScrollLeft = liRight - scrollerWidth + buffer;
+//     } else if (liLeft < visibleLeft) {
+//       targetScrollLeft = liLeft - buffer;
+//     }
+
+//     if (targetScrollLeft !== null) {
+//       // [수정] 
+//       // 애니메이션 시작 전, 기존 애니메이션을 멈춥니다.
+//       $scroller.stop(true).animate({ scrollLeft: targetScrollLeft }, 300);
+//     }
+//   },
+//   updateActiveState: function () {
+//     const scrollTop = $(window).scrollTop();
+//     const triggerPos = scrollTop + this.offset;
+//     let currentActiveId = null;
+//     let $activeLi = null; 
+
+//     const sectionsReversed = this.$sections.get().reverse();
+//     for (const section of sectionsReversed) {
+//       const $section = $(section);
+      
+//       if ($section.offset() && $section.offset().top <= triggerPos) {
+//         currentActiveId = $section.attr("id");
+//         break; 
+//       }
+//     }
+
+//     if (currentActiveId === null) {
+//       currentActiveId = this.$sections.first().attr("id");
+//     }
+
+//     if (scrollTop + $(window).height() >= $(document).height() - 50) { 
+//       currentActiveId = this.$sections.last().attr("id");
+//     }
+
+//     // 사이드바 링크에 active 클래스 적용
+//     this.$links.each(function () {
+//       const $link = $(this);
+//       const $li = $link.closest("li");
+      
+//       // [수정] 이 라인이 빠져서 에러가 발생했습니다.
+//       const href = $link.attr("href"); 
+
+//       if (href === "#" + currentActiveId) {
+//         $li.addClass("active");
+//         $link.attr("aria-current", "page");
+//         $activeLi = $li; 
+//       } else {
+//         $li.removeClass("active");
+//         $link.removeAttr("aria-current");
+//       }
+//     });
+
+//     if ($activeLi && !this.$sidebar.is(':animated')) {
+//       this.scrollToActiveTab($activeLi);
+//     }
+//   },
+// };
+// const calendarJquery = {
+// 	init: function () {
+//     this.initLocalization(); //jQuery UI Datepicker 한국어 설정
+//     this.initPickers(); //단일/범위 Datepicker 초기화
+//     this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
+//   },
+// 	initLocalization: function () {
+//     $.datepicker.regional['ko'] = {
+//       closeText: '닫기',
+//       prevText: '이전달',
+//       nextText: '다음달',
+//       currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
+//       monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+//       monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+//       dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+//       dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+//       dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
+//       weekHeader: '주',
+//       dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
+//       firstDay: 0,
+//       isRTL: false,
+//       showMonthAfterYear: true, // "2025년 11월"
+//       // yearSuffix: '년'
+//     };
+//     $.datepicker.setDefaults($.datepicker.regional['ko']);
+//   },
+// 	getCommonOptions: function () {
+//     return {
+//       changeMonth: true,
+//       changeYear: true,
+//       showButtonPanel: false, 
+//       dateFormat: 'yy-mm-dd',
+      
+//       beforeShow: function (input, inst) {
+//         inst.dpDiv.addClass('calendar-datepicker');
+
+// 				const $anchor = $(input).closest(".calendar-group");
+
+// 				setTimeout(() => {
+// 					if ($anchor.length > 0) {
+// 						const anchorOffset = $anchor.offset();
+// 						const anchorHeight = $anchor.outerHeight();
+// 						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
+		
+// 						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
+// 						inst.dpDiv.css({
+// 							position: "absolute",
+// 							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
+// 							left: anchorOffset.left + "px", // 부모 left
+// 							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
+// 						});
+// 					}
+
+// 					const $header = inst.dpDiv.find('.ui-datepicker-header');
+// 					if ($header.length === 0) return;
+	
+// 					inst.dpDiv.find('.calendar-today-bar').remove();
+	
+// 					const today = new Date();
+// 					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
+// 					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
+// 					const todayText = `오늘 ${formattedDate} (${dayName})`;
+					
+// 					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
+					
+// 					$todayButton.on('click', function(e) {
+// 						e.stopPropagation(); 
+						
+// 						$(input).datepicker('setDate', new Date());
+// 						drawTodayButton(); 
+// 					});
+// 					$header.after($todayButton);
+// 				}, 0);
+
+//         // const drawTodayButton = () => {
+//         // };
+// 				// setTimeout(() => {
+// 				// 	drawTodayButton
+
+// 				// }, 0);
+//         // setTimeout(drawTodayButton, 0); 
+//       }
+//     };
+//   },
+// 	initPickers: function () {
+//     const commonOptions = this.getCommonOptions();
+
+//     $('.calendar-group').each(function () {
+//       const $inputs = $(this).find('input.datepicker.cal');
+
+//       // --- 1. 단일 Datepicker (isRange: false) ---
+//       if ($inputs.length === 1) {
+//         $inputs.datepicker(commonOptions);
+//       }
+//       // --- 2. 범위 Datepicker (isRange: true) ---
+//       else if ($inputs.length === 2) {
+//         const $start = $inputs.eq(0);
+//         const $end = $inputs.eq(1);
+
+//         // 시작일 옵션
+//         $start.datepicker($.extend({}, commonOptions, {
+//           onSelect: function (selectedDate) {
+//             // 시작일 선택 시, 종료일의 최소 날짜를 설정
+//             $end.datepicker("option", "minDate", selectedDate);
+//           }
+//         }));
+
+//         // 종료일 옵션
+//         $end.datepicker($.extend({}, commonOptions, {
+//           onSelect: function (selectedDate) {
+//             // 종료일 선택 시, 시작일의 최대 날짜를 설정
+//             $start.datepicker("option", "maxDate", selectedDate);
+//           }
+//         }));
+//       }
+//     });
+//   },
+// 	initTriggerButtons: function () {
+//     $(document).on('click', '.form-btn-datepicker', function (e) {
+//       e.preventDefault();
+//       const $input = $(this).siblings('input.datepicker.cal');
+      
+//       if ($input.length) {
+//         if ($input.datepicker('widget').is(':visible')) {
+//           $input.datepicker('hide');
+//         } else {
+//           $input.datepicker('show');
+//         }
+//       }
+//     });
+//   }
+// }
+const calendar = {
+  init: function () {
+    if ($.fn.datepicker && $.fn.datepicker.dates['ko']) {
+      $.fn.datepicker.defaults.language = 'ko';
+    }
+    this.initPickers();
+  },
+
+  getCommonOptions: function () {
+    return {
+      language: 'ko',
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      todayHighlight: true,
+      container: 'body', 
+      // todayBtn: "linked", 
+      showOutsideDays: false,
+      pickerClass: 'calendar-datepicker',
+      templates: {
+        leftArrow: '<i class="svg-icon icon-prev" aria-label="이전달"></i>',
+        rightArrow: '<i class="svg-icon icon-next" aria-label="다음달"></i>'
+      }
+    };
+  },
+  initPickers: function () {
+    const commonOptions = this.getCommonOptions();
+    const self = this; 
+
+    $('.calendar-group').each( (index, element) => {
+      const $group = $(element);
+
+      if ($group.parent().find('.datepicker-inline-container').length > 0) return;
+
+      const $inputs = $group.find('input.datepicker.cal');
+      const $btns = $group.find('.form-btn-datepicker');
+      
+      const onShowHandler = (e, inputElement) => {
+        const datepickerInstance = $(inputElement).data('datepicker');
+        const $picker = datepickerInstance.picker;
+        
+        let $anchor = $group;
+
+        const anchorOffset = $anchor.offset();
+        const anchorHeight = $anchor.outerHeight();
+        const anchorWidth = $anchor.outerWidth();
+
+        $picker.css({
+          position: 'absolute',
+          top: anchorOffset.top + anchorHeight + 'px',
+          left: anchorOffset.left + 'px',
+          width: anchorWidth + 'px',
+        });
+        
+      };
+
+      if ($inputs.length === 1) {
+        const $input = $inputs.first();
+        const $btn = $btns.first();
+
+        $input.datepicker(commonOptions)
+          .on('show', function(e) {
+             onShowHandler(e, this);
+          });
+        
+        $btn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $input.datepicker('show');
+        });
+      } else if ($inputs.length === 2) {
+        const $startInput = $inputs.eq(0);
+        const $endInput = $inputs.eq(1);
+        const $startBtn = $btns.eq(0);
+        const $endBtn = $btns.eq(1);
+
+        // [시작일] 초기화
+        $startInput.datepicker(commonOptions)
+          .on('show', function(e) {
+             onShowHandler(e, this);
+          })
+          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
+             // 시작일 선택 시, 종료일의 minDate 설정
+             if (e.date) {
+               $endInput.datepicker('setStartDate', e.date);
+             }
+          });
+        
+        $startBtn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $startInput.datepicker('show');
+        });
+
+        // [종료일] 초기화
+        $endInput.datepicker(commonOptions)
+          .on('show', function(e) {
+             onShowHandler(e, this);
+          })
+          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
+            // 종료일 선택 시, 시작일의 maxDate 설정
+            if (e.date) {
+              $startInput.datepicker('setEndDate', e.date);
+            }
+          });
+
+        $endBtn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $endInput.datepicker('show');
+        });
+      }
+    });
+  },
+};
+const calendarInline = {
+  init: function() {
+    // [✨ 수정] ID 대신 클래스로 모든 인라인 컨테이너를 찾습니다.
+    $('.datepicker-inline-container').each(function() {
+      const $container = $(this);
+      
+      // (안전장치) 이미 초기화되었으면 건너뜁니다.
+      if ($container.data('datepicker-inline-initialized')) return;
+      $container.data('datepicker-inline-initialized', true);
+
+      // [✨ 수정] 부모(wrapper)에서 연관된 인풋을 찾습니다.
+      // (HTML 구조: <div class="conts-area"> <div class="calendar-group">...</div> <div class="datepicker-inline-container"></div> </div>)
+      const $wrapper = $container.parent(); 
+      const $startInput = $wrapper.find('.datepicker.cal').eq(0);
+      const $endInput = $wrapper.find('.datepicker.cal').eq(1);
+
+      if (!$startInput.length) {
+        console.warn('Inline datepicker container found, but no associated inputs (.datepicker.cal) found in parent.');
+        return; 
+      }
+
+      // 2. 캘린더 옵션 (autoclose=false)
+      const options = calendar.getCommonOptions(); 
+      options.autoclose = false; 
+
+      // 3. DIV에 datepicker를 인라인으로 직접 초기화합니다.
+      $container.datepicker(options);
+      
+      const datepickerInstance = $container.data('datepicker');
+      if (!datepickerInstance) return;
+
+      // 4. [✨ 수정] 이 특정 인스턴스에 대한 이벤트를 바인딩합니다.
+      calendarInline.bindEvents($container, $startInput, $endInput);
+
+      // 5. 첫 번째 input을 기본 활성화 상태로 설정
+      $startInput.addClass('active'); // (CSS에서 .active 스타일 추가 필요)
+      const startDate = $startInput.val();
+      if (startDate) {
+        $container.datepicker('setDate', startDate);
+      }
+    });
+  },
+  
+  /**
+   * [✨ 수정] 각 인스턴스별로 이벤트를 바인딩하는 함수
+   */
+  bindEvents: function($container, $startInput, $endInput) {
+
+    // 이벤트 1: 인라인 캘린더에서 날짜를 클릭했을 때
+    $container.on('changeDate', function(e) {
+      if (!e.date) return;
+      const formattedDate = $.fn.datepicker.DPGlobal.formatDate(e.date, 'yyyy-mm-dd', 'ko');
+      
+      if ($startInput.hasClass('active')) {
+        $startInput.val(formattedDate);
+        $endInput.trigger('click'); // 종료일 input으로 포커스 이동
+      } else {
+        $endInput.val(formattedDate);
+      }
+      calendarInline.updateRange($container, $startInput, $endInput); // 범위 업데이트
+    });
+
+    // 이벤트 2: '시작일' Input을 탭/클릭했을 때
+    $startInput.on('click focus', function() {
+      $startInput.addClass('active');
+      $endInput.removeClass('active');
+      
+      const date = $(this).val();
+      if (date) {
+        $container.datepicker('setDate', date);
+      }
+      calendarInline.updateRange($container, $startInput, $endInput);
+    });
+
+    // 이벤트 3: '종료일' Input을 탭/클릭했을 때
+    $endInput.on('click focus', function() {
+      $endInput.addClass('active');
+      $startInput.removeClass('active');
+      
+      const date = $(this).val();
+      if (date) {
+        $container.datepicker('setDate', date);
+      }
+      calendarInline.updateRange($container, $startInput, $endInput);
+    });
+  },
+
+  // [✨ 수정] 캘린더의 min/max 날짜를 설정하는 헬퍼 함수
+  updateRange: function($container, $startInput, $endInput) {
+    const startDate = $startInput.val();
+    const endDate = $endInput.val();
+
+    // setStartDate/EndDate는 date 객체나 빈 문자열을 받아야 합니다.
+    $container.datepicker('setStartDate', startDate ? new Date(startDate) : null);
+    $container.datepicker('setEndDate', endDate ? new Date(endDate) : null);
+  }
+};
 
 const commonJs = {
   init: function () {
@@ -929,6 +1495,8 @@ const commonJs = {
     uiTooltip.init();
     uiSelect.init();
     uiLnb.init();
+		calendar.init();
+		calendarInline.init();
 
     // 전역 이벤트 바인딩
     this.bindGlobalEvents();
