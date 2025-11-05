@@ -131,7 +131,7 @@
           }
         }
       }
-      .fund-ai {
+      .fund-briefing {
         flex-shrink: 0;
         // display: flex;
         // flex-direction: column;
@@ -225,7 +225,7 @@
 				}
 			}
 			@include mq(1500){
-				.fund-ai{
+				.fund-briefing{
 					width: 37%;
 				}
 			}
@@ -238,7 +238,7 @@
 				.fund-info{
 					width: 100%;
 				}
-				.fund-ai{
+				.fund-briefing{
 					width: 100%;
 				}
 			}
@@ -310,7 +310,7 @@
 						}
 					}
 				}
-				.fund-ai{
+				.fund-briefing{
 					.desc-wrap{
 						padding: 2.4rem;
 					}
@@ -383,7 +383,7 @@
 					position: sticky;
           top: var(--top-fixed-height);
 					// right: var(--layout-sidebar-pos);
-          z-index: 9;
+          z-index: 2;
           flex-shrink: 0;
 					order: 1;
 					padding: 6.4rem var(--#{$prefix}-content-padding-x) 6.4rem 0;
@@ -893,6 +893,7 @@
 							border-top: 0.1rem solid #ebeaea;
 						}
 						.btn.text{
+							max-width: fit-content;
 							.icon-arrow-right{
 								width: 1.6rem;
 								height: 1.6rem;

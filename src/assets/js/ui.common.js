@@ -918,6 +918,301 @@ const uiLnb = {
     });
   },
 };
+const calendarJquery = {
+	init: function () {
+    this.initLocalization(); //jQuery UI Datepicker 한국어 설정
+    this.initPickers(); //단일/범위 Datepicker 초기화
+    this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
+  },
+	initLocalization: function () {
+    $.datepicker.regional['ko'] = {
+      closeText: '닫기',
+      prevText: '이전달',
+      nextText: '다음달',
+      currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+      monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
+      weekHeader: '주',
+      dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
+      firstDay: 0,
+      isRTL: false,
+      showMonthAfterYear: true, // "2025년 11월"
+      // yearSuffix: '년'
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ko']);
+  },
+	getCommonOptions: function () {
+    return {
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: false, 
+      dateFormat: 'yy-mm-dd',
+      
+      beforeShow: function (input, inst) {
+        inst.dpDiv.addClass('calendar-datepicker');
+
+				const $anchor = $(input).closest(".calendar-group");
+
+				setTimeout(() => {
+					if ($anchor.length > 0) {
+						const anchorOffset = $anchor.offset();
+						const anchorHeight = $anchor.outerHeight();
+						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
+		
+						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
+						inst.dpDiv.css({
+							position: "absolute",
+							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
+							left: anchorOffset.left + "px", // 부모 left
+							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
+						});
+					}
+
+					const $header = inst.dpDiv.find('.ui-datepicker-header');
+					if ($header.length === 0) return;
+	
+					inst.dpDiv.find('.calendar-today-bar').remove();
+	
+					const today = new Date();
+					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
+					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
+					const todayText = `오늘 ${formattedDate} (${dayName})`;
+					
+					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
+					
+					$todayButton.on('click', function(e) {
+						e.stopPropagation(); 
+						
+						$(input).datepicker('setDate', new Date());
+						drawTodayButton(); 
+					});
+					$header.after($todayButton);
+				}, 0);
+
+        // const drawTodayButton = () => {
+        // };
+				// setTimeout(() => {
+				// 	drawTodayButton
+
+				// }, 0);
+        // setTimeout(drawTodayButton, 0); 
+      }
+    };
+  },
+	initPickers: function () {
+    const commonOptions = this.getCommonOptions();
+
+    $('.calendar-group').each(function () {
+      const $inputs = $(this).find('input.datepicker.cal');
+
+      // --- 1. 단일 Datepicker (isRange: false) ---
+      if ($inputs.length === 1) {
+        $inputs.datepicker(commonOptions);
+      }
+      // --- 2. 범위 Datepicker (isRange: true) ---
+      else if ($inputs.length === 2) {
+        const $start = $inputs.eq(0);
+        const $end = $inputs.eq(1);
+
+        // 시작일 옵션
+        $start.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 시작일 선택 시, 종료일의 최소 날짜를 설정
+            $end.datepicker("option", "minDate", selectedDate);
+          }
+        }));
+
+        // 종료일 옵션
+        $end.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 종료일 선택 시, 시작일의 최대 날짜를 설정
+            $start.datepicker("option", "maxDate", selectedDate);
+          }
+        }));
+      }
+    });
+  },
+	initTriggerButtons: function () {
+    $(document).on('click', '.form-btn-datepicker', function (e) {
+      e.preventDefault();
+      const $input = $(this).siblings('input.datepicker.cal');
+      
+      if ($input.length) {
+        if ($input.datepicker('widget').is(':visible')) {
+          $input.datepicker('hide');
+        } else {
+          $input.datepicker('show');
+        }
+      }
+    });
+  }
+}
+const calendar = {
+  init: function () {
+    if ($.fn.datepicker && $.fn.datepicker.dates['ko']) {
+      $.fn.datepicker.defaults.language = 'ko';
+    } else {
+      console.warn('Bootstrap Datepicker "ko" language file is not loaded.');
+    }
+    this.initPickers();
+  },
+
+  getCommonOptions: function () {
+    return {
+      language: 'ko',
+      format: 'yyyy-mm-dd',
+      autoclose: true, // (★수정★) 개별 선택이므로 날짜 선택 시 닫기
+      todayHighlight: true,
+      container: 'body', 
+      
+      // (★수정★) '오늘' 버튼을 커스텀으로 삽입할 것이므로 'linked' 제거
+      // todayBtn: "linked", 
+      
+      pickerClass: 'calendar-datepicker', // (★수정★) 커스텀 클래스 추가
+      templates: {
+        leftArrow: '<i class="svg-icon icon-prev" aria-label="이전달"></i>',
+        rightArrow: '<i class="svg-icon icon-next" aria-label="다음달"></i>'
+      }
+    };
+  },
+
+  /**
+   * (★수정★) "오늘" 버튼을 커스텀 생성 및 삽입
+   */
+  customizeTodayButton: function(e, input) {
+    if (!e.picker) return;
+    const $picker = $(e.picker);
+    
+    // (안전장치) 이미 커스텀 버튼이 있는지 확인
+    if ($picker.find('.calendar-today-btn').length > 0) return;
+
+    // (★수정★) .today 버튼을 찾는 대신, table을 찾음
+    const $calendarTable = $picker.find('table.table-condensed');
+    if ($calendarTable.length === 0) return;
+
+    // 1. "오늘" 텍스트 생성
+    const today = new Date();
+    const lang = ($.fn.datepicker.dates['ko']) ? 'ko' : 'en';
+    const dayName = ($.fn.datepicker.dates[lang] && $.fn.datepicker.dates[lang].daysShort[today.getDay()]) || '';
+    const formattedDate = $.fn.datepicker.DPGlobal.formatDate(today, 'yyyy-mm-dd', lang);
+    const todayText = `오늘 ${formattedDate} (${dayName})`;
+    
+    // 2. (★수정★) 네이티브 버튼을 찾는 대신, 커스텀 버튼 HTML 생성
+    const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
+    
+    // 3. (★수정★) '오늘' 버튼 클릭 시, 'input'의 날짜를 오늘로 설정
+    $todayButton.on('click', 'button', function(evt) {
+      evt.stopPropagation();
+      $(input).datepicker('setDate', new Date());
+      // (★수정★) 개별 선택이므로 닫아줌
+      $(input).datepicker('hide');
+    });
+
+    // 4. (★수정★) 'table'의 'thead' (요일) *위에* 삽입
+    $calendarTable.find('thead').before($todayButton);
+  },
+
+  initPickers: function () {
+    const commonOptions = this.getCommonOptions();
+    const self = this; 
+
+    $('.calendar-group').each( (index, element) => {
+      const $group = $(element);
+      const $inputs = $group.find('input.datepicker.cal');
+      const $btns = $group.find('.form-btn-datepicker');
+
+      /**
+       * (★수정★) onShow 핸들러가 'input'을 인자로 받도록 수정
+       */
+      const onShowHandler = (e, inputElement) => {
+        if (!e.picker) return; 
+        const $picker = $(e.picker);
+
+        // (★수정★) 기준 앵커를 .form-calendar-group으로 변경
+        let $anchor = $group.closest(".form-calendar-group");
+        if ($anchor.length === 0) {
+           $anchor = $group; // Fallback
+        }
+
+        const anchorOffset = $anchor.offset();
+        const anchorHeight = $anchor.outerHeight();
+        const anchorWidth = $anchor.outerWidth();
+
+        $picker.css({
+          position: 'absolute',
+          top: anchorOffset.top + anchorHeight + 5 + 'px', // 5px 갭
+          left: anchorOffset.left + 'px',
+          width: anchorWidth + 'px',
+        });
+        
+        // (★수정★) customizeTodayButton에 'inputElement' 전달
+        self.customizeTodayButton(e, inputElement);
+      };
+
+      // --- 1. 단일 Datepicker ---
+      if ($inputs.length === 1) {
+        const $input = $inputs.first();
+        const $btn = $btns.first();
+
+        $input.datepicker(commonOptions)
+          .on('show', function(e) { // 'this' (input)를 onShowHandler로 전달
+             onShowHandler(e, this);
+          });
+        
+        $btn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $input.datepicker('show');
+        });
+      }
+      
+      // --- 2. (★수정★) 범위(Range)가 아닌 개별 Datepicker 2개로 초기화 ---
+      else if ($inputs.length === 2) {
+        const $startInput = $inputs.eq(0);
+        const $endInput = $inputs.eq(1);
+        const $startBtn = $btns.eq(0);
+        const $endBtn = $btns.eq(1);
+
+        // [시작일] 초기화
+        $startInput.datepicker(commonOptions)
+          .on('show', function(e) {
+             onShowHandler(e, this);
+          })
+          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
+             // 시작일 선택 시, 종료일의 minDate 설정
+             if (e.date) {
+               $endInput.datepicker('setStartDate', e.date);
+             }
+          });
+        
+        $startBtn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $startInput.datepicker('show');
+        });
+
+        // [종료일] 초기화
+        $endInput.datepicker(commonOptions)
+          .on('show', function(e) {
+             onShowHandler(e, this);
+          })
+          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
+            // 종료일 선택 시, 시작일의 maxDate 설정
+            if (e.date) {
+              $startInput.datepicker('setEndDate', e.date);
+            }
+          });
+
+        $endBtn.on('click.datepicker', (e) => {
+          e.stopPropagation();
+          $endInput.datepicker('show');
+        });
+      }
+    });
+  },
+};
+
 
 const commonJs = {
   init: function () {
@@ -929,6 +1224,7 @@ const commonJs = {
     uiTooltip.init();
     uiSelect.init();
     uiLnb.init();
+		calendar.init();
 
     // 전역 이벤트 바인딩
     this.bindGlobalEvents();

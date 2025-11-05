@@ -123,6 +123,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
 				{ from: 'src/assets/js', to: 'assets/js', noErrorOnMissing: true },
+				{ from: 'src/assets/css', to: 'assets/css', noErrorOnMissing: true },
 				{ from: 'src/guides/guide/assets',  to: 'guides/guide/assets', noErrorOnMissing: true },
 				{ from: 'src/guides/list',  to: 'guides/list', noErrorOnMissing: true },
         // { from: 'src/assets/images', to: 'assets/images', noErrorOnMissing: true },

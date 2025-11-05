@@ -1,18 +1,20 @@
 <%
   const localsSafe = locals || {};
   const id = localsSafe.id || 'cal-' + Math.random().toString(36).substring(2, 9);
-  const title = localsSafe.title || '';   //title이 없으면 ariaLabel 넣어줘야 함
-  const ariaLabel = localsSafe.ariaLabel || '';
+  const title = localsSafe.title || '';  
+  const ariaLabel = localsSafe.ariaLabel || '기간';
   const placeholder = localsSafe.placeholder || 'YYYY.MM.DD';
-  const value = localsSafe.value || '';
+	const value = localsSafe.value || ''; // 단일 선택기 값
+  const startValue = localsSafe.startValue || ''; // 범위 선택기 (시작) 값
+  const endValue = localsSafe.endValue || ''; // 범위 선택기 (종료) 값
   const size = localsSafe.size || 'large';
   const groupClass = localsSafe.groupClass || '';
   const inputClass = localsSafe.inputClass || '';
-  // const isSingle = localsSafe.isSingle || false;
-  // const position = localsSafe.position || 'bottom';
   const error = localsSafe.error || null;
   const disabled = localsSafe.disabled || false;
   const readonly = localsSafe.readonly || false;
+
+	const isRange = localsSafe.isRange !== undefined ? localsSafe.isRange : true;
 
   const formGroupClasses = [
     'form-group',
@@ -32,27 +34,44 @@
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
   <div class="form-tit">
-    <label for="<%= id %>"><%= title %></label>
+    <span><%= title %></span>
   </div>
   <div class="form-conts">
 <% } -%>
-    <div class="<%= inputClasses %>">
-      <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false">
-        <span class="sr-only">달력 열기</span>
-        <i class="svg-icon ico-calendar"></i>
-      </button>
-      <input 
-        type="text" 
-        class="datepicker cal" 
-        placeholder="<%= placeholder %>" 
-        id="<%= id %>" 
-        value="<%= value %>"
-        <% if (!title && ariaLabel) { %>
-          aria-label="<%= ariaLabel %>"
-        <% } %>
-        <% if (disabled) { %>disabled<% } %>
-        <% if (readonly) { %>readonly<% } %>
-      />
+    <div class="input-group calendar-group">
+      <div class="<%= inputClasses %>">
+        <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false" <% if (disabled) { %>disabled<% } %>>
+          <span class="sr-only">달력 열기</span>
+          <i class="svg-icon icon-calendar"></i>
+        </button>
+        <input 
+          type="text" 
+          class="datepicker cal" 
+          placeholder="<%= placeholder %>" 
+          id="<%= isRange ? id + '-start' : id %>" 
+          value="<%= isRange ? startValue : value %>"
+          aria-label="<%= isRange ? ariaLabel + ' 시작일' : ariaLabel %>"
+          <% if (disabled) { %>disabled<% } %>
+          <% if (readonly) { %>readonly<% } %>
+        />
+      </div>
+
+      <div class="<%= inputClasses %>">
+        <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false" <% if (disabled) { %>disabled<% } %>>
+          <span class="sr-only">달력 열기</span>
+          <i class="svg-icon icon-calendar"></i>
+        </button>
+        <input 
+          type="text" 
+          class="datepicker cal" 
+          placeholder="<%= placeholder %>" 
+          id="<%= id %>-end" 
+          value="<%= endValue %>"
+          aria-label="<%= ariaLabel %> 종료일"
+          <% if (disabled) { %>disabled<% } %>
+          <% if (readonly) { %>readonly<% } %>
+        />
+      </div>
     </div>
     <% if (error) { -%>
     <p class="form-error-msg"><%= error %></p>

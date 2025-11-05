@@ -96,9 +96,9 @@
 								</li>
 							</ul>
 						</div>
-						<div class="fund-ai" id="fund-ai">
+						<div class="fund-briefing" id="fund-briefing">
 							<div class="tit-wrap">
-								<h3 class="tit">AI 펀드 브리핑</h3>
+								<h3 class="tit">펀드 브리핑</h3>
 							</div>
 							<dl class="desc-wrap">
 								<dt>펀드 특징</dt>
@@ -133,9 +133,9 @@
 							<div class="btn-wrap">
 								<%- include('../../components/button.ejs', {
 									tag: 'a',
-									url: '#fund-ai',
+									url: '#fund-briefing',
 									variant: 'text',
-									label: 'AI 펀드 브리핑',
+									label: '펀드 브리핑',
 									size: 'large',
 									preIcon: 'ai-star',
 									addClass: 'fw-sb'
@@ -191,7 +191,7 @@
 											</div>
 											<div class="pc-only">
 												<div class="form-calendar-group">
-													<%- include('../../components/calendar-range.ejs', {
+													<%- include('../../components/calendar.ejs', {
 														size: 'large'
 													}) -%>
 													<%- include('../../components/button.ejs', {
