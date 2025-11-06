@@ -1,12 +1,7 @@
 "use strict";
 
-/**
- * ------------------------------------------------------------------------
- * [공통 유틸리티] uiUtils 공통 함수
- * ------------------------------------------------------------------------
- */
+// [공통 유틸리티] uiUtils 공통 함수
 const uiUtils = {
-  // 요소 내부에 포커스를 가둡니다. (Modal, Popover 등)
   focusTrap: function ($trap) {
     const $focusableElements = $trap.find(
       'a[href], button:not(:disabled), textarea:not(:disabled), input:not(:disabled), select:not(:disabled), [tabindex]:not([tabindex="-1"])'
@@ -22,11 +17,9 @@ const uiUtils = {
         const $activeElement = $(document.activeElement);
 
         if (event.shiftKey && $activeElement.is($firstFocusableElement)) {
-          // Shift + Tab on first element -> focus last
           event.preventDefault();
           $lastFocusableElement.focus();
         } else if (!event.shiftKey && $activeElement.is($lastFocusableElement)) {
-          // Tab on last element -> focus first
           event.preventDefault();
           $firstFocusableElement.focus();
         }
@@ -35,62 +28,6 @@ const uiUtils = {
   },
   removeFocusTrap: function ($trap) {
     $trap.off("keydown.focustrap");
-  },
-	// 트리거($btn)를 기준으로 대상($el)의 위치(top, left)를 계산합니다. (tooltip, popover)
-	calculatePosition2: function ($btn, $el, gap = 10) {
-    let primaryPosition = "bottom";
-    if ($el.hasClass("top")) primaryPosition = "top";
-    else if ($el.hasClass("left")) primaryPosition = "left";
-    else if ($el.hasClass("right")) primaryPosition = "right";
-
-    let alignment = "center"; // 기본값
-    if ($el.hasClass("align-left")) alignment = "left";
-    else if ($el.hasClass("align-right")) alignment = "right";
-    else if ($el.hasClass("align-top")) alignment = "top";
-    else if ($el.hasClass("align-bottom")) alignment = "bottom";
-
-    const tooltipHeight = $el.outerHeight();
-    const tooltipWidth = $el.outerWidth();
-    const triggerRect = $btn[0].getBoundingClientRect();
-    const itemTop = triggerRect.top + window.scrollY;
-    const itemLeft = triggerRect.left + window.scrollX;
-    const itemRight = triggerRect.right + window.scrollX;
-    const itemBottom = triggerRect.bottom + window.scrollY;
-    const itemHeight = triggerRect.height;
-    const itemWidth = triggerRect.width;
-
-    let tooltipTop, tooltipLeft;
-
-    switch (primaryPosition) {
-      case "top":
-        tooltipTop = itemTop - tooltipHeight - gap;
-        if (alignment === "left") tooltipLeft = itemLeft;
-        else if (alignment === "right") tooltipLeft = itemRight - tooltipWidth;
-        else tooltipLeft = itemLeft + (itemWidth - tooltipWidth) / 2;
-        break;
-      case "left":
-        tooltipLeft = itemLeft - tooltipWidth - gap;
-        if (alignment === "top") tooltipTop = itemTop;
-        else if (alignment === "bottom") tooltipTop = itemBottom - tooltipHeight;
-        else tooltipTop = itemTop + (itemHeight - tooltipHeight) / 2;
-        break;
-      case "right":
-        tooltipLeft = itemRight + gap;
-        if (alignment === "top") tooltipTop = itemTop;
-        else if (alignment === "bottom") tooltipTop = itemBottom - tooltipHeight;
-        else tooltipTop = itemTop + (itemHeight - tooltipHeight) / 2;
-        break;
-      case "bottom":
-      default:
-        tooltipTop = itemBottom + gap;
-        if (alignment === "left") tooltipLeft = itemLeft;
-        else if (alignment === "right") tooltipLeft = itemRight - tooltipWidth;
-        else tooltipLeft = itemLeft + (itemWidth - tooltipWidth) / 2;
-        break;
-    }
-
-    // CSS 적용은 함수가 아닌 호출부에서 하도록 반환값 변경 (더 유연함)
-    return { top: tooltipTop, left: tooltipLeft };
   },
   calculatePosition: function ($btn, $popover, gap) {
     const btnRect = $btn[0].getBoundingClientRect();
@@ -111,71 +48,52 @@ const uiUtils = {
 
     let idealTop, idealLeft;
 
-    // --- 1. Y축 (top) 위치 계산 ---
+    // Y축 (top) 위치 계산
     if (isTop) {
       idealTop = btnRect.top - popoverHeight - gap;
     } else if (isLeft) {
       if (isAlignTop) idealTop = btnRect.top;
       else if (isAlignBottom) idealTop = btnRect.bottom - popoverHeight;
       else idealTop = btnRect.top + (btnRect.height / 2) - (popoverHeight / 2); // Center
-    }
-    // ... (right도 left와 동일) ...
-    else { // 기본값: bottom
+    } else { // 기본값: bottom
       idealTop = btnRect.bottom + gap;
     }
 
-    // --- 2. X축 (left) 위치 계산 (최적 맞춤 로직) ---
-    const viewportPadding = 10; // 화면 가장자리에서 최소 10px 여백
+    // 2. X축 (left) 위치 계산
+    const viewportPadding = 10;
     const windowRight = window.innerWidth - viewportPadding;
 
-    // [A] 3가지 정렬 위치를 모두 계산합니다.
     const centerLeft = btnRect.left + (btnRect.width / 2) - (popoverWidth / 2);
     const alignLeft = btnRect.left;
     const alignRight = btnRect.right - popoverWidth;
 
-    // [B] 3가지 정렬이 각각 화면 안에 들어오는지(fit) 확인합니다.
     const centerFits = (centerLeft >= viewportPadding && centerLeft + popoverWidth <= windowRight);
     const leftFits = (alignLeft >= viewportPadding && alignLeft + popoverWidth <= windowRight);
     const rightFits = (alignRight >= viewportPadding && alignRight + popoverWidth <= windowRight);
 
-    // [C] 사용자가 요청한 정렬을 확인합니다.
     const requestedAlign = isAlignLeft ? 'left' : (isAlignRight ? 'right' : 'center');
     
     let finalLeft;
-
-    // [D] 최적의 위치를 선택합니다.
     
-    // 1순위: 사용자가 요청한 정렬이 화면에 맞으면, 그것을 사용합니다.
     if (requestedAlign === 'center' && centerFits) {
       finalLeft = centerLeft;
     } else if (requestedAlign === 'left' && leftFits) {
       finalLeft = alignLeft;
     } else if (requestedAlign === 'right' && rightFits) {
       finalLeft = alignRight;
-    
-    // 2순위: 요청한 정렬이 안 맞으면, 다른 옵션 중 맞는 것을 사용합니다.
-    // (가운데 -> 왼쪽 -> 오른쪽 순서로 선호)
     } else if (centerFits) {
       finalLeft = centerLeft;
     } else if (leftFits) {
       finalLeft = alignLeft;
     } else if (rightFits) {
       finalLeft = alignRight;
-        
-    // 3순위: 모든 정렬이 화면을 넘어갈 때 (팝업이 뷰포트보다 클 때 등)
-    //         그때만 화면 끝에 강제로 붙입니다.
     } else {
       if (centerLeft + popoverWidth > windowRight) {
-        // 오른쪽으로 넘치면 오른쪽에 붙임
         finalLeft = windowRight - popoverWidth;
       } else {
-        // 왼쪽으로 넘치면 왼쪽에 붙임
         finalLeft = viewportPadding;
       }
     }
-
-    // --- 3. 최종 위치 반환 ---
-    // (CSS top/left는 스크롤 위치가 포함되어야 함)
     return {
       top: idealTop + window.scrollY,
       left: finalLeft + window.scrollX,
@@ -277,11 +195,6 @@ const uiSelect = {
       }
     });
   },
-
-  /**
-   * 셀렉트 열기
-   * @param {jQuery} $select - .form-select 요소
-   */
   open: function ($select) {
     if ($select.hasClass("disabled")) return;
 
@@ -302,16 +215,10 @@ const uiSelect = {
       $selected = $listbox.find(".select-option:not(.disabled)").first();
     }
     $selected.focus();
-    // 스크롤 (필요시)
     $listbox.scrollTop(
       $listbox.scrollTop() + $selected.position().top - $listbox.height() / 2 + $selected.height() / 2
     );
   },
-
-  /**
-   * 셀렉트 닫기
-   * @param {jQuery} $select - .form-select 요소
-   */
   close: function ($select) {
     const $btn = $select.find(".select-button");
     const $listbox = $select.find(".select-listbox");
@@ -320,20 +227,11 @@ const uiSelect = {
     $btn.attr("aria-expanded", "false");
     $listbox.attr("hidden", true);
   },
-
-  /**
-   * 모든 셀렉트 닫기
-   */
   closeAll: function () {
     $(".form-select.active").each(function () {
       uiSelect.close($(this));
     });
   },
-
-  /**
-   * 옵션 선택
-   * @param {jQuery} $option - 선택된 .select-option
-   */
   selectOption: function ($option) {
     const $select = $option.closest(".form-select");
     const $btn = $select.find(".select-button");
@@ -348,7 +246,7 @@ const uiSelect = {
     $listbox
       .find('[aria-selected="true"]')
       .attr("aria-selected", "false")
-      .removeClass("selected"); // 'selected' 클래스(스타일링용)
+      .removeClass("selected");
 
     // 2. 새 옵션 선택
     $option.attr("aria-selected", "true").addClass("selected");
@@ -387,12 +285,6 @@ const uiModal = {
       }
     });
   },
-
-  /**
-   * 모달 열기
-   * @param {string} id - 열릴 모달의 ID
-   * @param {jQuery} $trigger - 모달을 연 버튼 (포커스 복귀용)
-   */
   open: function (id, $trigger) {
     const $modal = $(`#${id}`);
     if (!$modal.length) return;
@@ -403,16 +295,13 @@ const uiModal = {
     // 모달을 연 트리거 저장
     $modal.data("modal-trigger", $trigger);
 
-    // $("body").addClass("scroll-no");
 		$("html").css('overflow', 'hidden');
-    $modal.addClass("shown"); // 1. .shown으로 표시 (display: block)
+    $modal.addClass("shown");
 
-    // 2. 트랜지션을 위해 짧은 지연 후 .in 클래스 추가 (fade-in)
     setTimeout(() => $modal.addClass("in"), 10);
 
     // 3. 트랜지션 완료 후 포커스 이동
     $modal.one("transitionend", () => {
-      // 스크롤 영역이 있으면 영역에, 없으면 컨텐츠 래퍼에 포커스
       if ($scrollableConts.length) {
         $scrollableConts.focus();
       } else {
@@ -430,11 +319,6 @@ const uiModal = {
       }
     });
   },
-
-  /**
-   * 모달 닫기
-   * @param {string} id - 닫힐 모달의 ID
-   */
   close: function (id) {
     const $modal = $(`#${id}`);
     if (!$modal.length) return;
@@ -442,16 +326,13 @@ const uiModal = {
     const $trigger = $modal.data("modal-trigger");
     const $content = $modal.find(".modal-content");
 
-    // 1. .in 클래스 제거 (fade-out)
     $modal.removeClass("in");
 
-    // 2. 트랜지션 완료 후 .shown 제거 (display: none)
     $modal.one("transitionend", () => {
       $modal.removeClass("shown");
 
       // 다른 모달이 열려있지 않을 때만 body 스크롤 복원
       if ($(".modal.in").length === 0) {
-        // $("body").removeClass("scroll-no");
 				$("html").css('overflow', '');
       }
 
@@ -466,7 +347,6 @@ const uiModal = {
     uiUtils.removeFocusTrap($content);
     $modal.off("keydown.modalEsc");
   },
-
 	setFullModalContentHeight: function(){
     const rootFontSize = parseFloat($('html').css('font-size'));
     if (!rootFontSize) return;
@@ -490,7 +370,6 @@ const uiModal = {
 };
 const uiAccordion = {
   init: function () {
-    // 아코디언 버튼 클릭 (이벤트 위임)
     $(document).on("click", ".accordion .btn-accordion", function (e) {
       e.preventDefault();
 
@@ -534,16 +413,44 @@ const uiAccordion = {
   },
 };
 const uiTab = {
+  scrollTabIntoView: function($tab, $tablist, smooth = true) {
+    if (!$tab.length || !$tablist.length) return;
+    
+    // 1. 컨테이너가 스크롤 가능한지 확인 (가로 스크롤만)
+    if ($tablist[0].scrollWidth <= $tablist[0].clientWidth) return;
+
+    const containerWidth = $tablist.outerWidth();
+    const scrollLeft = $tablist.scrollLeft();
+    const tabOffsetLeft = $tab[0].offsetLeft; // 부모($tablist) 기준 탭의 왼쪽 위치
+    const tabWidth = $tab.outerWidth();
+    
+    const containerVisibleRight = scrollLeft + containerWidth;
+    const tabRight = tabOffsetLeft + tabWidth;
+    let newScrollLeft = null;
+    const buffer = 20; // 좌우 20px 여유 공간
+
+    if (tabRight > containerVisibleRight) { 
+      newScrollLeft = tabRight - containerWidth + buffer;
+    } else if (tabOffsetLeft < scrollLeft) { 
+      newScrollLeft = tabOffsetLeft - buffer;
+    }
+    
+    if (newScrollLeft !== null) {
+      if (smooth) {
+        $tablist.stop().animate({ scrollLeft: newScrollLeft }, 300);
+      } else {
+        $tablist.scrollLeft(newScrollLeft);
+      }
+    }
+  },
+
   init: function () {
-    // 탭 버튼 클릭 (이벤트 위임)
     $(document).on("click", '.tab [role="tablist"] .btn-tab', function (e) {
       e.preventDefault();
       const $btn = $(this);
       const $tab = $btn.closest('[role="tab"]');
 
-      if ($tab.hasClass("active") || $btn.is(":disabled")) {
-        return; // 이미 활성화되었거나 비활성화된 탭이면 중지
-      }
+      if ($tab.hasClass("active") || $btn.is(":disabled")) return;
 
       const $tabArea = $tab.closest(".tab-area");
       const $tablist = $tab.closest('[role="tablist"]');
@@ -553,23 +460,22 @@ const uiTab = {
       const $activeTab = $tablist.find(".active");
       const $activePanel = $tabArea.find(".tab-conts.active");
 
-      $activeTab
-        .removeClass("active")
-        .attr("aria-selected", "false")
-        .find(".sr-only")
-        .remove();
+      $activeTab.removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
       $activePanel.removeClass("active");
 
       // 2. 새 탭/패널 활성화
       $tab.addClass("active").attr("aria-selected", "true");
       $btn.append('<span class="sr-only">선택됨</span>');
       $targetPanel.addClass("active");
+
+      uiTab.scrollTabIntoView($tab, $tablist, true);
     });
 
     // 키보드 네비게이션
     $(document).on("keydown", '.tab [role="tablist"] .btn-tab', function (e) {
       const $btn = $(this);
       const $tab = $btn.closest('[role="tab"]');
+      const $tablist = $tab.closest('[role="tablist"]');
       let $nextTab;
 
       switch (e.key) {
@@ -578,7 +484,7 @@ const uiTab = {
           e.preventDefault();
           $nextTab = $tab.prev();
           if (!$nextTab.length) {
-            $nextTab = $tab.siblings().last(); // 처음이면 끝으로
+            $nextTab = $tab.siblings().last();
           }
           break;
         case "ArrowRight":
@@ -586,7 +492,7 @@ const uiTab = {
           e.preventDefault();
           $nextTab = $tab.next();
           if (!$nextTab.length) {
-            $nextTab = $tab.siblings().first(); // 마지막이면 처음으로
+            $nextTab = $tab.siblings().first();
           }
           break;
         case "Home":
@@ -600,7 +506,11 @@ const uiTab = {
         default:
           return;
       }
-      $nextTab.find(".btn-tab").focus();
+      
+      if ($nextTab && $nextTab.length) {
+        $nextTab.find(".btn-tab").focus();
+        uiTab.scrollTabIntoView($nextTab, $tablist, false);
+      }
     });
   },
 };
@@ -682,16 +592,12 @@ const uiPopover = {
 			const $currentTrigger = $popover.data("popover-trigger");
 
       if ($popover.hasClass("active")) {
-        // uiPopover.close($popover);
 				if ($currentTrigger && $currentTrigger[0] === $btn[0]) {
-          // 활성화 상태 + 같은 버튼 클릭 -> 닫기
           uiPopover.close($popover);
         } else {
-          // 활성화 상태 + 다른 버튼 클릭 -> 다시 열기 (위치 재조정)
           uiPopover.open($btn, $popover);
         }
       } else {
-        // 비활성화 상태 -> 열기
         uiPopover.open($btn, $popover);
       }
     });
@@ -702,27 +608,15 @@ const uiPopover = {
       const $popover = $(this).closest(".popover"); // 클래스명 변경
       uiPopover.close($popover);
     });
-
-    // 3. 팝오버 닫기 (Click Outside)
-    // $(document).on("click.popover", function (e) {
-    //   // 팝오버가 아닌 영역, 팝오버 트리거가 아닌 영역을 클릭 시
-    //   if (
-    //     !$(e.target).closest(".popover").length &&
-    //     !$(e.target).closest("[data-popover-open]").length
-    //   ) {
-    //     uiPopover.closeAll();
-    //   }
-    // });
   },
 	open: function($btn, $popover) {
 		// 1. 다른 팝오버/셀렉트 닫기
 		uiPopover.closeAll();
 		uiSelect.closeAll(); 
 
-		// ★★★ 시작: data-popover-pos 값 파싱 ★★★
-		// 2. 버튼에서 위치/정렬 값 읽어오기 (기본값: 'bottom-center')
+		// 2. 버튼에서 위치/정렬 값 읽어오기 
 		const posData = $btn.data('popover-pos') || 'bottom-center';
-		const parts = posData.split('-'); // "bottom-right" -> ["bottom", "right"]
+		const parts = posData.split('-'); 
 
 		const newPosition = parts[0] || 'bottom';
 		const newAlign = parts[1] || 'center';
@@ -759,33 +653,6 @@ const uiPopover = {
 			}
 		});
 	},
-  // open: function ($btn, $popover) {
-  //   // 1. 다른 팝오버/셀렉트 닫기 (안전장치)
-  //   uiPopover.closeAll();
-  //   uiSelect.closeAll(); 
-
-  //   // 2. 위치 계산 및 표시
-  //   $popover.addClass("active").attr("aria-hidden", "false");
-    
-  //   // ★★★ uiUtils의 공통 함수 호출 ★★★
-  //   const position = uiUtils.calculatePosition($btn, $popover, 10);
-  //   $popover.css({
-  //     top: position.top + "px",
-  //     left: position.left + "px",
-  //   });
-
-  //   // 3. 접근성
-  //   $popover.data("popover-trigger", $btn);
-  //   uiUtils.focusTrap($popover);
-  //   $popover.find(".btn-close").focus();
-
-  //   // ESC 닫기
-  //   $popover.on("keydown.popoverEsc", function (e) {
-  //     if (e.key === "Escape") {
-  //       uiPopover.close($popover);
-  //     }
-  //   });
-  // },
   close: function ($popover) {
     if (!$popover.hasClass("active")) return;
     const $trigger = $popover.data("popover-trigger");
@@ -828,9 +695,8 @@ const uiTooltip = {
   },
   show: function ($btn, $tooltip) {
     // 1. 툴팁 표시
-    $tooltip.addClass("active"); // (CSS에서 .active로 보이게 처리)
+    $tooltip.addClass("active");
     
-    // 2. ★★★ uiUtils의 공통 함수 호출 ★★★
     const position = uiUtils.calculatePosition($btn, $tooltip, 8); // 툴팁은 간격을 8px로
     $tooltip.css({
       top: position.top + "px",
@@ -842,101 +708,6 @@ const uiTooltip = {
   }
 };
 const uiLnb2 = {
-  isClickScrolling: false, // 클릭으로 스크롤 중인지 확인
-  $links: null,
-  $sections: null,
-  $sidebar: null,
-  scrollOffset: 80,       // LNB 클릭/스파이 기준선 (init에서 재계산)
-  handleScroll: null,
-  scrollEndTimer: null, // [수정] jQuery.animate 콜백으로 대체
-
-  init: function() {
-    this.$links = $('.layout-sidebar .sidebar li a[href^="#"]');
-    this.$sections = $('.layout-sidebar .layout-content .cont-group[id]');
-    this.$sidebar = $('.sidebar');
-    const $topFixed = $('.top-fixed');
-
-    if (this.$links.length === 0 || this.$sections.length === 0 || !this.$sidebar.length) return;
-
-    // this.setupClickHandlers();
-    this.initScrollSpy();
-  },
-  setupClickHandlers: function() {
-    const self = this;
-
-    this.$links.on('click.lnbClick', function(e) {
-      e.preventDefault();
-      const $link = $(this);
-      const $targetSection = $($link.attr('href'));
-      
-      if ($targetSection.length) {
-        self.isClickScrolling = true; // 스크롤 스파이 멈춤
-        self.setActiveIndicator($link); // (즉시) 클릭한 메뉴 활성화
-
-        const targetScrollTop = $targetSection.offset().top - self.scrollOffset + 1; // 1px 보정
-        
-        $('html, body').animate({
-          scrollTop: targetScrollTop
-        }, 500, () => { // 0.5초 애니메이션
-          self.isClickScrolling = false; // 스크롤 스파이 재개
-        });
-      }
-    });
-  },
-  initScrollSpy: function() {
-    const self = this;
-    
-    this.handleScroll = () => {
-      const scrollY = $(window).scrollTop();
-
-      // 클릭으로 스크롤 중이면 스파이 기능 중지
-      if (self.isClickScrolling) return;
-
-      // --- 기능 2b: 스크롤 스파이 (메뉴 활성화) ---
-      const winHeight = $(window).height();
-      const scrollHeight = $(document).height();
-      const $firstLink = self.$links.first();
-      const $lastLink = self.$links.last();
-      const firstSecTop = self.$sections.first().length ? self.$sections.first().offset().top : 0;
-
-      // 맨 아래 도달
-      if (scrollY + winHeight >= scrollHeight - 10) {
-        self.setActiveIndicator($lastLink);
-        return;
-      }
-      // 맨 위 (첫 섹션 도달 전)
-      if (scrollY < firstSecTop - self.scrollOffset) {
-        self.setActiveIndicator($firstLink);
-        return;
-      }
-
-      // 중간 섹션 탐색
-      for (let i = self.$sections.length - 1; i >= 0; i--) {
-        const $currentSection = self.$sections.eq(i);
-        const sectionTop = $currentSection.offset().top - self.scrollOffset;
-
-        if (scrollY >= sectionTop - 1) { // 1px 버퍼
-          const id = $currentSection.attr('id');
-          const $navLink = self.$links.filter(`[href="#${id}"]`);
-          self.setActiveIndicator($navLink);
-          return; 
-        }
-      }
-    };
-
-    $(window).on('scroll.lnbScroll', this.handleScroll);
-    this.handleScroll(); // 초기 로드 시 실행
-  },
-
-  setActiveIndicator: function($anchor) {
-    if (!$anchor || !$anchor.length) return;
-    if ($anchor.parent().hasClass('active')) return;
-    
-    this.$links.parent().removeClass('active');
-    $anchor.parent().addClass('active');
-  }
-};
-const uiLnb = {
   $sidebar: null,
   $links: null,
   $sections: null,
@@ -1007,407 +778,240 @@ const uiLnb = {
     });
   },
 };
-// const uiLnb2 = {
-//   $sidebar: null,
-//   $links: null,
-//   $sections: null,
-//   offset: 150, 
+const uiLnb = {
+  $sidebar: null,
+  $links: null,
+  $sections: null,
+  offset: 150, 
+  isClickScrolling: false, // [신규] 클릭으로 인한 스크롤인지 확인
+  pauseTimer: null,      // [신규] 스크롤 감지 재개를 위한 타이머
 
-//   init: function () {
-//     this.$sidebar = $(".sidebar");
-//     if (!this.$sidebar.length) return;
-
-//     this.$links = this.$sidebar.find("a[href^='#']");
-//     if (!this.$links.length) return;
-
-//     this.$sections = $();
-//     this.$links.each((i, link) => {
-//       const $section = $($(link).attr("href"));
-//       if ($section.length) {
-//         this.$sections = this.$sections.add($section);
-//       }
-//     });
-
-//     if (!this.$sections.length) return;
+  /**
+   * [신규] 탭/LNB 항목을 스크롤 영역 안으로 이동시키는 헬퍼
+   * (uiTab에서 가져온 공통 함수)
+   */
+  scrollItemIntoView: function($item, $container, smooth = true) {
+    if (!$item.length || !$container.length) return;
     
-//     // [추가] 1. 수동 스크롤 핸들러
-//     this.setupManualScrollHandler();
+    // 1. 컨테이너가 가로로 스크롤 가능한지 확인 (모바일 LNB)
+    const isHorizontallyScrollable = $container[0].scrollWidth > $container[0].clientWidth;
+    if (!isHorizontallyScrollable) return; // 가로 스크롤 아니면 중단
+
+    // --- jQuery .animate() (부드러운 "모션" 스크립트) ---
+    const containerWidth = $container.outerWidth();
+    const scrollLeft = $container.scrollLeft();
+    const itemOffsetLeft = $item[0].offsetLeft; // 부모($container) 기준 아이템의 왼쪽 위치
+    const itemWidth = $item.outerWidth();
     
-//     // [기존] 2. 클릭 핸들러
-//     this.setupClickHandlers();
+    const containerVisibleRight = scrollLeft + containerWidth;
+    const itemRight = itemOffsetLeft + itemWidth;
+    let newScrollLeft = null;
+    const buffer = 20; // 좌우 20px 여유 공간
 
-//     // [기존] 3. 스크롤 스파이
-//     $(window).on("scroll.sidebarSpy", () => {
-//       this.updateActiveState();
-//     });
-
-//     this.updateActiveState();
-//   },
-  
-//   /**
-//    * [신규] 수동 수평 스크롤 핸들러
-//    * 사용자가 LNB를 직접 휠/터치로 스크롤하면
-//    * 진행 중인 .animate()를 즉시 중지합니다.
-//    */
-//   setupManualScrollHandler: function() {
-//     // 휠, 마우스휠(IE/Edge), 터치 시작 이벤트 감지
-//     this.$sidebar.on('wheel mousewheel touchstart', function() {
-//       // .stop(true)는 현재 애니메이션을 즉시 멈춥니다.
-//       $(this).stop(true);
-//     });
-//   },
-
-//   setupClickHandlers: function() {
-//     const self = this;
-//     this.$links.on('click', function() {
-//       const $clickedLi = $(this).closest('li');
-//       self.scrollToActiveTab($clickedLi);
-//     });
-//   },
-
-//   scrollToActiveTab: function($activeLi) {
-//     if (!this.$sidebar || !$activeLi || !$activeLi.length) return;
-
-//     const $scroller = this.$sidebar;
-//     const overflowX = $scroller.css('overflow-x');
-//     if (overflowX !== 'auto' && overflowX !== 'scroll') {
-//       return; 
-//     }
-
-//     const scrollerWidth = $scroller.innerWidth();
-//     const scrollerScrollLeft = $scroller.scrollLeft();
-//     const liOffsetLeft = $activeLi.offset().left - $scroller.offset().left;
-//     const liWidth = $activeLi.innerWidth();
-//     const liLeft = liOffsetLeft + scrollerScrollLeft;
-//     const liRight = liLeft + liWidth;
-//     const visibleLeft = scrollerScrollLeft;
-//     const visibleRight = scrollerScrollLeft + scrollerWidth;
-//     const buffer = 16; 
-//     let targetScrollLeft = null; 
-
-//     if (liRight > visibleRight) {
-//       targetScrollLeft = liRight - scrollerWidth + buffer;
-//     } else if (liLeft < visibleLeft) {
-//       targetScrollLeft = liLeft - buffer;
-//     }
-
-//     if (targetScrollLeft !== null) {
-//       // [수정] 
-//       // 애니메이션 시작 전, 기존 애니메이션을 멈춥니다.
-//       $scroller.stop(true).animate({ scrollLeft: targetScrollLeft }, 300);
-//     }
-//   },
-//   updateActiveState: function () {
-//     const scrollTop = $(window).scrollTop();
-//     const triggerPos = scrollTop + this.offset;
-//     let currentActiveId = null;
-//     let $activeLi = null; 
-
-//     const sectionsReversed = this.$sections.get().reverse();
-//     for (const section of sectionsReversed) {
-//       const $section = $(section);
-      
-//       if ($section.offset() && $section.offset().top <= triggerPos) {
-//         currentActiveId = $section.attr("id");
-//         break; 
-//       }
-//     }
-
-//     if (currentActiveId === null) {
-//       currentActiveId = this.$sections.first().attr("id");
-//     }
-
-//     if (scrollTop + $(window).height() >= $(document).height() - 50) { 
-//       currentActiveId = this.$sections.last().attr("id");
-//     }
-
-//     // 사이드바 링크에 active 클래스 적용
-//     this.$links.each(function () {
-//       const $link = $(this);
-//       const $li = $link.closest("li");
-      
-//       // [수정] 이 라인이 빠져서 에러가 발생했습니다.
-//       const href = $link.attr("href"); 
-
-//       if (href === "#" + currentActiveId) {
-//         $li.addClass("active");
-//         $link.attr("aria-current", "page");
-//         $activeLi = $li; 
-//       } else {
-//         $li.removeClass("active");
-//         $link.removeAttr("aria-current");
-//       }
-//     });
-
-//     if ($activeLi && !this.$sidebar.is(':animated')) {
-//       this.scrollToActiveTab($activeLi);
-//     }
-//   },
-// };
-// const calendarJquery = {
-// 	init: function () {
-//     this.initLocalization(); //jQuery UI Datepicker 한국어 설정
-//     this.initPickers(); //단일/범위 Datepicker 초기화
-//     this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
-//   },
-// 	initLocalization: function () {
-//     $.datepicker.regional['ko'] = {
-//       closeText: '닫기',
-//       prevText: '이전달',
-//       nextText: '다음달',
-//       currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
-//       monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-//       monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-//       dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-//       dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-//       dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
-//       weekHeader: '주',
-//       dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
-//       firstDay: 0,
-//       isRTL: false,
-//       showMonthAfterYear: true, // "2025년 11월"
-//       // yearSuffix: '년'
-//     };
-//     $.datepicker.setDefaults($.datepicker.regional['ko']);
-//   },
-// 	getCommonOptions: function () {
-//     return {
-//       changeMonth: true,
-//       changeYear: true,
-//       showButtonPanel: false, 
-//       dateFormat: 'yy-mm-dd',
-      
-//       beforeShow: function (input, inst) {
-//         inst.dpDiv.addClass('calendar-datepicker');
-
-// 				const $anchor = $(input).closest(".calendar-group");
-
-// 				setTimeout(() => {
-// 					if ($anchor.length > 0) {
-// 						const anchorOffset = $anchor.offset();
-// 						const anchorHeight = $anchor.outerHeight();
-// 						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
-		
-// 						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
-// 						inst.dpDiv.css({
-// 							position: "absolute",
-// 							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
-// 							left: anchorOffset.left + "px", // 부모 left
-// 							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
-// 						});
-// 					}
-
-// 					const $header = inst.dpDiv.find('.ui-datepicker-header');
-// 					if ($header.length === 0) return;
-	
-// 					inst.dpDiv.find('.calendar-today-bar').remove();
-	
-// 					const today = new Date();
-// 					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
-// 					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
-// 					const todayText = `오늘 ${formattedDate} (${dayName})`;
-					
-// 					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
-					
-// 					$todayButton.on('click', function(e) {
-// 						e.stopPropagation(); 
-						
-// 						$(input).datepicker('setDate', new Date());
-// 						drawTodayButton(); 
-// 					});
-// 					$header.after($todayButton);
-// 				}, 0);
-
-//         // const drawTodayButton = () => {
-//         // };
-// 				// setTimeout(() => {
-// 				// 	drawTodayButton
-
-// 				// }, 0);
-//         // setTimeout(drawTodayButton, 0); 
-//       }
-//     };
-//   },
-// 	initPickers: function () {
-//     const commonOptions = this.getCommonOptions();
-
-//     $('.calendar-group').each(function () {
-//       const $inputs = $(this).find('input.datepicker.cal');
-
-//       // --- 1. 단일 Datepicker (isRange: false) ---
-//       if ($inputs.length === 1) {
-//         $inputs.datepicker(commonOptions);
-//       }
-//       // --- 2. 범위 Datepicker (isRange: true) ---
-//       else if ($inputs.length === 2) {
-//         const $start = $inputs.eq(0);
-//         const $end = $inputs.eq(1);
-
-//         // 시작일 옵션
-//         $start.datepicker($.extend({}, commonOptions, {
-//           onSelect: function (selectedDate) {
-//             // 시작일 선택 시, 종료일의 최소 날짜를 설정
-//             $end.datepicker("option", "minDate", selectedDate);
-//           }
-//         }));
-
-//         // 종료일 옵션
-//         $end.datepicker($.extend({}, commonOptions, {
-//           onSelect: function (selectedDate) {
-//             // 종료일 선택 시, 시작일의 최대 날짜를 설정
-//             $start.datepicker("option", "maxDate", selectedDate);
-//           }
-//         }));
-//       }
-//     });
-//   },
-// 	initTriggerButtons: function () {
-//     $(document).on('click', '.form-btn-datepicker', function (e) {
-//       e.preventDefault();
-//       const $input = $(this).siblings('input.datepicker.cal');
-      
-//       if ($input.length) {
-//         if ($input.datepicker('widget').is(':visible')) {
-//           $input.datepicker('hide');
-//         } else {
-//           $input.datepicker('show');
-//         }
-//       }
-//     });
-//   }
-// }
-const calendarJquery = {
-	init: function () {
-    this.initLocalization(); //jQuery UI Datepicker 한국어 설정
-    this.initPickers(); //단일/범위 Datepicker 초기화
-    this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
-  },
-	initLocalization: function () {
-    $.datepicker.regional['ko'] = {
-      closeText: '닫기',
-      prevText: '이전달',
-      nextText: '다음달',
-      currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
-      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-      monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
-      weekHeader: '주',
-      dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
-      firstDay: 0,
-      isRTL: false,
-      showMonthAfterYear: true, // "2025년 11월"
-      // yearSuffix: '년'
-    };
-    $.datepicker.setDefaults($.datepicker.regional['ko']);
-  },
-	getCommonOptions: function () {
-    return {
-      changeMonth: true,
-      changeYear: true,
-      showButtonPanel: false, 
-      dateFormat: 'yy-mm-dd',
-      
-      beforeShow: function (input, inst) {
-        inst.dpDiv.addClass('calendar-datepicker');
-
-				const $anchor = $(input).closest(".calendar-group");
-
-				setTimeout(() => {
-					if ($anchor.length > 0) {
-						const anchorOffset = $anchor.offset();
-						const anchorHeight = $anchor.outerHeight();
-						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
-		
-						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
-						inst.dpDiv.css({
-							position: "absolute",
-							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
-							left: anchorOffset.left + "px", // 부모 left
-							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
-						});
-					}
-
-					const $header = inst.dpDiv.find('.ui-datepicker-header');
-					if ($header.length === 0) return;
-	
-					inst.dpDiv.find('.calendar-today-bar').remove();
-	
-					const today = new Date();
-					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
-					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
-					const todayText = `오늘 ${formattedDate} (${dayName})`;
-					
-					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
-					
-					$todayButton.on('click', function(e) {
-						e.stopPropagation(); 
-						
-						$(input).datepicker('setDate', new Date());
-						drawTodayButton(); 
-					});
-					$header.after($todayButton);
-				}, 0);
-
-        // const drawTodayButton = () => {
-        // };
-				// setTimeout(() => {
-				// 	drawTodayButton
-
-				// }, 0);
-        // setTimeout(drawTodayButton, 0); 
+    if (itemRight > containerVisibleRight) { 
+      // 아이템이 오른쪽에 잘렸을 때
+      newScrollLeft = itemRight - containerWidth + buffer;
+    } else if (itemOffsetLeft < scrollLeft) { 
+      // 아이템이 왼쪽에 잘렸을 때
+      newScrollLeft = itemOffsetLeft - buffer;
+    }
+    
+    if (newScrollLeft !== null) {
+      if (smooth) {
+        $container.stop().animate({ scrollLeft: newScrollLeft }, 300); // 0.3초 "모션"
+      } else {
+        // 스크롤 스파이(수동 스크롤)는 즉시 반영
+        $container.scrollLeft(newScrollLeft);
       }
-    };
+    }
   },
-	initPickers: function () {
-    const commonOptions = this.getCommonOptions();
 
-    $('.calendar-group').each(function () {
-      const $inputs = $(this).find('input.datepicker.cal');
+  init: function () {
+    this.$sidebar = $(".sidebar");
+    if (!this.$sidebar.length) return;
 
-      // --- 1. 단일 Datepicker (isRange: false) ---
-      if ($inputs.length === 1) {
-        $inputs.datepicker(commonOptions);
+    this.$links = this.$sidebar.find("a[href^='#']");
+    if (!this.$links.length) return;
+
+    this.$sections = $();
+    this.$links.each((i, link) => {
+      const $section = $($(link).attr("href"));
+      if ($section.length) {
+        this.$sections = this.$sections.add($section);
       }
-      // --- 2. 범위 Datepicker (isRange: true) ---
-      else if ($inputs.length === 2) {
-        const $start = $inputs.eq(0);
-        const $end = $inputs.eq(1);
+    });
 
-        // 시작일 옵션
-        $start.datepicker($.extend({}, commonOptions, {
-          onSelect: function (selectedDate) {
-            // 시작일 선택 시, 종료일의 최소 날짜를 설정
-            $end.datepicker("option", "minDate", selectedDate);
-          }
-        }));
+    if (!this.$sections.length) return;
+    
+    // [신규] 1. LNB 링크 클릭 이벤트 (페이지 세로 스크롤 담당)
+    this.setupClickHandlers();
+    
+    // 2. 수동 스크롤 이벤트 (스크롤 스파이 담당)
+    $(window).on("scroll.sidebarSpy", () => {
+      this.updateActiveState();
+    });
 
-        // 종료일 옵션
-        $end.datepicker($.extend({}, commonOptions, {
-          onSelect: function (selectedDate) {
-            // 종료일 선택 시, 시작일의 최대 날짜를 설정
-            $start.datepicker("option", "maxDate", selectedDate);
-          }
-        }));
+    this.updateActiveState();
+  },
+
+  /**
+   * [신규] LNB 링크 클릭 시, 페이지(세로)를 스크롤하는 핸들러
+   */
+  setupClickHandlers: function() {
+    const self = this;
+    this.$links.on('click.lnbClick', function(e) {
+      e.preventDefault(); 
+      const $link = $(this);
+      const $targetSection = $($link.attr('href'));
+      
+      if ($targetSection.length) {
+        // 1. 스크롤 스파이(updateActiveState)를 잠시 멈춤
+        self.isClickScrolling = true;
+        clearTimeout(self.pauseTimer);
+
+        // 2. (즉시) 클릭한 메뉴 활성화 (active 클래스 + 가로 스크롤)
+        self.setActiveIndicator($link, true); // true = 부드럽게
+
+        // 3. 페이지(세로) 스크롤 애니메이션
+        const targetScrollTop = $targetSection.offset().top - self.offset + 1;
+        const animationDuration = 500; // 0.5초
+
+        $('html, body').stop().animate({
+          scrollTop: targetScrollTop
+        }, animationDuration, () => {
+          // 4. 애니메이션 완료 후 스크롤 스파이 재개
+          self.pauseTimer = setTimeout(() => {
+            self.isClickScrolling = false;
+          }, 50); // 50ms 여유
+        });
       }
     });
   },
-	initTriggerButtons: function () {
-    $(document).on('click', '.form-btn-datepicker', function (e) {
-      e.preventDefault();
-      const $input = $(this).siblings('input.datepicker.cal');
-      
-      if ($input.length) {
-        if ($input.datepicker('widget').is(':visible')) {
-          $input.datepicker('hide');
-        } else {
-          $input.datepicker('show');
+
+  /**
+   * [수정] 스크롤 스파이 (수동 스크롤 감지)
+   */
+  updateActiveState: function () {
+    // 1. 클릭으로 스크롤 중이면, 스파이 로직 중단
+    if (this.isClickScrolling) return;
+
+    const scrollTop = $(window).scrollTop();
+    const triggerPos = scrollTop + this.offset;
+    let currentActiveId = null;
+
+    const sectionsReversed = this.$sections.get().reverse();
+    for (const section of sectionsReversed) {
+      const $section = $(section);
+      if ($section.offset() && $section.offset().top <= triggerPos) {
+        currentActiveId = $section.attr("id");
+        break; 
+      }
+    }
+
+    if (currentActiveId === null) {
+      currentActiveId = this.$sections.first().attr("id");
+    }
+
+    if (scrollTop + $(window).height() >= $(document).height() - 50) {
+      currentActiveId = this.$sections.last().attr("id");
+    }
+
+    // 2. 현재 ID에 해당하는 링크를 찾아 활성화
+    const $activeLink = this.$links.filter(`[href="#${currentActiveId}"]`);
+    this.setActiveIndicator($activeLink, false); // false = 즉시
+  },
+
+  /**
+   * [신규] 활성화 및 LNB(가로) 스크롤을 담당하는 공통 함수
+   * @param {jQuery} $anchor - 활성화할 <a> 태그
+   * @param {boolean} isSmooth - 가로 스크롤을 부드럽게 할지 여부
+   */
+  setActiveIndicator: function($anchor, isSmooth) {
+    if (!$anchor || !$anchor.length) return;
+    const $li = $anchor.closest('li');
+
+    // 이미 활성화 상태면 중단
+    if ($li.hasClass('active')) return;
+    
+    // 1. 모든 링크 비활성화
+    this.$links.closest('li').removeClass('active');
+    this.$links.removeAttr('aria-current');
+    
+    // 2. 타겟 링크 활성화
+    $li.addClass('active');
+    $anchor.attr('aria-current', 'page');
+    
+    // 3. (모바일용) LNB 가로 스크롤 실행
+    this.scrollItemIntoView($li, this.$sidebar, isSmooth);
+  }
+};
+const gsapMotion = {
+  // 1. 애니메이션 유형 정의 (클래스 이름: GSAP 'from' 속성)
+  animationTypes: {
+    "fade-up": { y: 50 },
+    "fade-down": { y: -50 },
+    "fade-left": { x: 50 }, // (X축 기준) 오른쪽에서 왼쪽으로
+    "fade-right": { x: -50 }, // (X축 기준) 왼쪽에서 오른쪽으로
+    "zoom-in": { scale: 0.8 },
+    "zoom-out": { scale: 1.2 },
+    "opacity": { /* opacity: 0은 기본값이므로 별도 속성 없음 */ },
+    "chart-bar-up": {height: 0},
+  },
+
+  // 2. GSAP 및 ScrollTrigger 기본값
+  defaults: {
+    gsap: {
+      opacity: 0,
+      duration: 1,    // 기본 속도 0.8초
+      ease: "power3.out", // 부드러운 시작
+    },
+    scrollTrigger: {
+      start: "top 75%", // 사용자가 요청한 기본값 (화면 80% 지점)
+      toggleActions: "restart none none reverse",
+      markers: false // 디버깅 시 true로 변경
+    }
+  },
+
+  init: function() {
+    const $motion = $('.motion');
+
+    $motion.each((index, el) => {
+      let gsapProps = { ...this.defaults.gsap };
+      let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el };
+
+      let typeApplied = false;
+      for (const type in this.animationTypes) {
+        if (el.classList.contains(type)) {
+          gsapProps = { ...gsapProps, ...this.animationTypes[type] };
+          typeApplied = true;
+          break; // 여러 유형이 있어도 첫 번째 것만 적용
         }
+      }
+
+      const delay = el.dataset.delay;       // data-delay="0.2" (0.2초 지연)
+      const duration = el.dataset.duration; // data-duration="1.5" (1.5초 동안)
+      const start = el.dataset.start;       // data-start="top 90%" (트리거 위치)
+      const stagger = el.dataset.stagger;   // data-stagger="0.1" (자식 요소들 0.1초 간격)
+
+      if (delay) gsapProps.delay = parseFloat(delay);
+      if (duration) gsapProps.duration = parseFloat(duration);
+      if (start) scrollTriggerProps.start = start;
+      if (el.classList.contains('chart-bar-up')) {
+        gsapProps.height = 0;
+      }
+
+      gsapProps.scrollTrigger = scrollTriggerProps;
+
+      if (stagger) {
+        gsap.from(el.children, { ...gsapProps, stagger: parseFloat(stagger) });
+      } else {
+        gsap.from(el, gsapProps);
       }
     });
   }
-}
+};
+
+
 const calendar = {
   init: function () {
     if ($.fn.datepicker && $.fn.datepicker.dates['ko']) {
@@ -1425,7 +1029,7 @@ const calendar = {
       autoclose: true,
       todayHighlight: true,
       container: 'body', 
-      // todayBtn: "linked", 
+      todayBtn: "linked", 
       showOutsideDays: false,
       pickerClass: 'calendar-datepicker',
       templates: {
@@ -1629,6 +1233,9 @@ const commonJs = {
     uiTooltip.init();
     uiSelect.init();
     uiLnb.init();
+
+    gsapMotion.init();
+
 		calendar.init();
 		calendarInline.init();
 

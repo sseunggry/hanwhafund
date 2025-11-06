@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>한화자산운용 &gt; 상품상세</title>
+    <!-- <link rel="stylesheet" href="..../../assets/css/style.css"> -->
     <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"></script>
+
+    <!-- <script type="text/javascript" src="../../assets/js/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../assets/css/jquery-ui.css" /> -->
+    <script src="../../assets/js/gsap.min.js"></script>
+    <script src="../../assets/js/ScrollTrigger.min.js"></script>
+
     <script type="text/javascript" src="../../assets/js/ui.common.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.standalone.min.css" />
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
@@ -41,16 +49,16 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-tnp0l60-native" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-vx7eld9-native" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected>KR</option>
                     <option value="EN">EN</option>
                   </select>
 
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-tnp0l60-listbox" tabindex="0" aria-controls="select-tnp0l60-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-vx7eld9-listbox" tabindex="0" aria-controls="select-vx7eld9-listbox">
                     <span class="select-value">KR</span>
                   </button>
 
-                  <ul id="select-tnp0l60-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-vx7eld9-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                     <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
@@ -80,7 +88,7 @@
       <main class="container fund-main">
         <section class="section-visual">
           <div class="inner">
-            <div class="fund-info">
+            <div class="fund-info motion fade-up">
               <div class="fund-top">
                 <div class="fund-category">
                   <ul class="pipe-list">
@@ -96,7 +104,7 @@
                 <h2 class="fund-tit tit-lg fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
                 <div class="fund-actions">
                   <div class="form-select underline large white">
-                    <select class="sr-only" name="fund-code-select" id="select-fixtgig-native" tabindex="-1" aria-hidden="true">
+                    <select class="sr-only" name="fund-code-select" id="select-5h5gip8-native" tabindex="-1" aria-hidden="true">
                       <option value="A" selected>A(수수료선취-오프라인)</option>
                       <option value="Ae">Ae(수수료선취-온라인)</option>
                       <option value="C4">C4(수수료미징구-오프라인-보수체감)</option>
@@ -104,11 +112,11 @@
                       <option value="S">S(수수료후취-온라인슈퍼)</option>
                     </select>
 
-                    <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-fixtgig-listbox" tabindex="0" aria-controls="select-fixtgig-listbox">
+                    <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-5h5gip8-listbox" tabindex="0" aria-controls="select-5h5gip8-listbox">
                       <span class="select-value">A(수수료선취-오프라인)</span>
                     </button>
 
-                    <ul id="select-fixtgig-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 5">
+                    <ul id="select-5h5gip8-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 5">
                       <li class="select-option" role="option" data-value="A" aria-selected="false" tabindex="-1">A(수수료선취-오프라인)</li>
                       <li class="select-option" role="option" data-value="Ae" aria-selected="false" tabindex="-1">Ae(수수료선취-온라인)</li>
                       <li class="select-option" role="option" data-value="C4" aria-selected="false" tabindex="-1">C4(수수료미징구-오프라인-보수체감)</li>
@@ -174,21 +182,21 @@
                 </li>
               </ul>
             </div>
-            <div class="fund-briefing" id="fund-briefing">
+            <div class="fund-briefing motion opacity" id="fund-briefing" data-delay="0.2">
               <div class="tit-wrap">
                 <h3 class="tit">펀드 브리핑</h3>
               </div>
-              <dl class="desc-wrap">
+              <dl class="desc-wrap motion fade-up">
                 <dt>펀드 특징</dt>
                 <dd>국내 우량 채권에 안정적으로 투자 낮은 위험등급(5등급)으로 꾸준한 이자 수익을 추구하는 채권형 펀드</dd>
               </dl>
-              <dl class="desc-wrap">
+              <dl class="desc-wrap motion fade-up" data-delay="0.2">
                 <dt>투자 포인트</dt>
                 <dd>장기 안정적 성과 + 분산투자로 신용위험 완화</dd>
                 <dd>저평가 회사채 발굴로 추가 수익 기회</dd>
                 <dd>ESG 평가 반영으로 지속가능한 투자</dd>
               </dl>
-              <dl class="desc-wrap">
+              <dl class="desc-wrap motion fade-up" data-delay="0.4">
                 <dt>투자 포인트</dt>
                 <dd>예금 이상의 수익을 원하면서도 안정성을 중시하는 투자자</dd>
                 <dd>장기적으로 꾸준히 자산을 불리고 싶은 투자자</dd>
@@ -229,16 +237,16 @@
               </aside>
 
               <div class="layout-content">
-                <section id="performance" class="cont-group">
+                <section id="performance" class="cont-group motion fade-up">
                   <div class="section-tit-wrap">
-                    <p class="txt-lg txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
-                    <h2 class="tit-xlg">수익률</h2>
+                    <p class="sub-tit txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
+                    <h2 class="tit">수익률</h2>
                   </div>
                   <div class="chart-wrap line">
                     <p class="date">기준일 2025.10.17</p>
                     <div class="filter">
                       <div class="scroll-wrap">
-                        <div class="segment-control large" role="radiogroup" aria-label="세그먼트 컨트롤">
+                        <div class="segment-control bg" role="radiogroup" aria-label="세그먼트 컨트롤">
                           <button type="button" class="control-btn active" role="radio" aria-checked="true" tabindex="0">1주</button>
 
                           <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">1개월</button>
@@ -266,7 +274,7 @@
                                 <span class="sr-only">달력 열기</span>
                                 <i class="svg-icon icon-calendar"></i>
                               </button>
-                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-gbi5na8-start" value="" aria-label="기간 시작일" readonly readonly />
+                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-7maha55-start" value="" aria-label="기간 시작일" readonly readonly />
                             </div>
 
                             <div class="calendar input large">
@@ -274,7 +282,7 @@
                                 <span class="sr-only">달력 열기</span>
                                 <i class="svg-icon icon-calendar"></i>
                               </button>
-                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-gbi5na8-end" value="" aria-label="기간 종료일" readonly readonly />
+                              <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-7maha55-end" value="" aria-label="기간 종료일" readonly readonly />
                             </div>
                           </div>
                           <button type="button" class="btn large">
@@ -380,7 +388,9 @@
                           <p class="label">보통</p>
                         </li>
                         <li class="level level4 active">
-                          <span class="bar"></span>
+                          <!-- [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
+                          <span class="bar motion chart-bar-up" data-duration="0.5"></span>
+                          <!-- // [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
                           <p class="label">
                             다소
                             <br class="mobile-only" />
@@ -410,10 +420,10 @@
                     </div>
                   </div>
                 </section>
-                <section id="assets" class="cont-group">
+                <section id="assets" class="cont-group motion fade-up">
                   <div class="section-tit-wrap">
-                    <p class="txt-lg txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
-                    <h2 class="tit-xlg">자산구성</h2>
+                    <p class="sub-tit txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
+                    <h2 class="tit">자산구성</h2>
                   </div>
                   <div class="chart-wrap doughnut">
                     <div class="chart-area">
@@ -527,10 +537,10 @@
                     </div>
                   </div>
                 </section>
-                <section id="fees" class="cont-group">
+                <section id="fees" class="cont-group motion fade-up">
                   <div class="section-tit-wrap">
-                    <p class="txt-lg txt-gradient">투자 전 비용도 함께 확인하세요</p>
-                    <h2 class="tit-xlg">보수 및 수수료</h2>
+                    <p class="sub-tit txt-gradient">투자 전 비용도 함께 확인하세요</p>
+                    <h2 class="tit">보수 및 수수료</h2>
                   </div>
                   <div class="group-wrap">
                     <div class="fee-wrap">
@@ -617,10 +627,10 @@
                     </div>
                   </div>
                 </section>
-                <section id="info" class="cont-group">
+                <section id="info" class="cont-group motion fade-up">
                   <div class="section-tit-wrap">
-                    <p class="txt-lg txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
-                    <h2 class="tit-xlg">상품정보</h2>
+                    <p class="sub-tit txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
+                    <h2 class="tit">상품정보</h2>
                   </div>
                   <div class="group-wrap">
                     <div class="overlay-box-wrap">
@@ -649,21 +659,21 @@
 
                           <div class="form-group">
                             <div class="form-tit">
-                              <label for="select-obmr220-button">관련공시</label>
+                              <label for="select-rtc593k-button">관련공시</label>
                             </div>
                             <div class="form-conts">
                               <div class="form-select outline large">
-                                <select class="sr-only" name="select-obmr220" id="select-obmr220-native" tabindex="-1" aria-hidden="true" data-placeholder="관련공시 전체보기">
+                                <select class="sr-only" name="select-rtc593k" id="select-rtc593k-native" tabindex="-1" aria-hidden="true" data-placeholder="관련공시 전체보기">
                                   <option value="option1">관련공시1</option>
                                   <option value="option2">관련공시2</option>
                                   <option value="option3">관련공시3</option>
                                 </select>
 
-                                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-obmr220-listbox" tabindex="0" aria-controls="select-obmr220-listbox">
+                                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-rtc593k-listbox" tabindex="0" aria-controls="select-rtc593k-listbox">
                                   <span class="select-value placeholder">관련공시 전체보기</span>
                                 </button>
 
-                                <ul id="select-obmr220-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+                                <ul id="select-rtc593k-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
                                   <li class="select-option" role="option" data-value="option1" aria-selected="false" tabindex="-1">관련공시1</li>
                                   <li class="select-option" role="option" data-value="option2" aria-selected="false" tabindex="-1">관련공시2</li>
                                   <li class="select-option" role="option" data-value="option3" aria-selected="false" tabindex="-1">관련공시3</li>
@@ -684,10 +694,10 @@
                             <p class="tit">자산운용보고서</p>
                             <p class="desc">운용기간 2025.05.31 ~2025.08.30</p>
                           </div>
-                          <button type="button" class="btn large">
+                          <a href="#!" download="" class="btn large">
                             <span>다운로드</span>
                             <i class="svg-icon icon-download"></i>
-                          </button>
+                          </a>
                         </div>
                         <div class="btn-wrap array-left line">
                           <a href="#!" class="btn text large">
@@ -698,15 +708,15 @@
                         </div>
                       </div>
                       <div class="btn-wrap column">
-                        <a href="#!" class="btn line xlarge">
+                        <a href="#!" download="" class="btn line xlarge">
                           <span>집합투자규약</span>
                           <i class="svg-icon icon-download"></i>
                         </a>
-                        <a href="#!" class="btn line xlarge">
+                        <a href="#!" download="" class="btn line xlarge">
                           <span>투자설명서</span>
                           <i class="svg-icon icon-download"></i>
                         </a>
-                        <a href="#!" class="btn line xlarge">
+                        <a href="#!" download="" class="btn line xlarge">
                           <span>간이투자설명서</span>
                           <i class="svg-icon icon-download"></i>
                         </a>
@@ -739,7 +749,7 @@
                     </div>
                     <p class="note-txt">펀드 가입은 판매사 홈페이지에서 할 수 있습니다.</p>
                   </div>
-                  <div class="group-wrap">
+                  <div class="group-wrap pt-56">
                     <h2 class="tit-xlg">투자하시기 전, 꼭 확인하세요!</h2>
                     <p class="note-refer">자산구성현황 및 주요 보유업종, 보유자산 내역은 운용펀드 기준이며 기준일로부터 1개월 전 자료이니 착오 없으시기 바랍니다.</p>
                     <div class="box-wrap bg-gray">
@@ -764,14 +774,14 @@
         </section>
         <section class="section-trend">
           <div class="inner">
-            <div class="cont-group">
+            <div class="cont-group motion fade-up">
               <div class="section-tit-wrap">
-                <h2 class="tit-xxlg txt-en txt-gradient">Investment Trend</h2>
-                <p class="txt-lg">지금 인기있는 펀드를 확인해보세요</p>
+                <h2 class="tit txt-en txt-gradient">Investment Trend</h2>
+                <p class="desc">지금 인기있는 펀드를 확인해보세요</p>
               </div>
               <div class="card-list-wrap">
                 <ul class="card-list">
-                  <li class="card-item">
+                  <li class="card-item motion fade-up" data-delay="0.1">
                     <a href="#!">
                       <div class="card-top">
                         <div class="badge-wrap">
@@ -808,7 +818,7 @@
                       </div>
                     </a>
                   </li>
-                  <li class="card-item">
+                  <li class="card-item motion fade-up" data-delay="0.2">
                     <a href="#!">
                       <div class="card-top">
                         <div class="badge-wrap">
@@ -845,7 +855,7 @@
                       </div>
                     </a>
                   </li>
-                  <li class="card-item">
+                  <li class="card-item motion fade-up" data-delay="0.3">
                     <a href="#!">
                       <div class="card-top">
                         <div class="badge-wrap">
@@ -882,7 +892,7 @@
                       </div>
                     </a>
                   </li>
-                  <li class="card-item">
+                  <li class="card-item motion fade-up" data-delay="0.4">
                     <a href="#!">
                       <div class="card-top">
                         <div class="badge-wrap">
@@ -963,16 +973,16 @@
             <div class="util">
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-pfu7sjh-native" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                  <select class="sr-only" name="family-site" id="select-3ybgf1t-native" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                     <option value="site1">사이트 1</option>
                     <option value="site2">사이트 2</option>
                   </select>
 
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-pfu7sjh-listbox" tabindex="0" aria-controls="select-pfu7sjh-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-3ybgf1t-listbox" tabindex="0" aria-controls="select-3ybgf1t-listbox">
                     <span class="select-value placeholder">패밀리 사이트</span>
                   </button>
 
-                  <ul id="select-pfu7sjh-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-3ybgf1t-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                     <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                   </ul>
@@ -1005,6 +1015,12 @@
           </div>
           <div class="footer-bottom">
             <p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+          </div>
+          <div class="footer-btn-top">
+            <a href="#!" class="btn large">
+              <i class="svg-icon icon-arrow-up"></i>
+              <span>TOP</span>
+            </a>
           </div>
         </div>
       </footer>
@@ -1057,7 +1073,7 @@
                       <span class="sr-only">달력 열기</span>
                       <i class="svg-icon icon-calendar"></i>
                     </button>
-                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-6drub39-start" value="" aria-label="기간 시작일" readonly readonly />
+                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-1tsk4zh-start" value="" aria-label="기간 시작일" readonly readonly />
                   </div>
 
                   <div class="calendar input large">
@@ -1065,7 +1081,7 @@
                       <span class="sr-only">달력 열기</span>
                       <i class="svg-icon icon-calendar"></i>
                     </button>
-                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-6drub39-end" value="" aria-label="기간 종료일" readonly readonly />
+                    <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-1tsk4zh-end" value="" aria-label="기간 종료일" readonly readonly />
                   </div>
                 </div>
 

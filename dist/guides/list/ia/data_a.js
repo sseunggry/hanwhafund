@@ -31,8 +31,8 @@ const iaPageAData = {
 
 		// --- 공시 ---
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "-", depth3: "-", pageName: "전체공시", pageType: "tab", pageID: "IF_01T", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "공시 상세", depth3: "-", pageName: "공시상세", pageType: "page", pageID: "IF_01_01", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "펀드공시", depth2: "-", depth3: "-", pageName: "펀드공시", pageType: "tab", pageID: "IF_02T", link: "", isAdminLinked: true, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "공시 상세", depth3: "-", pageName: "공시상세", pageType: "page", pageID: "IF_01_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "펀드공시", depth2: "-", depth3: "-", pageName: "펀드공시", pageType: "tab", pageID: "IF_02T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "자산운용보고서", depth2: "-", depth3: "-", pageName: "자산운용보고서", pageType: "tab", pageID: "IF_03T", link: "", isAdminLinked: true, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "파생공시", depth2: "-", depth3: "-", pageName: "파생공시", pageType: "tab", pageID: "IF_04T", link: "", isAdminLinked: true, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "경영공시", depth2: "-", depth3: "-", pageName: "경영공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "", memo: [], },

@@ -64,6 +64,25 @@ const iaData = {
 			$.each(dataObject.list, (index, item) => {
 				let rowClass = "";
 				if (item.status === "삭제") rowClass = "is-delete";
+				const currentStatus = item.status || "작업전";
+
+				switch (currentStatus) {
+          case "작업전":
+            rowClass = "status-pending";
+            break;
+          case "작업중":
+            rowClass = "status-working";
+            break;
+          case "완료":
+            rowClass = "status-done";
+            break;
+          case "수정":
+            rowClass = "status-modified";
+            break;
+          case "삭제":
+            rowClass = "status-deleted";
+            break;
+        }
 
 				let finalLink = item.link;
 				if (!finalLink || finalLink === '#') {
