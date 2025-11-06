@@ -1007,275 +1007,341 @@ const uiLnb = {
     });
   },
 };
-// const uiLnb2 = {
-//   $sidebar: null,
-//   $links: null,
-//   $sections: null,
-//   offset: 150, 
+const uiLnb2 = {
+  $sidebar: null,
+  $links: null,
+  $sections: null,
+  offset: 150, 
 
-//   init: function () {
-//     this.$sidebar = $(".sidebar");
-//     if (!this.$sidebar.length) return;
+  init: function () {
+    this.$sidebar = $(".sidebar");
+    if (!this.$sidebar.length) return;
 
-//     this.$links = this.$sidebar.find("a[href^='#']");
-//     if (!this.$links.length) return;
+    this.$links = this.$sidebar.find("a[href^='#']");
+    if (!this.$links.length) return;
 
-//     this.$sections = $();
-//     this.$links.each((i, link) => {
-//       const $section = $($(link).attr("href"));
-//       if ($section.length) {
-//         this.$sections = this.$sections.add($section);
-//       }
-//     });
+    this.$sections = $();
+    this.$links.each((i, link) => {
+      const $section = $($(link).attr("href"));
+      if ($section.length) {
+        this.$sections = this.$sections.add($section);
+      }
+    });
 
-//     if (!this.$sections.length) return;
+    if (!this.$sections.length) return;
     
-//     // [추가] 1. 수동 스크롤 핸들러
-//     this.setupManualScrollHandler();
+    // [추가] 1. 수동 스크롤 핸들러
+    this.setupManualScrollHandler();
     
-//     // [기존] 2. 클릭 핸들러
-//     this.setupClickHandlers();
+    // [기존] 2. 클릭 핸들러
+    this.setupClickHandlers();
 
-//     // [기존] 3. 스크롤 스파이
-//     $(window).on("scroll.sidebarSpy", () => {
-//       this.updateActiveState();
-//     });
+    // [기존] 3. 스크롤 스파이
+    $(window).on("scroll.sidebarSpy", () => {
+      this.updateActiveState();
+    });
 
-//     this.updateActiveState();
-//   },
+    this.updateActiveState();
+  },
   
-//   /**
-//    * [신규] 수동 수평 스크롤 핸들러
-//    * 사용자가 LNB를 직접 휠/터치로 스크롤하면
-//    * 진행 중인 .animate()를 즉시 중지합니다.
-//    */
-//   setupManualScrollHandler: function() {
-//     // 휠, 마우스휠(IE/Edge), 터치 시작 이벤트 감지
-//     this.$sidebar.on('wheel mousewheel touchstart', function() {
-//       // .stop(true)는 현재 애니메이션을 즉시 멈춥니다.
-//       $(this).stop(true);
-//     });
-//   },
+  /**
+   * [신규] 수동 수평 스크롤 핸들러
+   * 사용자가 LNB를 직접 휠/터치로 스크롤하면
+   * 진행 중인 .animate()를 즉시 중지합니다.
+   */
+  setupManualScrollHandler: function() {
+    // 휠, 마우스휠(IE/Edge), 터치 시작 이벤트 감지
+    this.$sidebar.on('wheel mousewheel touchstart', function() {
+      // .stop(true)는 현재 애니메이션을 즉시 멈춥니다.
+      $(this).stop(true);
+    });
+  },
 
-//   setupClickHandlers: function() {
-//     const self = this;
-//     this.$links.on('click', function() {
-//       const $clickedLi = $(this).closest('li');
-//       self.scrollToActiveTab($clickedLi);
-//     });
-//   },
+  setupClickHandlers: function() {
+    const self = this;
+    this.$links.on('click', function() {
+      const $clickedLi = $(this).closest('li');
+      self.scrollToActiveTab($clickedLi);
+    });
+  },
 
-//   scrollToActiveTab: function($activeLi) {
-//     if (!this.$sidebar || !$activeLi || !$activeLi.length) return;
+  scrollToActiveTab: function($activeLi) {
+    if (!this.$sidebar || !$activeLi || !$activeLi.length) return;
 
-//     const $scroller = this.$sidebar;
-//     const overflowX = $scroller.css('overflow-x');
-//     if (overflowX !== 'auto' && overflowX !== 'scroll') {
-//       return; 
-//     }
+    const $scroller = this.$sidebar;
+    const overflowX = $scroller.css('overflow-x');
+    if (overflowX !== 'auto' && overflowX !== 'scroll') {
+      return; 
+    }
 
-//     const scrollerWidth = $scroller.innerWidth();
-//     const scrollerScrollLeft = $scroller.scrollLeft();
-//     const liOffsetLeft = $activeLi.offset().left - $scroller.offset().left;
-//     const liWidth = $activeLi.innerWidth();
-//     const liLeft = liOffsetLeft + scrollerScrollLeft;
-//     const liRight = liLeft + liWidth;
-//     const visibleLeft = scrollerScrollLeft;
-//     const visibleRight = scrollerScrollLeft + scrollerWidth;
-//     const buffer = 16; 
-//     let targetScrollLeft = null; 
+    const scrollerWidth = $scroller.innerWidth();
+    const scrollerScrollLeft = $scroller.scrollLeft();
+    const liOffsetLeft = $activeLi.offset().left - $scroller.offset().left;
+    const liWidth = $activeLi.innerWidth();
+    const liLeft = liOffsetLeft + scrollerScrollLeft;
+    const liRight = liLeft + liWidth;
+    const visibleLeft = scrollerScrollLeft;
+    const visibleRight = scrollerScrollLeft + scrollerWidth;
+    const buffer = 16; 
+    let targetScrollLeft = null; 
 
-//     if (liRight > visibleRight) {
-//       targetScrollLeft = liRight - scrollerWidth + buffer;
-//     } else if (liLeft < visibleLeft) {
-//       targetScrollLeft = liLeft - buffer;
-//     }
+    if (liRight > visibleRight) {
+      targetScrollLeft = liRight - scrollerWidth + buffer;
+    } else if (liLeft < visibleLeft) {
+      targetScrollLeft = liLeft - buffer;
+    }
 
-//     if (targetScrollLeft !== null) {
-//       // [수정] 
-//       // 애니메이션 시작 전, 기존 애니메이션을 멈춥니다.
-//       $scroller.stop(true).animate({ scrollLeft: targetScrollLeft }, 300);
-//     }
-//   },
-//   updateActiveState: function () {
-//     const scrollTop = $(window).scrollTop();
-//     const triggerPos = scrollTop + this.offset;
-//     let currentActiveId = null;
-//     let $activeLi = null; 
+    if (targetScrollLeft !== null) {
+      // [수정] 
+      // 애니메이션 시작 전, 기존 애니메이션을 멈춥니다.
+      $scroller.stop(true).animate({ scrollLeft: targetScrollLeft }, 300);
+    }
+  },
+  updateActiveState: function () {
+    const scrollTop = $(window).scrollTop();
+    const triggerPos = scrollTop + this.offset;
+    let currentActiveId = null;
+    let $activeLi = null; 
 
-//     const sectionsReversed = this.$sections.get().reverse();
-//     for (const section of sectionsReversed) {
-//       const $section = $(section);
+    const sectionsReversed = this.$sections.get().reverse();
+    for (const section of sectionsReversed) {
+      const $section = $(section);
       
-//       if ($section.offset() && $section.offset().top <= triggerPos) {
-//         currentActiveId = $section.attr("id");
-//         break; 
-//       }
-//     }
+      if ($section.offset() && $section.offset().top <= triggerPos) {
+        currentActiveId = $section.attr("id");
+        break; 
+      }
+    }
 
-//     if (currentActiveId === null) {
-//       currentActiveId = this.$sections.first().attr("id");
-//     }
+    if (currentActiveId === null) {
+      currentActiveId = this.$sections.first().attr("id");
+    }
 
-//     if (scrollTop + $(window).height() >= $(document).height() - 50) { 
-//       currentActiveId = this.$sections.last().attr("id");
-//     }
+    if (scrollTop + $(window).height() >= $(document).height() - 50) { 
+      currentActiveId = this.$sections.last().attr("id");
+    }
 
-//     // 사이드바 링크에 active 클래스 적용
-//     this.$links.each(function () {
-//       const $link = $(this);
-//       const $li = $link.closest("li");
+    // 사이드바 링크에 active 클래스 적용
+    this.$links.each(function () {
+      const $link = $(this);
+      const $li = $link.closest("li");
       
-//       // [수정] 이 라인이 빠져서 에러가 발생했습니다.
-//       const href = $link.attr("href"); 
+      // [수정] 이 라인이 빠져서 에러가 발생했습니다.
+      const href = $link.attr("href"); 
 
-//       if (href === "#" + currentActiveId) {
-//         $li.addClass("active");
-//         $link.attr("aria-current", "page");
-//         $activeLi = $li; 
-//       } else {
-//         $li.removeClass("active");
-//         $link.removeAttr("aria-current");
-//       }
-//     });
+      if (href === "#" + currentActiveId) {
+        $li.addClass("active");
+        $link.attr("aria-current", "page");
+        $activeLi = $li; 
+      } else {
+        $li.removeClass("active");
+        $link.removeAttr("aria-current");
+      }
+    });
 
-//     if ($activeLi && !this.$sidebar.is(':animated')) {
-//       this.scrollToActiveTab($activeLi);
-//     }
-//   },
-// };
-// const calendarJquery = {
-// 	init: function () {
-//     this.initLocalization(); //jQuery UI Datepicker 한국어 설정
-//     this.initPickers(); //단일/범위 Datepicker 초기화
-//     this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
-//   },
-// 	initLocalization: function () {
-//     $.datepicker.regional['ko'] = {
-//       closeText: '닫기',
-//       prevText: '이전달',
-//       nextText: '다음달',
-//       currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
-//       monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-//       monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
-//       dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-//       dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-//       dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
-//       weekHeader: '주',
-//       dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
-//       firstDay: 0,
-//       isRTL: false,
-//       showMonthAfterYear: true, // "2025년 11월"
-//       // yearSuffix: '년'
-//     };
-//     $.datepicker.setDefaults($.datepicker.regional['ko']);
-//   },
-// 	getCommonOptions: function () {
-//     return {
-//       changeMonth: true,
-//       changeYear: true,
-//       showButtonPanel: false, 
-//       dateFormat: 'yy-mm-dd',
+    if ($activeLi && !this.$sidebar.is(':animated')) {
+      this.scrollToActiveTab($activeLi);
+    }
+  },
+};
+const calendarJquery = {
+	init: function () {
+    this.initLocalization(); //jQuery UI Datepicker 한국어 설정
+    this.initPickers(); //단일/범위 Datepicker 초기화
+    this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
+  },
+	initLocalization: function () {
+    $.datepicker.regional['ko'] = {
+      closeText: '닫기',
+      prevText: '이전달',
+      nextText: '다음달',
+      currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+      monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
+      weekHeader: '주',
+      dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
+      firstDay: 0,
+      isRTL: false,
+      showMonthAfterYear: true, // "2025년 11월"
+      // yearSuffix: '년'
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ko']);
+  },
+	getCommonOptions: function () {
+    return {
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: false, 
+      dateFormat: 'yy-mm-dd',
       
-//       beforeShow: function (input, inst) {
-//         inst.dpDiv.addClass('calendar-datepicker');
+      beforeShow: function (input, inst) {
+        inst.dpDiv.addClass('calendar-datepicker');
 
-// 				const $anchor = $(input).closest(".calendar-group");
+				const $anchor = $(input).closest(".calendar-group");
 
-// 				setTimeout(() => {
-// 					if ($anchor.length > 0) {
-// 						const anchorOffset = $anchor.offset();
-// 						const anchorHeight = $anchor.outerHeight();
-// 						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
+				setTimeout(() => {
+					if ($anchor.length > 0) {
+						const anchorOffset = $anchor.offset();
+						const anchorHeight = $anchor.outerHeight();
+						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
 		
-// 						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
-// 						inst.dpDiv.css({
-// 							position: "absolute",
-// 							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
-// 							left: anchorOffset.left + "px", // 부모 left
-// 							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
-// 						});
-// 					}
+						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
+						inst.dpDiv.css({
+							position: "absolute",
+							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
+							left: anchorOffset.left + "px", // 부모 left
+							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
+						});
+					}
 
-// 					const $header = inst.dpDiv.find('.ui-datepicker-header');
-// 					if ($header.length === 0) return;
+					const $header = inst.dpDiv.find('.ui-datepicker-header');
+					if ($header.length === 0) return;
 	
-// 					inst.dpDiv.find('.calendar-today-bar').remove();
+					inst.dpDiv.find('.calendar-today-bar').remove();
 	
-// 					const today = new Date();
-// 					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
-// 					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
-// 					const todayText = `오늘 ${formattedDate} (${dayName})`;
+					const today = new Date();
+					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
+					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
+					const todayText = `오늘 ${formattedDate} (${dayName})`;
 					
-// 					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
+					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
 					
-// 					$todayButton.on('click', function(e) {
-// 						e.stopPropagation(); 
+					$todayButton.on('click', function(e) {
+						e.stopPropagation(); 
 						
-// 						$(input).datepicker('setDate', new Date());
-// 						drawTodayButton(); 
-// 					});
-// 					$header.after($todayButton);
-// 				}, 0);
+						$(input).datepicker('setDate', new Date());
+						drawTodayButton(); 
+					});
+					$header.after($todayButton);
+				}, 0);
 
-//         // const drawTodayButton = () => {
-//         // };
-// 				// setTimeout(() => {
-// 				// 	drawTodayButton
+        // const drawTodayButton = () => {
+        // };
+				// setTimeout(() => {
+				// 	drawTodayButton
 
-// 				// }, 0);
-//         // setTimeout(drawTodayButton, 0); 
-//       }
-//     };
-//   },
-// 	initPickers: function () {
-//     const commonOptions = this.getCommonOptions();
+				// }, 0);
+        // setTimeout(drawTodayButton, 0); 
+      }
+    };
+  },
+	initPickers: function () {
+    const commonOptions = this.getCommonOptions();
 
-//     $('.calendar-group').each(function () {
-//       const $inputs = $(this).find('input.datepicker.cal');
+    $('.calendar-group').each(function () {
+      const $inputs = $(this).find('input.datepicker.cal');
 
-//       // --- 1. 단일 Datepicker (isRange: false) ---
-//       if ($inputs.length === 1) {
-//         $inputs.datepicker(commonOptions);
-//       }
-//       // --- 2. 범위 Datepicker (isRange: true) ---
-//       else if ($inputs.length === 2) {
-//         const $start = $inputs.eq(0);
-//         const $end = $inputs.eq(1);
+      // --- 1. 단일 Datepicker (isRange: false) ---
+      if ($inputs.length === 1) {
+        $inputs.datepicker(commonOptions);
+      }
+      // --- 2. 범위 Datepicker (isRange: true) ---
+      else if ($inputs.length === 2) {
+        const $start = $inputs.eq(0);
+        const $end = $inputs.eq(1);
 
-//         // 시작일 옵션
-//         $start.datepicker($.extend({}, commonOptions, {
-//           onSelect: function (selectedDate) {
-//             // 시작일 선택 시, 종료일의 최소 날짜를 설정
-//             $end.datepicker("option", "minDate", selectedDate);
-//           }
-//         }));
+        // 시작일 옵션
+        $start.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 시작일 선택 시, 종료일의 최소 날짜를 설정
+            $end.datepicker("option", "minDate", selectedDate);
+          }
+        }));
 
-//         // 종료일 옵션
-//         $end.datepicker($.extend({}, commonOptions, {
-//           onSelect: function (selectedDate) {
-//             // 종료일 선택 시, 시작일의 최대 날짜를 설정
-//             $start.datepicker("option", "maxDate", selectedDate);
-//           }
-//         }));
-//       }
-//     });
-//   },
-// 	initTriggerButtons: function () {
-//     $(document).on('click', '.form-btn-datepicker', function (e) {
-//       e.preventDefault();
-//       const $input = $(this).siblings('input.datepicker.cal');
+        // 종료일 옵션
+        $end.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 종료일 선택 시, 시작일의 최대 날짜를 설정
+            $start.datepicker("option", "maxDate", selectedDate);
+          }
+        }));
+      }
+    });
+  },
+	initTriggerButtons: function () {
+    $(document).on('click', '.form-btn-datepicker', function (e) {
+      e.preventDefault();
+      const $input = $(this).siblings('input.datepicker.cal');
       
-//       if ($input.length) {
-//         if ($input.datepicker('widget').is(':visible')) {
-//           $input.datepicker('hide');
-//         } else {
-//           $input.datepicker('show');
-//         }
-//       }
-//     });
-//   }
-// }
+      if ($input.length) {
+        if ($input.datepicker('widget').is(':visible')) {
+          $input.datepicker('hide');
+        } else {
+          $input.datepicker('show');
+        }
+      }
+    });
+  }
+}
+const gsapMotion = {
+  // 1. 애니메이션 유형 정의 (클래스 이름: GSAP 'from' 속성)
+  animationTypes: {
+    "fade-up": { y: 50 },
+    "fade-down": { y: -50 },
+    "fade-left": { x: 50 }, // (X축 기준) 오른쪽에서 왼쪽으로
+    "fade-right": { x: -50 }, // (X축 기준) 왼쪽에서 오른쪽으로
+    "zoom-in": { scale: 0.8 },
+    "zoom-out": { scale: 1.2 },
+    "opacity": { /* opacity: 0은 기본값이므로 별도 속성 없음 */ },
+    "chart-bar-up": {height: 0},
+  },
+
+  // 2. GSAP 및 ScrollTrigger 기본값
+  defaults: {
+    gsap: {
+      opacity: 0,
+      duration: 1,    // 기본 속도 0.8초
+      ease: "power3.out", // 부드러운 시작
+    },
+    scrollTrigger: {
+      start: "top 75%", // 사용자가 요청한 기본값 (화면 80% 지점)
+      toggleActions: "restart none none reverse",
+      markers: false // 디버깅 시 true로 변경
+    }
+  },
+
+  init: function() {
+    const $motion = $('.motion');
+
+    $motion.each((index, el) => {
+      let gsapProps = { ...this.defaults.gsap };
+      let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el };
+
+      let typeApplied = false;
+      for (const type in this.animationTypes) {
+        if (el.classList.contains(type)) {
+          gsapProps = { ...gsapProps, ...this.animationTypes[type] };
+          typeApplied = true;
+          break; // 여러 유형이 있어도 첫 번째 것만 적용
+        }
+      }
+
+      const delay = el.dataset.delay;       // data-delay="0.2" (0.2초 지연)
+      const duration = el.dataset.duration; // data-duration="1.5" (1.5초 동안)
+      const start = el.dataset.start;       // data-start="top 90%" (트리거 위치)
+      const stagger = el.dataset.stagger;   // data-stagger="0.1" (자식 요소들 0.1초 간격)
+
+      if (delay) gsapProps.delay = parseFloat(delay);
+      if (duration) gsapProps.duration = parseFloat(duration);
+      if (start) scrollTriggerProps.start = start;
+      if (el.classList.contains('chart-bar-up')) {
+        gsapProps.height = 0;
+      }
+
+      gsapProps.scrollTrigger = scrollTriggerProps;
+
+      if (stagger) {
+        gsap.from(el.children, { ...gsapProps, stagger: parseFloat(stagger) });
+      } else {
+        gsap.from(el, gsapProps);
+      }
+    });
+  }
+};
+
 const calendarJquery = {
 	init: function () {
     this.initLocalization(); //jQuery UI Datepicker 한국어 설정
@@ -1629,6 +1695,9 @@ const commonJs = {
     uiTooltip.init();
     uiSelect.init();
     uiLnb.init();
+
+    gsapMotion.init();
+
 		calendar.init();
 		calendarInline.init();
 

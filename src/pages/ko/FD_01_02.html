@@ -15,7 +15,7 @@
 			<main class="container fund-main">
 				<section class="section-visual">
 					<div class="inner">
-						<div class="fund-info">
+						<div class="fund-info motion fade-up">
 							<div class="fund-top">
 								<div class="fund-category">
 									<ul class="pipe-list">
@@ -112,21 +112,21 @@
 								</li>
 							</ul>
 						</div>
-						<div class="fund-briefing" id="fund-briefing">
+						<div class="fund-briefing motion opacity" id="fund-briefing" data-delay="0.2">
 							<div class="tit-wrap">
 								<h3 class="tit">펀드 브리핑</h3>
 							</div>
-							<dl class="desc-wrap">
+							<dl class="desc-wrap motion fade-up">
 								<dt>펀드 특징</dt>
 								<dd>국내 우량 채권에 안정적으로 투자 낮은 위험등급(5등급)으로 꾸준한 이자 수익을 추구하는 채권형 펀드</dd>
 							</dl>
-							<dl class="desc-wrap">
+							<dl class="desc-wrap motion fade-up" data-delay="0.2">
 								<dt>투자 포인트</dt>
 								<dd>장기 안정적 성과 + 분산투자로 신용위험 완화</dd>
 								<dd>저평가 회사채 발굴로 추가 수익 기회</dd>
 								<dd>ESG 평가 반영으로 지속가능한 투자</dd>
 							</dl>
-							<dl class="desc-wrap">
+							<dl class="desc-wrap motion fade-up" data-delay="0.4">
 								<dt>투자 포인트</dt>
 								<dd>예금 이상의 수익을 원하면서도 안정성을 중시하는 투자자</dd>
 								<dd>장기적으로 꾸준히 자산을 불리고 싶은 투자자</dd>
@@ -181,7 +181,7 @@
 							</aside>
 
 							<div class="layout-content">
-								<section id="performance" class="cont-group">
+								<section id="performance" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
 										<p class="sub-tit txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
 										<h2 class="tit">수익률</h2>
@@ -263,7 +263,9 @@
 													<p class="label">보통</p>
 												</li>
 												<li class="level level4 active">
-													<span class="bar"></span>
+													<!-- [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
+													<span class="bar motion chart-bar-up" data-duration="0.5"></span>
+													<!-- // [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
 													<p class="label">다소 <br class="mobile-only"/> 높음</p>
 												</li>
 												<li class="level level5">
@@ -287,7 +289,7 @@
 										</div>
 									</div>
 								</section>
-								<section id="assets" class="cont-group">
+								<section id="assets" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
 										<p class="sub-tit txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
 										<h2 class="tit">자산구성</h2>
@@ -404,7 +406,7 @@
 										</div>
 									</div>
 								</section>
-								<section id="fees" class="cont-group">
+								<section id="fees" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
 										<p class="sub-tit txt-gradient">투자 전 비용도 함께 확인하세요</p>
 										<h2 class="tit">보수 및 수수료</h2>
@@ -494,7 +496,7 @@
 										</div>
 									</div>
 								</section>
-								<section id="info" class="cont-group">
+								<section id="info" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
 										<p class="sub-tit txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
 										<h2 class="tit">상품정보</h2>
@@ -661,14 +663,14 @@
 				</section>
 				<section class="section-trend">
 					<div class="inner">
-						<div class="cont-group">
+						<div class="cont-group motion fade-up">
 							<div class="section-tit-wrap">
 								<h2 class="tit txt-en txt-gradient">Investment Trend</h2>
 								<p class="desc">지금 인기있는 펀드를 확인해보세요</p>
 							</div>
 							<div class="card-list-wrap">
 								<ul class="card-list">
-									<li class="card-item">
+									<li class="card-item motion fade-up" data-delay="0.1">
 										<a href="#!">
 											<div class="card-top">
 												<%- include('../../components/badge.ejs', { 
@@ -704,7 +706,7 @@
 											</div>
 										</a>
 									</li>
-									<li class="card-item">
+									<li class="card-item motion fade-up" data-delay="0.2">
 										<a href="#!">
 											<div class="card-top">
 												<%- include('../../components/badge.ejs', { 
@@ -740,7 +742,7 @@
 											</div>
 										</a>
 									</li>
-									<li class="card-item">
+									<li class="card-item motion fade-up" data-delay="0.3">
 										<a href="#!">
 											<div class="card-top">
 												<%- include('../../components/badge.ejs', { 
@@ -776,7 +778,7 @@
 											</div>
 										</a>
 									</li>
-									<li class="card-item">
+									<li class="card-item motion fade-up" data-delay="0.4">
 										<a href="#!">
 											<div class="card-top">
 												<%- include('../../components/badge.ejs', { 
