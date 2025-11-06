@@ -1276,10 +1276,144 @@ const uiLnb = {
 //     });
 //   }
 // }
+const calendarJquery = {
+	init: function () {
+    this.initLocalization(); //jQuery UI Datepicker 한국어 설정
+    this.initPickers(); //단일/범위 Datepicker 초기화
+    this.initTriggerButtons(); //캘린더 아이콘 버튼 이벤트 바인딩
+  },
+	initLocalization: function () {
+    $.datepicker.regional['ko'] = {
+      closeText: '닫기',
+      prevText: '이전달',
+      nextText: '다음달',
+      currentText: '오늘', // 이 텍스트는 getCommonOptions에서 동적으로 덮어씁니다.
+      monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+      monthNamesShort: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+      dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+      dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], // "일월화수목금토"
+      weekHeader: '주',
+      dateFormat: 'yy-mm-dd', // "2025-09-23" 형식
+      firstDay: 0,
+      isRTL: false,
+      showMonthAfterYear: true, // "2025년 11월"
+      // yearSuffix: '년'
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ko']);
+  },
+	getCommonOptions: function () {
+    return {
+      changeMonth: true,
+      changeYear: true,
+      showButtonPanel: false, 
+      dateFormat: 'yy-mm-dd',
+      
+      beforeShow: function (input, inst) {
+        inst.dpDiv.addClass('calendar-datepicker');
+
+				const $anchor = $(input).closest(".calendar-group");
+
+				setTimeout(() => {
+					if ($anchor.length > 0) {
+						const anchorOffset = $anchor.offset();
+						const anchorHeight = $anchor.outerHeight();
+						const anchorWidth = $anchor.outerWidth(); // (요청사항) 기준 요소의 전체 너비
+		
+						// 3. (요청사항) 달력 위치를 부모의 left:0, 하단으로 설정
+						inst.dpDiv.css({
+							position: "absolute",
+							top: anchorOffset.top + anchorHeight + "px", // 부모 하단 + 5px 갭
+							left: anchorOffset.left + "px", // 부모 left
+							width: anchorWidth + "px", // (요청사항) 부모 너비와 동일하게
+						});
+					}
+
+					const $header = inst.dpDiv.find('.ui-datepicker-header');
+					if ($header.length === 0) return;
+	
+					inst.dpDiv.find('.calendar-today-bar').remove();
+	
+					const today = new Date();
+					const dayName = $.datepicker.regional['ko'].dayNamesShort[today.getDay()];
+					const formattedDate = $.datepicker.formatDate('yy-mm-dd', today);
+					const todayText = `오늘 ${formattedDate} (${dayName})`;
+					
+					const $todayButton = $(`<div class="calendar-today-btn"><button type="button">${todayText}</button></div>`);
+					
+					$todayButton.on('click', function(e) {
+						e.stopPropagation(); 
+						
+						$(input).datepicker('setDate', new Date());
+						drawTodayButton(); 
+					});
+					$header.after($todayButton);
+				}, 0);
+
+        // const drawTodayButton = () => {
+        // };
+				// setTimeout(() => {
+				// 	drawTodayButton
+
+				// }, 0);
+        // setTimeout(drawTodayButton, 0); 
+      }
+    };
+  },
+	initPickers: function () {
+    const commonOptions = this.getCommonOptions();
+
+    $('.calendar-group').each(function () {
+      const $inputs = $(this).find('input.datepicker.cal');
+
+      // --- 1. 단일 Datepicker (isRange: false) ---
+      if ($inputs.length === 1) {
+        $inputs.datepicker(commonOptions);
+      }
+      // --- 2. 범위 Datepicker (isRange: true) ---
+      else if ($inputs.length === 2) {
+        const $start = $inputs.eq(0);
+        const $end = $inputs.eq(1);
+
+        // 시작일 옵션
+        $start.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 시작일 선택 시, 종료일의 최소 날짜를 설정
+            $end.datepicker("option", "minDate", selectedDate);
+          }
+        }));
+
+        // 종료일 옵션
+        $end.datepicker($.extend({}, commonOptions, {
+          onSelect: function (selectedDate) {
+            // 종료일 선택 시, 시작일의 최대 날짜를 설정
+            $start.datepicker("option", "maxDate", selectedDate);
+          }
+        }));
+      }
+    });
+  },
+	initTriggerButtons: function () {
+    $(document).on('click', '.form-btn-datepicker', function (e) {
+      e.preventDefault();
+      const $input = $(this).siblings('input.datepicker.cal');
+      
+      if ($input.length) {
+        if ($input.datepicker('widget').is(':visible')) {
+          $input.datepicker('hide');
+        } else {
+          $input.datepicker('show');
+        }
+      }
+    });
+  }
+}
 const calendar = {
   init: function () {
     if ($.fn.datepicker && $.fn.datepicker.dates['ko']) {
       $.fn.datepicker.defaults.language = 'ko';
+
+			$.fn.datepicker.dates['ko'].titleFormat = "yyyy-mm";
     }
     this.initPickers();
   },

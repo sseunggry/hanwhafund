@@ -464,7 +464,7 @@
         align-items: center;
         height: var(--top-fixed-height);
         background-color: #fff;
-        border-bottom: 0.1rem solid #ebeaea;
+        border-bottom: 0.1rem solid #E6E5E5;
 
         .inner {
           display: flex;
@@ -599,7 +599,7 @@
           }
           .desc {
             margin-top: 1.6rem;
-            color: #514e4d;
+            color: #494646;
           }
         }
         .chart-legend {
@@ -609,7 +609,7 @@
               align-items: center;
               gap: 1rem;
               min-height: 6.4rem;
-              border-bottom: 0.1rem solid #ebeaea;
+              border-bottom: 0.1rem solid #E6E5E5;
 
               &:last-child {
                 border-bottom: 0;
@@ -861,7 +861,7 @@
                 margin: 2.4rem 0;
                 width: 100%;
                 height: 0.1rem;
-                background-color: #ebeaea;
+                background-color: #E6E5E5;
               }
 
               &:last-child::after {
@@ -925,7 +925,7 @@
             dl {
               flex: 1;
               text-align: center;
-              border-right: 0.1rem solid #ebeaea;
+              border-right: 0.1rem solid #E6E5E5;
 
               &:last-child {
                 border-right: none;
@@ -1015,7 +1015,7 @@
             &.line {
               margin-top: 4rem;
               padding: 2rem 0;
-              border-top: 0.1rem solid #ebeaea;
+              border-top: 0.1rem solid #E6E5E5;
             }
             .btn.text {
               max-width: fit-content;
@@ -1132,7 +1132,7 @@
             .chart-summary {
               padding-top: 2.4rem;
               width: 100%;
-              border-top: 0.1rem solid #d7d6d5;
+              border-top: 0.1rem solid #D7D5D5;
             }
           }
           &.doughnut {
@@ -1282,7 +1282,7 @@
               dl {
                 padding-bottom: 2.4rem;
                 border-right: 0;
-                border-bottom: 0.1rem solid #ebeaea;
+                border-bottom: 0.1rem solid #E6E5E5;
 
                 &:last-child {
                   padding-bottom: 0;

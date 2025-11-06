@@ -17,7 +17,7 @@
         align-items: center;
         height: var(--top-fixed-height);
         background-color: #fff;
-        border-bottom: 0.1rem solid #ebeaea;
+        border-bottom: 0.1rem solid #E6E5E5;
 
         .inner {
           display: flex;
@@ -200,7 +200,7 @@
                 }
                 .desc {
                   margin-top: 1.6rem;
-                  color: #514e4d;
+                  color: #494646;
                 }
               }
               .chart-legend {
@@ -210,7 +210,7 @@
                     align-items: center;
                     gap: 1rem;
                     min-height: 6.4rem;
-                    border-bottom: 0.1rem solid #ebeaea;
+                    border-bottom: 0.1rem solid #E6E5E5;
                   }
                   .key {
                     width: 1.6rem;
@@ -265,7 +265,7 @@
                   }
                   .label {
                     margin-top: 1rem;
-                    color: #514e4d;
+                    color: #494646;
                   }
 
                   $levelColor: #119eff, #00cecf, #ffb80d, #fe6220, #ff4891, #f91d00;
@@ -394,14 +394,14 @@
                   background-color: #fff;
 
                   .txt-wrap {
-                    // border-bottom: 0.1rem solid #EBEAEA;
+                    // border-bottom: 0.1rem solid #E6E5E5;
                     &::after {
                       content: "";
                       display: block;
                       margin: 2.4rem 0;
                       width: 100%;
                       height: 0.1rem;
-                      background-color: #ebeaea;
+                      background-color: #E6E5E5;
                     }
 
                     &:last-child::after {
@@ -453,7 +453,7 @@
                   dl {
                     flex: 1;
                     text-align: center;
-                    border-right: 0.1rem solid #ebeaea;
+                    border-right: 0.1rem solid #E6E5E5;
 
                     &:last-child {
                       border-right: none;
@@ -532,7 +532,7 @@
                 &.line {
                   margin-top: 4rem;
                   padding: 2rem 0;
-                  border-top: 0.1rem solid #ebeaea;
+                  border-top: 0.1rem solid #E6E5E5;
                 }
               }
             }

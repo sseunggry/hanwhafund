@@ -28,9 +28,9 @@
 }
 
 @mixin note-list-color-variable() {
-	--#{$prefix}-note-list--color-text-depth1: #514E4D;
-	--#{$prefix}-note-list--color-text-depth2: #514E4D;
-	--#{$prefix}-note-list--color-text-depth3: #514E4D;
+	--#{$prefix}-note-list--color-text-depth1: #494646;
+	--#{$prefix}-note-list--color-text-depth2: #494646;
+	--#{$prefix}-note-list--color-text-depth3: #494646;
 
 	--#{$prefix}-note-list--color-text-white: #fff;
 }
@@ -146,7 +146,7 @@
 }
 .note-txt {//참고 또는 info성 텍스트
 	// --#{$prefix}-note-txt--margin-top: var(--#{$prefix}-space-9);
-	--#{$prefix}-note-txt--color-text: #757170;
+	--#{$prefix}-note-txt--color-text: #757070;
 
 	// margin-top: var(--#{$prefix}-note-txt--margin-top);
 	color: var(--#{$prefix}-note-txt--color-text);

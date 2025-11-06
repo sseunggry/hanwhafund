@@ -226,13 +226,13 @@ $modal-size: (
       }
 
       .conts-area {
-        @include flex-layout($fd: column);
+        // @include flex-layout($fd: column);
 
-        gap: var(--#{$prefix}-modal--conts-gap);
+        // gap: var(--#{$prefix}-modal--conts-gap);
 
-        > * {
-          width: 100%;
-        }
+        // > * {
+        //   width: 100%;
+        // }
       }
     }
 

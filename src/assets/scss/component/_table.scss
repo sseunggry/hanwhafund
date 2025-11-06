@@ -88,18 +88,20 @@
 	width: 100%;
 
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0.1rem;
-    background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-  }
-
+	
   .tbl {
-    width: 100%;
+		position: relative;
+		width: 100%;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0.1rem;
+			background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+		}
     
     thead{
       th {
@@ -115,7 +117,7 @@
         height: 6.4rem;
         text-align: center;
 				font-size: 1.8rem;
-				color: #514E4D;
+				color: #494646;
         border-bottom: 0.1rem solid #E7E5E4;
         background-color: #fff;
       }

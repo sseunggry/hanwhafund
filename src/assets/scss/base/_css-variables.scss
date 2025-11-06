@@ -108,27 +108,27 @@
   // --#{$prefix}-transition-collapse-width: width 0.4s ease;
 
   // color
-  --#{$prefix}-color-neutral-5: #f5f5f4;
-  --#{$prefix}-color-neutral-10: #ebeaea;
-  --#{$prefix}-color-neutral-20: #d7d6d5;
-  --#{$prefix}-color-neutral-30: #afacac;
-  --#{$prefix}-color-neutral-40: #8a8685;
-  --#{$prefix}-color-neutral-50: #757170;
-  --#{$prefix}-color-neutral-60: #605d5c;
-  --#{$prefix}-color-neutral-70: #514e4d;
-  --#{$prefix}-color-neutral-80: #343232;
+  --#{$prefix}-color-neutral-5: #F5F4F4;
+  --#{$prefix}-color-neutral-10: #E6E5E5;
+  --#{$prefix}-color-neutral-20: #D7D5D5;
+  --#{$prefix}-color-neutral-30: #C3C1C1;
+  --#{$prefix}-color-neutral-40: #969292;
+  --#{$prefix}-color-neutral-50: #757070;
+  --#{$prefix}-color-neutral-60: #605C5C;
+  --#{$prefix}-color-neutral-70: #494646;
+  --#{$prefix}-color-neutral-80: #272626;
   --#{$prefix}-color-neutral-90: #151414;
 
   --#{$prefix}-color-sub-5: #f3f2f1;
   --#{$prefix}-color-sub-10: #e7e5e4;
   --#{$prefix}-color-sub-20: #dcd8d6;
   --#{$prefix}-color-sub-30: #c7c1bd;
-  --#{$prefix}-color-sub-40: #9c938c;
-  --#{$prefix}-color-sub-50: #9c938c;
-  --#{$prefix}-color-sub-60: #635b55;
-  --#{$prefix}-color-sub-70: #524c47;
-  --#{$prefix}-color-sub-80: #312d2a;
-  --#{$prefix}-color-sub-90: #161413;
+  --#{$prefix}-color-sub-40: #A19187;
+  --#{$prefix}-color-sub-50: #A19187;
+  --#{$prefix}-color-sub-60: #685950;
+  --#{$prefix}-color-sub-70: #51453D;
+  --#{$prefix}-color-sub-80: #2C2320;
+  --#{$prefix}-color-sub-90: #1A140F;
 
   // --hwf-orange-5: #fdefec;
   // --hwf-orange-10: #fcebe4;
@@ -187,8 +187,8 @@
 
   // text-color
   --#{$prefix}-color-text-basic: var(--#{$prefix}-color-neutral-90); //#151414
-  --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-neutral-70); //#514e4d
-  --#{$prefix}-color-text-subtler: var(--#{$prefix}-color-neutral-50); //#757170
+  --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-neutral-70); //#494646
+  --#{$prefix}-color-text-subtler: var(--#{$prefix}-color-neutral-50); //#757070
   --#{$prefix}-color-text-primary: var(--#{$prefix}-color-orange-base); //#fe5b16
   --#{$prefix}-color-text-primary-dark: var(--#{$prefix}-color-orange-dark); //#F54500
   --#{$prefix}-color-text-white: var(--#{$prefix}-color-white); //#fff
@@ -206,7 +206,7 @@
   // input
   --#{$prefix}-color-input-surface: #fff;
   --#{$prefix}-color-input-surface-disabled: #1e2124;
-  --#{$prefix}-color-input-surface-gray: var(--#{$prefix}-color-sub-80); //#312D2A
+  --#{$prefix}-color-input-surface-gray: var(--#{$prefix}-color-sub-80); //#2C2320
   --#{$prefix}-color-input-border: #cdd1d5;
   --#{$prefix}-color-input-border-active: #ff3a08;
   --#{$prefix}-color-input-border-disabled: #cdd1d5;
@@ -223,15 +223,15 @@
   --#{$prefix}-color-button-tertiary-fill: #f3f2f1;
   --#{$prefix}-color-button-tertiary-fill-hover: #ddd;
   --#{$prefix}-color-button-tertiary-fill-pressed: #ddd;
-  --#{$prefix}-color-button-black-fill: var(--#{$prefix}-color-neutral-90); //#151414
-  --#{$prefix}-color-button-black-fill-hover: var(--#{$prefix}-color-neutral-70); //#514E4D
-  --#{$prefix}-color-button-black-fill-pressed: var(--#{$prefix}-color-neutral-70); //#514E4D
-  --#{$prefix}-color-button-disabled-fill: var(--#{$prefix}-color-neutral-30); //#AFACAC
-  --#{$prefix}-color-button-disabled-border: var(--#{$prefix}-color-neutral-30); //#AFACAC
+  --#{$prefix}-color-button-black-fill: var(--#{$prefix}-color-sub-80); //#2C2320
+  --#{$prefix}-color-button-black-fill-hover: var(--#{$prefix}-color-neutral-90); //#151414
+  --#{$prefix}-color-button-black-fill-pressed: var(--#{$prefix}-color-neutral-90); //#151414
+  --#{$prefix}-color-button-disabled-fill: var(--#{$prefix}-color-sub-30); //#C7C1BD
+  --#{$prefix}-color-button-disabled-border: var(--#{$prefix}-color-sub-30); //#C7C1BD
 
   --#{$prefix}-color-button-text-fill: #ffffff00; // transparent
   --#{$prefix}-color-button-text-fill-hover: #f5f5f5;
-  --#{$prefix}-color-button-text-fill-pressed: #eee;
+  --#{$prefix}-color-button-text-fill-pressed: transparent;
   --#{$prefix}-color-button-text-disabled: var(--#{$prefix}-color-text-white); //#ffffff
   --#{$prefix}-color-button-text-disabled-on: #8a949e;
 
