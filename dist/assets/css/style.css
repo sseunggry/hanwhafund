@@ -6372,6 +6372,139 @@ label {
   background-color: var(--hwf-color-orange-base);
 }
 
+.calendar-datepicker.ui-widget {
+  font-family: "Pretendard", sans-serif;
+  padding: 2.4rem;
+  width: 36.2rem;
+  border-radius: 0.2rem;
+  border: 0.1rem solid var(--hwf-color-orange-base);
+  box-shadow: 0 0.4rem 2.4rem 0 rgba(0, 0, 0, 0.12);
+}
+.calendar-datepicker.ui-widget .ui-widget-content {
+  border: 0;
+}
+.calendar-datepicker.ui-widget input,
+.calendar-datepicker.ui-widget select,
+.calendar-datepicker.ui-widget textarea,
+.calendar-datepicker.ui-widget button {
+  font-family: "Pretendard", sans-serif;
+}
+.calendar-datepicker.ui-datepicker {
+  position: relative;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header {
+  margin-bottom: 1.6rem;
+  padding: 0;
+  font-family: "Pretendard", sans-serif;
+  color: var(--hwf-color-text-basic);
+  border: 0;
+  background-color: transparent;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-title {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-prev .ui-icon,
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-next .ui-icon {
+  position: static;
+  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: contain;
+  mask-image: url(../images/ico-arrow-right.svg);
+  background-color: var(--hwf-color-text-basic);
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-prev.ui-state-disabled,
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-next.ui-state-disabled {
+  opacity: 1;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-prev.ui-state-disabled .ui-icon,
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-next.ui-state-disabled .ui-icon {
+  background-color: #d7d5d5;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-prev {
+  left: inherit;
+  right: 4.2rem;
+  transform: rotate(180deg);
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+  right: 0;
+}
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-month,
+.calendar-datepicker.ui-datepicker .ui-datepicker-header .ui-datepicker-year {
+  width: fit-content;
+}
+.calendar-datepicker.ui-datepicker table {
+  border-collapse: separate;
+  border-spacing: 0.4rem;
+  margin-bottom: 0;
+}
+.calendar-datepicker.ui-datepicker table thead {
+  margin: 0.4rem 0;
+}
+.calendar-datepicker.ui-datepicker table th {
+  height: 3rem;
+  color: var(--hwf-color-text-subtler);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0 0.4rem 0 0;
+}
+.calendar-datepicker.ui-datepicker table th:last-child {
+  padding-right: 0;
+}
+.calendar-datepicker.ui-datepicker table td {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+}
+.calendar-datepicker.ui-datepicker table td .ui-state-default {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--hwf-color-text-subtler);
+  font-weight: 400;
+  text-align: center;
+  border: 0;
+  background: transparent;
+  border-radius: 0.4rem;
+}
+.calendar-datepicker.ui-datepicker table td .ui-state-active {
+  color: var(--hwf-color-text-primary-dark);
+  font-weight: 700;
+  background-color: var(--hwf-color-orange-lighter);
+}
+.calendar-datepicker.ui-datepicker .calendar-today-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #f3f2f1;
+  color: var(--hwf-color-text-subtler);
+}
+.calendar-datepicker.ui-datepicker .calendar-today-btn button {
+  font-size: 1.4rem;
+}
+
 .datepicker.datepicker-dropdown {
   margin-top: 0.3rem;
   border-radius: 0.2rem;
@@ -7942,12 +8075,15 @@ label {
   gap: 2.4rem;
   width: 100%;
 }
+.page-fund .fund-main .section-detail .chart-wrap .filter .scroll-wrap {
+  width: 100%;
+}
 .page-fund .fund-main .section-detail .chart-wrap .filter .form-input-group .calendar {
   width: 18.1rem;
 }
 .page-fund .fund-main .section-detail .chart-wrap .filter .segment-control {
   width: 100%;
-  min-width: 90rem;
+  min-width: 83.2rem;
 }
 .page-fund .fund-main .section-detail .group-flex-wrap {
   display: flex;
