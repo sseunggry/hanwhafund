@@ -6331,10 +6331,28 @@ label {
 }
 
 /* 달력 */
-.form-calendar-group {
+.form-input-group {
   position: relative;
   display: flex;
   align-items: center;
+}
+.form-input-group:has(.input-group + .btn) .input-group .input:only-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-input-group:has(.input-group + .btn) .input-group .input:not(:only-child):first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-input-group:has(.input-group + .btn) .input-group .input:not(:only-child):last-child {
+  border-radius: 0;
+}
+.form-input-group:has(.input-group + .btn) .input-group .input:not(:only-child) + .input {
+  margin-left: -0.1rem;
+}
+.form-input-group:has(.input-group + .btn) .input-group + .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .calendar-group {
@@ -6342,23 +6360,16 @@ label {
 }
 .calendar-group .calendar {
   min-width: 18.1rem;
+  transition: none;
 }
-.calendar-group .calendar:focus-within {
+.calendar-group .calendar:focus, .calendar-group .calendar:focus-within {
   position: relative;
   z-index: 1;
   border-color: var(--hwf-color-orange-base);
+  box-shadow: 0 0 0.8rem 0 rgba(245, 69, 0, 0.4);
 }
-.calendar-group .calendar:focus-within .btn.icon .icon-calendar {
+.calendar-group .calendar:focus .btn.icon .icon-calendar, .calendar-group .calendar:focus-within .btn.icon .icon-calendar {
   background-color: var(--hwf-color-orange-base);
-}
-.calendar-group .calendar:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.calendar-group .calendar:last-child {
-  margin-left: -0.1rem;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 .datepicker.datepicker-dropdown {
@@ -7931,8 +7942,8 @@ label {
   gap: 2.4rem;
   width: 100%;
 }
-.page-fund .fund-main .section-detail .chart-wrap .filter .form-calendar-group {
-  width: 100%;
+.page-fund .fund-main .section-detail .chart-wrap .filter .form-input-group .calendar {
+  width: 18.1rem;
 }
 .page-fund .fund-main .section-detail .chart-wrap .filter .segment-control {
   width: 100%;
@@ -8232,12 +8243,6 @@ label {
   .page-fund .fund-main .section-detail .top-fixed .btn-wrap {
     gap: 2rem;
   }
-  .page-fund .fund-main .section-detail .chart-wrap .filter {
-    flex-direction: column;
-  }
-  .page-fund .fund-main .section-detail .chart-wrap .filter .calendar-group .calendar {
-    width: 100%;
-  }
   .page-fund .fund-main .section-detail .chart-wrap.bar {
     flex-direction: column;
   }
@@ -8257,6 +8262,15 @@ label {
   }
   .page-fund .fund-main .section-detail .chart-wrap.doughnut {
     column-gap: 8rem;
+  }
+  .page-fund .fund-main .section-detail .chart-wrap .filter {
+    flex-direction: column;
+  }
+  .page-fund .fund-main .section-detail .chart-wrap .filter .form-input-group {
+    width: 100%;
+  }
+  .page-fund .fund-main .section-detail .chart-wrap .filter .form-input-group .calendar {
+    width: 100%;
   }
   .page-fund .fund-main .section-detail .fee-wrap {
     flex-direction: column;
