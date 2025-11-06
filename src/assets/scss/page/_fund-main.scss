@@ -764,8 +764,10 @@
           gap: 2.4rem;
           width: 100%;
 
-          .form-calendar-group {
-            width: 100%;
+          .form-input-group {
+						.calendar{
+							width: 18.1rem;
+						}
           }
           .segment-control {
             width: 100%;
@@ -1106,16 +1108,6 @@
           }
         }
         .chart-wrap {
-					.filter {
-            flex-direction: column;
-
-						.calendar-group{
-							.calendar{
-								width: 100%;
-							}
-						}
-          }
-
           &.bar {
             flex-direction: column;
 
@@ -1137,6 +1129,16 @@
           }
           &.doughnut {
             column-gap: 8rem;
+          }
+					.filter {
+            flex-direction: column;
+
+						.form-input-group {
+							width: 100%;
+							.calendar{
+								width: 100%;
+							}
+						}
           }
         }
         .fee-wrap {
