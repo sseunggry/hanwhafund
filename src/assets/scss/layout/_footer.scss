@@ -3,6 +3,7 @@
 
 /* footer */
 .footer {
+  position: relative;
   padding: 6rem 0;
   color: #fff;
   font-size: 1.6rem;
@@ -63,6 +64,25 @@
   .footer-bottom{
     padding-top: 2.4rem;
     border-top: 0.1rem solid rgba(255, 255, 255, 0.15);
+  }
+  .footer-btn-top{
+    position: absolute;
+    top: -3.4rem;
+    right: 0;
+
+    .btn{
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0;
+      width: 6.4rem;
+      height: 6.4rem;
+      background-color: #FE5B16;
+      border-color: #FE5B16;
+
+      .icon-arrow-up{
+        @include icon-set('arrow-up');
+      }
+    }
   }
 }
 

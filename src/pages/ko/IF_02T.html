@@ -44,7 +44,7 @@
 							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`}
 						);
 
-						const badge = include('../../components/badge.ejs', { label: 'N', color: 'secondary', size: 'small',});
+						const badge = include('../../components/badge.ejs', { label: 'N', color: 'new', size: 'small',});
 						-%>
 						<%- include('../../components/tab.ejs', {
 							// active: 0,
@@ -70,18 +70,22 @@
 										</div>
 										<ul class="board-tbody">
 											<li>
-												<p class="td num">21307</p>
-												<p class="td category">파생공시</p>
-												<p class="td tit"><a href="#!">집합투자재산(파생형) 위험지표 공시 ${badge}</a></p>
-												<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-												<p class="td date">2025-09-17</p>
+												<a href="#!">
+													<p class="td num">21307</p>
+													<p class="td category">파생공시</p>
+													<p class="td tit">집합투자재산(파생형) 위험지표 공시 ${badge}</p>
+													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
+													<p class="td date">2025-09-17</p>
+												</a>
 											</li>
 											<li>
-												<p class="td num">21306</p>
-												<p class="td category">투자설명서</p>
-												<p class="td tit"><a href="#!">연금저축비교공시_수수료율_20190930 연금저축비교공시_수수료율_20190930</a></p>
-												<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-												<p class="td date">2025-09-17</p>
+												<a href="#!">
+													<p class="td num">21306</p>
+													<p class="td category">투자설명서</p>
+													<p class="td tit">연금저축비교공시_수수료율_20190930 연금저축비교공시_수수료율_20190930</p>
+													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
+													<p class="td date">2025-09-17</p>
+												</a>
 											</li>
 										</ul>
 									</div>

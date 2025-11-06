@@ -52,6 +52,10 @@
       element: #F91D00,
       text: var(--#{$prefix}-color-text-white),
     ),
+    new: (
+      element: #FE5B16,
+      text: var(--#{$prefix}-color-text-white),
+    )
   ) !default;
 
   // css variable 생성

@@ -524,9 +524,6 @@
 														<dd>KOSPI200 X 220% + MMI_CD X -120%</dd>
 													</dl>
 
-													<% let btnDownload = '';
-														btnDownload += include('../../components/button.ejs', { label: '다운로드', size: 'large', icon: 'download', addClass: 'icon-mo-only'});
-													-%>
 													<%- include('../../components/select.ejs', {
 														variant: 'outline',
 														title: "관련공시",
@@ -552,11 +549,11 @@
 														<p class="desc">운용기간 2025.05.31 ~2025.08.30</p>
 													</div>
 													<%- include('../../components/button.ejs', {
-														variant: '',
-														hierarchy: '',
+														tag: 'a',
 														label: '다운로드',
 														size: 'large',
-														icon: 'download'
+														icon: 'download',
+														download: true,
 													}) -%>
 												</div>
 												<div class="btn-wrap array-left line">
@@ -566,7 +563,7 @@
 														label: '지난 보고서 전체보기',
 														size: 'large',
 														preIcon: 'file',
-														icon: 'arrow-right'
+														icon: 'arrow-right',
 													}) -%>
 												</div>
 											</div>
@@ -576,21 +573,24 @@
 													variant: 'line',
 													label: '집합투자규약',
 													size: 'xlarge',
-													icon: 'download'
+													icon: 'download',
+													download: true,
 												}) -%>
 												<%- include('../../components/button.ejs', {
 													tag: 'a',
 													variant: 'line',
 													label: '투자설명서',
 													size: 'xlarge',
-													icon: 'download'
+													icon: 'download',
+													download: true,
 												}) -%>
 												<%- include('../../components/button.ejs', {
 													tag: 'a',
 													variant: 'line',
 													label: '간이투자설명서',
 													size: 'xlarge',
-													icon: 'download'
+													icon: 'download',
+													download: true,
 												}) -%>
 											</div>
 										</div>

@@ -16,37 +16,56 @@
 				<div class="inner">
 					<div class="cont-group">
 						<div class="board-detail">
-							<div class="board-detail-top">
+							<div class="board-detail-top line-bottom">
 								<h2 class="tit">집합투자재산(파생형) 위험지표 공시</h2>
 								<p class="date">작성일 2025-09-29</p>
 							</div>
 							<div class="board-detail-con">
-								<p>​2025년 09월 29일 (기준일 : 2025년 09월 26일) 집합투자재산(파생형)의 위험지표를 공시합니다.</p>
+								<p>2025년 09월 29일 (기준일 : 2025년 09월 26일) 집합투자재산(파생형)의 위험지표를 공시합니다.</p>
 							</div>
-							<div class="board-detail-files">
-								<div class="item">
-									<a href="#!" download="">
-										한화자산운용VaR20250926.pdf
-									</a>
-								</div>
-							</div>
-							<div class="board-detail-nav">
-								<div class="item prev">
+							<ul class="board-detail-file">
+								<li>
+									<%- include('../../components/button.ejs', {
+										tag: 'a',
+										label: '한화자산운용VaR20250926.pdf',
+										size: 'large',
+										preIcon: 'file',
+										icon: 'download',
+										addClass: 'btn-file',
+										download: true,
+									}) -%>
+								</li>
+								<li>
+									<%- include('../../components/button.ejs', {
+										tag: 'a',
+										label: '한화자산운용VaR20250926.pdf',
+										size: 'large',
+										preIcon: 'file',
+										icon: 'download',
+										addClass: 'btn-file',
+										download: true,
+									}) -%>
+								</li>
+							</ul>
+							<ul class="board-detail-nav"> 
+								<li class="prev">
 									<a href="#!">
+										<p class="txt">이전글</p>
 										<p class="tit">[수시공시] 한화Japan REITs 부동산 투자신탁 1호 (리츠-재간접형)</p>
 										<p class="desc">운용기간 2025.05.31 - 2025.08.30</p>
 									</a>
-								</div>
-								<div class="item next">
+								</li>
+								<li class="next">
 									<a href="#!">
+										<p class="txt">다음글</p>
 										<p class="tit">[수시공시] 한화Japan REITs 부동산 투자신탁 1호 (리츠-재간접형)</p>
 										<p class="desc">운용기간 2025.05.31 - 2025.08.30</p>
 									</a>
-								</div>
-							</div>
+								</li>
+							</ul>
 							<div class="btn-wrap array-center">
 								<%- include('../../components/button.ejs', {
-									label: '목록', hierarchy: 'tertiary'
+									tag: 'a', label: '목록', hierarchy: 'tertiary'
 								}) %>
 							</div>
 						</div>
