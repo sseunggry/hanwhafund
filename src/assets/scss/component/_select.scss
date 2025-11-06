@@ -328,7 +328,8 @@ $form-select-size: (
 
   // --- Variant: outline (라인 스타일) ---
   &.outline {
-    background-color: var(--#{$prefix}-color-input-surface);
+    // background-color: var(--#{$prefix}-color-input-surface);
+    background-color: #fff;
     border: 0.1rem solid var(--#{$prefix}-color-neutral-30);
 
     .select-listbox{

@@ -62,7 +62,8 @@ $input-size: (
   --#{$prefix}-input--color-surface-readonly: var(--#{$prefix}-color-input-surface-disabled);
   --#{$prefix}-input--color-surface-disabled: var(--#{$prefix}-color-input-surface-disabled);
   --#{$prefix}-input--color-surface-error: var(--#{$prefix}-color-input-surface);
-  --#{$prefix}-input--color-border: var(--#{$prefix}-color-input-border);
+  // --#{$prefix}-input--color-border: var(--#{$prefix}-color-input-border);
+  --#{$prefix}-input--color-border: #C3C1C1;
   --#{$prefix}-input--color-border-active: var(--#{$prefix}-color-input-border-active);
   --#{$prefix}-input--color-border-readonly: var(--#{$prefix}-color-input-border-disabled);
   --#{$prefix}-input--color-border-disabled: var(--#{$prefix}-color-input-border-disabled);
@@ -71,7 +72,7 @@ $input-size: (
   --#{$prefix}-input--color-text-active: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-input--color-text-readonly: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-input--color-text-disabled: var(--#{$prefix}-color-text-disabled-on);
-  --#{$prefix}-input--color-text-placeholder: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-input--color-text-placeholder: var(--#{$prefix}-color-text-subtler);
   --#{$prefix}-input--color-text-error: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-input--color-button-clear-icon: transparent;
   --#{$prefix}-input--color-button-clear-background: #b1b8be;
@@ -89,6 +90,10 @@ $input-size: (
 	font-family: inherit;
 	color: var(--#{$prefix}-input--color-text);
 	transition: var(--#{$prefix}-transition-base);
+
+	::placeholder{
+		color: var(--#{$prefix}-input--color-text-placeholder);
+	}
 
 	input{
 		width: 100%;

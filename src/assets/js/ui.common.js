@@ -1425,7 +1425,7 @@ const calendar = {
       autoclose: true,
       todayHighlight: true,
       container: 'body', 
-      // todayBtn: "linked", 
+      todayBtn: "linked", 
       showOutsideDays: false,
       pickerClass: 'calendar-datepicker',
       templates: {
@@ -1631,6 +1631,8 @@ const commonJs = {
     uiLnb.init();
 		calendar.init();
 		calendarInline.init();
+
+		// calendarJquery.init();
 
     // 전역 이벤트 바인딩
     this.bindGlobalEvents();

@@ -764,6 +764,9 @@
           gap: 2.4rem;
           width: 100%;
 
+					.scroll-wrap{
+						width: 100%;
+					}
           .form-input-group {
 						.calendar{
 							width: 18.1rem;
@@ -771,7 +774,7 @@
           }
           .segment-control {
             width: 100%;
-            min-width: 90rem;
+            min-width: 83.2rem;
           }
         }
       }

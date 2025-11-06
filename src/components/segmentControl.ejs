@@ -1,8 +1,9 @@
 <%
   const localsSafe = locals || {};
-  const size = localsSafe.size || 'large';
+  const size = localsSafe.size || '';  //large 기본값
   const title = localsSafe.title || '세그먼트 컨트롤';
   const tag = localsSafe.tag || 'radio'; // tag: 'radio' (기본값) 또는 'button'
+	const variant = localsSafe.variant || ''; // 기본, bg
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : [{ label: 'control1', value: 'control1' }];
   const full = localsSafe.full ? 'full' : '';
   const name = localsSafe.name || `segment-${Math.random().toString(36).substring(2, 9)}`;
@@ -11,6 +12,7 @@
     `segment-control`,
     size,
     full,
+		variant,
     addClass,
   ].filter(Boolean).join(' ');
 

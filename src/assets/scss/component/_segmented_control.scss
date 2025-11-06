@@ -3,40 +3,40 @@
 
 /* 세그먼트 컨트롤 */
 // 사이즈 정의
-@mixin segment-control-size-variable() {
-  $segment-control-size: (
-    small: (
-			padding: 0.4rem,
-      button-height: 3.2rem,
-			button-padding: 0.8rem,
-			gap: 0.4rem,
-      radius: 0.8rem,
-			pc-font-size: 1.5rem,
-      tablet-font-size: 1.5rem,
-      mobile-font-size: 1.5rem,
-    ),
-    medium: (
-			padding: 0.4rem,
-      button-height: 4rem,
-			button-padding: 0.8rem,
-			gap: 0.4rem,
-      radius: 1rem,
-      pc-font-size: 1.6rem,
-      tablet-font-size: 1.6rem,
-      mobile-font-size: 1.6rem,
-    ),
-    large: (
-			padding: 0 0.8rem,
-      button-height: 5.6rem,
-			button-padding: 2.4rem,
-			gap: 0.4rem,
-      radius: 0.2rem,
-      pc-font-size: 1.8rem,
-      tablet-font-size: 1.8rem,
-      mobile-font-size: 1.8rem,
-    ),
-  ) !default;
+$segment-control-size: (
+	small: (
+		padding: 0.4rem,
+		button-height: 3.2rem,
+		button-padding: 0.8rem,
+		gap: 0.4rem,
+		radius: 0.8rem,
+		pc-font-size: 1.5rem,
+		tablet-font-size: 1.5rem,
+		mobile-font-size: 1.5rem,
+	),
+	medium: (
+		padding: 0.4rem,
+		button-height: 4rem,
+		button-padding: 0.8rem,
+		gap: 0.4rem,
+		radius: 1rem,
+		pc-font-size: 1.6rem,
+		tablet-font-size: 1.6rem,
+		mobile-font-size: 1.6rem,
+	),
+	large: (
+		padding: 0 0.8rem,
+		button-height: 5.6rem,
+		button-padding: 2.4rem,
+		gap: 0.4rem,
+		radius: 0.2rem,
+		pc-font-size: 1.8rem,
+		tablet-font-size: 1.8rem,
+		mobile-font-size: 1.8rem,
+	),
+) !default;
 
+@mixin segment-control-size-variable() {
   // css variable 새성
   @each $size, $types in $segment-control-size {
     @each $type, $value in $types {
@@ -44,33 +44,24 @@
       --#{$prefix}-segment-control--#{$type}-#{$size}: #{$value};
     }
   }
+}
+@mixin segment-size($size) {
+	// gap: var(--#{$prefix}-segment-control--gap-#{$size});
+	border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
+	font-size: var(--#{$prefix}-segment-control--pc-font-size-#{$size});
 
-  // class 정의
-  & {
-    // 사이즈 별 class
-    @each $size, $types in $segment-control-size {
-      &.#{$size} {
-				// gap: var(--#{$prefix}-segment-control--gap-#{$size});
-				padding: var(--#{$prefix}-segment-control--padding-#{$size});
-				border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
-				font-size: var(--#{$prefix}-segment-control--pc-font-size-#{$size});
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-segment-control--tablet-font-size-#{$size});
+	}
+	@include mq(mobile) {
+		font-size: var(--#{$prefix}-segment-control--mobile-font-size-#{$size});
+	}
 
-				@include mq(tablet) {
-					font-size: var(--#{$prefix}-segment-control--tablet-font-size-#{$size});
-				}
-				@include mq(mobile) {
-					font-size: var(--#{$prefix}-segment-control--mobile-font-size-#{$size});
-				}
-
-				.control-btn {
-					align-items: center;
-					padding: 0 var(--#{$prefix}-segment-control--button-padding-#{$size});
-					height: var(--#{$prefix}-segment-control--button-height-#{$size});
-					border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
-				}
-      }
-    }
-  }
+	.control-btn {
+		padding: 0 var(--#{$prefix}-segment-control--button-padding-#{$size});
+		height: var(--#{$prefix}-segment-control--button-height-#{$size});
+		border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
+	}
 }
 
 // 컬러 정의
@@ -89,21 +80,39 @@
   @include segment-control-color-variable();
   @include segment-control-size-variable;
 
-	display: flex;
-  justify-content: space-between;
-	background-color: var(--#{$prefix}-segment-control--color-background);
-	
-	.control-btn {
-		color: var(--#{$prefix}-segment-control--button-color-text);
-    border: 0.1rem solid transparent;
-		background-color: var(--#{$prefix}-segment-control--button-color-background-action);
+	&{
+		@include segment-size(large);
+		display: flex;
+		justify-content: center;
+		gap: 0.8rem;
 
-		&.active {
-			font-weight: 700;
-      color: var(--#{$prefix}-segment-control--button-color-text-active);
-			background-color: var(--#{$prefix}-segment-control--button-color-background-action-active);
-      border-color: var(--#{$prefix}-segment-control--button-color-border-action-active);
+		.control-btn {
+			align-items: center;
+			color: var(--#{$prefix}-segment-control--button-color-text);
+			border: 0.1rem solid transparent;
+			background-color: var(--#{$prefix}-segment-control--button-color-background-action);
+
+			&.active {
+				color: var(--#{$prefix}-segment-control--button-color-text-active);
+				font-weight: 700;
+				background-color: var(--#{$prefix}-segment-control--button-color-background-action-active);
+				border-color: var(--#{$prefix}-segment-control--button-color-border-action-active);
+			}
 		}
+
+		@each $size, $types in $segment-control-size {
+			&.#{$size} {
+				@include segment-size(#{$size});
+			}
+		}
+	}
+
+	&.bg {
+		// padding: var(--#{$prefix}-segment-control--padding-#{$size});
+		padding: 0 0.8rem;
+		gap: 0;
+		justify-content: space-between;
+		background-color: var(--#{$prefix}-segment-control--color-background);
 	}
 
 	&.full {
@@ -112,5 +121,9 @@
 		.control-btn {
 			flex: 1;
 		}
+	}
+
+	@include mq(tablet){
+		justify-content: flex-start;
 	}
 }

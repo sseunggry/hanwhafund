@@ -183,27 +183,28 @@
 							<div class="layout-content">
 								<section id="performance" class="cont-group">
 									<div class="section-tit-wrap">
-										<p class="txt-lg txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
-										<h2 class="tit-xlg">수익률</h2>
+										<p class="sub-tit txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
+										<h2 class="tit">수익률</h2>
 									</div>
 									<div class="chart-wrap line">
 										<p class="date">기준일 2025.10.17</p>
 										<div class="filter">
 											<div class="scroll-wrap">
-											<%- include('../../components/segmentControl.ejs', {
-												tag: 'button',
-												items: [
-													{ label: '1주' },
-													{ label: '1개월' },
-													{ label: '3개월' },
-													{ label: '6개월' },
-													{ label: '1년' },
-													{ label: '3년' },
-													{ label: '5년' },
-													{ label: '연초이후' },
-													{ label: '설정이후' }
-												]
-											}) -%>
+												<%- include('../../components/segmentControl.ejs', {
+													tag: 'button',
+													variant: 'bg',
+													items: [
+														{ label: '1주' },
+														{ label: '1개월' },
+														{ label: '3개월' },
+														{ label: '6개월' },
+														{ label: '1년' },
+														{ label: '3년' },
+														{ label: '5년' },
+														{ label: '연초이후' },
+														{ label: '설정이후' }
+													]
+												}) -%>
 											</div>
 											<div class="pc-only">
 												<div class="form-input-group">
@@ -288,8 +289,8 @@
 								</section>
 								<section id="assets" class="cont-group">
 									<div class="section-tit-wrap">
-										<p class="txt-lg txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
-										<h2 class="tit-xlg">자산구성</h2>
+										<p class="sub-tit txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
+										<h2 class="tit">자산구성</h2>
 									</div>
 									<div class="chart-wrap doughnut">
 										<div class="chart-area">
@@ -405,8 +406,8 @@
 								</section>
 								<section id="fees" class="cont-group">
 									<div class="section-tit-wrap">
-										<p class="txt-lg txt-gradient">투자 전 비용도 함께 확인하세요</p>
-										<h2 class="tit-xlg">보수 및 수수료</h2>
+										<p class="sub-tit txt-gradient">투자 전 비용도 함께 확인하세요</p>
+										<h2 class="tit">보수 및 수수료</h2>
 									</div>
 									<div class="group-wrap">
 										<div class="fee-wrap">
@@ -495,8 +496,8 @@
 								</section>
 								<section id="info" class="cont-group">
 									<div class="section-tit-wrap">
-										<p class="txt-lg txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
-										<h2 class="tit-xlg">상품정보</h2>
+										<p class="sub-tit txt-gradient">이 상품의 정보와 관련자료를 꼼꼼하게 확인해보세요</p>
+										<h2 class="tit">상품정보</h2>
 									</div>
 									<div class="group-wrap">
 										<div class="overlay-box-wrap">
@@ -630,7 +631,7 @@
 										</div>
 										<p class="note-txt">펀드 가입은 판매사 홈페이지에서 할 수 있습니다.</p>
 									</div>
-									<div class="group-wrap">
+									<div class="group-wrap pt-56">
 										<h2 class="tit-xlg">투자하시기 전, 꼭 확인하세요!</h2>
 										<p class="note-refer">
 											자산구성현황 및 주요 보유업종, 보유자산 내역은 운용펀드 기준이며 기준일로부터 1개월 전 자료이니 착오 없으시기 바랍니다.
@@ -662,8 +663,8 @@
 					<div class="inner">
 						<div class="cont-group">
 							<div class="section-tit-wrap">
-								<h2 class="tit-xxlg txt-en txt-gradient">Investment Trend</h2>
-								<p class="txt-lg">지금 인기있는 펀드를 확인해보세요</p>
+								<h2 class="tit txt-en txt-gradient">Investment Trend</h2>
+								<p class="desc">지금 인기있는 펀드를 확인해보세요</p>
 							</div>
 							<div class="card-list-wrap">
 								<ul class="card-list">
