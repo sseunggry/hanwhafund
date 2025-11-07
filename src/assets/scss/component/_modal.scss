@@ -2,63 +2,6 @@
 @use "../util" as *;
 
 /* 모달 */
-// 사이즈 정의
-@mixin modal-size-variable() {
-  // PC : Default
-  --#{$prefix}-modal--small-gap: 2.4rem;
-  --#{$prefix}-modal--small-width: calc(100% - 2.4rem);
-  --#{$prefix}-modal--small-height: calc(100% - var(--#{$prefix}-modal--small-gap) * 2);
-  --#{$prefix}-modal--large-padding: 3.2rem;
-  --#{$prefix}-modal--small-header-padding-top: 5.2rem;
-  --#{$prefix}-modal--header-pc-font-size: 1.8rem;
-  --#{$prefix}-modal--conts-pc-font-size: 1.6rem;
-  --#{$prefix}-modal--large-btn-column-gap: 2rem;
-  --#{$prefix}-modal--small-btn-close-position: 2rem;
-  --#{$prefix}-modal--small-btn-padding-top: 1.6rem;
-  --#{$prefix}-modal--small-btn-padding-bottom: 2.4rem;
-
-  // Tablet 768 ~ 1023
-  --#{$prefix}-modal--medium-gap: 2.4rem;
-  --#{$prefix}-modal--medium-width: calc(100% - 2.4rem);
-  --#{$prefix}-modal--medium-height: calc(100% - var(--#{$prefix}-modal--medium-gap) * 2);
-  --#{$prefix}-modal--medium-padding: 2.4rem;
-  --#{$prefix}-modal--medium-header-padding-top: 5.2rem;
-  --#{$prefix}-modal--header-tablet-font-size: 1.8rem;
-  --#{$prefix}-modal--conts-tablet-font-size: 1.6rem;
-  --#{$prefix}-modal--medium-btn-column-gap: 1.6rem;
-  --#{$prefix}-modal--medium-btn-close-position: 2rem;
-  --#{$prefix}-modal--medium-btn-padding-top: 1.6rem;
-  --#{$prefix}-modal--medium-btn-padding-bottom: 2.4rem;
-
-  // Mobile
-  --#{$prefix}-modal--size-large: 76rem;
-  --#{$prefix}-modal--size-medium: 56rem;
-  --#{$prefix}-modal--size-small: 40rem;
-  --#{$prefix}-modal--size-min-height: 26.4rem;
-  --#{$prefix}-modal--wrap-radius: 2rem;
-  --#{$prefix}-modal--small-padding: 2.4rem;
-  --#{$prefix}-modal--header-padding-top: 4.8rem;
-  --#{$prefix}-modal--header-mobile-font-size: 1.8rem;
-  --#{$prefix}-modal--conts-padding-top: 1.6rem;
-  --#{$prefix}-modal--conts-padding-bottom: 0.8rem;
-  --#{$prefix}-modal--conts-gap: 1.6rem;
-  --#{$prefix}-modal--cont-mobile-font-size: 1.6rem;
-  --#{$prefix}-modal--btn-gap: 0.8rem;
-  --#{$prefix}-modal--small-btn-column-gap: 1.6rem;
-  --#{$prefix}-modal--btn-padding-top: 1.6rem;
-  --#{$prefix}-modal--btn-size-min-width: 7.8rem;
-  --#{$prefix}-modal--btn-close-position: 0.8rem;
-}
-
-// 컬러 정의
-@mixin modal-color-variable() {
-  --#{$prefix}-modal--color-text: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-modal--wrap-color-surface: #ffffff;
-  --#{$prefix}-modal--wrap-shadow: 0 0 0.2rem 0 #0000001a, 0 1.6rem 2.4rem 0 #00000029;
-  --#{$prefix}-modal--color-dim: rgba(0, 0, 0, 0.5);
-  --#{$prefix}-modal--full-popup-surface: #fff;
-}
-
 // modal size
 $modal-size: (
   sm: var(--#{$prefix}-modal--size-small),
@@ -82,8 +25,41 @@ $modal-size: (
     opacity 0.2s;
 }
 
+@mixin modal-size-variable() {
+  --#{$prefix}-modal--size-large: 130rem;
+  --#{$prefix}-modal--size-medium: 56rem;
+  --#{$prefix}-modal--size-small: 40rem;
+  --#{$prefix}-modal--size-min-height: 26.4rem;
+  --#{$prefix}-modal--wrap-radius: 0.4rem;
+
+  --#{$prefix}-modal--header-padding: 4rem;
+  --#{$prefix}-modal--header-padding-bottom: 2.4rem;
+  --#{$prefix}-modal--header-font-size: 2.8rem;
+
+  --#{$prefix}-modal--conts-padding: 4rem;
+  --#{$prefix}-modal--conts-font-size: 1.8rem;
+
+  --#{$prefix}-modal--btn-close-position: 4rem;
+  --#{$prefix}-modal--btn-close-size: 4rem;
+  --#{$prefix}-modal--btn-padding-x: 4rem;
+  --#{$prefix}-modal--btn-padding-y-top: 1.6rem;
+  --#{$prefix}-modal--btn-padding-y-bottom: 4rem;
+  --#{$prefix}-modal--btn-gap: 0.8rem;
+  --#{$prefix}-modal--btn-column-gap: 2rem;
+  --#{$prefix}-modal--btn-size-min-width: 7.8rem;
+}
+
+// 컬러 정의
+@mixin modal-color-variable() {
+  --#{$prefix}-modal--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-modal--wrap-color-surface: #ffffff;
+  --#{$prefix}-modal--header-color-border: #E6E5E5;
+  --#{$prefix}-modal--color-dim: rgba(0, 0, 0, 0.5);
+  --#{$prefix}-modal--full-popup-surface: #fff;
+}
+
 .modal {
-  @include modal-color-variable();
+  @include modal-color-variable;
   @include modal-size-variable;
   @include modal-default;
   @include reset-text;
@@ -93,27 +69,20 @@ $modal-size: (
   }
 
   &.in {
-    z-index: 1010;
+    z-index: 10;
     transition-delay: 0s;
     opacity: 1;
     visibility: visible;
   }
 
   &.show {
-    // display: block;
-    z-index: 1010;
+    z-index: 10;
     transition-delay: 0s;
     opacity: 1;
     visibility: visible;
-
-    // .modal-back {
-    // 	display: block;
-    //   z-index: 1000;
-    //   visibility: visible;
-    // }
   }
 
-  // dim-backgorund
+  // dimd
   .modal-back {
     position: fixed;
     inset: 0;
@@ -123,7 +92,7 @@ $modal-size: (
 
     &.in {
       display: block;
-      z-index: 1000;
+      z-index: 9;
       visibility: visible;
     }
   }
@@ -131,12 +100,12 @@ $modal-size: (
   // 기본타입
   .modal-dialog {
     @include flex-layout($ai: center);
-
     position: relative;
-    width: var(--#{$prefix}-modal--size-large); // size클래스 없을 경우. 기본 large 84.6rem;
+    margin: 0 auto;
+		padding: var(--#{$prefix}-content-padding-x);
+		max-width: calc( var(--#{$prefix}-modal--size-large) + (var(--#{$prefix}-content-padding-x))*2 );
     height: 100%;
     min-height: var(--#{$prefix}-modal--size-min-height);
-    margin: 0 auto;
 
     // modal size
     @each $size, $value in $modal-size {
@@ -147,18 +116,14 @@ $modal-size: (
 
     .modal-content {
       @include flex-layout($ai: center, $fd: column);
-
-      z-index: 1020;
+      z-index: 10;
       position: relative;
       width: 100%;
       max-height: 80%;
+      color: var(--#{$prefix}-modal--color-text);
       background-color: var(--#{$prefix}-modal--wrap-color-surface);
       border-radius: var(--#{$prefix}-modal--wrap-radius);
-      // border: var(--#{$prefix}-modal--border-width) solid var(--#{$prefix}-modal--wrap-color-border);
-      color: var(--#{$prefix}-modal--color-text);
-      outline-color: transparent;
       transition: outline-color 0.1s;
-      box-shadow: var(--#{$prefix}-modal--wrap-shadow);
 
       > *:not(.btn-close) {
         width: 100%;
@@ -171,80 +136,49 @@ $modal-size: (
 
     .modal-header {
       width: 100%;
-      background-color: inherit;
-      border-top-left-radius: inherit;
-      border-top-right-radius: inherit;
-      padding-top: var(--#{$prefix}-modal--header-padding-top);
-      padding-inline: var(--#{$prefix}-modal--large-padding);
-
-      @include mq(tablet) {
-        padding-inline: var(--#{$prefix}-modal--medium-padding);
-      }
-
-      @include mq(mobile) {
-        padding-inline: var(--#{$prefix}-modal--small-padding);
-      }
+      padding: var(--#{$prefix}-modal--header-padding) var(--#{$prefix}-modal--header-padding) var(--#{$prefix}-modal--header-padding-bottom);
+			border-bottom: 0.1rem solid var(--#{$prefix}-modal--header-color-border);
 
       .modal-title {
-        @include ellipsis(1);
-
-        font-size: var(--#{$prefix}-modal--header-pc-font-size);
+        font-size: var(--#{$prefix}-modal--header-font-size);
         font-weight: 700;
-        text-align: center;
-
-        @include mq(tablet) {
-          font-size: var(--#{$prefix}-modal--header-tablet-font-size);
-        }
-
-        @include mq(mobile) {
-          font-size: var(--#{$prefix}-modal--header-mobile-font-size);
-        }
       }
     }
 
     .modal-conts {
-      @include flex-layout($fd: column);
-
       position: relative;
       overflow-y: auto;
       width: 100%;
-      padding: var(--#{$prefix}-modal--conts-padding-top) var(--#{$prefix}-modal--large-padding) var(--#{$prefix}-modal--conts-padding-bottom);
-      font-size: var(--#{$prefix}-modal--conts-pc-font-size);
+      padding: var(--#{$prefix}-modal--conts-padding);
+      font-size: var(--#{$prefix}-modal--conts-font-size);
 
-      @include scrollbar;
+      // @include scrollbar;
 
-      @include mq(tablet) {
-        font-size: var(--#{$prefix}-modal--conts-tablet-font-size);
-      }
+			.tit-wrap{
+				margin-bottom: 4rem;
 
-      @include mq(mobile) {
-        font-size: var(--#{$prefix}-modal--conts-mobile-font-size);
-      }
+				.tit{
+					display: flex;
+					align-items: center;
+					gap: 0.8rem;
+					flex-wrap: wrap;
+					font-size: 2.4rem;
+					font-weight: 700;
+					color: #151414;
 
-      > * {
-        width: 100%;
-      }
-
-      .conts-area {
-        // @include flex-layout($fd: column);
-
-        // gap: var(--#{$prefix}-modal--conts-gap);
-
-        // > * {
-        //   width: 100%;
-        // }
-      }
+					small{
+						font-size: 1.8rem;
+						font-weight: 400;
+						color: #494646;
+					}
+				}
+			}
     }
 
     .modal-btn {
       @include flex-layout($ai: center, $jc: space-between);
-
       gap: var(--#{$prefix}-modal--btn-gap);
-      padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--large-padding) var(--#{$prefix}-modal--large-padding);
-
-      @include mq(tablet) {
-        padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--medium-padding) var(--#{$prefix}-modal--medium-padding);
-      }
+      padding: var(--#{$prefix}-modal--btn-padding-y-top) var(--#{$prefix}-modal--btn-padding-x) var(--#{$prefix}-modal--btn-padding-y-bottom);
 
       @include mq(mobile) {
         padding: var(--#{$prefix}-modal--btn-padding-top) var(--#{$prefix}-modal--small-padding) var(--#{$prefix}-modal--small-padding);
@@ -252,21 +186,12 @@ $modal-size: (
 
       .btn {
         @include flex-size(1, 1);
-
-        min-width: var(--#{$prefix}-modal--btn-size-min-width);
+				min-width: var(--#{$prefix}-modal--btn-size-min-width);
       }
 
       &.column {
         flex-direction: column;
-        gap: var(--#{$prefix}-modal--large-btn-column-gap);
-
-        @include mq(tablet) {
-          gap: var(--#{$prefix}-modal--medium-btn-column-gap);
-        }
-
-        @include mq(mobile) {
-          gap: var(--#{$prefix}-modal--small-btn-column-gap);
-        }
+        gap: var(--#{$prefix}-modal--btn-column-gap);
 
         .btn {
           width: 100%;
@@ -280,14 +205,14 @@ $modal-size: (
 
     .icon.btn-close {
       @include position($t: var(--#{$prefix}-modal--btn-close-position), $r: var(--#{$prefix}-modal--btn-close-position));
-      @include square(2.4rem);
+      // @include square(2.4rem);
+      @include square(var(--#{$prefix}-modal--btn-close-size));
+			z-index: 9;
 
       .svg-icon{
         width: 100%;
         height: 100%;
       }
-
-      z-index: 901;
     }
   }
 
@@ -369,7 +294,7 @@ $modal-size: (
       display: block;
       padding: var(--#{$prefix}-modal--bottom-sheet-cont-padding);
 
-      @include scrollbar;
+      // @include scrollbar;
     }
 
     .icon.btn-close {
@@ -413,43 +338,45 @@ $modal-size: (
 @include mq(mobile) {
   .modal {
     &:not([data-type="bottom-sheet"]) {
-      // 기본 스타일(bottom-sheet제외)
+      // 기본 스타일(bottom-sheet제외), 모바일에서는 기본 모달이 full-popup으로 나옴
+			--#{$prefix}-modal--header-padding: 1.6rem;
+      --#{$prefix}-modal--header-padding-bottom: 1.6rem;
+      --#{$prefix}-modal--header-font-size: 1.8rem;
+
+      --#{$prefix}-modal--conts-padding: 4rem 1.6rem;
+      --#{$prefix}-modal--conts-font-size: 1.6rem;
+
+      --#{$prefix}-modal--btn-close-position: 1.6rem;
+      --#{$prefix}-modal--btn-close-size: 3.2rem;
+      --#{$prefix}-modal--btn-padding-x: 1.6rem;
+      --#{$prefix}-modal--btn-padding-y-top: 1.6rem;
+      --#{$prefix}-modal--btn-padding-y-bottom: 2.4rem;
+      --#{$prefix}-modal--btn-column-gap: 1.6rem;
+
       .modal-dialog {
-        width: var(--#{$prefix}-modal--mobile-width);
-        height: var(--#{$prefix}-modal--mobile-height);
-        min-height: var(--#{$prefix}-modal--mobile-height);
-        margin: var(--#{$prefix}-modal--mobile-gap) auto;
+				padding: 0;
+				min-height: 100vh;
 
-        .modal-header {
-          padding: var(--#{$prefix}-modal--mobile-header-padding-top) var(--#{$prefix}-modal--mobile-padding) 0;
-
-          .modal-title {
-            font-size: var(--#{$prefix}-modal--header-mobile-font-size);
-          }
-        }
-
-        .modal-content {
-          max-height: 100%;
-        }
-
+				.modal-content {
+					height: 100%;
+					max-height: 100%;
+					border-radius: 0;
+				}
         .modal-conts {
-          padding-inline: var(--#{$prefix}-modal--mobile-padding);
           padding-bottom: 0;
 
-          .conts-area {
-            > * {
-              width: 100%;
-            }
-          }
+					.tit-wrap{
+						.tit{
+							flex-direction: column;
+							align-items: flex-start;
+						}
+					}
         }
-
-        .modal-btn {
-          padding: var(--#{$prefix}-modal--mobile-btn-padding-top) var(--#{$prefix}-modal--mobile-padding) var(--#{$prefix}-modal--mobile-btn-padding-bottom);
-        }
-
         .icon.btn-close {
-          top: var(--#{$prefix}-modal--mobile-btn-close-position);
-          right: var(--#{$prefix}-modal--mobile-btn-close-position);
+					.svg-icon{
+						width: 2rem;
+						height: 2rem;
+					}
         }
       }
     }

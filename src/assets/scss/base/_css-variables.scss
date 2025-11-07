@@ -186,7 +186,8 @@
 	--#{$prefix}-color-tag-point-violet: #8347EB;
 
   // text-color
-  --#{$prefix}-color-text-basic: var(--#{$prefix}-color-neutral-90); //#151414
+  --#{$prefix}-color-text-strong: var(--#{$prefix}-color-neutral-90); //#151414
+  --#{$prefix}-color-text-basic: var(--#{$prefix}-color-neutral-80); //#272626
   --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-neutral-70); //#494646
   --#{$prefix}-color-text-subtler: var(--#{$prefix}-color-neutral-50); //#757070
   --#{$prefix}-color-text-primary: var(--#{$prefix}-color-orange-base); //#fe5b16

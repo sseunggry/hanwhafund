@@ -142,33 +142,6 @@
                 font-weight: 400;
               }
             }
-            .change {
-              display: inline-flex;
-              align-items: center;
-              padding: 0 0.8rem;
-              height: 3.2rem;
-              border-radius: 0.2rem;
-              background-color: rgba(0, 0, 0, 0.4);
-              &::before {
-                content: "";
-                display: inline-block;
-                margin-right: 0.2rem;
-                width: 1.6rem;
-                height: 1.6rem;
-                @include icon-set("triangle");
-                background-color: currentColor;
-              }
-
-              &.up {
-                color: #ff6d41;
-              }
-              &.down {
-                color: #04c0ff;
-                &::before {
-                  transform: rotate(-180deg);
-                }
-              }
-            }
           }
         }
       }
@@ -450,8 +423,6 @@
     .section-detail {
       --top-fixed-height: 8rem;
       --layout-sidebar-nav-width: calc(26rem + var(--#{$prefix}-content-padding-x));
-      // --layout-sidebar-bg-width: calc(50% + var(--hwf-content-wrap-width) / 2);
-      // --layout-sidebar-pos: calc(50% - var(--hwf-content-wrap-width) / 2);
       --layout-content-gap: 2.4rem;
       --layout-content-bg: #fff;
       --layout-sidebar-bg: #f3f2f1;
@@ -585,6 +556,10 @@
         align-items: center;
         justify-content: space-between;
 
+				.filter-period{
+					padding-bottom: 0;
+				}
+
         .chart-area {
           flex-shrink: 0;
           background-color: #f8f8f8; //임시
@@ -660,6 +635,7 @@
               display: flex;
               flex-direction: column;
               gap: 1rem;
+							color: #757070;
 
               &.active {
                 .bar {
@@ -758,25 +734,6 @@
         .date {
           font-size: 1.6rem;
           color: var(--#{$prefix}-color-text-subtler);
-        }
-        .filter {
-          display: flex;
-          justify-content: space-between;
-          gap: 2.4rem;
-          width: 100%;
-
-					.scroll-wrap{
-						width: 100%;
-					}
-          .form-input-group {
-						.calendar{
-							width: 18.1rem;
-						}
-          }
-          .segment-control {
-            width: 100%;
-            min-width: 83.2rem;
-          }
         }
       }
 
@@ -894,6 +851,10 @@
               gap: 0.8rem;
 
               font-size: 1.5rem;
+
+							dd{
+								font-weight: 600;
+							}
             }
           }
         }
@@ -940,6 +901,7 @@
             dt {
               font-size: 2.1rem;
               font-weight: 700;
+							color: #151414;
 
               $icons: day, night;
               @each $name in $icons {
@@ -1010,6 +972,7 @@
             .tit {
               font-size: 2.4rem;
               font-weight: 700;
+							color: #151414;
             }
             .desc {
               margin-top: 0.8rem;
@@ -1040,13 +1003,6 @@
             .cont-group {
               padding-right: var(--#{$prefix}-content-padding-x);
             }
-          }
-        }
-      }
-      @include mq(1640) {
-        .chart-wrap {
-          .filter {
-            // flex-direction: column;
           }
         }
       }
@@ -1135,16 +1091,6 @@
           }
           &.doughnut {
             column-gap: 8rem;
-          }
-					.filter {
-            flex-direction: column;
-
-						.form-input-group {
-							width: 100%;
-							.calendar{
-								width: 100%;
-							}
-						}
           }
         }
         .fee-wrap {

@@ -52,7 +52,9 @@
 									<%- include('../../components/button.ejs', {
 										variant: 'primary',
 										label: '클래스 비교',
-										size: 'medium'
+										size: 'medium',
+										targetType: 'modal',
+										targetId: 'modalClassCompare',
 									}) -%>
 								</div>
 							</div>
@@ -61,11 +63,12 @@
 									<div class="summary-tit">
 										<p class="tit">기준가(전일대비)</p>
 										<%- include('../../components/button.ejs', {
-											tag: 'a',
 											variant: 'icon',
 											label: '더보기',
 											size: 'xlarge',
 											icon: 'plus-fill',
+											targetType: 'modal',
+											targetId: 'modalDailyPrice'
 										}) -%>
 									</div>
 									<div class="summary-con">
@@ -73,7 +76,7 @@
 											<strong>1,220.00</strong>
 											<span class="unit">원</span>
 										</p>
-										<p class="change up">19.24원(1.60%)</p>
+										<p class="change bg up">19.24원(1.60%)</p>
 									</div>
 								</li>
 								<li>
@@ -85,7 +88,7 @@
 											<strong>6.48</strong>
 											<span class="unit">%</span>
 										</p>
-										<p class="change down">1.60%</p>
+										<p class="change bg down">1.60%</p>
 									</div>
 								</li>
 								<li>
@@ -144,6 +147,8 @@
 									hierarchy: 'secondary',
 									label: '클래스 비교',
 									size: 'small',
+									targetType: 'modal',
+									targetId: 'modalClassCompare',
 								}) -%>
 							</div>
 							<div class="btn-wrap">
@@ -188,7 +193,7 @@
 									</div>
 									<div class="chart-wrap line">
 										<p class="date">기준일 2025.10.17</p>
-										<div class="filter">
+										<div class="filter-period">
 											<div class="scroll-wrap">
 												<%- include('../../components/segmentControl.ejs', {
 													tag: 'button',
@@ -234,7 +239,7 @@
 										</div>
 									</div>
 									<div class="group-wrap gap-40">
-										<h3 class="tit-sm">기간별 수익률 <small class="txt-sm fw-r fc-gray">단위 %</small></h3>
+										<h3 class="tit-sm">기간별 수익률 <small>단위 %</small></h3>
 										<%- include('../../components/table.ejs', { 
 											caption: '기간별 수익률',
 											colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
@@ -264,7 +269,7 @@
 												</li>
 												<li class="level level4 active">
 													<!-- [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
-													<span class="bar motion chart-bar-up" data-duration="0.5"></span>
+													<span class="bar motion chart-bar-up"></span>
 													<!-- // [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
 													<p class="label">다소 <br class="mobile-only"/> 높음</p>
 												</li>
@@ -633,7 +638,7 @@
 										</div>
 										<p class="note-txt">펀드 가입은 판매사 홈페이지에서 할 수 있습니다.</p>
 									</div>
-									<div class="group-wrap pt-56">
+									<div class="group-wrap gap-40 pt-56">
 										<h2 class="tit-xlg">투자하시기 전, 꼭 확인하세요!</h2>
 										<p class="note-refer">
 											자산구성현황 및 주요 보유업종, 보유자산 내역은 운용펀드 기준이며 기준일로부터 1개월 전 자료이니 착오 없으시기 바랍니다.
@@ -835,6 +840,7 @@
 			<%- include('../../layouts/footer.ejs') %>
 			<!-- // footer -->
 
+			<!-- popover -->
 			<%- include('../../components/popover.ejs', {
 				id: 'popover-share',
 				title: '공유하기',
@@ -855,7 +861,9 @@
 					</ul>
 				`
 			}) %>
+			<!-- // popover -->
 
+			<!-- popup 기간설정 -->
 			<% const calendarEjs = include('../../components/calendar.ejs', { size: 'large'})  -%>
 			<%- include('../../components/modal.ejs', {
 				id: 'mobilFilterBottomSheet',
@@ -869,6 +877,98 @@
 					{ text: '검색', class: 'large', action: 'close' },
 				],
 			}) %>
+			<!-- // popup 기간설정 -->
+
+			<!-- popup 일자별 기준가 -->
+			<% const DailyPriceSegmentControl = include('../../components/segmentControl.ejs', {
+					tag: 'button', variant: 'bg',
+					items: [ { label: '1주' }, { label: '1개월' }, { label: '3개월' }, { label: '6개월' }, { label: '1년' }, { label: '3년' }, { label: '5년' }, { label: '연초이후' }, { label: '설정이후' }]
+				});
+				const DailyPriceInputCalendar = include('../../components/calendar.ejs', { size: 'large'});
+				const DailyPriceInputButton = include('../../components/button.ejs', { label: '검색', size: 'large'});
+				const DailyPriceInputButtonMo = include('../../components/button.ejs', { tag: 'button', variant: 'text', label: '직접설정', size: 'large', preIcon: 'filter', targetType: 'modal', targetId: 'mobilFilterBottomSheet',});
+				const DailyPriceFilter = 
+				`<div class="filter-period">
+					<div class="scroll-wrap">
+						${DailyPriceSegmentControl}
+					</div>
+					<div class="pc-only">
+						<div class="form-input-group">
+							${DailyPriceInputCalendar}
+							${DailyPriceInputButton}
+						</div>
+					</div>
+					<div class="mobile-only justify-end">
+						${DailyPriceInputButtonMo}
+					</div>
+				</div>`
+
+				const DailyPriceTable = include('../../components/table.ejs', { 
+					caption: '일자별 기준가',
+					colWidths: ['15.16%', '21.21%', '21.21%', '21.21%', '21.21%'],
+					thead: ['일자', '기준가지수', '등락', '수정기준가', '과표기준가'],
+					tbody: [
+						['2025-10-13', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p class="change down">12.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+						['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
+					],
+					addClass: 'scroll'
+				});
+			-%>
+			<%- include('../../components/modal.ejs', {
+				id: 'modalDailyPrice',
+				variant: 'modal',
+				title: '일자별 기준가',
+				content: `
+					<div class="tit-wrap">
+						<h2 class="tit">
+							한화한국오퍼튜니티증권 자투자신탁(주식)
+							<small>C-e(수수료미징구-온라인)</small>
+						</h2>
+					</div>
+					${DailyPriceFilter}
+					${DailyPriceTable}
+				`,
+			}) %>
+			<!-- popup 일자별 기준가 -->
+
+			<!-- popup 클래스 비교 -->
+			<% const classCompareTable = include('../../components/table.ejs', { 
+					caption: '클래스 비교',
+					colWidths: ['auto', '17.2%', '17.2%', '17.2%', '17.2%', '17.2%'],
+					thead: ['상품명', '설정일', '기준가(기준가 등락)', '수익률(1개월 기준)', '총 보수(연)', '순자산'],
+					tbody: [
+						['Class A', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class A-e', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class C-e', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class C1', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class CA', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class C5', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class S', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class 기타', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class J', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class K', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class C5', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change up">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class S', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class 기타', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class J', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+						['Class K', '2025-07-15', '<p>1,978.57원 <p 17.12% class="change down">0.05</p></p>', '8.04%', '1.61%', '100,208,917원'],
+					],
+					colAligns: ['', '', 'right', '', '', 'right'],
+					addClass: 'scroll'
+				});
+			-%>
+			<%- include('../../components/modal.ejs', {
+				id: 'modalClassCompare',
+				variant: 'modal',
+				title: '클래스 비교',
+				content: classCompareTable,
+			}) %>
+			<!-- popup 클래스 비교 -->
 		</div>
 	</body>
 </html>

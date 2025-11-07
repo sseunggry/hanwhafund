@@ -23,7 +23,7 @@
 				'탭 4 내용'
 			],
 		}) %>
-		
+				
 
 		<%- include('../../components/button.ejs', {
 			variant: 'text',
@@ -263,8 +263,9 @@
 			hierarchy: 'tertiary',
 			tag: 'button',
 			size: 'large',
+			targetType: 'modal',
 			targetId: 'modal-sample-01',
-			addClass: 'btn-open-modal'
+			// addClass: 'btn-open-modal'
 		}) %>
 		<%- include('../../components/modal.ejs', {
 			id: 'modal-sample-01',

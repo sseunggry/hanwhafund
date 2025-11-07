@@ -197,18 +197,17 @@
 
 // **** scroll **** //
 @mixin scrollbar() {
-  &::-webkit-scrollbar {
-    width: 0.8rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #F4C0A9;
-    border-radius: 0.8rem;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #fdefec;
-  }
+	&::-webkit-scrollbar {
+		width: 0.4rem; 
+		height: 0.4rem;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: #F3F2F1; 
+		border-radius: 0;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #FE5B16;
+	}
 }
 
 // text underline

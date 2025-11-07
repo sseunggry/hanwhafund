@@ -8,6 +8,7 @@
   const rowHeaders = localsSafe.rowHeaders === true;
   const colCount = thead.length; // 컬럼 수
   const captionSummary = thead.join(', ');
+	const colAligns = Array.isArray(localsSafe.colAligns) ? localsSafe.colAligns : [];
 
   const wrapClasses = [
     'tbl-wrap', // 기본 래퍼 클래스
@@ -35,7 +36,7 @@
     <% if (colCount > 0) { -%>
     <thead>
       <tr>
-        <% thead.forEach(header => { -%>
+        <% thead.forEach((header) => { -%>
         <th scope="col"><%- header %></th>
         <% }); -%>
       </tr>
@@ -45,13 +46,17 @@
     <tbody>
       <% tbody.forEach(td => { -%>
       <tr>
-        <% td.forEach((cell, index) => { -%>
-          <% if (index === 0 && rowHeaders) { -%>
-            <th scope="row"><%- cell %></th>
-          <% } else { -%>
-            <td><%- cell %></td>
-          <% } -%>
-        <% }); -%>
+			<% td.forEach((cell, index) => { -%>
+			<% 
+				const alignType = colAligns[index] || '';
+				const classAttr = alignType ? `class="txt-${alignType}"` : '';
+			%>
+			<% if (index === 0 && rowHeaders) { -%>
+				<th scope="row" <%- classAttr %>><%- cell %></th>
+			<% } else { -%>
+				<td <%- classAttr %>><%- cell %></td>
+			<% } -%>
+			<% }); -%>
       </tr>
       <% }); -%>
     </tbody>

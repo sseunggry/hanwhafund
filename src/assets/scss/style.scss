@@ -36,7 +36,10 @@
     width: 56.002%;
     height: 48rem;
     background: #000;
-    color: #fff;
+		
+		.tit-md{
+			color: #fff;
+		}
   }
   .info-box {
     position: relative;
@@ -91,6 +94,7 @@
 	.tit{
 		font-size: 4.8rem;
 		font-weight: 700;
+		color: #151414;
 
 		&.txt-en{
 			font-size: 6.4rem;
@@ -133,6 +137,78 @@
 	@include mq(mobile) {
 		gap: 4rem;
 		padding: 4rem 0 8rem;
+	}
+}
+
+//등락율
+.change {
+	display: inline-flex;
+	align-items: center;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		margin-right: 0.2rem;
+		width: 1.6rem;
+		height: 1.6rem;
+		@include icon-set("triangle");
+		background-color: currentColor;
+	}
+	&.up{
+		color: var(--#{$prefix}-color-change-up);
+	}
+	&.down {
+		color: var(--#{$prefix}-color-change-down);
+		&::before {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&.bg{
+		padding: 0 0.8rem;
+		height: 3.2rem;
+		border-radius: 0.2rem;
+		background-color: rgba(0, 0, 0, 0.4);
+
+		&.up {
+			color: #ff6d41;
+		}
+		&.down {
+			color: #04c0ff;
+		}
+	}
+}
+
+//필터
+.filter-period {
+	display: flex;
+	justify-content: space-between;
+	gap: 2.4rem;
+	margin-bottom: 2.4rem;
+	width: 100%;
+
+	.scroll-wrap{
+		width: 100%;
+	}
+	.form-input-group {
+		.calendar{
+			width: 18.1rem;
+		}
+	}
+	.segment-control {
+		width: 100%;
+		min-width: 75.2rem;
+	}
+
+	@include mq(tablet) {
+		flex-direction: column;
+
+		.form-input-group {
+			width: 100%;
+			.calendar{
+				width: 100%;
+			}
+		}
 	}
 }
 

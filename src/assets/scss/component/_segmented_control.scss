@@ -27,7 +27,7 @@ $segment-control-size: (
 	large: (
 		padding: 0 0.8rem,
 		button-height: 5.6rem,
-		button-padding: 2.4rem,
+		button-padding: 2rem,
 		gap: 0.4rem,
 		radius: 0.2rem,
 		pc-font-size: 1.8rem,
@@ -109,7 +109,7 @@ $segment-control-size: (
 
 	&.bg {
 		// padding: var(--#{$prefix}-segment-control--padding-#{$size});
-		padding: 0 0.8rem;
+		// padding: 0 0.8rem;
 		gap: 0;
 		justify-content: space-between;
 		background-color: var(--#{$prefix}-segment-control--color-background);

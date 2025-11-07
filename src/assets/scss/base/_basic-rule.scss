@@ -25,9 +25,9 @@ html{
 }
 
 /* common */
-.txt-al-center{text-align: center !important;}
-.txt-al-left{text-align: left !important;}
-.txt-al-right{text-align: right !important;}
+.txt-center{text-align: center !important;}
+.txt-left{text-align: left !important;}
+.txt-right{text-align: right !important;}
 
 .flex{display: flex;}
 .justify-start{justify-content: flex-start !important;}
@@ -164,7 +164,16 @@ $fw-sizes: (
     font-size: map.get($props, size);
     line-height: map.get($props, lh);
 		font-weight: 700;
+		color: #151414;
   }
+}
+
+.tit-sm{
+	small{
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: #757070;
+	}
 }
 
 // 본문 텍스트 클래스 생성
