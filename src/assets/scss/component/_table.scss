@@ -122,6 +122,15 @@
 				color: #494646;
         border-bottom: 0.1rem solid #E7E5E4;
         background-color: #fff;
+
+				&:has(.change){
+					&.txt-right{
+						display: flex;
+						flex-direction: column;
+						align-items: flex-end;
+						justify-content: center;
+					}
+				}
       }
     }
 
