@@ -409,6 +409,8 @@ $form-select-size: (
 				border-radius: 0.4rem 0.4rem 0 0;
 
 				.select-button {
+					margin: 0 calc(var(--#{$prefix}-form-select-underline--padding-default) * -1);
+					border-bottom: 0.1rem solid #DCD8D6;
 					&::after {
 						background-color: var(--#{$prefix}-form-select-text--color-text);;
 					}

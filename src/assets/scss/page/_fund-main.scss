@@ -3,6 +3,10 @@
 @use "../util" as *;
 
 .page-fund {
+	.inner{
+		max-width: var(--#{$prefix}-content-wrap-width-large);
+	}
+
   .fund-main {
     .section-visual {
       padding: 10rem 0 8rem;

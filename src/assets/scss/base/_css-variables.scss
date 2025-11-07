@@ -11,9 +11,11 @@
   // --#{$prefix}-font-en: "Trust 2A Trial";
 
   // content
-  --#{$prefix}-content-width: 168rem;
+  --#{$prefix}-content-width: 130rem;
+  --#{$prefix}-content-width-large: 168rem;
   --#{$prefix}-content-padding-x: 4rem;
   --#{$prefix}-content-wrap-width: calc(var(--#{$prefix}-content-width) + var(--#{$prefix}-content-padding-x) * 2);
+  --#{$prefix}-content-wrap-width-large: calc(var(--#{$prefix}-content-width-large) + var(--#{$prefix}-content-padding-x) * 2);
 
   // font-size (pc)
   --#{$prefix}-pc-font-size-en-display-large: 16rem;
