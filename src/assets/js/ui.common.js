@@ -261,6 +261,7 @@ const uiSelect = {
   },
 };
 const uiModal = {
+  baseZIndex: 5,
   init: function () {
     // 모달 열기
     $(document).on("click", "[data-modal-open]", function (e) {
@@ -278,7 +279,7 @@ const uiModal = {
     });
 
     // 모달 배경 클릭 시 닫기
-    $(document).on("click", ".modal", function (e) {
+    $(document).on("click", ".modal.show", function (e) {
       if ($(e.target).hasClass("modal-back")) {
         const $modal = $(this);
         uiModal.close($modal.attr("id"));
@@ -289,6 +290,18 @@ const uiModal = {
     const $modal = $(`#${id}`);
     if (!$modal.length) return;
 
+    let maxZIndex = this.baseZIndex;
+    const $visibleModals = $('.modal.in, .modal.show').not($modal);
+    if ($visibleModals.length > 0) {
+      $visibleModals.each(function() {
+        const currentZ = parseInt($(this).css('z-index'), 10) || uiModal.baseZIndex;
+        if (currentZ > maxZIndex) {
+          maxZIndex = currentZ;
+        }
+      });
+    }
+    $modal.css('z-index', maxZIndex + 1);
+
     const $content = $modal.find(".modal-content");
     const $scrollableConts = $modal.find(".modal-conts[tabindex='0']");
 
@@ -296,8 +309,7 @@ const uiModal = {
     $modal.data("modal-trigger", $trigger);
 
 		$("html").css('overflow', 'hidden');
-    $modal.addClass("shown");
-
+    $modal.addClass("show");
     setTimeout(() => $modal.addClass("in"), 10);
 
     // 3. 트랜지션 완료 후 포커스 이동
@@ -329,7 +341,9 @@ const uiModal = {
     $modal.removeClass("in");
 
     $modal.one("transitionend", () => {
-      $modal.removeClass("shown");
+      $modal.removeClass("show");
+
+      $modal.css('z-index', ''); 
 
       // 다른 모달이 열려있지 않을 때만 body 스크롤 복원
       if ($(".modal.in").length === 0) {

@@ -410,6 +410,8 @@ $form-select-size: (
 
 				.select-button {
 					margin: 0 calc(var(--#{$prefix}-form-select-underline--padding-default) * -1);
+          width: calc(100% + var(--#{$prefix}-form-select-underline--padding-default) *2);
+          padding: 0 var(--#{$prefix}-form-select-underline--padding-default);
 					border-bottom: 0.1rem solid #DCD8D6;
 					&::after {
 						background-color: var(--#{$prefix}-form-select-text--color-text);;

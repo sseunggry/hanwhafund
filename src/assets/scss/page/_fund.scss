@@ -434,7 +434,7 @@
       .top-fixed {
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 2;
         display: flex;
         align-items: center;
         height: var(--top-fixed-height);
@@ -475,7 +475,7 @@
 
         .layout-inner {
           position: relative;
-          max-width: var(--#{$prefix}-content-wrap-width);
+          max-width: var(--#{$prefix}-content-wrap-width-large);
           width: 100%;
           margin: 0 auto;
           display: flex;

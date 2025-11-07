@@ -11,7 +11,7 @@ $modal-size: (
 
 // modal default css
 @mixin modal-default {
-  // display: none;
+  display: none;
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -19,10 +19,7 @@ $modal-size: (
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition:
-    visibility 0.15s 0.3s,
-    z-index 0s 0.3s,
-    opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 @mixin modal-size-variable() {
@@ -40,7 +37,8 @@ $modal-size: (
   --#{$prefix}-modal--conts-font-size: 1.8rem;
 
   --#{$prefix}-modal--btn-close-position: 4rem;
-  --#{$prefix}-modal--btn-close-size: 4rem;
+  --#{$prefix}-modal--btn-close-size: 4.8rem;
+  --#{$prefix}-modal--btn-close-icon-size: 4rem;
   --#{$prefix}-modal--btn-padding-x: 4rem;
   --#{$prefix}-modal--btn-padding-y-top: 1.6rem;
   --#{$prefix}-modal--btn-padding-y-bottom: 4rem;
@@ -76,10 +74,20 @@ $modal-size: (
   }
 
   &.show {
-    z-index: 10;
-    transition-delay: 0s;
+    display: block;
+    z-index: 5;
+
+    .modal-back{
+      visibility: visible;
+    }
+  }
+
+  &.show.in{
     opacity: 1;
-    visibility: visible;
+
+    .modal-back{
+      opacity: 1;
+    }
   }
 
   // dimd
@@ -89,12 +97,8 @@ $modal-size: (
     visibility: hidden;
     z-index: -1;
     background-color: var(--#{$prefix}-modal--color-dim);
-
-    &.in {
-      display: block;
-      z-index: 9;
-      visibility: visible;
-    }
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
   // 기본타입
@@ -102,10 +106,11 @@ $modal-size: (
     @include flex-layout($ai: center);
     position: relative;
     margin: 0 auto;
-		padding: var(--#{$prefix}-content-padding-x);
+		padding: 0 var(--#{$prefix}-content-padding-x);
 		max-width: calc( var(--#{$prefix}-modal--size-large) + (var(--#{$prefix}-content-padding-x))*2 );
     height: 100%;
     min-height: var(--#{$prefix}-modal--size-min-height);
+    z-index: 2;
 
     // modal size
     @each $size, $value in $modal-size {
@@ -116,7 +121,7 @@ $modal-size: (
 
     .modal-content {
       @include flex-layout($ai: center, $fd: column);
-      z-index: 10;
+      z-index: 5;
       position: relative;
       width: 100%;
       max-height: 80%;
@@ -205,13 +210,11 @@ $modal-size: (
 
     .icon.btn-close {
       @include position($t: var(--#{$prefix}-modal--btn-close-position), $r: var(--#{$prefix}-modal--btn-close-position));
-      // @include square(2.4rem);
       @include square(var(--#{$prefix}-modal--btn-close-size));
-			z-index: 9;
+			z-index: 5;
 
       .svg-icon{
-        width: 100%;
-        height: 100%;
+        @include square(var(--#{$prefix}-modal--btn-close-icon-size));
       }
     }
   }
@@ -253,11 +256,12 @@ $modal-size: (
   &[data-type="bottom-sheet"] {
     --#{$prefix}-modal--bottom-sheet-radius: 1.2rem;
     --#{$prefix}-modal--bottom-sheet-header-padding: 2.4rem;
-    --#{$prefix}-modal--bottom-sheet-header-padding-right: 1.6rem;
+    --#{$prefix}-modal--bottom-sheet-header-padding-x: 1.6rem;
     --#{$prefix}-modal--bottom-sheet-cont-padding: 1.6rem;
     --#{$prefix}-modal--bottom-sheet-btn-padding-top: 0.8rem;
     --#{$prefix}-modal--bottom-sheet-btn-padding-bottom: 4rem;
     --#{$prefix}-modal--bottom-sheet-btn-padding-side: 1.6rem;
+    --#{$prefix}-modal--bottom-sheet-btn-close-size: 2.4rem;
 
     .modal-content {
       position: fixed;
@@ -274,8 +278,9 @@ $modal-size: (
       @include flex-layout($ai: center, $jc: space-between);
 
       // min-height: calc(var(--#{$prefix}-modal--bottom-sheet-header-padding) + 4.8rem);
-      padding: var(--#{$prefix}-modal--bottom-sheet-header-padding) var(--#{$prefix}-modal--bottom-sheet-header-padding-right) 0 var(--#{$prefix}-modal--bottom-sheet-header-padding);
+      padding: var(--#{$prefix}-modal--bottom-sheet-header-padding) var(--#{$prefix}-modal--bottom-sheet-header-padding-x) 0;
       flex-shrink: 0;
+      border-bottom: 0;
 
       .modal-title {
         font-size: var(--#{$prefix}-modal--header-pc-font-size);
@@ -300,6 +305,10 @@ $modal-size: (
     .icon.btn-close {
       top: var(--#{$prefix}-modal--bottom-sheet-header-padding);
       right: var(--#{$prefix}-modal--bottom-sheet-header-padding);
+      @include square(var(--#{$prefix}-modal--bottom-sheet-btn-close-size));
+      .svg-icon{
+        @include square(100%);
+      }
     }
 
     .pop-filter-top {
@@ -348,6 +357,7 @@ $modal-size: (
 
       --#{$prefix}-modal--btn-close-position: 1.6rem;
       --#{$prefix}-modal--btn-close-size: 3.2rem;
+      --#{$prefix}-modal--btn-close-icon-size: 2rem;
       --#{$prefix}-modal--btn-padding-x: 1.6rem;
       --#{$prefix}-modal--btn-padding-y-top: 1.6rem;
       --#{$prefix}-modal--btn-padding-y-bottom: 2.4rem;
@@ -372,12 +382,12 @@ $modal-size: (
 						}
 					}
         }
-        .icon.btn-close {
-					.svg-icon{
-						width: 2rem;
-						height: 2rem;
-					}
-        }
+        // .icon.btn-close {
+				// 	.svg-icon{
+				// 		width: 2rem;
+				// 		height: 2rem;
+				// 	}
+        // }
       }
     }
 

@@ -97,19 +97,18 @@
       }
     }
   }
-  // .calendar:first-child {
-  //   border-top-right-radius: 0;
-  //   border-bottom-right-radius: 0;
-  //   // border-right: 0;
-  // }
-  // .calendar:last-child {
-  //   margin-left: -0.1rem;
-	// 	border-radius: 0;
-  //   // border-top-left-radius: 0;
-  //   // border-bottom-left-radius: 0;
-  // }
+  &:has(.calendar + .calendar){
+    .calendar:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .calendar:last-child{
+      margin-left: -0.1rem;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 }
-
 
 .calendar-datepicker {
   &.ui-widget {
