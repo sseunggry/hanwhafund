@@ -707,7 +707,7 @@ const uiTooltip = {
     $tooltip.removeClass("active");
   }
 };
-const uiLnb2 = {
+const uiLnb = {
   $sidebar: null,
   $links: null,
   $sections: null,
@@ -778,173 +778,173 @@ const uiLnb2 = {
     });
   },
 };
-const uiLnb = {
-  $sidebar: null,
-  $links: null,
-  $sections: null,
-  offset: 150, 
-  isClickScrolling: false, // [신규] 클릭으로 인한 스크롤인지 확인
-  pauseTimer: null,      // [신규] 스크롤 감지 재개를 위한 타이머
+// const uiLnb = {
+//   $sidebar: null,
+//   $links: null,
+//   $sections: null,
+//   offset: 150, 
+//   isClickScrolling: false, // [신규] 클릭으로 인한 스크롤인지 확인
+//   pauseTimer: null,      // [신규] 스크롤 감지 재개를 위한 타이머
 
-  /**
-   * [신규] 탭/LNB 항목을 스크롤 영역 안으로 이동시키는 헬퍼
-   * (uiTab에서 가져온 공통 함수)
-   */
-  scrollItemIntoView: function($item, $container, smooth = true) {
-    if (!$item.length || !$container.length) return;
+//   /**
+//    * [신규] 탭/LNB 항목을 스크롤 영역 안으로 이동시키는 헬퍼
+//    * (uiTab에서 가져온 공통 함수)
+//    */
+//   scrollItemIntoView: function($item, $container, smooth = true) {
+//     if (!$item.length || !$container.length) return;
     
-    // 1. 컨테이너가 가로로 스크롤 가능한지 확인 (모바일 LNB)
-    const isHorizontallyScrollable = $container[0].scrollWidth > $container[0].clientWidth;
-    if (!isHorizontallyScrollable) return; // 가로 스크롤 아니면 중단
+//     // 1. 컨테이너가 가로로 스크롤 가능한지 확인 (모바일 LNB)
+//     const isHorizontallyScrollable = $container[0].scrollWidth > $container[0].clientWidth;
+//     if (!isHorizontallyScrollable) return; // 가로 스크롤 아니면 중단
 
-    // --- jQuery .animate() (부드러운 "모션" 스크립트) ---
-    const containerWidth = $container.outerWidth();
-    const scrollLeft = $container.scrollLeft();
-    const itemOffsetLeft = $item[0].offsetLeft; // 부모($container) 기준 아이템의 왼쪽 위치
-    const itemWidth = $item.outerWidth();
+//     // --- jQuery .animate() (부드러운 "모션" 스크립트) ---
+//     const containerWidth = $container.outerWidth();
+//     const scrollLeft = $container.scrollLeft();
+//     const itemOffsetLeft = $item[0].offsetLeft; // 부모($container) 기준 아이템의 왼쪽 위치
+//     const itemWidth = $item.outerWidth();
     
-    const containerVisibleRight = scrollLeft + containerWidth;
-    const itemRight = itemOffsetLeft + itemWidth;
-    let newScrollLeft = null;
-    const buffer = 20; // 좌우 20px 여유 공간
+//     const containerVisibleRight = scrollLeft + containerWidth;
+//     const itemRight = itemOffsetLeft + itemWidth;
+//     let newScrollLeft = null;
+//     const buffer = 20; // 좌우 20px 여유 공간
 
-    if (itemRight > containerVisibleRight) { 
-      // 아이템이 오른쪽에 잘렸을 때
-      newScrollLeft = itemRight - containerWidth + buffer;
-    } else if (itemOffsetLeft < scrollLeft) { 
-      // 아이템이 왼쪽에 잘렸을 때
-      newScrollLeft = itemOffsetLeft - buffer;
-    }
+//     if (itemRight > containerVisibleRight) { 
+//       // 아이템이 오른쪽에 잘렸을 때
+//       newScrollLeft = itemRight - containerWidth + buffer;
+//     } else if (itemOffsetLeft < scrollLeft) { 
+//       // 아이템이 왼쪽에 잘렸을 때
+//       newScrollLeft = itemOffsetLeft - buffer;
+//     }
     
-    if (newScrollLeft !== null) {
-      if (smooth) {
-        $container.stop().animate({ scrollLeft: newScrollLeft }, 300); // 0.3초 "모션"
-      } else {
-        // 스크롤 스파이(수동 스크롤)는 즉시 반영
-        $container.scrollLeft(newScrollLeft);
-      }
-    }
-  },
+//     if (newScrollLeft !== null) {
+//       if (smooth) {
+//         $container.stop().animate({ scrollLeft: newScrollLeft }, 300); // 0.3초 "모션"
+//       } else {
+//         // 스크롤 스파이(수동 스크롤)는 즉시 반영
+//         $container.scrollLeft(newScrollLeft);
+//       }
+//     }
+//   },
 
-  init: function () {
-    this.$sidebar = $(".sidebar");
-    if (!this.$sidebar.length) return;
+//   init: function () {
+//     this.$sidebar = $(".sidebar");
+//     if (!this.$sidebar.length) return;
 
-    this.$links = this.$sidebar.find("a[href^='#']");
-    if (!this.$links.length) return;
+//     this.$links = this.$sidebar.find("a[href^='#']");
+//     if (!this.$links.length) return;
 
-    this.$sections = $();
-    this.$links.each((i, link) => {
-      const $section = $($(link).attr("href"));
-      if ($section.length) {
-        this.$sections = this.$sections.add($section);
-      }
-    });
+//     this.$sections = $();
+//     this.$links.each((i, link) => {
+//       const $section = $($(link).attr("href"));
+//       if ($section.length) {
+//         this.$sections = this.$sections.add($section);
+//       }
+//     });
 
-    if (!this.$sections.length) return;
+//     if (!this.$sections.length) return;
     
-    // [신규] 1. LNB 링크 클릭 이벤트 (페이지 세로 스크롤 담당)
-    this.setupClickHandlers();
+//     // [신규] 1. LNB 링크 클릭 이벤트 (페이지 세로 스크롤 담당)
+//     this.setupClickHandlers();
     
-    // 2. 수동 스크롤 이벤트 (스크롤 스파이 담당)
-    $(window).on("scroll.sidebarSpy", () => {
-      this.updateActiveState();
-    });
+//     // 2. 수동 스크롤 이벤트 (스크롤 스파이 담당)
+//     $(window).on("scroll.sidebarSpy", () => {
+//       this.updateActiveState();
+//     });
 
-    this.updateActiveState();
-  },
+//     this.updateActiveState();
+//   },
 
-  /**
-   * [신규] LNB 링크 클릭 시, 페이지(세로)를 스크롤하는 핸들러
-   */
-  setupClickHandlers: function() {
-    const self = this;
-    this.$links.on('click.lnbClick', function(e) {
-      e.preventDefault(); 
-      const $link = $(this);
-      const $targetSection = $($link.attr('href'));
+//   /**
+//    * [신규] LNB 링크 클릭 시, 페이지(세로)를 스크롤하는 핸들러
+//    */
+//   setupClickHandlers: function() {
+//     const self = this;
+//     this.$links.on('click.lnbClick', function(e) {
+//       e.preventDefault(); 
+//       const $link = $(this);
+//       const $targetSection = $($link.attr('href'));
       
-      if ($targetSection.length) {
-        // 1. 스크롤 스파이(updateActiveState)를 잠시 멈춤
-        self.isClickScrolling = true;
-        clearTimeout(self.pauseTimer);
+//       if ($targetSection.length) {
+//         // 1. 스크롤 스파이(updateActiveState)를 잠시 멈춤
+//         self.isClickScrolling = true;
+//         clearTimeout(self.pauseTimer);
 
-        // 2. (즉시) 클릭한 메뉴 활성화 (active 클래스 + 가로 스크롤)
-        self.setActiveIndicator($link, true); // true = 부드럽게
+//         // 2. (즉시) 클릭한 메뉴 활성화 (active 클래스 + 가로 스크롤)
+//         self.setActiveIndicator($link, true); // true = 부드럽게
 
-        // 3. 페이지(세로) 스크롤 애니메이션
-        const targetScrollTop = $targetSection.offset().top - self.offset + 1;
-        const animationDuration = 500; // 0.5초
+//         // 3. 페이지(세로) 스크롤 애니메이션
+//         const targetScrollTop = $targetSection.offset().top - self.offset + 1;
+//         const animationDuration = 500; // 0.5초
 
-        $('html, body').stop().animate({
-          scrollTop: targetScrollTop
-        }, animationDuration, () => {
-          // 4. 애니메이션 완료 후 스크롤 스파이 재개
-          self.pauseTimer = setTimeout(() => {
-            self.isClickScrolling = false;
-          }, 50); // 50ms 여유
-        });
-      }
-    });
-  },
+//         $('html, body').stop().animate({
+//           scrollTop: targetScrollTop
+//         }, animationDuration, () => {
+//           // 4. 애니메이션 완료 후 스크롤 스파이 재개
+//           self.pauseTimer = setTimeout(() => {
+//             self.isClickScrolling = false;
+//           }, 50); // 50ms 여유
+//         });
+//       }
+//     });
+//   },
 
-  /**
-   * [수정] 스크롤 스파이 (수동 스크롤 감지)
-   */
-  updateActiveState: function () {
-    // 1. 클릭으로 스크롤 중이면, 스파이 로직 중단
-    if (this.isClickScrolling) return;
+//   /**
+//    * [수정] 스크롤 스파이 (수동 스크롤 감지)
+//    */
+//   updateActiveState: function () {
+//     // 1. 클릭으로 스크롤 중이면, 스파이 로직 중단
+//     if (this.isClickScrolling) return;
 
-    const scrollTop = $(window).scrollTop();
-    const triggerPos = scrollTop + this.offset;
-    let currentActiveId = null;
+//     const scrollTop = $(window).scrollTop();
+//     const triggerPos = scrollTop + this.offset;
+//     let currentActiveId = null;
 
-    const sectionsReversed = this.$sections.get().reverse();
-    for (const section of sectionsReversed) {
-      const $section = $(section);
-      if ($section.offset() && $section.offset().top <= triggerPos) {
-        currentActiveId = $section.attr("id");
-        break; 
-      }
-    }
+//     const sectionsReversed = this.$sections.get().reverse();
+//     for (const section of sectionsReversed) {
+//       const $section = $(section);
+//       if ($section.offset() && $section.offset().top <= triggerPos) {
+//         currentActiveId = $section.attr("id");
+//         break; 
+//       }
+//     }
 
-    if (currentActiveId === null) {
-      currentActiveId = this.$sections.first().attr("id");
-    }
+//     if (currentActiveId === null) {
+//       currentActiveId = this.$sections.first().attr("id");
+//     }
 
-    if (scrollTop + $(window).height() >= $(document).height() - 50) {
-      currentActiveId = this.$sections.last().attr("id");
-    }
+//     if (scrollTop + $(window).height() >= $(document).height() - 50) {
+//       currentActiveId = this.$sections.last().attr("id");
+//     }
 
-    // 2. 현재 ID에 해당하는 링크를 찾아 활성화
-    const $activeLink = this.$links.filter(`[href="#${currentActiveId}"]`);
-    this.setActiveIndicator($activeLink, false); // false = 즉시
-  },
+//     // 2. 현재 ID에 해당하는 링크를 찾아 활성화
+//     const $activeLink = this.$links.filter(`[href="#${currentActiveId}"]`);
+//     this.setActiveIndicator($activeLink, false); // false = 즉시
+//   },
 
-  /**
-   * [신규] 활성화 및 LNB(가로) 스크롤을 담당하는 공통 함수
-   * @param {jQuery} $anchor - 활성화할 <a> 태그
-   * @param {boolean} isSmooth - 가로 스크롤을 부드럽게 할지 여부
-   */
-  setActiveIndicator: function($anchor, isSmooth) {
-    if (!$anchor || !$anchor.length) return;
-    const $li = $anchor.closest('li');
+//   /**
+//    * [신규] 활성화 및 LNB(가로) 스크롤을 담당하는 공통 함수
+//    * @param {jQuery} $anchor - 활성화할 <a> 태그
+//    * @param {boolean} isSmooth - 가로 스크롤을 부드럽게 할지 여부
+//    */
+//   setActiveIndicator: function($anchor, isSmooth) {
+//     if (!$anchor || !$anchor.length) return;
+//     const $li = $anchor.closest('li');
 
-    // 이미 활성화 상태면 중단
-    if ($li.hasClass('active')) return;
+//     // 이미 활성화 상태면 중단
+//     if ($li.hasClass('active')) return;
     
-    // 1. 모든 링크 비활성화
-    this.$links.closest('li').removeClass('active');
-    this.$links.removeAttr('aria-current');
+//     // 1. 모든 링크 비활성화
+//     this.$links.closest('li').removeClass('active');
+//     this.$links.removeAttr('aria-current');
     
-    // 2. 타겟 링크 활성화
-    $li.addClass('active');
-    $anchor.attr('aria-current', 'page');
+//     // 2. 타겟 링크 활성화
+//     $li.addClass('active');
+//     $anchor.attr('aria-current', 'page');
     
-    // 3. (모바일용) LNB 가로 스크롤 실행
-    this.scrollItemIntoView($li, this.$sidebar, isSmooth);
-  }
-};
+//     // 3. (모바일용) LNB 가로 스크롤 실행
+//     this.scrollItemIntoView($li, this.$sidebar, isSmooth);
+//   }
+// };
 const gsapMotion = {
   // 1. 애니메이션 유형 정의 (클래스 이름: GSAP 'from' 속성)
   animationTypes: {
