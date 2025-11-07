@@ -23,10 +23,10 @@ const iaPageAData = {
 		// --- 인사이트 ---
 		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "-", depth3: "-", pageName: "공지목록", pageType: "page", pageID: "IS_01", link: "", isAdminLinked: true, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "공지 상세", depth3: "-", pageName: "공지상세", pageType: "page", pageID: "IS_01_01", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "투자정보 상세", depth3: "-", pageName: "투자정보상세", pageType: "link", pageID: " -", link: "-", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "-", depth3: "-", pageName: "시황목록", pageType: "page", pageID: "IS_03", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "시황 상세", depth3: "-", pageName: "시황상세", pageType: "page", pageID: "IS_03-01", link: "", isAdminLinked: true, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "투자정보 상세", depth3: "-", pageName: "투자정보상세", pageType: "link", pageID: " -", link: "-", isAdminLinked: true, status: "완료", memo: [{detail: "외부링크"}], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "-", depth3: "-", pageName: "시황목록", pageType: "page", pageID: "IS_03", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "시황 상세", depth3: "-", pageName: "시황상세", pageType: "page", pageID: "IS_03-01", link: "", isAdminLinked: true, status: "작업중", memo: [], },
 		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "FAQ", depth2: "-", depth3: "-", pageName: "FAQ", pageType: "page", pageID: "IS_04", link: "", isAdminLinked: true, status: "", memo: [], },
 
 		// --- 공시 ---

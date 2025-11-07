@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '인사이트'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap page-insite">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') %>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container notice-main">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">인사이트</h2>
+						</div>
+						<% 
+						const segmentControl = include('../../components/segmentControl.ejs', {
+							tag: 'button',
+							items: [
+								{ label: '전체' },
+								{ label: '투자설명서' },
+								{ label: '운용역변경' },
+								{ label: '소규모펀드공시' },
+								{ label: '파생공시' },
+								{ label: '자산운용보고서' },
+								{ label: '기타' },
+							]
+						});
+
+						const searchIcon = include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
+						const search = include('../../components/input.ejs', {
+							ariaLabel: "검색어 입력",
+							size: 'large',
+							placeholder: '검색어를 입력해 주세요.',
+							preSlot: searchIcon
+						});
+
+						const btnMore = include('../../components/button.ejs', {label: '더보기', hierarchy: 'tertiary', 
+							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`}
+						);
+
+						const badge = include('../../components/badge.ejs', { label: 'N', color: 'new', size: 'small',});
+						-%>
+						<%
+						const thumbList1 = include('../../layouts/thumbList.ejs', {
+							listClass: 'link',
+							items: [
+								{title: '월급으로 부자 되기 힘들다? 이진우 기자에게 제대로 배웠습니다', sourceType: 'instagram'},
+								{title: '중국 10대 기업 차곡 차곡 사 모아라', sourceType: 'blog'},
+								{title: '전쟁 끝나면 방산주는 찬밥? 장기 성장주인 이유', sourceType: 'youtube'},
+								{title: '은퇴를 앞둔 5060 포트폴리오부터 MZ세대를 연금 계좌 전략!', sourceType: 'youtube'},
+								{title: '시진핑이 무너진다? 중국 증시 폭등의 진짜 이유', sourceType: 'youtube'},
+								{title: '시드머니가 없는뎁쇼...? 적립식으로 반복투자를 해야 하는 이유!', sourceType: 'instagram'},
+								{title: '앞이 캄캄한 시장 지수 반등의 조건은?', sourceType: 'youtube'},
+								{title: '이것만 알고 투자하자!', sourceType: 'blog'},
+								{title: '환경의, 환경에 의한, 환경을 위한 펀드매니저가 있다?!', sourceType: 'youtube'},
+							]
+						});
+						const thumbList2 = include('../../layouts/thumbList.ejs', {
+							cols: 3,
+							items: [
+								{title: '2025년 9월 글로벌 매크로 및 자산시장', date: '2025.08.29' },
+								{title: '2025년 9월 국내외 채권시장 전망', date: '2025.08.29' },
+								{title: '2025년 9월 글로벌 매크로 및 자산시장', date: '2025.08.29' },
+								{title: '2025년 9월 국내외 채권시장 전망', date: '2025.08.29' },
+								{title: '2025년 9월 국내외 채권시장 전망', date: '2025.08.29' },
+								{title: '2025년 9월 글로벌 매크로 및 자산시장', date: '2025.08.29' },
+								{title: '2025년 9월 국내외 채권시장 전망', date: '2025.08.29' },
+								{title: '2025년 9월 국내외 채권시장 전망', date: '2025.08.29' },
+								{title: '2025년 9월 글로벌 매크로 및 자산시장', date: '2025.08.29' },
+							]
+						});
+						-%>
+						<%- include('../../components/tab.ejs', {
+							active: 1,
+							variant: 'line',
+							tablist: ['공지', '투자정보', '시황', '뉴스룸', 'FAQ'],
+							contents: [
+								`
+								<div class="board-con">
+									<div class="scroll-wrap">
+										${segmentControl}
+									</div>
+									<form class="board-search">
+										<p class="total">전체 21,307건</p>
+										${search}
+									</form>
+									<div class="board-list-wrap line-top">
+										<div class="board-thead">
+											<p class="th num">NO</p>
+											<p class="th category">구분</p>
+											<p class="th tit">제목</p>
+											<p class="th file">첨부</p>
+											<p class="th date">등록일</p>
+										</div>
+										<ul class="board-tbody">
+											<li>
+												<a href="#!">
+													<p class="td num">21307</p>
+													<p class="td category">파생공시</p>
+													<p class="td tit">집합투자재산(파생형) 위험지표 공시 ${badge}</p>
+													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
+													<p class="td date">2025-09-17</p>
+												</a>
+											</li>
+											<li>
+												<a href="#!">
+													<p class="td num">21306</p>
+													<p class="td category">투자설명서</p>
+													<p class="td tit">연금저축비교공시_수수료율_20190930 연금저축비교공시_수수료율_20190930</p>
+													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
+													<p class="td date">2025-09-17</p>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="btn-wrap array-center">
+										${btnMore}
+									</div>
+								</div>
+								`,
+								thumbList1,
+								thumbList2,
+								'탭 4 내용',
+								'탭 5 내용'
+							],
+						}) -%>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') %>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

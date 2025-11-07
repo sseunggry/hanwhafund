@@ -1,0 +1,53 @@
+<%
+  const localsSafe = locals || {};
+  const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];
+  const cols = localsSafe.cols || null; // 3, 4 등 숫자
+  const sourceMap = {
+    'instagram': 'Instagram',
+    'blog': 'Blog',
+    'youtube': 'Youtube'
+  };
+  const addClass = localsSafe.addClass || '';
+  const listClass = localsSafe.listClass || '';
+  const listClasses = [
+    'thumb-list',
+    cols ? `col-${cols}` : '',
+    listClass
+  ].filter(Boolean).join(' ');
+
+  const defaultImg = '../../assets/images/img-thumb-sample.png';
+%>
+<% if (items.length > 0) { -%>
+<div class="thumb-list-wrap <%= addClass %>">
+  <ul class="<%= listClasses %>">
+  <% items.forEach(item => { %>
+    <li class="thumb-item">
+      <a href="<%= item.url || '#!' %>">
+        <div class="thumb-img">
+          <img src="<%= item.imgSrc || defaultImg %>" alt="<%= item.alt || item.title || '' %>">
+        </div>
+        <div class="thumb-con">
+        <% if (item.sourceType && sourceMap[item.sourceType]) { %>
+          <p class="source <%= item.sourceType %>">
+            <%= sourceMap[item.sourceType] %>
+          </p>
+        <% } %>
+          <p class="tit"><%= item.title %></p>
+        <% if (item.date) { %>
+          <p class="date"><%= item.date %></p>
+        <% } %>
+        </div>
+      </a>
+    </li>
+  <% }); -%>
+  </ul>
+  <div class="btn-wrap array-center">
+    <%- include('../components/button.ejs', {
+      label: '더보기', 
+      hierarchy: 'tertiary',
+      size: 'large',
+      slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
+    }); %>
+  </div>
+</div>
+<% } -%>
