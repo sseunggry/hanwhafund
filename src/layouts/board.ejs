@@ -1,0 +1,76 @@
+<%
+  const localsSafe = locals || {};
+  const boardList = localsSafe.boardList || '';
+  const boardSearch = localsSafe.boardSearch === false ? false : (localsSafe.boardSearch || true);
+  const showSearch = boardSearch !== false;
+  const searchTotal = (typeof boardSearch === 'object' && boardSearch.total) ? boardSearch.total : '21,307';
+  const boardListItems = Array.isArray(localsSafe.boardListItems) ? localsSafe.boardListItems : [];
+  const boardListThead = localsSafe.boardListThead || undefined;
+  const startNumber = localsSafe.startNumber;
+  const moreButtonOptions = localsSafe.moreButton || {};
+  const moreButtonTag = moreButtonOptions.tag || 'button';
+  const moreButtonHref = (moreButtonTag === 'a') ? (moreButtonOptions.href || '#!') : undefined;
+  
+  const includePath = localsSafe.includePath || '../';
+  const segmentControlPath = includePath + 'components/segmentControl.ejs';
+  const buttonPath = includePath + 'components/button.ejs';
+  const inputPath = includePath + 'components/input.ejs';
+  const boardListPath = includePath + 'layouts/boardList.ejs';
+
+  const defaultSegmentItems = [
+    { label: '전체' },
+    { label: '투자설명서' },
+    { label: '운용역변경' },
+    { label: '소규모펀드공시' },
+    { label: '파생공시' },
+    { label: '자산운용보고서' },
+    { label: '기타' },
+  ];
+  const segmentControl = localsSafe.segmentControl;
+  let segmentItems;
+
+  if (segmentControl === true) {
+    segmentItems = defaultSegmentItems;
+  } else if (Array.isArray(segmentControl)) {
+    segmentItems = segmentControl;
+  } else {
+    segmentItems = false;
+  }
+  const searchIcon = include(buttonPath, { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
+%>
+<div class="board-con">
+  <% if (segmentItems) { %>
+  <div class="scroll-wrap">
+    <%- include(segmentControlPath, {
+      tag: 'button',
+      items: segmentItems
+    }); %>
+  </div>
+  <% } %>
+  <% if (showSearch) { %>
+  <form class="board-search">
+    <p class="total">전체 <%= searchTotal %>건</p>
+    <%- include(inputPath, {
+      ariaLabel: "검색어 입력",
+      size: 'large',
+      placeholder: '검색어를 입력해 주세요.',
+      preSlot: searchIcon
+    }); %>
+  </form>
+  <% } %>
+  <%- include(boardListPath, {
+    items: boardListItems,
+    thead: boardListThead,
+    startNumber: startNumber,
+  }) %>
+  <div class="btn-wrap array-center">
+    <%- include(buttonPath, {
+      tag: moreButtonTag,
+      href: moreButtonHref,
+      label: '더보기', 
+      hierarchy: 'tertiary',
+      size: 'large',
+      slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
+    }); %>
+  </div>
+</div>

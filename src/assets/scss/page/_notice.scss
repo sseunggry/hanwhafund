@@ -28,18 +28,22 @@
 	}
 	.board-list-wrap{
 		.num{
+			flex-shrink: 0;
 			width: 12.3%;
 		}
 		.category{
+			flex-shrink: 0;
 			width: 16.15%;
 		}
 		.tit{
-			width: 46.2%;
+			width: 100%;
 		}
 		.file{
+			flex-shrink: 0;
 			width: 9.2%;
 		}
 		.date{
+			flex-shrink: 0;
 			width: 16.15%;
 		}
 

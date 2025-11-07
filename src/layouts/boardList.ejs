@@ -1,0 +1,110 @@
+<%
+  const localsSafe = locals || {};
+  const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];
+  const addClass = localsSafe.addClass || '';
+  const noDataMessage = localsSafe.noDataMessage || '등록된 게시글이 없습니다.';
+  const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : 10;
+  const isNew = localsSafe.isNew === false;
+
+  const defaultThead = [
+    { text: 'NO', key: 'num', class: 'num' },
+    { text: '구분', key: 'category', class: 'category' },
+    { text: '제목', key: 'title', class: 'tit' },
+    { text: '첨부', key: 'file', class: 'file' },
+    { text: '등록일', key: 'date', class: 'date' }
+  ];
+  let thead;
+
+  // if (Array.isArray(localsSafe.thead) && localsSafe.thead.length > 0) {
+  //   thead = localsSafe.thead;
+  // } else {
+  //   const hasCategory = items.some(item => item.category);
+  //   const hasFile = items.some(item => item.hasFile);
+  //   const hasDate = items.some(item => item.date);
+  //   thead = defaultThead.filter(col => {
+  //     if (col.key === 'num' || col.key === 'title') {
+  //       return true;
+  //     }
+  //     if (col.key === 'category') {
+  //       return hasCategory;
+  //     }
+  //     if (col.key === 'file') {
+  //       return hasFile;
+  //     }
+  //     if (col.key === 'date') {
+  //       return hasDate;
+  //     }
+  //     return false;
+  //   });
+  // }
+  if (Array.isArray(localsSafe.thead) && localsSafe.thead.length > 0) {
+    thead = localsSafe.thead;
+  } else {
+    const theadChanges = (typeof localsSafe.theadChanges === 'object' && localsSafe.theadChanges !== null) ? localsSafe.theadChanges : {};
+    const hasCategory = items.some(item => item.category);
+    const hasFile = items.some(item => item.hasFile);
+    const hasDate = items.some(item => item.date);
+
+    thead = defaultThead
+      .filter(col => {
+        if (col.key === 'category' && !hasCategory) return false;
+        if (col.key === 'file' && !hasFile) return false;
+        if (col.key === 'date' && !hasDate) return false;
+        
+        return true;
+      })
+      .map(col => {
+        if (theadChanges[col.key]) {
+          return Object.assign({}, col, theadChanges[col.key]);
+        }
+        return col;
+      });
+  }
+%>
+<div class="board-list-wrap line-top <%= addClass %>">
+  <div class="board-thead" aria-hidden="true">
+  <% thead.forEach(col => { -%>
+    <p class="th <%= col.class || '' %>"><%= col.text %></p>
+  <% }); -%>
+  </div>
+  <ul class="board-tbody">
+  <% if (items.length > 0) { %>
+    <% items.forEach((item, index) => { %>
+    <% const itemNumber = startNumber - index; %>
+    <li>
+      <a href="<%= item.url || '#!' %>">
+      <% thead.forEach(col => { %>
+        <% if (col.key === 'num') { %>
+        <p class="td <%= col.class %>"><%= itemNumber %></p>
+        <% } else if (col.key === 'title') { %>
+        <p class="td <%= col.class %>">
+          <%- item.title %>
+          <% if (item.isNew) { %>
+          <%- include('../components/badge.ejs', { 
+            label: 'N', color: 'new', size: 'small',
+          }) -%>
+          <% } %>
+        </p>
+        <% } else if (col.key === 'file') { %>
+        <% if (item.hasFile) { %>
+        <span class="td <%= col.class %>">
+          <span class="sr-only">첨부파일</span>
+          <i class="svg-icon icon-file" aria-hidden="true"></i>
+        </span>
+        <% } %>
+        <% } else if (item[col.key]) { %>
+        <p class="td <%= col.class %>"><%= item[col.key] %></p>
+        <% } else { %>
+        <p class="td <%= col.class %>"></p>
+        <% } %>
+      <% }); %>
+      </a>
+    </li>
+    <% }); %>
+  <% } else { %>
+    <li class="no-data">
+      <p><%= noDataMessage %></p>
+    </li>
+  <% } %>
+  </ul>
+</div>

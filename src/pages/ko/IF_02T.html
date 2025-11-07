@@ -18,87 +18,90 @@
 						<div class="section-tit-wrap">
 							<h2 class="tit">공시안내</h2>
 						</div>
-						<% 
-						const segmentControl = include('../../components/segmentControl.ejs', {
-							tag: 'button',
-							items: [
-								{ label: '전체' },
-								{ label: '투자설명서' },
-								{ label: '운용역변경' },
-								{ label: '소규모펀드공시' },
-								{ label: '파생공시' },
-								{ label: '자산운용보고서' },
-								{ label: '기타' },
-							]
+						<%
+						const board1 = include('../../layouts/board.ejs', {
+							boardListItems: [
+								{
+									category: '파생공시',
+									title: '집합투자재산(파생형) 위험지표 공시',
+									hasFile: true,
+									date: '2025-09-17',
+									isNew: true
+								},
+								{
+									category: '투자설명서',
+									title: '연금저축비교공시_수수료율',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
 						});
-
-						const searchIcon = include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
-						const search = include('../../components/input.ejs', {
-							ariaLabel: "검색어 입력",
-							size: 'large',
-							placeholder: '검색어를 입력해 주세요.',
-							preSlot: searchIcon
+						const board2 = include('../../layouts/board.ejs', {
+							segmentControl: true, 
+							boardListItems: [
+								{
+									category: '파생공시',
+									title: '집합투자재산(파생형) 위험지표 공시',
+									hasFile: true,
+									date: '2025-09-17',
+									isNew: true
+								},
+								{
+									category: '투자설명서',
+									title: '연금저축비교공시_수수료율',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
 						});
-
-						const btnMore = include('../../components/button.ejs', {label: '더보기', hierarchy: 'tertiary', 
-							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`}
-						);
-
-						const badge = include('../../components/badge.ejs', { label: 'N', color: 'new', size: 'small',});
-						-%>
+						const board3 = include('../../layouts/board.ejs', {
+							boardListItems: [
+								{
+									title: '임원 선임 및 사임(해임) 공시',
+									hasFile: true,
+									date: '2025-09-17',
+								},
+								{
+									title: '금융소비자보호 내부통제기준 개정 사항 공지',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
+						});
+						const board4 = include('../../layouts/board.ejs', {
+							boardListItems: [
+								{
+									title: '25년도 제18회 이사회 의사록',
+									hasFile: true,
+									date: '2025-09-17',
+								},
+								{
+									title: '제8기 사업연도 1분기 투자보고서 및 주석',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
+						});
+						const board5 = include('../../layouts/board.ejs', {
+							boardListItems: [
+								{
+									title: '연금저축비교공시_수수료율_20190930',
+									hasFile: true,
+									date: '2025-09-17',
+								},
+								{
+									title: '연금저축비교공시_수익률_20190930',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
+						});
+						%>
 						<%- include('../../components/tab.ejs', {
 							// active: 0,
 							variant: 'line',
 							tablist: ['전체', '펀드공시', '경영공시', '리츠공시', '연금공시'],
-							contents: [
-								`
-								<div class="board-con">
-									<div class="scroll-wrap">
-										${segmentControl}
-									</div>
-									<form class="board-search">
-										<p class="total">전체 21,307건</p>
-										${search}
-									</form>
-									<div class="board-list-wrap line-top">
-										<div class="board-thead">
-											<p class="th num">NO</p>
-											<p class="th category">구분</p>
-											<p class="th tit">제목</p>
-											<p class="th file">첨부</p>
-											<p class="th date">등록일</p>
-										</div>
-										<ul class="board-tbody">
-											<li>
-												<a href="#!">
-													<p class="td num">21307</p>
-													<p class="td category">파생공시</p>
-													<p class="td tit">집합투자재산(파생형) 위험지표 공시 ${badge}</p>
-													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-													<p class="td date">2025-09-17</p>
-												</a>
-											</li>
-											<li>
-												<a href="#!">
-													<p class="td num">21306</p>
-													<p class="td category">투자설명서</p>
-													<p class="td tit">연금저축비교공시_수수료율_20190930 연금저축비교공시_수수료율_20190930</p>
-													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-													<p class="td date">2025-09-17</p>
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="btn-wrap array-center">
-										${btnMore}
-									</div>
-								</div>
-								`,
-								'<p>탭 2 내용</p>',
-								'<div>탭 3 내용</div>',
-								'탭 4 내용',
-								''
-							],
+							contents: [board1, board2, board3, board4, board5],
 						}) -%>
 					</div>
 				</div>

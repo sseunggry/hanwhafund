@@ -18,35 +18,37 @@
 						<div class="section-tit-wrap">
 							<h2 class="tit">인사이트</h2>
 						</div>
-						<% 
-						const segmentControl = include('../../components/segmentControl.ejs', {
-							tag: 'button',
-							items: [
-								{ label: '전체' },
-								{ label: '투자설명서' },
-								{ label: '운용역변경' },
-								{ label: '소규모펀드공시' },
-								{ label: '파생공시' },
-								{ label: '자산운용보고서' },
-								{ label: '기타' },
-							]
-						});
-
-						const searchIcon = include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
-						const search = include('../../components/input.ejs', {
-							ariaLabel: "검색어 입력",
-							size: 'large',
-							placeholder: '검색어를 입력해 주세요.',
-							preSlot: searchIcon
-						});
-
-						const btnMore = include('../../components/button.ejs', {label: '더보기', hierarchy: 'tertiary', 
-							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`}
-						);
-
-						const badge = include('../../components/badge.ejs', { label: 'N', color: 'new', size: 'small',});
-						-%>
 						<%
+						const board1 = include('../../layouts/board.ejs', {
+							boardListItems: [
+								{
+									title: '[한화자산운용] 한화녹색ESG인프라 프로젝트 펀드 모집 공고(수시접수)',
+									hasFile: true,
+									date: '2025-09-17',
+									isNew: true
+								},
+								{
+									title: '[한화녹색ESG인프라] 하위 블라인드 펀드 위탁운용사 선정 공고 및 설명회 개최 안내',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+								{
+									title: 'The Korea Defense Industry Index',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+								{
+									title: '한화자산운용 사칭 오픈톡, 리딩방 주의 안내',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+								{
+									title: '개인정보처리방침 개정 안내',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
+						});
 						const thumbList1 = include('../../layouts/thumbList.ejs', {
 							listClass: 'link',
 							items: [
@@ -75,62 +77,39 @@
 								{title: '2025년 9월 글로벌 매크로 및 자산시장', date: '2025.08.29' },
 							]
 						});
+						const board2 = include('../../layouts/board.ejs', {
+							theadChanges: { category: { text: '언론사' } },
+							boardListItems: [
+								{
+									category: '프레스나인',
+									title: '테슬라·美테크지수 동시 투자…3개월 수익률 11.76%[ETF 줌인]',
+									hasFile: true,
+									date: '2025-09-17',
+									isNew: true
+								},
+								{
+									category: '이데일리',
+									title: '테슬라·美테크지수 동시 투자…3개월 수익률 11.76%[ETF 줌인]',
+									hasFile: true,
+									date: '2025-09-17'
+								},
+							],
+						});
+						const faq = include('../../components/accordion.ejs', {
+							items: [
+								{title: '제목1', content: '<p>내용1</p>', active: true },
+								{title: '제목2', content: '<p>내용2</p>' },
+								{title: '제목3', content: '<p>내용3</p>' }
+							],
+						});
 						-%>
 						<%- include('../../components/tab.ejs', {
 							active: 1,
 							variant: 'line',
 							tablist: ['공지', '투자정보', '시황', '뉴스룸', 'FAQ'],
-							contents: [
-								`
-								<div class="board-con">
-									<div class="scroll-wrap">
-										${segmentControl}
-									</div>
-									<form class="board-search">
-										<p class="total">전체 21,307건</p>
-										${search}
-									</form>
-									<div class="board-list-wrap line-top">
-										<div class="board-thead">
-											<p class="th num">NO</p>
-											<p class="th category">구분</p>
-											<p class="th tit">제목</p>
-											<p class="th file">첨부</p>
-											<p class="th date">등록일</p>
-										</div>
-										<ul class="board-tbody">
-											<li>
-												<a href="#!">
-													<p class="td num">21307</p>
-													<p class="td category">파생공시</p>
-													<p class="td tit">집합투자재산(파생형) 위험지표 공시 ${badge}</p>
-													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-													<p class="td date">2025-09-17</p>
-												</a>
-											</li>
-											<li>
-												<a href="#!">
-													<p class="td num">21306</p>
-													<p class="td category">투자설명서</p>
-													<p class="td tit">연금저축비교공시_수수료율_20190930 연금저축비교공시_수수료율_20190930</p>
-													<span class="td file"><span class="sr-only">첨부파일</span><i class="svg-icon icon-file"></i></span>
-													<p class="td date">2025-09-17</p>
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="btn-wrap array-center">
-										${btnMore}
-									</div>
-								</div>
-								`,
-								thumbList1,
-								thumbList2,
-								'탭 4 내용',
-								'탭 5 내용'
-							],
+							contents: [board1, thumbList1, thumbList2, board2, faq],
 						}) -%>
-					</div>
+					</div> 
 				</div>
 			</main>
 			<!-- // container -->

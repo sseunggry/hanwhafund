@@ -1,10 +1,10 @@
 <%
   const localsSafe = locals || {};
-  const items = localsSafe.items;
+  const badgeItems = localsSafe.badgeItems;
 -%>
-<%_ if (Array.isArray(items) && items.length > 0) { -%>
+<%_ if (Array.isArray(badgeItems) && badgeItems.length > 0) { -%>
 <div class="badge-wrap">
-<%_ items.forEach(item => { -%>
+<%_ badgeItems.forEach(item => { -%>
   <%_
     const variant = item.variant || 'solid';
     const color = item.color || 'primary';
