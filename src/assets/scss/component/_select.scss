@@ -207,6 +207,7 @@ $form-select-size: (
         align-items: center;
         gap: 0.8rem;
         cursor: pointer;
+				color: #494646;
 
         &::after {
           content: "";
@@ -413,7 +414,9 @@ $form-select-size: (
 					}
 	
 					.select-value {
-						color: var(--#{$prefix}-form-select-text--color-text);
+						font-weight: 700;
+						color: #151414;
+						// color: var(--#{$prefix}-form-select-text--color-text);
 					}
 				}
 			}
