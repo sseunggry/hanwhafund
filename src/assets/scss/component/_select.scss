@@ -219,7 +219,7 @@ $form-select-size: (
 
         &[aria-selected="true"] {
           color: var(--#{$prefix}-form-select-listbox--color-text-selected);
-          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
+          // background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
 
           &::after {
             background-color: currentColor;
@@ -230,14 +230,15 @@ $form-select-size: (
           // border: var(--#{$prefix}-form-select--border-width-focus) solid var(--#{$prefix}-form-select--color-border-active);
           outline-width: 0;
           box-shadow: none;
-          background-color: var(--#{$prefix}-form-select-listbox-option--color-background);
+          // background-color: var(--#{$prefix}-form-select-listbox-option--color-background);
         }
-        &:hover {
+        &:active, &:hover {
+					color: var(--#{$prefix}-form-select-listbox--color-text-selected);
           background-color: var(--#{$prefix}-form-select-listbox-option--color-background-hover);
         }
-        &:active {
-          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
-        }
+        // &:active {
+        //   background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
+        // }
       }
     }
 

@@ -316,12 +316,19 @@ $button-color-variable: (
       background-color: var(--#{$prefix}-color-text-basic);
     }
 
-    &:hover {
-      background-color: var(--#{$prefix}-color-button-text-fill-hover);
-    }
-    &:active,
+		&.dark{
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: #E7E5E4;
+			}
+		}
+
+    &:hover,
+		&:active,
     &:focus {
-      background-color: var(--#{$prefix}-color-button-text-fill-pressed);
+			background-color: #F3F2F1;
+      // background-color: var(--#{$prefix}-color-button-text-fill-hover);
     }
     &[disabled],
     &.disabled {
