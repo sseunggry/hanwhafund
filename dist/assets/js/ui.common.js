@@ -35,7 +35,7 @@ const uiUtils = {
     const popoverHeight = $popover.outerHeight();
     const windowWidth = window.innerWidth;
 
-    // 팝오버에 적용된 클래스를 읽어 기본 위치 결정
+    // 적용된 클래스를 읽어 기본 위치 결정
     const isTop = $popover.hasClass('top');
     const isBottom = $popover.hasClass('bottom');
     const isLeft = $popover.hasClass('left');
@@ -59,7 +59,7 @@ const uiUtils = {
       idealTop = btnRect.bottom + gap;
     }
 
-    // 2. X축 (left) 위치 계산
+    // X축 (left) 위치 계산
     const viewportPadding = 10;
     const windowRight = window.innerWidth - viewportPadding;
 
@@ -171,7 +171,7 @@ const uiSelect = {
           getPrev($focusedOption).focus();
           break;
         case "Enter":
-        case " ": // 스페이스바
+        case " ":
           e.preventDefault();
           if (!isOpen) {
             uiSelect.open($select);
@@ -187,7 +187,6 @@ const uiSelect = {
           }
           break;
         case "Tab":
-          // 탭 키는 포커스 트랩이 아닌 셀렉트를 닫도록 함
           if (isOpen) {
             uiSelect.close($select);
           }
@@ -198,9 +197,8 @@ const uiSelect = {
   open: function ($select) {
     if ($select.hasClass("disabled")) return;
 
-    // 1. 다른 셀렉트/팝오버 닫기
     uiSelect.closeAll();
-    uiPopover.closeAll(); // 팝오버도 닫아줌
+    uiPopover.closeAll();
 
     const $btn = $select.find(".select-button");
     const $listbox = $select.find(".select-listbox");
@@ -209,7 +207,6 @@ const uiSelect = {
     $btn.attr("aria-expanded", "true");
     $listbox.removeAttr("hidden");
 
-    // 2. 현재 선택된 옵션으로 포커스/스크롤
     let $selected = $listbox.find('[aria-selected="true"]');
     if (!$selected.length) {
       $selected = $listbox.find(".select-option:not(.disabled)").first();
@@ -242,28 +239,76 @@ const uiSelect = {
     const newValue = $option.data("value");
     const newText = $option.text();
 
-    // 1. 기존 선택 해제
     $listbox
       .find('[aria-selected="true"]')
       .attr("aria-selected", "false")
       .removeClass("selected");
 
-    // 2. 새 옵션 선택
     $option.attr("aria-selected", "true").addClass("selected");
 
-    // 3. UI 텍스트 및 네이티브 <select> 값 업데이트
     $valueDisplay.text(newText).removeClass("placeholder");
-    $nativeSelect.val(newValue).trigger("change"); // change 이벤트 발생
+    $nativeSelect.val(newValue).trigger("change");
 
-    // 4. 셀렉트 닫고 버튼에 포커스
     uiSelect.close($select);
     $btn.focus();
   },
 };
+const uiInputClear = {
+  init: function () {
+    $(document).on("input.uiInputClear", ".input input", function () {
+      const $input = $(this);
+      const $clearBtn = $input.siblings(".btn-clear");
+      const show = $input.val().length > 0 && !$input.prop('disabled') && !$input.prop('readonly');
+      $clearBtn.toggleClass("active", show);
+    });
+    $(document).on("click.uiInputClear", ".input .btn-clear", function (e) {
+      e.preventDefault();
+      const $clearBtn = $(this);
+      const $input = $clearBtn.siblings("input");
+      $input.val("").trigger("input").focus();
+    });
+  }
+};
+const uiInputStateSync = {
+  syncState: function($input) {
+    if (!$input || !$input.length) return;
+    
+    const $wrapper = $input.closest('.input');
+    if (!$wrapper.length) return;
+
+    $wrapper.toggleClass('disabled', $input.prop('disabled'));
+    $wrapper.toggleClass('readonly', $input.prop('readonly'));
+  },
+
+  init: function () {
+    const self = this;
+    const $inputs = $('.input input');
+    
+    if ($inputs.length === 0) return;
+
+    const observerCallback = (mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'attributes' && (mutation.attributeName === 'disabled' || mutation.attributeName === 'readonly')) {
+          self.syncState($(mutation.target));
+        }
+      }
+    };
+
+    const observer = new MutationObserver(observerCallback);
+
+    $inputs.each(function() {
+      const $input = $(this);
+      self.syncState($input);
+      observer.observe(this, { 
+        attributes: true, 
+        attributeFilter: ['disabled', 'readonly'] 
+      });
+    });
+  }
+};
 const uiModal = {
   baseZIndex: 5,
   init: function () {
-    // 모달 열기
     $(document).on("click", "[data-modal-open]", function (e) {
       e.preventDefault();
       const $trigger = $(this);
@@ -271,14 +316,12 @@ const uiModal = {
       uiModal.open(modalId, $trigger);
     });
 
-    // 모달 닫기
     $(document).on("click", ".modal .btn-close", function (e) {
       e.preventDefault();
       const $modal = $(this).closest(".modal");
       uiModal.close($modal.attr("id"));
     });
 
-    // 모달 배경 클릭 시 닫기
     $(document).on("click", ".modal.show", function (e) {
       if ($(e.target).hasClass("modal-back")) {
         const $modal = $(this);
@@ -305,14 +348,12 @@ const uiModal = {
     const $content = $modal.find(".modal-content");
     const $scrollableConts = $modal.find(".modal-conts[tabindex='0']");
 
-    // 모달을 연 트리거 저장
     $modal.data("modal-trigger", $trigger);
 
 		$("html").css('overflow', 'hidden');
     $modal.addClass("show");
     setTimeout(() => $modal.addClass("in"), 10);
 
-    // 3. 트랜지션 완료 후 포커스 이동
     $modal.one("transitionend", () => {
       if ($scrollableConts.length) {
         $scrollableConts.focus();
@@ -321,10 +362,7 @@ const uiModal = {
       }
     });
 
-    // 포커스 트랩 설정
     uiUtils.focusTrap($content);
-
-    // ESC 키로 닫기 (이벤트 네임스페이스 사용)
     $modal.on("keydown.modalEsc", function (e) {
       if (e.key === "Escape") {
         uiModal.close(id);
@@ -409,7 +447,6 @@ const uiAccordion = {
           
           $otherItem.removeClass("active");
           $otherButton.attr("aria-expanded", "false").removeClass("active");
-          // $otherContent.removeClass("active").attr("hidden", true);
           $otherContent.removeClass("active");
         });
       }
@@ -418,12 +455,6 @@ const uiAccordion = {
       $button.toggleClass("active", isOpening);
       $currentItem.toggleClass("active", isOpening);
       $accordionContent.toggleClass("active", isOpening);
-      
-      // if (isOpening) {
-      //    $accordionContent.removeAttr("hidden"); // 열기
-      // } else {
-      //    $accordionContent.attr("hidden", true); // 닫기
-      // }
     });
   },
 };
@@ -431,18 +462,17 @@ const uiTab = {
   scrollTabIntoView: function($tab, $tablist, smooth = true) {
     if (!$tab.length || !$tablist.length) return;
     
-    // 1. 컨테이너가 스크롤 가능한지 확인 (가로 스크롤만)
     if ($tablist[0].scrollWidth <= $tablist[0].clientWidth) return;
 
     const containerWidth = $tablist.outerWidth();
     const scrollLeft = $tablist.scrollLeft();
-    const tabOffsetLeft = $tab[0].offsetLeft; // 부모($tablist) 기준 탭의 왼쪽 위치
+    const tabOffsetLeft = $tab[0].offsetLeft; 
     const tabWidth = $tab.outerWidth();
     
     const containerVisibleRight = scrollLeft + containerWidth;
     const tabRight = tabOffsetLeft + tabWidth;
     let newScrollLeft = null;
-    const buffer = 20; // 좌우 20px 여유 공간
+    const buffer = 20;
 
     if (tabRight > containerVisibleRight) { 
       newScrollLeft = tabRight - containerWidth + buffer;
@@ -471,14 +501,14 @@ const uiTab = {
       const $tablist = $tab.closest('[role="tablist"]');
       const $targetPanel = $(`#${$tab.attr("aria-controls")}`);
 
-      // 1. 기존 활성 탭/패널 비활성화
+      // 기존 활성 탭/패널 비활성화
       const $activeTab = $tablist.find(".active");
       const $activePanel = $tabArea.find(".tab-conts.active");
 
       $activeTab.removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
       $activePanel.removeClass("active");
 
-      // 2. 새 탭/패널 활성화
+      // 새 탭/패널 활성화
       $tab.addClass("active").attr("aria-selected", "true");
       $btn.append('<span class="sr-only">선택됨</span>');
       $targetPanel.addClass("active");
@@ -531,7 +561,7 @@ const uiTab = {
 };
 const uiSegmentControl = {
   init: function () {
-    // 타입 1: 네이티브 라디오 (change 이벤트)
+    // 네이티브 라디오 (change 이벤트)
     $(document).on("change", '.segment-control input[type="radio"]', function () {
         const $input = $(this);
         const $group = $input.closest(".segment-control");
@@ -541,7 +571,7 @@ const uiSegmentControl = {
       }
     );
 
-    // 타입 2: 커스텀 버튼 (click 이벤트)
+    // 커스텀 버튼 (click 이벤트)
     $(document).on("click", '.segment-control button[role="radio"]', function (e) {
         e.preventDefault();
 
@@ -555,7 +585,7 @@ const uiSegmentControl = {
       }
     );
 
-    // 키보드 네비게이션 (타입 2 커스텀 버튼용)
+    // 키보드 네비게이션 (커스텀 버튼용)
     $(document).on("keydown",'.segment-control button[role="radio"]', function (e) {
         const $btn = $(this);
         let $nextBtn;
@@ -585,7 +615,6 @@ const uiSegmentControl = {
             return;
         }
 
-        // 키보드 이동 시 포커스 및 클릭(선택) 처리
         if ($nextBtn && $nextBtn.length) {
           $nextBtn.focus();
           $nextBtn.click();
@@ -596,7 +625,6 @@ const uiSegmentControl = {
 };
 const uiPopover = {
   init: function () {
-    // 1. 팝오버 열기
     $(document).on("click", "[data-popover-open]", function (e) {
       e.preventDefault();
       // e.stopPropagation(); 
@@ -617,37 +645,31 @@ const uiPopover = {
       }
     });
 
-    // 2. 팝오버 닫기 (내부 닫기 버튼)
     $(document).on("click", ".popover .btn-close", function (e) {
       e.preventDefault();
-      const $popover = $(this).closest(".popover"); // 클래스명 변경
+      const $popover = $(this).closest(".popover");
       uiPopover.close($popover);
     });
   },
 	open: function($btn, $popover) {
-		// 1. 다른 팝오버/셀렉트 닫기
 		uiPopover.closeAll();
 		uiSelect.closeAll(); 
 
-		// 2. 버튼에서 위치/정렬 값 읽어오기 
 		const posData = $btn.data('popover-pos') || 'bottom-center';
 		const parts = posData.split('-'); 
 
 		const newPosition = parts[0] || 'bottom';
 		const newAlign = parts[1] || 'center';
 
-		// 3. 팝오버에 붙어있을 수 있는 기존 위치/정렬 클래스 모두 제거
 		const positionClasses = 'top bottom left right';
 		const alignClasses = 'align-top align-bottom align-left align-right align-center';
 		$popover.removeClass(positionClasses).removeClass(alignClasses);
 
-		// 4. 새 위치/정렬 클래스 추가
 		$popover.addClass(newPosition);
 		if (newAlign !== 'center') {
 			$popover.addClass('align-' + newAlign);
 		}
 
-		// 5. 위치 계산 및 표시
 		$popover.addClass("active").attr("aria-hidden", "false");
 
 		const position = uiUtils.calculatePosition($btn, $popover, 10);
@@ -656,7 +678,6 @@ const uiPopover = {
 			left: position.left + "px",
 		});
 
-		// 6. 접근성
 		$popover.data("popover-trigger", $btn);
 		uiUtils.focusTrap($popover);
 		$popover.find(".btn-close").focus();
@@ -709,10 +730,8 @@ const uiTooltip = {
     });
   },
   show: function ($btn, $tooltip) {
-    // 1. 툴팁 표시
     $tooltip.addClass("active");
-    
-    const position = uiUtils.calculatePosition($btn, $tooltip, 8); // 툴팁은 간격을 8px로
+    const position = uiUtils.calculatePosition($btn, $tooltip, 8);
     $tooltip.css({
       top: position.top + "px",
       left: position.left + "px",
@@ -763,25 +782,19 @@ const uiLnb2 = {
       
       if ($section.offset() && $section.offset().top <= triggerPos) {
         currentActiveId = $section.attr("id");
-        break; // 찾았으므로 반복 중단
+        break;
       }
     }
-
-    // 무조건 첫 번째 섹션 ID를 활성화
     if (currentActiveId === null) {
       currentActiveId = this.$sections.first().attr("id");
     }
-
-    // 페이지 맨 아래 엣지 케이스 (스크롤이 끝까지 도달했을 때)
-    if (scrollTop + $(window).height() >= $(document).height() - 50) { // 50px 버퍼
+    if (scrollTop + $(window).height() >= $(document).height() - 50) {
       currentActiveId = this.$sections.last().attr("id");
     }
-
-    // 사이드바 링크에 active 클래스 적용
     this.$links.each(function () {
       const $link = $(this);
       const $li = $link.closest("li");
-      const href = $link.attr("href"); // 예: "#performance"
+      const href = $link.attr("href");
 
       if (href === "#" + currentActiveId) {
         $li.addClass("active");
@@ -798,44 +811,34 @@ const uiLnb = {
   $links: null,
   $sections: null,
   offset: 150, 
-  isClickScrolling: false, // [신규] 클릭으로 인한 스크롤인지 확인
-  pauseTimer: null,      // [신규] 스크롤 감지 재개를 위한 타이머
-
-  /**
-   * [신규] 탭/LNB 항목을 스크롤 영역 안으로 이동시키는 헬퍼
-   * (uiTab에서 가져온 공통 함수)
-   */
+  isClickScrolling: false,
+  pauseTimer: null, 
   scrollItemIntoView: function($item, $container, smooth = true) {
     if (!$item.length || !$container.length) return;
     
-    // 1. 컨테이너가 가로로 스크롤 가능한지 확인 (모바일 LNB)
     const isHorizontallyScrollable = $container[0].scrollWidth > $container[0].clientWidth;
-    if (!isHorizontallyScrollable) return; // 가로 스크롤 아니면 중단
+    if (!isHorizontallyScrollable) return;
 
-    // --- jQuery .animate() (부드러운 "모션" 스크립트) ---
     const containerWidth = $container.outerWidth();
     const scrollLeft = $container.scrollLeft();
-    const itemOffsetLeft = $item[0].offsetLeft; // 부모($container) 기준 아이템의 왼쪽 위치
+    const itemOffsetLeft = $item[0].offsetLeft;
     const itemWidth = $item.outerWidth();
     
     const containerVisibleRight = scrollLeft + containerWidth;
     const itemRight = itemOffsetLeft + itemWidth;
     let newScrollLeft = null;
-    const buffer = 20; // 좌우 20px 여유 공간
+    const buffer = 20; 
 
     if (itemRight > containerVisibleRight) { 
-      // 아이템이 오른쪽에 잘렸을 때
       newScrollLeft = itemRight - containerWidth + buffer;
     } else if (itemOffsetLeft < scrollLeft) { 
-      // 아이템이 왼쪽에 잘렸을 때
       newScrollLeft = itemOffsetLeft - buffer;
     }
     
     if (newScrollLeft !== null) {
       if (smooth) {
-        $container.stop().animate({ scrollLeft: newScrollLeft }, 300); // 0.3초 "모션"
+        $container.stop().animate({ scrollLeft: newScrollLeft }, 300);
       } else {
-        // 스크롤 스파이(수동 스크롤)는 즉시 반영
         $container.scrollLeft(newScrollLeft);
       }
     }
@@ -858,20 +861,14 @@ const uiLnb = {
 
     if (!this.$sections.length) return;
     
-    // [신규] 1. LNB 링크 클릭 이벤트 (페이지 세로 스크롤 담당)
     this.setupClickHandlers();
     
-    // 2. 수동 스크롤 이벤트 (스크롤 스파이 담당)
     $(window).on("scroll.sidebarSpy", () => {
       this.updateActiveState();
     });
 
     this.updateActiveState();
   },
-
-  /**
-   * [신규] LNB 링크 클릭 시, 페이지(세로)를 스크롤하는 핸들러
-   */
   setupClickHandlers: function() {
     const self = this;
     this.$links.on('click.lnbClick', function(e) {
@@ -880,34 +877,25 @@ const uiLnb = {
       const $targetSection = $($link.attr('href'));
       
       if ($targetSection.length) {
-        // 1. 스크롤 스파이(updateActiveState)를 잠시 멈춤
         self.isClickScrolling = true;
         clearTimeout(self.pauseTimer);
 
-        // 2. (즉시) 클릭한 메뉴 활성화 (active 클래스 + 가로 스크롤)
-        self.setActiveIndicator($link, true); // true = 부드럽게
+        self.setActiveIndicator($link, true);
 
-        // 3. 페이지(세로) 스크롤 애니메이션
         const targetScrollTop = $targetSection.offset().top - self.offset + 1;
-        const animationDuration = 500; // 0.5초
+        const animationDuration = 500; 
 
         $('html, body').stop().animate({
           scrollTop: targetScrollTop
         }, animationDuration, () => {
-          // 4. 애니메이션 완료 후 스크롤 스파이 재개
           self.pauseTimer = setTimeout(() => {
             self.isClickScrolling = false;
-          }, 50); // 50ms 여유
+          }, 50); 
         });
       }
     });
   },
-
-  /**
-   * [수정] 스크롤 스파이 (수동 스크롤 감지)
-   */
   updateActiveState: function () {
-    // 1. 클릭으로 스크롤 중이면, 스파이 로직 중단
     if (this.isClickScrolling) return;
 
     const scrollTop = $(window).scrollTop();
@@ -931,37 +919,25 @@ const uiLnb = {
       currentActiveId = this.$sections.last().attr("id");
     }
 
-    // 2. 현재 ID에 해당하는 링크를 찾아 활성화
     const $activeLink = this.$links.filter(`[href="#${currentActiveId}"]`);
-    this.setActiveIndicator($activeLink, false); // false = 즉시
+    this.setActiveIndicator($activeLink, false);
   },
-
-  /**
-   * [신규] 활성화 및 LNB(가로) 스크롤을 담당하는 공통 함수
-   * @param {jQuery} $anchor - 활성화할 <a> 태그
-   * @param {boolean} isSmooth - 가로 스크롤을 부드럽게 할지 여부
-   */
   setActiveIndicator: function($anchor, isSmooth) {
     if (!$anchor || !$anchor.length) return;
     const $li = $anchor.closest('li');
 
-    // 이미 활성화 상태면 중단
     if ($li.hasClass('active')) return;
     
-    // 1. 모든 링크 비활성화
     this.$links.closest('li').removeClass('active');
     this.$links.removeAttr('aria-current');
     
-    // 2. 타겟 링크 활성화
     $li.addClass('active');
     $anchor.attr('aria-current', 'page');
     
-    // 3. (모바일용) LNB 가로 스크롤 실행
     this.scrollItemIntoView($li, this.$sidebar, isSmooth);
   }
 };
 const gsapMotion = {
-  // 1. 애니메이션 유형 정의 (클래스 이름: GSAP 'from' 속성)
   animationTypes: {
     "fade-up": { y: 50 },
     "fade-down": { y: -50 },
@@ -972,21 +948,18 @@ const gsapMotion = {
     "opacity": { /* opacity: 0은 기본값이므로 별도 속성 없음 */ },
     "chart-bar-up": {height: 0},
   },
-
-  // 2. GSAP 및 ScrollTrigger 기본값
   defaults: {
     gsap: {
       opacity: 0,
-      duration: 1,    // 기본 속도 0.8초
-      ease: "power3.out", // 부드러운 시작
+      duration: 1, 
+      ease: "power3.out", 
     },
     scrollTrigger: {
-      start: "top 75%", // 사용자가 요청한 기본값 (화면 80% 지점)
+      start: "top 75%",
       toggleActions: "restart none none reverse",
-      markers: false // 디버깅 시 true로 변경
+      markers: false
     }
   },
-
   init: function() {
     const $motion = $('.motion');
 
@@ -999,7 +972,7 @@ const gsapMotion = {
         if (el.classList.contains(type)) {
           gsapProps = { ...gsapProps, ...this.animationTypes[type] };
           typeApplied = true;
-          break; // 여러 유형이 있어도 첫 번째 것만 적용
+          break;
         }
       }
 
@@ -1025,14 +998,47 @@ const gsapMotion = {
     });
   }
 };
+const topButton = {
+  init: function () {
+    const $window = $(window);
+    const $button = $('.footer-btn-top');
+    const $footer = $('.footer');
 
+    if (!$button.length || !$footer.length) return;
+    const showThreshold = 200;
+    let footerTop = $footer.offset().top;
 
+    function onScroll() {
+      const scrollTop = $window.scrollTop();
+      const windowHeight = $window.height();
+
+      if (scrollTop > showThreshold) {
+        $button.addClass('is-visible');
+      } else {
+        $button.removeClass('is-visible');
+      }
+      footerTop = $footer.offset().top; 
+      if (scrollTop + windowHeight >= footerTop) {
+        $button.removeClass('is-fixed');
+      } else {
+        $button.addClass('is-fixed');
+      }
+    }
+
+    $window.on('scroll.scrollTop resize.scrollTop', onScroll);
+    onScroll();
+    $button.on('click', 'a', function(e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: 0 }, 300);
+    });
+  }
+}
+
+// 캘린더 기능 예시용
 const calendar = {
   init: function () {
     if ($.fn.datepicker && $.fn.datepicker.dates['ko']) {
       $.fn.datepicker.defaults.language = 'ko';
-
-			$.fn.datepicker.dates['ko'].titleFormat = "yyyy-mm";
     }
     this.initPickers();
   },
@@ -1044,9 +1050,12 @@ const calendar = {
       autoclose: true,
       todayHighlight: true,
       container: 'body', 
-      todayBtn: "linked", 
+      // todayBtn: "linked", 
       showOutsideDays: false,
       pickerClass: 'calendar-datepicker',
+      maxViewMode: 1,
+      titleFormat: 'yyyy-mm',
+      yearTitleFormat: 'yyyy년',
       templates: {
         leftArrow: '<i class="svg-icon icon-prev" aria-label="이전달"></i>',
         rightArrow: '<i class="svg-icon icon-next" aria-label="다음달"></i>'
@@ -1108,8 +1117,7 @@ const calendar = {
           .on('show', function(e) {
              onShowHandler(e, this);
           })
-          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
-             // 시작일 선택 시, 종료일의 minDate 설정
+          .on('changeDate', function(e) {
              if (e.date) {
                $endInput.datepicker('setStartDate', e.date);
              }
@@ -1125,8 +1133,7 @@ const calendar = {
           .on('show', function(e) {
              onShowHandler(e, this);
           })
-          .on('changeDate', function(e) { // 'changeDate' 이벤트 사용
-            // 종료일 선택 시, 시작일의 maxDate 설정
+          .on('changeDate', function(e) {
             if (e.date) {
               $startInput.datepicker('setEndDate', e.date);
             }
@@ -1142,114 +1149,112 @@ const calendar = {
 };
 const calendarInline = {
   init: function() {
-    // [✨ 수정] ID 대신 클래스로 모든 인라인 컨테이너를 찾습니다.
-    $('.datepicker-inline-container').each(function() {
+    let $container = $('.datepicker-inline-container');
+    $('.calendarOpen').click(function(){
+      const $wrapper = $('#mobilFilterBottomSheet');
+      const $startInput = $wrapper.find('.calendar').eq(0);
+      const $endInput = $wrapper.find('.calendar').eq(1);
+
+      $wrapper.find('.calendar').removeClass('focus');
+      $startInput.addClass('focus');
+
+      if($startInput.find('input').val() != '' ) {
+        calendarInline.updateRange($container, $startInput.find('input').val());
+      } else {
+        calendarInline.updateRange($container, null);
+      }
+    });
+
+    $container.each(function() {
       const $container = $(this);
       
-      // (안전장치) 이미 초기화되었으면 건너뜁니다.
-      if ($container.data('datepicker-inline-initialized')) return;
-      $container.data('datepicker-inline-initialized', true);
+      if ($(this).data('datepicker-inline-initialized')) return;
+      $(this).data('datepicker-inline-initialized', true);
 
-      // [✨ 수정] 부모(wrapper)에서 연관된 인풋을 찾습니다.
-      // (HTML 구조: <div class="conts-area"> <div class="calendar-group">...</div> <div class="datepicker-inline-container"></div> </div>)
-      const $wrapper = $container.parent(); 
-      const $startInput = $wrapper.find('.datepicker.cal').eq(0);
-      const $endInput = $wrapper.find('.datepicker.cal').eq(1);
+      const $wrapper = $(this).parent(); 
+      const $startInput = $wrapper.find('.calendar').eq(0);
+      const $endInput = $wrapper.find('.calendar').eq(1);
 
-      if (!$startInput.length) {
-        console.warn('Inline datepicker container found, but no associated inputs (.datepicker.cal) found in parent.');
-        return; 
-      }
-
-      // 2. 캘린더 옵션 (autoclose=false)
       const options = calendar.getCommonOptions(); 
       options.autoclose = false; 
 
-      // 3. DIV에 datepicker를 인라인으로 직접 초기화합니다.
-      $container.datepicker(options);
+      $(this).datepicker(options);
       
-      const datepickerInstance = $container.data('datepicker');
+      const datepickerInstance = $(this).data('datepicker');
       if (!datepickerInstance) return;
 
-      // 4. [✨ 수정] 이 특정 인스턴스에 대한 이벤트를 바인딩합니다.
-      calendarInline.bindEvents($container, $startInput, $endInput);
-
-      // 5. 첫 번째 input을 기본 활성화 상태로 설정
-      $startInput.addClass('active'); // (CSS에서 .active 스타일 추가 필요)
-      const startDate = $startInput.val();
-      if (startDate) {
-        $container.datepicker('setDate', startDate);
-      }
+      calendarInline.bindEvents($(this), $startInput, $endInput);
     });
   },
-  
-  /**
-   * [✨ 수정] 각 인스턴스별로 이벤트를 바인딩하는 함수
-   */
-  bindEvents: function($container, $startInput, $endInput) {
+  formatDate: function(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
 
-    // 이벤트 1: 인라인 캘린더에서 날짜를 클릭했을 때
+    return `${year}-${month}-${day}`;
+  },
+  bindEvents: function($container, $startInput, $endInput) {
+    let startDate = '';
+
     $container.on('changeDate', function(e) {
       if (!e.date) return;
-      const formattedDate = $.fn.datepicker.DPGlobal.formatDate(e.date, 'yyyy-mm-dd', 'ko');
-      
-      if ($startInput.hasClass('active')) {
-        $startInput.val(formattedDate);
-        $endInput.trigger('click'); // 종료일 input으로 포커스 이동
+      const formattedDate = calendarInline.formatDate(e.date);
+
+      if ($startInput.hasClass('focus')) {
+        $startInput.find('input').val(formattedDate);
+        startDate = formattedDate;
       } else {
-        $endInput.val(formattedDate);
+        $endInput.find('input').val(formattedDate);
       }
-      calendarInline.updateRange($container, $startInput, $endInput); // 범위 업데이트
-    });
 
-    // 이벤트 2: '시작일' Input을 탭/클릭했을 때
-    $startInput.on('click focus', function() {
-      $startInput.addClass('active');
-      $endInput.removeClass('active');
-      
-      const date = $(this).val();
-      if (date) {
-        $container.datepicker('setDate', date);
-      }
-      calendarInline.updateRange($container, $startInput, $endInput);
+      calendarInline.updateRange($container, e.date); // 범위 업데이트
     });
-
-    // 이벤트 3: '종료일' Input을 탭/클릭했을 때
-    $endInput.on('click focus', function() {
-      $endInput.addClass('active');
-      $startInput.removeClass('active');
+    $startInput.on('click', function() {
+      $startInput.addClass('focus');
+      $endInput.removeClass('focus');
       
-      const date = $(this).val();
+      const date = $(this).find('input').val();
       if (date) {
-        $container.datepicker('setDate', date);
+        calendarInline.updateRange($container, date);
+      } else {
+        calendarInline.updateRange($container, null);
       }
-      calendarInline.updateRange($container, $startInput, $endInput);
+    });
+    $endInput.on('click', function() {
+      $endInput.addClass('focus');
+      $startInput.removeClass('focus');
+
+      if( startDate != '' ) {
+        $container.datepicker('setStartDate', startDate ? new Date(startDate) : null);
+      }
+      
+      const date = $(this).find('input').val();
+      if (date) {
+        calendarInline.updateRange($container, date);
+      } else {
+        calendarInline.updateRange($container, null);
+      }
     });
   },
-
-  // [✨ 수정] 캘린더의 min/max 날짜를 설정하는 헬퍼 함수
-  updateRange: function($container, $startInput, $endInput) {
-    const startDate = $startInput.val();
-    const endDate = $endInput.val();
-
-    // setStartDate/EndDate는 date 객체나 빈 문자열을 받아야 합니다.
-    $container.datepicker('setStartDate', startDate ? new Date(startDate) : null);
-    $container.datepicker('setEndDate', endDate ? new Date(endDate) : null);
+  updateRange: function($container, $date) {
+    $container.datepicker('update', $date ? new Date($date) : null);
   }
 };
 
 const commonJs = {
   init: function () {
+    uiSelect.init();
+    uiInputClear.init();
+    uiInputStateSync.init();
     uiModal.init();
     uiAccordion.init();
     uiTab.init();
     uiSegmentControl.init();
     uiPopover.init();
     uiTooltip.init();
-    uiSelect.init();
     uiLnb.init();
-
     gsapMotion.init();
+    topButton.init();
 
 		calendar.init();
 		calendarInline.init();
