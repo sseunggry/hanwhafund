@@ -7,9 +7,7 @@
   --#{$prefix}-badge--size-height: 3rem;
   --#{$prefix}-badge--padding: 0.8rem;
   --#{$prefix}-badge--radius: 0.2rem;
-  --#{$prefix}-badge--mobile-font-size: 1.6rem;
-  --#{$prefix}-badge--tablet-font-size: 1.6rem;
-  --#{$prefix}-badge--pc-font-size: 1.6rem;
+  --#{$prefix}-badge--font-size: 1.6rem;
 }
 
 // 컬러 정의
@@ -116,17 +114,9 @@
     @include flex-layout($d: inline-flex, $ai: center, $jc: center);
     padding: 0 var(--#{$prefix}-badge--padding);
     height: var(--#{$prefix}-badge--size-height);
-    font-size: var(--#{$prefix}-badge--pc-font-size);
+    font-size: var(--#{$prefix}-badge--font-size);
     font-weight: 500;
     border-radius: var(--#{$prefix}-badge--radius);
-
-    @include mq(tablet) {
-      font-size: var(--#{$prefix}-badge--tablet-font-size);
-    }
-
-    @include mq(mobile) {
-      font-size: var(--#{$prefix}-badge--mobile-font-size);
-    }
   }
 }
 

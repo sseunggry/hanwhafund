@@ -8,24 +8,18 @@ $input-size: (
 		button-clear-size: 1.8rem,
 		radius: var(--#{$prefix}-radius-medium),
 		font-size: var(--#{$prefix}-font-size-label-small),
-    // tablet-font-size: var(--#{$prefix}-tablet-font-size-label-small),
-    // mobile-font-size: var(--#{$prefix}-mobile-font-size-label-small),
 	),
 	medium: (
 		size-height: 4.8rem,
 		button-clear-size: 2rem,
 		radius: var(--#{$prefix}-radius-medium),
 		font-size: var(--#{$prefix}-font-size-label-medium),
-    // tablet-font-size: var(--#{$prefix}-tablet-font-size-label-medium),
-    // mobile-font-size: var(--#{$prefix}-mobile-font-size-label-medium),
 	),
 	large: (
 		size-height: 5.6rem,
 		button-clear-size: 2.4rem,
 		radius: var(--#{$prefix}-radius-medium),
 		font-size: var(--#{$prefix}-font-size-label-large),
-    // tablet-font-size: var(--#{$prefix}-tablet-font-size-label-large),
-    // mobile-font-size: var(--#{$prefix}-mobile-font-size-label-large),
 	),
 ) !default;
 

@@ -10,14 +10,6 @@
 
   --#{$prefix}-tab--line-button-size-min-width: 20rem;
   --#{$prefix}-tab--line-button-padding: 1.4rem 2rem;
-
-  // --#{$prefix}-tab--button-size-height: 4.8rem;
-  // --#{$prefix}-tab--button-size-min-width: 20rem;
-  // --#{$prefix}-tab--button-pc-font-size: 2.4rem;
-  // --#{$prefix}-tab--button-tablet-font-size: 2.4rem;
-  // --#{$prefix}-tab--button-mobile-font-size: 2.4rem;
-  // --#{$prefix}-tab--gap: 0.8rem;
-  // --#{$prefix}-tab--line-button-padding: 1.4rem 2rem;
 }
 
 // 컬러 정의
@@ -92,8 +84,6 @@
 
     .btn-tab {
       padding: 0;
-      // height: var(--#{$prefix}-tab--full-button-size-height);
-      // font-size: var(--#{$prefix}-tab--full-button-font-size);
     }
 
     > ul {
@@ -155,17 +145,6 @@
         }
       }
     }
-
-    // &.full {
-    //   .btn-tab {
-    //     border: 0;
-    //     border-bottom: 2px solid var(--#{$prefix}-tab--line-button-color-border);
-
-    //     &::before {
-    //       bottom: -0.2rem;
-    //     }
-    //   }
-    // }
   }
 
 	@include mq(pc){
@@ -179,7 +158,6 @@
 	}
 
 	@include mq(tablet){
-    // --#{$prefix}-tab--button-font-size: 2.1rem; 
     --#{$prefix}-tab--line-button-size-min-width: auto;
     --#{$prefix}-tab--line-button-padding: 1.6rem 2rem;
 	}

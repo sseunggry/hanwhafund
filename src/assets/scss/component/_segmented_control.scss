@@ -10,9 +10,7 @@ $segment-control-size: (
 		button-padding: 0.8rem,
 		gap: 0.4rem,
 		radius: 0.8rem,
-		pc-font-size: 1.5rem,
-		tablet-font-size: 1.5rem,
-		mobile-font-size: 1.5rem,
+		font-size: 1.5rem,
 	),
 	medium: (
 		padding: 0.4rem,
@@ -20,9 +18,7 @@ $segment-control-size: (
 		button-padding: 0.8rem,
 		gap: 0.4rem,
 		radius: 1rem,
-		pc-font-size: 1.6rem,
-		tablet-font-size: 1.6rem,
-		mobile-font-size: 1.6rem,
+		font-size: 1.6rem,
 	),
 	large: (
 		padding: 0 0.8rem,
@@ -30,32 +26,20 @@ $segment-control-size: (
 		button-padding: 2rem,
 		gap: 0.4rem,
 		radius: 0.2rem,
-		pc-font-size: 1.8rem,
-		tablet-font-size: 1.8rem,
-		mobile-font-size: 1.8rem,
+		font-size: 1.8rem,
 	),
 ) !default;
 
 @mixin segment-control-size-variable() {
-  // css variable 새성
   @each $size, $types in $segment-control-size {
     @each $type, $value in $types {
-      // css variable 생성
       --#{$prefix}-segment-control--#{$type}-#{$size}: #{$value};
     }
   }
 }
 @mixin segment-size($size) {
-	// gap: var(--#{$prefix}-segment-control--gap-#{$size});
 	border-radius: var(--#{$prefix}-segment-control--radius-#{$size});
-	font-size: var(--#{$prefix}-segment-control--pc-font-size-#{$size});
-
-	@include mq(tablet) {
-		font-size: var(--#{$prefix}-segment-control--tablet-font-size-#{$size});
-	}
-	@include mq(mobile) {
-		font-size: var(--#{$prefix}-segment-control--mobile-font-size-#{$size});
-	}
+	font-size: var(--#{$prefix}-segment-control--font-size-#{$size});
 
 	.control-btn {
 		padding: 0 var(--#{$prefix}-segment-control--button-padding-#{$size});
@@ -72,7 +56,7 @@ $segment-control-size: (
   --#{$prefix}-segment-control--button-color-background-action-active: #fff;
   --#{$prefix}-segment-control--button-color-border-action-active: #FF3A08;
 
-  --#{$prefix}-segment-control--button-color-text: #494646;
+  --#{$prefix}-segment-control--button-color-text: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-segment-control--button-color-text-active: #FF3A08;
 }
 
@@ -108,8 +92,6 @@ $segment-control-size: (
 	}
 
 	&.bg {
-		// padding: var(--#{$prefix}-segment-control--padding-#{$size});
-		// padding: 0 0.8rem;
 		gap: 0;
 		justify-content: space-between;
 		background-color: var(--#{$prefix}-segment-control--color-background);
@@ -125,5 +107,10 @@ $segment-control-size: (
 
 	@include mq(tablet){
 		justify-content: flex-start;
+	}
+	@include mq(mobile){
+		--#{$prefix}-segment-control--font-size-small: 1.5rem;
+		--#{$prefix}-segment-control--font-size-medium: 1.6rem;
+		--#{$prefix}-segment-control--font-size-large: 1.8rem;
 	}
 }

@@ -14,9 +14,7 @@ $button-size: (
     gap: 0.2rem,
     radius: var(--#{$prefix}-radius-medium),
     icon-size: var(--#{$prefix}-icon-size-small),
-    pc-font-size: 1.4rem,
-    tablet-font-size: 1.4rem,
-    mobile-font-size: 1.4rem,
+    font-size: 1.4rem,
   ),
   medium: (
     size-height: 4.8rem,
@@ -25,9 +23,7 @@ $button-size: (
     gap: 0.4rem,
     radius: var(--#{$prefix}-radius-medium),
     icon-size: var(--#{$prefix}-icon-size-medium),
-    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
-    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
-    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
+    font-size: var(--#{$prefix}-font-size--body-small),
   ),
   large: (
     size-height: 5.6rem,
@@ -36,9 +32,7 @@ $button-size: (
     gap: 0.8rem,
     radius: var(--#{$prefix}-radius-medium),
     icon-size: var(--#{$prefix}-icon-size-large),
-    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
-    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
-    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
+    font-size: var(--#{$prefix}-font-size--body-small),
   ),
   xlarge: (
     size-height: 6.4rem,
@@ -47,9 +41,7 @@ $button-size: (
     gap: 1.2rem,
     radius: var(--#{$prefix}-radius-medium),
     icon-size: var(--#{$prefix}-icon-size-large),
-    pc-font-size: var(--#{$prefix}-pc-font-size--body-small),
-    tablet-font-size: var(--#{$prefix}-tablet-font-size--body-small),
-    mobile-font-size: var(--#{$prefix}-mobile-font-size--body-small),
+    font-size: var(--#{$prefix}-font-size--body-small),
   ),
 ) !default;
 
@@ -121,16 +113,8 @@ $button-color-variable: (
   height: var(--#{$prefix}-button--size-height-#{$size});
   padding: var(--#{$prefix}-button--padding-y-#{$size}) var(--#{$prefix}-button--padding-x-#{$size});
   border-radius: var(--#{$prefix}-button--radius-#{$size});
-  font-size: var(--#{$prefix}-button--pc-font-size-#{$size});
+  font-size: var(--#{$prefix}-button--font-size-#{$size});
   font-weight: 400;
-
-  @include mq(tablet) {
-    font-size: var(--#{$prefix}-button--tablet-font-size-#{$size});
-  }
-
-  @include mq(mobile) {
-    font-size: var(--#{$prefix}-button--mobile-font-size-#{$size});
-  }
 
   & {
     .svg-icon {
@@ -405,7 +389,7 @@ $button-color-variable: (
 
     // 배경색 Modifiers (hover 상태 포함)
     &.bg-deep-gray {
-      background-color: var(--#{$prefix}-color-neutral-80);
+      background-color: var(--#{$prefix}-color-gray-80);
       .svg-icon {
         background-color: var(--#{$prefix}-color-text-white);
       }

@@ -5,8 +5,7 @@
 // 사이즈 정의
 @mixin spinner-size-variable() {
   --#{$prefix}-spinner--layout-gap: 0.8rem;
-  --#{$prefix}-spinner--pc-font-size: 1.5rem;
-  --#{$prefix}-spinner--mobile-font-size: 1.5rem;
+  --#{$prefix}-spinner--font-size: 1.5rem;
   --#{$prefix}-spinner--size: 4.8rem;
   --#{$prefix}-spinner--animation-duration: 900ms;
 }
@@ -22,26 +21,22 @@
 .spinner {
   @include spinner-color-variable();
   @include spinner-size-variable;
-  @include flex-layout($jc: center, $ai: center);
-  @include position($p: relative, $t: 0, $l: 0);
-
+  
   & {
+    @include position($p: relative, $t: 0, $l: 0);
+    @include flex-layout($jc: center, $ai: center);
     gap: var(--#{$prefix}-spinner--layout-gap);
-    z-index: 10;
-    color: var(--#{$prefix}-spinner--color-text);
-    font-size: var(--#{$prefix}-spinner--pc-font-size);
     width: 100%;
     height: 100%;
+    color: var(--#{$prefix}-spinner--color-text);
+    font-size: var(--#{$prefix}-spinner--font-size);
     text-align: right;
-  }
-
-  @include mq(mobile) {
-    font-size: var(--#{$prefix}-spinner--mobile-font-size);
+    z-index: 10;
   }
 
   &::before {
-    display: inline-flex;
     content: "";
+    display: inline-flex;
     height: var(--#{$prefix}-spinner--size);
     width: var(--#{$prefix}-spinner--size);
     border: var(--#{$prefix}-spinner--border-width) solid var(--#{$prefix}-spinner--color-border);
@@ -49,8 +44,11 @@
       top-color: var(--#{$prefix}-spinner--color-border-active);
       radius: 100%;
     }
-
     animation: spin var(--#{$prefix}-spinner--animation-duration) infinite linear;
+  }
+
+  @include mq(mobile){
+    --#{$prefix}-spinner--font-size: 1.5rem;
   }
 }
 

@@ -7,32 +7,29 @@
 	--#{$prefix}-note-list--depth1-padding-left: 2rem;
 	--#{$prefix}-note-list--number-depth1-padding-left: 2rem;
 	--#{$prefix}-note-list--layout-gap-depth1-li-li: 0.8rem;
-	--#{$prefix}-note-list--pc-text-depth1: 1.8rem;
-	--#{$prefix}-note-list--mobile-text-depth1: 1.8rem;
-
+	--#{$prefix}-note-list--depth1-font-size: 1.8rem;
+	
 	--#{$prefix}-note-list--depth2-list-margin-top: 0.4rem;
 	--#{$prefix}-note-list--depth2-padding-left: 1.2rem;
 	--#{$prefix}-note-list--number-depth2-padding-left: 2rem;
 	--#{$prefix}-note-list--layout-gap-depth2-li-li: 0.4rem;
-	--#{$prefix}-note-list--pc-text-depth2: 1.6rem;
-	--#{$prefix}-note-list--mobile-text-depth2: 1.6rem;
-
+	--#{$prefix}-note-list--depth2-font-size: 1.6rem;
+	
 	--#{$prefix}-note-list--depth3-list-margin-top: 0.8rem;
 	--#{$prefix}-note-list--depth3-padding-left: 1rem;
 	--#{$prefix}-note-list--number-depth3-padding-left: 2rem;
 	--#{$prefix}-note-list--layout-gap-depth3-li-li: 0.2rem;
-	--#{$prefix}-note-list--pc-text-depth3: 1.4rem;
-	--#{$prefix}-note-list--mobile-text-depth3: 1.4rem;
+	--#{$prefix}-note-list--depth3-font-size: 1.4rem;
 
 	--#{$prefix}-note-list--info-txt-margin-top: 0;	
 }
 
 @mixin note-list-color-variable() {
-	--#{$prefix}-note-list--color-text-depth1: #494646;
-	--#{$prefix}-note-list--color-text-depth2: #494646;
-	--#{$prefix}-note-list--color-text-depth3: #494646;
+	--#{$prefix}-note-list--color-text-depth1: var(--#{$prefix}-color-text-subtle);
+	--#{$prefix}-note-list--color-text-depth2: var(--#{$prefix}-color-text-subtle);
+	--#{$prefix}-note-list--color-text-depth3: var(--#{$prefix}-color-text-subtler);
 
-	--#{$prefix}-note-list--color-text-white: #fff;
+	--#{$prefix}-note-list--color-text-white: var(--#{$prefix}-color-text-white);
 }
 .note-list {
 	@include note-list-size-variable();
@@ -47,14 +44,8 @@
 		position: relative;
 		padding-left: var(--#{$prefix}-note-list--depth1-padding-left);
 		color: var(--#{$prefix}-note-list--color-text-depth1);
-		font-size: var(--#{$prefix}-note-list--pc-text-depth1);
+		font-size: var(--#{$prefix}-note-list--depth1-font-size);
 
-		// @include mq(tablet) {
-		// 	font-size:  var(--#{$prefix}-note-list--tablet-text-depth1);
-		// }
-		@include mq(mobile) {
-			font-size:  var(--#{$prefix}-note-list--mobile-text-depth1);
-		}
 		&::before {
 			content: '';
 			position: absolute;
@@ -73,7 +64,7 @@
 		// 	> li {
 		// 		padding-left: var(--#{$prefix}-note-list--depth2-padding-left);
 		// 		color: var(--#{$prefix}-note-list--color-text-depth2);
-		// 		font-size: var(--#{$prefix}-note-list--pc-text-depth2);
+		// 		font-size: var(--#{$prefix}-note-list--depth2-font-size);
 		// 		@include mq(mobile) {
 		// 			font-size:  var(--#{$prefix}-note-list--mobile-text-depth2);
 		// 		}
@@ -82,7 +73,7 @@
 		// 			> li {
 		// 				padding-left: var(--#{$prefix}-note-list--depth3-padding-left);
 		// 				color: var(--#{$prefix}-note-list--color-text-depth3);
-		// 				font-size: var(--#{$prefix}-note-list--pc-text-depth3);
+		// 				font-size: var(--#{$prefix}-note-list--depth3-font-size);
 		// 				@include mq(mobile) {
 		// 					font-size:  var(--#{$prefix}-note-list--mobile-text-depth3);
 		// 				}
@@ -142,6 +133,12 @@
 				background-color: var(--#{$prefix}-note-list--color-text-white);
 			}
 		}
+	}
+
+	@include mq(mobile){
+		--#{$prefix}-note-list--depth1-font-size: 1.8rem;
+		--#{$prefix}-note-list--depth2-font-size: 1.8rem;
+		--#{$prefix}-note-list--depth3-font-size: 1.8rem;
 	}
 }
 .note-txt {//참고 또는 info성 텍스트

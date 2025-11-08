@@ -1,24 +1,5 @@
 @use "../util" as *;
 
-// [class*=ico-]{
-//   &::before{
-//     content: '';
-//     display: inline-flex;
-//     width: 2rem;
-//     height: 2rem;
-//     order: -1;
-//     flex-shrink: 0;
-//   }
-
-//   // &.i-right{
-//   //   &::before{
-//   //     order: -1;
-//   //   }
-//   // }
-//   &[class$="-right"]::before {
-//     order: 1;
-//   }
-// }
 $ico-list: download, file, arrow-right, share, search, menu, link, close, youtube, instagram, blog, calendar, filter;
 $ico-pure-list: plus-fill, ai-star;
 
@@ -30,29 +11,15 @@ $ico-pure-list: plus-fill, ai-star;
 .icon{
   @each $name in $ico-list {
     &-#{$name} {
-      // @include svg-icon(2rem);
       @include icon-set(#{$name});
     }
   }
   @each $name in $ico-pure-list {
     &-#{$name} {
-      // @include svg-icon(2rem);
       @include icon-set(#{$name}, pure);
     }
   }
   &-clear{
     @include icon-set("delete-fill", pure);
   }
-  // &-plus-fill{
-  //   @include icon-set("plus-fill", pure);
-  // }
-  // &-share{
-  //   @include bg('icon/ico-share.svg');
-  // }
-  // &-file{
-  //   @include bg('icon/ico-file.png');
-  // }
-  // &-arrow-right{
-  //   @include bg('icon/ico-arrow-right.png');
-  // }
 }

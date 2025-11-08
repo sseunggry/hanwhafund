@@ -15,76 +15,30 @@
   --#{$prefix}-content-wrap-width-large: calc(var(--#{$prefix}-content-width-large) + var(--#{$prefix}-content-padding-x) * 2);
 
   // font-size (pc)
-  --#{$prefix}-pc-font-size-en-display-large: 16rem;
-  --#{$prefix}-pc-font-size-en-display-medium: 12rem;
-  --#{$prefix}-pc-font-size-en-display-small: 9.6rem;
+  --#{$prefix}-font-size-en-display-large: 16rem;
+  --#{$prefix}-font-size-en-display-medium: 12rem;
+  --#{$prefix}-font-size-en-display-small: 9.6rem;
 
-  --#{$prefix}-pc-font-size-title-xlarge: 4.8rem;
-  --#{$prefix}-pc-font-size-title-large: 4rem;
-  --#{$prefix}-pc-font-size-title-medium: 3.2rem;
-  --#{$prefix}-pc-font-size-title-small: 2.8rem;
-  --#{$prefix}-pc-font-size-title-xsmall: 2.4rem;
-  --#{$prefix}-pc-font-size-title-xxsmall: 2.1rem;
+  --#{$prefix}-font-size-title-xxlarge: 6.4rem;
+  --#{$prefix}-font-size-title-xlarge: 4.8rem;
+  --#{$prefix}-font-size-title-large: 4rem;
+  --#{$prefix}-font-size-title-medium: 3.2rem;
+  --#{$prefix}-font-size-title-small: 2.8rem;
+  --#{$prefix}-font-size-title-xsmall: 2.4rem;
+  --#{$prefix}-font-size-title-xxsmall: 2.1rem;
 
-  --#{$prefix}-pc-font-size--body-xxlarge: 4rem;
-  --#{$prefix}-pc-font-size--body-xlarge: 3.2rem;
-  --#{$prefix}-pc-font-size--body-large: 2.4rem;
-  --#{$prefix}-pc-font-size--body-medium: 2.1rem;
-  --#{$prefix}-pc-font-size--body-small: 1.8rem;
-  --#{$prefix}-pc-font-size--body-xsmall: 1.6rem;
-  --#{$prefix}-pc-font-size--body-xxsmall: 1.5rem;
+  --#{$prefix}-font-size--body-xxlarge: 4rem;
+  --#{$prefix}-font-size--body-xlarge: 3.2rem;
+  --#{$prefix}-font-size--body-large: 2.4rem;
+  --#{$prefix}-font-size--body-medium: 2.1rem;
+  --#{$prefix}-font-size--body-small: 1.8rem;
+  --#{$prefix}-font-size--body-xsmall: 1.6rem;
+  --#{$prefix}-font-size--body-xxsmall: 1.5rem;
+  --#{$prefix}-font-size--body-xxxsmall: 1.4rem;
 
   --#{$prefix}-font-size-label-large: 1.8rem;
   --#{$prefix}-font-size-label-medium: 1.6rem;
   --#{$prefix}-font-size-label-small: 1.5rem;
-
-  // font-size (tablet)
-  --#{$prefix}-tablet-font-size-en-display-large: 16rem;
-  --#{$prefix}-tablet-font-size-en-display-medium: 12rem;
-  --#{$prefix}-tablet-font-size-en-display-small: 9.6rem;
-
-  --#{$prefix}-tablet-font-size-title-xlarge: 4.8rem;
-  --#{$prefix}-tablet-font-size-title-large: 4rem;
-  --#{$prefix}-tablet-font-size-title-medium: 3.2rem;
-  --#{$prefix}-tablet-font-size-title-small: 2.8rem;
-  --#{$prefix}-tablet-font-size-title-xsmall: 2.4rem;
-  --#{$prefix}-tablet-font-size-title-xxsmall: 2.1rem;
-
-  --#{$prefix}-tablet-font-size--body-xxlarge: 4rem;
-  --#{$prefix}-tablet-font-size--body-xlarge: 3.2rem;
-  --#{$prefix}-tablet-font-size--body-large: 2.4rem;
-  --#{$prefix}-tablet-font-size--body-medium: 2.1rem;
-  --#{$prefix}-tablet-font-size--body-small: 1.8rem;
-  --#{$prefix}-tablet-font-size--body-xsmall: 1.6rem;
-  --#{$prefix}-tablet-font-size--body-xxsmall: 1.5rem;
-
-  --#{$prefix}-tablet-font-size-label-large: 1.8rem;
-  --#{$prefix}-tablet-font-size-label-medium: 1.6rem;
-  --#{$prefix}-tablet-font-size-label-small: 1.5rem;
-
-  // font-size (mobile)
-  --#{$prefix}-mobile-font-size-en-display-large: 16rem;
-  --#{$prefix}-mobile-font-size-en-display-medium: 12rem;
-  --#{$prefix}-mobile-font-size-en-display-small: 9.6rem;
-
-  --#{$prefix}-mobile-font-size-title-xlarge: 4.8rem;
-  --#{$prefix}-mobile-font-size-title-large: 4rem;
-  --#{$prefix}-mobile-font-size-title-medium: 3.2rem;
-  --#{$prefix}-mobile-font-size-title-small: 2.8rem;
-  --#{$prefix}-mobile-font-size-title-xsmall: 2.4rem;
-  --#{$prefix}-mobile-font-size-title-xxsmall: 2.1rem;
-
-  --#{$prefix}-mobile-font-size--body-xxlarge: 4rem;
-  --#{$prefix}-mobile-font-size--body-xlarge: 3.2rem;
-  --#{$prefix}-mobile-font-size--body-large: 2.4rem;
-  --#{$prefix}-mobile-font-size--body-medium: 2.1rem;
-  --#{$prefix}-mobile-font-size--body-small: 1.8rem;
-  --#{$prefix}-mobile-font-size--body-xsmall: 1.6rem;
-  --#{$prefix}-mobile-font-size--body-xxsmall: 1.5rem;
-
-  --#{$prefix}-mobile-font-size-label-large: 1.8rem;
-  --#{$prefix}-mobile-font-size-label-medium: 1.6rem;
-  --#{$prefix}-mobile-font-size-label-small: 1.5rem;
 
   // radius
   --#{$prefix}-radius-medium: 0.2rem;
@@ -102,21 +56,18 @@
 
   // transition
   --#{$prefix}-transition-base: 0.4s ease-in-out;
-  // --#{$prefix}-transition-fade: opacity 0.4s linear;
-  // --#{$prefix}-transition-collapse: max-height 0.4s ease;
-  // --#{$prefix}-transition-collapse-width: width 0.4s ease;
 
   // color
-  --#{$prefix}-color-neutral-5: #F5F4F4;
-  --#{$prefix}-color-neutral-10: #E6E5E5;
-  --#{$prefix}-color-neutral-20: #D7D5D5;
-  --#{$prefix}-color-neutral-30: #C3C1C1;
-  --#{$prefix}-color-neutral-40: #969292;
-  --#{$prefix}-color-neutral-50: #757070;
-  --#{$prefix}-color-neutral-60: #605C5C;
-  --#{$prefix}-color-neutral-70: #494646;
-  --#{$prefix}-color-neutral-80: #272626;
-  --#{$prefix}-color-neutral-90: #151414;
+  --#{$prefix}-color-gray-5: #F5F4F4;
+  --#{$prefix}-color-gray-10: #E6E5E5;
+  --#{$prefix}-color-gray-20: #D7D5D5;
+  --#{$prefix}-color-gray-30: #C3C1C1;
+  --#{$prefix}-color-gray-40: #969292;
+  --#{$prefix}-color-gray-50: #757070;
+  --#{$prefix}-color-gray-60: #605C5C;
+  --#{$prefix}-color-gray-70: #494646;
+  --#{$prefix}-color-gray-80: #272626;
+  --#{$prefix}-color-gray-90: #151414;
 
   --#{$prefix}-color-sub-5: #f3f2f1;
   --#{$prefix}-color-sub-10: #e7e5e4;
@@ -158,10 +109,10 @@
 	--#{$prefix}-color-tag-point-violet: #8347EB;
 
   // text-color
-  --#{$prefix}-color-text-strong: var(--#{$prefix}-color-neutral-90); //#151414
-  --#{$prefix}-color-text-basic: var(--#{$prefix}-color-neutral-80); //#272626
-  --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-neutral-70); //#494646
-  --#{$prefix}-color-text-subtler: var(--#{$prefix}-color-neutral-50); //#757070
+  --#{$prefix}-color-text-strong: var(--#{$prefix}-color-gray-90); //#151414
+  --#{$prefix}-color-text-basic: var(--#{$prefix}-color-gray-80); //#272626
+  --#{$prefix}-color-text-subtle: var(--#{$prefix}-color-gray-70); //#494646
+  --#{$prefix}-color-text-subtler: var(--#{$prefix}-color-gray-50); //#757070
   --#{$prefix}-color-text-primary: var(--#{$prefix}-color-orange-base); //#fe5b16
   --#{$prefix}-color-text-primary-dark: var(--#{$prefix}-color-orange-dark); //#F54500
   --#{$prefix}-color-text-white: var(--#{$prefix}-color-white); //#fff
@@ -197,8 +148,8 @@
   --#{$prefix}-color-button-tertiary-fill-hover: #ddd;
   --#{$prefix}-color-button-tertiary-fill-pressed: #ddd;
   --#{$prefix}-color-button-black-fill: var(--#{$prefix}-color-sub-80); //#2C2320
-  --#{$prefix}-color-button-black-fill-hover: var(--#{$prefix}-color-neutral-90); //#151414
-  --#{$prefix}-color-button-black-fill-pressed: var(--#{$prefix}-color-neutral-90); //#151414
+  --#{$prefix}-color-button-black-fill-hover: var(--#{$prefix}-color-gray-90); //#151414
+  --#{$prefix}-color-button-black-fill-pressed: var(--#{$prefix}-color-gray-90); //#151414
   --#{$prefix}-color-button-disabled-fill: var(--#{$prefix}-color-sub-30); //#C7C1BD
   --#{$prefix}-color-button-disabled-border: var(--#{$prefix}-color-sub-30); //#C7C1BD
 
@@ -211,5 +162,27 @@
 
 	@include mq(mobile){
 		--#{$prefix}-content-padding-x: 1.6rem;
+
+    //font-size
+    // --#{$prefix}-font-size-en-display-large: 16rem;
+    // --#{$prefix}-font-size-en-display-medium: 12rem;
+    // --#{$prefix}-font-size-en-display-small: 9.6rem;
+
+    --#{$prefix}-font-size-title-xxlarge: 4rem;
+    --#{$prefix}-font-size-title-xlarge: 3.2rem;
+    --#{$prefix}-font-size-title-large: 2.8rem;
+    --#{$prefix}-font-size-title-medium: 2.8rem;
+    --#{$prefix}-font-size-title-small: 2.4rem;
+    // --#{$prefix}-font-size-title-xsmall: 2.4rem;
+    // --#{$prefix}-font-size-title-xxsmall: 2.1rem;
+
+    // --#{$prefix}-font-size--body-xxlarge: 4rem;
+    // --#{$prefix}-font-size--body-xlarge: 3.2rem;
+    --#{$prefix}-font-size--body-large: 2.1rem;
+    // --#{$prefix}-font-size--body-medium: 2.1rem;
+    // --#{$prefix}-font-size--body-small: 1.8rem;
+    // --#{$prefix}-font-size--body-xsmall: 1.6rem;
+    // --#{$prefix}-font-size--body-xxsmall: 1.5rem;
+    // --#{$prefix}-font-size--body-xxxsmall: 1.4rem;
 	}
 }
