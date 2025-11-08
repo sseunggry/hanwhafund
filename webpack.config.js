@@ -161,7 +161,7 @@ module.exports = {
     open: ['/guides/index.html'],
     hot: true,
 		liveReload: true,
-		watchFiles: ['src/**/*'],
+		// watchFiles: ['src/**/*'],
 		// watchFiles: ['src/**/*.{js,scss,html,ejs}'],
   },
   mode: isProduction ? 'production' : 'development',  // mode: 'development', // 배포시 'production'으로 변경
