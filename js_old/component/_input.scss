@@ -1,0 +1,335 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 입력 필드 / 텍스트 영역 */
+$input-size: (
+	small: (
+		size-height: 4rem,
+		button-clear-size: 1.6rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-small),
+	),
+	medium: (
+		size-height: 4.8rem,
+		button-clear-size: 1.8rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-medium),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-medium),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-medium),
+	),
+	large: (
+		size-height: 5.6rem,
+		button-clear-size: 2rem,
+		radius: var(--#{$prefix}-radius-medium),
+		pc-font-size: var(--#{$prefix}-pc-font-size-label-large),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-large),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-large),
+	),
+) !default;
+
+// 사이즈 정의
+@mixin input-size-variable() {
+  // css variable 생성
+  --#{$prefix}-input--padding-x: 1.6rem;
+
+  @each $size, $types in $input-size {
+    @each $type, $value in $types {
+      // css variable 생성
+      --#{$prefix}-input--#{$type}-#{$size}: #{$value};
+    }
+  }
+}
+
+@mixin input-size($size) {
+  height: var(--#{$prefix}-input--size-height-#{$size});
+  border-radius: var(--#{$prefix}-input--radius-#{$size});
+  font-size: var(--#{$prefix}-input--pc-font-size-#{$size});
+
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-input--tablet-font-size-#{$size});
+	}
+
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-input--mobile-font-size-#{$size});
+  }
+}
+
+// 컬러 정의
+@mixin input-color-variable() {
+  --#{$prefix}-input--color-surface: var(--#{$prefix}-color-input-surface);
+  --#{$prefix}-input--color-surface-readonly: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-input--color-surface-disabled: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-input--color-surface-error: var(--#{$prefix}-color-input-surface);
+  // --#{$prefix}-input--color-border: var(--#{$prefix}-color-input-border);
+  --#{$prefix}-input--color-border: #C3C1C1;
+  --#{$prefix}-input--color-border-active: var(--#{$prefix}-color-input-border-active);
+  --#{$prefix}-input--color-border-readonly: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-input--color-border-disabled: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-input--color-border-error: var(--#{$prefix}-color-input-border-error);
+  --#{$prefix}-input--color-text: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-input--color-text-active: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-input--color-text-readonly: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-input--color-text-disabled: var(--#{$prefix}-color-text-disabled-on);
+  --#{$prefix}-input--color-text-placeholder: var(--#{$prefix}-color-text-subtler);
+  --#{$prefix}-input--color-text-error: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-input--color-button-clear-icon: transparent;
+  --#{$prefix}-input--color-button-clear-background: #b1b8be;
+}
+
+@mixin input-base-style() {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+	width: 100%;
+	padding: 0 var(--#{$prefix}-input--padding-x);
+	background-color: var(--#{$prefix}-input--color-surface);
+	border: 0.1rem solid var(--#{$prefix}-input--color-border);
+	font-family: inherit;
+	color: var(--#{$prefix}-input--color-text);
+	transition: var(--#{$prefix}-transition-base);
+
+	::placeholder{
+		color: var(--#{$prefix}-input--color-text-placeholder);
+	}
+
+	input{
+		width: 100%;
+		height: 100%;
+		border: 0.1rem solid transparent;
+		background-color: transparent;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.input {
+  @include input-color-variable();
+  @include input-size-variable;
+
+  & {
+		@include input-base-style;
+		@include input-size(large);
+
+		@each $size, $types in $input-size {
+			&.#{$size} {
+				@include input-size(#{$size});
+
+				.btn.ico-clear {
+					@include square(var(--#{$prefix}-input--button-clear-size-#{$size}));
+				}
+			}
+		}
+  }
+
+  &:focus,
+  &.focus {
+    border-color: var(--#{$prefix}-input--color-border-active);
+    border-width: 2px;
+    outline: none;
+    box-shadow: none;
+
+		~	.textarea-count {
+			color: var(--#{$prefix}-input--count-number-color-text);
+			.count-now {
+				color: var(--#{$prefix}-input--count-number-color-text-active);
+			}
+		}
+  }
+
+  &[readonly], &.readonly {
+    background-color: var(--#{$prefix}-input--color-surface-readonly);
+    border-color: var(--#{$prefix}-input--color-border-readonly);
+    color: var(--#{$prefix}-input--color-text-readonly);
+
+    &.datepicker {
+      background-color: var(--#{$prefix}-input--color-surface);
+      border-color: var(--#{$prefix}-input--color-border);
+      color: var(--#{$prefix}-input--color-text);
+    }
+
+		~	.textarea-count {
+			color: var(--#{$prefix}-input--count-number-color-text);
+		}
+
+    &:focus {
+      border-color: var(--#{$prefix}-input--color-border-active);
+    }
+  }
+
+  &[disabled], &.disabled {
+    background-color: var(--#{$prefix}-input--color-surface-disabled);
+    border-color: var(--#{$prefix}-input--color-border-disabled);
+    color: var(--#{$prefix}-input--color-text-disabled);
+
+		~	.textarea-count {
+			color: var(--#{$prefix}-input--count-number-color-text);
+		}
+  }
+
+  // &::-webkit-input-placeholder {
+  //   color: var(--#{$prefix}-input--color-text-placeholder);
+  // }
+
+  &::placeholder {
+    color: var(--#{$prefix}-input--color-text-placeholder);
+  }
+
+  // &:-ms-input-placeholder {
+  //   color: var(--#{$prefix}-input--color-text-placeholder);
+  // }
+
+  &:not(textarea):placeholder-shown {
+    @include ellipsis(1);
+  }
+
+  *:not(input){
+    flex-shrink: 0;
+  }
+
+	.btn.ico-clear{
+		display: none;
+
+		&.active {
+			display: inline-flex;
+		}
+	}
+
+	input:has(~ .unit) {
+		text-align: right;
+	}
+}
+
+textarea {
+  &.input {
+    --#{$prefix}-input--textarea-size-height: 14.4rem;
+    --#{$prefix}-input--textarea-padding-x: 1.6rem;
+    --#{$prefix}-input--textarea-padding-y: 0.8rem;
+
+    height: var(--#{$prefix}-input--textarea-size-height) !important;
+    padding: var(--#{$prefix}-input--textarea-padding-y) var(--#{$prefix}-input--textarea-padding-x);
+    line-height: var(--#{$prefix}-transition-base);
+  }
+}
+
+.is-error {
+  .input {
+    background-color: var(--#{$prefix}-input--color-surface-error);
+    border-color: var(--#{$prefix}-input--color-border-error);
+    border-width: 2px;
+    color: var(--#{$prefix}-input--color-text-error);
+
+    &:focus {
+      border-color: var(--#{$prefix}-input--color-border-active);
+    }
+  }
+}
+
+.textarea-wrap {
+  @include flex-layout($fd: column, $ai: normal);
+
+  gap: 0.8rem;
+  width: 100%;
+
+	.textarea-txt-wrap {
+		display: flex;
+		gap: 1rem;
+
+		.textarea-count {
+			margin-left: auto;
+			width: fit-content;
+		}
+	}
+}
+
+.textarea-count {
+  --#{$prefix}-input--count-number-pc-font-size: 1.5rem;
+  --#{$prefix}-input--count-number-tablet-font-size: 1.5rem;
+  --#{$prefix}-input--count-number-mobile-font-size: 1.5rem;
+  --#{$prefix}-input--count-number-color-text: var(--#{$prefix}-color-text-subtler);
+  --#{$prefix}-input--count-number-color-text-default: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-input--count-number-color-text-active: var(--#{$prefix}-color-text-primary);
+  --#{$prefix}-input--count-number-color-text-error: var(--#{$prefix}-color-text-danger);
+
+  @include flex-layout($ai: center, $jc: flex-end);
+
+  gap: 0.2rem;
+  width: 100%;
+  font-size: var(--#{$prefix}-input--count-number-pc-font-size);
+  color: var(--#{$prefix}-input--count-number-color-text-default);
+
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-input--count-number-tablet-font-size);
+	}
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-input--count-number-mobile-font-size);
+  }
+
+  // .count-now {
+  //   color: var(--#{$prefix}-input--count-number-color-text-active);
+  // }
+}
+
+.is-error {
+  .textarea-count {
+    .count-now {
+      color: var(--#{$prefix}-input--count-number-color-text-error);
+    }
+  }
+}
+.is-success {	
+	.textarea-count {
+		color: var(--#{$prefix}-input--count-number-color-text);
+  }
+}
+
+.textarea-bottom {
+  @include flex-layout;
+
+  gap: 1.6rem;
+
+  .textarea-count {
+    margin-left: auto;
+    flex-basis: content;
+    order: 2;
+  }
+
+  .form-hint-invalid {
+    align-items: flex-start;
+    order: 1;
+
+    &::before {
+      flex: none;
+    }
+  }
+}
+
+/* 날짜선택 */
+.calendar-input {
+  --#{$prefix}-input--color-surface: var(--#{$prefix}-color-input-surface);
+
+  position: relative;
+  z-index: 1;
+  width: 100%;
+
+  .input {
+    padding-right: var(--#{$prefix}-form-group--icon-padding-right);
+    background-image: none;
+  }
+
+  .btn {
+    @include position($t: 50%, $r: 2rem); // form control large 사이즈에만 버튼 들어감
+
+    transform: translateY(-50%);
+  }
+
+  .range {
+    &::after {
+      display: none;
+    }
+  }
+}

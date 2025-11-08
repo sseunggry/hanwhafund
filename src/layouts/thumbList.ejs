@@ -27,19 +27,17 @@
           <img src="<%= item.imgSrc || defaultImg %>" alt="<%= item.alt || item.title || '' %>">
         </div>
         <div class="thumb-con">
-        <% if (item.sourceType && sourceMap[item.sourceType]) { %>
-          <p class="source <%= item.sourceType %>">
-            <%= sourceMap[item.sourceType] %>
-          </p>
-        <% } %>
+        <% if (item.sourceType && sourceMap[item.sourceType]) { -%>
+          <p class="source <%= item.sourceType %>"><%= sourceMap[item.sourceType] %></p>
+        <% } -%>
           <p class="tit"><%= item.title %></p>
-        <% if (item.date) { %>
+        <% if (item.date) { -%>
           <p class="date"><%= item.date %></p>
-        <% } %>
+        <% } -%>
         </div>
       </a>
     </li>
-  <% }); -%>
+  <% }) -%>
   </ul>
   <div class="btn-wrap array-center">
     <%- include('../components/button.ejs', {
@@ -47,7 +45,7 @@
       hierarchy: 'tertiary',
       size: 'large',
       slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
-    }); %>
+    }) -%>
   </div>
 </div>
 <% } -%>

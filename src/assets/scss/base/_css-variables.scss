@@ -7,9 +7,6 @@
   --#{$prefix}-font-size-base: 62.5%;
   --#{$prefix}-base-line-height: 1.5;
 
-  // --#{$prefix}-font-kr: "Pretendard";
-  // --#{$prefix}-font-en: "Trust 2A Trial";
-
   // content
   --#{$prefix}-content-width: 130rem;
   --#{$prefix}-content-width-large: 168rem;
@@ -37,9 +34,9 @@
   --#{$prefix}-pc-font-size--body-xsmall: 1.6rem;
   --#{$prefix}-pc-font-size--body-xxsmall: 1.5rem;
 
-  --#{$prefix}-pc-font-size-label-large: 1.8rem;
-  --#{$prefix}-pc-font-size-label-medium: 1.6rem;
-  --#{$prefix}-pc-font-size-label-small: 1.5rem;
+  --#{$prefix}-font-size-label-large: 1.8rem;
+  --#{$prefix}-font-size-label-medium: 1.6rem;
+  --#{$prefix}-font-size-label-small: 1.5rem;
 
   // font-size (tablet)
   --#{$prefix}-tablet-font-size-en-display-large: 16rem;
@@ -132,33 +129,6 @@
   --#{$prefix}-color-sub-80: #2C2320;
   --#{$prefix}-color-sub-90: #1A140F;
 
-  // --hwf-orange-5: #fdefec;
-  // --hwf-orange-10: #fcebe4;
-  // --hwf-orange-20: #f4c0a9;
-  // --hwf-orange-30: #f48771;
-  // // --hwf-orange-40: #f05f42;
-  // // --hwf-orange-50: #de3412;
-  // --hwf-orange-60: #f54500;
-  // --hwf-orange-70: #8a240f;
-  // --hwf-orange-80: #5c180a;
-  // // --hwf-orange-90: #390d05;
-  // // --hwf-orange-95: #260903;
-
-  // --hwf-color-primary-5: var(--hwf-orange-5);
-  // --hwf-color-primary-10: var(--hwf-orange-10);
-  // --hwf-color-primary-20: var(--hwf-orange-20);
-  // --hwf-color-primary-30: var(--hwf-orange-30);
-  // --hwf-color-primary-60: var(--hwf-orange-60);
-  // --hwf-color-primary-70: var(--hwf-orange-70);
-  // --hwf-color-primary-80: var(--hwf-orange-80);
-
-  // --hwf-color-secondary-5: var(--hwf-orange-5);
-  // --hwf-color-secondary-10: var(--hwf-orange-10);
-  // --hwf-color-secondary-20: var(--hwf-orange-20);
-  // --hwf-color-secondary-30: var(--hwf-orange-30);
-  // --hwf-color-secondary-60: var(--hwf-orange-60);
-  // --hwf-color-secondary-70: var(--hwf-orange-70);
-
   --#{$prefix}-color-orange-lighter: #feeae1;
   --#{$prefix}-color-orange-light: #ffcdb8;
   --#{$prefix}-color-orange-base: #fe5b16;
@@ -208,12 +178,12 @@
 
   // input
   --#{$prefix}-color-input-surface: #ffffff;
-  --#{$prefix}-color-input-surface-disabled: #1e2124;
+  --#{$prefix}-color-input-surface-disabled: #E6E5E5;
   --#{$prefix}-color-input-surface-gray: var(--#{$prefix}-color-sub-80); //#2C2320
   --#{$prefix}-color-input-border: #C3C1C1;
-  --#{$prefix}-color-input-border-active: #ff3a08;
-  --#{$prefix}-color-input-border-disabled: #cdd1d5;
-  --#{$prefix}-color-input-border-error: #de3412;
+  --#{$prefix}-color-input-border-active: #FE5B16;
+  --#{$prefix}-color-input-border-disabled: #C3C1C1;
+  --#{$prefix}-color-input-border-error: #E81311;
 
   // button
   --#{$prefix}-color-button-primary-fill: var(--#{$prefix}-color-orange-dark); //#f54500
@@ -238,19 +208,8 @@
   --#{$prefix}-color-button-text-disabled: var(--#{$prefix}-color-text-white); //#ffffff
   --#{$prefix}-color-button-text-disabled-on: #8a949e;
 
-  //input-color
-  --#{$prefix}-color-input-surface: ;
-  --#{$prefix}-color-input-surface-disabled: ;
-  --#{$prefix}-color-input-border: ;
-  --#{$prefix}-color-input-border-active: ;
-  --#{$prefix}-color-input-border-disabled: ;
-  --#{$prefix}-color-input-border-error: ;
-
 
 	@include mq(mobile){
 		--#{$prefix}-content-padding-x: 1.6rem;
-	}
-	@include mq(mobile-medium){
-		// --#{$prefix}-content-padding-x: 1.6rem;
 	}
 }

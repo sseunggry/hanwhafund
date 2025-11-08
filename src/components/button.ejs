@@ -23,7 +23,6 @@
     variant === 'icon' ? '' : hierarchy,
     size,
     addClass,
-		// iconOnly ? 'icon' : '',
   ].filter(Boolean).join(' ');
 
 	let targetAttrs = '';
@@ -47,9 +46,9 @@
 	<%#- targetId ? `data-modal-open="${targetId}"` : '' -%>
 	<%#- targetId ? `aria-controls="${targetId}"` : '' -%>
 >
-<%- preSlot %>
+<%- preSlot -%>
 <%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' %>
-<%- variant === 'icon' ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` %>
+<%- variant === 'icon' ? `<span class="sr-only">${label}</span>` : `<span>${label}</span>` -%>
 <%- icon ? `<i class="svg-icon icon-${icon}"></i>` : '' %>
-<%- slot %>
+<%- slot -%>
 </<%= tag -%>> 

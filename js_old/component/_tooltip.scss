@@ -1,0 +1,161 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 툴팁 */
+// 사이즈 정의
+@mixin tooltip-size-variable() {
+  --#{$prefix}-tooltip--padding-y: 0.8rem;
+  --#{$prefix}-tooltip--padding-x: 1.2rem;
+  --#{$prefix}-tooltip--radius: 1rem;
+  --#{$prefix}-tooltip--contents-pc-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-tablet-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-mobile-font-size: 1.5rem;
+  --#{$prefix}-tooltip--contents-gap: 0.8rem;
+  --#{$prefix}-tooltip--contents-icon-size: 2.4rem;
+}
+
+// 컬러 정의
+@mixin tooltip-color-variable() {
+  --#{$prefix}-tooltip--inline-color-text: var(--#{$prefix}-color-text-white);
+  --#{$prefix}-tooltip--inline-color-text-light: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tooltip--box-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-tooltip--box-color-surface: #fff;
+  --#{$prefix}-tooltip--color-surface: var(--#{$prefix}-color-surface-inverse);
+  --#{$prefix}-tooltip--color-surface-light: var(--#{$prefix}-color-surface-elevated-03);
+  --#{$prefix}-tooltip--box-shadow: var(--#{$prefix}-color-alpha-shadow1);
+  --#{$prefix}-tooltip--box-shadow2: var(--#{$prefix}-color-alpha-shadow2);
+}
+
+.tooltip-btn{
+  &:disabled{
+    pointer-events: none;
+    cursor: none;
+  }
+}
+
+.tooltip {
+  @include tooltip-color-variable();
+  @include tooltip-size-variable;
+
+  & {
+    // display: none;
+    position: absolute;
+    z-index: 100;
+		opacity: 0;
+  	visibility: hidden;
+  	transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+    white-space: nowrap;
+    color: var(--#{$prefix}-tooltip--inline-color-text);
+    font-size: var(--#{$prefix}-tooltip--contents-pc-font-size);
+    border-radius: var(--#{$prefix}-tooltip--radius);
+    padding: var(--#{$prefix}-tooltip--padding-y) var(--#{$prefix}-tooltip--padding-x);
+    background-color: var(--#{$prefix}-tooltip--color-surface);
+    box-shadow: 0 0 0.2rem 0 var(--#{$prefix}-tooltip--box-shadow), 0 0.4rem 0.8rem 0 var(--#{$prefix}-tooltip--box-shadow2);
+    top: 0;
+    left: 0;
+
+    @include mq(tablet) {
+      font-size: var(--#{$prefix}-tooltip--contents-tablet-font-size);
+    }
+
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-tooltip--contents-mobile-font-size);
+    }
+  }
+
+  &.active {
+		opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-out, visibility 0s linear 0s;
+  }
+
+  &::before {
+    --tooltip-arrow-size: 0.8rem;
+    --tooltip-arrow-gap: calc((var(--tooltip-arrow-size) / 2) * -1);
+
+    @include pseudo;
+    @include square(var(--tooltip-arrow-size));
+
+    display: block;
+    position: absolute;
+    background-color: var(--#{$prefix}-tooltip--color-surface);
+    left: var(--tooltip-arrow-gap);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  &.type-light{
+    color: var(--#{$prefix}-tooltip--inline-color-text-light);
+    background-color: var(--#{$prefix}-tooltip--color-surface-light);
+
+    &::before {
+      background-color: var(--#{$prefix}-tooltip--color-surface-light);
+    }
+  }
+
+  .tooltip-inner{
+    @include flex-layout($ai: center);
+    gap: var(--#{$prefix}-tooltip--contents-gap);
+
+    .svg-icon{
+      @include square(var(--#{$prefix}-tooltip--contents-icon-size));
+      @include flex-size(0, 0);
+    }
+  }
+
+  &.left {
+    &::before {
+      left: calc(100% + var(--tooltip-arrow-gap));
+    }
+  }
+
+  &.bottom,
+  &.top {
+    &::before {
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    &.right {
+      &::before {
+        left: calc(100% - var(--#{$prefix}-tooltip--margin-x));
+      }
+    }
+
+    &.left {
+      &::before {
+        left: var(--#{$prefix}-tooltip--margin-x);
+      }
+    }
+  }
+
+  &.top {
+    &::before {
+      top: calc(100% + var(--tooltip-arrow-gap));
+    }
+  }
+
+  &.bottom {
+    &::before {
+      top: var(--tooltip-arrow-gap);
+    }
+
+    &.tooltip-popover {
+      &::before {
+        transform: translateX(-50%) rotate(-135deg);
+      }
+    }
+  }
+}
+
+@media (width <= 420px) {
+  .tooltip {
+    width: calc(100% - (var(--#{$prefix}-contents-padding-x) * 2));
+
+    @include position-center(x);
+
+    &::before {
+      display: none;
+    }
+  }
+}

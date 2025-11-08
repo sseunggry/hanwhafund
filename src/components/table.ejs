@@ -14,7 +14,7 @@
     'tbl-wrap', // 기본 래퍼 클래스
     addClass
   ].filter(Boolean).join(' ');
-%>
+-%>
 <% if (colCount > 0 || tbody.length > 0) { -%>
 <div class="<%= wrapClasses %>">
   <table class="tbl">
@@ -50,15 +50,14 @@
 			<% 
 				const alignType = colAligns[index] || '';
 				const classAttr = alignType ? `class="txt-${alignType}"` : '';
-			%>
+			-%>
 			<% if (index === 0 && rowHeaders) { -%>
-				<th scope="row" <%- classAttr %>><%- cell %></th>
-			<% } else { -%>
-				<td <%- classAttr %>><%- cell %></td>
-			<% } -%>
-			<% }); -%>
+        <th scope="row" <%- classAttr %>><%- cell %></th>
+      <% } else { -%>
+        <td <%- classAttr %>><%- cell %></td><% } -%>
+      <% }) -%>
       </tr>
-      <% }); -%>
+      <% }) -%>
     </tbody>
     <% } -%>
   </table>

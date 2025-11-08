@@ -1,0 +1,138 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 배지 */
+// 사이즈 정의
+@mixin badge-size-variable() {
+  --#{$prefix}-badge--size-height: 3rem;
+  --#{$prefix}-badge--padding: 0.8rem;
+  --#{$prefix}-badge--radius: 0.2rem;
+  --#{$prefix}-badge--mobile-font-size: 1.6rem;
+  --#{$prefix}-badge--tablet-font-size: 1.6rem;
+  --#{$prefix}-badge--pc-font-size: 1.6rem;
+}
+
+// 컬러 정의
+@mixin badge-color-variable() {
+  // 컬러 변수 배열 생성
+  $badge-color-variable: (
+    domestic: (
+      element: var(--#{$prefix}-color-tag-point-bright-red),
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    stock: (
+      element: var(--#{$prefix}-color-tag-point-vivid-orange),
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    global: (
+      element: var(--#{$prefix}-color-tag-point-violet),
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating1: (
+      element: #119EFF,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating2: (
+      element: #00CECF,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating3: (
+      element: #00CECF,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating4: (
+      element: #FE6220,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating5: (
+      element: #FF4891,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    rating6: (
+      element: #F91D00,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    new: (
+      element: #FE5B16,
+      text: var(--#{$prefix}-color-text-white),
+    )
+  ) !default;
+
+  // css variable 생성
+  @each $color, $types in $badge-color-variable {
+    @each $type, $value in $types {
+      --#{$prefix}-badge--color-#{"#{$color}"}-#{$type}: #{$value};
+    }
+  }
+
+  // --#{$prefix}-badge--color-background-basic: var(--#{$prefix}-color-background-white);
+  --#{$prefix}-badge--color-text-basic: var(--#{$prefix}-color-text-white);
+
+  // class 정의
+  & {
+    @each $color, $types in $badge-color-variable {
+      &.outline-#{'#{$color}'} {
+        @include color-border(#{$color});
+        @include color-text(#{$color});
+      }
+
+      &.#{'#{$color}'} {
+        color: var(--#{$prefix}-badge--color-text-basic);
+        @include color-background(#{$color});
+      }
+    }
+  }
+}
+
+// badge color border
+@mixin color-border($color) {
+  @if $color == 'primary' {
+    border-color: var(--#{$prefix}-badge--color-primary-element);
+  } @else {
+    border-color: var(--#{$prefix}-badge--color-#{$color}-element);
+  }
+
+  & {
+    border-width: 0.1rem;
+    border-style: solid;
+  }
+}
+
+// badge color text
+@mixin color-text($color) {
+  color: var(--#{$prefix}-badge--color-#{$color}-text);
+}
+
+// badge color background
+@mixin color-background($color) {
+  background-color: var(--#{$prefix}-badge--color-#{$color}-element);
+}
+
+.badge {
+  @include badge-size-variable;
+  @include badge-color-variable();
+
+  & {
+    @include flex-layout($d: inline-flex, $ai: center, $jc: center);
+    padding: 0 var(--#{$prefix}-badge--padding);
+    height: var(--#{$prefix}-badge--size-height);
+    font-size: var(--#{$prefix}-badge--pc-font-size);
+    font-weight: 500;
+    border-radius: var(--#{$prefix}-badge--radius);
+
+    @include mq(tablet) {
+      font-size: var(--#{$prefix}-badge--tablet-font-size);
+    }
+
+    @include mq(mobile) {
+      font-size: var(--#{$prefix}-badge--mobile-font-size);
+    }
+  }
+}
+
+.badge-wrap {
+  --#{$prefix}-badge--wrap-gap: 0.4rem;
+
+  display: flex;
+  gap: var(--#{$prefix}-badge--wrap-gap);
+}

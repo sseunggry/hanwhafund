@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '시황상세 | 인사이트'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap page-notice">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container notice-detail">
+				<div class="inner">
+					<div class="cont-group">
+						<%- include('../../layouts/boardDetail.ejs', {
+							title: '2025년 9월 글로벌 매크로 및 자산시장',
+							date: '2025-09-29',
+							content: `
+								<p>
+									나의 자산을 어떻게 글로벌 배분할 것인가? 투자 비용은 낮추고 투자기회는 어떻게 집중시킬 것인가? 투자의 기본을 다져야 합니다.
+								</p>
+								<p>
+									자산운용 전문가그룹 한화자산운용이 투자자들의 솔루션 어드바이저(Solution Advisor)가 되어 드리겠습니다.
+									한화자산운용은 투자자와의 거리를 좁히고 투자 과정을 돕는 투자메이트 입니다.
+								</p>
+							`,
+							files: [
+								{ label: '2509 글로벌 매크로 및 자산시장 전망.pdf'},
+								{ label: '한화자산운용VaR20250926.zip'}
+							],
+							nav: {
+								prev: {
+									title: '2025년 9월 국내외 채권시장 전망',
+									desc: '2025-09-14'
+								},
+								next: {
+									title: '2025년 10월 국내외 채권시장 전망',
+									desc: '2025-11-22'
+								}
+							},
+						}) %>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

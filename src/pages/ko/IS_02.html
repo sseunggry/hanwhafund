@@ -2,13 +2,13 @@
 <html lang="ko">
 	<head>
 		<%- include('../../layouts/head.ejs', { 
-			title : '인사이트'
+			title : '투자정보목록 | 인사이트'
 		}) -%>
 	</head>
 	<body>
 		<div class="wrap page-insite">
 			<!-- header -->
-			<%- include('../../layouts/header.ejs') %>
+			<%- include('../../layouts/header.ejs') -%>
 			<!-- // header -->
 			
 			<!-- container -->
@@ -97,17 +97,30 @@
 						});
 						const faq = include('../../components/accordion.ejs', {
 							items: [
-								{title: '제목1', content: '<p>내용1</p>', active: true },
-								{title: '제목2', content: '<p>내용2</p>' },
-								{title: '제목3', content: '<p>내용3</p>' }
+								{category: '펀드상품', title: 'ETF란 무엇인가요?', content: '<p>내용1</p>', active: true},
+								{category: '펀드상품', title: '절세형 펀드상품은 무엇이 있나요?', content: '<p>내용2</p>'},
+								{category: '펀드상품', title: '같은 펀드에 Class가 여러 개인데 단지 수수료같은 차이만 있는건가요? 아니면 투자방향과 성격이 틀린건가요?', content: '<p>Class로 구분되어 있는 펀드는 종류형(Muti-Class) 펀드라 하며으로 차이점은 선취 판매 수수료의 유무 등 환매 수수료의 차이 및 펀드 보수의 차이 등입니다. <br/> 고객님의 투자기간, 투자방향 등에 따라 선택하여 가입하여 주시기 바랍니다.</p>'},
+								{category: '펀드상품', title: '펀드계산기는 어떤 기능인가요?', content: '<p>내용4</p>'},
+								{category: '펀드상품', title: '가입한 펀드의 수익률을 확인하려면 어디서 해야 하나요?', content: '<p>내용5</p>'},
+								{category: '펀드상품', title: '펀드에 가입하면 자산운용보고서를 받는다던데 무엇인가요?', content: '<p>내용6</p>'},
+								{category: '펀드상품', title: '펀드에 투자하려면 목돈이 필요한가요?', content: '<p>내용7</p>'},
+								{category: '펀드상품', title: '한화자산운용에서 펀드를 직접 가입할 수 있나요?', content: '<p>내용8</p>'},
 							],
 						});
+						const moreBtn = include("../../components/button.ejs", { label: '더보기', hierarchy: 'tertiary', size: 'large', slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`});
 						-%>
 						<%- include('../../components/tab.ejs', {
-							active: 1,
+							active: 4,
 							variant: 'line',
 							tablist: ['공지', '투자정보', '시황', '뉴스룸', 'FAQ'],
-							contents: [board1, thumbList1, thumbList2, board2, faq],
+							contents: [board1, thumbList1, thumbList2, board2, 
+								`
+									${faq}
+									<div class="btn-wrap array-center">
+										${moreBtn}
+									</div>
+								`
+							],
 						}) -%>
 					</div> 
 				</div>
@@ -115,7 +128,7 @@
 			<!-- // container -->
 
 			<!-- footer -->
-			<%- include('../../layouts/footer.ejs') %>
+			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
 	</body>

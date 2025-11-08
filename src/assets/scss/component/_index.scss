@@ -6,16 +6,16 @@
 
 // component
 @forward 'button';
+@forward 'badge';
 @forward 'tab';
 @forward 'table';
 @forward 'modal';
 @forward 'accordion';
-@forward 'spinner';
 @forward 'popover';
 @forward 'tooltip';
+@forward 'spinner';
 // @forward 'pagination';
 // @forward 'step_indicator';
-@forward 'badge';
 @forward 'tag';
 @forward 'form_layout';
 @forward 'input';
@@ -26,7 +26,7 @@
 @forward 'toggle';
 @forward 'calendar';
 @forward 'segmented_control';
-@forward 'progress_bar';
+// @forward 'progress_bar';
 @forward 'toast';
 // @forward 'typo';
 @forward 'list';

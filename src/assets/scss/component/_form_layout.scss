@@ -5,18 +5,15 @@
 /* form 레이아웃 */
 // 사이즈 정의
 @mixin form-layout-size-variable() {
-  --#{$prefix}-form-group--label-pc-font-size: 1.8rem;
-  --#{$prefix}-form-group--label-tablet-font-size: 1.8rem;
-  --#{$prefix}-form-group--label-mobile-font-size: 1.8rem;
+  --#{$prefix}-form-group--label-font-size: 1.8rem;
   --#{$prefix}-form-group--gap: 0.8rem;
   --#{$prefix}-form-group--icon-padding-right: calc(2rem * 2 + var(--#{$prefix}-icon--size-large));
-  --#{$prefix}-form-group--message-pc-font-size: 1.3rem;
-  --#{$prefix}-form-group--message-tablet-font-size: 1.3rem;
-  --#{$prefix}-form-group--message-mobile-font-size: 1.3rem;
+  --#{$prefix}-form-group--message-font-size: 1.3rem;
 }
 
 // 컬러 정의
 @mixin form-layout-color-variable() {
+  --#{$prefix}-form-group--label-text-color: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-form-group--message-text-color: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-form-group--message-success-text-color: var(--#{$prefix}-color-text-success);
   --#{$prefix}-form-group--message-information-text-color: var(--#{$prefix}-color-text-subtle);
@@ -115,16 +112,16 @@
 .form-group {
   @include form-layout-color-variable();
   @include form-layout-size-variable;
-  @include flex-layout($ai: normal, $fd: column);
 
 	@include input.input-color-variable;
 	@include input.input-size-variable;
-
+  
 	--#{$prefix}-form-input--padding: 1.6rem;
 	--#{$prefix}-form-input--dash-gap: 2.4rem;
 	--#{$prefix}-form-input--dash-width: 0.8rem;
-
+  
   & {
+    @include flex-layout($ai: normal, $fd: column);
     gap: var(--#{$prefix}-form-group--gap);
     width: 100%;
   }
@@ -185,16 +182,8 @@
   .form-tit,
   .form-label {
     width: 100%;
-		font-size: var(--#{$prefix}-form-group--label-pc-font-size);
-    color: var(--#{$prefix}-color-text-basic);
-
-		@include mq(tablet) {
-			font-size: var(--#{$prefix}-form-group--label-tablet-font-size);
-		}
-
-		@include mq(mobile) {
-			font-size: var(--#{$prefix}-form-group--label-mobile-font-size);
-		}
+		font-size: var(--#{$prefix}-form-group--label-font-size);
+    color: var(--#{$prefix}-form-group--label-text-color);
   }
 
   .form-conts {
@@ -203,76 +192,10 @@
     gap: 1rem;
     width: 100%;
 
-    &.keyword-sch {
-      width: 58.8rem;
-    }
-
     .form-label {
       display: flex;
-      font-size: var(--#{$prefix}-form-group--label-pc-font-size);
+      font-size: var(--#{$prefix}-form-group--label-font-size);
       width: 100%;
-
-			@include mq(tablet) {
-				font-size: var(--#{$prefix}-form-group--label-tablet-font-size);
-			}
-	
-			@include mq(mobile) {
-				font-size: var(--#{$prefix}-form-group--label-mobile-font-size);
-			}
-    }
-
-    &.btn-ico-wrap {
-      // input안에 button 노출
-      position: relative;
-
-      .input {
-        padding-right: var(--#{$prefix}-form-group--icon-padding-right);
-      }
-
-      .btn-group,
-      .btn {
-        // form control 우측에 버튼 정렬
-        @include position($t: 50%, $r: 2rem); // form control large 사이즈에만 버튼 들어감
-
-        transform: translateY(-50%);
-      }
-
-      .btn-group {
-        // form control 버튼이 여러개인경우
-        @include flex-layout($ai: center);
-
-        gap: 0.8rem;
-
-        .btn {
-          position: static;
-          transform: translateY(0);
-        }
-      }
-
-      .btn-delete-input {
-        // input 내용삭제 버튼은 value가 있을때만 보이게
-        display: none;
-
-        @at-root .form-conts {
-          &[data-delete='true'] {
-            .input:not(:placeholder-shown) {
-              ~ .btn-delete-input {
-                display: flex;
-              }
-
-              ~ .btn-group {
-                .btn-delete-input {
-                  display: flex;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &.calendar-conts {
-      gap: 0;
     }
   }
 
@@ -285,7 +208,7 @@
 
     gap: 0.4rem;
     width: 100%;
-    font-size: var(--#{$prefix}-form-group--message-pc-font-size);
+    font-size: var(--#{$prefix}-form-group--message-font-size);
     color: var(--#{$prefix}-form-group--message-text-color);
 
 		@include mq(tablet) {
@@ -339,11 +262,38 @@
   }
 }
 
-.form-checks-inline {
+.form-input-group {
+  position: relative;
   display: flex;
-  gap: 1.2rem;
-}
+  align-items: center;
 
+  &:has(.input-group + .btn) {
+    .input-group {
+      .input {
+        &:only-child {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        &:not(:only-child) {
+          &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+          &:last-child {
+            border-radius: 0;
+          }
+          + .input {
+            margin-left: -0.1rem;
+          }
+        }
+      }
+      + .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
 .input-group {
   // input 여러개가 포함된 그룹
   @include flex-layout($ai: center);
@@ -411,97 +361,44 @@
     flex: 1;
   }
 }
+.calendar-group {
+  gap: 0;
 
-.column {
-  .input-group {
-    flex-direction: column;
-		align-items: stretch;
+  .calendar {
+    min-width: 18.1rem;
+    transition: none;
 
-    &.range {
-      > li {
-        width: 100%;
+    &:focus,
+    &:focus-within {
+      position: relative;
+      z-index: 1;
+
+      .btn.icon {
+        .icon-calendar {
+          background-color: var(--#{$prefix}-color-orange-base);
+        }
       }
     }
   }
-}
-
-/* 검색 폼 */
-.sch-form-wrap {
-  @include flex-layout($ai: center);
-
-  gap: 1.6rem;
-
-  &.vert {
-    @include flex-layout($fd: column, $ai: flex-start);
-
-    .sch-input {
-      width: 100%;
+  &:has(.calendar + .calendar) {
+    .calendar:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .calendar:last-child {
+      margin-left: -0.1rem;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 
-  .input-group {
-    .form-select {
-      width: auto;
+  @include mq(mobile) {
+    .calendar {
+      min-width: auto;
     }
-  }
-
-  .btn {
-    &.ico-sch-plus {
-      &::before {
-        @include square(var(--#{$prefix}-size-height-4));
-      }
-    }
-  }
-}
-
-.sch-input {
-  display: flex;
-  position: relative;
-
-  .input {
-    padding: 0 var(--#{$prefix}-size-height-7) 0 1.6rem;
-
-    &.xlarge {
-      font-weight: 700;
-      padding: 0 7.2rem 0 2.4rem;
-    }
-  }
-
-  .ico-search {
-    position: absolute;
-    top: 50%;
-    right: 1.6rem;
-    transform: translateY(-50%);
   }
 }
 
 // 모바일 전용
 @include mq(mobile) {
-  .form-group {
-    .form-conts {
-      &.keyword-sch {
-        width: 100%;
-      }
-    }
-  }
-
-  /* 검색 폼 */
-  .sch-form-wrap {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .sch-input {
-    .input {
-      &.xlg {
-        padding: 0 var(--#{$prefix}-number-16) 0 var(--#{$prefix}-number-8);
-
-        ~ .ico-search {
-          right: var(--#{$prefix}-number-8);
-          width: 2.4rem;
-          height: 2.4rem;
-        }
-      }
-    }
-  }
 }

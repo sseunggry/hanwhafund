@@ -52,14 +52,14 @@
         <%= readonly ? 'readonly' : '' %>
       ><%= value %></textarea>
 
-      <% if (showCount) { %>
+      <% if (showCount) { -%>
         <p class="textarea-count">
           <span class="count-now"><%= value.length %></span>
           <span class="count-total">/<%= maxlength %></span>
         </p>
-      <% } %>
+      <% } -%>
     </div>
 <% if (title) { -%>
-  </div> <%# /.form-conts %>
-</div> <%# /.form-group %>
+  </div>
+</div>
 <% } -%>

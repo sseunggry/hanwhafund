@@ -7,7 +7,13 @@
 
 //게시판 목록
 .board-con{
-	// margin-top: 4rem;
+	--board-con-gap: 2.4rem;
+	--board-search-top: 1.6rem;
+	--board-btn-wrap: 2.4rem;
+
+	display: flex;
+	flex-direction: column;
+	gap: var(--board-con-gap);
 
 	.segment-control{
 		min-width: 90.7rem;
@@ -16,7 +22,6 @@
 		display: flex;
 		align-items: flex-end;
 		justify-content: space-between;
-		margin: 4rem 0 2.4rem;
 
 		.total{
 			color: var(--#{$prefix}-color-text-subtler);
@@ -24,6 +29,9 @@
 		}
 		.input{
 			width: 36rem;
+		}
+		&:not(:first-child){
+			margin-top: var(--board-search-top);
 		}
 	}
 	.board-list-wrap{
@@ -71,6 +79,10 @@
 					font-size: 1.8rem;
 					text-align: center;
 					border-bottom: 0.1rem solid #E7E5E4;
+
+					&:hover{
+						background-color: #F3F2F1;
+					}
 				}
 
 				.td{
@@ -79,10 +91,17 @@
 				}
 
 				.tit{
+					overflow: hidden;
+					display: flex;
+					align-items: center;
 					gap: 0.8rem;
 					color: var(--#{$prefix}-color-text-basic);
 					text-align: left;
-					@include ellipsis(1);
+
+					strong{
+						font-weight: 400;
+						@include ellipsis();
+					}
 				}
 				.file{
 					.icon-file{
@@ -101,7 +120,7 @@
 			}
 		}
 		+ .btn-wrap{
-			margin-top: 4.8rem;
+			margin-top: var(--board-btn-wrap);
 		}
 	}
 
@@ -155,13 +174,16 @@
 		}
 	}
 	@include mq(mobile){
+		--board-con-gap: 1.6rem;
+		--board-search-top: 0.8rem;
+
 		.board-search{
 			flex-direction: column;
-			margin: 2.4rem 0 1.6rem;
+			gap: 2.4rem;
 	
 			.total{
 				order: 1;
-				margin-top: 2.4rem;
+				align-self: self-start;
 			}
 			.input{
 				width: 100%;
@@ -211,8 +233,12 @@
 			height: auto;
 			border: 0;
 			color: var(--#{$prefix}-color-text-basic);
-			background-color: #F3F2F1;
+			// background-color: #F3F2F1;
 			border-radius: 0.2rem;	
+
+			// &:hover{
+			// 	background-color: #ddd;
+			// }
 
 			span{
 				flex: 1;
@@ -242,7 +268,9 @@
 			flex: 1;
 			
 			a{
-				display: block;
+				display: flex;
+				flex-direction: column;
+				height: 100%;
 				padding: var(--board-detail-nav-padding);
 				border-radius: 0.2rem;
 				border: 0.1rem solid #E7E5E4;
@@ -259,6 +287,10 @@
 					@include icon-set('arrow-right');
 					background-color: currentColor;
 				}
+
+				&:hover{
+					background-color: #F3F2F1;
+				}
 			}
 			&.prev{
 				a{
@@ -271,6 +303,7 @@
 			}
 			&.next{
 				a{
+					text-align: right;
 					padding-right: var(--board-detail-nav-padding-x);
 					&::before{
 						right: var(--board-detail-nav-padding);
@@ -283,6 +316,8 @@
 		}
 		.tit{
 			font-weight: 600;
+			@include ellipsis(2);
+			height: 100%;
 		}
 		.desc{
 			margin-top: 0.8rem;

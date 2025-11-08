@@ -1,0 +1,309 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 라디오 버튼 / 체크박스 chip */
+.chip-wrap {
+  gap: 0.8rem;
+
+	&.full{
+		.form-chip {
+			flex: 1;
+			text-align: center;
+
+			.form-chip-outline {
+				width: 100%;
+				justify-content: center;
+
+				span{
+					width: auto;
+				}
+			}
+		}
+	}
+	&.flow{
+		flex-wrap: wrap;
+	}
+
+	&.grid{
+		display: grid;
+
+		@for $i from 1 through 6 {
+			&.col-#{$i} {
+				grid-template-columns: repeat($i, 1fr);
+			}
+		}
+
+		.form-chip-outline {
+			width: 100%;
+			justify-content: center;
+
+			span{
+				width: auto;
+			}
+		}
+	}
+}
+
+
+// 사이즈 정의
+@mixin form-chip-size-variable() {
+  $form-chip-size: (
+    small: (
+      size-height: 3.2rem,
+      check-size: 1.4rem,
+      padding-x: 0.8rem,
+      radius: 0.8rem,
+			pc-font-size: 1.3rem,
+      tablet-font-size: 1.3rem,
+      mobile-font-size: 1.3rem,
+    ),
+    medium: (
+      size-height: 4rem,
+      check-size: 1.6rem,
+      padding-x: var(--#{$prefix}-padding-4),
+      radius: 1rem,
+      pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
+    ),
+    large: (
+      size-height: 4.8rem,
+      check-size: 1.8rem,
+      padding-x: 1.2rem,
+      radius: 1.2rem,
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
+    ),
+  ) !default;
+
+  // css variable 새성
+  @each $size, $types in $form-chip-size {
+    @each $type, $value in $types {
+      // css variable 생성
+      --#{$prefix}-form-chip--#{$type}-#{$size}: #{$value};
+    }
+  }
+
+  --#{$prefix}-form-chip--gap: 0.4rem;
+
+  // class 정의
+  & {
+    // 사이즈 별 class
+    @each $size, $types in $form-chip-size {
+      &.#{$size} {
+        input[type='radio'],
+        input[type='checkbox'] {
+          ~ label {
+            @include form-chip(#{$size});
+          }
+        }
+				button{
+					@include form-chip(#{$size});
+				}
+        input[type='checkbox'] {
+          ~ label {
+            &::before {
+              @include form-chip-check(#{$size});
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 컬러 정의
+@mixin form-chip-color-variable() {
+  --#{$prefix}-form-chip--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-chip--color-action: var(--#{$prefix}-color-action-transparency);
+
+
+  --#{$prefix}-form-chip--radio-color-text: var(--#{$prefix}-color-text-subtler);
+  --#{$prefix}-form-chip--radio-color-text-checked: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-chip--radio-color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-chip--radio-color-action: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--radio-color-action-checked: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--radio-color-action-disabled: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--radio-color-border: var(--#{$prefix}-color-border-neutral);
+  --#{$prefix}-form-chip--radio-color-border-checked: var(--#{$prefix}-color-border-neutral-darker);
+  --#{$prefix}-form-chip--radio-color-border-disabled: var(--#{$prefix}-color-border-disabled);
+
+  --#{$prefix}-form-chip--checkbox-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-chip--checkbox-color-text-checked: var(--#{$prefix}-color-text-primary);
+  --#{$prefix}-form-chip--checkbox-color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-chip--checkbox-color-action: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--checkbox-color-action-checked: var(--#{$prefix}-color-action-primary-selected);
+  --#{$prefix}-form-chip--checkbox-color-action-disabled: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--checkbox-color-border: var(--#{$prefix}-color-border-neutral);
+  --#{$prefix}-form-chip--checkbox-color-border-checked: var(--#{$prefix}-color-border-primary);
+  --#{$prefix}-form-chip--checkbox-color-border-disabled: var(--#{$prefix}-color-border-disabled);
+  --#{$prefix}-form-chip--checkbox-color-check: var(--#{$prefix}-color-element-disabled);
+  --#{$prefix}-form-chip--checkbox-color-check-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-chip--checkbox-color-check-disabled: var(--#{$prefix}-color-element-disabled);
+
+  --#{$prefix}-form-chip--button-color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-chip--button-color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-chip--button-color-action: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--button-color-action-hover: var(--#{$prefix}-color-action-neutral-hover);
+  --#{$prefix}-form-chip--button-color-action-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-form-chip--button-color-action-disabled: var(--#{$prefix}-color-action-transparency);
+  --#{$prefix}-form-chip--button-color-border: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-form-chip--button-color-border-disabled: var(--#{$prefix}-color-border-neutral-light);
+}
+
+// 칩 사이즈 정의
+@mixin form-chip($size) {
+  gap: var(--#{$prefix}-form-chip--gap);
+  padding: 0 var(--#{$prefix}-form-chip--padding-x-#{$size});
+  height: var(--#{$prefix}-form-chip--size-height-#{$size});
+  font-size: var(--#{$prefix}-form-chip--pc-font-size-#{$size});
+  // color: var(--#{$prefix}-form-chip--color-text);
+  // background-color: var(--#{$prefix}-form-chip--color-action);
+  // border: 0.1rem solid var(--#{$prefix}-form-chip--color-border);
+	border-width: 0.1rem;
+	border-style: solid;
+  border-radius: var(--#{$prefix}-form-chip--radius-#{$size});
+  transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
+
+  @include mq(tablet) {
+		font-size: var(--#{$prefix}-form-chip--tablet-font-size-#{$size});
+	}
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-form-chip--mobile-font-size-#{$size});
+  }
+}
+
+// check icon 정의
+@mixin form-chip-check($size) {
+  @include svg-icon($size: var(--#{$prefix}-form-chip--check-size-#{$size}));
+  @include icon-set(checkbox);
+
+  & {
+    background-color: var(--#{$prefix}-form-chip--checkbox-color-check);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
+  }
+}
+
+.form-chip {
+  @include form-chip-color-variable();
+  @include form-chip-size-variable;
+
+  $size: medium;
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    ~ label {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+
+      @include form-chip(#{$size});
+    }
+
+    &:disabled {
+      ~ label {
+        cursor: default;
+      }
+    }
+  }
+
+  input[type='radio'] {
+    ~ label {
+			color: var(--#{$prefix}-form-chip--radio-color-text);
+			border-color: var(--#{$prefix}-form-chip--radio-color-border);
+      background-color: var(--#{$prefix}-form-chip--radio-color-action);
+    }
+
+    &:disabled {
+      ~ label {
+        color: var(--#{$prefix}-form-chip--radio-color-text-disabled);
+        border-color: var(--#{$prefix}-form-chip--radio-color-border-disabled);
+        background-color: var(--#{$prefix}-form-chip--radio-color-action-disabled);
+      }
+    }
+
+    &:checked {
+      ~ label {
+        color: var(--#{$prefix}-form-chip--radio-color-text-checked);
+        border-color: var(--#{$prefix}-form-chip--radio-color-border-checked);
+        background-color: var(--#{$prefix}-form-chip--radio-color-action-checked);
+      }
+    }
+  }
+
+	// checkbox 인 경우에만 아이콘 노출
+	input[type='checkbox'] {
+		~ label {
+			color: var(--#{$prefix}-form-chip--checkbox-color-text);
+			border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
+			background-color: var(--#{$prefix}-form-chip--checkbox-color-action);
+
+			&::before {
+        @include pseudo;
+        @include form-chip-check(#{$size});
+      }
+		}	
+		&:disabled{
+			~ label {
+				color: var(--#{$prefix}-form-chip--checkbox-color-text-disabled);
+				border-color: var(--#{$prefix}-form-chip--checkbox-color-border-disabled);
+				background-color: var(--#{$prefix}-form-chip--checkbox-color-action-disabled);
+
+				&::before {
+					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-disabled);
+				}
+			}
+		}
+
+		&:checked {
+			~ label {
+				color: var(--#{$prefix}-form-chip--checkbox-color-text-checked);
+				border-color: var(--#{$prefix}-form-chip--checkbox-color-border-checked);
+				background-color: var(--#{$prefix}-form-chip--checkbox-color-action-checked);
+
+				&::before {
+					@include icon-set(checkbox-checked);
+	
+					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-checked);
+				}
+			}
+
+		}
+	}
+
+	button {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+
+		@include form-chip(#{$size});
+
+		color: var(--#{$prefix}-form-chip--button-color-text);
+		border-color: var(--#{$prefix}-form-chip--button-color-border);
+		background-color: var(--#{$prefix}-form-chip--button-color-action);
+
+		&:disabled {
+			cursor: default;
+			color: var(--#{$prefix}-form-chip--button-color-text-disabled);
+			border-color: var(--#{$prefix}-form-chip--button-color-border-disabled);
+			background-color: var(--#{$prefix}-form-chip--button-color-action-disabled);
+    }
+
+		&:hover:not(:disabled) {
+			background-color: var(--#{$prefix}-form-chip--button-color-action-hover);
+		}
+
+		&:active:not(:disabled) {
+			background-color: var(--#{$prefix}-form-chip--button-color-action-pressed);
+		}
+	}
+
+  &.focus {
+		button,
+    input[type='checkbox'] ~ label,
+    input[type='radio'] ~ label {
+      @include focus;
+    }
+  }
+}

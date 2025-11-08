@@ -8,11 +8,11 @@
 	<body>
 		<div class="wrap page-notice">
 			<!-- header -->
-			<%- include('../../layouts/header.ejs') %>
+			<%- include('../../layouts/header.ejs') -%>
 			<!-- // header -->
 			
 			<!-- container -->
-			<main class="container notice-main">
+			<main class="container">
 				<div class="inner">
 					<div class="cont-group">
 						<div class="section-tit-wrap">
@@ -83,6 +83,7 @@
 							],
 						});
 						const board5 = include('../../layouts/board.ejs', {
+							segmentControl: ['수익률', '수수료율'], 
 							boardListItems: [
 								{
 									title: '연금저축비교공시_수수료율_20190930',
@@ -109,7 +110,7 @@
 			<!-- // container -->
 
 			<!-- footer -->
-			<%- include('../../layouts/footer.ejs') %>
+			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
 	</body>

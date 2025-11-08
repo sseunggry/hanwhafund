@@ -1,0 +1,255 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* tag style */
+// 사이즈 정의
+@mixin tag-size-variable() {
+  // 컬러 변수 배열 생성
+  $tag-size: (
+    small: (
+      wrapper-gap-x: 0.8rem,
+      wrapper-gap-y: 1.6rem,
+      size-height: 2.4rem,
+			expand-button-gap: 0.1rem,
+      button-size: 1.4rem,
+      padding-x: 0.8rem,
+      pc-font-size: 1.3rem,
+      tablet-font-size: 1.3rem,
+      mobile-font-size: 1.3rem,
+    ),
+    medium: (
+      wrapper-gap-x: 0.8rem,
+      wrapper-gap-y: 0.8rem,
+      size-height: 3.2rem,
+      expand-button-gap: 0.2rem,
+      button-size: 1.6rem,
+      padding-x: var(--#{$prefix}-padding-4),
+      pc-font-size: 1.5rem,
+      tablet-font-size: 1.5rem,
+      mobile-font-size: 1.5rem,
+    ),
+    large: (
+      wrapper-gap-x: 0.8rem,
+      wrapper-gap-y: 1rem,
+      size-height: 4rem,
+      expand-button-gap: 0.4rem,
+      button-size: 1.8rem,
+      padding-x: 1.2rem,
+      pc-font-size: 1.6rem,
+      tablet-font-size: 1.6rem,
+      mobile-font-size: 1.6rem,
+    ),
+  ) !default;
+
+  // css variable 생성
+  @each $size, $types in $tag-size {
+    @each $type, $value in $types {
+      --#{$prefix}-btn-tag--#{$type}-#{$size}: #{$value};
+    }
+  }
+
+  // class 정의
+  & {
+    @each $size, $types in $tag-size {
+      &.#{$size} {
+        @include tag-wrapper(#{$size});
+
+        .btn-tag {
+          @include tag(#{$size});
+
+          .btn-delete {
+            @include tag-delete-button(#{$size});
+          }
+        }
+				.btn-expand-wrap {
+					@include tag-expand-button(#{$size}, 'wrap');
+
+					.btn-expand {
+						@include tag-expand-button(#{$size}, 'btn');
+	
+						&::before{
+							@include tag-expand-button(#{$size}, 'icon');
+						}
+					}
+				}
+
+				&.expand {
+					max-height: var(--#{$prefix}-btn-tag--size-height-#{$size});
+
+					&.active {
+						max-height: 1000vh;
+					}
+				}
+      }
+    }
+  }
+}
+
+@mixin tag-wrapper($size) {
+  gap: var(--#{$prefix}-btn-tag--wrapper-gap-y-#{$size}) var(--#{$prefix}-btn-tag--wrapper-gap-x-#{$size});
+}
+
+@mixin tag($size) {
+  gap: 0.2rem;
+  height: var(--#{$prefix}-btn-tag--size-height-#{$size});
+  padding: 0.8rem var(--#{$prefix}-btn-tag--padding-x-#{$size});
+  border-radius: var(--#{$prefix}-btn-tag--size-height-#{$size});
+  font-size: var(--#{$prefix}-btn-tag--pc-font-size-#{$size});
+  line-height: var(--#{$prefix}-line-height-none);
+
+	@include mq(tablet) {
+		font-size: var(--#{$prefix}-btn-tag--tablet-font-size-#{$size});
+	}
+
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-btn-tag--mobile-font-size-#{$size});
+  }
+}
+
+@mixin tag-delete-button($size) {
+  @include square(var(--#{$prefix}-btn-tag--button-size-#{$size}));
+}
+
+@mixin tag-expand-button($size, $type) {
+	@if $type == 'wrap' {
+		width: calc(var(--#{$prefix}-btn-tag--size-height-#{$size}) + 2.4rem);
+		height: calc(var(--#{$prefix}-btn-tag--size-height-#{$size}));
+	} @else if $type == 'btn' {
+		@include square(calc(var(--#{$prefix}-btn-tag--size-height-#{$size}) - var(--#{$prefix}-btn-tag--expand-button-gap-#{$size}) * 2));
+	} @else if $type == 'icon' {
+		@include svg-icon(calc(var(--#{$prefix}-btn-tag--size-height-#{$size}) * 0.48));
+		@include icon-set(angle);
+	}
+}
+
+// 컬러 정의
+@mixin tag-color-variable() {
+  --#{$prefix}-btn-tag--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-btn-tag--color-action: var(--#{$prefix}-color-action-default);
+  --#{$prefix}-btn-tag--color-action-hover: var(--#{$prefix}-color-action-neutral-hover);
+  --#{$prefix}-btn-tag--color-action-pressed: var(--#{$prefix}-color-action-neutral-pressed);
+  --#{$prefix}-btn-tag--color-border: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-btn-tag--color-border-hover: var(--#{$prefix}-btn-tag--color-action-hover);
+  --#{$prefix}-btn-tag--color-border-pressed: var(--#{$prefix}-btn-tag--color-action-pressed);
+  --#{$prefix}-btn-tag--color-icon: var(--#{$prefix}-color-icon-gray-light);
+
+	--#{$prefix}-btn-tag--link-color-action: var(--#{$prefix}-color-action-primary-on);
+  --#{$prefix}-btn-tag--link-color-action-hover: var(--#{$prefix}-color-action-primary-on-hover);
+  --#{$prefix}-btn-tag--link-color-action-pressed: var(--#{$prefix}-color-action-primary-pressed);
+  --#{$prefix}-btn-tag--link-color-border: var(--#{$prefix}-btn-tag--link-color-action);
+	--#{$prefix}-btn-tag--link-color-border-hover: var(--#{$prefix}-btn-tag--link-color-action-hover);
+  --#{$prefix}-btn-tag--link-color-border-pressed: var(--#{$prefix}-btn-tag--link-color-action-pressed);
+
+	--#{$prefix}-btn-tag--button-color-background: var(--#{$prefix}-color-action-default);
+	--#{$prefix}-btn-tag--button-color-border: var(--#{$prefix}-color-border-neutral-light);
+	--#{$prefix}-btn-tag--button-color-icon: var(--#{$prefix}-color-icon-gray);
+	--#{$prefix}-btn-tag--button-color-gradient-start: var(--#{$prefix}-color-alpha-base0);
+	--#{$prefix}-btn-tag--button-color-gradient-end: var(--#{$prefix}-color-alpha-base100);
+}
+
+.tag-wrap {
+  @include tag-color-variable();
+  @include tag-size-variable;
+
+  $size: medium;
+
+  & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .btn-tag {
+    @include flex-layout($d: inline-flex, $ai: center);
+
+    position: relative;
+    background-color: var(--#{$prefix}-btn-tag--color-action);
+    border: 0.1rem solid var(--#{$prefix}-btn-tag--color-border);
+    transition: var(--#{$prefix}-transition-base);
+
+    &:hover {
+      background-color: var(--#{$prefix}-btn-tag--color-action-hover);
+    }
+
+    &:active {
+      background-color: var(--#{$prefix}-btn-tag--color-action-pressed);
+    }
+
+    &.link {
+			background-color: var(--#{$prefix}-btn-tag--link-color-action);
+			
+			&:hover {
+				background-color: var(--#{$prefix}-btn-tag--link-color-action-hover);
+			}
+	
+			&:active {
+				background-color: var(--#{$prefix}-btn-tag--link-color-action-pressed);
+			}
+
+      &:hover,
+      &:active {
+        @include underline;
+      }
+    }
+
+    .btn-delete {
+			@include icon-set(delete);
+			background-color: var(--#{$prefix}-btn-tag--color-icon);
+			line-height: var(--#{$prefix}-line-height-none);
+    }
+
+  }
+
+	.btn-expand-wrap {
+		@include flex-layout($ai: center, $jc: flex-end);
+		position: absolute;
+		right: 0;
+		background: linear-gradient(90deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+
+		.btn-expand {
+			@include flex-layout($ai: center, $jc: center);
+			border-radius: var(--#{$prefix}-radius-full);
+			border: 0.1rem solid var(--#{$prefix}-btn-tag--button-color-border);
+			background-color: var(--#{$prefix}-btn-tag--button-color-background);
+	
+			&::before {
+				@include pseudo;
+				transform: rotate(0);
+				transition: transform 0.3s;
+	
+				background-color: var(--#{$prefix}-btn-tag--button-color-icon);
+			}
+		}
+	}
+
+	&.scroll {
+		overflow-x: scroll;
+		flex-wrap: nowrap;
+
+		.btn-tag {
+			flex-shrink: 0;
+		}
+	}
+
+	&.expand {
+		overflow-x: hidden;
+		flex-wrap: nowrap;
+		transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+
+		.btn-tag {
+			flex-shrink: 0;
+		}
+
+		&.active {
+			flex-wrap: wrap;
+			transition: max-height 1.5s ease-in-out;
+
+			.btn-expand-wrap {
+				.btn-expand {
+					&::before {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+}

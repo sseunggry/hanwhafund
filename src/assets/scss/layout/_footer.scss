@@ -3,6 +3,9 @@
 
 /* footer */
 .footer {
+  --footer-button-position-right: calc((100% - var(--#{$prefix}-content-width-large)) / 2);
+  --footer-button-position-bottom: 4rem;
+
   position: relative;
   padding: 6rem 0;
   color: #fff;
@@ -69,7 +72,23 @@
   .footer-btn-top{
     position: absolute;
     top: -3.4rem;
-    right: 0;
+    right: var(--footer-button-position-right);
+    z-index: 1;
+    width: fit-content;
+    height: fit-content;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.is-fixed {
+      position: fixed;
+      top: initial;
+      bottom: var(--footer-button-position-bottom);
+    }
 
     .btn{
       flex-direction: column;
@@ -85,68 +104,57 @@
       }
     }
   }
-}
 
-@include mq(pc) {
-	.footer{
-		.footer-con{
-			.address{
-				width: 20%;
-			}
-		}
-	}
-}
-@include mq(tablet) {
-	.footer{
-		.footer-con{
-			--footer-gap: 4rem;
+  @include mq(1760) {
+    --footer-button-position-right: var(--#{$prefix}-content-padding-x);
+    --footer-button-position-bottom: var(--#{$prefix}-content-padding-x);
+  }
+  @include mq(pc) {
+    .footer-con{
+      .address{
+        width: 20%;
+      }
+    }
+  }
+  @include mq(tablet) {
+    .footer-con{
+      --footer-gap: 4rem;
 
-			flex-wrap: wrap;
-			row-gap: var(--footer-gap);
-			
-			.address{
-				padding-bottom: var(--footer-gap);
-				width: 100%;
-				border-bottom: 0.1rem solid rgba(255, 255, 255, 0.15);
-			}
-			.nav{
-				margin-left: 0;
-			}
-			.util{
-				margin-left: auto;
-			}
-		}
-	}
-}
-@include mq(tablet-small) {
-  .footer{
+      flex-wrap: wrap;
+      row-gap: var(--footer-gap);
+      
+      .address{
+        padding-bottom: var(--footer-gap);
+        width: 100%;
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.15);
+      }
+      .nav{
+        margin-left: 0;
+      }
+      .util{
+        margin-left: auto;
+      }
+    }
+  }
+  @include mq(tablet-small) {
     .footer-con{
       .nav{
         gap: 6rem;
       }
     }
   }
+  @include mq(mobile) {
+    .footer-con{
+      flex-direction: column;
+      
+      .address{
+        width: 100%;
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.15);
+      }
+      .util{
+        margin-left: 0;
+      }
+    }
+  }
 }
-@include mq(mobile) {
-	.footer{
-		.footer-con{
-			flex-direction: column;
-			// row-gap: 4rem;
-			
-			.address{
-				// padding-bottom: 4rem;
-				width: 100%;
-				border-bottom: 0.1rem solid rgba(255, 255, 255, 0.15);
-			}
-			// .nav{
-			// 	margin-left: 0;
-			// }
-			.util{
-				margin-left: 0;
-			}
-		}
-	}
-}
-@include mq(mobile) {
 
-}

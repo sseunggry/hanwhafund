@@ -1,0 +1,69 @@
+<%
+  const localsSafe = locals || {};
+  const includePath = localsSafe.includePath || '../components/';
+  const buttonPath = includePath + 'button.ejs';
+
+  const title = localsSafe.title || '제목이 없습니다.';
+  const content = localsSafe.content || ''; // 본문 HTML
+  const date = localsSafe.date || null;
+  const files = Array.isArray(localsSafe.files) ? localsSafe.files : [];
+  const nav = (typeof localsSafe.nav === 'object' && localsSafe.nav !== null) ? localsSafe.nav : {};
+-%>
+<div class="board-detail">
+  <div class="board-detail-top line-bottom">
+    <h2 class="tit"><%- title %></h2>
+    <% if (date) { -%><p class="date"><%- date %></p><% } -%>
+  </div>
+  <div class="board-detail-con">
+    <%- content %>
+  </div>
+  <% if (files.length > 0) { -%>
+  <ul class="board-detail-file">
+    <% files.forEach(file => { -%>
+    <li>
+      <%- include(buttonPath, {
+        tag: 'a',
+        label: file.label,
+        href: file.href || '#!',
+        hierarchy: 'tertiary',
+        size: 'large',
+        preIcon: 'file',
+        icon: 'download',
+        addClass: 'btn-file',
+        download: true
+      }) -%>
+    </li>
+    <% }) -%>
+  </ul>
+  <% } -%>
+  <% if (nav.prev || nav.next) { -%>
+  <ul class="board-detail-nav">
+    <% if (nav.prev) { -%>
+    <li class="prev">
+      <a href="<%= nav.prev.url || '#!' %>">
+        <p class="txt">이전글</p>
+        <p class="tit"><%- nav.prev.title %></p>
+        <% if (nav.prev.desc) { -%><p class="desc"><%- nav.prev.desc %></p><% } -%>
+      </a>
+    </li>
+    <% } -%>
+    <% if (nav.next) { -%>
+    <li class="next">
+      <a href="<%= nav.next.url || '#!' %>">
+        <p class="txt">다음글</p>
+        <p class="tit"><%- nav.next.title %></p>
+        <% if (nav.next.desc) { -%><p class="desc"><%- nav.next.desc %></p><% } -%>
+      </a>
+    </li>
+    <% } -%>
+  </ul>
+  <% } -%>
+  <div class="btn-wrap array-center">
+    <%- include(buttonPath, {
+      tag: 'a',
+      label: '목록',
+      hierarchy: 'tertiary',
+      size: 'large'
+    }) -%>
+  </div>
+</div>

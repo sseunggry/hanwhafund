@@ -1,0 +1,170 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* note-list */
+@mixin note-list-size-variable() {
+	--#{$prefix}-note-list--depth1-list-margin-top: 0;
+	--#{$prefix}-note-list--depth1-padding-left: 2rem;
+	--#{$prefix}-note-list--number-depth1-padding-left: 2rem;
+	--#{$prefix}-note-list--layout-gap-depth1-li-li: 0.8rem;
+	--#{$prefix}-note-list--pc-text-depth1: 1.8rem;
+	--#{$prefix}-note-list--mobile-text-depth1: 1.8rem;
+
+	--#{$prefix}-note-list--depth2-list-margin-top: 0.4rem;
+	--#{$prefix}-note-list--depth2-padding-left: 1.2rem;
+	--#{$prefix}-note-list--number-depth2-padding-left: 2rem;
+	--#{$prefix}-note-list--layout-gap-depth2-li-li: 0.4rem;
+	--#{$prefix}-note-list--pc-text-depth2: 1.6rem;
+	--#{$prefix}-note-list--mobile-text-depth2: 1.6rem;
+
+	--#{$prefix}-note-list--depth3-list-margin-top: 0.8rem;
+	--#{$prefix}-note-list--depth3-padding-left: 1rem;
+	--#{$prefix}-note-list--number-depth3-padding-left: 2rem;
+	--#{$prefix}-note-list--layout-gap-depth3-li-li: 0.2rem;
+	--#{$prefix}-note-list--pc-text-depth3: 1.4rem;
+	--#{$prefix}-note-list--mobile-text-depth3: 1.4rem;
+
+	--#{$prefix}-note-list--info-txt-margin-top: 0;	
+}
+
+@mixin note-list-color-variable() {
+	--#{$prefix}-note-list--color-text-depth1: #494646;
+	--#{$prefix}-note-list--color-text-depth2: #494646;
+	--#{$prefix}-note-list--color-text-depth3: #494646;
+
+	--#{$prefix}-note-list--color-text-white: #fff;
+}
+.note-list {
+	@include note-list-size-variable();
+	@include note-list-color-variable();
+
+	display: flex;
+	flex-direction: column;
+	margin-top: var(--#{$prefix}-note-list--depth1-list-margin-top);
+	gap: var(--#{$prefix}-note-list--layout-gap-depth1-li-li);
+
+	> li {
+		position: relative;
+		padding-left: var(--#{$prefix}-note-list--depth1-padding-left);
+		color: var(--#{$prefix}-note-list--color-text-depth1);
+		font-size: var(--#{$prefix}-note-list--pc-text-depth1);
+
+		// @include mq(tablet) {
+		// 	font-size:  var(--#{$prefix}-note-list--tablet-text-depth1);
+		// }
+		@include mq(mobile) {
+			font-size:  var(--#{$prefix}-note-list--mobile-text-depth1);
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 1.15rem;
+			left: 0.6rem;
+			display: block;
+			width: 0.4rem;
+			height: 0.4rem;
+			background-color: var(--#{$prefix}-note-list--color-text-depth1);
+			border-radius: var(--#{$prefix}-radius-max);
+			// transform: translateY(-50%);
+		}
+		// > .note-list { //2depth
+		// 	gap: var(--#{$prefix}-note-list--layout-gap-depth2-li-li);
+		// 	margin-top: var(--#{$prefix}-note-list--depth2-list-margin-top);
+		// 	> li {
+		// 		padding-left: var(--#{$prefix}-note-list--depth2-padding-left);
+		// 		color: var(--#{$prefix}-note-list--color-text-depth2);
+		// 		font-size: var(--#{$prefix}-note-list--pc-text-depth2);
+		// 		@include mq(mobile) {
+		// 			font-size:  var(--#{$prefix}-note-list--mobile-text-depth2);
+		// 		}
+		// 		> .note-list { //3depth
+		// 			margin-top: var(--#{$prefix}-note-list--depth3-list-margin-top);
+		// 			> li {
+		// 				padding-left: var(--#{$prefix}-note-list--depth3-padding-left);
+		// 				color: var(--#{$prefix}-note-list--color-text-depth3);
+		// 				font-size: var(--#{$prefix}-note-list--pc-text-depth3);
+		// 				@include mq(mobile) {
+		// 					font-size:  var(--#{$prefix}-note-list--mobile-text-depth3);
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
+		// >.info-txt {
+		// 	margin-top: var(--#{$prefix}-note-list--info-txt-margin-top);
+		// }
+	}
+	&.no-bullet {
+		> li {
+			padding: 0;
+			&::before {
+				display: none;
+			}
+		}
+	}
+	// &.dash {
+	// 	> li {
+	// 		&::before {
+	// 			content: "\002D"; //hyphen-minus
+	// 		}
+	// 	}
+	// }
+	&.number {
+		> li {
+			padding-left: var(--#{$prefix}-note-list--number-depth1-padding-left);
+
+			.num {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&::before {
+				display: none;
+			}
+			// > .ordered { //2depth
+			// 	> li {
+			// 		padding-left: var(--#{$prefix}-note-list--number-depth2-padding-left);
+			// 		> .ordered { //3depth
+			// 			> li {
+			// 				padding-left: var(--#{$prefix}-note-list--number-depth2-padding-left);
+			// 			}
+			// 		}
+			// 	}
+			// }
+		}
+	}
+
+	//color
+	&.fc-white{
+		> li {
+			color: var(--#{$prefix}-note-list--color-text-white);
+			&::before{
+				background-color: var(--#{$prefix}-note-list--color-text-white);
+			}
+		}
+	}
+}
+.note-txt {//참고 또는 info성 텍스트
+	// --#{$prefix}-note-txt--margin-top: var(--#{$prefix}-space-9);
+	--#{$prefix}-note-txt--color-text: #757070;
+
+	// margin-top: var(--#{$prefix}-note-txt--margin-top);
+	color: var(--#{$prefix}-note-txt--color-text);
+	font-size: 1.6rem;
+}
+.note-refer {
+	display: flex;
+	// align-items: center;
+	gap: 0.4rem;
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #272626;
+
+	&::before{
+		content: '';
+		margin-top: 0.2rem;
+		flex-shrink: 0;
+		@include svg-icon(2.4rem);
+		@include icon-set('note-refer', pure);
+	}
+}

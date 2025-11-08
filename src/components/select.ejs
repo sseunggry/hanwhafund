@@ -62,9 +62,9 @@
 					aria-hidden="true"
 					<%- disabled %>
 					<%- placeholder ? `data-placeholder="${placeholder}"` : '' %>
-					<% if (!title && ariaLabel) { %>
+					<% if (!title && ariaLabel) { -%>
 						aria-label="<%= ariaLabel %>"
-					<% } %>
+					<% } -%>
 				>
 					<%_ options.forEach(option => { -%>
 						<option 
@@ -74,9 +74,8 @@
 						>
 							<%= option.text %>
 						</option>
-					<%_ }); -%>
+					<%_ }) -%>
 				</select>
-				<%# --- 커스텀 셀렉트 UI --- %>
 				<button
 					type="button"
 					role="combobox" 
@@ -90,7 +89,6 @@
 				>
 					<span class="select-value <%= (placeholder && !initialSelectedValue) ? 'placeholder' : '' %>"><%= selectedValueText %></span>
 				</button>
-				<%# 리스트박스는 옵션들을 포함 %>
 				<ul
 					id="<%= listboxId %>"
 					class="select-listbox"
@@ -108,7 +106,7 @@
 							<%- option.disabled ? 'aria-disabled="true"' : '' %>
 							tabindex="-1"
 						><%= option.text %></li>
-					<%_ }); -%>
+					<%_ }) -%>
 				</ul>
 			</div>
 		<%_ if (slot) { -%>

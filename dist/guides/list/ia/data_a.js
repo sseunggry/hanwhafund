@@ -21,23 +21,24 @@ const iaPageAData = {
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "-", depth3: "한화 LIIFEPLUS TDF 투자포인트", pageName: "TDF투자포인트", pageType: "tab", pageID: "FD_02_03_02T", link: "", isAdminLinked: false, status: "", memo: [], },
 
 		// --- 인사이트 ---
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "-", depth3: "-", pageName: "공지목록", pageType: "page", pageID: "IS_01", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "공지 상세", depth3: "-", pageName: "공지상세", pageType: "page", pageID: "IS_01_01", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "투자정보 상세", depth3: "-", pageName: "투자정보상세", pageType: "link", pageID: " -", link: "-", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "-", depth3: "-", pageName: "시황목록", pageType: "page", pageID: "IS_03", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "시황 상세", depth3: "-", pageName: "시황상세", pageType: "page", pageID: "IS_03-01", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "FAQ", depth2: "-", depth3: "-", pageName: "FAQ", pageType: "page", pageID: "IS_04", link: "", isAdminLinked: true, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "-", depth3: "-", pageName: "공지목록", pageType: "page", pageID: "IS_01", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "공지 상세", depth3: "-", pageName: "공지상세", pageType: "page", pageID: "IS_01_01", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "투자정보 상세", depth3: "-", pageName: "투자정보상세", pageType: "link", pageID: " -", link: "-", isAdminLinked: true, status: "완료", memo: [{detail: "외부링크"}], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "-", depth3: "-", pageName: "시황목록", pageType: "page", pageID: "IS_03", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "시황 상세", depth3: "-", pageName: "시황상세", pageType: "page", pageID: "IS_03_01", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "뉴스룸", depth2: "-", depth3: "-", pageName: "뉴스룸", pageType: "page", pageID: "IS_04", link: "", isAdminLinked: true, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "인사이트", depth1: "FAQ", depth2: "-", depth3: "-", pageName: "FAQ", pageType: "page", pageID: "IS_05", link: "", isAdminLinked: true, status: "작업중", memo: [], },
 
 		// --- 공시 ---
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "-", depth3: "-", pageName: "전체공시", pageType: "tab", pageID: "IF_01T", link: "", isAdminLinked: true, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "-", depth3: "-", pageName: "전체공시", pageType: "tab", pageID: "IF_01T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "전체 공시", depth2: "공시 상세", depth3: "-", pageName: "공시상세", pageType: "page", pageID: "IF_01_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "", modifyDate: "", category: "공시", depth1: "펀드공시", depth2: "-", depth3: "-", pageName: "펀드공시", pageType: "tab", pageID: "IF_02T", link: "", isAdminLinked: true, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "자산운용보고서", depth2: "-", depth3: "-", pageName: "자산운용보고서", pageType: "tab", pageID: "IF_03T", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "파생공시", depth2: "-", depth3: "-", pageName: "파생공시", pageType: "tab", pageID: "IF_04T", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "경영공시", depth2: "-", depth3: "-", pageName: "경영공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "리츠공시", depth2: "-", depth3: "-", pageName: "리츠공시", pageType: "tab", pageID: "IF_06T", link: "", isAdminLinked: true, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "공시", depth1: "연금공시", depth2: "-", depth3: "-", pageName: "연금공시", pageType: "tab", pageID: "IF_07T", link: "", isAdminLinked: true, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "자산운용보고서", depth2: "-", depth3: "-", pageName: "자산운용보고서", pageType: "tab", pageID: "IF_03T", link: "", isAdminLinked: true, status: "삭제", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "파생공시", depth2: "-", depth3: "-", pageName: "파생공시", pageType: "tab", pageID: "IF_04T", link: "", isAdminLinked: true, status: "삭제", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "경영공시", depth2: "-", depth3: "-", pageName: "경영공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "리츠공시", depth2: "-", depth3: "-", pageName: "리츠공시", pageType: "tab", pageID: "IF_06T", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "", modifyDate: "", category: "공시", depth1: "연금공시", depth2: "-", depth3: "-", pageName: "연금공시", pageType: "tab", pageID: "IF_07T", link: "", isAdminLinked: true, status: "작업중", memo: [], },
 
 		// --- 회사소개 ---
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "", memo: [], },

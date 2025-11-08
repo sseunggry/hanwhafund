@@ -1,0 +1,78 @@
+@use "sass:map";
+@use "../util" as *;
+
+/* 스피너 */
+// 사이즈 정의
+@mixin spinner-size-variable() {
+  --#{$prefix}-spinner--layout-gap: 0.8rem;
+  --#{$prefix}-spinner--pc-font-size: 1.5rem;
+  --#{$prefix}-spinner--mobile-font-size: 1.5rem;
+  --#{$prefix}-spinner--size: 4.8rem;
+  --#{$prefix}-spinner--animation-duration: 900ms;
+}
+
+// 컬러 정의
+@mixin spinner-color-variable() {
+  --#{$prefix}-spinner--color-text: var(--#{$prefix}-color-text-subtle);
+  --#{$prefix}-spinner--border-width: 0.6rem;
+  --#{$prefix}-spinner--color-border: #fcebe4;
+  --#{$prefix}-spinner--color-border-active: #f54500;
+}
+
+.spinner {
+  @include spinner-color-variable();
+  @include spinner-size-variable;
+  @include flex-layout($jc: center, $ai: center);
+  @include position($p: relative, $t: 0, $l: 0);
+
+  & {
+    gap: var(--#{$prefix}-spinner--layout-gap);
+    z-index: 10;
+    color: var(--#{$prefix}-spinner--color-text);
+    font-size: var(--#{$prefix}-spinner--pc-font-size);
+    width: 100%;
+    height: 100%;
+    text-align: right;
+  }
+
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-spinner--mobile-font-size);
+  }
+
+  &::before {
+    display: inline-flex;
+    content: "";
+    height: var(--#{$prefix}-spinner--size);
+    width: var(--#{$prefix}-spinner--size);
+    border: var(--#{$prefix}-spinner--border-width) solid var(--#{$prefix}-spinner--color-border);
+    border: {
+      top-color: var(--#{$prefix}-spinner--color-border-active);
+      radius: 100%;
+    }
+
+    animation: spin var(--#{$prefix}-spinner--animation-duration) infinite linear;
+  }
+}
+
+.form-spinner {
+  // spinner - form-spinner - padding
+  --#{$prefix}-spinner-form-spinner-padding-x: var(--#{$prefix}-number-8);
+
+  position: relative;
+
+  .spinner {
+    position: absolute;
+    justify-content: flex-end;
+    padding: 0 var(--#{$prefix}-spinner-form-spinner-padding-x);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}

@@ -8,7 +8,6 @@
   .inner{
     max-width: var(--#{$prefix}-content-wrap-width-large);
   }
-  
   .logo {
     width: 19.2rem;
     height: 4.8rem;
@@ -29,7 +28,6 @@
       }
     }
   }
-
   .header-top {
     display: flex;
     align-items: center;
@@ -60,7 +58,6 @@
       }
     }
   }
-
   .header-con {
     .inner {
       display: flex;
@@ -97,61 +94,55 @@
       }
     }
   }
+
+  @include mq(pc){
+    .header-con{
+      .nav{
+        ul{
+          gap: 4rem;
+        }
+      }
+    }
+  }
+  @include mq(tablet){
+    .header-con{
+      .nav{
+        display: none;
+      }
+      .util{
+        .lang{
+          display: none;
+        }
+      }
+    }
+  }
+  @include mq(mobile){
+    .logo {
+      width: 12.8rem;
+      height: 3.2rem;
+    }
+
+    .header-con{
+      .inner{
+        height: 6.4rem;
+      }
+
+      .util {
+        .btn-search {
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+        .btn-menu {
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+
+        .btn.icon.xxlarge{
+          width: 3.2rem;
+          height: 3.2rem;
+        }
+      }
+    }
+  }
 }
 
-
-@include mq(pc){
-	.header{
-		.header-con{
-			.nav{
-				ul{
-					gap: 4rem;
-				}
-			}
-		}
-	}
-}
-@include mq(tablet){
-	.header{
-		.header-con{
-			.nav{
-				display: none;
-			}
-			.util{
-				.lang{
-					display: none;
-				}
-			}
-		}
-	}
-}
-@include mq(mobile){
-	.header{
-		.logo {
-			width: 12.8rem;
-			height: 3.2rem;
-		}
-
-		.header-con{
-			.inner{
-				height: 6.4rem;
-			}
-
-			.util {
-				.btn-search {
-					width: 3.2rem;
-					height: 3.2rem;
-				}
-				.btn-menu {
-					width: 3.2rem;
-					height: 3.2rem;
-				}
-
-				.btn.icon.xxlarge{
-					width: 3.2rem;
-					height: 3.2rem;
-				}
-			}
-		}
-	}
-}

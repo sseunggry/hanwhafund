@@ -1,0 +1,577 @@
+@use "sass:map";
+@use "../util" as *;
+
+/* 셀렉트 */
+// 사이즈 정의
+$form-select-size: (
+  small: (
+    size-height: 4rem,
+    icon-size: var(--#{$prefix}-icon-size-small),
+    // option-icon-size: 1.6rem,
+    option-padding: 1.2rem,
+    radius: var(--#{$prefix}-radius-medium),
+    pc-font-size: var(--#{$prefix}-pc-font-size-label-small),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-small),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-small),
+  ),
+  medium: (
+    size-height: 4.8rem,
+    icon-size: var(--#{$prefix}-icon-size-medium),
+    // option-icon-size: 2rem,
+    option-padding: 1.4rem,
+    radius: var(--#{$prefix}-radius-medium),
+    pc-font-size: var(--#{$prefix}-pc-font-size-label-medium),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-medium),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-medium),
+  ),
+  large: (
+    size-height: 5.6rem,
+    icon-size: var(--#{$prefix}-icon-size-large),
+    // option-icon-size: 2.4rem,
+    option-padding: 1.6rem,
+    radius: var(--#{$prefix}-radius-medium),
+    pc-font-size: var(--#{$prefix}-pc-font-size-label-large),
+    tablet-font-size: var(--#{$prefix}-tablet-font-size-label-large),
+    mobile-font-size: var(--#{$prefix}-mobile-font-size-label-large),
+  ),
+  xlarge: (
+    size-height: 6.4rem,
+    icon-size: 2.4rem,
+    // option-icon-size: 3.2rem,
+    option-padding: 1.6rem,
+    radius: var(--#{$prefix}-radius-medium),
+    pc-font-size: 3.2rem,
+    tablet-font-size: 3.2rem,
+    mobile-font-size: 3.2rem,
+  ),
+);
+
+// 컬러 정의
+@mixin form-select-color-variable() {
+  --#{$prefix}-form-select--icon-color-background: var(--#{$prefix}-color-icon-gray);
+  --#{$prefix}-form-select--icon-color-background-readonly: var(--#{$prefix}-color-icon-disabled-on);
+  --#{$prefix}-form-select--icon-color-background-disabled: var(--#{$prefix}-color-icon-disabled-on);
+
+  --#{$prefix}-form-select--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select--color-text-active: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select--color-text-completed: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select--color-text-disabled: var(--#{$prefix}-color-text-disabled-on);
+  --#{$prefix}-form-select--color-text-readonly: var(--#{$prefix}-color-text-disabled-on);
+  --#{$prefix}-form-select--color-text-error: #de3412;
+
+  --#{$prefix}-form-select--color-background: #f3f2f1;
+  --#{$prefix}-form-select--color-background-readonly: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-form-select--color-background-disabled: var(--#{$prefix}-color-input-surface-disabled);
+  --#{$prefix}-form-select--color-background-error: var(--#{$prefix}-color-input-surface);
+
+  --#{$prefix}-form-select--color-border: var(--#{$prefix}-color-input-border);
+  --#{$prefix}-form-select--color-border-active: var(--#{$prefix}-color-input-border-active);
+  --#{$prefix}-form-select--color-border-readonly: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-form-select--color-border-disabled: var(--#{$prefix}-color-input-border-disabled);
+  --#{$prefix}-form-select--color-border-error: var(--#{$prefix}-color-input-border-error);
+
+  --#{$prefix}-form-select-listbox--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select-listbox--color-text-selected: var(--#{$prefix}-color-text-primary);
+  --#{$prefix}-form-select-listbox--color-border: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-form-select-listbox--color-background: #fff;
+  --#{$prefix}-form-select-listbox--shadow-start: var(--#{$prefix}-color-alpha-shadow1);
+  --#{$prefix}-form-select-listbox--shadow-end: var(--#{$prefix}-color-alpha-shadow2);
+
+  --#{$prefix}-form-select-listbox-option--color-background: var(--#{$prefix}-color-sub-5);
+  --#{$prefix}-form-select-listbox-option--color-background-hover: var(--#{$prefix}-color-sub-5);
+  --#{$prefix}-form-select-listbox-option--color-background-pressed: var(--#{$prefix}-color-sub-5);
+  --#{$prefix}-form-select-listbox-option--color-background-selected: var(--#{$prefix}-color-sub-5);
+
+  //text
+  --#{$prefix}-form-select-text--color-background: transparent;
+  --#{$prefix}-form-select-text--color-background-hover: var(--#{$prefix}-color-action-primary-hover);
+  --#{$prefix}-form-select-text--color-background-pressed: var(--#{$prefix}-color-action-primary-pressed);
+  --#{$prefix}-form-select-text--color-text: var(--#{$prefix}-color-text-basic);
+  --#{$prefix}-form-select-text--color-text-white: var(--#{$prefix}-color-text-white);
+
+  --#{$prefix}-form-select-text-listbox-option--color-background-hover: var(--#{$prefix}-color-action-primary-hover);
+  --#{$prefix}-form-select-text-listbox-option--color-background-pressed: var(--#{$prefix}-color-action-primary-pressed);
+}
+
+@mixin form-select-size-variable() {
+  @each $size, $types in $form-select-size {
+    @each $type, $value in $types {
+      --#{$prefix}-form-select--#{$type}-#{$size}: #{$value};
+    }
+  }
+}
+
+@mixin select-size($size) {
+  height: var(--#{$prefix}-form-select--size-height-#{$size});
+  border-radius: var(--#{$prefix}-form-select--radius-#{$size});
+  font-size: var(--#{$prefix}-form-select--pc-font-size-#{$size});
+
+  @include mq(tablet) {
+    font-size: var(--#{$prefix}-form-select--tablet-font-size-#{$size});
+  }
+  @include mq(mobile) {
+    font-size: var(--#{$prefix}-form-select--mobile-font-size-#{$size});
+  }
+
+  .select-button::after {
+    @include square(var(--#{$prefix}-form-select--icon-size-#{$size}));
+  }
+
+  .select-listbox {
+    // --form-select-listbox-max-height: calc(var(--#{$prefix}-form-select--size-height-#{$size}) * var(--form-select-listbox-option-length) + var(--#{$prefix}-form-select--option-padding-#{$size}) * 2);
+    --form-select-listbox-max-height: calc(var(--#{$prefix}-form-select--size-height-#{$size}) * var(--form-select-listbox-option-length) + var(--#{$prefix}-form-select--option-padding-#{$size}) * 2);
+    max-height: var(--form-select-listbox-max-height);
+
+    .select-option {
+      padding: var(--#{$prefix}-form-select--option-padding-#{$size});
+      // border-radius: var(--#{$prefix}-form-select--radius-#{$size});
+
+      // &::after {
+      //   @include square(var(--#{$prefix}-form-select--icon-size-#{$size}));
+      // }
+    }
+  }
+}
+
+.form-select {
+  @include form-select-size-variable();
+  @include form-select-color-variable();
+
+  --#{$prefix}-form-select--padding-default: 1.6rem;
+  --#{$prefix}-form-select-listbox-option--padding-default: 1.2rem;
+  --#{$prefix}-form-select--border-width-focus: 0.1rem;
+
+  --#{$prefix}-form-select-underline--padding-default: 1.6rem;
+
+  --#{$prefix}-form-select-text--padding-default: 0.8rem;
+  --#{$prefix}-form-select-text--radius: 0.2rem;
+
+  & {
+    position: relative;
+    padding: 0 var(--#{$prefix}-form-select--padding-default);
+    color: var(--#{$prefix}-form-select--color-text);
+    border: 0.1rem solid var(--#{$prefix}-form-select--color-border);
+    background-color: var(--#{$prefix}-form-select--color-background);
+    // transition: var(--#{$prefix}-transition-base);
+    cursor: pointer;
+    @include select-size(large);
+
+    .select-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-align: left;
+
+      &::after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        margin-left: auto;
+        @include square(2rem);
+        @include icon-set(angle);
+        background-color: currentColor;
+        // transition: var(--#{$prefix}-transition-base);
+      }
+
+      .select-value {
+        @include ellipsis(1);
+        width: 100%;
+        color: var(--#{$prefix}-form-select--color-text-completed);
+
+        &.placeholder {
+          color: var(--#{$prefix}-form-select--color-text);
+        }
+      }
+    }
+
+    .select-listbox {
+      overflow-y: auto;
+      position: absolute;
+      left: 0;
+      top: calc(100% + var(--#{$prefix}-form-select--border-width-focus));
+      z-index: 10;
+      // padding: 0.8rem;
+      width: 100%;
+      color: var(--#{$prefix}-form-select-listbox--color-text);
+      background-color: var(--#{$prefix}-form-select-listbox--color-background);
+      border: 0.1rem solid var(--#{$prefix}-form-select-listbox--color-border);
+      border-radius: 0 0 0.4rem 0.4rem;
+      // box-shadow: 0 0 0.2rem 0 var(--#{$prefix}-form-select-listbox--shadow-start), 0 0.4rem 0.8rem 0 var(--#{$prefix}-form-select-listbox--shadow-end);
+
+      .select-option {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        cursor: pointer;
+				color: #494646;
+
+        &::after {
+          content: "";
+          display: block;
+          flex-shrink: 0;
+          margin-left: auto;
+          @include icon-set(checkbox-checked);
+          background-color: #ddd;
+        }
+
+        &[aria-selected="true"] {
+          color: var(--#{$prefix}-form-select-listbox--color-text-selected);
+          // background-color: var(--#{$prefix}-form-select-listbox-option--color-background-selected);
+
+          &::after {
+            background-color: currentColor;
+            // background-color: var(--#{$prefix}-form-select-listbox--color-text-selected);
+          }
+        }
+        &:focus {
+          // border: var(--#{$prefix}-form-select--border-width-focus) solid var(--#{$prefix}-form-select--color-border-active);
+          outline-width: 0;
+          box-shadow: none;
+          // background-color: var(--#{$prefix}-form-select-listbox-option--color-background);
+        }
+        &:active, &:hover {
+					color: var(--#{$prefix}-form-select-listbox--color-text-selected);
+          background-color: var(--#{$prefix}-form-select-listbox-option--color-background-hover);
+        }
+        // &:active {
+        //   background-color: var(--#{$prefix}-form-select-listbox-option--color-background-pressed);
+        // }
+      }
+    }
+
+    &.ico-plus {
+      .select-button::after {
+        @include icon-set(plus);
+      }
+    }
+  }
+
+  @each $size, $types in $form-select-size {
+    &.#{$size} {
+      @include select-size($size);
+    }
+  }
+
+  &:focus,
+  &:focus-within,
+  &.focus {
+    border-color: var(--#{$prefix}-form-select--color-border-active);
+    border-width: var(--#{$prefix}-form-select--border-width-focus);
+    outline: none;
+    box-shadow: none;
+    color: var(--#{$prefix}-form-select--color-text-active);
+
+    .select-button {
+      &::after {
+        background-color: currentColor;
+      }
+
+      .select-value {
+        // color: var(--#{$prefix}-form-select--color-text-active);
+        color: inherit;
+      }
+    }
+  }
+
+  &.completed {
+    color: var(--#{$prefix}-form-select--color-text-completed);
+  }
+
+  &.is-error {
+    border-color: var(--#{$prefix}-form-select--color-border-error);
+    border-width: var(--#{$prefix}-form-select--border-width-focus);
+  }
+
+  &[disabled],
+  &.disabled {
+    background-color: var(--#{$prefix}-form-select--color-background-disabled) !important;
+    border-color: var(--#{$prefix}-form-select--color-border-disabled);
+    color: var(--#{$prefix}-form-select--color-text-disabled);
+    cursor: default;
+
+    .select-button {
+      cursor: default;
+
+      &::after {
+        background-color: currentColor;
+      }
+
+      .select-value {
+        color: inherit;
+        // color: var(--#{$prefix}-form-select--color-text-disabled);
+      }
+    }
+  }
+
+  &[readonly],
+  &.readonly {
+    background-color: var(--#{$prefix}-form-select--color-background-disabled) !important;
+    border-color: var(--#{$prefix}-form-select--color-border-disabled);
+    color: var(--#{$prefix}-form-select--color-text-readonly);
+    cursor: default;
+
+    .select-button {
+      cursor: default;
+
+      &::after {
+        background-color: currentColor;
+      }
+
+      .select-value {
+        color: inherit;
+        // color: var(--#{$prefix}-form-select--color-text-readonly);
+      }
+    }
+  }
+
+  // --- Variant: outline (라인 스타일) ---
+  &.outline {
+    // background-color: var(--#{$prefix}-color-input-surface);
+    background-color: #fff;
+    border: 0.1rem solid var(--#{$prefix}-color-neutral-30);
+
+    .select-listbox{
+      left: -0.1rem;
+      width: calc(100% + 0.2rem);
+    }
+
+    &.active{
+      border-radius: 0.2rem 0.2rem 0 0;
+      border-color: #FE5B16;
+      box-shadow: 0 0 0.8rem 0 rgba(245, 69, 0, 0.40);
+
+      .select-value{
+        font-weight: 600;
+      }
+      .select-listbox{
+        border-left: 0.1rem solid #C3C1C1;
+        border-bottom: 0.1rem solid #C3C1C1;
+        border-right: 0.1rem solid #C3C1C1;
+      }
+    }
+    // &:focus,
+    // &:focus-within,
+    // &.focus {
+    //   border-color: var(--#{$prefix}-form-select--color-border-active);
+    // }
+
+    &.is-error {
+      border-color: var(--#{$prefix}-form-select--color-border-error);
+    }
+
+    &[readonly],
+    &.readonly {
+      border-color: var(--#{$prefix}-form-select--color-border-disabled);
+    }
+  }
+
+  &.underline {
+    padding: 0 var(--#{$prefix}-form-select-underline--padding-default);
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1rem solid var(--#{$prefix}-form-select--color-border);
+    border-radius: 0;
+
+    &:focus,
+    &:focus-within,
+    &.focus {
+      border-color: var(--#{$prefix}-form-select--color-border-active);
+			border-radius: 0.4rem 0.4rem 0 0;
+    }
+    &.is-error {
+      border-color: var(--#{$prefix}-form-select--color-border-error);
+    }
+    &[readonly],
+    &.readonly {
+      border-color: var(--#{$prefix}-form-select--color-border-disabled);
+    }
+
+		&.white {
+			color: var(--#{$prefix}-form-select-text--color-text-white);
+			border-color: rgba(255, 255, 255, 0.20);
+	
+			.select-button {
+				&::after {
+					background-color: currentColor;
+				}
+	
+				.select-value {
+					color: var(--#{$prefix}-form-select-text--color-text-white);
+				}
+			}
+
+			&.active{
+				background-color: #fff;
+				border-radius: 0.4rem 0.4rem 0 0;
+
+				.select-button {
+					margin: 0 calc(var(--#{$prefix}-form-select-underline--padding-default) * -1);
+          width: calc(100% + var(--#{$prefix}-form-select-underline--padding-default) *2);
+          padding: 0 var(--#{$prefix}-form-select-underline--padding-default);
+					border-bottom: 0.1rem solid #DCD8D6;
+					&::after {
+						background-color: var(--#{$prefix}-form-select-text--color-text);;
+					}
+	
+					.select-value {
+						font-weight: 700;
+						color: #151414;
+						// color: var(--#{$prefix}-form-select-text--color-text);
+					}
+				}
+			}
+	
+			// &:focus,
+			// &:focus-within,
+			// &.focus {
+			// 	border-color: var(--#{$prefix}-form-select-text--color-text-white);
+			// 	color: var(--#{$prefix}-form-select-text--color-text);
+	
+			// 	.select-button {
+			// 		&::after {
+			// 			background-color: currentColor;
+			// 		}
+	
+			// 		.select-value {
+			// 			color: var(--#{$prefix}-form-select-text--color-text-white);
+			// 		}
+			// 	}
+			// }
+	
+			&.completed {
+				color: var(--#{$prefix}-form-select-text--color-text-white);
+			}
+	
+			&.is-error {
+				border-color: var(--#{$prefix}-form-select--color-border-error);
+			}
+	
+			&[disabled],
+			&.disabled {
+				background-color: var(--#{$prefix}-form-select--color-background-disabled);
+				border-color: var(--#{$prefix}-form-select--color-border-disabled);
+				color: var(--#{$prefix}-form-select--color-text-disabled);
+				cursor: default;
+	
+				.select-button {
+					cursor: default;
+	
+					&::after {
+						background-color: currentColor;
+					}
+	
+					.select-value {
+						color: inherit;
+						// color: var(--#{$prefix}-form-select--color-text-disabled);
+					}
+				}
+			}
+	
+			&[readonly],
+			&.readonly {
+				background-color: var(--#{$prefix}-form-select--color-background-disabled);
+				border-color: var(--#{$prefix}-form-select--color-border-disabled);
+				color: var(--#{$prefix}-form-select--color-text-readonly);
+				cursor: default;
+	
+				.select-button {
+					cursor: default;
+	
+					&::after {
+						background-color: currentColor;
+					}
+	
+					.select-value {
+						color: inherit;
+						// color: var(--#{$prefix}-form-select--color-text-readonly);
+					}
+				}
+			}
+		}
+  }
+
+  //--- Variant: text ---
+  &.text {
+    width: fit-content;
+    gap: 0.4rem;
+    padding: 0 var(--#{$prefix}-form-select--padding-text-default);
+    background-color: var(--#{$prefix}-form-select-text--color-background) !important;
+    border: none;
+    color: var(--#{$prefix}-form-select-text--color-text);
+
+    @each $size, $types in $form-select-size {
+      &.#{$size} {
+        height: auto;
+        border-radius: 0;
+
+        // .select-listbox {
+        //   --form-select-listbox-max-height: calc(var(--#{$prefix}-form-select--option-padding-#{$size}) * 10);
+        // }
+      }
+    }
+
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: var(--#{$prefix}-form-select-text--color-background-hover);
+      // background-color: var(--#{$prefix}-form-select-text--color-background-hover) !important;
+    }
+
+    &:focus,
+    &.focus {
+      background-color: var(--#{$prefix}-form-select-text--color-background-pressed);
+      // background-color: var(--#{$prefix}-form-select-text--color-background-pressed) !important;
+    }
+
+    .select-button {
+      &::after{
+        @include icon-set(down-fill);
+      }
+    }
+
+    .select-listbox {
+      width: max-content;
+      min-width: 100%;
+
+      .select-option {
+        &::after{
+          display: none;
+        }
+        // &::after {
+        //   content: "";
+        //   order: -1;
+        // }
+      }
+    }
+  }
+
+	&.bg-gray {
+		color: var(--#{$prefix}-color-text-white);
+		border-color: var(--#{$prefix}-color-input-surface-gray);
+		background-color: var(--#{$prefix}-color-input-surface-gray);
+
+		.select-button {
+			.select-value {
+				color: inherit;
+			}
+		}
+
+		&:focus,
+		&:focus-within,
+		&.focus {
+			color: #fff;
+
+			.select-button {
+				.select-value {
+					color: #fff;
+				}
+			}
+		}
+
+		&.completed {
+			color: #fff;
+		}
+	}
+}

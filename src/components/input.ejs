@@ -12,7 +12,11 @@
   const required = localsSafe.required || false;
   const disabled = localsSafe.disabled || false;
   const readonly = localsSafe.readonly || false;
-  const showClearButton = Boolean(localsSafe.showClearButton) && ['text', 'search', 'url', 'number', 'tel', 'email', 'password'].includes(type); // 기본적으로 바활성화
+  const error = localsSafe.error || false;
+  const success = localsSafe.success || false;
+  const isClearable = localsSafe.showClearButton !== false;
+  const isValidType = ['text', 'search', 'url', 'number', 'tel', 'email', 'password'].includes(type);
+  const showClearButton = isClearable && isValidType;
   const addClass = localsSafe.addClass || ''; // input-wrap 추가 클래스
   const slot = localsSafe.slot || '';
   const preSlot = localsSafe.preSlot || '';
@@ -23,30 +27,38 @@
     `input`,
     size,
     addClass,
+    error ? 'is-error' : (success ? 'is-success' : ''),
     disabled ? 'disabled' : '',
     readonly ? 'readonly' : ''
   ].filter(Boolean).join(' ');
 
   const formGroupClasses = [
 		'form-group', 
+    error ? 'is-error' : (success ? 'is-success' : ''),
 		disabled ? 'disabled' : '', 
 		readonly ? 'readonly' : '' 
 	].filter(Boolean).join(' ');
+
+  const btnClearTag = 
+    `<button type="button" class="btn icon btn-clear">
+      <span class="sr-only">입력 내용 지우기</span>
+      <i class="svg-icon icon-clear"></i>
+    </button>`;
 -%>
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
 	<div class="form-tit">
-		<% if (groupItems) { %>
+		<% if (groupItems) { -%>
 			<span><%= title %></span>
-		<% } else { %>
+		<% } else { -%>
 			<label for="<%= uniqueId %>"><%= title %></label>
-		<% } %>
+		<% } -%>
 	</div>
 	<div class="form-conts">
 <% } -%>
-  <% if (groupItems) { %>
+  <% if (groupItems) { -%>
     <div class="input-group <%= dash %>">
-      <% groupItems.forEach((item, index) => { %>
+      <% groupItems.forEach((item, index) => { -%>
         <%
           const itemUniqueId = `${uniqueId}-group-${index}`;
           const itemValue = item.value || '';
@@ -55,11 +67,12 @@
           const itemAriaLabel = item.ariaLabel || defaultAriaLabel;
           const itemDisabled = item.disabled || disabled; // 그룹 전체 disabled 상속
           const itemReadonly = item.readonly || readonly; // 그룹 전체 readonly 상속
-          const itemShowClear = (item.showClearButton !== undefined ? Boolean(item.showClearButton) : showClearButton) && !itemDisabled && !itemReadonly; // 개별 클리어 버튼 표시 여부
+          const itemIsClearable = item.showClearButton !== undefined ? (item.showClearButton !== false) : showClearButton;
+          const itemShowClear = itemIsClearable && !itemDisabled && !itemReadonly;
           const itemSlot = item.slot || '';
           const itemPreSlot = item.itemPreSlot || '';
           const itemWrapClasses = [ `input`, size, itemDisabled ? 'disabled' : '', itemReadonly ? 'readonly' : '' ].filter(Boolean).join(' ');
-        %>
+        -%>
         <div class="<%= itemWrapClasses %>">
 					<%- itemPreSlot -%>
           <input
@@ -72,14 +85,14 @@
             <%= itemDisabled ? 'disabled' : '' %>
             <%= itemReadonly ? 'readonly' : '' %>
           />
-          <% if (itemShowClear) { %>
-            <button type="button" class="btn ico-clear active"><span class="sr-only">입력 내용 지우기</span></button>
-          <% } %>
+          <% if (itemShowClear) { -%>
+          <%- btnClearTag -%>
+          <% } -%>
           <%- itemSlot -%>
         </div>
-      <% }); %>
+      <% }) -%>
     </div>
-  <% } else { %>
+  <% } else { -%>
     <div class="<%= inputWrapClasses %>">
 			<%- preSlot -%>
       <input
@@ -88,19 +101,19 @@
         name="<%= name %>"
         value="<%= value %>"
         placeholder="<%= placeholder %>"
-        <% if (!title && ariaLabel) { %>
+        <% if (!title && ariaLabel) { -%>
           aria-label="<%= ariaLabel %>"
-        <% } %>
+        <% } -%>
         <%= required ? 'required' : '' %>
         <%= disabled ? 'disabled' : '' %>
         <%= readonly ? 'readonly' : '' %>
       />
-      <% if (showClearButton) { %>
-        <button type="button" class="btn ico-clear active"><span class="sr-only">입력 내용 지우기</span></button>
-      <% } %>
+      <% if (showClearButton && !disabled && !readonly) { -%>
+      <%- btnClearTag -%>
+      <% } -%>
       <%- slot -%>
     </div>
-  <% } %>
+  <% } -%>
 <% if (title) { -%>
   </div>
 </div>

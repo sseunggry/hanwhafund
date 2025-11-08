@@ -1,0 +1,184 @@
+@use 'sass:map';
+@use "../util" as *;
+
+/* 표 */
+// 사이즈 정의
+@mixin table-size-variable() {
+  --#{$prefix}-table--data-thead-th-padding: 0.8rem;
+  --#{$prefix}-table--data-thead-th-padding-sides: 1.2rem;
+  --#{$prefix}-table--data-tbody-padding: 1.2rem;
+}
+
+// 컬러 설정
+@mixin table-color-variable() {
+  $table-color-variable: (
+    primary: (
+      thead: (
+        surface: var(--#{$prefix}-color-surface-secondary-subtler),
+        border: var(--#{$prefix}-color-border-secondary-light),
+        text: var(--#{$prefix}-color-text-secondary),
+        mobile-font-size: 1.6rem,
+        tablet-font-size: 1.6rem,
+        pc-font-size: 1.6rem,
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-color-divider-neutral-light),
+        text: var(--#{$prefix}-color-text-subtle),
+        mobile-font-size: 1.6rem,
+        tablet-font-size: 1.6rem,
+        pc-font-size: 1.6rem,
+      ),
+    ),
+    secondary: (
+      thead: (
+        surface: var(--#{$prefix}-color-surface-neutral-subtler),
+        border: var(--#{$prefix}-color-border-neutral-light),
+        text: var(--#{$prefix}-color-text-subtle),
+        mobile-font-size: 1.5rem,
+        tablet-font-size: 1.5rem,
+        pc-font-size: 1.5rem,
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-color-divider-neutral-light),
+        text: var(--#{$prefix}-color-text-basic),
+        mobile-font-size: 1.5rem,
+        tablet-font-size: 1.5rem,
+        pc-font-size: 1.5rem,
+      ),
+    ),
+    tertiary: (
+      thead: (
+        border: var(--#{$prefix}-color-border-neutral-darker),
+        text: var(--#{$prefix}-color-text-subtle),
+        mobile-font-size: 1.5rem,
+        tablet-font-size: 1.5rem,
+        pc-font-size: 1.5rem,
+      ),
+      tbody: (
+        surface: var(--#{$prefix}-color-surface-elevated-02),
+        divider: var(--#{$prefix}-color-divider-neutral-light),
+        text: var(--#{$prefix}-color-text-basic),
+        mobile-font-size: 1.5rem,
+        tablet-font-size: 1.5rem,
+        pc-font-size: 1.5rem,
+      ),
+    ),
+  ) !default;
+
+  // css variable 생성
+  @each $color, $positions in $table-color-variable {
+    @each $position, $types in $positions {
+      @each $type, $value in $types {
+        --#{$prefix}-table--data-#{"#{$position}"}-#{"#{$color}"}-#{$type}: #{$value};
+      }
+    }
+  }
+
+  --#{$prefix}-table--data-border-width: 0.1rem;
+}
+
+.tbl-wrap {
+  @include table-color-variable();
+  @include table-size-variable;
+
+  overflow-x: auto;
+  position: relative;
+	width: 100%;
+	
+  .tbl {
+		position: relative;
+		width: 100%;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 0.1rem;
+			background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+		}
+    
+    thead{
+      th {
+				height: 4rem;
+				font-size: 1.5rem;
+        font-weight: 700;
+				color: #151414;
+				text-align: center;
+        background-color: #F3F2F1;
+      }
+    }
+
+    tbody {
+      th {
+        font-weight: 400;
+      }
+      th, td {
+				padding: 0 2.4rem;
+        height: 6.4rem;
+        text-align: center;
+				font-size: 1.8rem;
+				color: #494646;
+        border-bottom: 0.1rem solid #E7E5E4;
+        background-color: #fff;
+
+				&:has(.change){
+					&.txt-right{
+						display: flex;
+						flex-direction: column;
+						align-items: flex-end;
+						justify-content: center;
+					}
+				}
+      }
+    }
+
+    th, td {
+      vertical-align: middle;
+    }
+  }
+
+  &.scroll {
+    overflow: auto hidden;
+    padding-bottom: 1.6rem;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem; 
+      height: 0.4rem;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #F3F2F1; 
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #FE5B16;
+    }
+
+    .tbl {
+			min-width: 118rem;
+    }
+  }
+}
+
+// @include mq(mobile) {
+//   .tbl-wrap {
+//     overflow-x: auto;
+//     width: calc(100vw - (var(--#{$prefix}-contents-padding-x) * 2));
+
+//     .tbl {
+//       min-width: 73.2rem;
+//     }
+
+//     &.mob-scroll {
+//       width: 100%;
+
+//       th,
+//       td {
+//         white-space: nowrap;
+//       }
+//     }
+//   }
+// }

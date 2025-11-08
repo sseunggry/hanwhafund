@@ -44,6 +44,34 @@
                 size: 'large',
                 required: true,
               }) -%>
+              <%- include('../../components/input.ejs', {
+                title: "readonly",
+                type: "text",
+                value: '123',
+                size: 'large',
+                readonly: true,
+              }) -%>
+              <%- include('../../components/input.ejs', {
+                title: "disabled",
+                type: "text",
+                placeholder: "placeholder",
+                size: 'large',
+                disabled: true,
+              }) -%>
+              <%- include('../../components/input.ejs', {
+                title: "error",
+                type: "text",
+                value: '123',
+                size: 'large',
+                error: true,
+              }) -%>
+              <%- include('../../components/input.ejs', {
+                title: "success",
+                type: "text",
+                value: '123',
+                size: 'large',
+                success: true,
+              }) -%>
             </div>
             <button class="btn-code-toggle">View Code</button>
             <div class="hls-wrap">

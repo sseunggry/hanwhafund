@@ -111,7 +111,14 @@ module.exports = {
         filename: outputFilename, // 'html/index.html' 또는 'guides/resources/ele_badge.html'
         inject: true,
         chunks: 'all',
-        minify: false,
+        // minify: false,
+        minify: isProduction ? {
+          collapseWhitespace: false, // 핵심: 공백과 줄바꿈을 제거합니다.
+          keepClosingSlash: true,
+          // removeComments: true,     // 주석을 제거합니다.
+          // minifyJS: true,
+          // minifyCSS: true,
+        } : false,
         templateParameters: {
           fs: require('fs'),
           path: require('path'),
@@ -154,8 +161,8 @@ module.exports = {
     open: ['/guides/index.html'],
     hot: true,
 		liveReload: true,
-		// watchFiles: ['src/**/*'],
-		watchFiles: ['src/**/*.{js,scss,html,ejs}'],
+		watchFiles: ['src/**/*'],
+		// watchFiles: ['src/**/*.{js,scss,html,ejs}'],
   },
   mode: isProduction ? 'production' : 'development',  // mode: 'development', // 배포시 'production'으로 변경
 };

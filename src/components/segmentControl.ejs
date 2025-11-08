@@ -34,31 +34,11 @@
   const controlClasses = ['control-btn', itemDisabled].filter(Boolean).join(' ');
 -%>
 <%_ if (tag === 'radio') { -%>
-  <%# 네이티브 라디오 + 라벨 방식 %>
   <label for="<%= uniqueId %>" class="<%= controlClasses %>">
-    <input
-      type="radio"
-      class="sr-only"
-      id="<%= uniqueId %>"
-      name="<%= name %>"
-      value="<%= itemValue %>"
-      <%= isChecked ? 'checked' : '' %>
-      <%= itemDisabled %>
-    />
-    <span><%= itemLabel %></span>
+    <input type="radio" class="sr-only" id="<%= uniqueId %>" name="<%= name %>" value="<%= itemValue %>" <%= isChecked ? 'checked' : '' %> <%= itemDisabled %>/><span><%= itemLabel %></span>
   </label>
 <%_ } else { -%>
-  <%# ARIA 버튼 방식 %>
-  <button
-    type="button"
-    class="<%= controlClasses %> <%= isChecked ? 'active' : '' %>" <%# 초기 active 클래스 %>
-    role="radio"
-    aria-checked="<%= isChecked ? 'true' : 'false' %>"
-    tabindex="<%= isChecked ? '0' : '-1' %>"
-    <%= itemDisabled %>
-  >
-    <%= itemLabel -%>
-  </button>
+  <button type="button" class="<%= controlClasses %> <%= isChecked ? 'active' : '' %>" role="radio" aria-checked="<%= isChecked ? 'true' : 'false' %>" tabindex="<%= isChecked ? '0' : '-1' %>" <%= itemDisabled %>><%= itemLabel -%></button>
 <%_ } -%>
-<%_ }); -%>
+<%_ }) -%>
 </div>

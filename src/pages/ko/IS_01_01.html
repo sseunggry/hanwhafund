@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '공지상세 | 인사이트'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap page-notice">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<div class="inner">
+					<div class="cont-group">
+						<%- include('../../layouts/boardDetail.ejs', {
+							title: '한화녹색ESG인프라 프로젝트 펀드 모집 공고(수시접수)',
+							date: '작성일 2025-09-29',
+							content: `
+								<p>
+									한화자산운용은 녹색ESG인프라(이하 “녹색펀드”) 모태펀드의 주간운용사로서,
+									모태펀드의 해외 녹색 분야 투자를 위한 프로젝트 펀드 모집을 아래와 같이 공고하오니 많은 지원 바랍니다.
+								</p>
+							`,							
+							files: [
+								{ label: '[한화자산운용] 해외 녹색 프로젝트 펀드 제안요청서1.hwp'},
+								{ label: '[한화자산운용] 해외 녹색 프로젝트 펀드 제안요청서.pdf'}
+							],
+							nav: {
+								prev: {
+									title: '[한화자산운용] 한화녹색ESG인프라 프로젝트 펀드 모집 공고(수시접수)',
+									desc: '2024-11-22'
+								},
+								next: {
+									title: '	The Korea Defense Industry Index',
+									desc: '2024-11-22'
+								}
+							},
+						}) %>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

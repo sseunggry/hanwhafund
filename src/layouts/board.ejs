@@ -32,22 +32,26 @@
   if (segmentControl === true) {
     segmentItems = defaultSegmentItems;
   } else if (Array.isArray(segmentControl)) {
-    segmentItems = segmentControl;
+    if (segmentControl.length > 0 && typeof segmentControl[0] === 'string') {
+      segmentItems = segmentControl.map(label => ({ label: label }));
+    } else {
+      segmentItems = segmentControl;
+    }
   } else {
     segmentItems = false;
   }
   const searchIcon = include(buttonPath, { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
-%>
+-%>
 <div class="board-con">
-  <% if (segmentItems) { %>
+  <% if (segmentItems) { -%>
   <div class="scroll-wrap">
     <%- include(segmentControlPath, {
       tag: 'button',
       items: segmentItems
-    }); %>
+    }) -%>
   </div>
-  <% } %>
-  <% if (showSearch) { %>
+  <% } -%>
+  <% if (showSearch) { -%>
   <form class="board-search">
     <p class="total">전체 <%= searchTotal %>건</p>
     <%- include(inputPath, {
@@ -55,14 +59,14 @@
       size: 'large',
       placeholder: '검색어를 입력해 주세요.',
       preSlot: searchIcon
-    }); %>
+    }) -%>
   </form>
-  <% } %>
+  <% } -%>
   <%- include(boardListPath, {
     items: boardListItems,
     thead: boardListThead,
     startNumber: startNumber,
-  }) %>
+  }) -%>
   <div class="btn-wrap array-center">
     <%- include(buttonPath, {
       tag: moreButtonTag,
@@ -71,6 +75,6 @@
       hierarchy: 'tertiary',
       size: 'large',
       slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
-    }); %>
+    }) -%>
   </div>
 </div>
