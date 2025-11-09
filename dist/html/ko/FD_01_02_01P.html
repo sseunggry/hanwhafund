@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="keywords" content="한화자산운용, " />
+    <meta name="description" content="한화자산운용 웹사이트 입니다." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="기준가 팝업 | 한화자산운용" />
+    <meta property="og:description" content="한화자산운용 웹사이트 입니다." />
+    <!-- <meta property="og:image" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/images/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon_32.png" />
+    <title>기준가 팝업 | 한화자산운용</title>
+
+    <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/ui.common.js" type="text/javascript"></script>
+    <link href="../../assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="../../assets/css/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- header -->
+      <header class="header">
+        <div class="header-top">
+          <div class="inner">
+            <ul class="link">
+              <li class="logo-plusetf">
+                <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+              </li>
+              <li class="logo-pine">
+                <a href="#!"><span class="sr-only">PINE</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-con">
+          <div class="inner">
+            <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+            <nav class="nav">
+              <ul>
+                <li><a href="#!">한화펀드</a></li>
+                <li><a href="#!">인사이트</a></li>
+                <li><a href="#!">공시안내</a></li>
+                <li><a href="#!">회사소개</a></li>
+              </ul>
+            </nav>
+            <div class="util">
+              <div class="lang">
+                <div class="form-select text small">
+                  <select class="sr-only" name="language-select" id="select-r2x9ldx-native" tabindex="-1" aria-hidden="true">
+                    <option value="KR" selected="selected">KR</option>
+                    <option value="EN">EN</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-r2x9ldx-listbox" tabindex="0" aria-controls="select-r2x9ldx-listbox">
+                    <span class="select-value">KR</span>
+                  </button>
+                  <ul id="select-r2x9ldx-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
+                    <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon xxlarge">
+                <span class="sr-only">검색</span>
+                <i class="svg-icon icon-search"></i>
+              </button>
+              <button type="button" class="btn icon xxlarge">
+                <span class="sr-only">메뉴</span>
+                <i class="svg-icon icon-menu"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- // header -->
+
+      <!-- container -->
+      <main class="container" style="padding: 6rem 0">
+        <div class="inner">
+          <button type="button" class="btn large" data-modal-open="modalDailyPrice" aria-controls="modalDailyPrice">
+            <span>기준가 팝업</span>
+          </button>
+        </div>
+      </main>
+      <!-- // container -->
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="inner">
+          <div class="footer-top">
+            <div class="logo"><span class="sr-only">한화자산운용</span></div>
+          </div>
+          <div class="footer-con">
+            <ul class="address">
+              <li>07345 서울시 영등포구 63로 50 한화금융센터</li>
+              <li>대표번호 02-6950-0000</li>
+              <li>팩스 02-6950-0009</li>
+              <li>한화자산운용㈜ 준법감시인 심사필 제2025-525호(2025.10.02~2026.10.01)</li>
+            </ul>
+            <div class="nav">
+              <ul class="link-list">
+                <li><a href="#!">스튜어드십코드</a></li>
+                <li><a href="#!">개인정보처리방침</a></li>
+                <li><a href="#!">신용정보활용체계</a></li>
+                <li><a href="#!">고객정보취급방침</a></li>
+                <li><a href="#!">이메일무단수집거부</a></li>
+              </ul>
+              <ul class="link-list">
+                <li><a href="#!">윤리경영</a></li>
+                <li><a href="#!">법적고시</a></li>
+                <li><a href="#!">보험금융상품등록</a></li>
+                <li><a href="#!">금융소비자보호포탈</a></li>
+              </ul>
+            </div>
+            <div class="util">
+              <div class="family-site">
+                <div class="form-select medium bg-gray ico-plus">
+                  <select class="sr-only" name="family-site" id="select-63u7gk3-native" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                    <option value="site1">사이트 1</option>
+                    <option value="site2">사이트 2</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-63u7gk3-listbox" tabindex="0" aria-controls="select-63u7gk3-listbox">
+                    <span class="select-value placeholder">패밀리 사이트</span>
+                  </button>
+                  <ul id="select-63u7gk3-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
+                    <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
+                  </ul>
+                </div>
+              </div>
+              <ul class="sns-list">
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">youtube</span>
+                    <i class="svg-icon icon-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">instagram</span>
+                    <i class="svg-icon icon-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">blog</span>
+                    <i class="svg-icon icon-blog"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+          </div>
+          <div class="footer-btn-top">
+            <a href="#!" class="btn large">
+              <i class="svg-icon icon-arrow-up"></i>
+              <span>TOP</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+      <!-- // footer -->
+    </div>
+
+    <!-- popup 일자별 기준가 -->
+    <div id="modalDailyPrice" class="modal fade modal show in" role="dialog" aria-modal="true" aria-labelledby="tit_modalDailyPrice" data-type="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="tit_modalDailyPrice" class="modal-title">일자별 기준가</h2>
+          </div>
+          <div class="modal-conts">
+            <div class="tit-wrap">
+              <h2 class="tit">
+                한화한국오퍼튜니티증권 자투자신탁(주식)
+                <small>C-e(수수료미징구-온라인)</small>
+              </h2>
+            </div>
+            <div class="filter-period">
+              <div class="scroll-wrap">
+                <div class="segment-control bg" role="radiogroup" aria-label="세그먼트 컨트롤">
+                  <button type="button" class="control-btn active" role="radio" aria-checked="true" tabindex="0">1주</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">1개월</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">3개월</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">6개월</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">1년</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">3년</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">5년</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">연초이후</button>
+                  <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">설정이후</button>
+                </div>
+              </div>
+              <div class="pc-only">
+                <div class="form-input-group">
+                  <div class="input-group calendar-group">
+                    <div class="calendar input large">
+                      <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false">
+                        <span class="sr-only">달력 열기</span>
+                        <i class="svg-icon icon-calendar"></i>
+                      </button>
+                      <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-nw611fn-start" value="" aria-label="기간 시작일" readonly="readonly" readonly="readonly" />
+                    </div>
+                    <div class="calendar input large">
+                      <button type="button" class="btn icon form-btn-datepicker" aria-expanded="false">
+                        <span class="sr-only">달력 열기</span>
+                        <i class="svg-icon icon-calendar"></i>
+                      </button>
+                      <input type="text" class="datepicker cal" placeholder="YYYY.MM.DD" id="cal-nw611fn-end" value="" aria-label="기간 종료일" readonly="readonly" readonly="readonly" />
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn large">
+                    <span>검색</span>
+                  </button>
+                </div>
+              </div>
+              <div class="mobile-only justify-end">
+                <button type="button" class="btn text large" data-modal-open="mobilFilterBottomSheet" aria-controls="mobilFilterBottomSheet">
+                  <i class="svg-icon icon-filter"></i>
+                  <span>직접설정</span>
+                </button>
+              </div>
+            </div>
+            <div class="tbl-wrap scroll">
+              <table class="tbl">
+                <caption>
+                  <span>일자, 기준가지수, 등락, 수정기준가, 과표기준가로 구성된 표</span>
+                </caption>
+                <colgroup>
+                  <col style="width: 15.16%" />
+                  <col style="width: 21.21%" />
+                  <col style="width: 21.21%" />
+                  <col style="width: 21.21%" />
+                  <col style="width: 21.21%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">일자</th>
+                    <th scope="col">기준가지수</th>
+                    <th scope="col">등락</th>
+                    <th scope="col">수정기준가</th>
+                    <th scope="col">과표기준가</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2025-10-13</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p class="change down">12.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                  <tr>
+                    <td>2025-10-12</td>
+                    <td>1940.57</td>
+                    <td><p 17.12% class="change up">17.12%</p></td>
+                    <td>2128.45원</td>
+                    <td>1010.65원</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button type="button" class="btn icon btn-close" aria-controls="modalDailyPrice">
+            <span class="sr-only">닫기</span>
+            <i class="svg-icon icon-close"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-back in"></div>
+    </div>
+    <!-- popup 일자별 기준가 -->
+  </body>
+</html>

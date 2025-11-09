@@ -12,8 +12,8 @@ const iaPageAData = {
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "-", pageName: "펀드찾기", pageType: "page", pageID: "FD_01", link: "", isAdminLinked: true, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상품 비교", depth3: "-", pageName: "펀드비교팝업", pageType: "popup", pageID: "FD_01_01P", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상세 ", depth3: "-", pageName: "펀드상품상세", pageType: "page", pageID: "FD_01_02", link: "", isAdminLinked: true, status: "작업중", memo: [], },
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "일자별 기준가", pageName: "기준가팝업", pageType: "popup", pageID: "FD_01_02_01P", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "클래스비교", pageName: "클래스비교팝업", pageType: "popup", pageID: "FD_01_02_02P", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "일자별 기준가", pageName: "기준가팝업", pageType: "popup", pageID: "FD_01_02_01P", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "클래스비교", pageName: "클래스비교팝업", pageType: "popup", pageID: "FD_01_02_02P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "개인연금", depth3: "-", pageName: "개인연금", pageType: "page", pageID: "FD_02_01", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "퇴직연금", depth3: "-", pageName: "퇴직연금", pageType: "page", pageID: "FD_02_02", link: "", isAdminLinked: false, status: "", memo: [], },
