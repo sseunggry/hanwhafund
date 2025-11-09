@@ -555,20 +555,26 @@
       }
 
       .chart-wrap {
-        display: flex;
-        gap: 2.4rem 1.6rem;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+        .chart-top{
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+        }
 
-				.filter-period{
-					padding-bottom: 0;
-				}
+        .chart-con{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2.4rem 1.6rem;
+          width: 100%;
+        }
 
         .chart-area {
           flex-shrink: 0;
 
           .chart{
+            width: 100%;
+            height: 100%;
             background-color: #f8f8f8; //임시
           }
         }
@@ -616,15 +622,22 @@
             text-align: right;
           }
         }
-
-        &.graph {
+        
+        &.line {
+          align-items: flex-start;
           flex-direction: column;
-          align-items: flex-end;
-          gap: 4rem;
+          gap: 2.4rem;
 
-          .chart{
+          .chart-con{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
             width: 100%;
-            height: 100%;
+            gap: 4rem;
+          }
+          .chart-area {
+            width: 100%;
+            height: 44rem;
           }
           .chart-legend{
             .legend-list{
@@ -648,16 +661,6 @@
                 border-radius: 0;
               }
             }
-          }
-        }
-        &.line {
-          align-items: flex-start;
-          flex-direction: column;
-          gap: 2.4rem;
-
-          .chart-area {
-            width: 100%;
-            height: 44rem;
           }
         }
         &.bar {
@@ -703,8 +706,10 @@
           }
         }
         &.doughnut {
-          column-gap: 10rem;
-          justify-content: center;
+          .chart-con{
+            column-gap: 10rem;
+            justify-content: center;
+          }
 
           .chart-area {
             position: relative;
@@ -1081,7 +1086,9 @@
       @include mq(pc) {
         .chart-wrap {
           &.pie {
-            flex-direction: column;
+            .chart-con{
+              flex-direction: column;
+            }
 
             .chart-area {
               width: 50%;
@@ -1110,7 +1117,9 @@
         }
         .chart-wrap {
           &.bar {
-            flex-direction: column;
+            .chart-con{
+              flex-direction: column;
+            }
 
             .chart-area {
               width: 100%;
@@ -1131,7 +1140,9 @@
             }
           }
           &.doughnut {
-            column-gap: 8rem;
+            .chart-con{
+              column-gap: 8rem;
+            }
           }
         }
         .fee-wrap {
@@ -1181,8 +1192,10 @@
         }
         .chart-wrap {
           &.doughnut {
-            justify-content: space-between;
-            column-gap: 2.4rem;
+            .chart-con{
+              justify-content: space-between;
+              column-gap: 2.4rem;
+            }
 
             .chart-area {
               width: 50%;
@@ -1224,25 +1237,27 @@
           }
         }
         .chart-wrap {
-          &.graph {
-            gap: 2.4rem;
+          .chart-top{
+            gap: 1.6rem;
           }
           &.line {
-            gap: 1.6rem;
-
-            .chart-area {
-              margin-top: 0.8rem;
+            .chart-con{
+              gap: 2.4rem;
             }
           }
           &.bar {
-            gap: 4rem;
+            .chart-con{
+              gap: 4rem;
+            }
 
             .chart-summary {
               padding-top: 4rem;
             }
           }
           &.doughnut {
-            flex-direction: column;
+            .chart-con{
+              flex-direction: column;
+            }
             .chart-area {
               width: 69.3%;
             }
@@ -1251,7 +1266,9 @@
             }
           }
           &.pie {
-            padding-top: 1.6rem;
+            .chart-con{
+              padding-top: 1.6rem;
+            }
           }
         }
         .group-flex-wrap {

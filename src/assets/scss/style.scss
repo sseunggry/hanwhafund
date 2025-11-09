@@ -210,6 +210,9 @@
       }
     }
   }
+  @include mq(tablet) {
+    gap: 1.6rem;
+  }
 }
 
 //card-list

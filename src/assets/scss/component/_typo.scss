@@ -47,6 +47,7 @@ $fw-sizes: (
     font-size: map.get($props, size);
     line-height: map.get($props, lh);
 		font-weight: 700;
+    color: var(--#{$prefix}-color-text-strong);
   }
 }
 
@@ -68,10 +69,13 @@ $fw-sizes: (
 	small{
 		font-size: 1.6rem;
 		font-weight: 400;
-		color: #757070;
+		color: var(--#{$prefix}-color-text-subtler);
 	}
 }
-.txt-en{font-family: $font-family-en; font-weight: 400;}
+.txt-en{
+  font-family: $font-family-en; 
+  font-weight: 400;
+}
 .txt-gradient{
   width: fit-content;
   background: var(--#{$prefix}-color-gradient-text);
