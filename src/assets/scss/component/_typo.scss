@@ -63,3 +63,55 @@ $fw-sizes: (
     font-weight: $weight !important;
   }
 }
+
+.tit-sm{
+	small{
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: #757070;
+	}
+}
+.txt-en{font-family: $font-family-en; font-weight: 400;}
+.txt-gradient{
+  width: fit-content;
+  background: var(--#{$prefix}-color-gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@include mq(mobile) {
+  $tit-sizes-mobile: (
+    "xxlg": (size: 4rem, lh: 1.2),
+    "xlg": (size: 3.2rem, lh: 1.5),
+    "lg": (size: 2.8rem, lh: 1.5),
+    "md": (size: 2.8rem, lh: 1.5),
+    "sm": (size: 2.4rem, lh: 1.5),
+    // "xsm": (size: 2.1rem, lh: 1.5), 
+    // "xxsm": (size: 1.8rem, lh: 1.5) 
+  );
+
+  $txt-sizes-mobile: (
+    // "xxlg": (size: 3.2rem, lh: 1.5), 
+    // "xlg": (size: 2.8rem, lh: 1.4), 
+    "lg": (size: 2.1rem, lh: 1.5),
+    // "md": (size: 1.8rem, lh: 1.5), 
+    // "sm": (size: 1.6rem, lh: 1.5), 
+    // "xsm": (size: 1.5rem, lh: 1.5), 
+    // "xxsm": (size: 1.4rem, lh: 1.5) 
+  );
+
+  @each $name, $props in $tit-sizes-mobile {
+    .tit-#{$name} {
+      font-size: map.get($props, size);
+      line-height: map.get($props, lh);
+    }
+  }
+
+  @each $name, $props in $txt-sizes-mobile {
+    .txt-#{$name} {
+      font-size: map.get($props, size);
+      line-height: map.get($props, lh);
+    }
+  }
+}
