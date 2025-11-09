@@ -10,7 +10,7 @@
   .fund-main {
     .section-visual {
       padding: 10rem 0 8rem;
-      @include bg("img-fund-main-visual.png");
+      @include bg("fund/main-visual.png");
 
       .inner {
         display: flex;
@@ -456,7 +456,7 @@
             display: inline-block;
             width: 2.7rem;
             height: 2.4rem;
-            @include bg("logo-symbol.svg");
+            @include bg("common/logo-symbol.svg");
           }
           .name {
             margin-left: 1.6rem;
@@ -973,7 +973,7 @@
 
       .overlay-box-wrap {
         .visual-box {
-          @include bg("img-fund-main-info-bg.png");
+          @include bg("fund/main-info-bg.png");
 
           .pipe-list {
             margin-top: 4rem;

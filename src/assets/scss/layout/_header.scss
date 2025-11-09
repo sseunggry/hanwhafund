@@ -11,20 +11,20 @@
   .logo {
     width: 19.2rem;
     height: 4.8rem;
-    @include bg('logo.svg');
+    @include bg('common/logo.svg');
 
     &-plusetf {
       a {
         width: 9.9rem;
         height: 1.2rem;
-        @include bg('logo-plus-etf.svg');
+        @include bg('common/logo-plus-etf.svg');
       }
     }
     &-pine {
       a {
         width: 3.8rem;
         height: 1rem;
-        @include bg('logo-pine.svg');
+        @include bg('common/logo-pine.svg');
       }
     }
   }
