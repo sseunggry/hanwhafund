@@ -3,8 +3,9 @@
 
 /* footer */
 .footer {
-  --footer-button-position-right: calc((100% - var(--#{$prefix}-content-width-large)) / 2);
-  --footer-button-position-bottom: 4rem;
+  --footer-top-button-position-right: calc((100% - var(--#{$prefix}-content-width-large)) / 2);
+  --footer-top-button-position-bottom: 4rem;
+  --footer-top-button-size: 6.4rem;
 
   position: relative;
   padding: 6rem 0;
@@ -71,8 +72,8 @@
   }
   .footer-btn-top{
     position: absolute;
-    top: -3.4rem;
-    right: var(--footer-button-position-right);
+    top: calc(var(--footer-top-button-size)/2 * -1);
+    right: var(--footer-top-button-position-right);
     z-index: 1;
     width: fit-content;
     height: fit-content;
@@ -87,15 +88,15 @@
     &.is-fixed {
       position: fixed;
       top: initial;
-      bottom: var(--footer-button-position-bottom);
+      bottom: var(--footer-top-button-position-bottom);
     }
 
     .btn{
       flex-direction: column;
       gap: 0.25rem;
       padding: 0;
-      width: 6.4rem;
-      height: 6.4rem;
+      width: var(--footer-top-button-size);
+      height: var(--footer-top-button-size);
       background-color: #FE5B16;
       border-color: #FE5B16;
 
@@ -106,8 +107,8 @@
   }
 
   @include mq(1760) {
-    --footer-button-position-right: var(--#{$prefix}-content-padding-x);
-    --footer-button-position-bottom: var(--#{$prefix}-content-padding-x);
+    --footer-top-button-position-right: var(--#{$prefix}-content-padding-x);
+    --footer-top-button-position-bottom: var(--#{$prefix}-content-padding-x);
   }
   @include mq(pc) {
     .footer-con{
@@ -144,6 +145,8 @@
     }
   }
   @include mq(mobile) {
+    --footer-top-button-size: 4.8rem;
+
     .footer-con{
       flex-direction: column;
       
@@ -153,6 +156,16 @@
       }
       .util{
         margin-left: 0;
+      }
+    }
+    .footer-btn-top{
+      .btn{
+        .svg-icon{
+          @include square(2.4rem);
+        }
+        span{
+          @include sr-only;
+        }
       }
     }
   }

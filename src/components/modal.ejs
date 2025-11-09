@@ -8,6 +8,7 @@
   const buttons = Array.isArray(localsSafe.buttons) ? localsSafe.buttons : []; // buttons: [{ text: '확인', class: 'primary medium', action: 'close'/'custom', customAttr: '...' }, ...]
   const showCloseBtn = localsSafe.showCloseBtn !== false; // X 닫기 버튼 표시 여부 (기본 true)
   const addClass = localsSafe.addClass || '';
+  const open = localsSafe.open || false;
   const scrollable = localsSafe.scrollable || false; // 내용 영역 스크롤 시 tabindex 추가 여부
 
   const titleId = `tit_${id}`;
@@ -15,7 +16,8 @@
     `modal`,
     'fade',
     variant,
-    addClass
+    addClass,
+    open ? 'show in' : '',
   ].filter(Boolean).join(' ');
 	
   const dialogClasses = ['modal-dialog'].filter(Boolean).join(' ');

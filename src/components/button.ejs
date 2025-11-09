@@ -17,6 +17,7 @@
 	const targetType = localsSafe.targetType || ''; //modal, popover
 	const popoverPos = localsSafe.popoverPos || ''; // 예: "bottom-left", "top-center"
   const download = localsSafe.download || false;
+  const toast = localsSafe.toast || '';
 	const classes = [
     `btn`,
     variant,
@@ -35,7 +36,12 @@
     }
   } else if (targetId && targetType === 'tooltip') {
     targetAttrs = `data-tooltip-open="${targetId}" aria-describedby="${targetId}"`;
-  } 
+  }
+
+  let toastAttrs = '';
+  if (toast) {
+    toastAttrs = `data-toast="${toast}"`;
+  }
 -%>
 <<%= tag -%>
   <%- tag === 'button' ? `type="button"` : `href="${url}"` -%>
@@ -43,8 +49,7 @@
 	<%= disabled -%>
   class="<%= classes -%>"
 	<%- targetAttrs -%>
-	<%#- targetId ? `data-modal-open="${targetId}"` : '' -%>
-	<%#- targetId ? `aria-controls="${targetId}"` : '' -%>
+  <%- toastAttrs -%>
 >
 <%- preSlot -%>
 <%- preIcon ? `<i class="svg-icon icon-${preIcon}"></i>` : '' %>
