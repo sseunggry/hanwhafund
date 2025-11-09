@@ -848,7 +848,7 @@ const uiTooltip = {
     $tooltip.removeClass("active");
   }
 };
-const uiLnb2 = {
+const uiLnb = {
   $sidebar: null,
   $links: null,
   $sections: null,
@@ -913,7 +913,7 @@ const uiLnb2 = {
     });
   },
 };
-const uiLnb = {
+const uiLnb2 = {
   $sidebar: null,
   $links: null,
   $sections: null,
