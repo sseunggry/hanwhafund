@@ -67,6 +67,8 @@
 		}
 		.board-tbody{
 			li{
+				border-bottom: 0.1rem solid #E7E5E4;
+
 				a{
 					display: flex;
 					align-items: center;
@@ -74,7 +76,7 @@
 					color: var(--#{$prefix}-color-text-subtle);
 					font-size: 1.8rem;
 					text-align: center;
-					border-bottom: 0.1rem solid #E7E5E4;
+					
 
 					&:hover{
 						background-color: #F3F2F1;
@@ -115,6 +117,15 @@
 					height: 1.9rem;
 					font-size: 1.3rem;
 					vertical-align: middle;
+				}
+
+				&.no-data{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0 2.4rem;
+					height: 25.6rem;
+					color: var(--#{$prefix}-color-text-strong);
 				}
 			}
 		}
