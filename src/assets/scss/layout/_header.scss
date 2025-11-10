@@ -81,17 +81,6 @@
       display: flex;
       align-items: center;
       gap: 2.4rem;
-
-      .btn-search {
-        width: 4rem;
-        height: 4rem;
-        @include bg('icon/ico-search.svg');
-      }
-      .btn-menu {
-        width: 4rem;
-        height: 4rem;
-        @include bg('icon/ico-menu.svg');
-      }
     }
   }
 

@@ -32,7 +32,9 @@
         aria-expanded="<%= isActive ? 'true' : 'false' %>"
         <%= isDisabled ? 'disabled' : '' %>
       >
+      <%_ if (item.category) { -%>
       <span class="category"><%- item.category %></span>
+      <%_ } -%>
       <span class="tit"><%- item.title || `아코디언 ${index + 1}` %></span>
       </button>
     </div>

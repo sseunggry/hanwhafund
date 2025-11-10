@@ -452,9 +452,9 @@ const uiAccordion = {
       }
 
       $button.attr("aria-expanded", isOpening);
-      $button.toggleClass("active", isOpening);
+      // $button.toggleClass("active", isOpening);
       $currentItem.toggleClass("active", isOpening);
-      $accordionContent.toggleClass("active", isOpening);
+      // $accordionContent.toggleClass("active", isOpening);
     });
   },
 };
