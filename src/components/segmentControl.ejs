@@ -6,7 +6,7 @@
 	const variant = localsSafe.variant || ''; // 기본, bg
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : [{ label: 'control1', value: 'control1' }];
   const full = localsSafe.full ? 'full' : '';
-  const name = localsSafe.name || `segment-${Math.random().toString(36).substring(2, 9)}`;
+  const name = localsSafe.name ? `segment-${localsSafe.name}` : 'segment';
   const addClass = localsSafe.addClass || '';
   const classes = [
     `segment-control`,
@@ -30,12 +30,12 @@
   const itemValue = item.value || itemLabel;
   const itemDisabled = item.disabled ? 'disabled' : '';
   const isChecked = index === initialCheckedIndex;
-  const uniqueId = `segment-${index}-${Math.random().toString(36).substring(2, 9)}`;
+  const id = `segment-${index}-${Math.random().toString(36).substring(2, 9)}`;
   const controlClasses = ['control-btn', itemDisabled].filter(Boolean).join(' ');
 -%>
 <%_ if (tag === 'radio') { -%>
-  <label for="<%= uniqueId %>" class="<%= controlClasses %>">
-    <input type="radio" class="sr-only" id="<%= uniqueId %>" name="<%= name %>" value="<%= itemValue %>" <%= isChecked ? 'checked' : '' %> <%= itemDisabled %>/><span><%= itemLabel %></span>
+  <label for="<%= id %>" class="<%= controlClasses %>">
+    <input type="radio" class="sr-only" id="<%= id %>" name="<%= name %>" value="<%= itemValue %>" <%= isChecked ? 'checked' : '' %> <%= itemDisabled %>/><span><%= itemLabel %></span>
   </label>
 <%_ } else { -%>
   <button type="button" class="<%= controlClasses %> <%= isChecked ? 'active' : '' %>" role="radio" aria-checked="<%= isChecked ? 'true' : 'false' %>" tabindex="<%= isChecked ? '0' : '-1' %>" <%= itemDisabled %>><%= itemLabel -%></button>

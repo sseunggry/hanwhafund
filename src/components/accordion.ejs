@@ -9,8 +9,8 @@
     size,
     addClass
   ].filter(Boolean).join(' ');
-
-  const accordionId = `${Math.random().toString(36).substring(2, 9)}`;
+	
+	const id = localsSafe.id ? `-${localsSafe.id}` : '';
 -%>
 <%_ if (items.length > 0) { -%>
 <div class="<%= accordionClasses %>" data-type="<%= type %>">
@@ -18,8 +18,8 @@
   <%_
     const isActive = item.active || false; // 초기 열림 상태
     const isDisabled = item.disabled || false; // 비활성화 상태 (선택적)
-    const headerId = `accordionHeader-${accordionId}-${index}`;
-    const collapseId = `accordionCollapse-${accordionId}-${index}`;
+    const headerId = `accordionHeader-${index}${id}`;
+    const collapseId = `accordionCollapse-${index}${id}`;
     const itemClasses = [ 'accordion-item', isActive ? 'active' : '', isDisabled ? 'disabled' : ''].filter(Boolean).join(' ');
     const collapseClasses = ['accordion-collapse','collapse',isActive ? 'active' : ''].filter(Boolean).join(' ');
   -%>

@@ -16,16 +16,16 @@
 		addClass
   ].filter(Boolean).join(' ');
 
-	const uniqueId = `chk-${Math.random().toString(36).substring(2, 9)}`;
+	const id = localsSafe.id ? `chk-${localsSafe.id}` : `chk-${Math.random().toString(36).substring(2, 9)}`;
 -%>
 <div class="<%= classes %>">
 	<input 
 		type="checkbox" 
-		id="<%= uniqueId %>" 
+		id="<%= id %>" 
 		<%= state === 'checked' ? 'checked' : '' %>
 		<%= disabled %>
 	>
-	<label for="<%= uniqueId %>">
+	<label for="<%= id %>">
 		<%_ if (slot) { -%>
 			<span class="sr-only"><%= label %></span>
       <%- slot %>

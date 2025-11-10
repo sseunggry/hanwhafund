@@ -12,16 +12,16 @@
     addClass
   ].filter(Boolean).join(' ');
 
-	const uniqueId = `tab-${Math.random().toString(36).substring(2, 9)}`;
+	const id = localsSafe.id ? `tab-${localsSafe.id}` : 'tab';
 -%>
 <div class="tab-area">
   <div class="tab <%= classes %>">
     <ul role="tablist">
       <% tablist.forEach(function(label, idx) { -%>
         <li 
-          id="<%= uniqueId %>-tab-<%= idx + 1 %>" 
+          id="<%= id %>-tab-<%= idx + 1 %>" 
           role="tab" 
-          aria-controls="<%= uniqueId %>-panel-<%= idx + 1 %>" 
+          aria-controls="<%= id %>-panel-<%= idx + 1 %>" 
           <%- active === idx ? `class="active" aria-selected="true"` : `aria-selected="false"` %>
         >
           <button type="button" class="btn-tab">
@@ -34,10 +34,10 @@
   <div class="tab-conts-wrap">
     <% tablist.forEach(function(label, idx) { -%>
       <div 
-        id="<%= uniqueId %>-panel-<%= idx + 1 %>" 
+        id="<%= id %>-panel-<%= idx + 1 %>" 
         class="tab-conts <%= active === idx ? 'active' : '' %>" 
         role="tabpanel" 
-        aria-labelledby="<%= uniqueId %>-tab-<%= idx + 1 %>"
+        aria-labelledby="<%= id %>-tab-<%= idx + 1 %>"
       >
         <%- contents[idx] || '콘텐츠 없음' %>
       </div>

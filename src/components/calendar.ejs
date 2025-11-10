@@ -1,6 +1,6 @@
 <%
   const localsSafe = locals || {};
-  const id = localsSafe.id || 'cal-' + Math.random().toString(36).substring(2, 9);
+  const id = localsSafe.id ? `-${localsSafe.id}` : `-${Math.random().toString(36).substring(2, 9)}`;
   const title = localsSafe.title || '';  
   const ariaLabel = localsSafe.ariaLabel || '기간';
   const placeholder = localsSafe.placeholder || 'YYYY.MM.DD';
@@ -48,7 +48,7 @@
           type="text" 
           class="datepicker cal" 
           placeholder="<%= placeholder %>" 
-          id="<%= isRange ? id + '-start' : id %>" 
+          id="<%= isRange ? 'cal-start' + id : 'cal' + id %>" 
           value="<%= isRange ? startValue : value %>"
           aria-label="<%= isRange ? ariaLabel + ' 시작일' : ariaLabel %>"
           <% if (disabled) { %>disabled<% } %>
@@ -65,7 +65,7 @@
           type="text" 
           class="datepicker cal" 
           placeholder="<%= placeholder %>" 
-          id="<%= id %>-end" 
+          id="cal-end<%= id %>" 
           value="<%= endValue %>"
           aria-label="<%= ariaLabel %> 종료일"
           <% if (disabled) { %>disabled<% } %>

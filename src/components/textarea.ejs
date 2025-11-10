@@ -13,7 +13,7 @@
   const rows = localsSafe.rows || null; // textarea rows 속성
   const addClass = localsSafe.addClass || ''; // textarea-wrap 추가 클래스
 
-  const uniqueId = localsSafe.id || `textarea-${Math.random().toString(36).substring(2, 9)}`;
+  const id = localsSafe.id ? `textarea-${localsSafe.id}` : 'textarea';
 
   const wrapClasses = [
     'textarea-wrap', // 기본 textarea 래퍼
@@ -36,12 +36,12 @@
 -%>
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
-  <div class="form-tit"><label for="<%= uniqueId %>"><%= title %></label></div>
+  <div class="form-tit"><label for="<%= id %>"><%= title %></label></div>
   <div class="form-conts">
 <% } -%>
     <div class="<%= wrapClasses %>">
       <textarea
-        id="<%= uniqueId %>"
+        id="<%= id %>"
         class="<%= textareaClasses %>"
         name="<%= name %>"
         placeholder="<%= placeholder %>"

@@ -3,7 +3,7 @@
   const variant = localsSafe.variant || 'single'; // single(radio), multi(check), button
   const size = localsSafe.size || 'medium'; // medium, large
 	const items = Array.isArray(localsSafe.items) ? localsSafe.items : [{ label: '기본칩' }];
-	const name = localsSafe.name || `chip-${variant}-${Math.random().toString(36).substring(2, 9)}`;
+	const name = localsSafe.name ? `chip-${localsSafe.name}` : `chip-${Math.random().toString(36).substring(2, 9)}`;
 	const addClass = localsSafe.addClass || ''; 
 	const groupClasses = [
     `check-area`,
@@ -28,20 +28,20 @@
   const itemValue = item.value || itemLabel;
   const itemChecked = item.checked || false;
   const itemDisabled = item.disabled ? 'disabled' : '';
-  const uniqueId = `chip-${variant}-${Math.random().toString(36).substring(2, 9)}`;
+	const id = localsSafe.id ? `chip-${localsSafe.id}` : `chip-${Math.random().toString(36).substring(2, 9)}`;
 -%>
 <%_ if (variant === 'single' || variant === 'multi') { -%>
   <%# 라디오 또는 체크박스 렌더링 %>
   <div class="<%= chipBaseClasses %>">
     <input
       type="<%= inputType %>"
-      id="<%= uniqueId %>"
+      id="<%= id %>"
       name="<%= name %>"
       value="<%= itemValue %>"
       <%= itemChecked ? 'checked' : '' %>
       <%= itemDisabled %>
     />
-    <label for="<%= uniqueId %>" class="form-chip-outline">
+    <label for="<%= id %>" class="form-chip-outline">
       <span><%= itemLabel %></span>
     </label>
   </div>

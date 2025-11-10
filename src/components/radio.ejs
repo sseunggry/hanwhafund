@@ -16,16 +16,16 @@
 		addClass
   ].filter(Boolean).join(' ');
 
-	const uniqueId = `radio-${Math.random().toString(36).substring(2, 9)}`;
+	const id = localsSafe.id ? `radio-${localsSafe.id}` : `radio-${Math.random().toString(36).substring(2, 9)}`;
 -%>
 <div class="<%= classes %>">
 	<input 
 		type="radio" 
-		id="<%= uniqueId %>" 
+		id="<%= id %>" 
 		<%= state === 'checked' ? 'checked' : '' %>
 		<%= disabled %>
 	>
-	<label for="<%= uniqueId %>">
+	<label for="<%= id %>">
 		<% if (slot) { -%>
 			<span class="sr-only"><%= label %></span>
 			<%- slot %>
