@@ -20,12 +20,12 @@
 								<div class="visual">
 									<div class="inner">
 										<div class="tit-wrap">
-											<h2 class="tit">A Life-Long Generational Partner</h2>
+											<p class="num">01</p>
 											<p class="desc">탁월한 성과로 고객의 미래 성장을 지원합니다. <br/> 고객의 내일을 지키는 종합자산운용사</p>
 										</div>
 									</div>
 									<div class="img-wrap">
-										<img src="../../assets/images/main/visual-bg-01.png" alt="">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
 									</div>
 								</div>
 							</div>
@@ -33,12 +33,12 @@
 								<div class="visual">
 									<div class="inner">
 										<div class="tit-wrap">
-											<h2 class="tit">A Life-Long Generational Partner</h2>
+											<p class="num">02</p>
 											<p class="desc">탁월한 성과로 고객의 미래 성장을 지원합니다. <br/> 고객의 내일을 지키는 종합자산운용사</p>
 										</div>
 									</div>
 									<div class="img-wrap">
-										<img src="../../assets/images/main/visual-bg-01.png" alt="">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
 									</div>
 								</div>
 							</div>
@@ -46,12 +46,12 @@
 								<div class="visual">
 									<div class="inner">
 										<div class="tit-wrap">
-											<h2 class="tit">A Life-Long Generational Partner</h2>
+											<p class="num">03</p>
 											<p class="desc">탁월한 성과로 고객의 미래 성장을 지원합니다. <br/> 고객의 내일을 지키는 종합자산운용사</p>
 										</div>
 									</div>
 									<div class="img-wrap">
-										<img src="../../assets/images/main/visual-bg-01.png" alt="">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
 									</div>
 								</div>
 							</div>
@@ -74,13 +74,15 @@
 							<p class="sub-tit">탁월한 성과를 내는 비저너리 파트너</p>
 						</div>
 						<div class="info-wrap">
-							<div class="img-wrap">
-
-							</div>
+							<ul class="img-wrap">
+								<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
+								<li><img src="~@/assets/images/main/partner-02.png" alt=""></li>
+								<li><img src="~@/assets/images/main/partner-03.png" alt=""></li>
+							</ul>
 							<div class="txt-wrap">
 								<dl>
 									<dt>총 운용 자산</dt>
-									<dd>116조</dd>
+									<dd>116<small>조</small></dd>
 								</dl>
 								<dl>
 									<dt>국내 기관 고객</dt>
@@ -103,26 +105,14 @@
 
 				<section class="section-business">
 					<div class="inner">
-						<ul class="list">
-							<li class="list-item">
-								<p class="tit">VC 투자</p>
-								<p class="desc">
-									한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.
-								</p>
-							</li>
-							<li class="list-item">
-								<p class="tit">사모펀드</p>
-								<p class="desc">
-									한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.
-								</p>
-							</li>
-							<li class="list-item">
-								<p class="tit">펀드</p>
-								<p class="desc">
-									한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.
-								</p>
-							</li>
-						</ul>
+						<%- include('../../components/accordion.ejs', {
+							addClass: 'translucent',
+							items: [
+								{title: 'VC 투자', content: '한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.', active: true },
+								{title: '사모펀드', content: '한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.' },
+								{title: '펀드', content: '한화자산운용 VC투자본부는 지난 10여 년간 축적된 벤처투자 운용 역량을 기반으로, 현재 약 2.3조 원 규모의 VC 자산을 운용 중인 종합자산운용사 내 최대 규모의 벤처투자 운용 조직입니다.' }
+							],
+						}) %>
 					</div>
 				</section>
 
@@ -296,41 +286,48 @@
 				<section class="section-insight">
 					<div class="overlay-box-wrap">
 						<div class="visual-box">
-							<p class="tit-md">investment insight</p>
+							<div class="main-tit-wrap">
+								<h2 class="tit">Investment insight</h2>
+							</div>
+							<ul class="img-wrap">
+								<li><img src="~@/assets/images/main/insight-01.png" alt=""></li>
+								<li><img src="~@/assets/images/main/insight-02.png" alt=""></li>
+								<li><img src="~@/assets/images/main/insight-03.png" alt=""></li>
+							</ul>
 						</div>
 						<div class="info-box">
 							<ul class="news-list">
-								<li class="list-item">
+								<li class="news-item">
 									<a href="#!">
-										<div class="item-top">
+										<div class="news-top">
 											<p class="category">News</p>
 											<p class="date">2025-10-22</p>
 										</div>
-										<div class="item-con">
+										<div class="news-con">
 											<p class="tit">대체 불가능한 자원, 불안정한 공급망 속 투자기회 '희토류'</p>
 											<p class="desc">미• 중 패권 경쟁 속에서 희토류의 전략적 가치가 날로 부각되고 있는 가운데, 향후 수급 전망을 분석해 보았습니다. IEA(국제에너지기구) 의 분석에 따르면, 2030년까지 희토류 수요는 시나리오에 따라 연평균 5~8%의 성장률(CAGR)을 기록할 것으로 전망됩니다. 클린에너지 를 중심으로 한 견조한 수요가 지속되는 반면, 공급 측면에서는 중국 외 국가들의 공급 확대가 이루어지며, 2030년까지 중국의 채굴 점유 율은 8%p, 정제 점유율은 15%p 하락할 것으로 예상됩니다. 이처럼 중국에 대한 의존도를 점진적으로 낮추면서 공급망 안정성을 확보하 려는 글로벌 움직임은 앞으로도 이어질 수밖에 없으며, 이에 따라 희토류의 전략적 가치는 향후 더욱 부각될 가능성이 큽니다.</p>
 										</div>
 									</a>
 								</li>
-								<li class="list-item">
+								<li class="news-item">
 									<a href="#!">
-										<div class="item-top">
+										<div class="news-top">
 											<p class="category">Notice</p>
 											<p class="date">2025-10-22</p>
 										</div>
-										<div class="item-con">
+										<div class="news-con">
 											<p class="tit">배당소득 분리과세, 감액배당 혜택 받는 숨은 알짜 기업은?</p>
 											<p class="desc">미• 중 패권 경쟁 속에서 희토류의 전략적 가치가 날로 부각되고 있는 가운데, 향후 수급 전망을 분석해 보았습니다. IEA(국제에너지기구) 의 분석에 따르면, 2030년까지 희토류 수요는 시나리오에 따라 연평균 5~8%의 성장률(CAGR)을 기록할 것으로 전망됩니다. 클린에너지 를 중심으로 한 견조한 수요가 지속되는 반면, 공급 측면에서는 중국 외 국가들의 공급 확대가 이루어지며, 2030년까지 중국의 채굴 점유 율은 8%p, 정제 점유율은 15%p 하락할 것으로 예상됩니다. 이처럼 중국에 대한 의존도를 점진적으로 낮추면서 공급망 안정성을 확보하 려는 글로벌 움직임은 앞으로도 이어질 수밖에 없으며, 이에 따라 희토류의 전략적 가치는 향후 더욱 부각될 가능성이 큽니다.</p>
 										</div>
 									</a>
 								</li>
-								<li class="list-item">
+								<li class="news-item">
 									<a href="#!">
-										<div class="item-top">
+										<div class="news-top">
 											<p class="category">News</p>
 											<p class="date">2025-10-22</p>
 										</div>
-										<div class="item-con">
+										<div class="news-con">
 											<p class="tit">K방산 대표기업 정말 비싸진 걸까요?</p>
 											<p class="desc">미• 중 패권 경쟁 속에서 희토류의 전략적 가치가 날로 부각되고 있는 가운데, 향후 수급 전망을 분석해 보았습니다. IEA(국제에너지기구) 의 분석에 따르면, 2030년까지 희토류 수요는 시나리오에 따라 연평균 5~8%의 성장률(CAGR)을 기록할 것으로 전망됩니다. 클린에너지 를 중심으로 한 견조한 수요가 지속되는 반면, 공급 측면에서는 중국 외 국가들의 공급 확대가 이루어지며, 2030년까지 중국의 채굴 점유 율은 8%p, 정제 점유율은 15%p 하락할 것으로 예상됩니다. 이처럼 중국에 대한 의존도를 점진적으로 낮추면서 공급망 안정성을 확보하 려는 글로벌 움직임은 앞으로도 이어질 수밖에 없으며, 이에 따라 희토류의 전략적 가치는 향후 더욱 부각될 가능성이 큽니다.</p>
 										</div>

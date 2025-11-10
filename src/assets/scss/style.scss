@@ -43,10 +43,7 @@
     width: 61.407%;
     z-index: 1;
 
-    background: rgba(225, 224, 224, 0.2); /* 반투명 흰색 */
-    backdrop-filter: blur(1rem); /* 핵심! 배경 블러 효과 */
-    -webkit-backdrop-filter: blur(1rem); /* Safari 지원용 */
-    border: 0.1rem solid rgba(255, 255, 255, 0.3); /* 테두리 살짝 */
+		@include translucent(rgba(225, 224, 224, 0.2), 1rem, rgba(255, 255, 255, 0.3));
   }
 }
 

@@ -219,3 +219,23 @@
 @mixin border-position($position: left, $line, $color, $important) {
   border-#{$position}: #{$line} solid #{$color} #{$important};
 }
+
+//gradient-txt
+@mixin txt-gradient(){
+  background: var(--#{$prefix}-color-gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
+}
+
+//반투명 효과
+@mixin translucent($bg: rgba(251, 182, 182, 0.24), $filter: 2rem, $border: null){
+	@if $border != null {
+    border-top: 0.1rem solid $border;
+    border-right: 0.1rem solid $border;
+    border-left: 0.1rem solid $border;
+  }
+	background: $bg;
+	backdrop-filter: blur($filter);
+}

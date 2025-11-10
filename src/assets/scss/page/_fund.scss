@@ -90,12 +90,9 @@
           --fund-summary-li-gap: 4.94%;
 
           display: flex;
-          // display: grid;
-          // grid-template-columns: repeat(4, 1fr);
           padding: 4rem;
           gap: var(--fund-summary-li-gap);
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(2rem);
+					@include translucent(rgba(255, 255, 255, 0.1), 2rem);
 
           li {
             position: relative;
@@ -155,11 +152,7 @@
 
         .tit-wrap {
           padding: 2.1rem 3.2rem;
-          border-top: 0.1rem solid rgba(255, 255, 255, 0.12);
-          border-right: 0.1rem solid rgba(255, 255, 255, 0.12);
-          border-left: 0.1rem solid rgba(255, 255, 255, 0.12);
-          background: rgba(251, 182, 182, 0.24);
-          backdrop-filter: blur(2rem);
+					@include translucent($border: rgba(255, 255, 255, 0.12));
 
           .tit {
             display: flex;
@@ -181,11 +174,7 @@
         .desc-wrap {
           padding: 2.4rem 3.2rem;
           color: #fff;
-          border-right: 0.1rem solid rgba(255, 255, 255, 0.12);
-          border-bottom: 0.1rem solid rgba(255, 255, 255, 0.12);
-          border-left: 0.1rem solid rgba(255, 255, 255, 0.12);
-          background: rgba(251, 182, 182, 0.12);
-          backdrop-filter: blur(5rem);
+					@include translucent(rgba(251, 182, 182, 0.12), 5rem, rgba(255, 255, 255, 0.12));
 
           dt {
             margin-bottom: 1.6rem;

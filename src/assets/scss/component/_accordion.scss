@@ -20,9 +20,13 @@
   --#{$prefix}-accordion--category-color: var(--#{$prefix}-color-text-primary);
   --#{$prefix}-accordion--title-color: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-accordion--body-color: var(--#{$prefix}-color-text-subtle);
-
+	
   --#{$prefix}-accordion--button-color-action: transparent;
   --#{$prefix}-accordion--button-color-action-hover: #F3F2F1;
+
+	--#{$prefix}-accordion--translucent-color-divider: rgba(255, 255, 255, 0.25);
+  --#{$prefix}-accordion--translucent-title-color: var(--#{$prefix}-color-text-strong);
+  --#{$prefix}-accordion--translucent-body-color: var(--#{$prefix}-color-text-strong);
 }
 
 .accordion {
@@ -124,9 +128,35 @@
     margin-top: var(--#{$prefix}-accordion--more-button-gap);
   }
 
+	// 반투명, 메인
+	&.translucent{
+		@include translucent(rgba(255, 255, 255, 0.20), 6rem, rgba(255, 255, 255, 0.25));
+
+		.accordion-item{
+			border-top-width: 0;
+			border-bottom: 0.1rem solid var(--#{$prefix}-accordion--translucent-color-divider);
+
+			.btn-accordion{
+				background-color: transparent;
+
+				.tit{
+					color: var(--#{$prefix}-accordion--translucent-title-color);
+				}
+			}
+			.accordion-body{
+				color: var(--#{$prefix}-accordion--translucent-body-color);
+				background-color: transparent;
+
+				&::before{
+					display: none;
+				}
+			}
+		}
+	}
+
   @include mq(tablet-small) {
     .accordion-item {
-      .btn-accordion{
+		.btn-accordion{
         flex-direction: column;
         gap: 0.4rem;
       }
