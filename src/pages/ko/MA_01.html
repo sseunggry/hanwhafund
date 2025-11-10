@@ -8,12 +8,14 @@
 	<body>
 		<div class="wrap page-main">
 			<!-- header -->
-			<%- include('../../layouts/header.ejs') -%>
+			<%- include('../../layouts/header.ejs', {
+				// addClass: 'motion opacity'
+			}) -%>
 			<!-- // header -->
 			
 			<!-- contents -->
 			<main class="contents">
-				<section class="section-visual">
+				<section class="section-visual motion fade-up" data-duration="1s">
 					<div class="swiper main-visual-swiper">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
@@ -69,7 +71,7 @@
 
 				<section class="section-partner">
 					<div class="inner">
-						<div class="main-tit-wrap">
+						<div class="main-tit-wrap motion fade-up">
 							<h2 class="tit">a visionary partner, <br/> leading excellent investment</h2>
 							<p class="sub-tit">탁월한 성과를 내는 비저너리 파트너</p>
 						</div>
@@ -82,15 +84,15 @@
 							<div class="txt-wrap">
 								<dl>
 									<dt>총 운용 자산</dt>
-									<dd>116<small>조</small></dd>
+									<dd><span class="counter" data-num="116">0</span><small>조</small></dd>
 								</dl>
 								<dl>
 									<dt>국내 기관 고객</dt>
-									<dd>60+</dd>
+									<dd><span class="counter" data-num="60">0</span>+</dd>
 								</dl>
 								<dl>
 									<dt>해외 파트너</dt>
-									<dd>50+</dd>
+									<dd><span class="counter" data-num="50">0</span>+</dd>
 								</dl>
 							</div>
 						</div>
@@ -358,5 +360,254 @@
 			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
+		<script>
+			const gsapPartnerAnimation = {
+				init: function() {
+					const $section = $(".section-partner");
+					if (!$section.length) return;
+
+					// 1. 요소 및 데이터 미리 캐싱
+					const $counters = $section.find(".counter");
+					const $dl = $section.find(".txt-wrap dl");
+					const $images = $section.find(".img-wrap li");
+
+					const endNum1 = $counters.eq(0).data('num') || 0;
+					const endNum2 = $counters.eq(1).data('num') || 0;
+					const endNum3 = $counters.eq(2).data('num') || 0;
+					
+					const counters = { counter1: 0, counter2: 0, counter3: 0 };
+					
+					// 2. 메인 타임라인 생성
+					const tl = gsap.timeline({
+						scrollTrigger: {
+							trigger: $section[0],
+							start: "top 70%",
+							toggleActions: "restart none none reverse",
+							markers: false
+						}
+					});
+
+					// 3.자동 재생 시퀀스 (fromTo 사용)
+					// Part 1: (0초 시작)
+					// 이미지
+					tl.fromTo($images.eq(0), 
+						{ scale: 1.1, opacity: 0 }, // From (시작)
+						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" } // To (끝)
+					);
+					
+					// 텍스트
+					tl.fromTo($dl.eq(0), 
+						{ y: 50, opacity: 0 }, // From (시작)
+						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, // To (끝)
+						"<0.2" // 이미지 시작 0.2초 후
+					); 
+					
+					// 카운터
+					tl.to(counters, { 
+						counter1: endNum1,
+						duration: 1, 
+						snap: "counter1",
+						ease: "expo.out", 
+						onUpdate: () => $counters.eq(0).text(Math.round(counters.counter1))
+					}, "<"); // 텍스트와 동시에 시작
+
+					// Part 2: (Part 1의 가장 긴 애니메이션(카운터)이 끝나고 0.5초 후)
+					tl.fromTo($images.eq(1), 
+						{ scale: 1.1, opacity: 0 },
+						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" },
+						"+=0.1" // 딜레이
+					);
+					tl.fromTo($dl.eq(1),
+						{ y: 50, opacity: 0 },
+						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+						"<0.1"
+					);
+					tl.to(counters, {
+						counter2: endNum2,
+						duration: 1,
+						snap: "counter2",
+						ease: "expo.out",
+						onUpdate: () => $counters.eq(1).text(Math.round(counters.counter2))
+					}, "<");
+
+					// Part 3: (Part 2가 끝나고 0.5초 후)
+					tl.fromTo($images.eq(2), 
+						{ scale: 1.1, opacity: 0 },
+						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" },
+						"+=0.1"
+					);
+					tl.fromTo($dl.eq(2),
+						{ y: 50, opacity: 0 },
+						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+						"<0.1"
+					);
+					tl.to(counters, {
+						counter3: endNum3,
+						duration: 1,
+						snap: "counter3",
+						ease: "expo.out",
+						onUpdate: () => $counters.eq(2).text(Math.round(counters.counter3))
+					}, "<");
+				}
+			};
+			const gsapMessagePin = {
+				init: function() {
+					const $sectionMsgContainer = $(".section-message");
+   				const $sectionMsgText = $(".section-message .tit");
+					const $sectionBiz = $(".section-business");
+					if (!$sectionMsgContainer.length || !$sectionMsgText.length || !$sectionBiz.length) return;
+					const msgHeight = $sectionMsgText.outerHeight();
+
+					gsap.timeline({
+						scrollTrigger: {
+							trigger: $sectionMsgContainer, // 트리거 .section-message가 뷰포트 상단에 닿을 때 시작
+							start: "top top", 
+							endTrigger: $sectionBiz, // 종료: .section-business의 'top'이 뷰포트의 'top + (msgHeight / 2)px' 지점에 닿을 때
+							end: `top ${msgHeight / 2}px`,
+							pin: $sectionMsgContainer, // 고정 : section-message를 고정(pin)
+							pinSpacing: false, // 고정 시 여백(padding)을 추가X
+							scrub: 1, 
+							// markers: true // (디버깅 시 true로 변경)
+						}
+					})
+					.to($sectionMsgText, {
+						// y: -(msgHeight / 2),
+						ease: "none" // 스크롤과 동일한 속도로 이동
+					});
+				}
+			};
+			const gsapBusinessPin2 = {
+				init: function() {
+					// 1. 고정할 섹션을 선택합니다.
+					const $sectionBiz = $(".section-business");
+					if (!$sectionBiz.length) return;
+
+					// 2. GSAP 타임라인을 생성합니다.
+					gsap.timeline({
+						scrollTrigger: {
+							// [1] 트리거: .section-business가 뷰포트 상단에 닿을 때
+							trigger: $sectionBiz,
+							start: "top top", 
+							
+							// [2] 종료: "트리거의(section-business) bottom"이 
+							//             "뷰포트의 bottom"에 닿을 때
+							// (즉, 섹션의 높이만큼 스크롤할 동안 고정됩니다)
+							end: "bottom bottom",
+							
+							// [3] 고정: .section-business를 고정합니다.
+							pin: $sectionBiz,
+							
+							// [4] 스크롤 이벤트에 고정(pin)만 사용하고, 애니메이션은 끕니다.
+							scrub: false, // 타임라인 애니메이션을 스크롤에 묶지 않음
+							
+							// [5] 핀이 활성화/비활성화되는 시점을 제어합니다.
+							// (내려갈 때 고정, 다시 올라갈 때 고정 해제)
+							toggleActions: "play none none reverse", 
+							
+							pinSpacing: false, // 핀으로 인한 여백(padding)을 추가하지 않음
+							markers: true // (디버깅 시 true로 변경)
+						}
+					});
+					
+					// (참고: 아코디언의 첫 번째 항목은 HTML에 이미 'active'로 열려있으므로
+					//  GSAP으로 별도 제어할 필요 없이, 섹션을 pin 하기만 하면 됩니다.)
+				}
+			}
+
+			const gsapBusinessPin = {
+				init: function() {
+					const $sectionBiz = $(".section-business");
+					const $firstItem = $sectionBiz.find(".accordion-item").first();
+					const $firstButton = $firstItem.find(".btn-accordion");
+					const $firstContent = $firstItem.find(".accordion-collapse");
+
+					if (!$sectionBiz.length || !$firstContent.length) return;
+
+					gsap.set($firstContent, { height: 0, autoAlpha: 0 }); // autoAlpha = opacity + visibility
+
+					// 2. 타임라인 생성
+					const tl = gsap.timeline({
+						scrollTrigger: {
+							trigger: $sectionBiz,
+							start: "top top", 
+							pin: $sectionBiz,
+							end: "+=300", 
+							toggleActions: "play none none reverse", 
+							// pinSpacing: false,
+							// markers: true
+						}
+					});
+					// 0초: 클래스와 ARIA 속성 변경
+					tl.to($firstItem, {
+						toggleClass: "active", // 'active' 클래스를 토글 (추가/제거)
+						duration: 0.1 
+					});
+					tl.to($firstButton, {
+						attr: { "aria-expanded": "true" },
+						duration: 0.1
+					}, "<"); // 0초에 동시 시작
+
+					// 0초: (가장 중요) 0.5초 동안 높이와 투명도 애니메이션
+					tl.to($firstContent, {
+						height: "auto",  // 닫힌 상태(0)에서 'auto' 높이로
+						autoAlpha: 1,    // 투명도/가시성 켜기
+						duration: 0.5,   // 0.5초 동안 열림
+						ease: "expo.out"
+					}, "<"); // 0초에 동시 시작
+
+					tl.to($firstButton, {
+						attr: { "aria-expanded": "false" },
+						duration: 0.1
+					}, 0.5);
+				}
+			};
+
+			const gsapInsightAnimation = {
+				init: function() {
+					const $visualBox = $(".section-insight .visual-box"); 
+					const $infoBox = $(".section-insight .info-box"); 
+					if (!$visualBox.length || !$infoBox.length) return;
+
+					gsap.from($infoBox, { // 모션은 .info-box에 적용
+						y: 60,           // 'From': 100px 아래에서 시작
+						opacity: 1,       // 'From': opacity를 1로 유지 (페이드인 없음)
+						duration: 1.0,    // 1초 동안
+						ease: "power3.out", // 부드러운 감속
+						
+						scrollTrigger: {
+							trigger: $visualBox[0], 
+							start: "top 30%",     
+							toggleActions: "restart none none reverse", 
+							// markers: true // (디버깅 시 true로 변경)
+						}
+					});
+				}
+			};
+			const gsapBannerTextFill = {
+				init: function() {
+					const $bannerTit = $(".section-banner .tit");
+					if (!$bannerTit.length) return;
+
+					gsap.to($bannerTit, {
+						backgroundPosition: "0% 0", // 배경 이미지를 왼쪽 끝으로 이동시켜 색상이 채워지는 효과
+						duration: 1.5,              // 1.5초 동안
+						ease: "power2.out",         // 부드러운 가속/감속
+						scrollTrigger: {
+							trigger: $bannerTit[0],
+							start: "top 50%",     
+							toggleActions: "restart none none reverse", 
+							// markers: true // (디버깅 시 true로 변경)
+						}
+					});
+				}
+			};
+			$(function () {
+				gsapPartnerAnimation.init();
+				gsapMessagePin.init();
+				// gsapBusinessPin.init();
+				gsapInsightAnimation.init();
+				gsapBannerTextFill.init();
+			});
+		</script>
 	</body>
 </html>

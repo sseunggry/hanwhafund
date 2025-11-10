@@ -1,4 +1,8 @@
-<header class="header">
+<%
+	const localsSafe = locals || {};
+  const addClass = localsSafe.addClass || '';
+-%>
+<header class="header <%= addClass %>">
 	<div class="header-top">
 			<div class="inner">
 				<ul class="link">
