@@ -559,7 +559,7 @@ const uiTab = {
     });
   },
 };
-const uiToast2 = {
+const uiToast = {
   $viewport: null,
   messages: {
     'download': '선택한 파일이 다운로드되었습니다.',
@@ -596,74 +596,6 @@ const uiToast2 = {
     setTimeout(() => {
       $toast.remove();
     }, duration + 400);
-  }
-};
-const uiToast = {
-  messages: {
-    'download': '선택한 파일이 다운로드되었습니다.',
-  },
-
-  init: function () {
-    const self = this;
-    
-    $(document).on('click.uiToast', '[data-toast]', function(e) {
-      const $btn = $(this);
-      const toastKey = $btn.data('toast');
-      
-      let content;
-      let contentType = 'text';
-
-      if (self.messages[toastKey]) {
-        content = self.messages[toastKey];
-        contentType = 'text';
-
-      } else if (toastKey.startsWith('#') || toastKey.startsWith('.')) {
-        const $template = $(toastKey);
-        if ($template.length) {
-          content = $template.html();
-          contentType = 'html';
-        } else {
-          content = "토스트 템플릿을 찾을 수 없습니다.";
-          contentType = 'text';
-        }
-      } else {
-        content = toastKey;
-        contentType = 'text';
-      }
-      
-      self.show(content, 3000, contentType);
-    });
-  },
-  show: function (content, duration = 3000, contentType = 'text') {
-    if (!content) return;
-
-    let $viewport = $(".toast-container");
-
-    if ($viewport.length === 0) {
-      $viewport = $('<div class="toast-container" aria-live="polite" aria-atomic="true"></div>');
-      $("body").append($viewport);
-    }
-
-    const $toast = $('<div class="toast"></div>'); 
-
-    if (contentType === 'html') {
-      $toast.html(content);
-    } else {
-      $toast.text(content);
-    }
-    $viewport.append($toast);
-
-    setTimeout(() => {
-      $toast.addClass("show");
-    }, 10);
-
-    setTimeout(() => {
-      $toast.removeClass("show");
-    }, duration);
-
-    setTimeout(() => {
-      $toast.remove();
-    }, duration + 400); 
   }
 };
 const uiSegmentControl = {
