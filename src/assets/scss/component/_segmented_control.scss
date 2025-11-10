@@ -69,12 +69,14 @@ $segment-control-size: (
 		display: flex;
 		justify-content: center;
 		gap: 0.8rem;
-
+		overflow-x: auto;
+		
 		.control-btn {
 			align-items: center;
 			color: var(--#{$prefix}-segment-control--button-color-text);
 			border: 0.1rem solid transparent;
 			background-color: var(--#{$prefix}-segment-control--button-color-background-action);
+			white-space: nowrap;
 
 			&.active {
 				color: var(--#{$prefix}-segment-control--button-color-text-active);

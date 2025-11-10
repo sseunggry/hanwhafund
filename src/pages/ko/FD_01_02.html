@@ -195,23 +195,21 @@
 										<div class="chart-top">
 											<p class="date">기준일 2025.10.17</p>
 											<div class="filter-period">
-												<div class="scroll-wrap">
-													<%- include('../../components/segmentControl.ejs', {
-														tag: 'button',
-														variant: 'bg',
-														items: [
-															{ label: '1주' },
-															{ label: '1개월' },
-															{ label: '3개월' },
-															{ label: '6개월' },
-															{ label: '1년' },
-															{ label: '3년' },
-															{ label: '5년' },
-															{ label: '연초이후' },
-															{ label: '설정이후' }
-														]
-													}) -%>
-												</div>
+												<%- include('../../components/segmentControl.ejs', {
+													tag: 'button',
+													variant: 'bg',
+													items: [
+														{ label: '1주' },
+														{ label: '1개월' },
+														{ label: '3개월' },
+														{ label: '6개월' },
+														{ label: '1년' },
+														{ label: '3년' },
+														{ label: '5년' },
+														{ label: '연초이후' },
+														{ label: '설정이후' }
+													]
+												}) -%>
 												<div class="pc-only">
 													<div class="form-input-group">
 														<%- include('../../components/calendar.ejs', {
@@ -920,9 +918,7 @@
 			const DailyPriceInputButtonMo = include('../../components/button.ejs', { tag: 'button', variant: 'text', label: '직접설정', size: 'large', preIcon: 'filter', targetType: 'modal', targetId: 'mobilFilterBottomSheet',});
 			const DailyPriceFilter = 
 			`<div class="filter-period">
-				<div class="scroll-wrap">
-					${DailyPriceSegmentControl}
-				</div>
+				${DailyPriceSegmentControl}
 				<div class="pc-only">
 					<div class="form-input-group">
 						${DailyPriceInputCalendar}

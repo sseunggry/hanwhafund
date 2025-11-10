@@ -38,9 +38,7 @@
       const DailyPriceInputButtonMo = include('../../components/button.ejs', { tag: 'button', variant: 'text', label: '직접설정', size: 'large', preIcon: 'filter', targetType: 'modal', targetId: 'mobilFilterBottomSheet',});
       const DailyPriceFilter = 
       `<div class="filter-period">
-        <div class="scroll-wrap">
-          ${DailyPriceSegmentControl}
-        </div>
+				${DailyPriceSegmentControl}
         <div class="pc-only">
           <div class="form-input-group">
             ${DailyPriceInputCalendar}

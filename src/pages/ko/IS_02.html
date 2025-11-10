@@ -12,7 +12,7 @@
 			<!-- // header -->
 			
 			<!-- container -->
-			<main class="container notice-main">
+			<main class="container">
 				<div class="inner">
 					<div class="cont-group">
 						<div class="section-tit-wrap">
@@ -95,6 +95,14 @@
 								},
 							],
 						});
+						const segmentControl = include('../../components/segmentControl.ejs', {
+								tag: 'button',
+								items: [
+									{ label: '전체' },
+									{ label: '펀드상품' },
+									{ label: '기타 ' },
+								]
+							});
 						const faq = include('../../components/accordion.ejs', {
 							items: [
 								{category: '펀드상품', title: 'ETF란 무엇인가요?', content: '<p>내용1</p>', active: true},
@@ -113,12 +121,23 @@
 							active: 4,
 							variant: 'line',
 							tablist: ['공지', '투자정보', '시황', '뉴스룸', 'FAQ'],
-							contents: [board1, thumbList1, thumbList2, board2, 
+							contents: [
+								board1, 
+								`<div class="board-con">
+									${thumbList1} 
+								</div>`,
+								`<div class="board-con">
+									${thumbList2} 
+								</div>`,
+								board2, 
 								`
+								<div class="board-con">
+									${segmentControl}
 									${faq}
 									<div class="btn-wrap array-center">
 										${moreBtn}
 									</div>
+								</div>
 								`
 							],
 						}) -%>

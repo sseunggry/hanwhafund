@@ -1,10 +1,6 @@
 @use "sass:list";
 @use "../util" as *;
 
-.notice-main{
-	
-}
-
 //게시판 목록
 .board-con{
 	--board-con-gap: 2.4rem;
@@ -16,7 +12,7 @@
 	gap: var(--board-con-gap);
 
 	.segment-control{
-		min-width: 90.7rem;
+		// min-width: 90.7rem;
 	}
 	.board-search{
 		display: flex;
@@ -121,6 +117,17 @@
 		}
 		+ .btn-wrap{
 			margin-top: var(--board-btn-wrap);
+		}
+	}
+	.accordion{
+		margin-top: var(--board-search-top);
+
+		.accordion-item{
+			.btn-accordion{
+				.category{
+					min-width: 6.4rem;
+				}
+			}
 		}
 	}
 
