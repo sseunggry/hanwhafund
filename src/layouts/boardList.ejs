@@ -2,7 +2,7 @@
   const localsSafe = locals || {};
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];
   const addClass = localsSafe.addClass || '';
-  const noDataMessage = localsSafe.noDataMessage || '등록된 게시글이 없습니다.';
+  const noDataMessage = localsSafe.noDataMessage || '등록된 게시글이 없습니다';
   const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : 10;
   const isNew = localsSafe.isNew === false;
 

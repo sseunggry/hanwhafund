@@ -38,7 +38,7 @@
   <% } -%>
   <% if (nav.prev || nav.next) { -%>
   <ul class="board-detail-nav">
-    <% if (nav.prev) { -%>
+    <% if (nav.prev && !nav.prev.disabled) { -%>
     <li class="prev">
       <a href="<%= nav.prev.url || '#!' %>">
         <p class="txt">이전글</p>
@@ -46,8 +46,15 @@
         <% if (nav.prev.desc) { -%><p class="desc"><%- nav.prev.desc %></p><% } -%>
       </a>
     </li>
-    <% } -%>
-    <% if (nav.next) { -%>
+    <% } else { -%>
+		<li class="prev">
+			<a href="#!" disabled>
+				<p class="txt">이전글</p>
+				<p class="tit">이전 글이 없습니다</p>
+			</a>
+		</li>
+  	<% } -%>
+    <% if (nav.next && !nav.next.disabled) { -%>
     <li class="next">
       <a href="<%= nav.next.url || '#!' %>">
         <p class="txt">다음글</p>
@@ -55,7 +62,14 @@
         <% if (nav.next.desc) { -%><p class="desc"><%- nav.next.desc %></p><% } -%>
       </a>
     </li>
-    <% } -%>
+		<% } else { -%>
+		<li class="next">
+			<a href="#!" disabled>
+				<p class="txt">다음글</p>
+				<p class="tit">다음 글이 없습니다</p>
+			</a>
+		</li>
+		<% } -%>
   </ul>
   <% } -%>
   <div class="btn-wrap array-center">

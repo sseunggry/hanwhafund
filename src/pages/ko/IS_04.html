@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 		<%- include('../../layouts/head.ejs', { 
-			title : '투자정보목록 | 인사이트'
+			title : '뉴스룸 | 인사이트'
 		}) -%>
 	</head>
 	<body>
@@ -118,7 +118,7 @@
 						const moreBtn = include("../../components/button.ejs", { label: '더보기', hierarchy: 'tertiary', size: 'large', slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`});
 						-%>
 						<%- include('../../components/tab.ejs', {
-							active: 1,
+							active: 3,
 							variant: 'line',
 							tablist: ['공지', '투자정보', '시황', '뉴스룸', 'FAQ'],
 							contents: [
