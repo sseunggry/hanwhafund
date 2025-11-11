@@ -51,12 +51,12 @@
   }
 
   .header {
-		animation: wipe-in-right 2s ease-in-out 0.2s forwards;
-    position: absolute;
+		position: absolute;
     width: 100%;
     z-index: 2;
     border-bottom: 0;
     backdrop-filter: blur(4rem);
+		animation: wipe-in-right 0.8s ease-in-out 0.2s forwards;
 
     .logo {
       @include bg("common/logo-w.svg");
@@ -153,7 +153,7 @@
   }
 
   .section-visual {
-		animation: wipe-in-right 2s ease-in-out 0.2s forwards;
+		animation: wipe-in-right 0.8s ease-in-out 0.2s forwards;
 
     .visual {
       // position: relative;
@@ -304,6 +304,9 @@
 				}
       }
       .txt-wrap {
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
 				// width: 100%;
 				width: 45%;
 
@@ -311,12 +314,24 @@
           display: flex;
           align-items: center;
 					opacity: 0;
+
+					&:nth-child(1){
+						dd{
+							.counter{
+								min-width: 2.4ch;
+							}
+						}
+					}
+					&:nth-child(2){
+						margin-left: auto;
+					}
         }
         dt {
           padding-right: 4rem;
           color: var(--#{$prefix}-color-text-strong);
           font-size: var(--main-partner-dt-font-size);
           font-weight: 600;
+					white-space: nowrap;
 
           &::before {
             content: "";
@@ -330,8 +345,16 @@
         dd {
           font-size: var(--main-partner-dd-font-size);
           font-family: $font-family-en;
-          line-height: 1.2;
+          line-height: 1;
           @include txt-gradient;
+					white-space: nowrap;
+
+					.counter{
+						font-variant-numeric: tabular-nums;
+						display: inline-block;
+						text-align: right;
+						min-width: 2ch;
+					}
 
           small {
             font-size: var(--main-partner-dd-small-font-size);
@@ -352,6 +375,13 @@
 			// 	}
 				.txt-wrap{
 					width: 100%;
+					// dl{
+					// 	&:nth-child(2){
+					// 		dd{
+					// 			min-width: 36.4rem;
+					// 		}
+					// 	}
+					// }
 					// dt{
 					// 	font-size: 2.8rem;
 					// }
@@ -481,7 +511,7 @@
 
 		position: relative;
 		margin-top: var(--main-business-margin-top);
-    min-height: 100vh;
+    height: 100vh;
     // @include bg("main/business-bg.png");
 
     .inner {
@@ -562,7 +592,7 @@
     }
 
 		@include mq(tablet){
-			min-height: auto;
+			height: auto;
 			.inner{
 				padding: 0;
 			}

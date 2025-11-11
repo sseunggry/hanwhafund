@@ -392,7 +392,6 @@
 					const $section = $(".section-partner");
 					if (!$section.length) return;
 
-					// 1. 요소 및 데이터 미리 캐싱
 					const $counters = $section.find(".counter");
 					const $dl = $section.find(".txt-wrap dl");
 					const $imagesWrap = $section.find(".img-wrap");
@@ -403,8 +402,10 @@
 					const endNum3 = $counters.eq(2).data('num') || 0;
 					
 					const counters = { counter1: 0, counter2: 0, counter3: 0 };
+					const imgDuration = 0.8;
+					const dlDuration = 0.5;
+					const counterDuration = 0.8;
 					
-					// 2. 메인 타임라인 생성
 					const tl = gsap.timeline({
 						scrollTrigger: {
 							trigger: $section[0],
@@ -415,68 +416,66 @@
 					});
 
 					// 3.자동 재생 시퀀스 (fromTo 사용)
-					// Part 1: (0초 시작)
+					// Part 1
 					// 이미지
 					tl.fromTo($imagesWrap, 
-						{ opacity: 0 }, // From (시작)
-						{ opacity: 1, duration: 0.3, ease: "power2.out" } // To (끝)
+						{ opacity: 0 },
+						{ opacity: 1, duration: 0.5, ease: "power2.out" }
 					);
 					tl.fromTo($images.eq(0), 
-						{ scale: 1.1, opacity: 0 }, // From (시작)
-						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" } // To (끝)
+						{ scale: 1.1, opacity: 0 },
+						{ scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" }
 					);
-					
 					// 텍스트
 					tl.fromTo($dl.eq(0), 
-						{ y: 50, opacity: 0 }, // From (시작)
-						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, // To (끝)
-						"<0.2" // 이미지 시작 0.2초 후
+						{ y: 50, opacity: 0 },
+						{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
+						"<0.2"
 					); 
-					
 					// 카운터
 					tl.to(counters, { 
 						counter1: endNum1,
-						duration: 1, 
+						duration: counterDuration, 
 						snap: "counter1",
-						ease: "expo.out", 
+						ease: "ease-in-out", 
 						onUpdate: () => $counters.eq(0).text(Math.round(counters.counter1))
-					}, "<"); // 텍스트와 동시에 시작
+					}, "<");
 
-					// Part 2: (Part 1의 가장 긴 애니메이션(카운터)이 끝나고 0.5초 후)
+					// Part 2
 					tl.fromTo($images.eq(1), 
 						{ scale: 1.1, opacity: 0 },
-						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" },
-						"+=0.1" // 딜레이
+						{ scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" },
+						"+=0.1"
 					);
 					tl.fromTo($dl.eq(1),
 						{ y: 50, opacity: 0 },
-						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+						{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
 						"<0.1"
 					);
 					tl.to(counters, {
 						counter2: endNum2,
-						duration: 1,
+						duration: counterDuration,
 						snap: "counter2",
-						ease: "expo.out",
+						ease: "ease-in-out",
 						onUpdate: () => $counters.eq(1).text(Math.round(counters.counter2))
 					}, "<");
 
 					// Part 3: (Part 2가 끝나고 0.5초 후)
 					tl.fromTo($images.eq(2), 
 						{ scale: 1.1, opacity: 0 },
-						{ scale: 1, opacity: 1, duration: 1.0, ease: "power2.out" },
+						{ scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" },
 						"+=0.1"
 					);
 					tl.fromTo($dl.eq(2),
 						{ y: 50, opacity: 0 },
-						{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+						{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
 						"<0.1"
 					);
 					tl.to(counters, {
 						counter3: endNum3,
-						duration: 1,
+						duration: counterDuration,
 						snap: "counter3",
-						ease: "expo.out",
+						ease: "ease-in-out",
 						onUpdate: () => $counters.eq(2).text(Math.round(counters.counter3))
 					}, "<");
 				}
