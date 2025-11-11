@@ -303,7 +303,7 @@
 
   @include mq(pc) {
     .card-list {
-      overflow-x: auto;
+      overflow: auto hidden;
       .card-item {
         min-width: 31.1rem;
       }
