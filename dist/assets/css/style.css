@@ -7864,12 +7864,12 @@ label {
 }
 
 .page-main .header {
-	animation: wipe-in-right 2s ease-in-out .2s forwards;
 	position: absolute;
 	width: 100%;
 	z-index: 2;
 	border-bottom: 0;
-	backdrop-filter: blur(4rem)
+	backdrop-filter: blur(4rem);
+	animation: wipe-in-right .8s ease-in-out .2s forwards
 }
 
 .page-main .header .logo {
@@ -7952,7 +7952,7 @@ label {
 }
 
 .page-main .section-visual {
-	animation: wipe-in-right 2s ease-in-out .2s forwards
+	animation: wipe-in-right .8s ease-in-out .2s forwards
 }
 
 .page-main .section-visual .visual {
@@ -8099,6 +8099,9 @@ label {
 }
 
 .page-main .section-partner .info-wrap .txt-wrap {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 	width: 45%
 }
 
@@ -8108,11 +8111,20 @@ label {
 	opacity: 0
 }
 
+.page-main .section-partner .info-wrap .txt-wrap dl:nth-child(1) dd .counter {
+	min-width: 2.4ch
+}
+
+.page-main .section-partner .info-wrap .txt-wrap dl:nth-child(2) {
+	margin-left: auto
+}
+
 .page-main .section-partner .info-wrap .txt-wrap dt {
 	padding-right: 4rem;
 	color: var(--hwf-color-text-strong);
 	font-size: var(--main-partner-dt-font-size);
-	font-weight: 600
+	font-weight: 600;
+	white-space: nowrap
 }
 
 .page-main .section-partner .info-wrap .txt-wrap dt::before {
@@ -8128,12 +8140,20 @@ label {
 .page-main .section-partner .info-wrap .txt-wrap dd {
 	font-size: var(--main-partner-dd-font-size);
 	font-family: "Trust2ATRIAL", sans-serif;
-	line-height: 1.2;
+	line-height: 1;
 	background: var(--hwf-color-gradient-text);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: rgba(0, 0, 0, 0);
-	text-transform: capitalize
+	text-transform: capitalize;
+	white-space: nowrap
+}
+
+.page-main .section-partner .info-wrap .txt-wrap dd .counter {
+	font-variant-numeric: tabular-nums;
+	display: inline-block;
+	text-align: right;
+	min-width: 2ch
 }
 
 .page-main .section-partner .info-wrap .txt-wrap dd small {
@@ -8232,7 +8252,7 @@ label {
 	--main-business-margin-top: 12rem;
 	position: relative;
 	margin-top: var(--main-business-margin-top);
-	min-height: 100vh
+	height: 100vh
 }
 
 .page-main .section-business .inner {
@@ -8316,7 +8336,7 @@ label {
 
 @media(max-width: 1024px) {
 	.page-main .section-business {
-		min-height: auto
+		height: auto
 	}
 
 	.page-main .section-business .inner {
