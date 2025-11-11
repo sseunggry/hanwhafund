@@ -8,14 +8,12 @@
 	<body>
 		<div class="wrap page-main">
 			<!-- header -->
-			<%- include('../../layouts/header.ejs', {
-				// addClass: 'motion opacity'
-			}) -%>
+			<%- include('../../layouts/header.ejs') -%>
 			<!-- // header -->
 			
 			<!-- contents -->
 			<main class="contents">
-				<section class="section-visual motion fade-up" data-duration="1s">
+				<section class="section-visual">
 					<div class="swiper main-visual-swiper">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide">
@@ -76,11 +74,13 @@
 							<p class="sub-tit">탁월한 성과를 내는 비저너리 파트너</p>
 						</div>
 						<div class="info-wrap">
-							<ul class="img-wrap">
-								<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
-								<li><img src="~@/assets/images/main/partner-02.png" alt=""></li>
-								<li><img src="~@/assets/images/main/partner-03.png" alt=""></li>
-							</ul>
+							<div class="img-wrap">
+								<ul class="img-list">
+									<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-02.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-03.png" alt=""></li>
+								</ul>
+							</div>
 							<div class="txt-wrap">
 								<dl>
 									<dt>총 운용 자산</dt>
@@ -106,6 +106,9 @@
 				</section>
 
 				<section class="section-business">
+					<div class="img-wrap">
+						<img src="~@/assets/images/main/business-bg.png" alt="">
+					</div>
 					<div class="inner">
 						<%- include('../../components/accordion.ejs', {
 							addClass: 'translucent',
@@ -125,7 +128,7 @@
 						</div>
 						<div class="card-list-wrap">
 							<ul class="card-list">
-								<li class="card-item">
+								<li class="card-item motion fade-up" data-delay="0.1">
 									<a href="#!">
 										<div class="card-top">
 											<%- include('../../components/badge.ejs', { 
@@ -161,7 +164,7 @@
 										</div>
 									</a>
 								</li>
-								<li class="card-item">
+								<li class="card-item motion fade-up" data-delay="0.2">
 									<a href="#!">
 										<div class="card-top">
 											<%- include('../../components/badge.ejs', { 
@@ -197,7 +200,7 @@
 										</div>
 									</a>
 								</li>
-								<li class="card-item">
+								<li class="card-item motion fade-up" data-delay="0.3">
 									<a href="#!">
 										<div class="card-top">
 											<%- include('../../components/badge.ejs', { 
@@ -233,7 +236,7 @@
 										</div>
 									</a>
 								</li>
-								<li class="card-item">
+								<li class="card-item motion fade-up" data-delay="0.4">
 									<a href="#!">
 										<div class="card-top">
 											<%- include('../../components/badge.ejs', { 
@@ -287,7 +290,7 @@
 					<div class="overlay-box-wrap">
 						<div class="visual-box">
 							<div class="main-tit-wrap">
-								<h2 class="tit">Investment insight</h2>
+								<h2 class="tit">Investment <br class="mobile-only"/> insight</h2>
 							</div>
 							<ul class="img-wrap">
 								<li><img src="~@/assets/images/main/insight-01.png" alt=""></li>
@@ -348,8 +351,8 @@
 				<section class="section-banner">
 					<div class="inner">
 						<div class="main-tit-wrap">
-							<h2 class="tit">from promise to prosperity</h2>
-							<p class="desc">고객의 내일을 지키는 종합 자산운용사로 나아갑니다</p>
+							<h2 class="tit">from promise <br class="mobile-only"/> to prosperity</h2>
+							<p class="sub-tit">고객의 내일을 지키는 <br class="mobile-only"/> 종합 자산운용사로 나아갑니다</p>
 						</div>
 					</div>
 				</section>
@@ -361,7 +364,30 @@
 			<!-- // footer -->
 		</div>
 		<script>
-			const gsapPartnerAnimation = {
+			const uiFooterBanner = {
+				init: function() {
+					const $pageMain = $('.page-main');
+					if ($pageMain.length === 0) return;
+
+					this.$banner = $pageMain.find('.section-banner');
+					this.$footer = $pageMain.find('.footer');
+
+					if (this.$banner.length && this.$footer.length) {
+						this.updateHeight();
+
+						$(window).on('resize.footerBanner', this.updateHeight.bind(this));
+					}
+				},
+
+				updateHeight: function() {
+					if (this.$banner && this.$footer) {
+						const footerHeight = this.$footer.outerHeight();
+						this.$banner.css('--main-banner-footer-height', footerHeight + 'px');
+					}
+				}
+			};
+
+			const gsapPartnerAni = {
 				init: function() {
 					const $section = $(".section-partner");
 					if (!$section.length) return;
@@ -369,7 +395,7 @@
 					// 1. 요소 및 데이터 미리 캐싱
 					const $counters = $section.find(".counter");
 					const $dl = $section.find(".txt-wrap dl");
-					const $images = $section.find(".img-wrap li");
+					const $images = $section.find(".img-list li");
 
 					const endNum1 = $counters.eq(0).data('num') || 0;
 					const endNum2 = $counters.eq(1).data('num') || 0;
@@ -381,9 +407,9 @@
 					const tl = gsap.timeline({
 						scrollTrigger: {
 							trigger: $section[0],
-							start: "top 70%",
+							start: "top 10%",
 							toggleActions: "restart none none reverse",
-							markers: false
+							// markers: true,
 						}
 					});
 
@@ -450,7 +476,7 @@
 					}, "<");
 				}
 			};
-			const gsapMessagePin = {
+			const gsapMessageAni = {
 				init: function() {
 					const $sectionMsgContainer = $(".section-message");
    				const $sectionMsgText = $(".section-message .tit");
@@ -476,100 +502,49 @@
 					});
 				}
 			};
-			const gsapBusinessPin2 = {
+			const gsapBusinessAni = {
 				init: function() {
-					// 1. 고정할 섹션을 선택합니다.
 					const $sectionBiz = $(".section-business");
 					if (!$sectionBiz.length) return;
 
-					// 2. GSAP 타임라인을 생성합니다.
-					gsap.timeline({
-						scrollTrigger: {
-							// [1] 트리거: .section-business가 뷰포트 상단에 닿을 때
-							trigger: $sectionBiz,
-							start: "top top", 
-							
-							// [2] 종료: "트리거의(section-business) bottom"이 
-							//             "뷰포트의 bottom"에 닿을 때
-							// (즉, 섹션의 높이만큼 스크롤할 동안 고정됩니다)
-							end: "bottom bottom",
-							
-							// [3] 고정: .section-business를 고정합니다.
-							pin: $sectionBiz,
-							
-							// [4] 스크롤 이벤트에 고정(pin)만 사용하고, 애니메이션은 끕니다.
-							scrub: false, // 타임라인 애니메이션을 스크롤에 묶지 않음
-							
-							// [5] 핀이 활성화/비활성화되는 시점을 제어합니다.
-							// (내려갈 때 고정, 다시 올라갈 때 고정 해제)
-							toggleActions: "play none none reverse", 
-							
-							pinSpacing: false, // 핀으로 인한 여백(padding)을 추가하지 않음
-							markers: true // (디버깅 시 true로 변경)
-						}
-					});
+					const $allItems = $sectionBiz.find(".accordion-item");
+					const $allButtons = $sectionBiz.find(".btn-accordion");
+
+					const $firstItem = $allItems.first();
+					const $firstButton = $allButtons.first();
+
+					if (!$firstItem.length || !$firstButton.length) return;
+
+					$allItems.removeClass("active");
+					$allButtons.removeClass("active").attr("aria-expanded", "false"); 
 					
-					// (참고: 아코디언의 첫 번째 항목은 HTML에 이미 'active'로 열려있으므로
-					//  GSAP으로 별도 제어할 필요 없이, 섹션을 pin 하기만 하면 됩니다.)
-				}
-			}
-
-			const gsapBusinessPin = {
-				init: function() {
-					const $sectionBiz = $(".section-business");
-					const $firstItem = $sectionBiz.find(".accordion-item").first();
-					const $firstButton = $firstItem.find(".btn-accordion");
-					const $firstContent = $firstItem.find(".accordion-collapse");
-
-					if (!$sectionBiz.length || !$firstContent.length) return;
-
-					gsap.set($firstContent, { height: 0, autoAlpha: 0 }); // autoAlpha = opacity + visibility
-
 					// 2. 타임라인 생성
 					const tl = gsap.timeline({
 						scrollTrigger: {
 							trigger: $sectionBiz,
-							start: "top top", 
-							pin: $sectionBiz,
-							end: "+=300", 
+							start: "top 20%", 
 							toggleActions: "play none none reverse", 
-							// pinSpacing: false,
-							// markers: true
+							// markers: true,
+							toggleClass: {
+								targets: [$firstItem, $firstButton], // [타겟1, 타겟2]
+								className: "active"
+							}
 						}
-					});
-					// 0초: 클래스와 ARIA 속성 변경
-					tl.to($firstItem, {
-						toggleClass: "active", // 'active' 클래스를 토글 (추가/제거)
-						duration: 0.1 
 					});
 					tl.to($firstButton, {
 						attr: { "aria-expanded": "true" },
-						duration: 0.1
-					}, "<"); // 0초에 동시 시작
-
-					// 0초: (가장 중요) 0.5초 동안 높이와 투명도 애니메이션
-					tl.to($firstContent, {
-						height: "auto",  // 닫힌 상태(0)에서 'auto' 높이로
-						autoAlpha: 1,    // 투명도/가시성 켜기
-						duration: 0.5,   // 0.5초 동안 열림
-						ease: "expo.out"
-					}, "<"); // 0초에 동시 시작
-
-					tl.to($firstButton, {
-						attr: { "aria-expanded": "false" },
-						duration: 0.1
-					}, 0.5);
+						duration: 0.1 // (0.1초 만에 즉시 반영)
+					});
 				}
 			};
-
-			const gsapInsightAnimation = {
+			const gsapInsightAni = {
 				init: function() {
 					const $visualBox = $(".section-insight .visual-box"); 
 					const $infoBox = $(".section-insight .info-box"); 
 					if (!$visualBox.length || !$infoBox.length) return;
 
 					gsap.from($infoBox, { // 모션은 .info-box에 적용
-						y: 60,           // 'From': 100px 아래에서 시작
+						y: 120,           // 'From': 100px 아래에서 시작
 						opacity: 1,       // 'From': opacity를 1로 유지 (페이드인 없음)
 						duration: 1.0,    // 1초 동안
 						ease: "power3.out", // 부드러운 감속
@@ -583,7 +558,7 @@
 					});
 				}
 			};
-			const gsapBannerTextFill = {
+			const gsapBannerTextFillAni = {
 				init: function() {
 					const $bannerTit = $(".section-banner .tit");
 					if (!$bannerTit.length) return;
@@ -601,12 +576,15 @@
 					});
 				}
 			};
+
 			$(function () {
-				gsapPartnerAnimation.init();
-				gsapMessagePin.init();
-				// gsapBusinessPin.init();
-				gsapInsightAnimation.init();
-				gsapBannerTextFill.init();
+				gsapPartnerAni.init();
+				gsapMessageAni.init();
+				gsapBusinessAni.init();
+				gsapInsightAni.init();
+				gsapBannerTextFillAni.init();
+
+				uiFooterBanner.init();
 			});
 		</script>
 	</body>
