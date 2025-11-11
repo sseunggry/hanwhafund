@@ -59,14 +59,14 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-7zfvgjm" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-siy21g8" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected="selected">KR</option>
                     <option value="EN">EN</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-7zfvgjm-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-siy21g8-listbox" tabindex="0">
                     <span class="select-value">KR</span>
                   </button>
-                  <ul id="select-7zfvgjm-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-siy21g8-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                     <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
@@ -524,14 +524,14 @@
             <div class="util">
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-zsbdkpa" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                  <select class="sr-only" name="family-site" id="select-8v9yar5" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                     <option value="site1">사이트 1</option>
                     <option value="site2">사이트 2</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-zsbdkpa-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-8v9yar5-listbox" tabindex="0">
                     <span class="select-value placeholder">패밀리 사이트</span>
                   </button>
-                  <ul id="select-zsbdkpa-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-8v9yar5-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                     <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                   </ul>
@@ -604,6 +604,7 @@
           // 1. 요소 및 데이터 미리 캐싱
           const $counters = $section.find(".counter");
           const $dl = $section.find(".txt-wrap dl");
+          const $imagesWrap = $section.find(".img-wrap");
           const $images = $section.find(".img-list li");
 
           const endNum1 = $counters.eq(0).data("num") || 0;
@@ -625,6 +626,11 @@
           // 3.자동 재생 시퀀스 (fromTo 사용)
           // Part 1: (0초 시작)
           // 이미지
+          tl.fromTo(
+            $imagesWrap,
+            { opacity: 0 }, // From (시작)
+            { opacity: 1, duration: 0.3, ease: "power2.out" }, // To (끝)
+          );
           tl.fromTo(
             $images.eq(0),
             { scale: 1.1, opacity: 0 }, // From (시작)
@@ -754,22 +760,35 @@
         init: function () {
           const $visualBox = $(".section-insight .visual-box");
           const $infoBox = $(".section-insight .info-box");
-          if (!$visualBox.length || !$infoBox.length) return;
+          const $newsItems = $infoBox.find(".news-item");
+          if (!$visualBox.length || !$infoBox.length || !$newsItems.length) return;
 
-          gsap.from($infoBox, {
-            // 모션은 .info-box에 적용
-            y: 120, // 'From': 100px 아래에서 시작
-            opacity: 1, // 'From': opacity를 1로 유지 (페이드인 없음)
-            duration: 1.0, // 1초 동안
-            ease: "power3.out", // 부드러운 감속
-
+          const tl = gsap.timeline({
             scrollTrigger: {
               trigger: $visualBox[0],
               start: "top 30%",
               toggleActions: "restart none none reverse",
-              // markers: true // (디버깅 시 true로 변경)
+              // markers: true
             },
           });
+
+          tl.from($infoBox, {
+            y: 120,
+            opacity: 1, // 요청하신 대로 opacity: 1 (투명도 변화 없음)
+            duration: 1.0,
+            ease: "power3.out",
+          });
+          tl.from(
+            $newsItems,
+            {
+              y: 50, // 50px 아래에서
+              opacity: 0, // [수정] 이것은 fade-up이므로 opacity 0에서 시작
+              duration: 0.8,
+              ease: "power3.out",
+              stagger: 0.2, // 0.2초 간격으로 순차 재생
+            },
+            "<0.3",
+          );
         },
       };
       const gsapBannerTextFillAni = {

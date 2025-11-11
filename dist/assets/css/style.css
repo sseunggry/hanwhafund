@@ -10760,7 +10760,7 @@ label {
 
 @media(max-width: 1280px) {
 	.card-list-wrap .card-list {
-		overflow-x: auto
+		overflow: auto hidden
 	}
 
 	.card-list-wrap .card-list .card-item {
