@@ -4,7 +4,8 @@
   const size = localsSafe.size || ''; // medium, large
   const state = localsSafe.state || ''; // default, checked
 	const disabled = localsSafe.disabled ? 'disabled' : '';
-  const label = localsSafe.label || '';
+  const label = localsSafe.label || '체크박스';
+	const hideLabel = localsSafe.hideLabel || false;
 	const iconPos = localsSafe.iconPos || ''; //left, right
 	const slot = localsSafe.slot || ''; // 추가 내용 넣기
 	const addClass = localsSafe.addClass || ''; 
@@ -29,6 +30,8 @@
 		<%_ if (slot) { -%>
 			<span class="sr-only"><%= label %></span>
       <%- slot %>
+		<%_ } else if(hideLabel) { -%>
+			<span class="sr-only"><%= label %></span>
 		<%_ } else { -%>
 			<span><%- label %></span>
 		<%_ } -%>

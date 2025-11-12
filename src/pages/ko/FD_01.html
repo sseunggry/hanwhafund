@@ -42,7 +42,7 @@
 								addClass: 'detail-search'
 							}) -%>
 						</div>
-						<div class="banner pension">
+						<div class="promo-banner pension">
 							<p class="tit">든든한 노후, 한화 연금펀드로 준비하세요.</p>
 							<%- include('../../components/button.ejs', {
 								variant: 'text',
@@ -53,15 +53,15 @@
 						</div>
 						<div class="sort-wrap">
 							<p class="total">총 <span class="fc-primary">370</span>건</p>
-							<ul class="sort-data">
-								<li class="standard">
-									<button type="button" class="btn text small">기준가</button>
+							<ul class="sort-list">
+								<li class="sort-item">
+									<button type="button" class="btn text small active sort-asc">기준가</button>
 								</li>
-								<li class="assets">
+								<li class="sort-item">
 									<button type="button" class="btn text small">순자산</button>
 								</li>
-								<li class="period">
-									<ul>
+								<li class="sort-item period">
+									<ul class="period-list">
 										<li><button type="button" class="btn text small">1개월</button></li>
 										<li><button type="button" class="btn text small">3개월</button></li>
 										<li><button type="button" class="btn text small">6개월</button></li>
@@ -74,29 +74,36 @@
 								</li>
 							</ul>
 						</div>
-						<div class="fund-list">
-							<div class="fund-item">
-								<%- include('../../components/checkbox.ejs') -%>
-								<div class="fund-con">
-									<%- include('../../components/badge.ejs', { 
-										badgeItems: [
-											{ label: '아세안', variant: 'solid', color: 'red'},
-											{ label: '주식혼합', variant: 'solid', color: 'orange'},
-											{ label: '중소형주/성장주', variant: 'solid', color: 'purple'}
-										]
-									}) -%>
-									<div class="tit-wrap">
-										<a href="#!">
-											<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
-											<p class="desc">종류 C-e(수수료미징구-온라인)</p>
-										</a>
-									</div>
-									<div class="chart-area line mobile-only">
-										<div class="chart">
-											<!-- Chart 영역 -->
+						<ul class="fund-list-wrap">
+							<li class="fund-item">
+								<%- include('../../components/checkbox.ejs', {
+									label: '비교 목록에 추가',
+									hideLabel: true,
+								}) -%>
+								<div class="fund-info">
+									<div class="fund-top">
+										<%- include('../../components/badge.ejs', { 
+											badgeItems: [
+												{ label: '아세안', variant: 'solid', color: 'red'},
+												{ label: '주식혼합', variant: 'solid', color: 'orange'},
+												{ label: '중소형주/성장주', variant: 'solid', color: 'purple'}
+											]
+										}) -%>
+										<div class="tit-wrap">
+											<a href="#!">
+												<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+											</a>
 										</div>
 									</div>
-									<div class="fund-info">
+									<div class="fund-chart mobile-only">
+										<div class="chart-area line">
+											<div class="chart">
+												<!-- Chart 영역 -->
+											</div>
+										</div>
+									</div>
+									<div class="fund-con">
 										<dl>
 											<dt>기준가(원)</dt>
 											<dd>2,698.34</dd>
@@ -105,34 +112,101 @@
 											<dt>순자산(백만원)</dt>
 											<dd>1,463</dd>
 										</dl>
-										<dl class="period">
-											<dt>1개월</dt>
-											<dd>22.02%</dd>
-											<dt>3개월</dt>
-											<dd>45.89%</dd>
-											<dt>6개월</dt>
-											<dd>87.98%</dd>
-											<dt>6개월</dt>
-											<dd>2.45%</dd>
-											<dt>1년</dt>
-											<dd>87.98%</dd>
-											<dt>3년</dt>
-											<dd>103.62%</dd>
-											<dt>5년</dt>
-											<dd>179.85%</dd>
-											<dt>연초이후</dt>
-											<dd>-75.15%</dd>
-											<dt>설정이후</dt>
-											<dd>169.83%</dd>
-										</dl>
+										<div class="period-grid">
+											<dl>
+												<dt>1개월</dt>
+												<dd class="up">22.02%</dd>
+											</dl>
+											<dl>
+												<dt>3개월</dt>
+												<dd class="up">45.89%</dd>
+											</dl>
+											<dl>
+												<dt>6개월</dt>
+												<dd class="up">87.98%</dd>
+											</dl>
+											<dl>
+												<dt>6개월</dt>
+												<dd class="up">2.45%</dd>
+											</dl>
+											<dl>
+												<dt>1년</dt>
+												<dd class="up">87.98%</dd>
+											</dl>
+											<dl>
+												<dt>3년</dt>
+												<dd class="up">103.62%</dd>
+											</dl>
+											<dl>
+												<dt>5년</dt>
+												<dd class="up">179.85%</dd>
+											</dl>
+											<dl>
+												<dt>연초이후</dt>
+												<dd class="down">-75.15%</dd>
+											</dl>
+											<dl>
+												<dt>설정이후</dt>
+												<dd class="up">169.83%</dd>
+											</dl>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
+							</li>
+						</ul>
 						<%
+						const allFundData = include('../../layouts/fundList.ejs', { 
+							fundDataList: [
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+							]
+						});
+						const moreBtn = include('../../components/button.ejs', {
+							label: '더보기', 
+							hierarchy: 'tertiary',
+							size: 'large',
+							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
+						});
 						const tabCont1 = `
-
-						`;
+							${allFundData}
+							<div class="btn-wrap array-center">
+								${moreBtn}
+							</div>
+						`
 						const tabCont2 = '';
 						-%>
 						<%- include('../../components/tab.ejs', {
@@ -153,135 +227,31 @@
 			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
+		<script>
+			const uiSort = {
+				init: function () {
+					$(document).on("click.uiSort", ".sort-list .btn", function (e) {
+						e.preventDefault();
 
-		<!-- popover -->
-		<%- include('../../components/popover.ejs', {
-			id: 'popover-share',
-			title: '공유하기',
-			popSlot: `
-				<ul class="share-sns-list">
-					<li class="kakao">
-						<a href="#!">카카오톡</a>
-					</li>
-					<li class="blog">
-						<a href="#!">블로그</a>
-					</li>
-					<li class="instagram">
-						<a href="#!">인스타그램</a>
-					</li>
-					<li class="copy">
-						<button type="button">URL복사</button>
-					</li>
-				</ul>
-			`
-		}) %>
-		<!-- // popover -->
+						const $clickedButton = $(this);
+						const $sortList = $clickedButton.closest('.sort-list');
+						const $allButtons = $sortList.find('.sort-item .btn, .period-list .btn');
 
-		<!-- popup 기간설정 -->
-		<% const calendarEjs = include('../../components/calendar.ejs', { size: 'large'})  -%>
-		<%- include('../../components/modal.ejs', {
-			id: 'mobilFilterBottomSheet',
-			variant: 'bottom-sheet',
-			title: '기간설정',
-			content: `
-				${calendarEjs}
-				<div class="datepicker-inline-container"></div>
-			`,
-			buttons: [
-				{ text: '검색', class: 'large', action: 'close' },
-			],
-		}) %>
-		<!-- // popup 기간설정 -->
+						const wasActive = $clickedButton.hasClass('active');
 
-		<!-- popup 일자별 기준가 -->
-		<% const DailyPriceSegmentControl = include('../../components/segmentControl.ejs', {
-				tag: 'button', variant: 'bg',
-				items: [ { label: '1주' }, { label: '1개월' }, { label: '3개월' }, { label: '6개월' }, { label: '1년' }, { label: '3년' }, { label: '5년' }, { label: '연초이후' }, { label: '설정이후' }]
+						if (wasActive) {
+							$clickedButton.toggleClass('sort-asc');
+						} else {
+							$allButtons.removeClass('active sort-asc');
+							$clickedButton.addClass('active sort-asc');
+						}
+					});
+				}
+			};
+
+			$(function() {
+				uiSort.init();
 			});
-			const DailyPriceInputCalendar = include('../../components/calendar.ejs', { size: 'large'});
-			const DailyPriceInputButton = include('../../components/button.ejs', { label: '검색', size: 'large'});
-			const DailyPriceInputButtonMo = include('../../components/button.ejs', { tag: 'button', variant: 'text', label: '직접설정', size: 'large', preIcon: 'filter', targetType: 'modal', targetId: 'mobilFilterBottomSheet',});
-			const DailyPriceFilter = 
-			`<div class="filter-period">
-				${DailyPriceSegmentControl}
-				<div class="pc-only">
-					<div class="form-input-group">
-						${DailyPriceInputCalendar}
-						${DailyPriceInputButton}
-					</div>
-				</div>
-				<div class="mobile-only justify-end">
-					${DailyPriceInputButtonMo}
-				</div>
-			</div>`
-
-			const DailyPriceTable = include('../../components/table.ejs', { 
-				caption: '일자별 기준가',
-				colWidths: ['15.16%', '21.21%', '21.21%', '21.21%', '21.21%'],
-				thead: ['일자', '기준가지수', '등락', '수정기준가', '과표기준가'],
-				tbody: [
-					['2025-10-13', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p class="change down">12.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-					['2025-10-12', '1940.57', '<p 17.12% class="change up">17.12%</p>', '2128.45원', '1010.65원'],
-				],
-				addClass: 'scroll'
-			});
-		-%>
-		<%- include('../../components/modal.ejs', {
-			id: 'modalDailyPrice',
-			variant: 'modal',
-			title: '일자별 기준가',
-			content: `
-				<div class="tit-wrap">
-					<h2 class="tit">
-						한화한국오퍼튜니티증권 자투자신탁(주식)
-						<small>C-e(수수료미징구-온라인)</small>
-					</h2>
-				</div>
-				${DailyPriceFilter}
-				${DailyPriceTable}
-			`,
-		}) %>
-		<!-- popup 일자별 기준가 -->
-
-		<!-- popup 클래스 비교 -->
-		<% const classCompareTable = include('../../components/table.ejs', { 
-				caption: '클래스 비교',
-				colWidths: ['auto', '17.2%', '17.2%', '17.2%', '17.2%', '17.2%'],
-				thead: ['상품명', '설정일', '기준가(기준가 등락)', '수익률(1개월 기준)', '총 보수(연)', '순자산'],
-				tbody: [
-					['Class A', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class A-e', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class C-e', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class C1', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class CA', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class C5', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class S', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class 기타', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class J', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class K', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class C5', '2025-07-15', '1,978.57원 <p 17.12% class="change up">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class S', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class 기타', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class J', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-					['Class K', '2025-07-15', '1,978.57원 <p 17.12% class="change down">0.05</p>', '8.04%', '1.61%', '100,208,917원'],
-				],
-				colAligns: ['', '', 'right', '', '', 'right'],
-				addClass: 'scroll'
-			});
-		-%>
-		<%- include('../../components/modal.ejs', {
-			id: 'modalClassCompare',
-			variant: 'modal',
-			title: '클래스 비교',
-			content: classCompareTable,
-		}) %>
-		<!-- popup 클래스 비교 -->
-
-		<%- include('../../components/toast.ejs') -%>
+		</script>
 	</body>
 </html>

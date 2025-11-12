@@ -1385,7 +1385,7 @@
 				border: 0;
 			}
 		}
-		.banner{
+		.promo-banner{
 			margin: 8rem 0 6.4rem;
 			display: flex;
 			justify-content: center;
@@ -1419,7 +1419,7 @@
 			justify-content: space-between;
 			margin-bottom: 2.4rem;
 
-			.sort-data{
+			.sort-list{
 				display: flex;
 				align-items: center;
 
@@ -1428,7 +1428,7 @@
 					align-items: center;
 				}
 				.period{
-					ul{
+					.period-list{
 						display: flex;
 						align-items: center;
 					}
@@ -1461,11 +1461,107 @@
 						content: '';
 						display: inline-block;
 						@include square(1.6rem);
-						@include icon-set('arrow-up');
+						@include icon-set('desc');
 						background-color: currentColor;
 					}
+
+          &.active{
+            color: var(--#{$prefix}-color-text-primary-dark);
+            font-weight: 600;
+          }
+          &.sort-asc{
+            &::after{
+              transform: rotate(180deg);
+            }
+          }
 				}
 			}
 		}
+    .fund-list-wrap{
+      .fund-item{
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        padding: 4rem 0;
+        border-top: 0.1rem solid #D7D5D5;
+
+        &:last-child{
+          border-bottom: 0.1rem solid #D7D5D5;
+        }
+
+        &:has(input[type="checkbox"]:checked) {
+          background-color: #FDF5F1;
+        }
+
+        .form-check{
+          margin: 0 1.6rem;
+          flex-shrink: 0;
+        }
+
+        .fund-info{
+          display: flex;
+          flex-direction: column;
+          gap: 2.4rem;
+          width: 100%;
+
+          .tit-wrap{
+            margin-top: 1.6rem;
+            .tit{
+              color: var(--#{$prefix}-color-text-strong);
+              font-size: 2.4rem;
+              font-weight: 600;
+            }
+            .desc{
+              margin-top: 0.8rem;
+              color: var(--#{$prefix}-color-text-subtle);
+            }
+          }
+          .fund-con{
+            display: flex;
+
+            > dl{
+              margin-right: 2.4rem;
+              padding-right: 2.4rem;
+              flex-shrink: 0;
+              min-width: 10%;
+              border-right: 0.1rem solid #E6E5E5;
+            }
+            dt{
+              color: var(--#{$prefix}-color-text-subtler);
+              font-size: 1.6rem;
+            }
+            dd{
+              margin-top: 0.8rem;
+              font-size: 2.1rem;
+              font-weight: 500;
+            }
+
+            .period-grid{
+              display: flex;
+              gap: 0.8rem;
+              width: 100%;
+
+              .up{
+                color: var(--#{$prefix}-color-change-up);
+              }
+              .down{
+                color: var(--#{$prefix}-color-change-down);
+              }
+
+              dl{
+                flex: 1;
+
+                dt{
+                  text-align: center;
+                }
+                dd{
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 	}
 }

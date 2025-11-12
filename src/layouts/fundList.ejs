@@ -1,0 +1,92 @@
+<%
+  const localsSafe = locals || {}; 
+  const fundDataList = localsSafe.fundDataList || []; 
+
+  const defaultBadges = [
+    { label: '아세안', variant: 'solid', color: 'red'},
+    { label: '주식혼합', variant: 'solid', color: 'orange'},
+    { label: '중소형주/성장주', variant: 'solid', color: 'purple'}
+  ];
+
+  const includePath = localsSafe.includePath || '../';
+  const checkboxPath = includePath + 'components/checkbox.ejs';
+  const badgePath = includePath + 'components/badge.ejs';
+%>
+<ul class="fund-list-wrap">
+  <%_ fundDataList.forEach(fund => { -%>
+  <li class="fund-item">
+    <%- include(checkboxPath, {
+      label: fund.checkboxLabel || '비교 목록에 추가',
+      hideLabel: true,
+    }) -%>
+    <div class="fund-info">
+      <div class="fund-top">
+        <%- include(badgePath, { 
+          badgeItems: fund.badges || defaultBadges
+        }) -%>
+        <div class="tit-wrap">
+          <a href="#!">
+            <p class="tit"><%= fund.title %></p>
+            <p class="desc"><%= fund.desc %></p>
+          </a>
+        </div>
+      </div>
+      <div class="fund-chart mobile-only">
+        <div class="chart-area line">
+          <div class="chart">
+            <!-- Chart 영역 -->
+          </div>
+        </div>
+      </div>
+      <div class="fund-con">
+        <dl>
+          <dt>기준가(원)</dt>
+          <dd>2,698.34</dd>
+        </dl>
+        <dl>
+          <dt>순자산(백만원)</dt>
+          <dd>1,463</dd>
+        </dl>
+        <div class="period-grid">
+          <dl>
+            <dt>1개월</dt>
+            <dd class="up">22.02%</dd>
+          </dl>
+          <dl>
+            <dt>3개월</dt>
+            <dd class="up">45.89%</dd>
+          </dl>
+          <dl>
+            <dt>6개월</dt>
+            <dd class="up">87.98%</dd>
+          </dl>
+          <dl>
+            <dt>6개월</dt>
+            <dd class="up">2.45%</dd>
+          </dl>
+          <dl>
+            <dt>1년</dt>
+            <dd class="up">87.98%</dd>
+          </dl>
+          <dl>
+            <dt>3년</dt>
+            <dd class="up">103.62%</dd>
+          </dl>
+          <dl>
+            <dt>5년</dt>
+            <dd class="up">179.85%</dd>
+          </dl>
+          <dl>
+            <dt>연초이후</dt>
+            <dd class="down">-75.15%</dd>
+          </dl>
+          <dl>
+            <dt>설정이후</dt>
+            <dd class="up">169.83%</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </li>
+  <%_ }); -%>
+</ul>
