@@ -44,6 +44,8 @@ html{
 
 .fc-white{color: var(--#{$prefix}-color-text-white) !important;}
 .fc-gray{color: var(var(--#{$prefix}-color-gray-70)) !important;}
+.fc-red{color: #F94339 !important;}
+.fc-primary{color: var(--#{$prefix}-color-text-primary-dark) !important;}
 
 .w-full{width: 100% !important;}
 .scroll-wrap{overflow-x: auto;}

@@ -26,6 +26,18 @@
       element: var(--#{$prefix}-color-tag-point-violet),
       text: var(--#{$prefix}-color-text-white),
     ),
+    red: (
+      element: var(--#{$prefix}-color-tag-point-bright-red),
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    orange: (
+      element: var(--#{$prefix}-color-tag-point-vivid-orange),
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    purple: (
+      element: var(--#{$prefix}-color-tag-point-violet),
+      text: var(--#{$prefix}-color-text-white),
+    ),
     rating1: (
       element: #119EFF,
       text: var(--#{$prefix}-color-text-white),
@@ -115,7 +127,7 @@
     padding: 0 var(--#{$prefix}-badge--padding);
     height: var(--#{$prefix}-badge--size-height);
     font-size: var(--#{$prefix}-badge--font-size);
-    font-weight: 500;
+    // font-weight: 500;
     border-radius: var(--#{$prefix}-badge--radius);
   }
 }

@@ -1,10 +1,10 @@
 <%
   const localsSafe = locals || {};
   const variant = localsSafe.variant || ''; // checkbox, check(체크 아이콘)
-  const size = localsSafe.size || 'medium'; // medium, large
+  const size = localsSafe.size || ''; // medium, large
   const state = localsSafe.state || ''; // default, checked
 	const disabled = localsSafe.disabled ? 'disabled' : '';
-  const label = localsSafe.label || '체크박스';
+  const label = localsSafe.label || '';
 	const iconPos = localsSafe.iconPos || ''; //left, right
 	const slot = localsSafe.slot || ''; // 추가 내용 넣기
 	const addClass = localsSafe.addClass || ''; 
@@ -30,7 +30,7 @@
 			<span class="sr-only"><%= label %></span>
       <%- slot %>
 		<%_ } else { -%>
-			<span><%= label %></span>
+			<span><%- label %></span>
 		<%_ } -%>
 	</label>
 </div>

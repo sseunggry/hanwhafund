@@ -4,7 +4,7 @@
   const ariaLabel = localsSafe.ariaLabel || '';
   const groupItems = Array.isArray(localsSafe.group) ? localsSafe.group : null;
   const type = localsSafe.type || 'text'; // input 타입 (text, password, number 등)
-  const size = localsSafe.size || 'large';
+  const size = localsSafe.size || '';
   const placeholder = localsSafe.placeholder || '';
   const value = localsSafe.value || '';
   const name = localsSafe.name || ''; // 단일 입력 필드 name
@@ -17,6 +17,7 @@
   const isClearable = localsSafe.showClearButton !== false;
   const isValidType = ['text', 'search', 'url', 'number', 'tel', 'email', 'password'].includes(type);
   const showClearButton = isClearable && isValidType;
+  const formGroupAddClass = localsSafe.formGroupAddClass || ''; // form-group 추가 클래스
   const addClass = localsSafe.addClass || ''; // input-wrap 추가 클래스
   const slot = localsSafe.slot || '';
   const preSlot = localsSafe.preSlot || '';
@@ -34,6 +35,7 @@
 
   const formGroupClasses = [
 		'form-group', 
+		formGroupAddClass,
     error ? 'is-error' : (success ? 'is-success' : ''),
 		disabled ? 'disabled' : '', 
 		readonly ? 'readonly' : '' 
@@ -49,9 +51,9 @@
 <div class="<%= formGroupClasses %>">
 	<div class="form-tit">
 		<% if (groupItems) { -%>
-			<span><%= title %></span>
+			<span><%= title %><%- required ? '<small class="required">*</small>' : '' %></span>
 		<% } else { -%>
-			<label for="<%= id %>"><%= title %></label>
+			<label for="<%= id %>"><%= title %><%- required ? '<small class="required">*</small>' : '' %></label>
 		<% } -%>
 	</div>
 	<div class="form-conts">

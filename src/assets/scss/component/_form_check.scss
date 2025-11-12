@@ -36,7 +36,7 @@ label {
 			radio-check-size: 1.6rem,
 			checkbox-check-size: 1.6rem,
 			check-icon-size: 1.6rem,
-			checkbox-button-radius: 0.6rem,
+			checkbox-button-radius: 0.3rem,
 			pc-font-size: 1.5rem,
       tablet-font-size: 1.5rem,
       mobile-font-size: 1.5rem,
@@ -47,7 +47,7 @@ label {
       checkbox-check-size: 1.2rem,
       check-icon-size: 2rem,
       radio-button-radius: 100rem,
-      checkbox-button-radius: 0.6rem,
+      checkbox-button-radius: 0.3rem,
       pc-font-size: 1.6rem,
       tablet-font-size: 1.6rem,
       mobile-font-size: 1.6rem,
@@ -61,7 +61,7 @@ label {
       checkbox-check-size: 1.6rem,
 			check-icon-size: 2.4rem,
       radio-button-radius: 100rem,
-      checkbox-button-radius: 0.6rem,
+      checkbox-button-radius: 0.3rem,
       pc-font-size: 1.8rem,
       tablet-font-size: 1.8rem,
       mobile-font-size: 1.8rem,
@@ -313,7 +313,7 @@ label {
   @include form-check-color-variable();
   @include form-check-size-variable;
 
-  $size: medium;
+  $size: large;
 
   input[type='radio'],
   input[type='checkbox'] {
@@ -322,7 +322,6 @@ label {
       display: inline-flex;
 			align-items: center;
 			// width: 100%;
-
       @include form-check(#{$size});
 
       &::before,
@@ -336,7 +335,7 @@ label {
 
       &::before {
         flex-shrink: 0;
-
+				box-sizing: border-box;
         @include form-check-button(#{$size});
 
         z-index: 3;
@@ -554,4 +553,9 @@ label {
       color: var(--#{$prefix}-form-check--additional-text-color-text);
     }
   }
+}
+
+.radio-wrap{
+	display: flex;
+	gap: 2rem;
 }

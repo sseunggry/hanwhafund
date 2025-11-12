@@ -1342,4 +1342,130 @@
       }
     }
   }
+
+	.fund-find{
+		.section-search{
+			position: relative;
+			padding: 8rem 0 12rem;
+			&::before{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 100%;
+				height: 45.2rem;
+				background: linear-gradient(0deg, rgba(243, 242, 241, 0.00) 0%, #F3F2F1 100%);
+				z-index: -1;
+			}
+		}
+		.search-wrap{
+			position: relative;
+			padding: 8rem;
+			background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
+			backdrop-filter: blur(4rem);
+
+			.search-con{
+				margin: 0 auto;
+				width: 47.4%;
+
+				.tag-wrap{
+					margin-top: 2.4rem;
+					justify-content: center;
+					color: var(--#{$prefix}-color-text-strong);
+				}
+			}
+			.detail-search{
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				transform: translateY(50%);
+
+				background: linear-gradient(90deg, #FF5532 0%, #09021E 100%);
+				border: 0;
+			}
+		}
+		.banner{
+			margin: 8rem 0 6.4rem;
+			display: flex;
+			justify-content: center;
+			gap: 4rem;
+			@include bg('fund/banner-pension.png');
+
+			.tit{
+				color: var(--#{$prefix}-color-text-strong);
+				font-size: 2.1rem;
+				font-weight: 600;
+			}
+
+			&.pension{
+				.tit{
+					display: flex;
+					align-items: center;
+					gap: 0.8rem;
+
+					&::before{
+						content: '';
+						display: inline-block;
+						@include square(8rem);
+						@include bg('icon/ico-pension.png');
+					}
+				}
+			}
+		}
+
+		.sort-wrap{
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 2.4rem;
+
+			.sort-data{
+				display: flex;
+				align-items: center;
+
+				> li{
+					display: flex;
+					align-items: center;
+				}
+				.period{
+					ul{
+						display: flex;
+						align-items: center;
+					}
+				}
+
+				li{
+					padding-right: 1.6rem;
+					&::after{
+						content: '';
+						display: inline-block;
+						margin-left: 1.6rem;
+						width: 0.1rem;
+						height: 1.6rem;
+						vertical-align: middle;
+						background-color: #D7D5D5;
+					}
+
+					&:last-child{
+						padding-right: 0;
+						&::after{
+							display: none;
+						}
+					}
+				}
+
+				.btn{
+					color: #494646;
+
+					&::after{
+						content: '';
+						display: inline-block;
+						@include square(1.6rem);
+						@include icon-set('arrow-up');
+						background-color: currentColor;
+					}
+				}
+			}
+		}
+	}
 }

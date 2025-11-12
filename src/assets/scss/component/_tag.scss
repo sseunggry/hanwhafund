@@ -13,31 +13,25 @@
 			expand-button-gap: 0.1rem,
       button-size: 1.4rem,
       padding-x: 0.8rem,
-      pc-font-size: 1.3rem,
-      tablet-font-size: 1.3rem,
-      mobile-font-size: 1.3rem,
+      font-size: 1.3rem,
     ),
     medium: (
       wrapper-gap-x: 0.8rem,
       wrapper-gap-y: 0.8rem,
-      size-height: 3.2rem,
+      size-height: 4rem,
       expand-button-gap: 0.2rem,
       button-size: 1.6rem,
-      padding-x: var(--#{$prefix}-padding-4),
-      pc-font-size: 1.5rem,
-      tablet-font-size: 1.5rem,
-      mobile-font-size: 1.5rem,
+      padding-x: 1.6rem,
+      font-size: 1.8rem,
     ),
     large: (
       wrapper-gap-x: 0.8rem,
       wrapper-gap-y: 1rem,
-      size-height: 4rem,
+      size-height: 4.8rem,
       expand-button-gap: 0.4rem,
       button-size: 1.8rem,
-      padding-x: 1.2rem,
-      pc-font-size: 1.6rem,
-      tablet-font-size: 1.6rem,
-      mobile-font-size: 1.6rem,
+      padding-x: 2.4rem,
+      font-size: 1.8rem,
     ),
   ) !default;
 
@@ -94,7 +88,7 @@
   height: var(--#{$prefix}-btn-tag--size-height-#{$size});
   padding: 0.8rem var(--#{$prefix}-btn-tag--padding-x-#{$size});
   border-radius: var(--#{$prefix}-btn-tag--size-height-#{$size});
-  font-size: var(--#{$prefix}-btn-tag--pc-font-size-#{$size});
+  font-size: var(--#{$prefix}-btn-tag--font-size-#{$size});
   line-height: var(--#{$prefix}-line-height-none);
 
 	@include mq(tablet) {
@@ -151,7 +145,7 @@
   @include tag-color-variable();
   @include tag-size-variable;
 
-  $size: medium;
+  $size: large;
 
   & {
     display: flex;
@@ -166,90 +160,76 @@
     border: 0.1rem solid var(--#{$prefix}-btn-tag--color-border);
     transition: var(--#{$prefix}-transition-base);
 
-    &:hover {
+    &:hover, &:active {
       background-color: var(--#{$prefix}-btn-tag--color-action-hover);
     }
-
-    &:active {
-      background-color: var(--#{$prefix}-btn-tag--color-action-pressed);
-    }
-
-    &.link {
-			background-color: var(--#{$prefix}-btn-tag--link-color-action);
-			
-			&:hover {
-				background-color: var(--#{$prefix}-btn-tag--link-color-action-hover);
-			}
-	
-			&:active {
-				background-color: var(--#{$prefix}-btn-tag--link-color-action-pressed);
-			}
-
-      &:hover,
-      &:active {
-        @include underline;
-      }
-    }
-
-    .btn-delete {
-			@include icon-set(delete);
-			background-color: var(--#{$prefix}-btn-tag--color-icon);
-			line-height: var(--#{$prefix}-line-height-none);
-    }
-
   }
 
-	.btn-expand-wrap {
-		@include flex-layout($ai: center, $jc: flex-end);
-		position: absolute;
-		right: 0;
-		background: linear-gradient(90deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+	&.text{
+		background-color: transparent;
 
-		.btn-expand {
-			@include flex-layout($ai: center, $jc: center);
-			border-radius: var(--#{$prefix}-radius-full);
-			border: 0.1rem solid var(--#{$prefix}-btn-tag--button-color-border);
-			background-color: var(--#{$prefix}-btn-tag--button-color-background);
-	
-			&::before {
-				@include pseudo;
-				transform: rotate(0);
-				transition: transform 0.3s;
-	
-				background-color: var(--#{$prefix}-btn-tag--button-color-icon);
+		.btn-tag{
+			&:hover, &:active{
+				color: var(--#{$prefix}-color-text-primary-dark);
+				font-weight: 600;
+				text-decoration: underline;
+				// border-bottom: 0.1rem solid #F54500;
+				text-underline-offset: 0.3rem;
 			}
 		}
 	}
 
-	&.scroll {
-		overflow-x: scroll;
-		flex-wrap: nowrap;
+	// .btn-expand-wrap {
+	// 	@include flex-layout($ai: center, $jc: flex-end);
+	// 	position: absolute;
+	// 	right: 0;
+	// 	background: linear-gradient(90deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
 
-		.btn-tag {
-			flex-shrink: 0;
-		}
-	}
+	// 	.btn-expand {
+	// 		@include flex-layout($ai: center, $jc: center);
+	// 		border-radius: var(--#{$prefix}-radius-full);
+	// 		border: 0.1rem solid var(--#{$prefix}-btn-tag--button-color-border);
+	// 		background-color: var(--#{$prefix}-btn-tag--button-color-background);
+	
+	// 		&::before {
+	// 			@include pseudo;
+	// 			transform: rotate(0);
+	// 			transition: transform 0.3s;
+	
+	// 			background-color: var(--#{$prefix}-btn-tag--button-color-icon);
+	// 		}
+	// 	}
+	// }
 
-	&.expand {
-		overflow-x: hidden;
-		flex-wrap: nowrap;
-		transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+	// &.scroll {
+	// 	overflow-x: scroll;
+	// 	flex-wrap: nowrap;
 
-		.btn-tag {
-			flex-shrink: 0;
-		}
+	// 	.btn-tag {
+	// 		flex-shrink: 0;
+	// 	}
+	// }
 
-		&.active {
-			flex-wrap: wrap;
-			transition: max-height 1.5s ease-in-out;
+	// &.expand {
+	// 	overflow-x: hidden;
+	// 	flex-wrap: nowrap;
+	// 	transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 
-			.btn-expand-wrap {
-				.btn-expand {
-					&::before {
-						transform: rotate(180deg);
-					}
-				}
-			}
-		}
-	}
+	// 	.btn-tag {
+	// 		flex-shrink: 0;
+	// 	}
+
+	// 	&.active {
+	// 		flex-wrap: wrap;
+	// 		transition: max-height 1.5s ease-in-out;
+
+	// 		.btn-expand-wrap {
+	// 			.btn-expand {
+	// 				&::before {
+	// 					transform: rotate(180deg);
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 }

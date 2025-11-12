@@ -1,7 +1,7 @@
 <%
   const localsSafe = locals || {};
   const title = localsSafe.title || ''; // Form Group 제목 (label 텍스트)
-  const size = localsSafe.size || 'medium';
+  const size = localsSafe.size || '';
   const placeholder = localsSafe.placeholder || '';
   const value = localsSafe.value || '';
   const name = localsSafe.name || '';
@@ -11,6 +11,7 @@
   const maxlength = localsSafe.maxlength || null; // 최대 글자 수
   const showCount = localsSafe.showCount !== false && maxlength; // maxlength 있을 때 기본으로 카운트 표시
   const rows = localsSafe.rows || null; // textarea rows 속성
+  const formGroupAddClass = localsSafe.formGroupAddClass || ''; // form-group 추가 클래스
   const addClass = localsSafe.addClass || ''; // textarea-wrap 추가 클래스
 
   const id = localsSafe.id ? `textarea-${localsSafe.id}` : 'textarea';
@@ -30,13 +31,14 @@
 
   const formGroupClasses = [
 		'form-group', 
+		formGroupAddClass,
 		disabled ? 'disabled' : '', 
 		readonly ? 'readonly' : '' 
 	].filter(Boolean).join(' ');
 -%>
 <% if (title) { -%>
 <div class="<%= formGroupClasses %>">
-  <div class="form-tit"><label for="<%= id %>"><%= title %></label></div>
+  <div class="form-tit"><label for="<%= id %>"><%= title %><%- required ? '<small class="required">*</small>' : '' %></label></div>
   <div class="form-conts">
 <% } -%>
     <div class="<%= wrapClasses %>">

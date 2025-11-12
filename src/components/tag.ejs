@@ -1,22 +1,18 @@
 <%
   const localsSafe = locals || {};
-  const variant = localsSafe.variant || 'link'; // link, sorting
-  const size = localsSafe.size || 'medium'; // medium, large
+  const variant = localsSafe.variant || 'box'; // box, text
+  const size = localsSafe.size || ''; // medium, large
 	const tagList = Array.isArray(localsSafe.tagList) ? localsSafe.tagList : ['태그'];
+	const addClass = localsSafe.addClass || '';
 	const classes = [
     `tag-wrap`,
+		variant !== 'box' ? variant : '',
     size,
+		addClass
   ].filter(Boolean).join(' ');
 -%>
 <div class="<%= classes %>">
 	<% tagList.forEach(function(label, idx) { -%>
-		<% if (variant === 'link') { -%>
-			<a href="#" class="link btn-tag"><%= label %></a>
-		<% } else { -%>
-			<span class="btn-tag">
-				<%= label %>
-				<button type="button" class="btn-delete"><span class="sr-only">삭제</span></button>
-			</span>
-		<% } -%>
+		<a href="#!" class="btn-tag"><%= label %></a>
 	<% }) -%>
 </div>

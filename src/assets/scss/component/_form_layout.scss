@@ -184,6 +184,11 @@
     width: 100%;
 		font-size: var(--#{$prefix}-form-group--label-font-size);
     color: var(--#{$prefix}-form-group--label-text-color);
+
+		.required{
+			margin-left: 0.4rem;
+			color: #F94339;
+		}
   }
 
   .form-conts {

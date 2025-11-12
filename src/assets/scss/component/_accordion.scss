@@ -57,6 +57,7 @@
       }
       .tit {
         color: var(--#{$prefix}-accordion--title-color);
+				word-break: keep-all;
       }
       &:hover, &:active {
         background-color: var(--#{$prefix}-accordion--button-color-action-hover);
