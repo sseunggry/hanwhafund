@@ -285,6 +285,14 @@ $button-color-variable: (
     }
   }
 
+	/* --- Variant: Line Button (.outline) --- */
+	&.outline {
+		padding: 0 2.4rem;
+		color: #2C2320;
+		border: 0.1rem solid #2C2320;
+		background-color: transparent;
+	}
+
   /* --- Variant: Line Button (.line) --- */
   &.line {
     justify-content: space-between;
@@ -501,8 +509,9 @@ $button-color-variable: (
     }
   }
   &.array-center {
+		justify-content: center;
     .btn {
-      margin: 0 auto;
+      // margin: 0 auto;
       width: fit-content;
       flex: none;
     }

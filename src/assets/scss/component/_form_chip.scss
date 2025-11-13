@@ -3,6 +3,7 @@
 
 /* 라디오 버튼 / 체크박스 chip */
 .chip-wrap {
+	flex-wrap: wrap;
   gap: 0.8rem;
 
 	&.full{
@@ -51,29 +52,26 @@
     small: (
       size-height: 3.2rem,
       check-size: 1.4rem,
-      padding-x: 0.8rem,
-      radius: 0.8rem,
-			pc-font-size: 1.3rem,
-      tablet-font-size: 1.3rem,
-      mobile-font-size: 1.3rem,
+      padding-left: 0.8rem,
+      padding-right: 1.2rem,
+      radius: 0.3rem,
+			font-size: 1.3rem,
     ),
     medium: (
       size-height: 4rem,
       check-size: 1.6rem,
-      padding-x: var(--#{$prefix}-padding-4),
-      radius: 1rem,
-      pc-font-size: 1.5rem,
-      tablet-font-size: 1.5rem,
-      mobile-font-size: 1.5rem,
+      padding-left: 1.2rem,
+      padding-right: 2rem,
+      radius: 0.3rem,
+      font-size: 1.6rem,
     ),
     large: (
       size-height: 4.8rem,
-      check-size: 1.8rem,
-      padding-x: 1.2rem,
-      radius: 1.2rem,
-      pc-font-size: 1.6rem,
-      tablet-font-size: 1.6rem,
-      mobile-font-size: 1.6rem,
+      check-size: 2rem,
+      padding-left: 1.6rem,
+      padding-right: 2.4rem,
+      radius: 0.3rem,
+      font-size: 1.8rem,
     ),
   ) !default;
 
@@ -85,7 +83,7 @@
     }
   }
 
-  --#{$prefix}-form-chip--gap: 0.4rem;
+  --#{$prefix}-form-chip--gap: 0.8rem;
 
   // class 정의
   & {
@@ -116,80 +114,43 @@
 // 컬러 정의
 @mixin form-chip-color-variable() {
   --#{$prefix}-form-chip--color-text: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-form-chip--color-action: var(--#{$prefix}-color-action-transparency);
-
-
-  --#{$prefix}-form-chip--radio-color-text: var(--#{$prefix}-color-text-subtler);
-  --#{$prefix}-form-chip--radio-color-text-checked: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-form-chip--radio-color-text-disabled: var(--#{$prefix}-color-text-disabled);
-  --#{$prefix}-form-chip--radio-color-action: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--radio-color-action-checked: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--radio-color-action-disabled: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--radio-color-border: var(--#{$prefix}-color-border-neutral);
-  --#{$prefix}-form-chip--radio-color-border-checked: var(--#{$prefix}-color-border-neutral-darker);
-  --#{$prefix}-form-chip--radio-color-border-disabled: var(--#{$prefix}-color-border-disabled);
-
-  --#{$prefix}-form-chip--checkbox-color-text: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-form-chip--checkbox-color-text-checked: var(--#{$prefix}-color-text-primary);
-  --#{$prefix}-form-chip--checkbox-color-text-disabled: var(--#{$prefix}-color-text-disabled);
-  --#{$prefix}-form-chip--checkbox-color-action: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--checkbox-color-action-checked: var(--#{$prefix}-color-action-primary-selected);
-  --#{$prefix}-form-chip--checkbox-color-action-disabled: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--checkbox-color-border: var(--#{$prefix}-color-border-neutral);
-  --#{$prefix}-form-chip--checkbox-color-border-checked: var(--#{$prefix}-color-border-primary);
-  --#{$prefix}-form-chip--checkbox-color-border-disabled: var(--#{$prefix}-color-border-disabled);
-  --#{$prefix}-form-chip--checkbox-color-check: var(--#{$prefix}-color-element-disabled);
-  --#{$prefix}-form-chip--checkbox-color-check-checked: var(--#{$prefix}-color-element-primary);
-  --#{$prefix}-form-chip--checkbox-color-check-disabled: var(--#{$prefix}-color-element-disabled);
-
-  --#{$prefix}-form-chip--button-color-text: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-form-chip--button-color-text-disabled: var(--#{$prefix}-color-text-disabled);
-  --#{$prefix}-form-chip--button-color-action: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--button-color-action-hover: var(--#{$prefix}-color-action-neutral-hover);
-  --#{$prefix}-form-chip--button-color-action-pressed: var(--#{$prefix}-color-action-neutral-pressed);
-  --#{$prefix}-form-chip--button-color-action-disabled: var(--#{$prefix}-color-action-transparency);
-  --#{$prefix}-form-chip--button-color-border: var(--#{$prefix}-color-border-neutral-light);
-  --#{$prefix}-form-chip--button-color-border-disabled: var(--#{$prefix}-color-border-neutral-light);
+  --#{$prefix}-form-chip--color-text-checked: var(--#{$prefix}-color-text-primary-dark);
+  --#{$prefix}-form-chip--color-text-disabled: var(--#{$prefix}-color-text-disabled);
+  --#{$prefix}-form-chip--color-border: #D7D5D5;
+  --#{$prefix}-form-chip--color-border-disabled: var(--#{$prefix}-color-sub-30);
+  --#{$prefix}-form-chip--color-border-checked: var(--#{$prefix}-color-orange-base);
+  --#{$prefix}-form-chip--color-action: #fff;
+  --#{$prefix}-form-chip--color-action-disabled: var(var(--#{$prefix}-color-sub-30));
+  --#{$prefix}-form-chip--color-action-checked: #FEEAE1;
+  --#{$prefix}-form-chip--checkbox-color-border: #E6E5E5;
+  --#{$prefix}-form-chip--checkbox-color-action: #F5F4F4;
+  --#{$prefix}-form-chip--checkbox-color-check-icon: var(--#{$prefix}-color-gray-40);
+  --#{$prefix}-form-chip--checkbox-color-check-icon-disabled: var(--#{$prefix}-color-gray-40);
+  --#{$prefix}-form-chip--checkbox-color-check-icon-checked: var(--#{$prefix}-color-text-primary-dark);
 }
 
 // 칩 사이즈 정의
 @mixin form-chip($size) {
   gap: var(--#{$prefix}-form-chip--gap);
-  padding: 0 var(--#{$prefix}-form-chip--padding-x-#{$size});
+  padding-left: var(--#{$prefix}-form-chip--padding-left-#{$size});
+  padding-right: var(--#{$prefix}-form-chip--padding-left-#{$size});
   height: var(--#{$prefix}-form-chip--size-height-#{$size});
-  font-size: var(--#{$prefix}-form-chip--pc-font-size-#{$size});
-  // color: var(--#{$prefix}-form-chip--color-text);
-  // background-color: var(--#{$prefix}-form-chip--color-action);
-  // border: 0.1rem solid var(--#{$prefix}-form-chip--color-border);
-	border-width: 0.1rem;
-	border-style: solid;
+  font-size: var(--#{$prefix}-form-chip--font-size-#{$size});
   border-radius: var(--#{$prefix}-form-chip--radius-#{$size});
   transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
-
-  @include mq(tablet) {
-		font-size: var(--#{$prefix}-form-chip--tablet-font-size-#{$size});
-	}
-  @include mq(mobile) {
-    font-size: var(--#{$prefix}-form-chip--mobile-font-size-#{$size});
-  }
 }
 
 // check icon 정의
 @mixin form-chip-check($size) {
   @include svg-icon($size: var(--#{$prefix}-form-chip--check-size-#{$size}));
   @include icon-set(checkbox);
-
-  & {
-    background-color: var(--#{$prefix}-form-chip--checkbox-color-check);
-    transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
-  }
 }
 
 .form-chip {
   @include form-chip-color-variable();
   @include form-chip-size-variable;
 
-  $size: medium;
+  $size: large;
 
   input[type='radio'],
   input[type='checkbox'] {
@@ -197,6 +158,9 @@
       display: inline-flex;
       align-items: center;
       position: relative;
+			color: var(--#{$prefix}-form-chip--color-text);
+			border: 0.1rem solid var(--#{$prefix}-form-chip--color-border);
+			background-color: var(--#{$prefix}-form-chip--color-action);
 
       @include form-chip(#{$size});
     }
@@ -204,30 +168,51 @@
     &:disabled {
       ~ label {
         cursor: default;
+				color: var(--#{$prefix}-form-chip--color-text-disabled);
+
+				border-color: var(--#{$prefix}-form-chip--color-border-disabled);
+				background-color: var(--#{$prefix}-form-chip--color-action-disabled);
+
+				&::before {
+					background-color: var(--#{$prefix}-form-chip--color-check-disabled);
+				}
       }
     }
+
+		&:checked {
+			~ label {
+				color: var(--#{$prefix}-form-chip--color-text-checked);
+				font-weight: 700;
+				border-color: var(--#{$prefix}-form-chip--color-border-checked);
+				background-color: var(--#{$prefix}-form-chip--color-action-checked);
+
+				&::before {
+					background-color: var(--#{$prefix}-form-chip--color-check-checked);
+				}
+			}
+		}
   }
 
   input[type='radio'] {
     ~ label {
-			color: var(--#{$prefix}-form-chip--radio-color-text);
-			border-color: var(--#{$prefix}-form-chip--radio-color-border);
-      background-color: var(--#{$prefix}-form-chip--radio-color-action);
+			// color: var(--#{$prefix}-form-chip--radio-color-text);
+			// border-color: var(--#{$prefix}-form-chip--radio-color-border);
+      // background-color: var(--#{$prefix}-form-chip--radio-color-action);
     }
 
     &:disabled {
       ~ label {
-        color: var(--#{$prefix}-form-chip--radio-color-text-disabled);
-        border-color: var(--#{$prefix}-form-chip--radio-color-border-disabled);
-        background-color: var(--#{$prefix}-form-chip--radio-color-action-disabled);
+        // color: var(--#{$prefix}-form-chip--radio-color-text-disabled);
+        // border-color: var(--#{$prefix}-form-chip--radio-color-border-disabled);
+        // background-color: var(--#{$prefix}-form-chip--radio-color-action-disabled);
       }
     }
 
     &:checked {
       ~ label {
-        color: var(--#{$prefix}-form-chip--radio-color-text-checked);
-        border-color: var(--#{$prefix}-form-chip--radio-color-border-checked);
-        background-color: var(--#{$prefix}-form-chip--radio-color-action-checked);
+        // color: var(--#{$prefix}-form-chip--radio-color-text-checked);
+        // border-color: var(--#{$prefix}-form-chip--radio-color-border-checked);
+        // background-color: var(--#{$prefix}-form-chip--radio-color-action-checked);
       }
     }
   }
@@ -235,37 +220,39 @@
 	// checkbox 인 경우에만 아이콘 노출
 	input[type='checkbox'] {
 		~ label {
-			color: var(--#{$prefix}-form-chip--checkbox-color-text);
-			border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
+			// color: var(--#{$prefix}-form-chip--checkbox-color-text);
+			// border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
 			background-color: var(--#{$prefix}-form-chip--checkbox-color-action);
+			border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
 
 			&::before {
         @include pseudo;
         @include form-chip-check(#{$size});
+				background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon);
+				transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
       }
 		}	
 		&:disabled{
 			~ label {
-				color: var(--#{$prefix}-form-chip--checkbox-color-text-disabled);
-				border-color: var(--#{$prefix}-form-chip--checkbox-color-border-disabled);
-				background-color: var(--#{$prefix}-form-chip--checkbox-color-action-disabled);
+				// color: var(--#{$prefix}-form-chip--checkbox-color-text-disabled);
+				// border-color: var(--#{$prefix}-form-chip--checkbox-color-border-disabled);
+				// background-color: var(--#{$prefix}-form-chip--checkbox-color-action-disabled);
 
 				&::before {
-					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-disabled);
+					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon-disabled);
 				}
 			}
 		}
 
 		&:checked {
 			~ label {
-				color: var(--#{$prefix}-form-chip--checkbox-color-text-checked);
-				border-color: var(--#{$prefix}-form-chip--checkbox-color-border-checked);
-				background-color: var(--#{$prefix}-form-chip--checkbox-color-action-checked);
+				// color: var(--#{$prefix}-form-chip--checkbox-color-text-checked);
+				// border-color: var(--#{$prefix}-form-chip--checkbox-color-border-checked);
+				// background-color: var(--#{$prefix}-form-chip--checkbox-color-action-checked);
 
 				&::before {
-					@include icon-set(checkbox-checked);
-	
-					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-checked);
+					// @include icon-set(checkbox-checked);
+					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon-checked);
 				}
 			}
 

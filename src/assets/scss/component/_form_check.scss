@@ -338,14 +338,14 @@ label {
 				box-sizing: border-box;
         @include form-check-button(#{$size});
 
-        z-index: 3;
+        // z-index: 1;
         background-color: var(--#{$prefix}-form-check--button-color-element);
         border: 0.1rem solid var(--#{$prefix}-form-check--button-color-border);
       }
 
       &::after {
         position: absolute;
-        z-index: 4;
+        z-index: 2;
       }
 
 			span{

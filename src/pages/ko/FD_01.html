@@ -35,12 +35,166 @@
 									size: 'medium'
 								}) -%>
 							</div>
-							<%- include('../../components/button.ejs', {
-								label: '상세 검색',
-								size: 'xlarge',
-								icon: 'plus',
-								addClass: 'detail-search'
-							}) -%>
+							<div class="detail-search-wrap">
+								<div class="search-option-btn">
+									<%- include('../../components/button.ejs', {
+										label: '상세 검색',
+										size: 'xlarge',
+										icon: 'plus',
+									}) -%>
+								</div>
+								<div class="search-option-wrap">
+									<ul class="option-list">
+										<li class="option-item">
+											<p class="option-tit">투자를 희망하는 지역을 선택하세요</p>
+											<div class="option-con">
+												<%- include('../../components/chip.ejs', {
+													name: 'region',
+													items: [
+														{ label: '전체', value: 'all' },
+														{ label: '국내', value: 'domestic', checked: true },
+														{ label: '해외', value: 'global' }
+													]
+												}) -%>
+											</div>
+										</li>
+										<li class="option-item">
+											<p class="option-tit">펀드 유형을 선택하세요</p>
+											<div class="option-con">
+												<%- include('../../components/chip.ejs', {
+													name: 'region',
+													items: [
+														{ label: '전체', value: 'all' },
+														{ label: 'MMF', value: 'mmf', checked: true },
+														{ label: '기타', value: 'etc' },
+														{ label: '부동산', value: 'mmf', checked: true },
+														{ label: '인프라', value: 'etc' },
+														{ label: '주식', value: 'mmf', checked: true },
+														{ label: '주식혼합', value: 'etc' },
+														{ label: '채권', value: 'mmf', checked: true },
+														{ label: '채권혼합', value: 'etc' },
+														{ label: '파생', value: 'etc' },
+														{ label: '혼합자산', value: 'etc' },
+														{ label: '재간접', value: 'etc' },
+													]
+												}) -%>
+											</div>
+										</li>
+										<li class="option-item">
+											<p class="option-tit">펀드 테마를 선택하세요</p>
+											<div class="option-con">
+												<%- include('../../components/chip.ejs', {
+													name: 'region',
+													items: [
+														{ label: '전체', value: 'all' },
+														{ label: 'Al', value: 'mmf', checked: true },
+														{ label: 'ESG', value: 'etc' },
+														{ label: 'TDF', value: 'mmf', checked: true },
+														{ label: '개인연금', value: 'etc' },
+														{ label: '공모주', value: 'mmf', checked: true },
+														{ label: '글로벌', value: 'etc' },
+														{ label: '금리', value: 'mmf', checked: true },
+														{ label: '멀티에셋', value: 'etc' },
+														{ label: '목표전환', value: 'etc' },
+														{ label: '배당', value: 'etc' },
+														{ label: '업종대표', value: 'etc' },
+														{ label: '인덱스', value: 'etc' },
+														{ label: '인컴형', value: 'etc' },
+														{ label: '중소형주', value: 'etc' },
+														{ label: '퇴직연금', value: 'etc' },
+														{ label: '가치주', value: 'etc' },
+														{ label: '글로벌자산배분', value: 'etc' },
+														{ label: '기후위기', value: 'etc' },
+														{ label: '단기채', value: 'etc' },
+														{ label: '레버리지', value: 'etc' },
+														{ label: '북미', value: 'etc' },
+														{ label: '섹터', value: 'etc' },
+														{ label: '신흥국', value: 'etc' },
+														{ label: '아세안', value: 'etc' },
+														{ label: '원자재', value: 'etc' },
+														{ label: '유럽', value: 'etc' },
+														{ label: '일본', value: 'etc' },
+														{ label: '초단기채', value: 'etc' },
+														{ label: '장기채', value: 'etc' },
+														{ label: '중기채', value: 'etc' },
+														{ label: '중단기채', value: 'etc' },
+														{ label: '중국', value: 'etc' },
+														{ label: '테크', value: 'etc' },
+														{ label: '헬스케어', value: 'etc' },
+													]
+												}) -%>
+											</div>
+										</li>
+										<li class="option-item">
+											<p class="option-tit">수익률을 정해서 검색할 수 있어요</p>
+											<div class="option-con">
+												<%- include('../../components/chip.ejs', {
+													name: 'region',
+													variant: 'single',
+													items: [
+														{ label: '전체', value: 'all' },
+														{ label: '1개월', value: 'mmf', checked: true },
+														{ label: '3개월', value: 'etc' },
+														{ label: '6개월', value: 'mmf' },
+														{ label: '1년', value: 'etc' },
+														{ label: '3년', value: 'mmf' },
+														{ label: '5년', value: 'etc' },
+														{ label: '연초이후', value: 'mmf' },
+														{ label: '설정이후', value: 'etc' },
+													]
+												}) -%>
+												<div class="range-slider-wrap">
+													<div class="range-slider num-range" data-grid='{"type":"num", "min": 0, "max": 5, "step": 1, "values":[1,5]}'>
+														<div class="range-legend" aria-hidden="true">
+															<span>-10% 이하</span>
+															<span>0%</span>
+															<span>20%</span>
+															<span>40%</span>
+															<span>60%</span>
+															<span>80% 이상</span>
+														</div>
+														<div class="handle ui-slider-handle">
+															<input type="text" class="amount" name="minRtn" tabindex="-1" readonly="readonly" title="최저 수익률(%)">
+														</div>
+														<div class="handle ui-slider-handle">
+															<input type="text" class="amount" name="maxRtn" tabindex="-1" readonly="readonly" title="최고 수익률(%)">
+														</div>
+														<span class="blind alt" aria-live="polite"></span>
+													</div>
+												</div>
+												<!-- <div class="range-slider-wrap2">
+													<div id="range-slider-revenue" class="range-slider"></div>
+													<div class="input-group gap-16 align-center">
+														<%#- include('../../components/input.ejs', {
+															id: 'range-min-text',
+															type: 'number',
+															size: 'medium',
+															ariaLabel: '최저 수익률 값'
+														}) -%>
+														<span class="range-divider" aria-hidden="true">~</span>
+														<%#- include('../../components/input.ejs', {
+															id: 'range-max-text',
+															type: 'number',
+															size: 'medium',
+															ariaLabel: '최고 수익률 값'
+														}) -%>
+														<span class="range-unit" aria-hidden="true">%</span>
+													</div>
+												</div> -->
+											</div>
+										</li>
+									</ul>
+									<div class="btn-wrap array-center">
+										<%- include('../../components/button.ejs', {
+											variant: 'outline',
+											label: '설정 초기화',
+										}) -%>
+										<%- include('../../components/button.ejs', {
+											label: '검색 결과보기',
+										}) -%>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="promo-banner pension">
 							<p class="tit">든든한 노후, 한화 연금펀드로 준비하세요.</p>
@@ -51,111 +205,51 @@
 								icon: 'arrow-right',
 							}) -%>
 						</div>
-						<div class="sort-wrap">
-							<p class="total">총 <span class="fc-primary">370</span>건</p>
-							<ul class="sort-list">
-								<li class="sort-item">
-									<button type="button" class="btn text small active sort-asc">기준가</button>
-								</li>
-								<li class="sort-item">
-									<button type="button" class="btn text small">순자산</button>
-								</li>
-								<li class="sort-item period">
-									<ul class="period-list">
-										<li><button type="button" class="btn text small">1개월</button></li>
-										<li><button type="button" class="btn text small">3개월</button></li>
-										<li><button type="button" class="btn text small">6개월</button></li>
-										<li><button type="button" class="btn text small">1년</button></li>
-										<li><button type="button" class="btn text small">3년</button></li>
-										<li><button type="button" class="btn text small">5년</button></li>
-										<li><button type="button" class="btn text small">연초이후</button></li>
-										<li><button type="button" class="btn text small">설정이후</button></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<ul class="fund-list-wrap">
-							<li class="fund-item">
-								<%- include('../../components/checkbox.ejs', {
-									label: '비교 목록에 추가',
-									hideLabel: true,
-								}) -%>
-								<div class="fund-info">
-									<div class="fund-top">
-										<%- include('../../components/badge.ejs', { 
-											badgeItems: [
-												{ label: '아세안', variant: 'solid', color: 'red'},
-												{ label: '주식혼합', variant: 'solid', color: 'orange'},
-												{ label: '중소형주/성장주', variant: 'solid', color: 'purple'}
-											]
-										}) -%>
-										<div class="tit-wrap">
-											<a href="#!">
-												<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
-												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
-											</a>
-										</div>
-									</div>
-									<div class="fund-chart mobile-only">
-										<div class="chart-area line">
-											<div class="chart">
-												<!-- Chart 영역 -->
-											</div>
-										</div>
-									</div>
-									<div class="fund-con">
-										<dl>
-											<dt>기준가(원)</dt>
-											<dd>2,698.34</dd>
-										</dl>
-										<dl>
-											<dt>순자산(백만원)</dt>
-											<dd>1,463</dd>
-										</dl>
-										<div class="period-grid">
-											<dl>
-												<dt>1개월</dt>
-												<dd class="up">22.02%</dd>
-											</dl>
-											<dl>
-												<dt>3개월</dt>
-												<dd class="up">45.89%</dd>
-											</dl>
-											<dl>
-												<dt>6개월</dt>
-												<dd class="up">87.98%</dd>
-											</dl>
-											<dl>
-												<dt>6개월</dt>
-												<dd class="up">2.45%</dd>
-											</dl>
-											<dl>
-												<dt>1년</dt>
-												<dd class="up">87.98%</dd>
-											</dl>
-											<dl>
-												<dt>3년</dt>
-												<dd class="up">103.62%</dd>
-											</dl>
-											<dl>
-												<dt>5년</dt>
-												<dd class="up">179.85%</dd>
-											</dl>
-											<dl>
-												<dt>연초이후</dt>
-												<dd class="down">-75.15%</dd>
-											</dl>
-											<dl>
-												<dt>설정이후</dt>
-												<dd class="up">169.83%</dd>
-											</dl>
-										</div>
-									</div>
-								</div>
-							</li>
-						</ul>
+				</section>
+				<section class="section-detail">
+					<div class="inner">
 						<%
 						const allFundData = include('../../layouts/fundList.ejs', { 
+							fundDataList: [
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+							]
+						});
+						const pensionFundData = include('../../layouts/fundList.ejs', { 
 							fundDataList: [
 								{
 									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
@@ -201,13 +295,113 @@
 							size: 'large',
 							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
 						});
+						const deleteBtn = include('../../components/button.ejs', {
+							variant: 'icon',
+							label: '삭제',
+							preIcon: 'delete',
+							addClass: 'delete',
+						});
+						const resetBtn = include('../../components/button.ejs', {
+							label: '다시 선택',
+							preIcon: 'reset',
+							addClass: 'reset',
+						});
+						const compareBtn = include('../../components/button.ejs', {
+							hierarchy: 'primary',
+							label: '비교하기(1/3)',
+						});
+						const compareFloating = `
+							<ul class="compare-list">
+								<li class="compare-item">
+									<span>한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</span>
+									${deleteBtn}
+								</li>
+								<li class="compare-item">
+									<span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+									${deleteBtn}
+								</li>
+								<li class="compare-item">
+									<span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+									${deleteBtn}
+								</li>
+							</ul>
+							<div class="compare-btn-wrap">
+								${resetBtn}
+								${compareBtn}
+							</div>`;
+						const select = include('../../components/select.ejs', {
+							// size: 'large',
+							variant: 'outline',
+							options: [
+								{ value: 'default', text: '기준가' },
+								{ value: 'assets', text: '순자산' },
+							]
+						});
+						const sortWrap = `
+							<div class="sort-wrap">
+								<p class="total">총 <span class="fc-primary">370</span>건</p>
+								<ul class="sort-list">
+									<li class="sort-item">
+										<button type="button" class="btn text small active sort-asc">기준가</button>
+									</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small">순자산</button>
+									</li>
+									<li class="sort-item period">
+										<ul class="period-list">
+											<li><button type="button" class="btn text small">1개월</button></li>
+											<li><button type="button" class="btn text small">3개월</button></li>
+											<li><button type="button" class="btn text small">6개월</button></li>
+											<li><button type="button" class="btn text small">1년</button></li>
+											<li><button type="button" class="btn text small">3년</button></li>
+											<li><button type="button" class="btn text small">5년</button></li>
+											<li><button type="button" class="btn text small">연초이후</button></li>
+											<li><button type="button" class="btn text small">설정이후</button></li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="sort-list tablet">
+									<li>
+										${select}
+									</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small active sort-asc">낮은순</button>
+									</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small">높은순</button>
+									</li>
+								</ul>
+							</div>
+							`;
+
 						const tabCont1 = `
-							${allFundData}
+							<div class="fund-content">
+								${sortWrap}
+								${allFundData}
+								<div class="btn-wrap array-center">
+									${moreBtn}
+								</div>
+							</div>
+							<div class="fund-compare-floating">
+								<div class="inner">
+									${compareFloating}
+								</div>
+							</div>
+						`
+						const tabCont2 = `
+						<div class="fund-content">
+							${sortWrap}
+							${pensionFundData}
 							<div class="btn-wrap array-center">
 								${moreBtn}
 							</div>
-						`
-						const tabCont2 = '';
+						</div>
+						<div class="fund-compare-floating">
+							<div class="inner">
+								${compareFloating}
+							</div>
+						</div>						
+						`;
 						-%>
 						<%- include('../../components/tab.ejs', {
 							variant: 'line',
@@ -217,9 +411,6 @@
 						}) -%>
 					</div>
 				</section>
-				<section>
-
-				</section>
 			</main>
 			<!-- // container -->
 
@@ -228,6 +419,32 @@
 			<!-- // footer -->
 		</div>
 		<script>
+			const uiDetailSearch = {
+				init: function () {
+					$(document).on("click.uiDetailSearch", ".search-option-btn .btn", function (e) {
+						e.preventDefault();
+
+						const $btn = $(this);
+						const $optionWrap = $btn.parents('.search-option-btn').siblings('.search-option-wrap');
+
+						$btn.toggleClass('active');
+						$optionWrap.slideToggle(200);
+					});
+				}
+			};
+			const uiFundListChk = {
+				init: function () {
+					$(document).on("change.fundListChk", ".fund-list-wrap .fund-item input[type='checkbox']", function () {
+						const $chk = $(this);
+						const $fundContent = $chk.closest('.fund-content');
+						const $floatingBox = $fundContent.siblings('.fund-compare-floating');
+						const $allCheckboxes = $fundContent.find(".fund-list-wrap .fund-item input[type='checkbox']");
+						const checkedCount = $allCheckboxes.filter(':checked').length;
+
+						$floatingBox.toggleClass('active', checkedCount > 0)
+					});
+				}
+			}
 			const uiSort = {
 				init: function () {
 					$(document).on("click.uiSort", ".sort-list .btn", function (e) {
@@ -248,9 +465,155 @@
 					});
 				}
 			};
+			const uiRangeSlider = {
+				init: function () {
+					const $sliders = $('.range-slider[data-grid]');
+					
+					if (!$sliders.length || !$.fn.slider) return;
+
+					$sliders.each(function () {
+						const $slider = $(this);
+		
+						const valueMap = [-10, 0, 20, 40, 60, 80];
+						const options = $slider.data('grid') || {};
+						const sliderOptions = {
+							range: true,
+							min: options.min || 0,     // 0
+							max: options.max || (valueMap.length - 1), // 5
+							step: options.step || 1,   // 1
+							values: options.values || [1, 5] // 초기값 (0%, 80% 이상)
+						};
+
+						const handleset = (event, ui) => {
+							const $handles = $slider.find('.ui-slider-handle');
+							const $rangeBar = $slider.find('.ui-slider-range');
+							const $altText = $slider.find('.blind.alt');
+							const values = ui.values || sliderOptions.values;
+
+							let altValues = []; 
+
+							$handles.each(function(index) {
+								const $handle = $(this);
+								const indexValue = values[index];
+								
+								const realValue = valueMap[indexValue];
+								altValues.push(realValue);
+
+								$handle.find('.amount').val(realValue);
+							});
+							$altText.text(`수익률 ${altValues[0]}% ~ ${altValues[1]}% 사이 선택`);
+						};
+						
+						$slider.slider({
+							...sliderOptions,
+							create: function(event, ui) {
+								const $handles = $slider.find('.handle');
+								$(event.target).find('.ui-slider-handle').each(function(index) {
+									$(this).html($handles.eq(index).html());
+								});
+								handleset(event, { values: sliderOptions.values });
+								
+								//눈금 위치 동적 설정
+								const $legend = $(event.target).find('.range-legend');
+								const $spans = $legend.find('span');
+								const totalItems = $spans.length;
+
+								const totalIntervals = (sliderOptions.max - sliderOptions.min) / sliderOptions.step;
+
+								$spans.each(function(index) {
+									const $span = $(this);
+									const percentage = (index / totalIntervals) * 100;
+									$span.css({'left': percentage + '%',});
+								});
+							},
+							slide: handleset,
+							change: handleset
+						});
+					});
+				}
+			};
+
+
+			const uiRangeSliderNo = {
+				init: function () {
+					const slider = document.getElementById('range-slider-revenue');
+					
+					// 1. noUiSlider 라이브러리가 로드되었는지 확인
+					if (!slider || typeof noUiSlider === 'undefined') {
+						return;
+					}
+
+					// 2. 값 표시용 <input>을 찾습니다.
+					const $minText = $('#range-min-text');
+					const $maxText = $('#range-max-text');
+
+					// 3. [수정] 슬라이더 옵션 정의 (불규칙한 간격)
+					const sliderOptions = {
+						start: [0, 60], // 초기 값
+						connect: true,  // 두 핸들 사이를 채움
+						
+						// [수정] 불규칙한 간격(pips) 정의
+						range: {
+							'min': -10,
+							'14%': 0,
+							'28%': 10,
+							'42%': 20,
+							'56%': 30,
+							'70%': 40,
+							'84%': 50,
+							'max': 60
+						},
+
+						// [수정] 2번 질문 (시작/끝 여백)
+						// (100px / (60 - (-10))) * 100 = 약 14.2%
+						// 각 끝에 약 14%의 여백을 줍니다. (SCSS의 padding: 0 10rem과 유사)
+						padding: [14, 14],
+
+						// [수정] 3번 질문 (눈금 생성)
+						pips: {
+							mode: 'values',
+							values: [-10, 0, 10, 20, 30, 40, 50, 60],
+							density: 14, // (100 / 7칸)
+							format: {
+								to: function (value) {
+									if (value === -10) return '-10% 이하';
+									if (value === 60) return '60% 이상'; // '80% 이상'은 max 값에 따라 다름
+									return value + '%';
+								}
+							}
+						}
+					};
+
+					// 4. noUiSlider 생성
+					noUiSlider.create(slider, sliderOptions);
+
+					// 5. 슬라이더가 움직일 때 (update 이벤트) - 4번 질문
+					slider.noUiSlider.on('update', function (values, handle) {
+						// values는 ['0.00', '60.00'] 형태의 문자열 배열
+						const minValue = parseFloat(values[0]).toFixed(0);
+						const maxValue = parseFloat(values[1]).toFixed(0);
+
+						if ($minText.length) $minText.val(minValue);
+						if ($maxText.length) $maxText.val(maxValue);
+					});
+
+					// 6. (선택) 텍스트 input을 수정했을 때 슬라이더도 변경
+					$minText.on('change', function() {
+						slider.noUiSlider.set([$(this).val(), null]);
+					});
+					$maxText.on('change', function() {
+						slider.noUiSlider.set([null, $(this).val()]);
+					});
+				}
+			};
+
 
 			$(function() {
+				uiDetailSearch.init();
+				uiFundListChk.init();
 				uiSort.init();
+				uiRangeSlider.init();
+				// uiRangeSliderNo.init();
 			});
 		</script>
 	</body>

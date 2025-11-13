@@ -1346,7 +1346,9 @@
 	.fund-find{
 		.section-search{
 			position: relative;
-			padding: 8rem 0 12rem;
+			// padding: 8rem 0 12rem;
+			padding: 8rem 0 6.4rem;
+
 			&::before{
 				content: '';
 				position: absolute;
@@ -1358,210 +1360,529 @@
 				background: linear-gradient(0deg, rgba(243, 242, 241, 0.00) 0%, #F3F2F1 100%);
 				z-index: -1;
 			}
-		}
-		.search-wrap{
-			position: relative;
-			padding: 8rem;
-			background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
-			backdrop-filter: blur(4rem);
 
-			.search-con{
-				margin: 0 auto;
-				width: 47.4%;
-
-				.tag-wrap{
-					margin-top: 2.4rem;
-					justify-content: center;
-					color: var(--#{$prefix}-color-text-strong);
+			.section-tit-wrap{
+				position: relative;
+				z-index: 2;
+			}
+			.search-wrap{
+				position: relative;
+				z-index: 1;
+				margin-top: -4rem;
+				padding: 8rem;
+				background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
+				backdrop-filter: blur(4rem);
+	
+				.search-con{
+					margin: 0 auto;
+					width: 47.4%;
+	
+					.tag-wrap{
+						margin-top: 2.4rem;
+						justify-content: center;
+						color: var(--#{$prefix}-color-text-strong);
+					}
 				}
-			}
-			.detail-search{
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				transform: translateY(50%);
+				.detail-search-wrap{
+					position: absolute;
+					// bottom: -100%;
+					top: 27.2rem;
+					left: 0;
+					width: 100%;
+					// transform: translateY(calc(-50% - 3.2rem));
+					z-index: 2;
 
-				background: linear-gradient(90deg, #FF5532 0%, #09021E 100%);
-				border: 0;
-			}
-		}
-		.promo-banner{
-			margin: 8rem 0 6.4rem;
-			display: flex;
-			justify-content: center;
-			gap: 4rem;
-			@include bg('fund/banner-pension.png');
+					.search-option-btn{
+						display: flex;
+						justify-content: flex-end;
+						.btn{
+							// position: absolute;
+							// bottom: 0;
+							// right: 0;
+							// transform: translateY(50%);
+							width: 19rem;
+			
+							background: linear-gradient(90deg, #FF5532 0%, #09021E 100%);
+							border: 0;
+							transition: width 0.4s;
+		
+							&.active{
+								width: 100%;
+								justify-content: flex-end;
+		
+		
+								.icon-plus{
+									@include icon-set('minus');
+								}
+							}
+						}
+					}
 
-			.tit{
-				color: var(--#{$prefix}-color-text-strong);
-				font-size: 2.1rem;
-				font-weight: 600;
-			}
+					.search-option-wrap{
+						display: none;
+						// position: absolute;
+						// bottom: -9.6rem;
+						// left: 0;
+						padding: 4rem;
+						width: 100%;
+						border: 0.1rem solid #FE5B16;
+						border-top: 0;
+						background-color: #fff;
+						box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.20), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 
-			&.pension{
-				.tit{
-					display: flex;
-					align-items: center;
-					gap: 0.8rem;
+						.option-item{
+							margin-bottom: 6.4rem;
+						}
+						.option-tit{
+							margin-bottom: 2.4rem;
+							color: var(--#{$prefix}-color-text-strong);
+							font-size: 2.1rem;
+							font-weight: 600;
+						}
+						.range-slider-wrap{
+							position: relative;
+							padding: 6.4rem 10rem 0;
+							
+							&::after{
+								content: '';
+								position: absolute;
+								bottom: 0;
+								left: 0;
+								right: 0;
+								height: 1.2rem;
+								border-radius: 0.3rem;
+								background-color: #E7E5E4;
+							}
 
-					&::before{
-						content: '';
-						display: inline-block;
-						@include square(8rem);
-						@include bg('icon/ico-pension.png');
+							.range-slider{
+								margin-top: calc(2.4rem + 1.6rem);
+								// padding: 0 10rem;
+								border: 0;
+
+								.ui-slider-handle{
+									position: absolute;
+									top: 50%;
+    							transform: translateY(-50%);
+									@include square(4rem);
+									border: 0.1rem solid #D7D5D5;
+									background-color: #fff;
+									box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+									border-radius: 50%;
+
+									.handle {
+										width: 100%;
+										height: 100%;
+									}
+									.amount{
+										@include sr-only;
+									}
+								}
+								.ui-slider-range{
+									background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+								}
+								.range-legend{
+									position: relative;
+									z-index: 1;
+									top: -4rem;
+									display: flex;
+
+									span{
+										position: absolute;
+										flex: 1;
+										text-align: center;
+										white-space: nowrap;
+										font-family: $font-family-kr;
+										color: var(--#{$prefix}-color-text-subtler);
+										font-size: 1.6rem;
+
+										&:first-child, &:last-child{
+											transform: translateX(-50%);
+										}
+
+										&::after{
+											content: '';
+											position: absolute;
+											left: 50%;
+											top: 4.4rem;
+											@include square(0.8rem);
+											// margin-left: -5px;
+											border-radius: 50%;
+											background: #C7C1BD;
+											z-index: 1;
+										}
+									}
+								}
+							}
+						}
+						.btn-wrap{
+							padding-top: 4rem;
+							border-top: 0.1rem solid #E6E5E5;
+						}
+						// .range-slider-wrap2 {
+						// 	padding-top: 6.4rem;
+						
+						// 	.range-slider {
+						// 		/* [수정] noUiSlider는 트랙 높이가 필요합니다. */
+						// 		height: 1.2rem;
+						// 		border: 0;
+						// 		background: #E7E5E4;
+						// 		box-shadow: none;
+						// 		border-radius: 0.3rem;
+						// 		margin-top: calc(2.4rem + 1.6rem);
+						// 	}
+						
+						// 	/* 핸들(손잡이) 스타일 */
+						// 	.noUi-handle {
+						// 		@include square(4rem); // 40px
+						// 		border: 0.1rem solid #D7D5D5;
+						// 		background-color: #fff;
+						// 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+						// 		border-radius: 50%;
+								
+						// 		/* 핸들 위치 조정 (트랙 중앙) */
+						// 		right: -2rem; // 너비의 절반
+						// 		top: 50%;
+						// 		transform: translateY(-50%);
+								
+						// 		/* 핸들 내부의 ::before, ::after 제거 */
+						// 		&::before, &::after {
+						// 			display: none;
+						// 		}
+								
+						// 		/* 스크린리더용 input 숨기기 (기존 .amount) */
+						// 		.amount {
+						// 			@include sr-only;
+						// 		}
+						// 	}
+						
+						// 	/* 선택된 범위(파란색 바) 스타일 */
+						// 	.noUi-connect {
+						// 		background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+						// 	}
+						
+						// 	/* 눈금(Pips) 스타일 */
+						// 	.noUi-pips {
+						// 		position: relative;
+						// 		top: -4rem; // 트랙 위로 40px
+						// 		color: #000;
+						// 	}
+							
+						// 	.noUi-marker {
+						// 		background: #C7C1BD; // 눈금 점 색상
+						// 		width: 0.8rem;
+						// 		height: 0.8rem;
+						// 	}
+							
+						// 	.noUi-value {
+						// 		top: -3rem; // 눈금 점 위로
+						// 		font-size: 1.4rem;
+						// 	}
+						// }
 					}
 				}
 			}
-		}
-
-		.sort-wrap{
-			display: flex;
-			justify-content: space-between;
-			margin-bottom: 2.4rem;
-
-			.sort-list{
+			.promo-banner{
+				margin-top: 8rem;
 				display: flex;
-				align-items: center;
-
-				> li{
-					display: flex;
-					align-items: center;
+				justify-content: center;
+				gap: 4rem;
+				@include bg('fund/banner-pension.png');
+	
+				.tit{
+					color: var(--#{$prefix}-color-text-strong);
+					font-size: 2.1rem;
+					font-weight: 600;
 				}
-				.period{
-					.period-list{
+	
+				&.pension{
+					.tit{
 						display: flex;
 						align-items: center;
-					}
-				}
-
-				li{
-					padding-right: 1.6rem;
-					&::after{
-						content: '';
-						display: inline-block;
-						margin-left: 1.6rem;
-						width: 0.1rem;
-						height: 1.6rem;
-						vertical-align: middle;
-						background-color: #D7D5D5;
-					}
-
-					&:last-child{
-						padding-right: 0;
-						&::after{
-							display: none;
+						gap: 0.8rem;
+	
+						&::before{
+							content: '';
+							display: inline-block;
+							@include square(8rem);
+							@include bg('icon/ico-pension.png');
 						}
 					}
 				}
+			}
+		}
 
-				.btn{
-					color: #494646;
+		.section-detail{
+			padding-bottom: 12rem;
 
-					&::after{
-						content: '';
-						display: inline-block;
-						@include square(1.6rem);
-						@include icon-set('desc');
-						background-color: currentColor;
+			.fund-content{
+				.sort-wrap{
+					display: flex;
+					justify-content: space-between;
+					margin-bottom: 2.4rem;
+		
+					.sort-list{
+						display: flex;
+						align-items: center;
+		
+						> li{
+							display: flex;
+							align-items: center;
+						}
+						.period{
+							.period-list{
+								display: flex;
+								align-items: center;
+							}
+						}
+		
+						li{
+							padding-right: 1.6rem;
+							&::after{
+								content: '';
+								display: inline-block;
+								margin-left: 1.6rem;
+								width: 0.1rem;
+								height: 1.6rem;
+								vertical-align: middle;
+								background-color: #D7D5D5;
+							}
+		
+							&:last-child{
+								padding-right: 0;
+								&::after{
+									display: none;
+								}
+							}
+						}
+		
+						.btn{
+							color: #494646;
+		
+							&::after{
+								content: '';
+								display: inline-block;
+								@include square(1.6rem);
+								@include icon-set('desc');
+								background-color: currentColor;
+							}
+		
+							&.active{
+								color: var(--#{$prefix}-color-text-primary-dark);
+								font-weight: 600;
+							}
+							&.sort-asc{
+								&::after{
+									transform: rotate(180deg);
+								}
+							}
+						}
 					}
+				}
+				.fund-list-wrap{
+					.fund-item{
+						overflow: hidden;
+						display: flex;
+						align-items: center;
+						gap: 2.4rem;
+						padding: 4rem 0;
+						border-top: 0.1rem solid #D7D5D5;
+		
+						&:last-child{
+							border-bottom: 0.1rem solid #D7D5D5;
+						}
+		
+						&:has(input[type="checkbox"]:checked) {
+							background-color: #FDF5F1;
+						}
+		
+						.form-check{
+							margin: 0 1.6rem;
+							flex-shrink: 0;
+						}
+		
+						.fund-info{
+							display: flex;
+							flex-direction: column;
+							gap: 2.4rem;
+							width: 100%;
+		
+							.tit-wrap{
+								margin-top: 1.6rem;
+								.tit{
+									color: var(--#{$prefix}-color-text-strong);
+									font-size: 2.4rem;
+									font-weight: 600;
+								}
+								.desc{
+									margin-top: 0.8rem;
+									color: var(--#{$prefix}-color-text-subtle);
+								}
+							}
+							.fund-con{
+								display: flex;
+		
+								> dl{
+									margin-right: 2.4rem;
+									padding-right: 2.4rem;
+									flex-shrink: 0;
+									min-width: 10%;
+									border-right: 0.1rem solid #E6E5E5;
+								}
+								dt{
+									color: var(--#{$prefix}-color-text-subtler);
+									font-size: 1.6rem;
+								}
+								dd{
+									margin-top: 0.8rem;
+									font-size: 2.1rem;
+									font-weight: 500;
+								}
+		
+								.period-grid{
+									overflow: auto hidden;
+									display: flex;
+									gap: 0.8rem;
+									width: 100%;
+		
+									.up{
+										color: var(--#{$prefix}-color-change-up);
+									}
+									.down{
+										color: var(--#{$prefix}-color-change-down);
+									}
+		
+									dl{
+										flex: 1;
+		
+										dt{
+											text-align: center;
+										}
+										dd{
+											text-align: center;
+										}
+									}
+								}
+							}
+						}
+					}
+					+.btn-wrap{
+						margin-top: 4.8rem;
+					}
+				}
+			}
+			.fund-compare-floating{
+				position: fixed;
+				left: 0;
+				bottom: -100%;
+				z-index: 2;
+				padding: 1.6rem 0;
+				width: 100%;
+				background: var(--color-sub-sub-80, #2C2320);
+				box-shadow: 0 -0.4rem 1.6rem 0 rgba(0, 0, 0, 0.20);
+				transition: var(--#{$prefix}-transition-base);
 
-          &.active{
-            color: var(--#{$prefix}-color-text-primary-dark);
-            font-weight: 600;
-          }
-          &.sort-asc{
-            &::after{
-              transform: rotate(180deg);
-            }
-          }
+				&.active{
+					bottom: 0;
+				}
+	
+				.inner{
+					display: flex;
+					align-items: center;
+					gap: 1.6rem;
+				}
+	
+				.compare-list{
+					display: flex;
+					// align-items: center;
+					gap: 0.8rem;
+	
+					.compare-item{
+						display: flex;
+						align-items: center;
+						gap: 1.2rem;
+						padding: 1.2rem 1.6rem;
+						flex: 1;
+						min-height: 8rem;
+						color: #fff;
+						font-size: 1.6rem;
+						border-radius: 0.3rem;
+						background: rgba(0, 0, 0, 0.25);
+	
+						.btn.delete{
+							flex-shrink: 0;
+							.icon-delete{
+								background-color: currentColor;
+							}
+						}
+					}
+				}
+				.compare-btn-wrap{
+					display: flex;
+					align-items: center;
+					gap: 0.8rem;
+				}
+			}
+
+			@include mq(pc){
+				.fund-compare-floating{
+					.inner{
+						flex-direction: column;
+					}
+				}
+			}
+			@include mq(tablet){
+				.fund-content{
+					.sort-wrap{
+						flex-direction: column;
+						gap: 1.2rem;
+
+						.sort-list{
+							overflow: auto hidden;
+							li{
+								white-space: nowrap;
+							}
+						}
+					}
+					.fund-list-wrap{
+						.fund-item{
+							flex-direction: column;
+							align-items: flex-start;
+							padding-left: 1.6rem;
+							padding-right: 1.6rem;
+
+							.form-check{
+								margin: 0;
+							}
+							.fund-info{
+								.fund-con{
+									.period-grid{
+										gap: 1.6rem;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			@include mq(tablet-small){
+				.fund-content{
+					.sort-wrap{
+
+						.sort-list{
+							&:not(.tablet){
+								display: none;
+							}
+
+							overflow: visible;
+						}
+					}
+				}
+				.fund-list-wrap{
+					.fund-item{
+						padding: 0;
+					}
 				}
 			}
 		}
-    .fund-list-wrap{
-      .fund-item{
-        display: flex;
-        align-items: center;
-        gap: 2.4rem;
-        padding: 4rem 0;
-        border-top: 0.1rem solid #D7D5D5;
-
-        &:last-child{
-          border-bottom: 0.1rem solid #D7D5D5;
-        }
-
-        &:has(input[type="checkbox"]:checked) {
-          background-color: #FDF5F1;
-        }
-
-        .form-check{
-          margin: 0 1.6rem;
-          flex-shrink: 0;
-        }
-
-        .fund-info{
-          display: flex;
-          flex-direction: column;
-          gap: 2.4rem;
-          width: 100%;
-
-          .tit-wrap{
-            margin-top: 1.6rem;
-            .tit{
-              color: var(--#{$prefix}-color-text-strong);
-              font-size: 2.4rem;
-              font-weight: 600;
-            }
-            .desc{
-              margin-top: 0.8rem;
-              color: var(--#{$prefix}-color-text-subtle);
-            }
-          }
-          .fund-con{
-            display: flex;
-
-            > dl{
-              margin-right: 2.4rem;
-              padding-right: 2.4rem;
-              flex-shrink: 0;
-              min-width: 10%;
-              border-right: 0.1rem solid #E6E5E5;
-            }
-            dt{
-              color: var(--#{$prefix}-color-text-subtler);
-              font-size: 1.6rem;
-            }
-            dd{
-              margin-top: 0.8rem;
-              font-size: 2.1rem;
-              font-weight: 500;
-            }
-
-            .period-grid{
-              display: flex;
-              gap: 0.8rem;
-              width: 100%;
-
-              .up{
-                color: var(--#{$prefix}-color-change-up);
-              }
-              .down{
-                color: var(--#{$prefix}-color-change-down);
-              }
-
-              dl{
-                flex: 1;
-
-                dt{
-                  text-align: center;
-                }
-                dd{
-                  text-align: center;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 	}
 }
