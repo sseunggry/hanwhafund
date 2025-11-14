@@ -125,7 +125,7 @@ $directions: (t: top, b: bottom, l: left, r: right);
 }
 
 //gap
-$gap-sizes: (0, 8, 16, 40, 80);
+$gap-sizes: (0, 8, 16, 24, 40, 80);
 @each $size in $gap-sizes {
   .gap-#{$size} {
     gap: calc(#{$size} * 0.1rem) !important;

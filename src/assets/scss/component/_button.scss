@@ -290,7 +290,11 @@ $button-color-variable: (
 		padding: 0 2.4rem;
 		color: #2C2320;
 		border: 0.1rem solid #2C2320;
-		background-color: transparent;
+		background-color: #fff;
+
+    .svg-icon{
+      background-color: currentColor;
+    }
 	}
 
   /* --- Variant: Line Button (.line) --- */
@@ -506,6 +510,7 @@ $button-color-variable: (
   &.array-left {
     .btn {
       justify-content: flex-start;
+      flex: none;
     }
   }
   &.array-center {

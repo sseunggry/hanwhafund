@@ -25,6 +25,9 @@
   --#{$prefix}-table--tbody-color-surface: #fff;
   --#{$prefix}-table--scrollbar-track-color: #F3F2F1;
   --#{$prefix}-table--scrollbar-thumb-color: #FE5B16;
+
+  --#{$prefix}-table--secondary-border-color: #E7E5E4;
+  --#{$prefix}-table--secondary-thead-color-surface: #E7E5E4;
 }
 
 .tbl-wrap {
@@ -86,6 +89,19 @@
 
     th, td {
       vertical-align: middle;
+    }
+  }
+
+  &.secondary{
+    .tbl{
+      &::before{
+        background: var(--#{$prefix}-table--secondary-border-color);
+      }
+      thead{
+        th{
+          background-color: var(--#{$prefix}-table--secondary-thead-color-surface);
+        }
+      }
     }
   }
 

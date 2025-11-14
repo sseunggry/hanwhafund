@@ -11,6 +11,12 @@
 		margin-top: 6.4rem;
 	}
 
+	.terms-sub-group{
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+	}
+
 	.terms-tit{
 		// margin-bottom: 4rem;
 		color: var(--#{$prefix}-color-text-strong);
@@ -21,18 +27,18 @@
 		font-size: 1.8rem;
 
 		+ .terms-txt {
-      margin-top: 1.6rem;
+      // margin-top: 1.6rem;
     }
 
 		+ .note-list{
-			margin-top: 2rem;
+			// margin-top: 2rem;
 		}
 	}
 	.terms-sub-tit{
-		margin-bottom: 2.4rem;
+		// margin-bottom: 2.4rem;
 		color: var(--#{$prefix}-color-text-strong);
 		font-size: 2.1rem;
-		font-weight: 500;
+		font-weight: 600;
 	}
 
 	.terms-form{
@@ -62,6 +68,12 @@
 		.btn-wrap{
 			margin-top: 4.8rem;
 		}
+	}
+
+	.terms-txt-wrap{
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
 	}
 
 	@include mq(tablet-small){

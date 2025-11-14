@@ -85,6 +85,27 @@
 		// 	margin-top: var(--#{$prefix}-note-list--info-txt-margin-top);
 		// }
 	}
+
+	@at-root{
+		//예외
+		.terms-group .note-list.depth-1.order, .terms-group .note-list.depth-1.number{
+			gap: 2.4rem;
+		}
+	}
+	&.depth-1{
+	}
+	&.depth-2{
+		// margin-top: 0.8rem;
+		// padding-left: 1.6rem;
+	}
+	&.depth-3{
+		// margin-top: 0.8rem;
+		// padding-left: 1.6rem;
+	}
+	.note-list{
+		margin-top: 0.8rem;
+	}
+
 	&.no-bullet {
 		> li {
 			padding: 0;
@@ -93,18 +114,42 @@
 			}
 		}
 	}
-	// &.dash {
-	// 	> li {
-	// 		&::before {
-	// 			content: "\002D"; //hyphen-minus
-	// 		}
-	// 	}
-	// }
+	&.dash {
+		> li {
+			// padding-left: 0;
+			padding-left: 1.6rem;
+			&::before {
+				content: "\002D"; //hyphen-minus
+				// position: initial;
+				// display: inline-block;
+				top: 0;
+				left: 0;
+				width: fit-content;
+				height: fit-content;
+				background-color: transparent;
+			}
+		}
+	}
 	&.number {
 		> li {
-			padding-left: var(--#{$prefix}-note-list--number-depth1-padding-left);
+			// padding-left: 0;
+			padding-left: 2.8rem;
 
-			.num {
+			> span {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&::before {
+				display: none;
+			}
+		}
+	}
+	&.order {
+		> li {
+			padding-left: 2.4rem;
+
+			> span {
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -124,6 +169,27 @@
 			// }
 		}
 	}
+	&.asterisk{
+		> li {
+			padding-left: 1.8rem;
+
+			> span {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&::before {
+				// display: none;
+				content: "*";
+				top: 0;
+				left: 0;
+				width: fit-content;
+				height: fit-content;
+				background-color: transparent;
+			}
+		}
+	}
+
 
 	//color
 	&.fc-white{
@@ -165,3 +231,4 @@
 		@include icon-set('note-refer', pure);
 	}
 }
+

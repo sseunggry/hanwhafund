@@ -94,6 +94,7 @@
       .btn-accordion {
         &::after {
           @include icon-set(minus);
+          background-color: var(--#{$prefix}-color-orange-base);
         }
       }
     }
