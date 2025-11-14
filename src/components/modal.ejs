@@ -4,7 +4,8 @@
   const title = localsSafe.title || ''; // 모달 제목 (HTML 가능)
   const content = localsSafe.content || ''; // 모달 본문 내용 (HTML 가능)
   const variant = localsSafe.variant || 'modal'; // variant: modal(기본), bottom-sheet, full
-  const buttonLayout = localsSafe.buttonLayout || 'default'; // buttonLayout: default(기본), column
+  const buttonLayout = localsSafe.buttonLayout || ''; // buttonLayout: default(기본), column
+  const buttonAddClass = localsSafe.buttonAddClass || ''; // buttonLayout: default(기본), column
   const buttons = Array.isArray(localsSafe.buttons) ? localsSafe.buttons : []; // buttons: [{ text: '확인', class: 'primary medium', action: 'close'/'custom', customAttr: '...' }, ...]
   const showCloseBtn = localsSafe.showCloseBtn !== false; // X 닫기 버튼 표시 여부 (기본 true)
   const addClass = localsSafe.addClass || '';
@@ -24,7 +25,8 @@
   const btnWrapClasses = [
     'modal-btn',
     'btn-wrap',
-    buttonLayout
+    buttonLayout,
+    buttonAddClass,
   ].filter(Boolean).join(' ');
 -%>
 <div
@@ -52,7 +54,7 @@
           const btnText = button.text || '버튼';
           const btnClasses = [
             `btn`,
-            button.class || 'medium primary', // 기본값 설정
+            button.class || '', // 기본값 설정
             button.action === 'close' ? 'btn-close' : '' // 닫기 액션 시 클래스 추가
           ].filter(Boolean).join(' ');
           const btnAriaControls = button.action === 'close' ? `aria-controls="${id}"` : '';

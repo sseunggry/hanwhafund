@@ -283,15 +283,7 @@ $modal-size: (
       border-bottom: 0;
 
       .modal-title {
-        font-size: var(--#{$prefix}-modal--header-pc-font-size);
-
-        @include mq(tablet) {
-          font-size: var(--#{$prefix}-modal--header-tablet-font-size);
-        }
-
-        @include mq(mobile) {
-          font-size: var(--#{$prefix}-modal--header-mobile-font-size);
-        }
+        font-size: var(--#{$prefix}-modal--header-font-size);
       }
     }
 
@@ -327,6 +319,14 @@ $modal-size: (
           }
         }
 
+				&.ratio{
+					.btn:not(:only-child){
+						&:first-child{
+							min-width: auto;
+							flex: 0 34%;
+						}
+					}
+				}
         &.column {
           .btn {
             flex: none;
@@ -346,14 +346,15 @@ $modal-size: (
 /* mobile */
 @include mq(mobile) {
   .modal {
+		--#{$prefix}-modal--header-font-size: 1.8rem;
+		--#{$prefix}-modal--conts-font-size: 1.6rem;
+
     &:not([data-type="bottom-sheet"]) {
       // 기본 스타일(bottom-sheet제외), 모바일에서는 기본 모달이 full-popup으로 나옴
 			--#{$prefix}-modal--header-padding: 1.6rem;
       --#{$prefix}-modal--header-padding-bottom: 1.6rem;
-      --#{$prefix}-modal--header-font-size: 1.8rem;
 
       --#{$prefix}-modal--conts-padding: 4rem 1.6rem;
-      --#{$prefix}-modal--conts-font-size: 1.6rem;
 
       --#{$prefix}-modal--btn-close-position: 1.6rem;
       --#{$prefix}-modal--btn-close-size: 3.2rem;

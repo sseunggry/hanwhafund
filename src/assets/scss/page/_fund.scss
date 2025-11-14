@@ -6,6 +6,136 @@
 	.inner{
 		max-width: var(--#{$prefix}-content-wrap-width-large);
 	}
+	//범위 설정
+	.range-slider-wrap{
+		position: relative;
+		padding: 6.4rem 5.2% 0;
+		
+		&::after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 1.2rem;
+			border-radius: 0.3rem;
+			background-color: #E7E5E4;
+		}
+
+		.range-slider{
+			margin-top: calc(2.4rem + 1.6rem);
+			// padding: 0 10rem;
+			border: 0;
+
+			.ui-slider-handle{
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+				@include square(4rem);
+				border: 0.1rem solid #D7D5D5;
+				background-color: #fff;
+				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+				border-radius: 50%;
+
+				.handle {
+					width: 100%;
+					height: 100%;
+				}
+				.amount{
+					@include sr-only;
+				}
+			}
+			.ui-slider-range{
+				background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+			}
+			.range-legend{
+				position: relative;
+				z-index: 1;
+				top: -4rem;
+				display: flex;
+
+				span{
+					position: absolute;
+					flex: 1;
+					text-align: center;
+					white-space: nowrap;
+					font-family: $font-family-kr;
+					color: var(--#{$prefix}-color-text-subtler);
+					font-size: 1.6rem;
+
+					&:first-child, &:last-child{
+						transform: translateX(-45%);
+					}
+
+					&::after{
+						content: '';
+						position: absolute;
+						left: 50%;
+						top: 4.4rem;
+						@include square(0.8rem);
+						// margin-left: -5px;
+						border-radius: 50%;
+						background: #C7C1BD;
+						z-index: 1;
+					}
+				}
+			}
+		}
+
+		@include mq(tablet-small){
+			.range-slider{
+				.ui-slider-handle{
+					@include square(3rem);
+					transform: translate(-10%, -50%);
+				}
+			}
+		}
+
+		@include mq(mobile){
+			padding-top: 3.2rem;
+
+			.range-slider{
+				margin-top: 6.5rem;
+
+				.range-legend{
+					top: -4.8rem;
+
+					span{
+						&:first-child, &:last-child{
+							margin-top: -1.5rem;
+
+							&::after{
+								margin-top: 1.5rem;
+							}
+						}
+						&:not(:first-child):not(:last-child){
+							transform: translateX(-1.5rem);
+						}
+						
+						&::after{
+							top: 5.4rem;
+							@include square(0.6rem);
+						}
+					}
+				}
+			}
+		}
+	}
+	//아코디언 chip
+	.chip-wrap{
+		@include mq(mobile){
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+
+			label{
+				width: 100%;
+			}
+	
+			&.col-2{
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
 
   .fund-main {
     .section-visual {
@@ -1342,7 +1472,6 @@
       }
     }
   }
-
 	.fund-find{
 		.section-search{
 			position: relative;
@@ -1363,11 +1492,11 @@
 
 			.section-tit-wrap{
 				position: relative;
-				z-index: 2;
+				z-index: 3;
 			}
 			.search-wrap{
 				position: relative;
-				z-index: 1;
+				z-index: 2;
 				margin-top: -4rem;
 				padding: 8rem;
 				background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
@@ -1420,16 +1549,37 @@
 					}
 
 					.search-option-wrap{
-						display: none;
+						// display: none;
+						overflow: hidden;
+						max-height: 0;
+						transition: opacity 0s, max-height 0.4s ease-in-out;
+						visibility: hidden;
+						opacity: 0;
 						// position: absolute;
 						// bottom: -9.6rem;
 						// left: 0;
+						position: absolute;
+						top: 6.4rem;
 						padding: 4rem;
 						width: 100%;
 						border: 0.1rem solid #FE5B16;
 						border-top: 0;
 						background-color: #fff;
 						box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.20), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+
+						// .option-list, .btn-wrap{
+						// 	visibility: hidden;
+						// }
+
+						&.active {
+							max-height: 200rem;
+							visibility: visible;
+							opacity: 1;
+
+							// .option-list, .btn-wrap{
+							// 	visibility: visible;
+							// }
+						}
 
 						.option-item{
 							margin-bottom: 6.4rem;
@@ -1440,145 +1590,10 @@
 							font-size: 2.1rem;
 							font-weight: 600;
 						}
-						.range-slider-wrap{
-							position: relative;
-							padding: 6.4rem 10rem 0;
-							
-							&::after{
-								content: '';
-								position: absolute;
-								bottom: 0;
-								left: 0;
-								right: 0;
-								height: 1.2rem;
-								border-radius: 0.3rem;
-								background-color: #E7E5E4;
-							}
-
-							.range-slider{
-								margin-top: calc(2.4rem + 1.6rem);
-								// padding: 0 10rem;
-								border: 0;
-
-								.ui-slider-handle{
-									position: absolute;
-									top: 50%;
-    							transform: translateY(-50%);
-									@include square(4rem);
-									border: 0.1rem solid #D7D5D5;
-									background-color: #fff;
-									box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
-									border-radius: 50%;
-
-									.handle {
-										width: 100%;
-										height: 100%;
-									}
-									.amount{
-										@include sr-only;
-									}
-								}
-								.ui-slider-range{
-									background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-								}
-								.range-legend{
-									position: relative;
-									z-index: 1;
-									top: -4rem;
-									display: flex;
-
-									span{
-										position: absolute;
-										flex: 1;
-										text-align: center;
-										white-space: nowrap;
-										font-family: $font-family-kr;
-										color: var(--#{$prefix}-color-text-subtler);
-										font-size: 1.6rem;
-
-										&:first-child, &:last-child{
-											transform: translateX(-50%);
-										}
-
-										&::after{
-											content: '';
-											position: absolute;
-											left: 50%;
-											top: 4.4rem;
-											@include square(0.8rem);
-											// margin-left: -5px;
-											border-radius: 50%;
-											background: #C7C1BD;
-											z-index: 1;
-										}
-									}
-								}
-							}
-						}
 						.btn-wrap{
 							padding-top: 4rem;
 							border-top: 0.1rem solid #E6E5E5;
 						}
-						// .range-slider-wrap2 {
-						// 	padding-top: 6.4rem;
-						
-						// 	.range-slider {
-						// 		/* [수정] noUiSlider는 트랙 높이가 필요합니다. */
-						// 		height: 1.2rem;
-						// 		border: 0;
-						// 		background: #E7E5E4;
-						// 		box-shadow: none;
-						// 		border-radius: 0.3rem;
-						// 		margin-top: calc(2.4rem + 1.6rem);
-						// 	}
-						
-						// 	/* 핸들(손잡이) 스타일 */
-						// 	.noUi-handle {
-						// 		@include square(4rem); // 40px
-						// 		border: 0.1rem solid #D7D5D5;
-						// 		background-color: #fff;
-						// 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10);
-						// 		border-radius: 50%;
-								
-						// 		/* 핸들 위치 조정 (트랙 중앙) */
-						// 		right: -2rem; // 너비의 절반
-						// 		top: 50%;
-						// 		transform: translateY(-50%);
-								
-						// 		/* 핸들 내부의 ::before, ::after 제거 */
-						// 		&::before, &::after {
-						// 			display: none;
-						// 		}
-								
-						// 		/* 스크린리더용 input 숨기기 (기존 .amount) */
-						// 		.amount {
-						// 			@include sr-only;
-						// 		}
-						// 	}
-						
-						// 	/* 선택된 범위(파란색 바) 스타일 */
-						// 	.noUi-connect {
-						// 		background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-						// 	}
-						
-						// 	/* 눈금(Pips) 스타일 */
-						// 	.noUi-pips {
-						// 		position: relative;
-						// 		top: -4rem; // 트랙 위로 40px
-						// 		color: #000;
-						// 	}
-							
-						// 	.noUi-marker {
-						// 		background: #C7C1BD; // 눈금 점 색상
-						// 		width: 0.8rem;
-						// 		height: 0.8rem;
-						// 	}
-							
-						// 	.noUi-value {
-						// 		top: -3rem; // 눈금 점 위로
-						// 		font-size: 1.4rem;
-						// 	}
-						// }
 					}
 				}
 			}
@@ -1644,7 +1659,37 @@
 				}
 			}
 			@include mq(mobile){
+				padding: 4rem 0;
 
+				.search-wrap{
+					.detail-search-wrap{
+						.search-option-btn .btn{
+							&.active{
+								width: 19rem;
+								justify-content: center;
+	
+								.icon-plus{
+									@include icon-set('plus');
+								}
+							}
+						}
+						.search-option-wrap{
+							&.active {
+								display: none;
+							}
+						}
+					}
+				}
+
+				.promo-banner{
+					margin-top: 10.8rem;
+					.tit{
+						font-size: 1.8rem;
+					}
+					.btn{
+						font-size: 1.6rem;
+					}
+				}
 			}
 		}
 

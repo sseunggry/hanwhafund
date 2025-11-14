@@ -10,23 +10,33 @@
   --#{$prefix}-accordion--font-size: 1.8rem;
   --#{$prefix}-accordion--button-icon-size: 2.4rem;
   --#{$prefix}-accordion--title-button-gap: 0.8rem;
+
+  --#{$prefix}-accordion--list-padding-x: 0;
+  --#{$prefix}-accordion--list-button-padding-right: calc(var(--#{$prefix}-accordion--list-padding-x) + var(--#{$prefix}-accordion--title-button-gap) + var(--#{$prefix}-accordion--button-icon-size));
+  --#{$prefix}-accordion--list-body-padding-top: 0.8rem;
+  --#{$prefix}-accordion--list-body-padding-bottom: 2.4rem;
+  --#{$prefix}-accordion--list-button-icon-size: 2rem;
 }
 
 // 컬러 정의
 @mixin accordion-color-variable() {
   --#{$prefix}-accordion--color-divider: #E7E5E4;
   --#{$prefix}-accordion--body-color-bg: #F3F2F1;
-
+  
   --#{$prefix}-accordion--category-color: var(--#{$prefix}-color-text-primary);
   --#{$prefix}-accordion--title-color: var(--#{$prefix}-color-text-subtle);
   --#{$prefix}-accordion--body-color: var(--#{$prefix}-color-text-subtle);
 	
   --#{$prefix}-accordion--button-color-action: transparent;
   --#{$prefix}-accordion--button-color-action-hover: #F3F2F1;
-
+	
 	--#{$prefix}-accordion--translucent-color-divider: rgba(255, 255, 255, 0.25);
   --#{$prefix}-accordion--translucent-title-color: var(--#{$prefix}-color-text-strong);
   --#{$prefix}-accordion--translucent-body-color: var(--#{$prefix}-color-text-strong);
+
+	--#{$prefix}-accordion--list-body-color-bg: transparent;
+  --#{$prefix}-accordion--list-title-color: var(--#{$prefix}-color-text-strong);
+  --#{$prefix}-accordion--list-button-color-action-hover: transparent;
 }
 
 .accordion {
@@ -155,12 +165,64 @@
 		}
 	}
 
+	//리스트형
+	&.list{
+		.accordion-item{
+			border-top: 0;
+
+			&:last-child{
+				border-bottom: 0;
+			}
+
+			&.active{
+				.btn-accordion{
+					&::after{
+						transform: rotate(180deg);
+					}
+				}
+			}
+
+			.btn-accordion{
+				padding-left: var(--#{$prefix}-accordion--list-padding-x);
+				padding-right: var(--#{$prefix}-accordion--list-button-padding-right);
+
+				&::after{
+					margin-top: 0.4rem;
+					@include square(var(--#{$prefix}-accordion--list-button-icon-size));
+					@include icon-set('arrow-down');
+				}
+
+				&:hover, &:active{
+					background-color: var(--#{$prefix}-accordion--list-button-color-action-hover);
+				}
+				
+				.tit{
+					display: flex;
+					gap: 0.8rem;
+					color: var(--#{$prefix}-accordion--list-title-color);
+
+					.count{
+						color: #FE5B16;
+						font-weight: 400;
+					}
+				}
+			}
+			.accordion-body{
+				&::before{
+					display: none;
+				}
+				padding: var(--#{$prefix}-accordion--list-body-padding-top) var(--#{$prefix}-accordion--list-padding-x) var(--#{$prefix}-accordion--list-body-padding-bottom);
+				background-color: var(--#{$prefix}-accordion--list-body-color-bg);
+			}
+		}
+	}
+
   @include mq(tablet-small) {
     .accordion-item {
-		.btn-accordion{
-        flex-direction: column;
-        gap: 0.4rem;
-      }
+			.btn-accordion{
+				flex-direction: column;
+				gap: 0.4rem;
+			}
     }
   }
   @include mq(mobile) {

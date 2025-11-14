@@ -134,7 +134,7 @@
   gap: var(--#{$prefix}-form-chip--gap);
   padding-left: var(--#{$prefix}-form-chip--padding-left-#{$size});
   padding-right: var(--#{$prefix}-form-chip--padding-left-#{$size});
-  height: var(--#{$prefix}-form-chip--size-height-#{$size});
+  min-height: var(--#{$prefix}-form-chip--size-height-#{$size});
   font-size: var(--#{$prefix}-form-chip--font-size-#{$size});
   border-radius: var(--#{$prefix}-form-chip--radius-#{$size});
   transition: 0.4s cubic-bezier(0.4, 0, 0.23, 1);
@@ -149,6 +149,7 @@
 .form-chip {
   @include form-chip-color-variable();
   @include form-chip-size-variable;
+	display: inline-flex;
 
   $size: large;
 
@@ -194,7 +195,8 @@
   }
 
   input[type='radio'] {
-    ~ label {
+		~ label {
+			justify-content: center;
 			// color: var(--#{$prefix}-form-chip--radio-color-text);
 			// border-color: var(--#{$prefix}-form-chip--radio-color-border);
       // background-color: var(--#{$prefix}-form-chip--radio-color-action);
@@ -226,6 +228,7 @@
 			border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
 
 			&::before {
+				flex-shrink: 0;
         @include pseudo;
         @include form-chip-check(#{$size});
 				background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon);
@@ -293,4 +296,11 @@
       @include focus;
     }
   }
+
+	@include mq(mobile){
+		--#{$prefix}-form-chip--size-height-large: 4rem;
+		--#{$prefix}-form-chip--padding-left-large: 1.2rem;
+		--#{$prefix}-form-chip--font-size-large: 1.6rem;
+		--#{$prefix}-form-chip--gap: 0.6rem;
+	}
 }

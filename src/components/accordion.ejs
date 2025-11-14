@@ -2,11 +2,13 @@
   const localsSafe = locals || {};
   const type = localsSafe.type || 'singleOpen'; // type: singleOpen(기본), multiOpen
   const size = localsSafe.size || ''; // 예: small, medium, large
+	const variant = localsSafe.variant || ''; // list
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : []; // items: [{ title: '제목1', content: '<p>내용1</p>', active: true }, ...]
   const addClass = localsSafe.addClass || ''; // 추가 클래스
   const accordionClasses = [
     `accordion`,
     size,
+		variant,
     addClass
   ].filter(Boolean).join(' ');
 	

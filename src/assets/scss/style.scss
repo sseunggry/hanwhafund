@@ -105,6 +105,10 @@
     font-weight: 700;
     color: #151414;
 
+		&.lg{
+			font-size: 6.4rem;
+		}
+
     &.txt-en {
       font-size: 6.4rem;
       font-weight: 400;
@@ -125,6 +129,10 @@
     }
     .tit {
       font-size: 3.2rem;
+
+			&.lg{
+				font-size: 4.8rem;
+			}
 
       &.txt-en {
         font-size: 4rem;
