@@ -80,8 +80,7 @@ label {
   }
 
   --#{$prefix}-form-check--gap: 0.8rem;
-  // --#{$prefix}-form-check--button-margin-top: 0.3rem;
-  --#{$prefix}-form-check--button-margin-top: 0;
+  --#{$prefix}-form-check--button-margin-top: 0.2rem;
 
   // class 정의
   & {
@@ -319,8 +318,8 @@ label {
   input[type='checkbox'] {
     ~ label {
       position: relative;
-      display: inline-flex;
-			align-items: center;
+      // display: inline-flex;
+			// align-items: center;
 			// width: 100%;
       @include form-check(#{$size});
 

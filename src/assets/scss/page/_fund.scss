@@ -1495,23 +1495,23 @@
 				z-index: 3;
 			}
 			.search-wrap{
-				position: relative;
-				z-index: 2;
-				margin-top: -4rem;
-				padding: 8rem;
-				background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
-				backdrop-filter: blur(4rem);
+				// position: relative;
+				// z-index: 2;
+				// margin-top: -4rem;
+				// padding: 8rem;
+				// background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
+				// backdrop-filter: blur(4rem);
 	
-				.search-con{
-					margin: 0 auto;
-					max-width: 72rem;
+				// .search-con{
+				// 	margin: 0 auto;
+				// 	max-width: 72rem;
 	
-					.tag-wrap{
-						margin-top: 2.4rem;
-						justify-content: center;
-						color: var(--#{$prefix}-color-text-strong);
-					}
-				}
+				// 	.tag-wrap{
+				// 		margin-top: 2.4rem;
+				// 		justify-content: center;
+				// 		color: var(--#{$prefix}-color-text-strong);
+				// 	}
+				// }
 				.detail-search-wrap{
 					position: absolute;
 					// bottom: -100%;

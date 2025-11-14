@@ -93,4 +93,21 @@
 			}
 		}
 	}
+	@include mq(mobile){
+		gap: 2.4rem;
+
+		+ .terms-group{
+			margin-top: 4rem;
+		}
+
+		.terms-sub-group{
+			gap: 1.6rem;
+		}
+
+		.terms-form{
+			.btn-wrap{
+				margin-top: 4rem;
+			}
+		}
+	}
 }
