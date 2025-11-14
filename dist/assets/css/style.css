@@ -2735,6 +2735,13 @@ html[lang=ko] {
 	box-shadow: none
 }
 
+@media(max-width: 640px) {
+	.input.xlarge {
+		height: 6.4rem;
+		font-size: 2.4rem
+	}
+}
+
 textarea.input {
 	--hwf-input--textarea-size-height: 12rem;
 	--hwf-input--textarea-padding-x: 1.6rem;
@@ -7079,20 +7086,7 @@ label {
 	height: var(--hwf-btn-tag--size-height-small);
 	padding: .8rem var(--hwf-btn-tag--padding-x-small);
 	border-radius: var(--hwf-btn-tag--size-height-small);
-	font-size: var(--hwf-btn-tag--font-size-small);
-	line-height: var(--hwf-line-height-none)
-}
-
-@media(max-width: 1024px) {
-	.tag-wrap.small .btn-tag {
-		font-size: var(--hwf-btn-tag--tablet-font-size-small)
-	}
-}
-
-@media(max-width: 640px) {
-	.tag-wrap.small .btn-tag {
-		font-size: var(--hwf-btn-tag--mobile-font-size-small)
-	}
+	font-size: var(--hwf-btn-tag--font-size-small)
 }
 
 .tag-wrap.small .btn-tag .btn-delete {
@@ -7139,20 +7133,7 @@ label {
 	height: var(--hwf-btn-tag--size-height-medium);
 	padding: .8rem var(--hwf-btn-tag--padding-x-medium);
 	border-radius: var(--hwf-btn-tag--size-height-medium);
-	font-size: var(--hwf-btn-tag--font-size-medium);
-	line-height: var(--hwf-line-height-none)
-}
-
-@media(max-width: 1024px) {
-	.tag-wrap.medium .btn-tag {
-		font-size: var(--hwf-btn-tag--tablet-font-size-medium)
-	}
-}
-
-@media(max-width: 640px) {
-	.tag-wrap.medium .btn-tag {
-		font-size: var(--hwf-btn-tag--mobile-font-size-medium)
-	}
+	font-size: var(--hwf-btn-tag--font-size-medium)
 }
 
 .tag-wrap.medium .btn-tag .btn-delete {
@@ -7199,20 +7180,7 @@ label {
 	height: var(--hwf-btn-tag--size-height-large);
 	padding: .8rem var(--hwf-btn-tag--padding-x-large);
 	border-radius: var(--hwf-btn-tag--size-height-large);
-	font-size: var(--hwf-btn-tag--font-size-large);
-	line-height: var(--hwf-line-height-none)
-}
-
-@media(max-width: 1024px) {
-	.tag-wrap.large .btn-tag {
-		font-size: var(--hwf-btn-tag--tablet-font-size-large)
-	}
-}
-
-@media(max-width: 640px) {
-	.tag-wrap.large .btn-tag {
-		font-size: var(--hwf-btn-tag--mobile-font-size-large)
-	}
+	font-size: var(--hwf-btn-tag--font-size-large)
 }
 
 .tag-wrap.large .btn-tag .btn-delete {
@@ -7757,12 +7725,16 @@ label {
 }
 
 @keyframes wipe-in-right {
-	from {
+	0% {
 		clip-path: inset(0 100% 0 0)
 	}
 
-	to {
+	99% {
 		clip-path: inset(0 0 0 0)
+	}
+
+	100% {
+		clip-path: none
 	}
 }
 
@@ -7934,7 +7906,8 @@ label {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%
+	height: 100%;
+	z-index: 0
 }
 
 .page-main .section-visual .visual .img-wrap img {
@@ -10051,7 +10024,7 @@ label {
 
 .page-fund .fund-find .section-search .search-wrap .search-con {
 	margin: 0 auto;
-	width: 47.4%
+	max-width: 72rem
 }
 
 .page-fund .fund-find .section-search .search-wrap .search-con .tag-wrap {
@@ -10062,8 +10035,8 @@ label {
 
 .page-fund .fund-find .section-search .search-wrap .detail-search-wrap {
 	position: absolute;
-	top: 27.2rem;
 	left: 0;
+	bottom: -3.2rem;
 	width: 100%;
 	z-index: 2
 }
@@ -10207,17 +10180,36 @@ label {
 }
 
 .page-fund .fund-find .section-search .promo-banner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .8rem;
 	margin-top: 8rem;
+	padding: 2rem 4rem;
+	min-height: 8rem;
+	background: url(../images/banner-pension.png) no-repeat center/cover
+}
+
+.page-fund .fund-find .section-search .promo-banner .txt-wrap {
 	display: flex;
 	justify-content: center;
-	gap: 4rem;
-	background: url(../images/banner-pension.png) no-repeat center/cover
+	gap: 4rem
 }
 
 .page-fund .fund-find .section-search .promo-banner .tit {
 	color: var(--hwf-color-text-strong);
 	font-size: 2.1rem;
-	font-weight: 600
+	font-weight: 600;
+	word-break: keep-all
+}
+
+.page-fund .fund-find .section-search .promo-banner.pension::before {
+	flex-shrink: 0;
+	content: "";
+	display: inline-block;
+	width: 8rem;
+	height: 8rem;
+	background: url(../images/ico-pension.png) no-repeat center/cover
 }
 
 .page-fund .fund-find .section-search .promo-banner.pension .tit {
@@ -10226,12 +10218,26 @@ label {
 	gap: .8rem
 }
 
-.page-fund .fund-find .section-search .promo-banner.pension .tit::before {
-	content: "";
-	display: inline-block;
-	width: 8rem;
-	height: 8rem;
-	background: url(../images/ico-pension.png) no-repeat center/cover
+@media(max-width: 768px) {
+	.page-fund .fund-find .section-search .search-wrap {
+		margin-top: 4rem;
+		padding: 4rem var(--hwf-content-padding-x) 6.4rem
+	}
+
+	.page-fund .fund-find .section-search .search-wrap .search-con .tag-wrap {
+		margin-top: 1.2rem
+	}
+
+	.page-fund .fund-find .section-search .promo-banner {
+		gap: 1.6rem;
+		padding: 1.6rem 1.6rem 1.6rem 1.2rem
+	}
+
+	.page-fund .fund-find .section-search .promo-banner .txt-wrap {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: .8rem
+	}
 }
 
 .page-fund .fund-find .section-detail {
@@ -10654,6 +10660,10 @@ label {
 
 	.page-fund .fund-find .section-detail .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .unit-tablet {
 		display: inline-block
+	}
+
+	.page-fund .fund-find .section-detail .fund-compare-floating .compare-list {
+		display: none
 	}
 }
 
