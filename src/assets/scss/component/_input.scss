@@ -216,6 +216,13 @@ $input-size: (
 			box-shadow: none;
 		}
 	}
+
+	@include mq(mobile){
+		&.xlarge{
+			height: 6.4rem;
+			font-size: 2.4rem;
+		}
+	}
 }
 
 textarea {

@@ -1375,7 +1375,7 @@
 	
 				.search-con{
 					margin: 0 auto;
-					width: 47.4%;
+					max-width: 72rem;
 	
 					.tag-wrap{
 						margin-top: 2.4rem;
@@ -1386,8 +1386,9 @@
 				.detail-search-wrap{
 					position: absolute;
 					// bottom: -100%;
-					top: 27.2rem;
+					// top: 27.2rem;
 					left: 0;
+					bottom: -3.2rem;
 					width: 100%;
 					// transform: translateY(calc(-50% - 3.2rem));
 					z-index: 2;
@@ -1582,32 +1583,68 @@
 				}
 			}
 			.promo-banner{
-				margin-top: 8rem;
 				display: flex;
+				align-items: center;
 				justify-content: center;
-				gap: 4rem;
+				gap: 0.8rem;
+				margin-top: 8rem;
+				padding: 2rem 4rem;
+				min-height: 8rem;
 				@include bg('fund/banner-pension.png');
+
+				.txt-wrap{
+					display: flex;
+					justify-content: center;
+					gap: 4rem;
+				}
 	
 				.tit{
 					color: var(--#{$prefix}-color-text-strong);
 					font-size: 2.1rem;
 					font-weight: 600;
+					word-break: keep-all;
 				}
 	
 				&.pension{
+					&::before{
+						flex-shrink: 0;
+						content: '';
+						display: inline-block;
+						@include square(8rem);
+						@include bg('icon/ico-pension.png');
+					}
 					.tit{
 						display: flex;
 						align-items: center;
 						gap: 0.8rem;
-	
-						&::before{
-							content: '';
-							display: inline-block;
-							@include square(8rem);
-							@include bg('icon/ico-pension.png');
+					}
+				}
+			}
+
+			@include mq(tablet-small){
+				.search-wrap{
+					margin-top: 4rem;
+					padding: 4rem var(--hwf-content-padding-x) 6.4rem;
+
+					.search-con{
+						.tag-wrap{
+							margin-top: 1.2rem;
 						}
 					}
 				}
+				.promo-banner{
+					gap: 1.6rem;
+					padding: 1.6rem 1.6rem 1.6rem 1.2rem;
+	
+					.txt-wrap{
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 0.8rem;
+					}
+				}
+			}
+			@include mq(mobile){
+
 			}
 		}
 
@@ -2027,6 +2064,11 @@
 								}
 							}
 						}
+					}
+				}
+				.fund-compare-floating {
+					.compare-list{
+						display: none;
 					}
 				}
 			}

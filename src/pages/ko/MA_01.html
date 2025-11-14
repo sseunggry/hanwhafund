@@ -62,6 +62,7 @@
 						const swiper = new Swiper(".main-visual-swiper", {
 							pagination: {
 								el: ".swiper-pagination",
+								clickable: true,
 							},
 						});
 					</script>
@@ -386,7 +387,6 @@
 					}
 				}
 			};
-
 			const gsapPartnerAni = {
 				init: function() {
 					const $section = $(".section-partner");
@@ -559,13 +559,13 @@
 
 					tl.from($infoBox, {
 						y: 120,
-						opacity: 1, // 요청하신 대로 opacity: 1 (투명도 변화 없음)
+						opacity: 1,
 						duration: 1.0,
 						ease: "power3.out"
 					});
 					tl.from($newsItems, {
 						y: 50,      // 50px 아래에서
-						opacity: 0, // [수정] 이것은 fade-up이므로 opacity 0에서 시작
+						opacity: 0,
 						duration: 0.8,
 						ease: "power3.out",
 						stagger: 0.2 // 0.2초 간격으로 순차 재생
