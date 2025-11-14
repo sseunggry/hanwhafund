@@ -2,7 +2,7 @@
   const localsSafe = locals || {};
   const boardList = localsSafe.boardList || '';
   const boardSearch = localsSafe.boardSearch === false ? false : (localsSafe.boardSearch || true);
-  const showSearch = boardSearch !== false;
+  const showSearch = localsSafe.showSearch !== false;
   const searchTotal = (typeof boardSearch === 'object' && boardSearch.total) ? boardSearch.total : '21,307';
   const boardListItems = Array.isArray(localsSafe.boardListItems) ? localsSafe.boardListItems : [];
   const boardListThead = localsSafe.boardListThead || undefined;

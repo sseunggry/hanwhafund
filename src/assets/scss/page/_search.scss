@@ -1,0 +1,42 @@
+@charset "UTF-8";
+@use "../util" as *;
+
+.page-search{
+  .section-tit-wrap{
+    position: relative;
+    z-index: 3;
+  }
+
+  .section-search{
+    position: relative;
+    padding-top: 8rem;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 45.2rem;
+      background: linear-gradient(0deg, rgba(243, 242, 241, 0.00) 0%, #F3F2F1 100%);
+      z-index: -1;
+    }
+  }
+
+  .section-result{
+    .result-txt{
+      margin: 8rem 0;
+      text-align: center;
+      color: var(--#{$prefix}-color-text-strong);
+      font-size: 2.8rem;
+      font-weight: 600; 
+  
+      strong{
+        color: var(--#{$prefix}-color-text-primary);
+        font-weight: 600;
+      }
+    }
+    
+  }
+}
