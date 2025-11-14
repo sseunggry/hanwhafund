@@ -16,7 +16,7 @@
   <%_ fundDataList.forEach(fund => { -%>
   <li class="fund-item">
     <%- include(checkboxPath, {
-      label: fund.checkboxLabel || '비교 목록에 추가',
+      label: fund.checkboxLabel || '비교담기',
       hideLabel: true,
     }) -%>
     <div class="fund-info">
@@ -31,7 +31,7 @@
           </a>
         </div>
       </div>
-      <div class="fund-chart mobile-only">
+      <div class="fund-chart">
         <div class="chart-area line">
           <div class="chart">
             <!-- Chart 영역 -->
@@ -39,13 +39,17 @@
         </div>
       </div>
       <div class="fund-con">
+				<dl class="revenue">
+					<dt>3개월 수익률</dt>
+					<dd>2.56<small>%</small></dd>
+				</dl>
         <dl>
-          <dt>기준가(원)</dt>
-          <dd>2,698.34</dd>
+          <dt>기준가<span class="unit-pc">(원)</span></dt>
+          <dd>2,698.34<span class="unit-tablet">원</span></dd>
         </dl>
         <dl>
-          <dt>순자산(백만원)</dt>
-          <dd>1,463</dd>
+          <dt>순자산<span class="unit-pc">(백만원)</span></dt>
+          <dd>1,463<span class="unit-tablet">백만원</span></dd>
         </dl>
         <div class="period-grid">
           <dl>

@@ -1718,6 +1718,9 @@
 									color: var(--#{$prefix}-color-text-subtle);
 								}
 							}
+							.fund-chart{
+								display: none;
+							}
 							.fund-con{
 								display: flex;
 		
@@ -1736,6 +1739,15 @@
 									margin-top: 0.8rem;
 									font-size: 2.1rem;
 									font-weight: 500;
+								}
+								.unit{
+									&-tablet{
+										display: none;
+									}
+								}
+
+								.revenue{
+									display: none;
 								}
 		
 								.period-grid{
@@ -1869,17 +1881,163 @@
 					.sort-wrap{
 
 						.sort-list{
-							&:not(.tablet){
-								display: none;
-							}
-
 							overflow: visible;
+						}
+						.sort-item{
+							&.select{
+								width: 100%;
+								margin-right: 2.4rem;
+								padding-right: 0;
+
+								&::after{
+									display: none;
+								}
+							}
+						}
+					}
+
+					.fund-list-wrap{
+						.fund-item{
+							padding-left: 0;
+							padding-right: 0;
+	
+							&:has(input[type=checkbox]:checked){
+								background-color: transparent;
+							}
+	
+							.form-check{
+								order: 1;
+								width: 100%;
+	
+								input{
+									&:checked + label{
+										color: var(--#{$prefix}-color-orange-dark);
+										font-weight: 600;
+										border: 0.1rem solid var(--#{$prefix}-color-orange-dark);
+										background-color: #FEEAE1;
+	
+										&::after{
+											background-color: currentColor;
+										}
+									}
+								}
+	
+								label{
+									justify-content: center;
+									gap: 0.6rem;
+									padding: 0 2rem;
+									width: 100%;
+									height: 4rem;
+									font-size: 1.6rem;
+									border-radius: 0.3rem;
+									border: 0.1rem solid #E6E5E5;
+									background-color: #F5F4F4;
+	
+									.sr-only{
+										position: static !important;
+										width: auto !important;
+										height: auto !important;
+									}
+									&::before{
+										display: none;
+									}
+									&::after{
+										order: -1;
+										position: static;
+										transform: translate(0, 0);
+										background-color: #969292;
+									}
+								}
+	
+							}
+							.fund-info{
+								.fund-chart{
+									display: block;
+									.chart-area {
+										position: relative;
+										width: 100%;
+										// height: 35.29%;
+						
+										&::before {
+											content: "";
+											display: block;
+											padding-top: 35.29%;
+										}
+						
+										.chart {
+											position: absolute;
+											top: 0;
+											left: 0;
+											width: 100%;
+											height: 100%;
+											background-color: #ddd;
+										}
+									}
+								}
+								.fund-con{
+									flex-direction: column;
+									.revenue{
+										display: flex;
+									}
+									.period-grid{
+										display: none;
+									}
+									dl {
+										display: flex;
+										align-items: center;
+										justify-content: space-between;
+										gap: 0.8rem;
+										margin-right: 0;
+										margin-bottom: 1.2rem;
+										padding: 0;
+										border-right: 0;
+					
+										&.revenue {
+											margin-bottom: 0.8rem;
+					
+											dd {
+												color: var(--#{$prefix}-color-change-up);
+												font-size: 4rem;
+												font-weight: 400;
+					
+												small {
+													font-size: 2.1rem;
+													font-weight: 400;
+												}
+											}
+										}
+									}
+									dt {
+										color: var(--#{$prefix}-color-text-basic);
+										font-size: 1.6rem;
+									}
+									dd {
+										margin-top: 0;
+										font-size: 1.6rem;
+										font-weight: 600;
+									}
+									.unit{
+										&-pc{
+											display: none;
+										}
+										&-tablet{
+											display: inline-block;
+										}
+									}
+								}
+							}
 						}
 					}
 				}
-				.fund-list-wrap{
-					.fund-item{
-						padding: 0;
+			}
+			@include mq(mobile){
+				.fund-content {
+					.fund-list-wrap {
+						margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+
+						.fund-item {
+							padding: var(--#{$prefix}-content-padding-x);
+						}
 					}
 				}
 			}

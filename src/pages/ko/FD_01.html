@@ -330,7 +330,6 @@
 								${compareBtn}
 							</div>`;
 						const select = include('../../components/select.ejs', {
-							// size: 'large',
 							variant: 'outline',
 							options: [
 								{ value: 'default', text: '기준가' },
@@ -340,37 +339,41 @@
 						const sortWrap = `
 							<div class="sort-wrap">
 								<p class="total">총 <span class="fc-primary">370</span>건</p>
-								<ul class="sort-list">
-									<li class="sort-item">
-										<button type="button" class="btn text small active sort-asc">기준가</button>
-									</li>
-									<li class="sort-item">
-										<button type="button" class="btn text small">순자산</button>
-									</li>
-									<li class="sort-item period">
-										<ul class="period-list">
-											<li><button type="button" class="btn text small">1개월</button></li>
-											<li><button type="button" class="btn text small">3개월</button></li>
-											<li><button type="button" class="btn text small">6개월</button></li>
-											<li><button type="button" class="btn text small">1년</button></li>
-											<li><button type="button" class="btn text small">3년</button></li>
-											<li><button type="button" class="btn text small">5년</button></li>
-											<li><button type="button" class="btn text small">연초이후</button></li>
-											<li><button type="button" class="btn text small">설정이후</button></li>
-										</ul>
-									</li>
-								</ul>
-								<ul class="sort-list tablet">
-									<li>
+								<div class="pc-only">
+									<ul class="sort-list">
+										<li class="sort-item">
+											<button type="button" class="btn text small active sort-asc">기준가</button>
+										</li>
+										<li class="sort-item">
+											<button type="button" class="btn text small">순자산</button>
+										</li>
+										<li class="sort-item period">
+											<ul class="period-list">
+												<li><button type="button" class="btn text small">1개월</button></li>
+												<li><button type="button" class="btn text small">3개월</button></li>
+												<li><button type="button" class="btn text small">6개월</button></li>
+												<li><button type="button" class="btn text small">1년</button></li>
+												<li><button type="button" class="btn text small">3년</button></li>
+												<li><button type="button" class="btn text small">5년</button></li>
+												<li><button type="button" class="btn text small">연초이후</button></li>
+												<li><button type="button" class="btn text small">설정이후</button></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<div class="tablet-small-only">
+									<div class="sort-item select">
 										${select}
-									</li>
-									<li class="sort-item">
-										<button type="button" class="btn text small active sort-asc">낮은순</button>
-									</li>
-									<li class="sort-item">
-										<button type="button" class="btn text small">높은순</button>
-									</li>
-								</ul>
+									</div>
+									<ul class="sort-list">
+										<li class="sort-item">
+											<button type="button" class="btn text small active sort-asc">낮은순</button>
+										</li>
+										<li class="sort-item">
+											<button type="button" class="btn text small">높은순</button>
+										</li>
+									</ul>
+								</div>
 							</div>
 							`;
 

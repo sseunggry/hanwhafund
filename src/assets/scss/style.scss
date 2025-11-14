@@ -320,8 +320,12 @@
   }
 
   @include mq(pc) {
+		margin: 0 calc(var(--hwf-content-padding-x) * -1);
+		
     .card-list {
       overflow: auto hidden;
+			padding: 0 var(--hwf-content-padding-x);
+
       .card-item {
         min-width: 31.1rem;
       }
