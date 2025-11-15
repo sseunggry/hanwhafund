@@ -37,6 +37,21 @@
         font-weight: 600;
       }
     }
-    
+    .tab-conts-wrap{
+      margin-top: 8rem;
+    }
+    .result-group{
+      .tit-xlg{
+        margin-bottom: 4rem;
+        .count{
+          color: var(--#{$prefix}-color-text-primary);
+          font-size: 4rem;
+          font-weight: 500;
+        }
+      }
+      +.result-group{
+        margin-top: 12rem;
+      }
+    }
   }
 }

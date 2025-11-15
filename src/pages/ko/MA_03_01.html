@@ -148,7 +148,7 @@
 
 						const resultFund = 
             `<div class="result-group">
-                <h3 class="tit-sm">펀드상품 <span class="count">123</span></h3>
+                <h3 class="tit-xlg">펀드상품 <span class="count">123</span></h3>
                 <div class="card-list-wrap bg-gray">
                   <ul class="card-list">
                     <li class="card-item">
@@ -279,30 +279,30 @@
             </div>`;
             const resultInvest = 
             `<div class="result-group">
-              <h3 class="tit-sm">투자정보 <span class="count">345</span></h3>
+              <h3 class="tit-xlg">투자정보 <span class="count">345</span></h3>
               ${thumbList1}
             </div>`;
             const resultNews = 
             `<div class="result-group">
-              <h3 class="tit-sm">뉴스룸 <span class="count">80</span></h3>
+              <h3 class="tit-xlg">뉴스룸 <span class="count">80</span></h3>
               ${boardNews}
             </div>
             `;
             const resultPublic = 
             `<div class="result-group">
-              <h3 class="tit-sm">공시안내 <span class="count">45</span></h3>
+              <h3 class="tit-xlg">공시안내 <span class="count">45</span></h3>
               ${boardPublic}
             </div>
             `;
             const resultNotice = 
             `<div class="result-group">
-              <h3 class="tit-sm">공지사항 <span class="count">45</span></h3>
+              <h3 class="tit-xlg">공지사항 <span class="count">45</span></h3>
               ${boardNotice}
             </div>
             `;
             const resultFaq = 
             `<div class="result-group">
-              <h3 class="tit-sm">자주 묻는 질문 <span class="count">45</span></h3>
+              <h3 class="tit-xlg">자주 묻는 질문 <span class="count">45</span></h3>
               ${boardFaq}
               <div class="btn-wrap array-center">
                 ${moreBtn}
@@ -325,12 +325,23 @@
                   ${resultFaq}
                 </div>`,
 								`<div class="result-con">
-									${thumbList1} 
+									${resultFund}
 								</div>`,
 								`<div class="result-con">
+                  ${resultInvest}
 								</div>`,
-								'', 
-								''
+								`<div class="result-con">
+                  ${resultNews}
+								</div>`,
+								`<div class="result-con">
+                  ${resultPublic}
+								</div>`,
+								`<div class="result-con">
+                  ${resultNotice}
+								</div>`,
+								`<div class="result-con">
+                  ${resultFaq}
+								</div>`,
 							],
 						}) -%>
           </div>
