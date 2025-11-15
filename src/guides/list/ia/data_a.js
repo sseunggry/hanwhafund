@@ -6,6 +6,7 @@ const iaPageAData = {
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "메인 공지 팝업", depth2: "", depth3: "-", pageName: "메인공지팝업", pageType: "popup", pageID: "MA_02P", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "작업중", memo: [], },
+		{ createDate: "", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과 없음", pageType: "page", pageID: "MA_03_02", link: "", isAdminLinked: false, status: "작업중", memo: [], },
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "전체 메뉴", depth2: "", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "MA_04P", link: "", isAdminLinked: false, status: "", memo: [], },
 
 		// --- 한화펀드 ---

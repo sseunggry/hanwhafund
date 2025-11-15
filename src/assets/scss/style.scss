@@ -20,6 +20,11 @@
 //   padding-top: 28px;
 //   padding-bottom: 28px;
 // }
+section{
+  &.bg-gray{
+    background-color: #F3F2F1;
+  }
+}
 
 //contents
 .overlay-box-wrap {
@@ -104,6 +109,7 @@
     font-size: 4.8rem;
     font-weight: 700;
     color: #151414;
+    word-break: keep-all;
 
 		&.lg{
 			font-size: 6.4rem;
@@ -235,9 +241,8 @@
 //card-list
 .card-list-wrap {
   position: relative;
+
   &.bg-gray{
-    padding-top: 4rem;
-    padding-bottom: 4rem;
     &::before{
       content: '';
       display: block;
@@ -249,6 +254,28 @@
       width: 100vw;
       height: 100%;
       background-color: #F3F2F1;
+    }
+
+    .card-list{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4rem;
+
+      .card-item{
+        background-color: #fff;
+        border-left: 0;
+
+        &:last-child{
+          border-right: 0;
+        }
+        a{
+          padding: 2.4rem;
+        }
+        .tit{
+          margin: 2.4rem 0;
+          font-size: 2.4rem;
+        }
+      }
     }
   }
   .card-list {
@@ -326,6 +353,12 @@
               small {
                 font-size: 2.1rem;
                 font-weight: 400;
+              }
+            }
+
+            &.down{
+              dd{
+                color: var(--#{$prefix}-color-change-down);
               }
             }
           }
@@ -446,6 +479,32 @@
           transform: translate(-50%, -50%);
           width: 100%;
           object-fit: cover;
+        }
+        .source{
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 0;
+          @include square(4rem);
+          background: rgba(0, 0, 0, 0.70);
+          border-radius: 50%;
+
+          &::before {
+            @include square(2rem);
+          }
+          $icons: youtube, blog, instagram;
+          @each $icon in $icons {
+            &.#{$icon} {
+              &::before {
+                @include icon-set("#{$icon}");
+                background-image: none;
+                background-color: #fff !important;
+              }
+            }
+          }
         }
       }
       .thumb-con {
@@ -601,14 +660,12 @@
   }
 
   @include mq(tablet-small){
-    .search-wrap{
-      margin-top: 4rem;
-      padding: 4rem var(--hwf-content-padding-x) 6.4rem;
+    margin-top: 4rem;
+    padding: 4rem var(--hwf-content-padding-x) 6.4rem;
 
-      .search-con{
-        .tag-wrap{
-          margin-top: 1.2rem;
-        }
+    .search-con{
+      .tag-wrap{
+        margin-top: 1.2rem;
       }
     }
   }

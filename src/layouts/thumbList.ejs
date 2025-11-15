@@ -9,6 +9,7 @@
   };
   const addClass = localsSafe.addClass || '';
   const listClass = localsSafe.listClass || '';
+  const isSearchResult = localsSafe.isSearchResult || false;;
   const listClasses = [
     'thumb-list',
     cols ? `col-${cols}` : '',
@@ -25,9 +26,12 @@
       <a href="<%= item.url || '#!' %>">
         <div class="thumb-img">
           <img src="<%= item.imgSrc || defaultImg %>" alt="<%= item.alt || item.title || '' %>">
+          <% if (isSearchResult && item.sourceType) { -%>
+            <span class="source <%= item.sourceType %>" aria-hidden="true"></span>
+          <% } -%>
         </div>
         <div class="thumb-con">
-        <% if (item.sourceType && sourceMap[item.sourceType]) { -%>
+        <% if (!isSearchResult && item.sourceType && sourceMap[item.sourceType]) { -%>
           <p class="source <%= item.sourceType %>"><%= sourceMap[item.sourceType] %></p>
         <% } -%>
           <p class="tit"><%= item.title %></p>

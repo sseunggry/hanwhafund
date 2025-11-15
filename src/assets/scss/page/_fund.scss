@@ -605,7 +605,7 @@
           position: sticky;
           top: var(--top-fixed-height);
           // right: var(--layout-sidebar-pos);
-          z-index: 2;
+          z-index: 1;
           flex-shrink: 0;
           order: 1;
           padding: 6.4rem var(--#{$prefix}-content-padding-x) 6.4rem 0;
@@ -1465,10 +1465,14 @@
       }
     }
     .section-trend {
-      padding: 12rem 0;
+      .cont-group{
+        padding: 12rem 0;
+      }
 
       @include mq(mobile) {
-        padding: 8rem 0;
+        .cont-group{
+          padding: 8rem 0;
+        }
       }
     }
   }
@@ -2005,6 +2009,7 @@
 								}
 	
 								label{
+                  align-items: center;
 									justify-content: center;
 									gap: 0.6rem;
 									padding: 0 2rem;

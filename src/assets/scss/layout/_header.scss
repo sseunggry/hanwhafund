@@ -135,3 +135,27 @@
   }
 }
 
+#modalSearch{
+  .logo {
+    width: 19.2rem;
+    height: 4.8rem;
+    @include bg('common/logo.svg');
+  }
+  .search-wrap{
+    margin-top: 0;
+    background: transparent;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include mq(mobile){
+    .logo {
+      width: 12.8rem;
+      height: 3.2rem;
+    }
+    .search-wrap{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

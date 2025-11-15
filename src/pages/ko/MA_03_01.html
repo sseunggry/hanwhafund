@@ -52,6 +52,7 @@
             const moreBtn = include("../../components/button.ejs", { label: '더보기', hierarchy: 'tertiary', size: 'large', slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`});
             const thumbList1 = include('../../layouts/thumbList.ejs', {
 							listClass: 'link',
+              isSearchResult: true,
 							items: [
 								{title: '월급으로 부자 되기 힘들다? 이진우 기자에게 제대로 배웠습니다', sourceType: 'instagram'},
 								{title: '중국 10대 기업 차곡 차곡 사 모아라', sourceType: 'blog'},
@@ -65,6 +66,8 @@
 						});
 						const boardNews = include('../../layouts/board.ejs', {
               showSearch: false,
+              showNoData: false,
+              hideNumber: true,
 							theadChanges: { category: { text: '언론사' } },
 							boardListItems: [
 								{
@@ -84,6 +87,8 @@
 						});
             const boardPublic = include('../../layouts/board.ejs', {
               showSearch: false,
+              showNoData: false,
+              hideNumber: true,
 							boardListItems: [
 								{
 									category: '파생공시',
@@ -102,6 +107,8 @@
 						});
             const boardNotice = include('../../layouts/board.ejs', {
               showSearch: false,
+              showNoData: false,
+              hideNumber: true,
 							boardListItems: [
 								{
 									title: '[한화자산운용] 한화녹색ESG인프라 프로젝트 펀드 모집 공고(수시접수)',
@@ -149,6 +156,126 @@
                 <h3 class="tit-xlg">펀드상품 <span class="count">123</span></h3>
                 <div class="card-list-wrap bg-gray">
                   <ul class="card-list">
+                    <li class="card-item">
+                      <a href="#!">
+                        <div class="card-top">
+                          ${badge}
+                          <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                        </div>
+                        <div class="card-con">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+      
+                          <div class="info-list">
+                            <dl class="txt-emphasis">
+                              <dt>3개월 수익률</dt>
+                              <dd>2.56<small>%</small></dd>
+                            </dl>
+                            <dl>
+                              <dt>기준가</dt>
+                              <dd>1,452.33원</dd>
+                            </dl>
+                            <dl>
+                              <dt>순자산</dt>
+                              <dd>3억원</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="card-item">
+                      <a href="#!">
+                        <div class="card-top">
+                          ${badge}
+                          <p class="tit">한화그린히어로증권자투자신탁(주식) A</p>
+                        </div>
+                        <div class="card-con">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+      
+                          <div class="info-list">
+                            <dl class="txt-emphasis">
+                              <dt>3개월 수익률</dt>
+                              <dd>2.56<small>%</small></dd>
+                            </dl>
+                            <dl>
+                              <dt>기준가</dt>
+                              <dd>1,452.33원</dd>
+                            </dl>
+                            <dl>
+                              <dt>순자산</dt>
+                              <dd>3억원</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="card-item">
+                      <a href="#!">
+                        <div class="card-top">
+                          ${badge}
+                          <p class="tit">한화코리아레전드4차산업혁명증권자투자신탁(주식)종류A</p>
+                        </div>
+                        <div class="card-con">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+      
+                          <div class="info-list">
+                            <dl class="txt-emphasis down">
+                              <dt>3개월 수익률</dt>
+                              <dd>-2.56<small>%</small></dd>
+                            </dl>
+                            <dl>
+                              <dt>기준가</dt>
+                              <dd>1,452.33원</dd>
+                            </dl>
+                            <dl>
+                              <dt>순자산</dt>
+                              <dd>3억원</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="card-item">
+                      <a href="#!">
+                        <div class="card-top">
+                          ${badge}
+                          <p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                        </div>
+                        <div class="card-con">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+      
+                          <div class="info-list">
+                            <dl class="txt-emphasis">
+                              <dt>3개월 수익률</dt>
+                              <dd>2.56<small>%</small></dd>
+                            </dl>
+                            <dl>
+                              <dt>기준가</dt>
+                              <dd>1,452.33원</dd>
+                            </dl>
+                            <dl>
+                              <dt>순자산</dt>
+                              <dd>3억원</dd>
+                            </dl>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
                     <li class="card-item">
                       <a href="#!">
                         <div class="card-top">

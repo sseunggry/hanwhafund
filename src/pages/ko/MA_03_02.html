@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '통합검색'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap page-search">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<section class="section-search">
+					<div class="inner">
+						<div class="section-tit-wrap">
+							<h2 class="tit lg">통합검색</h2>
+						</div>
+						<div class="search-wrap">
+							<% const searchIcon = include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xxlarge', icon: 'search'}); -%>
+							<div class="search-con">
+								<%- include('../../components/input.ejs', {
+									ariaLabel: "펀드명 입력",
+									size: 'xlarge',
+									placeholder: '펀드명을 입력하세요',
+                  value: '가나다',
+									slot: searchIcon,
+									addClass: 'line search'
+								}) -%>
+								<%- include('../../components/tag.ejs', {
+									variant: 'text',
+									tagList: ['#ETF', '#월배당ETF', '#바이오', '#자산분배형', '#ESG'],
+									size: 'medium'
+								}) -%>
+							</div>
+						</div>
+          </div>
+				</section>
+        <section class="section-result">
+          <div class="inner">
+            <div class="no-result">
+              <p class="txt">입력한 키워드의 검색결과가 없습니다</p>
+            </div>
+          </div>
+        </section>
+        <section class="section-trend bg-gray">
+          <div class="inner">
+            <div class="cont-group">
+              <div class="section-tit-wrap">
+								<h2 class="tit">원하는 펀드를 못찾으셨다면,</h2>
+								<p class="desc">지금 주목받는 이달의 펀드를 확인해보세요</p>
+							</div>
+              <div class="card-list-wrap bg-gray">
+								<ul class="card-list">
+									<li class="card-item motion fade-up" data-delay="0.1">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'domestic' },
+														{ label: '주식', variant: 'solid', color: 'stock' },
+														{ label: '글로벌', variant: 'solid', color: 'global' }
+													]
+												}) -%>
+												<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.2">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'domestic' },
+														{ label: '주식', variant: 'solid', color: 'stock' },
+														{ label: '글로벌', variant: 'solid', color: 'global' }
+													]
+												}) -%>
+												<p class="tit">한화그린히어로증권자투자신탁(주식) A</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.3">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'domestic' },
+														{ label: '주식', variant: 'solid', color: 'stock' },
+														{ label: '글로벌', variant: 'solid', color: 'global' }
+													]
+												}) -%>
+												<p class="tit">한화코리아레전드4차산업혁명증권자투자신탁(주식)종류A</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.4">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'domestic' },
+														{ label: '주식', variant: 'solid', color: 'stock' },
+														{ label: '글로벌', variant: 'solid', color: 'global' }
+													]
+												}) -%>
+												<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<div class="btn-wrap array-center">
+									<%- include('../../components/button.ejs', {
+										tag: 'a',
+										label: '더보기',
+										size: 'large',
+										hierarchy: 'tertiary',
+										addClass: 'more',
+									}) -%>
+								</div>
+							</div>
+            </div>
+          </div>
+        </section>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+	</body>
+</html>

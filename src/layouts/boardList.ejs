@@ -3,8 +3,11 @@
   const items = Array.isArray(localsSafe.items) ? localsSafe.items : [];
   const addClass = localsSafe.addClass || '';
   const noDataMessage = localsSafe.noDataMessage || '등록된 게시글이 없습니다';
-  const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : 10;
   const isNew = localsSafe.isNew === false;
+  const showNoData = localsSafe.showNoData !== false;
+  const hideNumber = localsSafe.hideNumber || false;
+  const showNumberColumn = !hideNumber;
+  const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : items.length;
 
   const defaultThead = [
     { text: 'NO', key: 'num', class: 'num' },
@@ -25,6 +28,7 @@
 
     thead = defaultThead
       .filter(col => {
+        if (col.key === 'num' && !showNumberColumn) return false;
         if (col.key === 'category' && !hasCategory) return false;
         if (col.key === 'file' && !hasFile) return false;
         if (col.key === 'date' && !hasDate) return false;
@@ -79,6 +83,8 @@
       </a>
     </li>
     <% }) -%>
+  <% } -%>
+  <% if (showNoData) { -%>
 		<!-- 게시글이 없을 경우 -->
     <li class="no-data">
       <p><%= noDataMessage %></p>

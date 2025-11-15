@@ -52,7 +52,7 @@ $modal-size: (
   --#{$prefix}-modal--color-text: var(--#{$prefix}-color-text-basic);
   --#{$prefix}-modal--wrap-color-surface: #ffffff;
   --#{$prefix}-modal--header-color-border: #E6E5E5;
-  --#{$prefix}-modal--color-dim: rgba(0, 0, 0, 0.5);
+  --#{$prefix}-modal--color-dim: rgba(0, 0, 0, 0.7);
   --#{$prefix}-modal--full-popup-surface: #fff;
 }
 
@@ -252,6 +252,63 @@ $modal-size: (
     }
   }
 
+  //탑시트(검색창 사용)
+  &[data-type="top-sheet"]{
+    --#{$prefix}-modal--top-sheet-content-padding-top: 4rem;
+    --#{$prefix}-modal--top-sheet-header-padding-y: 2.4rem;
+    --#{$prefix}-modal--top-sheet-conts-padding-top: 6.4rem;
+    --#{$prefix}-modal--top-sheet-conts-padding-bottom: 12rem;
+    --#{$prefix}-modal--top-sheet-btn-close-position-top: 6.8rem;
+    --#{$prefix}-modal--top-sheet-btn-close-position-right: calc(50% - var(--#{$prefix}-content-width-large)/2);
+
+    transition: none;
+
+    .modal-dialog{
+      align-items: flex-start;
+      padding: 0;
+      max-width: 100%;
+
+      .modal-content{
+        position: relative;
+        padding-top: var(--#{$prefix}-modal--top-sheet-content-padding-top);
+        border-radius: 0;
+      }
+      .modal-header{
+        padding: var(--#{$prefix}-modal--top-sheet-header-padding-y) var(--#{$prefix}-content-padding-x);
+        max-width: var(--#{$prefix}-content-wrap-width-large);
+        border-bottom: 0;
+      }
+      .modal-conts{
+        padding: var(--#{$prefix}-modal--top-sheet-conts-padding-top) var(--#{$prefix}-content-padding-x) var(--#{$prefix}-modal--top-sheet-conts-padding-bottom);
+        max-width: var(--#{$prefix}-content-wrap-width-large);
+      }
+      .icon.btn-close{
+        top: var(--#{$prefix}-modal--top-sheet-btn-close-position-top);
+        right: var(--#{$prefix}-modal--top-sheet-btn-close-position-right);
+      }
+    }
+
+    @include mq(1760){
+      --#{$prefix}-modal--top-sheet-btn-close-position-right: var(--#{$prefix}-content-padding-x);
+    }
+    @include mq(mobile){
+      --#{$prefix}-modal--top-sheet-content-padding-top: 0;
+      --#{$prefix}-modal--top-sheet-header-padding-y: 1.6rem;
+      --#{$prefix}-modal--top-sheet-conts-padding-top: 6.4rem;
+      --#{$prefix}-modal--top-sheet-conts-padding-bottom: 6.4rem;
+      --#{$prefix}-modal--top-sheet-btn-close-position-top: 1.2rem;
+      --#{$prefix}-modal--btn-close-size: 4rem;
+
+      .modal-dialog{
+        .icon.btn-close{
+          .svg-icon{
+            @include square(3.2rem);
+          }
+        }
+      }
+    }
+  }
+
   // 바텀시트(모바일만 사용)
   &[data-type="bottom-sheet"] {
     --#{$prefix}-modal--bottom-sheet-radius: 1.2rem;
@@ -349,7 +406,7 @@ $modal-size: (
 		--#{$prefix}-modal--header-font-size: 1.8rem;
 		--#{$prefix}-modal--conts-font-size: 1.6rem;
 
-    &:not([data-type="bottom-sheet"]) {
+    &:not([data-type="bottom-sheet"], [data-type="top-sheet"]) {
       // 기본 스타일(bottom-sheet제외), 모바일에서는 기본 모달이 full-popup으로 나옴
 			--#{$prefix}-modal--header-padding: 1.6rem;
       --#{$prefix}-modal--header-padding-bottom: 1.6rem;

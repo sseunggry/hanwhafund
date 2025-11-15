@@ -11,6 +11,8 @@
   const addClass = localsSafe.addClass || '';
   const open = localsSafe.open || false;
   const scrollable = localsSafe.scrollable || false; // 내용 영역 스크롤 시 tabindex 추가 여부
+  const headerSlot = localsSafe.headerSlot || '';
+  const hasHeader = headerSlot || title;
 
   const titleId = `tit_${id}`;
   const modalClasses = [
@@ -39,10 +41,14 @@
 >
   <div class="<%= dialogClasses %>">
     <div class="modal-content">
-      <%_ if (title) { -%>
-        <div class="modal-header">
-          <h2 id="<%= titleId %>" class="modal-title"><%- title %></h2>
-        </div>
+      <%_ if (hasHeader) { -%>
+      <div class="modal-header">
+        <%_ if (headerSlot) { -%>
+        <%- headerSlot %>
+        <%_ } else { -%>
+        <h2 id="<%= titleId %>" class="modal-title"><%- title %></h2>
+        <%_ } -%>
+      </div>
       <%_ } -%>
       <div class="modal-conts" <%= scrollable ? 'tabindex="0"' : '' %>>
         <%- content %>
