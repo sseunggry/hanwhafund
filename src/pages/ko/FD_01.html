@@ -156,7 +156,6 @@
 											</div>
 										</div>
 									`;
-									const contentRevenue = `${chipPeriod}${rangeSlider}`;
 									-%>
 									<ul class="option-list">
 										<li class="option-item">
@@ -168,7 +167,7 @@
 										<li class="option-item">
 											<p class="option-tit">펀드 유형을 선택하세요</p>
 											<div class="option-con">
-												<%- chipRegion %>
+												<%- chipType %>
 											</div>
 										</li>
 										<li class="option-item">
@@ -180,7 +179,7 @@
 										<li class="option-item">
 											<p class="option-tit">수익률을 정해서 검색할 수 있어요</p>
 											<div class="option-con">
-												<%- contentRevenue %>
+												<%- `${chipPeriod}${rangeSlider}` %>
 											</div>
 										</li>
 									</ul>
@@ -426,17 +425,97 @@
 
 			<!-- popup 상세검색 -->
 			<% 
+			const chipRegion2 = include('../../components/chip.ejs', {
+				name: 'region',
+				items: [
+					{ label: '전체', value: 'all' },
+					{ label: '국내', value: 'domestic', checked: true },
+					{ label: '해외', value: 'global' }
+				]
+			});
+			const chipType2 = include('../../components/chip.ejs', {
+				name: 'type',
+				items: [
+				{ label: '전체', value: 'all', checked: true },
+				{ label: 'MMF', value: 'mmf' },
+				{ label: '기타', value: 'etc' },
+				{ label: '부동산', value: 'real_estate' },
+				{ label: '인프라', value: 'infra' },
+				{ label: '주식', value: 'stock' },
+				{ label: '주식혼합', value: 'stock_mixed' },
+				{ label: '채권', value: 'bond' },
+				{ label: '채권혼합', value: 'bond_mixed' },
+				{ label: '파생', value: 'derivative' },
+				{ label: '혼합자산', value: 'multi_asset' },
+				{ label: '재간접', value: 'fund_of_funds' }
+				]
+			});
+			const chipTheme2 = include('../../components/chip.ejs', {
+				name: 'theme',
+				addClass: 'col-2',
+				items: [
+				{ label: '전체', value: 'all', checked: true },
+				{ label: 'AI', value: 'ai' },
+				{ label: 'ESG', value: 'esg' },
+				{ label: 'TDF', value: 'tdf' },
+				{ label: '개인연금', value: 'pension' },
+				{ label: '공모주', value: 'ipo' },
+				{ label: '글로벌', value: 'global' },
+				{ label: '금리', value: 'interest_rate' },
+				{ label: '멀티에셋', value: 'multi_asset' },
+				{ label: '목표전환', value: 'target_conversion' },
+				{ label: '배당', value: 'dividend' },
+				{ label: '업종대표', value: 'sector_leader' },
+				{ label: '인덱스', value: 'index' },
+				{ label: '인컴형', value: 'income' },
+				{ label: '중소형주', value: 'small_cap' },
+				{ label: '퇴직연금', value: 'retirement_pension' },
+				{ label: '가치주', value: 'value_stock' },
+				{ label: '글로벌자산배분', value: 'global_asset_allocation' },
+				{ label: '기후위기', value: 'climate_crisis' },
+				{ label: '단기채', value: 'short_bond' },
+				{ label: '레버리지', value: 'leverage' },
+				{ label: '북미', value: 'north_america' },
+				{ label: '섹터', value: 'sector' },
+				{ label: '신흥국', value: 'emerging_market' },
+				{ label: '아세안', value: 'asean' },
+				{ label: '원자재', value: 'commodity' },
+				{ label: '유럽', value: 'europe' },
+				{ label: '일본', value: 'japan' },
+				{ label: '초단기채', value: 'ultra_short_bond' },
+				{ label: '장기채', value: 'long_bond' },
+				{ label: '중기채', value: 'mid_bond' },
+				{ label: '중단기채', value: 'mid_short_bond' },
+				{ label: '중국', value: 'china' },
+				{ label: '테크', value: 'tech' },
+				{ label: '헬스케어', value: 'healthcare' }
+				]
+			});
+			const chipPeriod2 = include('../../components/chip.ejs', {
+				name: 'period2',
+				variant: 'single',
+				items: [
+					{ label: '전체', value: 'all', checked: true },
+					{ label: '1개월', value: '1m' },
+					{ label: '3개월', value: '3m' },
+					{ label: '6개월', value: '6m' },
+					{ label: '1년', value: '1y' },
+					{ label: '3년', value: '3y' },
+					{ label: '5년', value: '5y' },
+					{ label: '연초이후', value: 'ytd' },
+					{ label: '설정이후', value: 'since_inception' }
+				]
+			});
 			const acc1 = include('../../components/accordion.ejs', {
 				type: 'multiOpen',
 				addClass: 'list',
 				items: [
-					{title: '투자를 희망하는 지역을 선택하세요 <span class="count">1</span>', content: chipRegion, active: true },
-					{title: '펀드 유형을 선택하세요 <span class="count">2</span>', content: chipType },
-					{title: '펀드 테마를 선택하세요 <span class="count">2</span>', content: chipTheme },
-					{title: '수익률을 정해서 검색할 수 있어요', content: contentRevenue }
+					{title: '투자를 희망하는 지역을 선택하세요 <span class="count">1</span>', content: chipRegion2, active: true },
+					{title: '펀드 유형을 선택하세요 <span class="count">2</span>', content: chipType2 },
+					{title: '펀드 테마를 선택하세요 <span class="count">2</span>', content: chipTheme2 },
+					{title: '수익률을 정해서 검색할 수 있어요', content: `${chipPeriod2}${rangeSlider}` }
 				],
 			}); 
-			
 			-%>
 			<%- include('../../components/modal.ejs', {
 				id: 'mobileDetailSearchBottomSheet',

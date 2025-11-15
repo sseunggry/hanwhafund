@@ -2136,3 +2136,92 @@
 		}
 	}
 }
+
+
+.tbl-wrap{
+  &.fund-list-wrap{
+    tbody{
+      td{
+        padding: 2.4rem 0.8rem;
+        height: fit-content;
+
+        .col{
+          display: flex;
+          flex-direction: column;
+
+          span{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 0.8rem;
+            min-height: 5.6rem;
+            border-bottom: 0.1rem solid #E6E5E5;
+
+            &:last-child{
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+    .fund-name{
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      
+      .txt-wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: left;
+      }
+      .tit{
+        color: var(--#{$prefix}-color-text-strong);
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+      .desc{
+        color: var(--#{$prefix}-color-text-subtle);
+        font-size: 1.6rem;
+      }
+    }
+    .fund-chart{
+      .chart-area {
+        position: relative;
+        width: 100%;
+        // height: 35.29%;
+
+        &::before {
+          content: "";
+          display: block;
+          padding-top: 50%;
+        }
+
+        .chart {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #ddd;
+        }
+      }
+    }
+    .fund-type, .fund-price{
+      color: var(--#{$prefix}-color-text-basic);
+    }
+    .fund-link{
+      display: block;
+      @include square(100%);
+
+      &::after{
+        content: '';
+        display: block;
+        margin: 0 auto;
+        @include square(2.4rem);
+        @include icon-set('arrow-right');
+        background-color: currentColor;
+      }
+    }
+  }
+}
