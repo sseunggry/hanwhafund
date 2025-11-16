@@ -128,7 +128,7 @@
     &.active {
       .accordion-collapse {
         height: auto;
-        max-height: 200vh;
+        max-height: 500rem;
         transition: all 1.5s ease-in-out;
         visibility: visible;
       }
