@@ -206,7 +206,7 @@ label {
 // radio ::after 사이즈 정의
 @mixin form-check-radio-check($size, $pos: left) {
   // 포지션: (전체사이즈 - 체크영역) / 2
-	top: 50%;
+	top: calc(50% + var(--#{$prefix}-form-check--button-margin-top)/2);
   // top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2 + var(--#{$prefix}-form-check--button-margin-top));
   left: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2);
 	transform: translateY(-50%);
@@ -294,7 +294,7 @@ label {
   --#{$prefix}-form-check--button-color-border-disabled: var(--#{$prefix}-color-border-disabled);
   --#{$prefix}-form-check--checkbox-button-color-element-checked: var(--#{$prefix}-color-element-primary);
   --#{$prefix}-form-check--radio-check-color-element: var(--#{$prefix}-color-element-white);
-  --#{$prefix}-form-check--radio-check-color-element-checked: var(--#{$prefix}-color-element-primary);
+  --#{$prefix}-form-check--radio-check-color-element-checked: #fff;
   --#{$prefix}-form-check--radio-check-color-element-disabled: var(--#{$prefix}-color-element-disabled-on);
   --#{$prefix}-form-check--checkbox-check-color-element: var(--#{$prefix}-color-element-white);
   --#{$prefix}-form-check--checkbox-check-color-element-checked: var(--#{$prefix}-color-element-white);
@@ -386,6 +386,7 @@ label {
     &:checked {
       ~ label {
         &::before {
+					background-color: var(--#{$prefix}-form-check--button-color-border-checked);
           border-color: var(--#{$prefix}-form-check--button-color-border-checked);
         }
 
