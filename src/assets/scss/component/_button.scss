@@ -468,29 +468,15 @@ $button-color-variable: (
 }
 
 /* **** button area **** */
-.btn-page-wrap{
-	display: flex;
-	margin-top: 4rem;
-
-	&.array-left {
-    .btn {
-      justify-content: flex-start;
-      flex: none;
-    }
-  }
-  &.array-center {
-		justify-content: center;
-    .btn {
-      // margin: 0 auto;
-      width: fit-content;
-      flex: none;
-    }
-  }
-}
 .btn-wrap {
   display: flex;
   width: 100%;
   gap: 0.8rem;
+
+	//page 하단 버튼
+	&.action{
+		margin-top: 4rem;
+	}
 
   &.column {
     flex-direction: column;
