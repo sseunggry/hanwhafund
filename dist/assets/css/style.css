@@ -2404,8 +2404,7 @@ html[lang=ko] {
 	word-break: keep-all
 }
 
-.accordion .accordion-item .btn-accordion:hover,
-.accordion .accordion-item .btn-accordion:active {
+.accordion .accordion-item .btn-accordion:hover {
 	background-color: var(--hwf-accordion--button-color-action-hover)
 }
 
@@ -10581,8 +10580,7 @@ label {
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap {
 	display: flex;
-	justify-content: space-between;
-	margin-bottom: 2.4rem
+	flex-direction: column
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list {
@@ -10595,13 +10593,20 @@ label {
 	align-items: center
 }
 
+.page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .period {
+	display: flex;
+	flex-direction: column
+}
+
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .period .period-list {
 	display: flex;
 	align-items: center
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list li {
-	padding-right: 1.6rem
+	padding-right: 1.6rem;
+	color: #494646;
+	font-size: 1.5rem
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list li::after {
@@ -10623,7 +10628,8 @@ label {
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .btn {
-	color: #494646
+	color: #494646;
+	font-size: 1.5rem
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .btn::after {
