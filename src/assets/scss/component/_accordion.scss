@@ -69,7 +69,7 @@
         color: var(--#{$prefix}-accordion--title-color);
 				word-break: keep-all;
       }
-      &:hover, &:active {
+      &:hover {
         background-color: var(--#{$prefix}-accordion--button-color-action-hover);
       }
 

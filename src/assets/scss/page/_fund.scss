@@ -1703,8 +1703,9 @@
 			.fund-content{
 				.sort-wrap{
 					display: flex;
-					justify-content: space-between;
-					margin-bottom: 2.4rem;
+					// justify-content: space-between;
+					flex-direction: column;
+					// margin-bottom: 2.4rem;
 		
 					.sort-list{
 						display: flex;
@@ -1715,6 +1716,9 @@
 							align-items: center;
 						}
 						.period{
+							display: flex;
+							flex-direction: column;
+							
 							.period-list{
 								display: flex;
 								align-items: center;
@@ -1723,6 +1727,9 @@
 		
 						li{
 							padding-right: 1.6rem;
+							color: #494646;
+							font-size: 1.5rem;
+
 							&::after{
 								content: '';
 								display: inline-block;
@@ -1743,6 +1750,7 @@
 		
 						.btn{
 							color: #494646;
+							font-size: 1.5rem;
 		
 							&::after{
 								content: '';
