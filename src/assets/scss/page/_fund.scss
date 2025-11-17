@@ -1701,19 +1701,52 @@
 			padding-bottom: 12rem;
 
 			.fund-content{
+				.total-count{
+					margin-bottom: 2.4rem;
+				}
 				.sort-wrap{
-					display: flex;
+					position: sticky;
+					top: -0.1rem;
+					z-index: 3;
+					background-color: #fff;
+					// border-bottom: 0.1rem solid #D7D5D5;
+					// display: flex;
 					// justify-content: space-between;
-					flex-direction: column;
+					// flex-direction: column;
+					// gap: 2.4rem;
 					// margin-bottom: 2.4rem;
 		
 					.sort-list{
+						overflow-x: auto;
 						display: flex;
 						align-items: center;
+						width: 100%;
+						border-top: 0.1rem solid #757070;
+						border-bottom: 0.1rem solid #D7D5D5;
 		
-						> li{
+						.sort-item{
 							display: flex;
 							align-items: center;
+							padding: 0 1.6rem;
+							width: 13%;
+							height: 100%;
+
+							&:not(.period){
+								min-width: fit-content;
+							}
+
+							&:first-child{
+								width: 6%;
+							}
+							&.period{
+								width: 100%;
+							}
+						}
+						.sort-tit{
+							padding: 0.8rem 1.2rem;
+							min-height: 4rem;
+							width: 100%;
+							text-align: center;
 						}
 						.period{
 							display: flex;
@@ -1722,21 +1755,37 @@
 							.period-list{
 								display: flex;
 								align-items: center;
+								width: 100%;
+								border-top: 0.1rem solid #D7D5D5;
+
+								li{
+									flex: 1;
+									text-align: center;
+									&::after{
+										height: 1.6rem;
+									}
+								}
+								.btn{
+									padding: 0.8rem 1.6rem;
+								}
 							}
 						}
 		
 						li{
-							padding-right: 1.6rem;
 							color: #494646;
 							font-size: 1.5rem;
+							justify-content: center;
+							position: relative;
 
 							&::after{
 								content: '';
-								display: inline-block;
-								margin-left: 1.6rem;
+								position: absolute;
+								top: 50%;
+								right: 0;
+								transform: translateY(-50%);
+								// margin-left: 1.6rem;
 								width: 0.1rem;
-								height: 1.6rem;
-								vertical-align: middle;
+								height: 100%;
 								background-color: #D7D5D5;
 							}
 		
@@ -1749,6 +1798,8 @@
 						}
 		
 						.btn{
+							width: 100%;
+							height: 100%;
 							color: #494646;
 							font-size: 1.5rem;
 		
@@ -1779,11 +1830,7 @@
 						align-items: center;
 						gap: 2.4rem;
 						padding: 4rem 0;
-						border-top: 0.1rem solid #D7D5D5;
-		
-						&:last-child{
-							border-bottom: 0.1rem solid #D7D5D5;
-						}
+						border-bottom: 0.1rem solid #D7D5D5;
 		
 						&:has(input[type="checkbox"]:checked) {
 							background-color: #FDF5F1;
@@ -1818,26 +1865,25 @@
 							.fund-con{
 								display: flex;
 		
-								> dl{
+								> .fund-txt{
 									margin-right: 2.4rem;
 									padding-right: 2.4rem;
 									flex-shrink: 0;
 									min-width: 10%;
 									border-right: 0.1rem solid #E6E5E5;
 								}
-								dt{
+								.tit{
+									display: none;
 									color: var(--#{$prefix}-color-text-subtler);
 									font-size: 1.6rem;
 								}
-								dd{
-									margin-top: 0.8rem;
+								.val{
+									// margin-top: 0.8rem;
 									font-size: 2.1rem;
 									font-weight: 500;
 								}
 								.unit{
-									&-tablet{
-										display: none;
-									}
+									display: none;
 								}
 
 								.revenue{
@@ -1847,8 +1893,15 @@
 								.period-grid{
 									overflow: auto hidden;
 									display: flex;
+									justify-content: space-between;
 									gap: 0.8rem;
 									width: 100%;
+
+									.fund-txt{
+										border-right: 0;
+										min-width: 10rem;
+										text-align: center;
+									}
 		
 									.up{
 										color: var(--#{$prefix}-color-change-up);
@@ -1857,13 +1910,13 @@
 										color: var(--#{$prefix}-color-change-down);
 									}
 		
-									dl{
+									.fund-item{
 										flex: 1;
 		
-										dt{
+										.tit{
 											text-align: center;
 										}
-										dd{
+										.val{
 											text-align: center;
 										}
 									}
@@ -1939,11 +1992,10 @@
 			@include mq(tablet){
 				.fund-content{
 					.sort-wrap{
-						flex-direction: column;
-						gap: 1.2rem;
+						// flex-direction: column;
+						// gap: 1.2rem;
 
 						.sort-list{
-							overflow: auto hidden;
 							li{
 								white-space: nowrap;
 							}
@@ -1972,17 +2024,37 @@
 			}
 			@include mq(tablet-small){
 				.fund-content{
+					.total-count{
+						margin-bottom: 1.6rem;
+					}
 					.sort-wrap{
+						position: static;
+						padding-bottom: 2.4rem;
 
 						.sort-list{
 							overflow: visible;
+							width: fit-content;
+							border-top: 0;
+							border-bottom: 0;
+
+							.sort-item{
+								width: fit-content;
+
+								&:first-child{
+									width: fit-content;
+								}
+		
+								&::after{
+									height: 1.6rem;
+								}
+							}
 						}
 						.sort-item{
 							&.select{
 								width: 100%;
 								margin-right: 2.4rem;
 								padding-right: 0;
-
+	
 								&::after{
 									display: none;
 								}
@@ -1997,6 +2069,10 @@
 	
 							&:has(input[type=checkbox]:checked){
 								background-color: transparent;
+							}
+
+							&:first-child{
+								border-top: 0.1rem solid #D7D5D5;
 							}
 	
 							.form-check{
@@ -2077,7 +2153,7 @@
 									.period-grid{
 										display: none;
 									}
-									dl {
+									.fund-txt {
 										display: flex;
 										align-items: center;
 										justify-content: space-between;
@@ -2090,7 +2166,7 @@
 										&.revenue {
 											margin-bottom: 0.8rem;
 					
-											dd {
+											.val {
 												color: var(--#{$prefix}-color-change-up);
 												font-size: 4rem;
 												font-weight: 400;
@@ -2102,11 +2178,12 @@
 											}
 										}
 									}
-									dt {
+									.tit {
+										display: block;
 										color: var(--#{$prefix}-color-text-basic);
 										font-size: 1.6rem;
 									}
-									dd {
+									.val {
 										margin-top: 0;
 										font-size: 1.6rem;
 										font-weight: 600;
@@ -2148,8 +2225,26 @@
 
 .tbl-wrap{
   &.fund-list-wrap{
+		
+		.tbl{
+			border-spacing: 2px;
+    	border-collapse: separate;
+
+			&::before{
+				display: none;
+			}
+		}
+
+		thead{
+			th{
+				color: var(--#{$prefix}-color-text-subtle);
+				font-weight: 400;
+				border-radius: 0.2rem;
+			}
+		}
     tbody{
       td{
+				position: relative;
         padding: 2.4rem 0.8rem;
         height: fit-content;
 
@@ -2170,6 +2265,11 @@
             }
           }
         }
+				.fund-price{
+					span{
+						justify-content: flex-end;
+					}
+				}
       }
     }
     .fund-name{
@@ -2219,7 +2319,12 @@
       color: var(--#{$prefix}-color-text-basic);
     }
     .fund-link{
-      display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+      display: flex;
+			align-items: center;
+			justify-content: center;
       @include square(100%);
 
       &::after{

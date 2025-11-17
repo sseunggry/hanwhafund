@@ -145,6 +145,7 @@ $modal-size: (
 			border-bottom: 0.1rem solid var(--#{$prefix}-modal--header-color-border);
 
       .modal-title {
+				line-height: 1.5;
         font-size: var(--#{$prefix}-modal--header-font-size);
         font-weight: 700;
       }
