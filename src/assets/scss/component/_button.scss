@@ -473,11 +473,6 @@ $button-color-variable: (
   width: 100%;
   gap: 0.8rem;
 
-	//page 하단 버튼
-	&.action{
-		margin-top: 4rem;
-	}
-
   &.column {
     flex-direction: column;
 
