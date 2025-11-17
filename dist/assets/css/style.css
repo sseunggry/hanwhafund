@@ -4085,7 +4085,7 @@ label {
 	--hwf-form-check--button-color-border-disabled: var(--hwf-color-border-disabled);
 	--hwf-form-check--checkbox-button-color-element-checked: var(--hwf-color-element-primary);
 	--hwf-form-check--radio-check-color-element: var(--hwf-color-element-white);
-	--hwf-form-check--radio-check-color-element-checked: var(--hwf-color-element-primary);
+	--hwf-form-check--radio-check-color-element-checked: #fff;
 	--hwf-form-check--radio-check-color-element-disabled: var(--hwf-color-element-disabled-on);
 	--hwf-form-check--checkbox-check-color-element: var(--hwf-color-element-white);
 	--hwf-form-check--checkbox-check-color-element-checked: var(--hwf-color-element-white);
@@ -4194,7 +4194,7 @@ label {
 }
 
 .form-check.small>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-small) - var(--hwf-form-check--radio-check-size-small))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-small);
@@ -4229,7 +4229,7 @@ label {
 }
 
 .form-check.small.icon-right>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-small) - var(--hwf-form-check--radio-check-size-small))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-small);
@@ -4337,7 +4337,7 @@ label {
 }
 
 .form-check.medium>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-medium) - var(--hwf-form-check--radio-check-size-medium))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-medium);
@@ -4372,7 +4372,7 @@ label {
 }
 
 .form-check.medium.icon-right>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-medium) - var(--hwf-form-check--radio-check-size-medium))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-medium);
@@ -4480,7 +4480,7 @@ label {
 }
 
 .form-check.large>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-large) - var(--hwf-form-check--radio-check-size-large))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-large);
@@ -4515,7 +4515,7 @@ label {
 }
 
 .form-check.large.icon-right>input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-large) - var(--hwf-form-check--radio-check-size-large))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-large);
@@ -4640,7 +4640,7 @@ label {
 }
 
 .form-check input[type=radio]~label::after {
-	top: 50%;
+	top: calc(50% + var(--hwf-form-check--button-margin-top)/2);
 	left: calc((var(--hwf-form-check--button-size-large) - var(--hwf-form-check--radio-check-size-large))/2);
 	transform: translateY(-50%);
 	width: var(--hwf-form-check--radio-check-size-large);
@@ -4649,6 +4649,7 @@ label {
 }
 
 .form-check input[type=radio]:checked~label::before {
+	background-color: var(--hwf-form-check--button-color-border-checked);
 	border-color: var(--hwf-form-check--button-color-border-checked)
 }
 
