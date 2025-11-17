@@ -30,9 +30,15 @@ module.exports = {
     filename: 'assets/js/[name].js',
 		publicPath: '/',
     clean: true,
+		// assetModuleFilename: (pathData) => {
+    //   const filepath = path.dirname(pathData.filename).split('/').slice(1).join('/');
+    //   return `${filepath}/[name][ext]`; // 예: src/assets/images/logo.png -> assets/images/logo.png
+    // },
 		assetModuleFilename: (pathData) => {
-      const filepath = path.dirname(pathData.filename).split('/').slice(1).join('/');
-      return `${filepath}/[name][ext]`; // 예: src/assets/images/logo.png -> assets/images/logo.png
+      const filepath = path.dirname(pathData.filename);
+      const relativePath = path.relative(path.resolve(__dirname, 'src'), filepath);
+      const normalizedPath = relativePath.replace(/\\/g, '/');
+      return `${normalizedPath}/[name][ext]`;
     },
   },
   devtool: isProduction ? false : 'source-map',
@@ -77,16 +83,23 @@ module.exports = {
 			{
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'assets/images/[name][ext]', // 이미지 파일 경로 지정
-        },
+        // generator: {
+        //   filename: 'assets/images/[name][ext]', // 이미지 파일 경로 지정
+        // },
       },
       {
         test: /\.(woff2?|ttf|eot|otf)$/i,
         type: 'asset/resource',
-        generator: {
-          filename: 'assets/fonts/[name][ext]', // 폰트 파일 경로 지정
-        },
+        // generator: {
+				// 	filename: (pathData) => {
+        //     const filepath = path.dirname(pathData.filename);
+        //     const relativePath = path.relative(path.resolve(__dirname, 'src'), filepath);
+        //     const normalizedPath = relativePath.replace(/\\/g, '/');
+            
+        //     return `${normalizedPath}/[name][ext]`;
+        //   },
+        //   // filename: 'assets/fonts/[name][ext]', // 폰트 파일 경로 지정
+        // },
       },
     ],
   },
