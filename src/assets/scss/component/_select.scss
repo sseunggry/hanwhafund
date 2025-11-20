@@ -13,7 +13,7 @@ $form-select-size: (
   ),
   medium: (
     size-height: 4.8rem,
-    icon-size: var(--#{$prefix}-icon-size-medium),
+    icon-size: 2rem,
     option-padding: 1.4rem,
     radius: var(--#{$prefix}-radius-medium),
     font-size: var(--#{$prefix}-font-size-label-medium),
@@ -89,13 +89,6 @@ $form-select-size: (
   height: var(--#{$prefix}-form-select--size-height-#{$size});
   border-radius: var(--#{$prefix}-form-select--radius-#{$size});
   font-size: var(--#{$prefix}-form-select--font-size-#{$size});
-
-  @include mq(tablet) {
-    font-size: var(--#{$prefix}-form-select--tablet-font-size-#{$size});
-  }
-  @include mq(mobile) {
-    font-size: var(--#{$prefix}-form-select--mobile-font-size-#{$size});
-  }
 
   .select-button::after {
     @include square(var(--#{$prefix}-form-select--icon-size-#{$size}));
@@ -502,5 +495,9 @@ $form-select-size: (
 		&.completed {
 			color: #fff;
 		}
+	}
+
+	@include mq(mobile){
+
 	}
 }

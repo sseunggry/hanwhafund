@@ -412,7 +412,7 @@ $modal-size: (
 			--#{$prefix}-modal--header-padding: 1.6rem;
       --#{$prefix}-modal--header-padding-bottom: 1.6rem;
 
-      --#{$prefix}-modal--conts-padding: 4rem 1.6rem;
+      --#{$prefix}-modal--conts-padding: 2.4rem 1.6rem;
 
       --#{$prefix}-modal--btn-close-position: 1.6rem;
       --#{$prefix}-modal--btn-close-size: 3.2rem;
@@ -432,8 +432,6 @@ $modal-size: (
 					border-radius: 0;
 				}
         .modal-conts {
-          padding-bottom: 0;
-
 					.tit-wrap{
 						.tit{
 							flex-direction: column;

@@ -41,7 +41,7 @@ $button-size: (
     gap: 0.8rem,
     radius: var(--#{$prefix}-radius-medium),
     icon-size: var(--#{$prefix}-icon-size-xlarge),
-    font-size: var(--#{$prefix}-font-size--body-medi um),
+    font-size: var(--#{$prefix}-font-size--body-medium),
   ),
 ) !default;
 
@@ -453,6 +453,7 @@ $button-color-variable: (
 
   //mobile
   @include mq(mobile) {
+
     &.icon-mo-only {
       span {
         @include sr-only;
@@ -464,6 +465,15 @@ $button-color-variable: (
         }
       }
     }
+		&.icon{
+			--#{$prefix}-button--icon-size-xxlarge: 3.2rem;
+		}
+
+		&.xlarge{
+			padding: 0 2.4rem;
+			font-size: 1.7rem;
+			height: 4.8rem;
+		}
   }
 }
 

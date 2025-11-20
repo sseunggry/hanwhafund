@@ -77,24 +77,6 @@ section{
   }
 }
 
-//검색창
-.search-wrap{
-	.input.search{
-		position: relative;
-		border: 0;
-
-		&::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			height: 0.3rem;
-			background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-		}
-	}
-}
-
 .section-tit-wrap {
   // display: flex;
   // flex-direction: column;
@@ -126,18 +108,23 @@ section{
     font-size: 2.4rem;
   }
 
+	+ .card-list-wrap.bg-gray{
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
   @include mq(mobile) {
     // gap: 1.6rem;
 
     .sub-tit {
-      margin-bottom: 1.6rem;
-      font-size: 2.1rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.8rem;
     }
     .tit {
       font-size: 3.2rem;
 
 			&.lg{
-				font-size: 4.8rem;
+				font-size: 4rem;
 			}
 
       &.txt-en {
@@ -243,6 +230,9 @@ section{
   position: relative;
 
   &.bg-gray{
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+
     &::before{
       content: '';
       display: block;
@@ -257,22 +247,24 @@ section{
     }
 
     .card-list{
-      display: grid;
+			display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2.4rem;
 
       .card-item{
         background-color: #fff;
-        border-left: 0;
+				border: 0.1rem solid #E6E5E5;
 
         &:last-child{
-          border-right: 0;
+          border-right-color: #e6e5e5;
         }
         a{
           padding: 2.4rem;
         }
+				.card-top{
+					margin-bottom: 2.4rem;
+				}
         .tit{
-          margin: 2.4rem 0;
           font-size: 2.4rem;
         }
       }
@@ -306,12 +298,18 @@ section{
         padding: 2.4rem 4rem;
       }
 
+			.card-top{
+				margin-bottom: 4rem;
+			}
       .tit {
-        margin: 2.4rem 0 4rem;
+        margin: 2.4rem 0 0.8rem;
         color: var(--#{$prefix}-color-text-basic);
         font-size: 2.8rem;
         font-weight: 600;
       }
+			.desc{
+				color: var(--#{$prefix}-color-text-subtle);
+			}
       .chart-area {
         position: relative;
         width: 100%;
@@ -380,6 +378,12 @@ section{
   @include mq(pc) {
 		margin: 0 calc(var(--hwf-content-padding-x) * -1);
 		
+		&.no-scroll{
+			.card-list{
+				overflow: visible;
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
     .card-list {
       overflow: auto hidden;
 			padding: 0 var(--hwf-content-padding-x);
@@ -389,7 +393,74 @@ section{
       }
     }
   }
+	@include mq(tablet-small){
+		&.no-scroll{
+			.card-list{
+				grid-template-columns: auto;
+			}
+		}
+	}
   @include mq(mobile) {
+		&.bg-gray{
+			&::before{
+				display: none;
+			}
+			.card-list{
+				gap: 1.6rem;
+				// gap: 0;
+				// padding: 0;
+				
+				.card-item{
+					border-width: 0;
+					// border-left: 0;
+					// border-right: 0;
+					// border-bottom-width: 0;
+					
+					// &:last-child{
+					// 	border-bottom-width: 0.1rem;
+					// }
+					// a{
+					// 	padding-left: var(--#{$prefix}-content-padding-x);
+					// 	padding-right: var(--#{$prefix}-content-padding-x);
+					// }
+					.tit{
+						margin-top: 1.6rem;
+						font-size: 2.1rem;
+					}
+					.info-list{
+						margin-top: 1.6rem;
+					}
+				}
+			}
+		}
+		&.no-scroll{
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.card-list{
+				gap: 0;
+				padding: 0;
+				
+				.card-item{
+					border-top-width: 0.1rem;
+					
+					&:last-child{
+						border-bottom-width: 0.1rem;
+					}
+					a{
+						padding-left: var(--#{$prefix}-content-padding-x);
+						padding-right: var(--#{$prefix}-content-padding-x);
+					}
+					// .tit{
+					// 	margin-top: 1.6rem;
+					// 	font-size: 2.1rem;
+					// }
+					// .info-list{
+					// 	margin-top: 1.6rem;
+					// }
+				}
+			}
+		}
     .card-list {
       .card-item {
         a {
@@ -642,11 +713,33 @@ section{
 
 .search-wrap{
   position: relative;
-  z-index: 2;
+  z-index: 4;
   margin-top: -4rem;
   padding: 8rem;
   background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.00) 100%);
   backdrop-filter: blur(4rem);
+
+	.input.search{
+		position: relative;
+		border: 0;
+		
+		input{
+			font-weight: 600;
+			&::placeholder{
+				font-weight: 400;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 0.3rem;
+			background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+		}
+	}
 
   .search-con{
     margin: 0 auto;
@@ -660,12 +753,12 @@ section{
   }
 
   @include mq(tablet-small){
-    margin-top: 4rem;
-    padding: 4rem var(--hwf-content-padding-x) 6.4rem;
+    margin-top: 1.6rem;
+    padding: 2.4rem var(--#{$prefix}-content-padding-x) 1.6rem;
 
     .search-con{
       .tag-wrap{
-        margin-top: 1.2rem;
+        margin-top: 1.6rem;
       }
     }
   }

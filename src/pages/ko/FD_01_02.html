@@ -273,38 +273,42 @@
 										<div class="chart-wrap bar">
 											<div class="chart-con">
 												<ul class="chart-area">
-													<li class="level level1">
+													<!-- [2025-11-21] 클래스명 수정 -->
+													<li class="level level6">
 														<span class="bar"></span>
 														<p class="label">매우 <br class="mobile-only"/> 낮음</p>
 													</li>
-													<li class="level level2">
+													<li class="level level5">
 														<span class="bar"></span>
 														<p class="label">낮음</p>
 													</li>
-													<li class="level level3">
+													<li class="level level4">
 														<span class="bar"></span>
 														<p class="label">보통</p>
 													</li>
-													<li class="level level4 active">
+													<li class="level level3 active">
 														<!-- [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
 														<span class="bar motion chart-bar-up"></span>
 														<!-- // [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
 														<p class="label">다소 <br class="mobile-only"/> 높음</p>
 													</li>
-													<li class="level level5">
+													<li class="level level2">
 														<span class="bar"></span>
 														<p class="label">높음</p>
 													</li>
-													<li class="level level6">
+													<li class="level level1">
 														<span class="bar"></span>
 														<p class="label">매우 <br class="mobile-only"/> 높음</p>
 													</li>
+													<!-- // [2025-11-21] 클래스명 수정 -->
 												</ul>
 												<div class="chart-summary">
 													<div class="txt-wrap">
+														<!-- [2025-11-21] 클래스명 수정 -->
 														<%- include('../../components/badge.ejs', { 
-																variant: 'solid', color: 'rating4', label: '4등급' 
+																variant: 'solid', color: 'level3', label: '4등급' 
 														}) -%>
+														<!-- // [2025-11-21] 클래스명 수정 -->
 														<p class="tit-sm">다소 높은 위험</p>
 													</div>
 													<p class="desc">단기적으로 큰 손실이 발생할 수 있으므로 장기 투자가 필요합니다</p>
@@ -706,14 +710,19 @@
 									<li class="card-item motion fade-up" data-delay="0.1">
 										<a href="#!">
 											<div class="card-top">
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<%- include('../../components/badge.ejs', { 
 													badgeItems: [
-														{ label: '국내', variant: 'solid', color: 'domestic' },
-														{ label: '주식', variant: 'solid', color: 'stock' },
-														{ label: '글로벌', variant: 'solid', color: 'global' }
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
 													]
 												}) -%>
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+												<!-- [2025-11-21] 마크업 추가 -->
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+												<!-- // [2025-11-21] 마크업 추가 -->
 											</div>
 											<div class="card-con">
 												<div class="chart-area line">
@@ -742,14 +751,19 @@
 									<li class="card-item motion fade-up" data-delay="0.2">
 										<a href="#!">
 											<div class="card-top">
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<%- include('../../components/badge.ejs', { 
 													badgeItems: [
-														{ label: '국내', variant: 'solid', color: 'domestic' },
-														{ label: '주식', variant: 'solid', color: 'stock' },
-														{ label: '글로벌', variant: 'solid', color: 'global' }
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
 													]
 												}) -%>
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<p class="tit">한화그린히어로증권자투자신탁(주식) A</p>
+												<!-- [2025-11-21] 마크업 추가 -->
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+												<!-- // [2025-11-21] 마크업 추가 -->
 											</div>
 											<div class="card-con">
 												<div class="chart-area line">
@@ -778,14 +792,19 @@
 									<li class="card-item motion fade-up" data-delay="0.3">
 										<a href="#!">
 											<div class="card-top">
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<%- include('../../components/badge.ejs', { 
 													badgeItems: [
-														{ label: '국내', variant: 'solid', color: 'domestic' },
-														{ label: '주식', variant: 'solid', color: 'stock' },
-														{ label: '글로벌', variant: 'solid', color: 'global' }
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
 													]
 												}) -%>
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<p class="tit">한화코리아레전드4차산업혁명증권자투자신탁(주식)종류A</p>
+												<!-- [2025-11-21] 마크업 추가 -->
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+												<!-- // [2025-11-21] 마크업 추가 -->
 											</div>
 											<div class="card-con">
 												<div class="chart-area line">
@@ -814,14 +833,19 @@
 									<li class="card-item motion fade-up" data-delay="0.4">
 										<a href="#!">
 											<div class="card-top">
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<%- include('../../components/badge.ejs', { 
 													badgeItems: [
-														{ label: '국내', variant: 'solid', color: 'domestic' },
-														{ label: '주식', variant: 'solid', color: 'stock' },
-														{ label: '글로벌', variant: 'solid', color: 'global' }
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
 													]
 												}) -%>
+												<!-- [2025-11-21] 클래스명 변경 -->
 												<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+												<!-- [2025-11-21] 마크업 추가 -->
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+												<!-- // [2025-11-21] 마크업 추가 -->
 											</div>
 											<div class="card-con">
 												<div class="chart-area line">

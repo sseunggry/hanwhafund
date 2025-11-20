@@ -16,7 +16,7 @@
 				<section class="section-search">
 					<div class="inner">
 						<div class="section-tit-wrap">
-							<p class="sub-tit txt-gradient mb-8">원하는 펀드를 빠르게 찾아보세요</p>
+							<p class="sub-tit txt-gradient">원하는 펀드를 빠르게 찾아보세요</p>
 							<h2 class="tit lg">펀드찾기</h2>
 						</div>
 						<div class="search-wrap">
@@ -32,7 +32,6 @@
 								<%- include('../../components/tag.ejs', {
 									variant: 'text',
 									tagList: ['#ETF', '#월배당ETF', '#바이오', '#자산분배형', '#ESG'],
-									size: 'medium'
 								}) -%>
 							</div>
 							<div class="detail-search-wrap">
@@ -339,8 +338,8 @@
 							]
 						});
 						const sortWrap = `
+							<p class="total-count"><span class="fc-primary">전체</span>에 대한 <span class="fc-primary">370</span>건의 검색결과가 있습니다</p>
 							<div class="sort-wrap">
-								<p class="total"><span class="fc-primary">전체</span>에 대한 <span class="fc-primary">370</span>건의 검색결과가 있습니다</p>
 								<div class="pc-only">
 									<ul class="sort-list">
 										<li class="sort-item">비교</li>
@@ -351,7 +350,7 @@
 											<button type="button" class="btn text small">순자산(백만원)</button>
 										</li>
 										<li class="sort-item period">
-											<p>수익률(%)</p>
+											<p class="tit">수익률(%)</p>
 											<ul class="period-list">
 												<li><button type="button" class="btn text small">1개월</button></li>
 												<li><button type="button" class="btn text small">3개월</button></li>
@@ -649,88 +648,43 @@
 					});
 				}
 			};
-
-
-			const uiRangeSliderNo = {
+			const uiSortWrapSticky = {
 				init: function () {
-					const slider = document.getElementById('range-slider-revenue');
+					const $stickyEl = $('.sort-wrap');
+					const $window = $(window);
 					
-					// 1. noUiSlider 라이브러리가 로드되었는지 확인
-					if (!slider || typeof noUiSlider === 'undefined') {
-						return;
-					}
+					if ($stickyEl.length === 0) return;
 
-					// 2. 값 표시용 <input>을 찾습니다.
-					const $minText = $('#range-min-text');
-					const $maxText = $('#range-max-text');
+					let stickyOffsetTop = $stickyEl.offset().top;;
 
-					// 3. [수정] 슬라이더 옵션 정의 (불규칙한 간격)
-					const sliderOptions = {
-						start: [0, 60], // 초기 값
-						connect: true,  // 두 핸들 사이를 채움
-						
-						// [수정] 불규칙한 간격(pips) 정의
-						range: {
-							'min': -10,
-							'14%': 0,
-							'28%': 10,
-							'42%': 20,
-							'56%': 30,
-							'70%': 40,
-							'84%': 50,
-							'max': 60
-						},
+					const handleScroll = () => {
+						const scrollTop = $window.scrollTop();
 
-						// [수정] 2번 질문 (시작/끝 여백)
-						// (100px / (60 - (-10))) * 100 = 약 14.2%
-						// 각 끝에 약 14%의 여백을 줍니다. (SCSS의 padding: 0 10rem과 유사)
-						padding: [14, 14],
-
-						// [수정] 3번 질문 (눈금 생성)
-						pips: {
-							mode: 'values',
-							values: [-10, 0, 10, 20, 30, 40, 50, 60],
-							density: 14, // (100 / 7칸)
-							format: {
-								to: function (value) {
-									if (value === -10) return '-10% 이하';
-									if (value === 60) return '60% 이상'; // '80% 이상'은 max 값에 따라 다름
-									return value + '%';
-								}
+						if (scrollTop >= stickyOffsetTop) {
+							if (!$stickyEl.hasClass('fixed')) {
+								$stickyEl.addClass('fixed');
+							}
+						} else {
+							if ($stickyEl.hasClass('fixed')) {
+								$stickyEl.removeClass('fixed');
 							}
 						}
 					};
+					handleScroll();
 
-					// 4. noUiSlider 생성
-					noUiSlider.create(slider, sliderOptions);
-
-					// 5. 슬라이더가 움직일 때 (update 이벤트) - 4번 질문
-					slider.noUiSlider.on('update', function (values, handle) {
-						// values는 ['0.00', '60.00'] 형태의 문자열 배열
-						const minValue = parseFloat(values[0]).toFixed(0);
-						const maxValue = parseFloat(values[1]).toFixed(0);
-
-						if ($minText.length) $minText.val(minValue);
-						if ($maxText.length) $maxText.val(maxValue);
-					});
-
-					// 6. (선택) 텍스트 input을 수정했을 때 슬라이더도 변경
-					$minText.on('change', function() {
-						slider.noUiSlider.set([$(this).val(), null]);
-					});
-					$maxText.on('change', function() {
-						slider.noUiSlider.set([null, $(this).val()]);
+					$window.on('scroll', handleScroll);
+					$window.on('resize', () => {
+						handleScroll();
 					});
 				}
 			};
-
 
 			$(function() {
 				uiDetailSearch.init();
 				uiFundListChk.init();
 				uiSort.init();
 				uiRangeSlider.init();
-				// uiRangeSliderNo.init();
+				uiSortWrapSticky.init();
 			});
 		</script>
 	</body>

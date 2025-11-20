@@ -38,28 +38,28 @@
       element: var(--#{$prefix}-color-tag-point-violet),
       text: var(--#{$prefix}-color-text-white),
     ),
-    rating1: (
-      element: #119EFF,
-      text: var(--#{$prefix}-color-text-white),
-    ),
-    rating2: (
-      element: #00CECF,
-      text: var(--#{$prefix}-color-text-white),
-    ),
-    rating3: (
-      element: #00CECF,
-      text: var(--#{$prefix}-color-text-white),
-    ),
-    rating4: (
-      element: #FE6220,
-      text: var(--#{$prefix}-color-text-white),
-    ),
-    rating5: (
-      element: #FF4891,
-      text: var(--#{$prefix}-color-text-white),
-    ),
-    rating6: (
+    level1: (
+			text: var(--#{$prefix}-color-text-white),
       element: #F91D00,
+    ),
+    level2: (
+      element: #ff4891,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    level3: (
+      element: #fe6220,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    level4: (
+      element: #ffb80d,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    level5: (
+      element: #00cecf,
+      text: var(--#{$prefix}-color-text-white),
+    ),
+    level6: (
+      element: #119eff,
       text: var(--#{$prefix}-color-text-white),
     ),
     new: (

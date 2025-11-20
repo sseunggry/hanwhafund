@@ -16,8 +16,8 @@
       font-size: 1.3rem,
     ),
     medium: (
-      wrapper-gap-x: 0.8rem,
-      wrapper-gap-y: 0.8rem,
+      wrapper-gap-x: 0rem,
+      wrapper-gap-y: 0rem,
       size-height: 4rem,
       expand-button-gap: 0.2rem,
       button-size: 1.6rem,
@@ -136,20 +136,22 @@
   @include tag-color-variable();
   @include tag-size-variable;
 
-  $size: large;
-
+  $size: medium;
+	
   & {
-    display: flex;
+		display: flex;
     flex-wrap: wrap;
+		@include tag-wrapper(#{$size});
   }
 
   .btn-tag {
     @include flex-layout($d: inline-flex, $ai: center);
 
     position: relative;
-    background-color: var(--#{$prefix}-btn-tag--color-action);
-    border: 0.1rem solid var(--#{$prefix}-btn-tag--color-border);
-    transition: var(--#{$prefix}-transition-base);
+		@include tag(#{$size});
+    // background-color: var(--#{$prefix}-btn-tag--color-action);
+    // border: 0.1rem solid var(--#{$prefix}-btn-tag--color-border);
+    // transition: var(--#{$prefix}-transition-base);
 
     &:hover, &:active {
       background-color: var(--#{$prefix}-btn-tag--color-action-hover);
@@ -223,4 +225,11 @@
 	// 		}
 	// 	}
 	// }
+
+	@include mq(mobile){
+		--#{$prefix}-btn-tag--font-size-medium: 1.6rem;
+		.btn-tag {
+
+		}
+	}
 }

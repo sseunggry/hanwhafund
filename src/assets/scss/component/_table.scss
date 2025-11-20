@@ -107,7 +107,7 @@
 
   &.scroll {
     overflow: auto hidden;
-    padding-bottom: var(--#{$prefix}-table--scroll-padding-bottom);
+    // padding-bottom: var(--#{$prefix}-table--scroll-padding-bottom);
 
     &::-webkit-scrollbar {
       @include square(var(--#{$prefix}-table--scrollbar-track-size));
