@@ -12,21 +12,27 @@
     <!-- <meta property="og:image" content=""> -->
     <!-- <meta property="og:url" content=""> -->
     <meta name="format-detection" content="telephone=no" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon_180.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/images/favicon_512.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/favicon_192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon_32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/common/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/images/common/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/common/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/common/favicon_32.png" />
     <title>한화자산운용</title>
 
     <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="../../assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
     <script src="../../assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
     <script src="../../assets/js/gsap.min.js" type="text/javascript"></script>
     <script src="../../assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
     <script src="../../assets/js/swiper-bundle.min.js" type="text/javascript"></script>
     <script src="../../assets/js/ui.common.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <link href="../../assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
     <link href="../../assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -57,20 +63,20 @@
           <div class="util">
             <div class="lang">
               <div class="form-select text small">
-                <select class="sr-only" name="language-select" id="select-8yv2a3k" tabindex="-1" aria-hidden="true">
+                <select class="sr-only" name="language-select" id="select-sm5sll6" tabindex="-1" aria-hidden="true">
                   <option value="KR" selected="selected">KR</option>
                   <option value="EN">EN</option>
                 </select>
-                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-8yv2a3k-listbox" tabindex="0" aria-controls="select-8yv2a3k-listbox">
+                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-sm5sll6-listbox" tabindex="0">
                   <span class="select-value">KR</span>
                 </button>
-                <ul id="select-8yv2a3k-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                <ul id="select-sm5sll6-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                   <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                   <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                 </ul>
               </div>
             </div>
-            <button type="button" class="btn icon xxlarge">
+            <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
               <span class="sr-only">검색</span>
               <i class="svg-icon icon-search"></i>
             </button>
@@ -82,6 +88,48 @@
         </div>
       </div>
     </header>
+
+    <!-- popup 검색  -->
+    <div id="modalSearch" class="modal fade top-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_modalSearch" data-type="top-sheet">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="logo"><span class="sr-only">한화자산운용</span></div>
+          </div>
+          <div class="modal-conts">
+            <div class="search-wrap">
+              <div class="search-con">
+                <div class="input xlarge line search">
+                  <input type="text" id="input-n4af8s5" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                  <button type="button" class="btn icon btn-clear">
+                    <span class="sr-only">입력 내용 지우기</span>
+                    <i class="svg-icon icon-clear"></i>
+                  </button>
+                  <button type="button" class="btn icon xxlarge">
+                    <span class="sr-only">검색</span>
+                    <i class="svg-icon icon-search"></i>
+                  </button>
+                </div>
+
+                <div class="tag-wrap text medium">
+                  <a href="#!" class="btn-tag">#ETF</a>
+                  <a href="#!" class="btn-tag">#월배당ETF</a>
+                  <a href="#!" class="btn-tag">#바이오</a>
+                  <a href="#!" class="btn-tag">#자산분배형</a>
+                  <a href="#!" class="btn-tag">#ESG</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn icon btn-close" aria-controls="modalSearch">
+            <span class="sr-only">닫기</span>
+            <i class="svg-icon icon-close"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-back in"></div>
+    </div>
+    <!-- popup 검색 -->
 
     <div class="container">
       <h1>🎉 성공 dsdfsdf!</h1>
@@ -138,27 +186,27 @@
         <span>클릭하세요</span>
       </button>
 
-      <span class="badge outline-primary">badge</span>
+      <span class="badge outline-primary large">badge</span>
 
-      <span class="badge secondary">badge</span>
+      <span class="badge secondary medium">badge</span>
 
-      <span class="badge solid-pastel-tertiary">badge</span>
+      <span class="badge solid-pastel-tertiary medium">badge</span>
 
       <div class="form-group">
         <div class="form-tit">
-          <label for="select-zx52z3q-button">통신사</label>
+          <label for="select-cyltw3s-button">통신사</label>
         </div>
         <div class="form-conts">
           <div class="form-select large">
-            <select class="sr-only" name="select-zx52z3q" id="select-zx52z3q" tabindex="-1" aria-hidden="true" data-placeholder="통신사를 선택하세요">
+            <select class="sr-only" name="select-cyltw3s" id="select-cyltw3s" tabindex="-1" aria-hidden="true" data-placeholder="통신사를 선택하세요">
               <option value="lg">LG U+</option>
               <option value="kt">KT</option>
               <option value="skt">SKT</option>
             </select>
-            <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-zx52z3q-listbox" tabindex="0" aria-controls="select-zx52z3q-listbox">
+            <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-cyltw3s-listbox" tabindex="0">
               <span class="select-value placeholder">통신사를 선택하세요</span>
             </button>
-            <ul id="select-zx52z3q-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+            <ul id="select-cyltw3s-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
               <li class="select-option" role="option" data-value="lg" aria-selected="false" tabindex="-1">LG U+</li>
               <li class="select-option" role="option" data-value="kt" aria-selected="false" tabindex="-1">KT</li>
               <li class="select-option" role="option" data-value="skt" aria-selected="false" tabindex="-1">SKT</li>
@@ -168,29 +216,29 @@
       </div>
 
       <div class="form-select medium">
-        <select class="sr-only" name="select-lx0ce0b" id="select-lx0ce0b" tabindex="-1" aria-hidden="true">
+        <select class="sr-only" name="select-78wsjfy" id="select-78wsjfy" tabindex="-1" aria-hidden="true">
           <option value="opt1">옵션 1</option>
           <option value="opt2" selected="selected">옵션 2</option>
         </select>
-        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-lx0ce0b-listbox" tabindex="0" aria-controls="select-lx0ce0b-listbox">
+        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-78wsjfy-listbox" tabindex="0">
           <span class="select-value">옵션 2</span>
         </button>
-        <ul id="select-lx0ce0b-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+        <ul id="select-78wsjfy-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
           <li class="select-option" role="option" data-value="opt1" aria-selected="false" tabindex="-1">옵션 1</li>
           <li class="select-option" role="option" data-value="opt2" aria-selected="true" tabindex="-1">옵션 2</li>
         </ul>
       </div>
 
       <div class="form-select text medium">
-        <select class="sr-only" name="select-0tnn85b" id="select-0tnn85b" tabindex="-1" aria-hidden="true">
+        <select class="sr-only" name="select-ek5w6w1" id="select-ek5w6w1" tabindex="-1" aria-hidden="true">
           <option value="opt11" disabled="disabled">옵션 11</option>
           <option value="opt21" selected="selected">옵션 21</option>
           <option value="opt31">옵션 31</option>
         </select>
-        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-0tnn85b-listbox" tabindex="0" aria-controls="select-0tnn85b-listbox">
+        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ek5w6w1-listbox" tabindex="0">
           <span class="select-value">옵션 21</span>
         </button>
-        <ul id="select-0tnn85b-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+        <ul id="select-ek5w6w1-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
           <li class="select-option disabled" role="option" data-value="opt11" aria-selected="false" aria-disabled="true" tabindex="-1">옵션 11</li>
           <li class="select-option" role="option" data-value="opt21" aria-selected="false" tabindex="-1">옵션 21</li>
           <li class="select-option" role="option" data-value="opt31" aria-selected="false" tabindex="-1">옵션 31</li>
@@ -198,54 +246,45 @@
       </div>
 
       <div class="form-select filter medium">
-        <select class="sr-only" name="select-o6d4ofx" id="select-o6d4ofx" tabindex="-1" aria-hidden="true">
+        <select class="sr-only" name="select-7trabxl" id="select-7trabxl" tabindex="-1" aria-hidden="true">
           <option value="opt4" selected="selected">옵션 4</option>
           <option value="opt5">옵션 5</option>
           <option value="opt6">옵션 6</option>
         </select>
-        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-o6d4ofx-listbox" tabindex="0" aria-controls="select-o6d4ofx-listbox">
+        <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-7trabxl-listbox" tabindex="0">
           <span class="select-value">옵션 4</span>
         </button>
-        <ul id="select-o6d4ofx-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
+        <ul id="select-7trabxl-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 3">
           <li class="select-option" role="option" data-value="opt4" aria-selected="false" tabindex="-1">옵션 4</li>
           <li class="select-option" role="option" data-value="opt5" aria-selected="false" tabindex="-1">옵션 5</li>
           <li class="select-option" role="option" data-value="opt6" aria-selected="false" tabindex="-1">옵션 6</li>
         </ul>
       </div>
 
-      <div class="tag-wrap large">
-        <span class="btn-tag">
-          태그1
-          <button type="button" class="btn-delete"><span class="sr-only">삭제</span></button>
-        </span>
-        <span class="btn-tag">
-          태그2
-          <button type="button" class="btn-delete"><span class="sr-only">삭제</span></button>
-        </span>
-        <span class="btn-tag">
-          태그3
-          <button type="button" class="btn-delete"><span class="sr-only">삭제</span></button>
-        </span>
+      <div class="tag-wrap sorting large">
+        <a href="#!" class="btn-tag">태그1</a>
+        <a href="#!" class="btn-tag">태그2</a>
+        <a href="#!" class="btn-tag">태그3</a>
       </div>
-      <div class="tag-wrap medium">
-        <a href="#" class="link btn-tag">태그</a>
+      <div class="tag-wrap">
+        <a href="#!" class="btn-tag">태그</a>
       </div>
 
       <div class="form-check large">
-        <input type="checkbox" id="chk-dwzcuya" />
-        <label for="chk-dwzcuya">
+        <input type="checkbox" id="chk-19dx33l" />
+        <label for="chk-19dx33l">
           <span>체크박스</span>
         </label>
       </div>
-      <div class="form-check medium check-icon">
-        <input type="checkbox" id="chk-wlyoga2" />
-        <label for="chk-wlyoga2">
+      <div class="form-check check-icon">
+        <input type="checkbox" id="chk-nfghqhu" />
+        <label for="chk-nfghqhu">
           <span>체크박스</span>
         </label>
       </div>
-      <div class="form-check medium check-icon card">
-        <input type="checkbox" id="chk-s35yi1u" />
-        <label for="chk-s35yi1u">
+      <div class="form-check check-icon card">
+        <input type="checkbox" id="chk-qyxr26r" />
+        <label for="chk-qyxr26r">
           <span class="sr-only">한화2.2배레버리지인덱스증권투자신탁</span>
           <div class="chk-con fund-item">
             <div class="info">
@@ -276,15 +315,15 @@
         </label>
       </div>
 
-      <div class="form-check medium check-icon">
-        <input type="radio" id="radio-raucmk1" />
-        <label for="radio-raucmk1">
+      <div class="form-check check-icon">
+        <input type="radio" id="radio-zu0cfa5" name="" />
+        <label for="radio-zu0cfa5">
           <span>라디오</span>
         </label>
       </div>
-      <div class="form-check medium check-icon card">
-        <input type="radio" id="radio-ymxinxw" />
-        <label for="radio-ymxinxw">
+      <div class="form-check check-icon card">
+        <input type="radio" id="radio-iv7zld9" name="" />
+        <label for="radio-iv7zld9">
           <span class="sr-only">한화2.2배레버리지인덱스증권투자신탁</span>
           <div class="chk-con fund-item">
             <div class="info">
@@ -298,22 +337,20 @@
       <h3>싱글 선택 (Radio)</h3>
       <div class="check-area chip-wrap">
         <div class="form-chip large">
-          <input type="radio" id="chip-0qgjwyl" name="chip-favoriteFruit" value="apple" checked="checked" />
-          <label for="chip-0qgjwyl" class="form-chip-outline">
+          <input type="radio" id="chip-2v7mr3k" name="chip-favoriteFruit" value="apple" checked="checked" />
+          <label for="chip-2v7mr3k" class="form-chip-outline">
             <span>사과</span>
           </label>
         </div>
-
         <div class="form-chip large">
-          <input type="radio" id="chip-egurgq9" name="chip-favoriteFruit" value="banana" />
-          <label for="chip-egurgq9" class="form-chip-outline">
+          <input type="radio" id="chip-436en9h" name="chip-favoriteFruit" value="banana" />
+          <label for="chip-436en9h" class="form-chip-outline">
             <span>바나나</span>
           </label>
         </div>
-
         <div class="form-chip large">
-          <input type="radio" id="chip-atc3c8z" name="chip-favoriteFruit" value="orange" disabled="disabled" />
-          <label for="chip-atc3c8z" class="form-chip-outline">
+          <input type="radio" id="chip-va0kwbj" name="chip-favoriteFruit" value="orange" disabled="disabled" />
+          <label for="chip-va0kwbj" class="form-chip-outline">
             <span>오렌지</span>
           </label>
         </div>
@@ -321,22 +358,20 @@
       <h3>다중 선택 (Checkbox)</h3>
       <div class="check-area chip-wrap">
         <div class="form-chip medium">
-          <input type="checkbox" id="chip-3y90z2l" name="chip-topics" value="tech" checked="checked" />
-          <label for="chip-3y90z2l" class="form-chip-outline">
+          <input type="checkbox" id="chip-v5xk6mw" name="chip-topics" value="tech" checked="checked" />
+          <label for="chip-v5xk6mw" class="form-chip-outline">
             <span>기술</span>
           </label>
         </div>
-
         <div class="form-chip medium">
-          <input type="checkbox" id="chip-ekdvyaw" name="chip-topics" value="design" checked="checked" />
-          <label for="chip-ekdvyaw" class="form-chip-outline">
+          <input type="checkbox" id="chip-fbt8aal" name="chip-topics" value="design" checked="checked" />
+          <label for="chip-fbt8aal" class="form-chip-outline">
             <span>디자인</span>
           </label>
         </div>
-
         <div class="form-chip medium">
-          <input type="checkbox" id="chip-9gdgz8p" name="chip-topics" value="marketing" />
-          <label for="chip-9gdgz8p" class="form-chip-outline">
+          <input type="checkbox" id="chip-vnixc8l" name="chip-topics" value="marketing" />
+          <label for="chip-vnixc8l" class="form-chip-outline">
             <span>마케팅</span>
           </label>
         </div>
@@ -346,35 +381,33 @@
         <div class="form-chip small">
           <button type="button" class="form-chip-outline">옵션 1</button>
         </div>
-
         <div class="form-chip small">
           <button type="button" class="form-chip-outline" disabled="disabled">옵션 2</button>
         </div>
-
         <div class="form-chip small">
           <button type="button" class="form-chip-outline">옵션 3</button>
         </div>
       </div>
 
       <div class="segment-control small" aria-label="세그먼트 컨트롤">
-        <label for="segment-0-2gz58zw" class="control-btn">
-          <input type="radio" class="sr-only" id="segment-0-2gz58zw" name="segment" value="옵션 1" checked="checked" />
+        <label for="segment-0-ew33ar6" class="control-btn">
+          <input type="radio" class="sr-only" id="segment-0-ew33ar6" name="segment" value="옵션 1" checked="checked" />
           <span>옵션 1</span>
         </label>
-        <label for="segment-1-2yb4gql" class="control-btn">
-          <input type="radio" class="sr-only" id="segment-1-2yb4gql" name="segment" value="옵션 2" />
+        <label for="segment-1-3zqnbcc" class="control-btn">
+          <input type="radio" class="sr-only" id="segment-1-3zqnbcc" name="segment" value="옵션 2" />
           <span>옵션 2</span>
         </label>
-        <label for="segment-2-wt05ai1" class="control-btn">
-          <input type="radio" class="sr-only" id="segment-2-wt05ai1" name="segment" value="옵션 3" />
+        <label for="segment-2-39sugxy" class="control-btn">
+          <input type="radio" class="sr-only" id="segment-2-39sugxy" name="segment" value="옵션 3" />
           <span>옵션 3</span>
         </label>
-        <label for="segment-3-9p2ne8m" class="control-btn">
-          <input type="radio" class="sr-only" id="segment-3-9p2ne8m" name="segment" value="옵션 4" />
+        <label for="segment-3-hmmaj7g" class="control-btn">
+          <input type="radio" class="sr-only" id="segment-3-hmmaj7g" name="segment" value="옵션 4" />
           <span>옵션 4</span>
         </label>
-        <label for="segment-4-j2obd66" class="control-btn">
-          <input type="radio" class="sr-only" id="segment-4-j2obd66" name="segment" value="옵션 5" />
+        <label for="segment-4-pfqpjg3" class="control-btn">
+          <input type="radio" class="sr-only" id="segment-4-pfqpjg3" name="segment" value="옵션 5" />
           <span>옵션 5</span>
         </label>
       </div>
@@ -462,7 +495,12 @@
       </ol>
 
       <div class="form-group">
-        <div class="form-tit"><label for="textarea">자기소개</label></div>
+        <div class="form-tit">
+          <label for="textarea">
+            자기소개
+            <small class="required">*</small>
+          </label>
+        </div>
         <div class="form-conts">
           <div class="textarea-wrap large">
             <textarea id="textarea" class="input large" name="" placeholder="자신을 소개해주세요..." maxlength="&#34;200&#34;" required></textarea>
@@ -477,11 +515,14 @@
 
       <div class="form-group">
         <div class="form-tit">
-          <label for="input-d6j0g0b">아이디</label>
+          <label for="input-ejg4qha">
+            아이디
+            <small class="required">*</small>
+          </label>
         </div>
         <div class="form-conts">
           <div class="input medium">
-            <input type="text" id="input-d6j0g0b" name="" value="" placeholder="아이디 입력" required />
+            <input type="text" id="input-ejg4qha" name="" value="" placeholder="아이디 입력" required />
             <button type="button" class="btn icon btn-clear">
               <span class="sr-only">입력 내용 지우기</span>
               <i class="svg-icon icon-clear"></i>
@@ -492,11 +533,11 @@
 
       <div class="form-group">
         <div class="form-tit">
-          <label for="input-0ob90h1">비밀번호</label>
+          <label for="input-5ztgnoj">비밀번호</label>
         </div>
         <div class="form-conts">
           <div class="input medium">
-            <input type="password" id="input-0ob90h1" name="" value="" placeholder="비밀번호 입력" />
+            <input type="password" id="input-5ztgnoj" name="" value="" placeholder="비밀번호 입력" />
           </div>
         </div>
       </div>
@@ -508,14 +549,14 @@
         <div class="form-conts">
           <div class="input-group dash">
             <div class="input medium">
-              <input type="text" id="input-c72hm1d-group-0" value="" placeholder="앞자리" aria-label="주민등록번호 앞자리" />
+              <input type="text" id="input-3xphelw-group-0" value="" placeholder="앞자리" aria-label="주민등록번호 앞자리" />
               <button type="button" class="btn icon btn-clear">
                 <span class="sr-only">입력 내용 지우기</span>
                 <i class="svg-icon icon-clear"></i>
               </button>
             </div>
             <div class="input medium">
-              <input type="text" id="input-c72hm1d-group-1" value="" placeholder="뒷자리" aria-label="주민등록번호 뒷자리" />
+              <input type="text" id="input-3xphelw-group-1" value="" placeholder="뒷자리" aria-label="주민등록번호 뒷자리" />
               <button type="button" class="btn icon btn-clear">
                 <span class="sr-only">입력 내용 지우기</span>
                 <i class="svg-icon icon-clear"></i>
@@ -532,14 +573,14 @@
         <div class="form-conts">
           <div class="input-group">
             <div class="input medium">
-              <input type="text" id="input-cy1sg6g-group-0" value="" placeholder="앞자리" aria-label="이메일 1번째 자리" />
+              <input type="text" id="input-agofhxk-group-0" value="" placeholder="앞자리" aria-label="이메일 1번째 자리" />
               <button type="button" class="btn icon btn-clear">
                 <span class="sr-only">입력 내용 지우기</span>
                 <i class="svg-icon icon-clear"></i>
               </button>
             </div>
             <div class="input medium">
-              <input type="text" id="input-cy1sg6g-group-1" value="" placeholder="뒷자리" aria-label="이메일 2번째 자리" />
+              <input type="text" id="input-agofhxk-group-1" value="" placeholder="뒷자리" aria-label="이메일 2번째 자리" />
               <button type="button" class="btn icon btn-clear">
                 <span class="sr-only">입력 내용 지우기</span>
                 <i class="svg-icon icon-clear"></i>
@@ -561,7 +602,7 @@
             <div class="modal-conts">
               <p>모달 내용입니다. 확인 또는 취소 버튼을 누르세요.</p>
             </div>
-            <div class="modal-btn btn-wrap default">
+            <div class="modal-btn btn-wrap">
               <button type="button" class="btn medium tertiary btn-close" aria-controls="myModal1">취소</button>
               <button type="button" class="btn medium primary" onclick="alert('확인됨!');">확인</button>
             </div>
@@ -627,7 +668,7 @@
               <p>내용... (아주 긴 내용)</p>
               <p>내용... (아주 긴 내용)</p>
             </div>
-            <div class="modal-btn btn-wrap default">
+            <div class="modal-btn btn-wrap">
               <button type="button" class="btn large primary btn-close" aria-controls="myFullModal">닫기</button>
             </div>
             <button type="button" class="btn icon btn-close" aria-controls="myFullModal">
@@ -643,7 +684,6 @@
         <div class="accordion-item active">
           <div class="accordion-header" id="accordionHeader-0">
             <button type="button" class="btn-accordion" aria-controls="accordionCollapse-0" aria-expanded="true">
-              <span class="category"></span>
               <span class="tit">제목1</span>
             </button>
           </div>
@@ -656,7 +696,6 @@
         <div class="accordion-item">
           <div class="accordion-header" id="accordionHeader-1">
             <button type="button" class="btn-accordion" aria-controls="accordionCollapse-1" aria-expanded="false">
-              <span class="category"></span>
               <span class="tit">제목2</span>
             </button>
           </div>
@@ -669,7 +708,6 @@
         <div class="accordion-item">
           <div class="accordion-header" id="accordionHeader-2">
             <button type="button" class="btn-accordion" aria-controls="accordionCollapse-2" aria-expanded="false">
-              <span class="category"></span>
               <span class="tit">제목3</span>
             </button>
           </div>
@@ -712,14 +750,14 @@
           <div class="util">
             <div class="family-site">
               <div class="form-select medium bg-gray ico-plus">
-                <select class="sr-only" name="family-site" id="select-5wtipkx" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                <select class="sr-only" name="family-site" id="select-jxz397z" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                   <option value="site1">사이트 1</option>
                   <option value="site2">사이트 2</option>
                 </select>
-                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-5wtipkx-listbox" tabindex="0" aria-controls="select-5wtipkx-listbox">
+                <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-jxz397z-listbox" tabindex="0">
                   <span class="select-value placeholder">패밀리 사이트</span>
                 </button>
-                <ul id="select-5wtipkx-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                <ul id="select-jxz397z-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                   <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                   <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                 </ul>

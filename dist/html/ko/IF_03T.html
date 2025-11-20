@@ -12,21 +12,26 @@
     <!-- <meta property="og:image" content=""> -->
     <!-- <meta property="og:url" content=""> -->
     <meta name="format-detection" content="telephone=no" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/favicon_180.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/images/favicon_512.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/favicon_192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon_32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/common/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/images/common/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/common/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/common/favicon_32.png" />
     <title>경영공시 | 공시안내 | 한화자산운용</title>
 
     <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="../../assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
     <script src="../../assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
     <script src="../../assets/js/gsap.min.js" type="text/javascript"></script>
     <script src="../../assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
     <script src="../../assets/js/swiper-bundle.min.js" type="text/javascript"></script>
     <script src="../../assets/js/ui.common.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <link href="../../assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
     <link href="../../assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
   <body>
@@ -59,20 +64,20 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-grhjw8v" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-zlrnfxi" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected="selected">KR</option>
                     <option value="EN">EN</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-grhjw8v-listbox" tabindex="0" aria-controls="select-grhjw8v-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-zlrnfxi-listbox" tabindex="0">
                     <span class="select-value">KR</span>
                   </button>
-                  <ul id="select-grhjw8v-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-zlrnfxi-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                     <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
                 </div>
               </div>
-              <button type="button" class="btn icon xxlarge">
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
                 <span class="sr-only">검색</span>
                 <i class="svg-icon icon-search"></i>
               </button>
@@ -84,6 +89,48 @@
           </div>
         </div>
       </header>
+
+      <!-- popup 검색  -->
+      <div id="modalSearch" class="modal fade top-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_modalSearch" data-type="top-sheet">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="logo"><span class="sr-only">한화자산운용</span></div>
+            </div>
+            <div class="modal-conts">
+              <div class="search-wrap">
+                <div class="search-con">
+                  <div class="input xlarge line search">
+                    <input type="text" id="input-2jwz174" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                    <button type="button" class="btn icon btn-clear">
+                      <span class="sr-only">입력 내용 지우기</span>
+                      <i class="svg-icon icon-clear"></i>
+                    </button>
+                    <button type="button" class="btn icon xxlarge">
+                      <span class="sr-only">검색</span>
+                      <i class="svg-icon icon-search"></i>
+                    </button>
+                  </div>
+
+                  <div class="tag-wrap text medium">
+                    <a href="#!" class="btn-tag">#ETF</a>
+                    <a href="#!" class="btn-tag">#월배당ETF</a>
+                    <a href="#!" class="btn-tag">#바이오</a>
+                    <a href="#!" class="btn-tag">#자산분배형</a>
+                    <a href="#!" class="btn-tag">#ESG</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn icon btn-close" aria-controls="modalSearch">
+              <span class="sr-only">닫기</span>
+              <i class="svg-icon icon-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-back in"></div>
+      </div>
+      <!-- popup 검색 -->
       <!-- // header -->
 
       <!-- container -->
@@ -127,7 +174,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-er8t7po" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-mt8ypbg" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -145,11 +192,11 @@
                       <ul class="board-tbody">
                         <li>
                           <a href="#!">
-                            <p class="td num">10</p>
+                            <p class="td num">2</p>
                             <p class="td category">파생공시</p>
                             <p class="td tit">
                               <strong>집합투자재산(파생형) 위험지표 공시</strong>
-                              <span class="badge new">N</span>
+                              <span class="badge new small">N</span>
                             </p>
                             <span class="td file">
                               <span class="sr-only">첨부파일</span>
@@ -160,7 +207,7 @@
                         </li>
                         <li>
                           <a href="#!">
-                            <p class="td num">9</p>
+                            <p class="td num">1</p>
                             <p class="td category">투자설명서</p>
                             <p class="td tit">
                               <strong>연금저축비교공시_수수료율</strong>
@@ -211,7 +258,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-ekb4j7z" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-de8nje6" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -229,11 +276,11 @@
                       <ul class="board-tbody">
                         <li>
                           <a href="#!">
-                            <p class="td num">10</p>
+                            <p class="td num">2</p>
                             <p class="td category">파생공시</p>
                             <p class="td tit">
                               <strong>집합투자재산(파생형) 위험지표 공시</strong>
-                              <span class="badge new">N</span>
+                              <span class="badge new small">N</span>
                             </p>
                             <span class="td file">
                               <span class="sr-only">첨부파일</span>
@@ -244,7 +291,7 @@
                         </li>
                         <li>
                           <a href="#!">
-                            <p class="td num">9</p>
+                            <p class="td num">1</p>
                             <p class="td category">투자설명서</p>
                             <p class="td tit">
                               <strong>연금저축비교공시_수수료율</strong>
@@ -286,7 +333,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-tyxsrgd" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-m4rzpla" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -303,7 +350,7 @@
                       <ul class="board-tbody">
                         <li>
                           <a href="#!">
-                            <p class="td num">10</p>
+                            <p class="td num">2</p>
                             <p class="td tit">
                               <strong>임원 선임 및 사임(해임) 공시</strong>
                             </p>
@@ -316,7 +363,7 @@
                         </li>
                         <li>
                           <a href="#!">
-                            <p class="td num">9</p>
+                            <p class="td num">1</p>
                             <p class="td tit">
                               <strong>금융소비자보호 내부통제기준 개정 사항 공지</strong>
                             </p>
@@ -357,7 +404,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-qmjx5ni" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-9f6swib" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -374,7 +421,7 @@
                       <ul class="board-tbody">
                         <li>
                           <a href="#!">
-                            <p class="td num">10</p>
+                            <p class="td num">2</p>
                             <p class="td tit">
                               <strong>25년도 제18회 이사회 의사록</strong>
                             </p>
@@ -387,7 +434,7 @@
                         </li>
                         <li>
                           <a href="#!">
-                            <p class="td num">9</p>
+                            <p class="td num">1</p>
                             <p class="td tit">
                               <strong>제8기 사업연도 1분기 투자보고서 및 주석</strong>
                             </p>
@@ -432,7 +479,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-gqsezz4" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-jc1f3ge" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -449,7 +496,7 @@
                       <ul class="board-tbody">
                         <li>
                           <a href="#!">
-                            <p class="td num">10</p>
+                            <p class="td num">2</p>
                             <p class="td tit">
                               <strong>연금저축비교공시_수수료율_20190930</strong>
                             </p>
@@ -462,7 +509,7 @@
                         </li>
                         <li>
                           <a href="#!">
-                            <p class="td num">9</p>
+                            <p class="td num">1</p>
                             <p class="td tit">
                               <strong>연금저축비교공시_수익률_20190930</strong>
                             </p>
@@ -532,14 +579,14 @@
             <div class="util">
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-rvq2h6u" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                  <select class="sr-only" name="family-site" id="select-g9buijq" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                     <option value="site1">사이트 1</option>
                     <option value="site2">사이트 2</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-rvq2h6u-listbox" tabindex="0" aria-controls="select-rvq2h6u-listbox">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-g9buijq-listbox" tabindex="0">
                     <span class="select-value placeholder">패밀리 사이트</span>
                   </button>
-                  <ul id="select-rvq2h6u-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-g9buijq-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                     <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                   </ul>
