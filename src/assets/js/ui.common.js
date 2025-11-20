@@ -422,6 +422,20 @@ const uiModal = {
 };
 const uiAccordion = {
   init: function () {
+    $(".accordion-item").each(function () {
+      const $item = $(this);
+      const $button = $item.find(".btn-accordion");
+      const $content = $item.find(".accordion-collapse");
+      
+      if ($item.hasClass("active")) {
+        $button.attr("aria-expanded", "true");
+        $content.show();
+      } else {
+        $button.attr("aria-expanded", "false");
+        $content.hide();
+      }
+    });
+
     $(document).on("click", ".accordion .btn-accordion", function (e) {
       e.preventDefault();
 
@@ -438,23 +452,31 @@ const uiAccordion = {
       
       const isExpanded = $button.attr("aria-expanded") === "true";
       const isOpening = !isExpanded;
+      const speed = 300;
 
       if (accordionType === "singleOpen" && isOpening) {
-        $accordionItems.not($currentItem).each(function () {
-          const $otherItem = $(this);
-          const $otherButton = $otherItem.find('.btn-accordion');
-          const $otherContent = $otherItem.find('.accordion-collapse');
+        const $siblings = $currentItem.siblings(".accordion-item.active");
+        
+        $siblings.each(function() {
+          const $sibItem = $(this);
+          const $sibBtn = $sibItem.find(".btn-accordion");
+          const $sibContent = $sibItem.find(".accordion-collapse");
           
-          $otherItem.removeClass("active");
-          $otherButton.attr("aria-expanded", "false").removeClass("active");
-          $otherContent.removeClass("active");
+          $sibItem.removeClass("active");
+          $sibBtn.attr("aria-expanded", "false");
+          $sibContent.stop().slideUp(speed);
         });
       }
 
-      $button.attr("aria-expanded", isOpening);
-      $button.toggleClass("active", isOpening);
-      $currentItem.toggleClass("active", isOpening);
-      $accordionContent.toggleClass("active", isOpening);
+      if (isOpening) {
+        $currentItem.addClass("active");
+        $button.attr("aria-expanded", "true"); 
+        $accordionContent.stop().slideDown(speed); 
+      } else {
+        $currentItem.removeClass("active");  
+        $button.attr("aria-expanded", "false");
+        $accordionContent.stop().slideUp(speed); 
+      }
     });
   },
 };

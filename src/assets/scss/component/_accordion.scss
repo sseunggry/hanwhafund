@@ -98,13 +98,6 @@
         }
       }
     }
-
-    .accordion-collapse {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-      visibility: hidden;
-    }
     
     .accordion-body {
       position: relative;
@@ -122,15 +115,6 @@
         width: 100%;
         height: 0.1rem;
         background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-      }
-    }
-
-    &.active {
-      .accordion-collapse {
-        height: auto;
-        max-height: 500rem;
-        transition: all 1.5s ease-in-out;
-        visibility: visible;
       }
     }
   }

@@ -3,11 +3,27 @@
 
 /* 배지 */
 // 사이즈 정의
-@mixin badge-size-variable() {
-  --#{$prefix}-badge--size-height: 3rem;
-  --#{$prefix}-badge--padding: 0.8rem;
-  --#{$prefix}-badge--radius: 0.2rem;
-  --#{$prefix}-badge--font-size: 1.6rem;
+$badge-size: (
+  small: (
+    size-height: 2.4rem,
+    padding-x: 0.8rem,
+    font-size: 1.3rem,
+  ),
+  medium: (
+    size-height: 3rem,
+    padding-x: 0.8rem,
+    font-size: 1.6rem,
+  ),
+) !default;
+
+@mixin badge-size($size) {
+  @each $size, $types in $badge-size {
+    &.#{$size} {
+      padding: 0 var(--#{$prefix}-badge--padding-x-#{$size});
+      height: var(--#{$prefix}-badge--size-height-#{$size});
+      font-size: var(--#{$prefix}-badge--font-size-#{$size});
+    }
+  }
 }
 
 // 컬러 정의
@@ -119,15 +135,21 @@
 }
 
 .badge {
-  @include badge-size-variable;
+  --#{$prefix}-badge--radius: 0.2rem;
+
+  @each $size, $types in $badge-size {
+    @each $type, $value in $types {
+      // css variable 생성
+      --#{$prefix}-badge--#{$type}-#{$size}: #{$value};
+    }
+  }
   @include badge-color-variable();
 
   & {
     @include flex-layout($d: inline-flex, $ai: center, $jc: center);
-    padding: 0 var(--#{$prefix}-badge--padding);
-    height: var(--#{$prefix}-badge--size-height);
-    font-size: var(--#{$prefix}-badge--font-size);
-    // font-weight: 500;
+    padding: 0 var(--#{$prefix}-badge--padding-x-medium);
+    height: var(--#{$prefix}-badge--size-height-medium);
+    font-size: var(--#{$prefix}-badge--font-size-medium);
     border-radius: var(--#{$prefix}-badge--radius);
   }
 }

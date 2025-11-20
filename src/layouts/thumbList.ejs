@@ -9,7 +9,6 @@
   };
   const addClass = localsSafe.addClass || '';
   const listClass = localsSafe.listClass || '';
-  const isSearchResult = localsSafe.isSearchResult || false;;
   const listClasses = [
     'thumb-list',
     cols ? `col-${cols}` : '',
@@ -17,6 +16,7 @@
   ].filter(Boolean).join(' ');
 
   const defaultImg = '../../assets/images/temp/thumb-sample.png';
+  const isComment = localsSafe.isComment || false;
 %>
 <% if (items.length > 0) { -%>
 <div class="thumb-list-wrap <%= addClass %>">
@@ -26,13 +26,17 @@
       <a href="<%= item.url || '#!' %>">
         <div class="thumb-img">
           <img src="<%= item.imgSrc || defaultImg %>" alt="<%= item.alt || item.title || '' %>">
-          <% if (isSearchResult && item.sourceType) { -%>
+          <%- isComment ? `<!-- [2025-11-21] 마크업 추가 -->` : '' -%>
+          <% if (item.sourceType) { -%>
             <span class="source <%= item.sourceType %>" aria-hidden="true"></span>
           <% } -%>
+          <%- isComment ? `<!-- // [2025-11-21] 마크업 추가 -->` : '' -%>
         </div>
         <div class="thumb-con">
-        <% if (!isSearchResult && item.sourceType && sourceMap[item.sourceType]) { -%>
-          <p class="source <%= item.sourceType %>"><%= sourceMap[item.sourceType] %></p>
+        <% if (isComment) { -%>
+          <!-- [2025-11-21] 마크업 삭제 -->
+          <!-- <p class="source <%= item.sourceType %>"><%= sourceMap[item.sourceType] %></p> -->
+          <!-- [2025-11-21] 마크업 삭제 -->
         <% } -%>
           <p class="tit"><%= item.title %></p>
         <% if (item.date) { -%>

@@ -1,6 +1,7 @@
 <%
   const localsSafe = locals || {};
   const badgeItems = localsSafe.badgeItems;
+  const size = localsSafe.size || '';
 -%>
 <%_ if (Array.isArray(badgeItems) && badgeItems.length > 0) { -%>
 <div class="badge-wrap">
@@ -13,7 +14,7 @@
     const classes = [
       `badge`,
       variant === 'solid' ? `${color}` : `${variant}-${color}`,
-      // size, // 원본 템플릿의 주석 유지
+      size,
     ].filter(Boolean).join(' ');
   -%>
   <span class="<%= classes %>"><%= label %></span>
@@ -28,7 +29,7 @@
   const classes = [
     `badge`,
     variant === 'solid' ? `${color}` : `${variant}-${color}`,
-    // size, // 원본 템플릿의 주석 유지
+    size,
   ].filter(Boolean).join(' ');
 -%>
 <span class="<%= classes %>"><%= label %></span>

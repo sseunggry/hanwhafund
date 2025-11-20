@@ -8,17 +8,6 @@
   -webkit-text-fill-color: transparent;
   text-transform: capitalize;
 }
-@keyframes wipe-in-right {
-	0% {
-		clip-path: inset(0 100% 0 0); /* 오른쪽 100% 잘림 */
-	}
-	99% {
-		clip-path: inset(0 0 0 0); /* 꽉 채움 (잘림 없음) */
-	}
-	100%{
-		clip-path: none;
-	}
-}
 
 .page-main {
 	--main-section-title-gap: 4rem;
@@ -59,7 +48,6 @@
     z-index: 2;
     border-bottom: 0;
     backdrop-filter: blur(4rem);
-		animation: wipe-in-right 0.8s ease-in-out 0.2s forwards;
 
     .logo {
       @include bg("common/logo-w.svg");
@@ -157,8 +145,6 @@
   }
 
   .section-visual {
-		animation: wipe-in-right 0.8s ease-in-out 0.2s forwards;
-
     .visual {
       // position: relative;
       height: 108rem;

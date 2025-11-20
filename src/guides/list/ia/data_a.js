@@ -2,17 +2,17 @@ const iaPageAData = {
 	language: "ko",
 	list: [
 		// --- 메인 ---
-		{ createDate: "",  modifyDate: "",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "작업중",  memo: [] },
+		{ createDate: "2025-11-21",  modifyDate: "",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [] },
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "메인 공지 팝업", depth2: "", depth3: "-", pageName: "메인공지팝업", pageType: "popup", pageID: "MA_02P", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
-		{ createDate: "", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "작업중", memo: [], },
-		{ createDate: "", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과 없음", pageType: "page", pageID: "MA_03_02", link: "", isAdminLinked: false, status: "작업중", memo: [], },
+		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과 없음", pageType: "page", pageID: "MA_03_02", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "", modifyDate: "", category: "메인", depth1: "전체 메뉴", depth2: "", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "MA_04P", link: "", isAdminLinked: false, status: "", memo: [], },
 
 		// --- 한화펀드 ---
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "-", pageName: "펀드찾기", pageType: "page", pageID: "FD_01", link: "", isAdminLinked: true, status: "작업중", memo: [], },
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상품 비교", depth3: "-", pageName: "펀드비교팝업", pageType: "popup", pageID: "FD_01_01P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
-		{ createDate: "2025-11-10", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상세 ", depth3: "-", pageName: "펀드상품상세", pageType: "page", pageID: "FD_01_02", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "2025-11-21", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "-", pageName: "펀드찾기", pageType: "page", pageID: "FD_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "2025-11-21", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상품 비교", depth3: "-", pageName: "펀드비교팝업", pageType: "popup", pageID: "FD_01_01P", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-11-10", modifyDate: "2025-11-21", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상세 ", depth3: "-", pageName: "펀드상품상세", pageType: "page", pageID: "FD_01_02", link: "", isAdminLinked: true, status: "완료", memo: [{detail: "2025-11-21: 위험수준 레벨 클래스 수정(개발 요청), 펀드리스트 뱃지 클래스 수정, desc 텍스트 추가"}], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "일자별 기준가", pageName: "기준가팝업", pageType: "popup", pageID: "FD_01_02_01P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "클래스비교", pageName: "클래스비교팝업", pageType: "popup", pageID: "FD_01_02_02P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "자산운용보고서 다운로드", pageName: "자산운용보고서 다운로드 팝업", pageType: "popup", pageID: "FD_01_02_03P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
@@ -25,7 +25,7 @@ const iaPageAData = {
 		// --- 인사이트 ---
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "-", depth3: "-", pageName: "공지목록", pageType: "page", pageID: "IS_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "공지 상세", depth3: "-", pageName: "공지상세", pageType: "page", pageID: "IS_01_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
-		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "완료", memo: [], },
+		{ createDate: "2025-11-10", modifyDate: "2025-11-21", category: "인사이트", depth1: "투자정보 목록", depth2: "-", depth3: "-", pageName: "투자정보목록", pageType: "page", pageID: "IS_02", link: "", isAdminLinked: true, status: "완료", memo: [{detail: "2025-11-21: sns 아이콘 마크업 수정"}], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "투자정보 목록", depth2: "투자정보 상세", depth3: "-", pageName: "투자정보상세", pageType: "link", pageID: " -", link: "-", isAdminLinked: true, status: "완료", memo: [{detail: "외부링크"}], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "-", depth3: "-", pageName: "시황목록", pageType: "page", pageID: "IS_03", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "시황 목록", depth2: "시황 상세", depth3: "-", pageName: "시황상세", pageType: "page", pageID: "IS_03_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
