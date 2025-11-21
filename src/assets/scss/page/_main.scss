@@ -565,16 +565,18 @@
           }
 
           .tit {
-            font-size: 4.8rem;
+						position: relative;
+            font-size: 4rem;
             font-weight: 700;
 
             &::before {
+							position: absolute;
+							top: 0;
+							left: calc(-1.2rem - 0.4rem);
               content: "";
-              margin-right: 0.4rem;
-              display: inline-block;
+              display: block;
               @include square(1.2rem);
               background-color: var(--#{$prefix}-color-orange-dark);
-              vertical-align: top;
             }
           }
         }
