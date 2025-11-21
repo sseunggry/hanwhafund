@@ -8429,18 +8429,20 @@ label {
 }
 
 .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit {
-	font-size: 4.8rem;
+	position: relative;
+	font-size: 4rem;
 	font-weight: 700
 }
 
 .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit::before {
+	position: absolute;
+	top: 0;
+	left: -1.6rem;
 	content: "";
-	margin-right: .4rem;
-	display: inline-block;
+	display: block;
 	width: 1.2rem;
 	height: 1.2rem;
-	background-color: var(--hwf-color-orange-dark);
-	vertical-align: top
+	background-color: var(--hwf-color-orange-dark)
 }
 
 .page-main .section-business .accordion.translucent .accordion-item .accordion-body {
@@ -9428,7 +9430,7 @@ label {
 .page-fund .fund-main .section-detail .layout-sidebar .sidebar {
 	position: sticky;
 	top: var(--top-fixed-height);
-	z-index: 1;
+	z-index: 2;
 	flex-shrink: 0;
 	order: 1;
 	padding: 6.4rem var(--hwf-content-padding-x) 6.4rem 0;
