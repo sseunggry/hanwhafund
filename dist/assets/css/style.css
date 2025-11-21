@@ -2779,6 +2779,11 @@ html[lang=ko] {
 	display: none
 }
 
+.input .btn-clear .svg-icon {
+	width: 100%;
+	height: 100%
+}
+
 .input .btn-clear.active {
 	display: inline-flex
 }
@@ -5696,17 +5701,16 @@ label {
 }
 
 .tab.full>ul {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: stretch;
-	position: relative;
-	width: 100%;
 	gap: 0
 }
 
 .tab.full>ul>li {
-	flex: 1 1 0px;
-	min-width: 0
+	flex: 1
+}
+
+.tab.full.line .btn-tab {
+	padding: 0 4rem;
+	min-width: auto
 }
 
 .tab.line {
@@ -8156,7 +8160,7 @@ label {
 	display: block;
 	width: 39.4%;
 	height: 36rem;
-	background: url(../images/main/obj-gradient.png) no-repeat center/cover
+	background: url(../images/common/obj-gradient.png) no-repeat center/cover
 }
 
 .page-main .section-partner .info-wrap .img-wrap .img-list {
@@ -8792,10 +8796,6 @@ label {
 	}
 }
 
-.page-fund .inner {
-	max-width: var(--hwf-content-wrap-width-large)
-}
-
 .page-fund .range-slider-wrap {
 	position: relative;
 	padding: 6.4rem 5.2% 0
@@ -8939,6 +8939,10 @@ label {
 	.page-fund .chip-wrap.col-2 {
 		grid-template-columns: repeat(2, 1fr)
 	}
+}
+
+.page-fund .fund-main .inner {
+	max-width: var(--hwf-content-wrap-width-large)
 }
 
 .page-fund .fund-main .section-visual {
@@ -10333,6 +10337,7 @@ label {
 }
 
 .page-fund .fund-find .section-search {
+	overflow: hidden;
 	position: relative;
 	padding: 8rem 0 4rem
 }
@@ -10482,7 +10487,7 @@ label {
 
 @media(max-width: 640px) {
 	.page-fund .fund-find .section-search {
-		padding: 4rem 0
+		padding: 4rem 0 4.8rem
 	}
 
 	.page-fund .fund-find .section-search .search-wrap .detail-search-wrap .search-option-btn .btn {
@@ -10506,6 +10511,7 @@ label {
 	}
 
 	.page-fund .fund-find .section-search .promo-banner {
+		display: none;
 		margin-top: 10.8rem
 	}
 
@@ -10530,12 +10536,22 @@ label {
 	background-color: #fff
 }
 
-.page-fund .fund-find .section-detail .fund-content .sort-wrap.fixed .pc-only {
-	position: fixed;
+.page-fund .fund-find .section-detail .fund-content .sort-wrap.fixed {
+	position: sticky;
 	top: 0;
-	left: 0;
-	z-index: 3;
-	width: 100vw
+	z-index: 3
+}
+
+.page-fund .fund-find .section-detail .fund-content .sort-wrap.fixed .pc-only::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	display: block;
+	width: 100vw;
+	height: 100%;
+	background-color: #fafafa
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap.fixed .pc-only .sort-list {
@@ -10559,7 +10575,7 @@ label {
 	display: flex;
 	align-items: center;
 	padding: 0 1.6rem;
-	width: 13%;
+	width: 19%;
 	height: 100%
 }
 
@@ -10569,7 +10585,7 @@ label {
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .sort-item:first-child {
-	width: 6%
+	width: 5.6rem
 }
 
 .page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list .sort-item.period {
@@ -10718,7 +10734,7 @@ label {
 	margin-right: 2.4rem;
 	padding-right: 2.4rem;
 	flex-shrink: 0;
-	min-width: 10%;
+	width: 15.5rem;
 	border-right: .1rem solid #e6e5e5
 }
 
@@ -10745,8 +10761,8 @@ label {
 	overflow: auto hidden;
 	display: flex;
 	justify-content: space-between;
-	gap: .8rem;
-	width: 100%
+	padding-right: 1.6rem;
+	width: 86rem
 }
 
 .page-fund .fund-find .section-detail .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .period-grid .fund-txt {
@@ -10868,6 +10884,10 @@ label {
 
 	.page-fund .fund-find .section-detail .fund-content .sort-wrap {
 		padding-bottom: 1.6rem
+	}
+
+	.page-fund .fund-find .section-detail .fund-content .sort-wrap.fixed {
+		position: static
 	}
 
 	.page-fund .fund-find .section-detail .fund-content .sort-wrap .sort-list {
@@ -11793,6 +11813,7 @@ label {
 }
 
 .page-search .section-search {
+	overflow: hidden;
 	position: relative;
 	padding-top: 8rem
 }
@@ -11979,7 +12000,7 @@ section.bg-gray {
 }
 
 .section-tit-wrap .sub-tit {
-	margin-bottom: 2.4rem;
+	margin-bottom: .8rem;
 	font-size: 2.4rem;
 	font-weight: 500
 }
@@ -12378,27 +12399,32 @@ section.bg-gray {
 	grid-template-columns: repeat(3, 1fr)
 }
 
-.thumb-list-wrap .thumb-list.link .thumb-item a::after {
+.thumb-list-wrap .thumb-list .thumb-item a {
+	position: relative;
+	display: block;
+	height: 100%
+}
+
+.thumb-list-wrap .thumb-list .thumb-item a::after {
 	content: "";
 	display: none;
 	position: absolute;
 	top: 1.2rem;
 	right: 1.2rem;
-	width: 2.4rem;
-	height: 2.4rem;
+	width: 3.2rem;
+	height: 3.2rem;
 	mask-repeat: no-repeat;
 	mask-position: center center;
 	mask-size: contain;
 	mask-image: url(../images/icon/ico-link.svg);
-	background-color: #333
+	background-color: var(--hwf-color-text-primary)
 }
 
-.thumb-list-wrap .thumb-list.link .thumb-item a:hover::after {
-	display: block;
-	background-color: #fff
+.thumb-list-wrap .thumb-list .thumb-item a:hover::after {
+	display: block
 }
 
-.thumb-list-wrap .thumb-list.link .thumb-item a:hover .thumb-img::after {
+.thumb-list-wrap .thumb-list .thumb-item a:hover .thumb-img::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -12407,12 +12433,6 @@ section.bg-gray {
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, .6)
-}
-
-.thumb-list-wrap .thumb-list .thumb-item a {
-	position: relative;
-	display: block;
-	height: 100%
 }
 
 .thumb-list-wrap .thumb-list .thumb-item .thumb-img {
@@ -12680,9 +12700,33 @@ section.bg-gray {
 	position: relative;
 	z-index: 4;
 	margin-top: -4rem;
-	padding: 8rem;
+	padding: 8rem
+}
+
+.search-wrap::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(50%, -50%);
+	display: block;
+	width: 14rem;
+	height: 18rem;
+	background: url(../images/common/obj-gradient.png) no-repeat center/cover;
+	z-index: -2
+}
+
+.search-wrap::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
 	background: linear-gradient(270deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0) 100%);
-	backdrop-filter: blur(4rem)
+	backdrop-filter: blur(4rem);
+	z-index: -1
 }
 
 .search-wrap .input.search {
