@@ -612,7 +612,7 @@
           position: sticky;
           top: var(--top-fixed-height);
           // right: var(--layout-sidebar-pos);
-          z-index: 1;
+          z-index: 2;
           flex-shrink: 0;
           order: 1;
           padding: 6.4rem var(--#{$prefix}-content-padding-x) 6.4rem 0;
