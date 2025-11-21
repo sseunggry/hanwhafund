@@ -398,6 +398,7 @@
         }
       }
       @include mq(pc) {
+				@include bg("fund/mo-main-visual.png", $size: 100% 100%);
         .inner {
           flex-direction: column;
           gap: 4rem;
