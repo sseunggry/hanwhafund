@@ -50,6 +50,7 @@
             });
             const moreBtn = include("../../components/button.ejs", { label: '더보기', hierarchy: 'tertiary', size: 'large', slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`});
             const thumbList1 = include('../../layouts/thumbList.ejs', {
+							listClass: 'link',
 							items: [
 								{title: '월급으로 부자 되기 힘들다? 이진우 기자에게 제대로 배웠습니다', sourceType: 'instagram'},
 								{title: '중국 10대 기업 차곡 차곡 사 모아라', sourceType: 'blog'},
