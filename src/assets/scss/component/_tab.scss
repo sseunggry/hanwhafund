@@ -95,14 +95,18 @@
     }
 
     > ul {
-      @include group-wrap;
-
-      gap: 0;
+			gap: 0;
 
       > li {
-        @include equal-width;
+        flex: 1;
       }
     }
+		&.line{
+			.btn-tab{
+				padding: 0 4rem;
+				min-width: auto;
+			}
+		}
   }
 
   // line 타입

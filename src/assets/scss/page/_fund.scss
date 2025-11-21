@@ -3,9 +3,6 @@
 @use "../util" as *;
 
 .page-fund {
-	.inner{
-		max-width: var(--#{$prefix}-content-wrap-width-large);
-	}
 	//범위 설정
 	.range-slider-wrap{
 		position: relative;
@@ -138,6 +135,10 @@
 	}
 
   .fund-main {
+		.inner{
+			max-width: var(--#{$prefix}-content-wrap-width-large);
+		}
+
     .section-visual {
       padding: 10rem 0 8rem;
       @include bg("fund/main-visual.png");
@@ -1501,6 +1502,7 @@
   }
 	.fund-find{
 		.section-search{
+			overflow: hidden;
 			position: relative;
 			// padding: 8rem 0 12rem;
 			padding: 8rem 0 4rem;
@@ -1659,7 +1661,7 @@
 				}
 			}
 			@include mq(mobile){
-				padding: 4rem 0;
+				padding: 4rem 0 4.8rem;
 
 				.search-wrap{
 					.detail-search-wrap{
@@ -1684,6 +1686,8 @@
 				}
 
 				.promo-banner{
+					display: none;
+
 					margin-top: 10.8rem;
 					.tit{
 						font-size: 1.8rem;
@@ -1709,12 +1713,27 @@
 					background-color: #fff;
 
 					&.fixed{
+						position: sticky;
+						top: 0;
+						z-index: 3;
+
 						.pc-only{
-							position: fixed;
-							top: 0;
-							left: 0;
-							z-index: 3;
-							width: 100vw;
+							// position: fixed;
+							// left: 50%;
+							// transform: translateX(-50%);
+							// width: 100vw;
+
+							&::before{
+								content: '';
+								position: absolute;
+								left: 50%;
+								top: 0;
+								transform: translateX(-50%);
+								display: block;
+								width: 100vw;
+								height: 100%;
+								background-color: #FAFAFA;
+							}
 							
 							.sort-list{
 								border-top: 0;
@@ -1740,7 +1759,7 @@
 							display: flex;
 							align-items: center;
 							padding: 0 1.6rem;
-							width: 13%;
+							width: 19%;
 							height: 100%;
 
 							&:not(.period){
@@ -1749,7 +1768,8 @@
 							}
 
 							&:first-child{
-								width: 6%;
+								// width: 6%;
+								width: 5.6rem;
 							}
 							&.period{
 								width: 100%;
@@ -1889,7 +1909,9 @@
 									margin-right: 2.4rem;
 									padding-right: 2.4rem;
 									flex-shrink: 0;
-									min-width: 10%;
+									// min-width: 10%;
+									// flex: 1;
+									width: calc(13.1rem + 2.4rem);
 									border-right: 0.1rem solid #E6E5E5;
 								}
 								.tit{
@@ -1914,8 +1936,10 @@
 									overflow: auto hidden;
 									display: flex;
 									justify-content: space-between;
-									gap: 0.8rem;
-									width: 100%;
+									padding-right: 1.6rem;
+									width: 86rem;
+									// gap: 0.8rem;
+									// width: 100%;
 
 									.fund-txt{
 										border-right: 0;
@@ -2050,6 +2074,10 @@
 					}
 					.sort-wrap{
 						padding-bottom: 1.6rem;
+
+						&.fixed{
+							position: static;
+						}
 
 						.sort-list{
 							overflow: visible;

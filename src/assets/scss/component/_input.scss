@@ -189,6 +189,10 @@ $input-size: (
 	.btn-clear{
 		display: none;
 
+		.svg-icon{
+			@include square(100%);
+		}
+
 		&.active {
 			display: inline-flex;
 		}
