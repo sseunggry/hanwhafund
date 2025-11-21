@@ -23,19 +23,15 @@
 		font-size: 2.8rem;
 		font-weight: 700;
 	}
+	.terms-txt-tit{
+		color: var(--#{$prefix}-color-text-strong);
+		font-size: 1.8rem;
+		font-weight: 500;
+	}
 	.terms-txt{
 		font-size: 1.8rem;
-
-		+ .terms-txt {
-      // margin-top: 1.6rem;
-    }
-
-		+ .note-list{
-			// margin-top: 2rem;
-		}
 	}
 	.terms-sub-tit{
-		// margin-bottom: 2.4rem;
 		color: var(--#{$prefix}-color-text-strong);
 		font-size: 2.1rem;
 		font-weight: 600;
