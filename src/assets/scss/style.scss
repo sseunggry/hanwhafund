@@ -722,8 +722,8 @@ section{
 		content: '';
 		position: absolute;
 		top: 0;
-		right: 0;
-		transform: translate(50%, -50%);
+		right: -6%;
+		transform: translateY(-50%);
 		display: block;
 		width: 14rem;
 		height: 18rem;
@@ -777,9 +777,18 @@ section{
     }
   }
 
+	@include mq(1500){
+		&::before{
+			right: calc(var(--#{$prefix}-content-padding-x) * -1);
+		}
+	}
   @include mq(tablet-small){
     margin-top: 1.6rem;
     padding: 2.4rem var(--#{$prefix}-content-padding-x) 1.6rem;
+
+		&::before{
+			width: 8rem;
+		}
 
     .search-con{
       .tag-wrap{

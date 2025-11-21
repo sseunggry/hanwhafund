@@ -58,7 +58,7 @@ html{
 // .tablet-mobile-only{display: none !important;}
 
 @include mq(tablet){
-	// .pc-only{display: none !important;}
+	.pc-only{display: none !important;}
 	.tablet-only{display: flex !important;}
 	// .mobile-only{display: none !important;}
 	// .tablet-mobile-only{display: flex !important;}
