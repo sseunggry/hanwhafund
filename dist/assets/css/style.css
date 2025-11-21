@@ -8120,6 +8120,10 @@ label {
 }
 
 @media(max-width: 768px) {
+	.page-main .section-visual .visual {
+		height: 82.1rem
+	}
+
 	.page-main .section-visual {
 		font-size: 1.8rem
 	}
@@ -9220,6 +9224,10 @@ label {
 }
 
 @media(max-width: 1280px) {
+	.page-fund .fund-main .section-visual {
+		background: url(../images/fund/mo-main-visual.png) no-repeat center/100% 100%
+	}
+
 	.page-fund .fund-main .section-visual .inner {
 		flex-direction: column;
 		gap: 4rem
