@@ -168,13 +168,13 @@ const gsapBusinessAni = {
         $firstItem.addClass("active");
         $firstButton.attr("aria-expanded", "true");
         
-        $firstContent.stop().slideDown(300);
+        $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
         $firstItem.removeClass("active");
         $firstButton.attr("aria-expanded", "false");
         
-        $firstContent.stop().slideUp(300);
+        $firstContent.stop().slideUp(500);
       }
     });
   }
