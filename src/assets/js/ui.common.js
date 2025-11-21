@@ -1007,7 +1007,7 @@ const gsapMotion = {
     "zoom-in": { scale: 0.8 },
     "zoom-out": { scale: 1.2 },
     "opacity": { /* opacity: 0은 기본값이므로 별도 속성 없음 */ },
-    "chart-bar-up": {height: 0},
+		"chart-bar-up": { height: "0.5rem", opacity: 1},
   },
   defaults: {
     gsap: {
@@ -1045,9 +1045,6 @@ const gsapMotion = {
       if (delay) gsapProps.delay = parseFloat(delay);
       if (duration) gsapProps.duration = parseFloat(duration);
       if (start) scrollTriggerProps.start = start;
-      if (el.classList.contains('chart-bar-up')) {
-        gsapProps.height = 0;
-      }
 
       gsapProps.scrollTrigger = scrollTriggerProps;
 
