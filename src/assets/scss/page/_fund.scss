@@ -2070,14 +2070,13 @@
 							}
 
 							.sort-item{
-								width: fit-content;
-
 								&:first-child{
 									padding-left: 0;
 									width: fit-content;
 								}
 								&:nth-child(2){
 									padding-right: 0;
+									width: fit-content;
 								}
 		
 								&::after{
