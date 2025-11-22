@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '자산운용보고서 다운로드 팝업'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container" style="padding: 6rem 0;">
+				<div class="inner">
+          <%- include('../../components/button.ejs', {
+            label: '자산운용보고서 다운로드 팝업',
+            targetType: 'modal',
+            targetId: 'modalReportDownload',
+          }) -%>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+
+    <!-- popup 일자별 기준가 -->
+    <% 
+      const downloadBtn = include('../../components/button.ejs', { tag: 'a', label: '다운로드', variant: 'text', icon: 'download', download: true, toast: 'download' })
+    -%>
+    <%- include('../../components/modal.ejs', {
+      id: 'modalReportDownload',
+      variant: 'modal',
+      title: '자산운용보고서 다운로드',
+      content: `
+        <ul class="download-list">
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-10-12</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-06-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2024-12-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-10-12</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-06-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2024-12-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-10-12</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2025-06-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2024-12-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+          <li>
+            <a href="#!" download="">
+              <span class="date">2024-12-30</span>
+              <span class="download">다운로드 <i class="svg-icon icon-download"></i></span>
+            </a>
+          </li>
+        </ul>
+      `,
+      size: 'md',
+      open: true,
+    }) %>
+    <!-- popup 일자별 기준가 -->
+	</body>
+</html>

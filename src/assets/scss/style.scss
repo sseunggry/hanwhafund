@@ -809,3 +809,39 @@ section{
 		}
 	}
 }
+
+//
+.modal{
+  .download-list{
+    li{
+      border-top: 0.1rem solid #E6E5E5;
+      &:last-child{
+        border-bottom: 0.1rem solid #E6E5E5;
+      }
+      a{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.6rem;
+        height: 6.4rem;
+
+        &:hover, &:active{
+          background-color: #F3F2F1;
+
+          .date{
+            font-weight: 700;
+          }
+        }
+      }
+
+      .download{
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .icon-download{
+        background-color: currentColor;
+      }
+    }
+  }
+}

@@ -24,7 +24,7 @@ $modal-size: (
 
 @mixin modal-size-variable() {
   --#{$prefix}-modal--size-large: 130rem;
-  --#{$prefix}-modal--size-medium: 56rem;
+  --#{$prefix}-modal--size-medium: 64rem;
   --#{$prefix}-modal--size-small: 40rem;
   --#{$prefix}-modal--size-min-height: 26.4rem;
   --#{$prefix}-modal--wrap-radius: 0.4rem;
@@ -45,6 +45,15 @@ $modal-size: (
   --#{$prefix}-modal--btn-gap: 0.8rem;
   --#{$prefix}-modal--btn-column-gap: 2rem;
   --#{$prefix}-modal--btn-size-min-width: 7.8rem;
+
+  --#{$prefix}-modal--bottom-sheet-radius: 1.2rem;
+  --#{$prefix}-modal--bottom-sheet-header-padding: 2.4rem;
+  --#{$prefix}-modal--bottom-sheet-header-padding-x: 1.6rem;
+  --#{$prefix}-modal--bottom-sheet-cont-padding: 1.6rem;
+  --#{$prefix}-modal--bottom-sheet-btn-padding-top: 0.8rem;
+  --#{$prefix}-modal--bottom-sheet-btn-padding-bottom: 4rem;
+  --#{$prefix}-modal--bottom-sheet-btn-padding-side: 1.6rem;
+  --#{$prefix}-modal--bottom-sheet-btn-close-size: 2.4rem;
 }
 
 // 컬러 정의
@@ -116,6 +125,15 @@ $modal-size: (
     @each $size, $value in $modal-size {
       &.modal-#{$size} {
         max-width: $value;
+      }
+    }
+
+    &.modal-md{
+      .modal-header{
+        border-bottom: 0;
+      }
+      .modal-conts{
+        padding-top: 0;
       }
     }
 
@@ -253,7 +271,7 @@ $modal-size: (
     }
   }
 
-  //탑시트(검색창 사용)
+  //탑시트(검색창, 전체메뉴 사용)
   &[data-type="top-sheet"]{
     --#{$prefix}-modal--top-sheet-content-padding-top: 4rem;
     --#{$prefix}-modal--top-sheet-header-padding-y: 2.4rem;
@@ -312,15 +330,6 @@ $modal-size: (
 
   // 바텀시트(모바일만 사용)
   &[data-type="bottom-sheet"] {
-    --#{$prefix}-modal--bottom-sheet-radius: 1.2rem;
-    --#{$prefix}-modal--bottom-sheet-header-padding: 2.4rem;
-    --#{$prefix}-modal--bottom-sheet-header-padding-x: 1.6rem;
-    --#{$prefix}-modal--bottom-sheet-cont-padding: 1.6rem;
-    --#{$prefix}-modal--bottom-sheet-btn-padding-top: 0.8rem;
-    --#{$prefix}-modal--bottom-sheet-btn-padding-bottom: 4rem;
-    --#{$prefix}-modal--bottom-sheet-btn-padding-side: 1.6rem;
-    --#{$prefix}-modal--bottom-sheet-btn-close-size: 2.4rem;
-
     .modal-content {
       position: fixed;
       left: 0;
@@ -328,7 +337,7 @@ $modal-size: (
       border-radius: 0;
       border-top-left-radius: var(--#{$prefix}-modal--bottom-sheet-radius);
       border-top-right-radius: var(--#{$prefix}-modal--bottom-sheet-radius);
-      max-height: calc(100% - 8rem);
+      max-height: 80%;
       transition: var(--#{$prefix}-transition-base);
     }
 
@@ -438,6 +447,39 @@ $modal-size: (
 							align-items: flex-start;
 						}
 					}
+        }
+
+        &.modal-md{
+          min-height: auto;
+
+          .modal-header{
+            padding-top: var(--#{$prefix}-modal--bottom-sheet-header-padding);
+          }
+
+          .modal-content {
+            position: fixed;
+            left: 0;
+            bottom: -100%;
+            border-radius: 0;
+            border-top-left-radius: var(--#{$prefix}-modal--bottom-sheet-radius);
+            border-top-right-radius: var(--#{$prefix}-modal--bottom-sheet-radius);
+            max-height: 80%;
+            height: auto;
+            transition: var(--#{$prefix}-transition-base);
+          }
+
+          .icon.btn-close{
+            top: var(--#{$prefix}-modal--bottom-sheet-header-padding);
+          }
+        }
+      }
+    }
+    &.in {
+      .modal-dialog{
+        &.modal-md{
+          .modal-content {
+            bottom: 0;
+          }
         }
       }
     }

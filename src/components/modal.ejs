@@ -13,6 +13,7 @@
   const scrollable = localsSafe.scrollable || false; // 내용 영역 스크롤 시 tabindex 추가 여부
   const headerSlot = localsSafe.headerSlot || '';
   const hasHeader = headerSlot || title;
+  const size = localsSafe.size || '';
 
   const titleId = `tit_${id}`;
   const modalClasses = [
@@ -23,7 +24,11 @@
     open ? 'show in' : '',
   ].filter(Boolean).join(' ');
 	
-  const dialogClasses = ['modal-dialog'].filter(Boolean).join(' ');
+  const dialogClasses = [
+    'modal-dialog', 
+    size ? `modal-${size}` : ''
+  ].filter(Boolean).join(' ');
+
   const btnWrapClasses = [
     'modal-btn',
     'btn-wrap',
