@@ -12740,6 +12740,12 @@ section.bg-gray {
 	background-color: hsla(0, 0%, 100%, .3)
 }
 
+@media(max-width: 640px) {
+	.pipe-list {
+		font-size: 1.6rem
+	}
+}
+
 .section-tit-wrap .sub-tit {
 	margin-bottom: .8rem;
 	font-size: 2.4rem;
