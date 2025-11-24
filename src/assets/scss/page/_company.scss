@@ -153,8 +153,11 @@
 					font-size: 2.4rem;
 				}
 				.desc-list{
+					flex-direction: column;
 					li{
-						
+						&::after{
+							display: none;
+						}
 					}
 				}
 			}
