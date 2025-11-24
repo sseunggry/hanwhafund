@@ -1091,6 +1091,67 @@ const topButton = {
     });
   }
 }
+const uiGnb = {
+  init: function() {
+    const $gnbItems = $('.gnb-list .gnb-item');
+
+    $gnbItems.on('mouseenter', function() {
+      $(this).addClass('focus'); // 서브메뉴 열기 & 하이라이트 유지
+    }).on('mouseleave', function() {
+      $(this).removeClass('focus');
+    });
+
+    $gnbItems.on('focusin', function() {
+      $(this).addClass('focus');
+    }).on('focusout', function(e) {
+      if (!$(this).has(e.relatedTarget).length) {
+        $(this).removeClass('focus');
+      }
+    });
+  }
+}
+const uiSitemap = {
+  init: function() {
+    const self = this;
+    const $sitemap = $('.sitemap-wrap');
+    
+    if (!$sitemap.length) return;
+
+    $sitemap.find('li').has('> .submenu').addClass('has-sub');
+
+    $sitemap.on('click', '.has-sub > a', function(e) {
+      if (window.innerWidth > 1024) return;
+      e.preventDefault(); // 링크 이동 막기
+
+      const $btn = $(this);
+      const $li = $btn.parent('li'); // .has-sub
+      const $submenu = $btn.next('.submenu');
+
+      // 아코디언 토글
+      if ($li.hasClass('active')) {
+        $li.removeClass('active');
+        $submenu.stop().slideUp(300);
+      } else {
+        // (선택사항) 형제 메뉴 닫기 (Accordion behavior)
+        $li.siblings('.has-sub.active').each(function() {
+          $(this).removeClass('active').find('> .submenu').stop().slideUp(300);
+        });
+        
+        $li.addClass('active');
+        $submenu.stop().slideDown(300);
+      }
+    });
+
+    // 2. 리사이즈 이벤트 (PC로 갈 때 스타일 초기화)
+    $(window).on('resize', function() {
+      if (window.innerWidth > 1024) {
+        // PC로 커지면 JS로 들어간 style(display)과 class를 제거
+        $sitemap.find('.has-sub').removeClass('active');
+        $sitemap.find('.submenu').removeAttr('style'); 
+      }
+    });
+  }
+}
 
 // 캘린더 기능 예시용
 const calendar = {
@@ -1314,6 +1375,8 @@ const commonJs = {
     uiLnb.init();
     gsapMotion.init();
     topButton.init();
+    uiGnb.init();
+    uiSitemap.init();
 
 		calendar.init();
 		calendarInline.init();
