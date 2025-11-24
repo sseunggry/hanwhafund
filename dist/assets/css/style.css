@@ -967,6 +967,10 @@ html[lang=ko] {
 	color: var(--hwf-color-text-primary-dark) !important
 }
 
+.fc-black {
+	color: var(--hwf-color-text-basic) !important
+}
+
 .w-full {
 	width: 100% !important
 }
@@ -7917,7 +7921,8 @@ label {
 }
 
 .header .modal.sitemap .modal-dialog .modal-header {
-	padding: 0
+	padding: 0;
+	max-width: 100%
 }
 
 .header .modal.sitemap .modal-dialog .modal-conts {
@@ -8459,16 +8464,46 @@ label {
 	background-color: rgba(0, 0, 0, .3)
 }
 
-.page-main .header .header-con .nav ul {
+.page-main .header .header-con .nav .gnb-list {
 	color: #fff
 }
 
-.page-main .header .header-con .util .lang .form-select .select-button::after {
-	background-color: #fff
+.page-main .header .header-con .nav .gnb-list .submenu {
+	background-color: rgba(0, 0, 0, .3);
+	border: 0;
+	box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, .08), 0 16px 16px 0 rgba(0, 0, 0, .06)
 }
 
-.page-main .header .header-con .util .lang .form-select .select-button .select-value {
+.page-main .header .header-con .nav .gnb-list .submenu .submenu-link {
 	color: #fff
+}
+
+.page-main .header .header-con .nav .gnb-list .submenu .submenu-link:hover,
+.page-main .header .header-con .nav .gnb-list .submenu .submenu-link:active {
+	background: rgba(0, 0, 0, .5)
+}
+
+.page-main .header .header-con .util .lang .form-select.text .select-button::after {
+	background: #fff
+}
+
+.page-main .header .header-con .util .lang .form-select.text .select-button .select-value {
+	color: #fff
+}
+
+.page-main .header .header-con .util .lang .form-select.text .select-listbox {
+	background-color: rgba(0, 0, 0, .3);
+	border: 0
+}
+
+.page-main .header .header-con .util .lang .form-select.text .select-listbox .select-option {
+	color: #fff
+}
+
+.page-main .header .header-con .util .lang .form-select.text .select-listbox .select-option:hover,
+.page-main .header .header-con .util .lang .form-select.text .select-listbox .select-option:active {
+	color: var(--hwf-color-text-primary);
+	background: rgba(0, 0, 0, .5)
 }
 
 .page-main .header .header-con .util .btn.icon .svg-icon {
