@@ -518,19 +518,25 @@ $button-color-variable: (
   }
 
   &.array-left {
+		justify-content: flex-start;
     .btn {
-      justify-content: flex-start;
       flex: none;
     }
   }
   &.array-center {
 		justify-content: center;
     .btn {
-      // margin: 0 auto;
+			// margin: 0 auto;
       width: fit-content;
       flex: none;
     }
   }
+	&.array-right {
+		justify-content: flex-end;
+		.btn {
+			flex: none;
+		}
+	}
 
   @include mq(mobile) {
     &.grid-3 {
