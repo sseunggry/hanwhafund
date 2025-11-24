@@ -278,6 +278,7 @@
       .modal-dialog{
         .modal-content{
           padding-top: 0;
+					max-height: fit-content;
         }
         .modal-header{
           padding: 0;

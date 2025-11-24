@@ -63,7 +63,7 @@
       }
     }
 
-    .header-top {
+    > .header-top {
       background-color: rgba(0, 0, 0, 0.6);
       border-bottom: 0;
       .link {
@@ -74,11 +74,20 @@
         }
       }
     }
-    .header-con {
+    > .header-con {
       background-color: rgba(0, 0, 0, 0.3);
       .nav {
         .gnb-list {
 					color: #fff;
+
+					.gnb-item{
+						&.active{
+							color: #FFA57F;
+						}
+						&.focus{
+							color: #FFA57F;
+						}
+					}
 
 					.submenu{
 						background-color: rgba(0, 0, 0, 0.3);
@@ -128,6 +137,22 @@
         }
       }
     }
+
+		.sitemap{
+			.logo {
+				@include bg("common/logo.svg");
+				&-plusetf {
+					a {
+						@include bg("common/logo-plus-etf.svg");
+					}
+				}
+				&-pine {
+					a {
+						@include bg("common/logo-pine.svg");
+					}
+				}
+			}
+		}
   }
 	.footer{
 		position: absolute;
