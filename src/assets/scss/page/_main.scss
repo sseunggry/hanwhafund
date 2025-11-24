@@ -77,21 +77,48 @@
     .header-con {
       background-color: rgba(0, 0, 0, 0.3);
       .nav {
-        ul {
-          color: #fff;
+        .gnb-list {
+					color: #fff;
+
+					.submenu{
+						background-color: rgba(0, 0, 0, 0.3);
+						border: 0;
+						box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, 0.08), 0 16px 16px 0 rgba(0, 0, 0, 0.06);
+
+						.submenu-link{
+							color: #fff;
+
+							&:hover, &:active{
+								background: rgba(0, 0, 0, 0.5);
+							}
+						}
+					}
         }
       }
       .util {
         .lang {
-          .form-select {
+          .form-select.text {
             .select-button {
               &::after {
-                background-color: #fff;
+								background: #fff;
               }
               .select-value {
                 color: #fff;
               }
             }
+						.select-listbox{
+							background-color: rgba(0, 0, 0, 0.3);
+							border: 0;
+
+							.select-option{
+								color: #fff;
+
+								&:hover, &:active{
+									color: var(--#{$prefix}-color-text-primary);
+									background: rgba(0, 0, 0, 0.5);
+								}
+							}
+						}
           }
         }
         .btn.icon {
