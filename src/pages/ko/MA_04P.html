@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '전체메뉴'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container" style="padding: 6rem 0;">
+				<div class="inner">
+          <%- include('../../components/button.ejs', {
+            label: '전체메뉴',
+            targetType: 'modal',
+            targetId: 'modalAllMenu',
+          }) -%>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

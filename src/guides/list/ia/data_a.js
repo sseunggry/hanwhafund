@@ -7,7 +7,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과 없음", pageType: "page", pageID: "MA_03_02", link: "", isAdminLinked: false, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "메인", depth1: "전체 메뉴", depth2: "", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "MA_04P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
+		{ createDate: "2025-11-25", modifyDate: "", category: "메인", depth1: "전체 메뉴", depth2: "", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "MA_04P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 
 		// --- 한화펀드 ---
 		{ createDate: "2025-11-21", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "-", pageName: "펀드찾기", pageType: "page", pageID: "FD_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
@@ -15,7 +15,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-10", modifyDate: "2025-11-21", category: "한화펀드", depth1: "펀드찾기", depth2: "펀드 상세 ", depth3: "-", pageName: "펀드상품상세", pageType: "page", pageID: "FD_01_02", link: "", isAdminLinked: true, status: "완료", memo: [{detail: "2025-11-21: 위험수준 레벨 클래스 수정(개발 요청), 펀드리스트 뱃지 클래스 수정, desc 텍스트 추가"}], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "일자별 기준가", pageName: "기준가팝업", pageType: "popup", pageID: "FD_01_02_01P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-10", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "클래스비교", pageName: "클래스비교팝업", pageType: "popup", pageID: "FD_01_02_02P", link: "", isAdminLinked: false, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "자산운용보고서 다운로드", pageName: "자산운용보고서 다운로드 팝업", pageType: "popup", pageID: "FD_01_02_03P", link: "", isAdminLinked: false, status: "작업중", memo: [], },
+		{ createDate: "2025-11-25", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "자산운용보고서 다운로드", pageName: "자산운용보고서 다운로드 팝업", pageType: "popup", pageID: "FD_01_02_03P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "개인연금", depth3: "-", pageName: "개인연금", pageType: "page", pageID: "FD_02_01", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "퇴직연금", depth3: "-", pageName: "퇴직연금", pageType: "page", pageID: "FD_02_02", link: "", isAdminLinked: false, status: "", memo: [], },
@@ -59,7 +59,7 @@ const iaPageAData = {
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "위험관리", depth2: "컴플라이언스 시스템", depth3: "-", pageName: "컴플라이언스시스템", pageType: "tab", pageID: "CP_05_03T", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "한화 인재상", depth3: "-", pageName: "한화인재상", pageType: "tab", pageID: "CP_06_01T", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "한화의 핵심가치", depth3: "-", pageName: "한화의책심가치", pageType: "tab", pageID: "CP_06_02T", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "오시는 길", depth2: "-", depth3: "-", pageName: "오시는길", pageType: "page", pageID: "CP_07", link: "", isAdminLinked: false, status: "작업중", memo: [], },
+		{ createDate: "2025-11-25", modifyDate: "", category: "회사소개", depth1: "오시는 길", depth2: "-", depth3: "-", pageName: "오시는길", pageType: "page", pageID: "CP_07", link: "", isAdminLinked: false, status: "완료", memo: [], },
 
 		// --- Footer ---
 		{ createDate: "2025-11-17", modifyDate: "", category: "Footer", depth1: "스튜어드십코드", depth2: "스튜어드십코드", depth3: "-", pageName: "스튜어드십코드", pageType: "tab", pageID: "FT_01_01T", link: "", isAdminLinked: true, status: "완료", memo: [], },

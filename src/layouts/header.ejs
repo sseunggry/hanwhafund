@@ -14,6 +14,7 @@
 	<div class="header-con">
 		<div class="inner">
 			<h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+			<!-- [2025-11-25] 마크업 수정 -->
 			<nav class="nav">
 				<ul class="gnb-list">
 					<li class="gnb-item active">
@@ -57,6 +58,7 @@
 					</li>
 				</ul>
 			</nav>
+			<!-- // [2025-11-25] 마크업 수정 -->
 			<div class="util">
 				<div class="lang">
 					<%- include('../components/select.ejs', {
@@ -89,6 +91,7 @@
 		</div>
 	</div>
 	
+	<!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
 	<!-- popup 검색  -->
 	<% 
 	const searchIcon = include('../components/button.ejs', { variant: 'icon', label: '검색', size: 'xxlarge', icon: 'search'}); 
@@ -121,7 +124,9 @@
 		addClass: 'header-search'
 	}) %>
 	<!-- popup 검색 -->
+	<!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
 	
+	<!-- [2025-11-25] 팝업 추가 -->
 	<!-- popup 전체메뉴  -->
 	<% 
 	const menuLang = include('../components/select.ejs', {
@@ -251,4 +256,5 @@
 		addClass: 'sitemap'
 	}) %>
 	<!-- // popup 전체메뉴  -->
+	<!-- // [2025-11-25] 팝업 추가 -->
 </header>
