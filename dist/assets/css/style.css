@@ -7933,6 +7933,10 @@ label {
 	position: static
 }
 
+.header .modal.sitemap .header-con .util .lang .form-select.text .select-listbox {
+	border-top: .1rem solid #e6e5e5
+}
+
 .header .modal.sitemap .sitemap-wrap .sitemap-list {
 	display: flex;
 	justify-content: center
@@ -8097,13 +8101,24 @@ label {
 		background-color: currentColor
 	}
 
+	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub .depth1>span {
+		padding: 0 1rem
+	}
+
 	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 {
-		position: relative;
 		color: var(--hwf-color-text-primary)
 	}
 
-	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1::before {
-		position: static;
+	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 span {
+		position: relative
+	}
+
+	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 span::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
 		display: block;
 		margin-bottom: auto;
 		margin-right: .4rem;
@@ -8174,6 +8189,11 @@ label {
 }
 
 @media(max-width: 640px) {
+	.header .modal.sitemap .header-con .util .lang .form-select.text .select-listbox {
+		left: 0;
+		transform: translateX(0)
+	}
+
 	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
 		font-size: 2.1rem
 	}
