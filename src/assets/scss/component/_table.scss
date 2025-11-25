@@ -10,6 +10,7 @@
   --#{$prefix}-table--tbody-height: 6.4rem;
   --#{$prefix}-table--tbody-font-size: 1.8rem;
   --#{$prefix}-table--tbody-padding-x: 2.4rem;
+  --#{$prefix}-table--tbody-padding-y: 0.8rem;
   --#{$prefix}-table--scroll-padding-bottom: 1.6rem;
   --#{$prefix}-table--scroll-min-width: 118rem;
   --#{$prefix}-table--scrollbar-track-size: 0.4rem;
@@ -68,7 +69,7 @@
         font-weight: 400;
       }
       th, td {
-				padding: 0 var(--#{$prefix}-table--tbody-padding-x);
+				padding: var(--#{$prefix}-table--tbody-padding-y) var(--#{$prefix}-table--tbody-padding-x);
         height: var(--#{$prefix}-table--tbody-height);
         color: var(--#{$prefix}-table--tbody-color-text);
         font-size: var(--#{$prefix}-table--tbody-font-size);
@@ -124,4 +125,14 @@
 			min-width: var(--#{$prefix}-table--scroll-min-width);
     }
   }
+}
+
+.tbl-info{
+	margin-bottom: 2.4rem;
+	font-size: 1.6rem;
+	color: var(--#{$prefix}-color-text-subtler);
+
+	@include mq(mobile){
+		margin-bottom: 1.6rem;
+	}
 }

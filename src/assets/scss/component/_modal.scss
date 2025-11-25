@@ -23,9 +23,9 @@ $modal-size: (
 }
 
 @mixin modal-size-variable() {
-  --#{$prefix}-modal--size-large: 130rem;
-  --#{$prefix}-modal--size-medium: 64rem;
-  --#{$prefix}-modal--size-small: 40rem;
+  --#{$prefix}-modal--size-large: calc(130rem + (var(--#{$prefix}-content-padding-x))*2);
+  --#{$prefix}-modal--size-medium: calc(64rem  + (var(--#{$prefix}-content-padding-x))*2);
+  --#{$prefix}-modal--size-small: calc(40rem  + (var(--#{$prefix}-content-padding-x))*2);
   --#{$prefix}-modal--size-min-height: 26.4rem;
   --#{$prefix}-modal--wrap-radius: 0.4rem;
 
@@ -116,7 +116,7 @@ $modal-size: (
     position: relative;
     margin: 0 auto;
 		padding: 0 var(--#{$prefix}-content-padding-x);
-		max-width: calc( var(--#{$prefix}-modal--size-large) + (var(--#{$prefix}-content-padding-x))*2 );
+		max-width: var(--#{$prefix}-modal--size-large);
     height: 100%;
     min-height: var(--#{$prefix}-modal--size-min-height);
     z-index: 2;

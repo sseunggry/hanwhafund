@@ -81,6 +81,12 @@ section{
 	}
 }
 
+.info-txt-list{
+	display: flex;
+	flex-direction: column;
+	gap: 2.4rem;
+}
+
 .section-tit-wrap {
   // display: flex;
   // flex-direction: column;

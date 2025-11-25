@@ -193,6 +193,18 @@ const uiSelect = {
           break;
       }
     });
+
+		// 
+		$(".form-select[data-target-group]").each(function() {
+      const $select = $(this);
+      const targetGroup = $select.data("target-group");
+      const currentValue = $select.find("select.sr-only").val();
+
+      if (targetGroup && currentValue) {
+        $(`[data-group="${targetGroup}"]`).attr("hidden", true).hide();
+        $(`#${currentValue}[data-group="${targetGroup}"]`).removeAttr("hidden").show();
+      }
+    });
   },
   open: function ($select) {
     if ($select.hasClass("disabled")) return;
@@ -248,6 +260,16 @@ const uiSelect = {
 
     $valueDisplay.text(newText).removeClass("placeholder");
     $nativeSelect.val(newValue).trigger("change");
+
+		const targetGroup = $select.data("target-group");
+    if (targetGroup) {
+      const $allTargets = $(`[data-group="${targetGroup}"]`);
+      $allTargets.attr("hidden", true).hide();
+      const $activeTarget = $(`#${newValue}[data-group="${targetGroup}"]`);
+      if ($activeTarget.length) {
+        $activeTarget.removeAttr("hidden").show();
+      }
+    }
 
     uiSelect.close($select);
     $btn.focus();

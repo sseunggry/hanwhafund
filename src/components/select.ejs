@@ -17,6 +17,8 @@
     disabled ? 'disabled' : '' // 스타일링을 위한 disabled 클래스 추가
   ].filter(Boolean).join(' ');
 
+	const targetGroup = localsSafe.targetGroup || '';
+
 	// --- ARIA용 고유 ID 생성 ---
 	const uniqueId = `select-${Math.random().toString(36).substring(2, 9)}`;
   const buttonId = `${uniqueId}-button`;
@@ -53,7 +55,7 @@
 		<%_ if (slot) { -%>
     <div class="input-group">
     <%_ } -%>
-			<div class="<%= selectClasses %>">
+			<div class="<%= selectClasses %>" <%- targetGroup ? `data-target-group="${targetGroup}"` : '' %>>
 				<select
 					class="sr-only"
 					name="<%= localsSafe.name || uniqueId %>"
