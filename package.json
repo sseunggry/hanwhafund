@@ -4,6 +4,7 @@
     "build": "cross-env NODE_ENV=production webpack && prettier --write \"dist/**/*.html\""
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.22",
     "copy-webpack-plugin": "^13.0.1",
     "cross-env": "^10.1.0",
     "css-loader": "^7.1.2",
@@ -12,6 +13,8 @@
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.4",
     "mini-css-extract-plugin": "^2.9.4",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
     "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "sass-loader": "^16.0.5",
@@ -23,6 +26,7 @@
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "browserslist": [
+    "> 1%",
     "last 2 versions",
     "not dead"
   ]

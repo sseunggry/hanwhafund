@@ -16,7 +16,9 @@
 					<li><a href="#!">개인정보처리방침</a></li>
 					<li><a href="#!">신용정보활용체계</a></li>
 					<li><a href="#!">고객정보취급방침</a></li>
-					<li><a href="#!">이메일무단수집거부</a></li>
+					<!-- [2025-12-01] 마크업 수정 -->
+					<li><button data-modal-open="modalEmailCollection" aria-controls="modalEmailCollection">이메일무단수집거부</button></li>
+					<!-- // [2025-12-01] 마크업 수정 -->
 				</ul>
 				<ul class="link-list">
 					<li><a href="#!">윤리경영</a></li>
@@ -83,4 +85,15 @@
 			}) -%>
 		</div>
 	</div>
+
+	<!-- popup 이메일무단수집거부 -->
+	<%- include('../components/modal.ejs', {
+		id: 'modalEmailCollection',
+		variant: 'modal',
+		title: '이메일주소 무단수집거부',
+		content: `
+		<p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집 되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 형사 처벌됨을 유념하여 주시기 바랍니다.</p>
+		`,
+	}) %>
+	<!-- // popup 이메일무단수집거부 -->
 </footer>
