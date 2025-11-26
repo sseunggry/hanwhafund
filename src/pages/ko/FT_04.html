@@ -17,8 +17,16 @@
 					<div class="cont-group">
 						<div class="section-tit-wrap">
 							<h2 class="tit">고객정보취급방침</h2>
+							<%- include('../../components/select.ejs', {
+								variant: 'outline',
+								size: 'large',
+								targetGroup: "customerPolicyVersionContent",
+								options: [
+									{ value: 'customerPolicyVersion0', text: '고객정보취급방침 ver 0.0' },
+								],
+							}) -%>
 						</div>
-						<div class="terms-content">
+						<div class="terms-content" id="customerPolicyVersion0" data-group="customerPolicyVersionContent">
 							<div class="terms-group">
 								<div class="terms-txt-wrap">
 									<p class="terms-txt">한화금융복합기업집단을 아끼고 사랑해 주시는 고객 여러분께 깊은 감사를 드립니다.</p>

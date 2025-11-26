@@ -48,6 +48,10 @@ html{
 .fc-primary{color: var(--#{$prefix}-color-text-primary-dark) !important;}
 .fc-black{color: var(--#{$prefix}-color-text-basic) !important;}
 
+.fw-bold{font-weight: 700 !important;}
+.fw-semibold{font-weight: 600 !important;}
+.fw-medium{font-weight: 500 !important;}
+
 .w-full{width: 100% !important;}
 .scroll-wrap{overflow-x: auto;}
 
