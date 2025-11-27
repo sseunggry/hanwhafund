@@ -340,6 +340,10 @@ $button-color-variable: (
     }
   }
 
+	&.underline{
+		text-decoration: underline;
+	}
+
   /* --- Variant: Icon Button (.icon) --- */
   &.icon {
     @each $size, $value in $icon-size {
