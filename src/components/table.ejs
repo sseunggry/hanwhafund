@@ -6,13 +6,23 @@
   const addClass = localsSafe.addClass || '';
   const colWidths = Array.isArray(localsSafe.colWidths) ? localsSafe.colWidths : [];
   const rowHeaders = localsSafe.rowHeaders === true;
-  const captionSummary = thead.join(', ');
+  const captionSummary = thead.map(h => (typeof h === 'object' && h !== null) ? h.text : h).join(', ');
 	const colAligns = Array.isArray(localsSafe.colAligns) ? localsSafe.colAligns : [];
 	const infoTxt = localsSafe.infoTxt || '';
 	
-  let colCount = thead.length; // 컬럼 수
-	if (colCount === 0 && colWidths.length > 0) {
+  let colCount = 0;
+  if (colWidths.length > 0) {
     colCount = colWidths.length;
+  } else if (thead.length > 0) {
+     thead.forEach(h => {
+        if (typeof h === 'object' && h.colspan) {
+            colCount += h.colspan;
+        } else {
+            colCount++;
+        }
+     });
+  } else if (tbody.length > 0) {
+    colCount = tbody[0].length;
   }
 
   const wrapClasses = [
@@ -41,7 +51,20 @@
     <thead>
       <tr>
         <% thead.forEach((header) => { -%>
-        <th scope="col"><%- header %></th>
+				<%
+					let hText = '';
+					let hAttrs = '';
+					
+					if (typeof header === 'object' && header !== null) {
+						hText = header.text || '';
+						if (header.colspan) hAttrs += ` colspan="${header.colspan}"`;
+						if (header.rowspan) hAttrs += ` rowspan="${header.rowspan}"`;
+						if (header.class) hAttrs += ` class="${header.class}"`;
+					} else {
+						hText = header;
+					}
+				-%>
+        <th scope="col"<%- hAttrs %>><%- hText %></th>
         <% }); -%>
       </tr>
     </thead>
