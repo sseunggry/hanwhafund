@@ -87,6 +87,9 @@
     }
 
     &.active {
+			.category{
+				font-weight: 600;
+			}
       .tit {
         font-weight: 600;
       }
