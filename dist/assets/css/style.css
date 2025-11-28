@@ -12620,7 +12620,8 @@ label {
 
 .page-policy .section-tit-wrap .form-select {
 	max-width: 100%;
-	margin-left: auto
+	margin-left: auto;
+	min-width: 33rem
 }
 
 @media(max-width: 640px) {
