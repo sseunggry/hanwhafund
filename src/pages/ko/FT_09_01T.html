@@ -20,6 +20,7 @@
 						</div>
 						<%
 						const downLoadBtn = include('../../components/button.ejs', { variant: 'outline', tag: 'a', label: 'PDF 다운로드', size: 'large', icon: 'download', download: true});
+						const btn = include('../../components/button.ejs', { variant: 'outline', tag: 'a', url: 'https://fine.fss.or.kr/fine/main/main.do?menuNo=900000', label: 'FINE - 금융소비자정보포탈', size: 'large', target: '_blank',});
 						const board1 = `
 						<div class="terms-content">
 							<div class="terms-group">
@@ -232,7 +233,7 @@
 							<div class="terms-group">
 								<h3 class="terms-tit">정보제공포탈</h3>
 								<p class="terms-txt">“금융소비자 보호에 관한 법률 제32조 제3항”에 따라 금융소비자 불만예방 및 신속한 사후구제를 통하여 금융소비자를 보호하기 위하여임직원이 업무를 수행할 때 준수하여야 할 기본적인 절차와 기준을 마련하고 있습니다.</p>
-								<div class="btn-wrap array-left">${downLoadBtn}</div>
+								<div class="btn-wrap array-left">${btn}</div>
 							</div>
 						</div>
 						`;

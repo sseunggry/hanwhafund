@@ -48,6 +48,11 @@
       .link-list{
         li{
           margin-bottom: 1.2rem;
+
+					&.active{
+						color: var(--#{$prefix}-color-text-primary);
+						font-weight: 700;
+					}
           
           &:last-child {
             margin-bottom: 0;

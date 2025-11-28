@@ -13,6 +13,7 @@
   const icon = localsSafe.icon || '';
   const slot = localsSafe.slot || '';
 	const iconOnly = localsSafe.iconOnly || '';
+	const target = localsSafe.target || '';
 	const targetId = localsSafe.targetId || '';
 	const targetType = localsSafe.targetType || ''; //modal, popover
 	const popoverPos = localsSafe.popoverPos || ''; // 예: "bottom-left", "top-center"
@@ -42,9 +43,23 @@
   if (toast) {
     toastAttrs = `data-toast="${toast}"`;
   }
+
+	let linkAttrs = '';
+  if (tag === 'a') {
+    if (download) {
+      linkAttrs += ` download=""`;
+    }
+    if (target) {
+      linkAttrs += ` target="${target}"`;
+      if (target === '_blank') {
+        linkAttrs += `title="새창열림"`;
+      }
+    }
+  }
 -%>
 <<%= tag -%>
   <%- tag === 'button' ? `type="button"` : `href="${url}"` -%>
+	<%- linkAttrs -%>
   <%- tag === 'a' && download ? `download=""` : '' -%>
 	<%= disabled -%>
   class="<%= classes -%>"
