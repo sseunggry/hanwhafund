@@ -8538,6 +8538,11 @@ label {
 	margin-bottom: 1.2rem
 }
 
+.footer .footer-con .nav .link-list li.active {
+	color: var(--hwf-color-text-primary);
+	font-weight: 700
+}
+
 .footer .footer-con .nav .link-list li:last-child {
 	margin-bottom: 0
 }
