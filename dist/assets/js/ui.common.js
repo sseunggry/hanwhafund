@@ -449,13 +449,17 @@ const uiAccordion = {
       const $button = $item.find(".btn-accordion");
       const $content = $item.find(".accordion-collapse");
       
-      if ($item.hasClass("active")) {
-        $button.attr("aria-expanded", "true");
-        $content.show();
-      } else {
-        $button.attr("aria-expanded", "false");
-        $content.hide();
-      }
+			//임시
+			$item.addClass("active");
+      $content.show();
+			
+      // if ($item.hasClass("active")) {
+      //   $button.attr("aria-expanded", "true");
+      //   $content.show();
+      // } else {
+      //   $button.attr("aria-expanded", "false");
+      //   $content.hide();
+      // }
     });
 
     $(document).on("click", ".accordion .btn-accordion", function (e) {
