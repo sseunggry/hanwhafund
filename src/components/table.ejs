@@ -72,8 +72,17 @@
     <% if (tbody.length > 0) { -%>
     <tbody>
       <% tbody.forEach(row => { -%>
-      <tr>
-			<% row.forEach((cellData, index) => { -%>
+			<%
+        let rowCells = row; 
+        let trClass = ''; 
+
+        if (!Array.isArray(row) && typeof row === 'object' && row !== null) {
+          rowCells = row.data || [];
+          trClass = row.className || '';
+        }
+      -%>
+			<tr<% if (trClass) { %> class="<%= trClass %>"<% } %>>
+			<% rowCells.forEach((cellData, index) => { -%>
       <% 
         if (cellData === null) return;
 
