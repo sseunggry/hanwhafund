@@ -1,6 +1,243 @@
 @use "sass:list";
 @use "../util" as *;
 
+.page-company{
+	.inner {
+    max-width: var(--#{$prefix}-content-wrap-width-large);
+  }
+
+  .header {
+		position: absolute;
+		top: 0;
+		left: 0;
+    width: 100%;
+    z-index: 2;
+    border-bottom: 0;
+    backdrop-filter: blur(4rem);
+		transition: transform 0.4s ease-out;
+
+		&.is-hidden {
+			transform: translateY(-100%); /* 위로 숨김 */
+		}
+
+    .logo {
+      @include bg("common/logo-w.svg");
+      &-plusetf {
+        a {
+          @include bg("common/logo-plus-etf-w.svg");
+        }
+      }
+      &-pine {
+        a {
+          @include bg("common/logo-pine-w.svg");
+        }
+      }
+    }
+
+    > .header-top {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-bottom: 0;
+      .link {
+        li {
+          &::after {
+            background-color: #d7d5d5;
+          }
+        }
+      }
+    }
+    > .header-con {
+      background-color: rgba(0, 0, 0, 0.3);
+      .nav {
+        .gnb-list {
+					color: #fff;
+
+					.gnb-item{
+						&.active{
+							color: #FFA57F;
+						}
+						&.focus{
+							color: #FFA57F;
+						}
+					}
+
+					.submenu{
+						background-color: rgba(0, 0, 0, 0.3);
+						border: 0;
+						box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, 0.08), 0 16px 16px 0 rgba(0, 0, 0, 0.06);
+
+						.submenu-link{
+							color: #fff;
+
+							&:hover, &:active{
+								background: rgba(0, 0, 0, 0.5);
+							}
+						}
+					}
+        }
+      }
+      .util {
+        .lang {
+          .form-select.text {
+            .select-button {
+              &::after {
+								background: #fff;
+              }
+              .select-value {
+                color: #fff;
+              }
+            }
+						.select-listbox{
+							background-color: rgba(0, 0, 0, 0.3);
+							border: 0;
+
+							.select-option{
+								color: #fff;
+
+								&:hover, &:active{
+									color: var(--#{$prefix}-color-text-primary);
+									background: rgba(0, 0, 0, 0.5);
+								}
+							}
+						}
+          }
+        }
+        .btn.icon {
+          .svg-icon {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+
+		.sitemap{
+			.logo {
+				@include bg("common/logo.svg");
+				&-plusetf {
+					a {
+						@include bg("common/logo-plus-etf.svg");
+					}
+				}
+				&-pine {
+					a {
+						@include bg("common/logo-pine.svg");
+					}
+				}
+			}
+		}
+  }
+
+	.company-tit-wrap{
+		text-align: center;
+
+		.txt-gradient{
+			margin: 0 auto;
+		}
+
+		.tit{
+			font-size: 9.6rem;
+			font-weight: 500;
+		}
+		.sub-tit{
+			font-family: $font-family-en;
+			font-size: 6.4rem;
+		}
+	}
+
+
+	.company-main{
+		// .section-visual{
+		// 	position: fixed; 
+		// 	top: 0;
+		// 	left: 0;
+		// 	width: 100%;
+		// 	height: 100vh;
+		// 	z-index: 0; /* 맨 뒤로 보냄 */
+		// 	background-color: #000;
+		// 	color: #fff;
+
+		// 	.inner { height: 100%; }
+			
+		// 	&.is-active {
+		// 		z-index: 5; 
+		// 	}
+		// }
+		// .visual-spacer {
+		// 	position: relative;
+		// 	width: 100%;
+		// 	height: 200vh; /* 텍스트 개수에 맞춰 조절 (3개면 300~400vh) */
+		// 	z-index: 1; /* 비주얼 섹션보다 앞에 있어야 스크롤 가능 */
+		// 	pointer-events: none; /* 클릭 통과 */
+		// }
+
+		.section-visual{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color: #fff;
+			@include bg('company/main-visual-bg.png');
+			// z-index: 1;
+
+			// .inner {
+			// 	position: sticky;
+			// 	top: 0;
+			// 	height: 100vh; /* 화면 꽉 차게 */
+			// 	overflow: hidden;
+			// }
+
+			.visual-txt-wrap{
+				// position: relative;
+				// width: 100%;
+    		// height: 100%;
+				width: 100%;
+				height: 100%;
+				display: grid; /* [필수] 겹치기 위해 Grid 사용 */
+				place-items: center;
+
+				.company-tit-wrap {
+					grid-area: 1 / 1 / 2 / 2; /* [필수] 모든 텍스트를 한 칸에 몰아넣기 */
+					opacity: 0;
+					/* text-align, font-size 등 디자인 스타일 */
+				}
+
+				.txt-gradient{
+					background: linear-gradient(270deg, rgba(216, 58, 0, 0.90) 0.02%, #EB6C31 15.02%, #EEC3B0 50%, #FFF 79.99%);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+
+				.company-tit-wrap {
+					// position: absolute;
+					// top: 0;
+					// left: 0;
+					// width: 100%;
+					// height: 100%;
+					// display: flex;
+					// flex-direction: column;
+					// justify-content: center;
+					// align-items: center;
+					// opacity: 0; 
+					
+					&.active {
+						opacity: 1;
+					}
+				}
+			}
+		}
+		.section-message{
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// margin-top: -100vh;
+			height: 100vh;
+			background-color: #fff;
+			z-index: 1;
+		}
+	}
+}
+
 //오시는 길
 .company-map-wrap{
 	--company-map-gap: 4rem;

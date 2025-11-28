@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '회사소개'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- contents -->
+			<main class="contents company-main">
+				<section class="section-visual">
+					<div class="inner">
+						<div class="visual-txt-wrap">
+							<div class="company-tit-wrap active">
+								<h2 class="tit txt-gradient">세대를 아우르는 금융 파트너</h2>
+								<p class="sub-tit txt-gradient">a life-long generational partner</p>
+							</div>
+							<div class="company-tit-wrap">
+								<h2 class="tit txt-gradient">엄격한 투자 원칙과 탁월함을 바탕으로 <br/> 시장과 기술 전반에 걸쳐 혁신을 선도합니다</h2>
+								<p class="sub-tit txt-gradient">Leading innovation across markets and technologies <br/> through disciplined investment excellence</p>
+							</div>
+						</div>
+				</section>
+				<section class="section-message">
+					<div class="inner">
+						<div class="company-tit-wrap active">
+							<h2 class="tit txt-gradient">앞서가는 내일</h2>
+							<p class="sub-tit txt-gradient">one step, ahead</p>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // contents -->
+			
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+		<script src="/assets/js/company.js" type="text/javascript"></script>
+	</body>
+</html>
