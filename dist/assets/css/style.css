@@ -13104,6 +13104,176 @@ label {
 	}
 }
 
+.page-company .inner {
+	max-width: var(--hwf-content-wrap-width-large)
+}
+
+.page-company .header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
+	border-bottom: 0;
+	backdrop-filter: blur(4rem);
+	transition: transform .4s ease-out
+}
+
+.page-company .header.is-hidden {
+	transform: translateY(-100%)
+}
+
+.page-company .header .logo {
+	background: url(../images/common/logo-w.svg) no-repeat center/cover
+}
+
+.page-company .header .logo-plusetf a {
+	background: url(../images/common/logo-plus-etf-w.svg) no-repeat center/cover
+}
+
+.page-company .header .logo-pine a {
+	background: url(../images/common/logo-pine-w.svg) no-repeat center/cover
+}
+
+.page-company .header>.header-top {
+	background-color: rgba(0, 0, 0, .6);
+	border-bottom: 0
+}
+
+.page-company .header>.header-top .link li::after {
+	background-color: #d7d5d5
+}
+
+.page-company .header>.header-con {
+	background-color: rgba(0, 0, 0, .3)
+}
+
+.page-company .header>.header-con .nav .gnb-list {
+	color: #fff
+}
+
+.page-company .header>.header-con .nav .gnb-list .gnb-item.active {
+	color: #ffa57f
+}
+
+.page-company .header>.header-con .nav .gnb-list .gnb-item.focus {
+	color: #ffa57f
+}
+
+.page-company .header>.header-con .nav .gnb-list .submenu {
+	background-color: rgba(0, 0, 0, .3);
+	border: 0;
+	box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, .08), 0 16px 16px 0 rgba(0, 0, 0, .06)
+}
+
+.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link {
+	color: #fff
+}
+
+.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link:hover,
+.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link:active {
+	background: rgba(0, 0, 0, .5)
+}
+
+.page-company .header>.header-con .util .lang .form-select.text .select-button::after {
+	background: #fff
+}
+
+.page-company .header>.header-con .util .lang .form-select.text .select-button .select-value {
+	color: #fff
+}
+
+.page-company .header>.header-con .util .lang .form-select.text .select-listbox {
+	background-color: rgba(0, 0, 0, .3);
+	border: 0
+}
+
+.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option {
+	color: #fff
+}
+
+.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option:hover,
+.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option:active {
+	color: var(--hwf-color-text-primary);
+	background: rgba(0, 0, 0, .5)
+}
+
+.page-company .header>.header-con .util .btn.icon .svg-icon {
+	background-color: #fff
+}
+
+.page-company .header .sitemap .logo {
+	background: url(../images/common/logo.svg) no-repeat center/cover
+}
+
+.page-company .header .sitemap .logo-plusetf a {
+	background: url(../images/common/logo-plus-etf.svg) no-repeat center/cover
+}
+
+.page-company .header .sitemap .logo-pine a {
+	background: url(../images/common/logo-pine.svg) no-repeat center/cover
+}
+
+.page-company .company-tit-wrap {
+	text-align: center
+}
+
+.page-company .company-tit-wrap .txt-gradient {
+	margin: 0 auto
+}
+
+.page-company .company-tit-wrap .tit {
+	font-size: 9.6rem;
+	font-weight: 500
+}
+
+.page-company .company-tit-wrap .sub-tit {
+	font-family: "Trust2ATRIAL", sans-serif;
+	font-size: 6.4rem
+}
+
+.page-company .company-main .section-visual {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	color: #fff;
+	background: url(../images/company/main-visual-bg.png) no-repeat center/cover
+}
+
+.page-company .company-main .section-visual .visual-txt-wrap {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center
+}
+
+.page-company .company-main .section-visual .visual-txt-wrap .company-tit-wrap {
+	grid-area: 1/1/2/2;
+	opacity: 0
+}
+
+.page-company .company-main .section-visual .visual-txt-wrap .txt-gradient {
+	background: linear-gradient(270deg, rgba(216, 58, 0, 0.9) 0.02%, #EB6C31 15.02%, #EEC3B0 50%, #FFF 79.99%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: rgba(0, 0, 0, 0)
+}
+
+.page-company .company-main .section-visual .visual-txt-wrap .company-tit-wrap.active {
+	opacity: 1
+}
+
+.page-company .company-main .section-message {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #fff;
+	z-index: 1
+}
+
 .company-map-wrap {
 	--company-map-gap: 4rem;
 	display: flex;
