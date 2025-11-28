@@ -236,21 +236,9 @@
 							</div>
 						</div>
 						`;
-						// <div class="terms-sub-group">
-						// 	<ul class="note-list depth-1 order">
-						// 		<li>
-						// 			<span>(1)</span> 자료열람요구권
-						// 			<ul class="note-list depth-2 no-bullet">
-						// 				<li>금융소비자가 분쟁 조정 또는 소송의 수행 등 권리 구제를 위한 목적으로 금융상품판매업자 등이 기록 및 유지, 관리하는 자료의 열람(사본의 제공 또는 청취를 포함)을 법령에 따른 기한 내에 요구할 수 있는 권리 (금융소비자보호법 제28조)</li>	
-						// 			</ul>
-						// 			${boardTable1}
-						// 			${boardNotice1}
-						// 		</li>
-						// 	</ul>
-						// </div>
 						%>
 						<%- include('../../components/tab.ejs', {
-							active: 1,
+							active: 0,
 							variant: 'line',
 							tablist: ['금융소비자보호헌장', '금융소비자보호체계', '고객의소리', '소비자권리 및 유익한 정보'],
 							contents: [board1, board2, board3, board4],
