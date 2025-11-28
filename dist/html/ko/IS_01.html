@@ -34,8 +34,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
-  <body>
-    <div class="wrap page-insite">
+  <body class="page-insight">
+    <div class="wrap">
       <!-- header -->
       <header class="header">
         <div class="header-top">
@@ -101,14 +101,14 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-65weh7y" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-q2rt4me" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected="selected">KR</option>
                     <option value="EN">EN</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-65weh7y-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-q2rt4me-listbox" tabindex="0">
                     <span class="select-value">KR</span>
                   </button>
-                  <ul id="select-65weh7y-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-q2rt4me-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                     <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
@@ -138,7 +138,7 @@
                 <div class="search-wrap">
                   <div class="search-con">
                     <div class="input xlarge line search">
-                      <input type="text" id="input-y21s6oh" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                      <input type="text" id="input-qz587su" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
                       <button type="button" class="btn icon btn-clear">
                         <span class="sr-only">입력 내용 지우기</span>
                         <i class="svg-icon icon-clear"></i>
@@ -194,14 +194,14 @@
                     <div class="util">
                       <div class="lang">
                         <div class="form-select text small">
-                          <select class="sr-only" name="language-select" id="select-sxl3qcn" tabindex="-1" aria-hidden="true">
+                          <select class="sr-only" name="language-select" id="select-msjwr5n" tabindex="-1" aria-hidden="true">
                             <option value="KR" selected="selected">KR</option>
                             <option value="EN">EN</option>
                           </select>
-                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-sxl3qcn-listbox" tabindex="0">
+                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-msjwr5n-listbox" tabindex="0">
                             <span class="select-value">KR</span>
                           </button>
-                          <ul id="select-sxl3qcn-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                          <ul id="select-msjwr5n-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                             <li class="select-option" role="option" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
                             <li class="select-option" role="option" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                           </ul>
@@ -344,7 +344,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-5z26dkr" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-916c6xi" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -709,7 +709,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-vt5k3xq" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-bdxaqlb" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -933,11 +933,15 @@
                 <li><a href="#!">개인정보처리방침</a></li>
                 <li><a href="#!">신용정보활용체계</a></li>
                 <li><a href="#!">고객정보취급방침</a></li>
-                <li><a href="#!">이메일무단수집거부</a></li>
+                <!-- [2025-12-01] 마크업 수정 -->
+                <li><button data-modal-open="modalEmailCollection" aria-controls="modalEmailCollection">이메일무단수집거부</button></li>
+                <!-- // [2025-12-01] 마크업 수정 -->
               </ul>
               <ul class="link-list">
                 <li><a href="#!">윤리경영</a></li>
-                <li><a href="#!">법적고시</a></li>
+                <!-- [2025-12-01] 마크업 수정 -->
+                <li><button data-modal-open="modalLegalNotice" aria-controls="modalLegalNotice">법적고시</button></li>
+                <!-- // [2025-12-01] 마크업 수정 -->
                 <li><a href="#!">보험금융상품등록</a></li>
                 <li><a href="#!">금융소비자보호포탈</a></li>
               </ul>
@@ -945,14 +949,14 @@
             <div class="util">
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-8pdm8jl" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
+                  <select class="sr-only" name="family-site" id="select-xqi4e8n" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트">
                     <option value="site1">사이트 1</option>
                     <option value="site2">사이트 2</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-8pdm8jl-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-xqi4e8n-listbox" tabindex="0">
                     <span class="select-value placeholder">패밀리 사이트</span>
                   </button>
-                  <ul id="select-8pdm8jl-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-xqi4e8n-listbox" class="select-listbox" role="listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="option" data-value="site1" aria-selected="false" tabindex="-1">사이트 1</li>
                     <li class="select-option" role="option" data-value="site2" aria-selected="false" tabindex="-1">사이트 2</li>
                   </ul>
@@ -990,6 +994,55 @@
             </a>
           </div>
         </div>
+
+        <!-- popup 이메일무단수집거부 -->
+        <div id="modalEmailCollection" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalEmailCollection" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalEmailCollection" class="modal-title">이메일주소 무단수집거부</h2>
+              </div>
+              <div class="modal-conts">
+                <p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집 되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 형사 처벌됨을 유념하여 주시기 바랍니다.</p>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalEmailCollection">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 이메일무단수집거부 -->
+
+        <!-- popup 법적고시 -->
+        <div id="modalLegalNotice" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalLegalNotice" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalLegalNotice" class="modal-title">법적고시</h2>
+              </div>
+              <div class="modal-conts">
+                <div class="info-txt-list">
+                  <p>본 웹사이트는 한화자산운용의 독점적 소유의 정보자산입니다.</p>
+                  <p>한화자산운용은 이 웹사이트를 개발하기 위하여 자금, 시간 및 노력을 투입하였습니다. 이러한 자산들은 저작권, 상표권,기술에 대한 정보에만 국한되지는 않습니다.</p>
+                  <p>한화자산운용에 소유권이 있는 정보자산들은 문자, 그림, 음성, 화상, 내려 받기 파일, 링크 및 소스 코드들(이하 ‘서비스와 자료들’)의 형태로 제공됩니다. 한화자산운용은 이러한 서비스와 자료들에 대한 모든 권리를 소유합니다.</p>
+                  <p>이러한 서비스와 자료들은 오직 한화자산운용의 고객들과 고객들의 편의를 위해서 제공되었습니다.한화자산운용은 본 웹사이트에서 고객들께 제공되는 서비스와 자료들에 대하여 고객들에게 지적인 재산권을 부여한 것은 아닙니다.</p>
+                  <p>한화자산운용은 이 웹사이트 및 다른 관련사이트들의 서비스와 자료들 및 정보에 대한 정확도, 완성도, 신뢰도에 대하여 보장하지 않습니다.</p>
+                  <p>따라서 한화자산운용에서 문서로 특별히 조언을 드리는 경우를 제외하고는 이 사이트에 포함된 정보를 고객의 이익에 관련된 결정상의 참고자료로 의존하지 마시기 바랍니다.</p>
+                  <p>서비스와 자료들은 한화자산운용에 의해 사실에 기초하여 제공되었습니다. 그리고 한화자산운용은 서비스나 자료들에 대한 판매 목적상의 무제한 보증이나 특별한 목적하의 맞추어진 적합성을 포함하여 표현되거나 함축된 어떤 또는 모든 보증을 부인합니다.</p>
+                  <p>서비스와 자료들에 관련된 어떤 종류의 직접적, 간접적, 우발적, 징벌적 또는 필연적인 피해에 관련 된 경우에 대하여 한화자산운용에서는 책임을 지지 않습니다.</p>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalLegalNotice">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 법적고시 -->
       </footer>
       <!-- // footer -->
     </div>

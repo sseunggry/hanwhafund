@@ -2459,6 +2459,10 @@ html[lang=ko] {
 	background-color: currentColor
 }
 
+.accordion .accordion-item.active .category {
+	font-weight: 600
+}
+
 .accordion .accordion-item.active .tit {
 	font-weight: 600
 }
@@ -6018,7 +6022,7 @@ label {
 	height: var(--hwf-table--thead-height);
 	color: var(--hwf-table--thead-color-text);
 	font-size: var(--hwf-table--thead-font-size);
-	font-weight: 700;
+	font-weight: 600;
 	text-align: center;
 	background-color: var(--hwf-table--thead-color-surface)
 }
@@ -7267,7 +7271,8 @@ label {
 }
 
 .terms-group .note-list.depth-1.order,
-.terms-group .note-list.depth-1.number {
+.terms-group .note-list.depth-1.number,
+.terms-group .note-list.depth-1.dash {
 	gap: 2.4rem
 }
 
@@ -12707,6 +12712,10 @@ label {
 }
 
 .terms-group .note-list .tbl-wrap {
+	margin-top: 2.4rem
+}
+
+.terms-group .note-list .white-box {
 	margin-top: 2.4rem
 }
 
