@@ -3005,6 +3005,16 @@ textarea.input {
 	padding: var(--hwf-form-select--option-padding-large)
 }
 
+.form-select .select-listbox .select-option:has(.item-link) {
+	padding: 0
+}
+
+.form-select .select-listbox .select-option:has(.item-link) .item-link {
+	display: block;
+	padding: var(--hwf-form-select--option-padding-large);
+	width: 100%
+}
+
 .form-select .select-button {
 	position: relative;
 	display: flex;
@@ -3128,6 +3138,16 @@ textarea.input {
 	padding: var(--hwf-form-select--option-padding-small)
 }
 
+.form-select.small .select-listbox .select-option:has(.item-link) {
+	padding: 0
+}
+
+.form-select.small .select-listbox .select-option:has(.item-link) .item-link {
+	display: block;
+	padding: var(--hwf-form-select--option-padding-small);
+	width: 100%
+}
+
 .form-select.medium {
 	height: var(--hwf-form-select--size-height-medium);
 	border-radius: var(--hwf-form-select--radius-medium);
@@ -3146,6 +3166,16 @@ textarea.input {
 
 .form-select.medium .select-listbox .select-option {
 	padding: var(--hwf-form-select--option-padding-medium)
+}
+
+.form-select.medium .select-listbox .select-option:has(.item-link) {
+	padding: 0
+}
+
+.form-select.medium .select-listbox .select-option:has(.item-link) .item-link {
+	display: block;
+	padding: var(--hwf-form-select--option-padding-medium);
+	width: 100%
 }
 
 .form-select.large {
@@ -3168,6 +3198,16 @@ textarea.input {
 	padding: var(--hwf-form-select--option-padding-large)
 }
 
+.form-select.large .select-listbox .select-option:has(.item-link) {
+	padding: 0
+}
+
+.form-select.large .select-listbox .select-option:has(.item-link) .item-link {
+	display: block;
+	padding: var(--hwf-form-select--option-padding-large);
+	width: 100%
+}
+
 .form-select.xlarge {
 	height: var(--hwf-form-select--size-height-xlarge);
 	border-radius: var(--hwf-form-select--radius-xlarge);
@@ -3186,6 +3226,16 @@ textarea.input {
 
 .form-select.xlarge .select-listbox .select-option {
 	padding: var(--hwf-form-select--option-padding-xlarge)
+}
+
+.form-select.xlarge .select-listbox .select-option:has(.item-link) {
+	padding: 0
+}
+
+.form-select.xlarge .select-listbox .select-option:has(.item-link) .item-link {
+	display: block;
+	padding: var(--hwf-form-select--option-padding-xlarge);
+	width: 100%
 }
 
 .form-select:focus,
@@ -5790,6 +5840,7 @@ label {
 	--hwf-tab--button-font-size: 2.4rem;
 	--hwf-tab--line-button-size-min-width: 20rem;
 	--hwf-tab--line-button-padding-x: 2rem;
+	--hwf-tab--line-button-padding-y: 1.2rem;
 	--hwf-tab--line-button-height: 6.4rem
 }
 
@@ -5883,9 +5934,9 @@ label {
 }
 
 .tab.line .btn-tab {
-	padding: 0 var(--hwf-tab--line-button-padding-x);
+	padding: 0 var(--hwf-tab--line-button-padding-x) var(--hwf-tab--line-button-padding-y);
 	min-width: var(--hwf-tab--line-button-size-min-width);
-	height: var(--hwf-tab--line-button-height)
+	min-height: var(--hwf-tab--line-button-height)
 }
 
 .tab.line .btn-tab::after {
@@ -6048,6 +6099,15 @@ label {
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: center
+}
+
+.tbl-wrap .tbl tbody .emphasis th,
+.tbl-wrap .tbl tbody .emphasis td {
+	background-color: rgba(208, 156, 88, .1019607843)
+}
+
+.tbl-wrap .tbl tbody strong {
+	font-weight: 600
 }
 
 .tbl-wrap .tbl th,
@@ -8492,6 +8552,50 @@ label {
 	}
 }
 
+html[lang=en] .header .logo {
+	width: 31.2rem;
+	height: 3.1rem;
+	background: url(../images/common/en-logo.svg) no-repeat center/cover
+}
+
+@media(max-width: 1460px) {
+	html[lang=en] .header .header-con .nav .gnb-list {
+		gap: 4rem;
+		font-size: 1.8rem
+	}
+}
+
+@media(max-width: 1280px) {
+	html[lang=en] .header .header-con .nav {
+		display: none
+	}
+
+	html[lang=en] .header .header-con .util .lang {
+		display: none
+	}
+}
+
+html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
+	white-space: nowrap
+}
+
+@media(max-width: 1400px) {
+	html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list {
+		gap: 2rem
+	}
+
+	html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item {
+		min-width: 25rem
+	}
+}
+
+@media(max-width: 1200px) {
+	html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item {
+		min-width: auto;
+		flex: 1
+	}
+}
+
 .footer {
 	--footer-top-button-position-right: calc((100% - var(--hwf-content-width-large)) / 2);
 	--footer-top-button-position-bottom: 4rem;
@@ -8517,7 +8621,12 @@ label {
 }
 
 .footer .footer-con {
-	display: flex
+	display: flex;
+	gap: 12rem
+}
+
+.footer .footer-con .address {
+	width: 100%
 }
 
 .footer .footer-con .address li {
@@ -8531,7 +8640,7 @@ label {
 .footer .footer-con .nav {
 	display: flex;
 	gap: 12rem;
-	margin-left: auto
+	flex-shrink: 0
 }
 
 .footer .footer-con .nav .link-list li {
@@ -8548,7 +8657,7 @@ label {
 }
 
 .footer .footer-con .util {
-	margin-left: 12rem
+	flex-shrink: 0
 }
 
 .footer .footer-con .util .sns-list {
@@ -8556,6 +8665,10 @@ label {
 	display: flex;
 	align-items: center;
 	gap: 2.4rem
+}
+
+.footer .footer-con .util .family-site .form-select {
+	min-width: 23rem
 }
 
 .footer .footer-bottom {
@@ -8616,12 +8729,6 @@ label {
 	}
 }
 
-@media(max-width: 1280px) {
-	.footer .footer-con .address {
-		width: 20%
-	}
-}
-
 @media(max-width: 1024px) {
 	.footer .footer-con {
 		--footer-gap: 4rem;
@@ -8631,7 +8738,6 @@ label {
 
 	.footer .footer-con .address {
 		padding-bottom: var(--footer-gap);
-		width: 100%;
 		border-bottom: .1rem solid hsla(0, 0%, 100%, .15)
 	}
 
@@ -8684,6 +8790,12 @@ label {
 		white-space: nowrap !important;
 		border: 0 !important
 	}
+}
+
+html[lang=en] .footer-top .logo {
+	width: 31.2rem;
+	height: 3.1rem;
+	background: url(../images/common/en-logo-w.svg) no-repeat center/cover
 }
 
 .page-main {
@@ -10935,7 +11047,9 @@ label {
 		width: 100%;
 		height: -moz-fit-content;
 		height: fit-content;
-		background-color: #f3f2f1
+		background-color: #f3f2f1;
+		border-bottom: .1rem solid #e6e5e5;
+		box-shadow: 0 .2rem 1.6rem 0 rgba(0, 0, 0, .08)
 	}
 
 	.page-fund .fund-main .section-detail .layout-sidebar .sidebar ul {
@@ -13109,11 +13223,7 @@ label {
 	}
 }
 
-.page-company .inner {
-	max-width: var(--hwf-content-wrap-width-large)
-}
-
-.page-company .header {
+.page-company:has(.company-main) .header {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -13124,115 +13234,119 @@ label {
 	transition: transform .4s ease-out
 }
 
-.page-company .header.is-hidden {
+.page-company:has(.company-main) .header.is-hidden {
 	transform: translateY(-100%)
 }
 
-.page-company .header .logo {
+.page-company:has(.company-main) .header .logo {
 	background: url(../images/common/logo-w.svg) no-repeat center/cover
 }
 
-.page-company .header .logo-plusetf a {
+.page-company:has(.company-main) .header .logo-plusetf a {
 	background: url(../images/common/logo-plus-etf-w.svg) no-repeat center/cover
 }
 
-.page-company .header .logo-pine a {
+.page-company:has(.company-main) .header .logo-pine a {
 	background: url(../images/common/logo-pine-w.svg) no-repeat center/cover
 }
 
-.page-company .header>.header-top {
+.page-company:has(.company-main) .header>.header-top {
 	background-color: rgba(0, 0, 0, .6);
 	border-bottom: 0
 }
 
-.page-company .header>.header-top .link li::after {
+.page-company:has(.company-main) .header>.header-top .link li::after {
 	background-color: #d7d5d5
 }
 
-.page-company .header>.header-con {
+.page-company:has(.company-main) .header>.header-con {
 	background-color: rgba(0, 0, 0, .3)
 }
 
-.page-company .header>.header-con .nav .gnb-list {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list {
 	color: #fff
 }
 
-.page-company .header>.header-con .nav .gnb-list .gnb-item.active {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .gnb-item.active {
 	color: #ffa57f
 }
 
-.page-company .header>.header-con .nav .gnb-list .gnb-item.focus {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .gnb-item.focus {
 	color: #ffa57f
 }
 
-.page-company .header>.header-con .nav .gnb-list .submenu {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .submenu {
 	background-color: rgba(0, 0, 0, .3);
 	border: 0;
 	box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, .08), 0 16px 16px 0 rgba(0, 0, 0, .06)
 }
 
-.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .submenu .submenu-link {
 	color: #fff
 }
 
-.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link:hover,
-.page-company .header>.header-con .nav .gnb-list .submenu .submenu-link:active {
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .submenu .submenu-link:hover,
+.page-company:has(.company-main) .header>.header-con .nav .gnb-list .submenu .submenu-link:active {
 	background: rgba(0, 0, 0, .5)
 }
 
-.page-company .header>.header-con .util .lang .form-select.text .select-button::after {
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-button::after {
 	background: #fff
 }
 
-.page-company .header>.header-con .util .lang .form-select.text .select-button .select-value {
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-button .select-value {
 	color: #fff
 }
 
-.page-company .header>.header-con .util .lang .form-select.text .select-listbox {
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-listbox {
 	background-color: rgba(0, 0, 0, .3);
 	border: 0
 }
 
-.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option {
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-listbox .select-option {
 	color: #fff
 }
 
-.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option:hover,
-.page-company .header>.header-con .util .lang .form-select.text .select-listbox .select-option:active {
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-listbox .select-option:hover,
+.page-company:has(.company-main) .header>.header-con .util .lang .form-select.text .select-listbox .select-option:active {
 	color: var(--hwf-color-text-primary);
 	background: rgba(0, 0, 0, .5)
 }
 
-.page-company .header>.header-con .util .btn.icon .svg-icon {
+.page-company:has(.company-main) .header>.header-con .util .btn.icon .svg-icon {
 	background-color: #fff
 }
 
-.page-company .header .sitemap .logo {
+.page-company:has(.company-main) .header .sitemap .logo {
 	background: url(../images/common/logo.svg) no-repeat center/cover
 }
 
-.page-company .header .sitemap .logo-plusetf a {
+.page-company:has(.company-main) .header .sitemap .logo-plusetf a {
 	background: url(../images/common/logo-plus-etf.svg) no-repeat center/cover
 }
 
-.page-company .header .sitemap .logo-pine a {
+.page-company:has(.company-main) .header .sitemap .logo-pine a {
 	background: url(../images/common/logo-pine.svg) no-repeat center/cover
 }
 
-.page-company .company-tit-wrap {
+.page-company:has(.company-main) .inner {
+	max-width: var(--hwf-content-wrap-width-large)
+}
+
+.page-company:has(.company-main) .company-tit-wrap {
 	text-align: center
 }
 
-.page-company .company-tit-wrap .txt-gradient {
+.page-company:has(.company-main) .company-tit-wrap .txt-gradient {
 	margin: 0 auto
 }
 
-.page-company .company-tit-wrap .tit {
+.page-company:has(.company-main) .company-tit-wrap .tit {
 	font-size: 9.6rem;
 	font-weight: 500
 }
 
-.page-company .company-tit-wrap .sub-tit {
+.page-company:has(.company-main) .company-tit-wrap .sub-tit {
 	font-family: "Trust2ATRIAL", sans-serif;
 	font-size: 6.4rem
 }
@@ -13289,7 +13403,8 @@ label {
 .company-map-wrap .map-address {
 	display: flex;
 	justify-content: space-between;
-	align-items: center
+	align-items: center;
+	gap: 2rem
 }
 
 .company-map-wrap .map-address .txt-wrap {
@@ -13359,7 +13474,7 @@ label {
 
 .company-map-wrap .map-info dt {
 	flex-shrink: 0;
-	min-width: 16rem;
+	width: 16rem;
 	color: var(--hwf-color-text-strong);
 	font-size: 2.8rem;
 	font-weight: 700
@@ -13459,7 +13574,8 @@ label {
 	}
 
 	.company-map-wrap .map-address .btn-wrap {
-		width: 100%
+		width: 100%;
+		flex-wrap: wrap
 	}
 
 	.company-map-wrap .map-address .btn-wrap .btn {
@@ -13471,7 +13587,16 @@ label {
 	}
 
 	.company-map-wrap .map-info dt {
-		font-size: 2.4rem
+		font-size: 2.4rem;
+		width: 100%
+	}
+
+	.company-map-wrap .map-info .tit {
+		margin-bottom: 1.6rem
+	}
+
+	.company-map-wrap .map-info .transport-list.grid-2 {
+		grid-template-columns: auto
 	}
 }
 

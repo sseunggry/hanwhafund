@@ -118,14 +118,35 @@ const uiSelect = {
       }
     });
 
-    // 옵션 클릭 (선택)
-    $(document).on("click", ".form-select .select-option", function (e) {
-      e.preventDefault();
-      const $option = $(this);
-      if ($option.hasClass("disabled") || $option.attr("aria-disabled") === "true") {
+    // 옵션 클릭 처리
+		$(document).on("click", ".form-select .select-option", function (e) {
+      const $target = $(e.target);
+      const $link = $target.closest('a'); 
+
+      if ($link.length > 0) {
+        const $optionLi = $(this);
+        const newText = $optionLi.text().trim();
+        const $select = $optionLi.closest(".form-select");
+        const $listbox = $select.find(".select-listbox");
+        const $valueDisplay = $select.find(".select-value");
+        
+        $listbox.find('[aria-selected="true"]').attr("aria-selected", "false").removeClass("selected");
+        $optionLi.attr("aria-selected", "true").addClass("selected");
+        
+        $valueDisplay.text(newText).removeClass("placeholder");
+
+        setTimeout(() => {
+          uiSelect.close($select);
+        }, 0);
+
         return;
       }
-      uiSelect.selectOption($option);
+
+      if ($(this).hasClass("disabled") || $(this).attr("aria-disabled") === "true") {
+        return;
+      }
+      e.preventDefault();
+      uiSelect.selectOption($(this));
     });
 
     // 키보드 네비게이션 (버튼 + 리스트박스)
@@ -249,13 +270,9 @@ const uiSelect = {
     const $valueDisplay = $select.find(".select-value");
 
     const newValue = $option.data("value");
-    const newText = $option.text();
+    const newText = $option.text().trim();
 
-    $listbox
-      .find('[aria-selected="true"]')
-      .attr("aria-selected", "false")
-      .removeClass("selected");
-
+    $listbox.find('[aria-selected="true"]').attr("aria-selected", "false").removeClass("selected");
     $option.attr("aria-selected", "true").addClass("selected");
 
     $valueDisplay.text(newText).removeClass("placeholder");
