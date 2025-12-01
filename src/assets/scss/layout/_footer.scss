@@ -124,6 +124,8 @@
   }
   @include mq(pc) {
     .footer-con{
+			gap: 8rem;
+
       .address{
         // width: 20%;
       }

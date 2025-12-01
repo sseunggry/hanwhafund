@@ -23,14 +23,66 @@
 						board1
 						`;
 						const board2 = `
-						board2
+						<div class="section-tit-wrap">
+							<h2 class="tit">열심히 일한 한화인, <br/> 누리자!</h2>
+						</div>
+						<ul class="welfare-list-wrap">
+							<li>
+								<div class="tit-wrap">
+									<p class="tit ico-financial">재정 지원</p>
+									<p class="desc">임직원과 가족의 안정적인 성장을 응원합니다.</p>	
+								</div>
+								<div class="txt-wrap">
+									<dl>
+										<dt>임직원 자녀 학자금</dt>	
+										<dd>
+											<ul class="note-list depth-1">
+												<li>고등학교-대학교 자녀 학비 지원</li>
+											</ul>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li>
+								<div class="tit-wrap">
+									<p class="tit ico-financial">경조사 및 포상 제도</p>
+									<p class="desc">함께하는 순간을 소중히 여기며, 오랜 노고를 진심으로 보답합니다.</p>	
+								</div>
+								<div class="txt-wrap">
+									<dl>
+										<dt>경조휴가/경조금</dt>	
+										<dd>
+											<ul class="note-list depth-1">
+												<li>경조사 관련 휴가 및 경조금 지원</li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt>장기근속 포상</dt>	
+										<dd>
+											<ul class="note-list depth-1">
+												<li>10년/20년/30년 포상 및 해외여행 상품권 지급</li>
+											</ul>
+										</dd>
+									</dl>
+									<dl>
+										<dt>각종 기념일 선물 지급</dt>	
+										<dd>
+											<ul class="note-list depth-1">
+												<li>근로자의 날, 창립기념일 등</li>
+											</ul>
+										</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
 						`;
 						const board3 = `
 						board3
 						`;
 						%>
 						<%- include('../../components/tab.ejs', {
-							// active: 0,
+							active: 1,
 							variant: 'line',
 							tablist: ['핵심가치', '복리후생', '채용'],
 							contents: [board1, board2, board3],
