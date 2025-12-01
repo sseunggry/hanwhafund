@@ -8729,6 +8729,12 @@ html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
 	}
 }
 
+@media(max-width: 1280px) {
+	.footer .footer-con {
+		gap: 8rem
+	}
+}
+
 @media(max-width: 1024px) {
 	.footer .footer-con {
 		--footer-gap: 4rem;
@@ -13598,6 +13604,61 @@ html[lang=en] .footer-top .logo {
 	.company-map-wrap .map-info .transport-list.grid-2 {
 		grid-template-columns: auto
 	}
+}
+
+.company-employ .welfare-list-wrap>li {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4rem;
+	margin-bottom: 4rem
+}
+
+.company-employ .welfare-list-wrap>li:last-child {
+	margin-bottom: 0
+}
+
+.company-employ .welfare-list-wrap>li:last-child::after {
+	display: none
+}
+
+.company-employ .welfare-list-wrap>li::after {
+	content: "";
+	display: block;
+	grid-column: -1/1;
+	width: 100%;
+	height: .1rem;
+	background-color: #e6e5e5
+}
+
+.company-employ .welfare-list-wrap>li .tit-wrap .tit {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	margin-bottom: 2.4rem;
+	color: var(--hwf-color-text-primary-dark);
+	font-size: 2.8rem;
+	font-weight: 700
+}
+
+.company-employ .welfare-list-wrap>li .tit-wrap .tit::before {
+	content: "";
+	display: inline-block;
+	width: 3.2rem;
+	height: 3.2rem;
+	background: #f54500
+}
+
+.company-employ .welfare-list-wrap>li .txt-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem
+}
+
+.company-employ .welfare-list-wrap>li .txt-wrap dt {
+	margin-bottom: 2.4rem;
+	color: var(--hwf-color-text-strong);
+	font-size: 2.1rem;
+	font-weight: 600
 }
 
 .inner {
