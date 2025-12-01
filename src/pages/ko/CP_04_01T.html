@@ -5,7 +5,7 @@
 			title : '경영현황 | 회사소개'
 		}) -%>
 	</head>
-	<body class="page-policy">
+	<body class="page-company">
 		<div class="wrap">
 			<!-- header -->
 			<%- include('../../layouts/header.ejs') -%>
@@ -47,7 +47,7 @@
 							infoTxt: '단위 : 백만원',
 							caption: '요약 연결재무상태표',
 							colWidths: ['30%', '30%', 'auto'],
-							thead: ['항목', '제37기 (2024.01.01~2024.12.31)', '제36기 (2023.01.01~2023.12.31)'],
+							thead: ['항목', '제37기 (2024.12.31)', '제36기 (2023.12.31)'],
 							tbody: [
 								['현금및예치금', '1,105,284', '1,484,823'],
 								['당기손익-공정가치금융자산', '9,568,213', '7,595,314'],
@@ -80,23 +80,12 @@
 							rowHeaders: true,
 							addClass: 'scroll'
 						});
-
-						const board1 = `
-						<div class="terms-content">
-							${table1}
-						</div>
-						`;
-						const board2 = `
-						<div class="terms-content">
-							${table2}
-						</div>
-						`;
 						%>
 						<%- include('../../components/tab.ejs', {
 							// active: 0,
 							variant: 'line',
 							tablist: ['요약 연결포괄 손익계산서', '요약 연결재무상태표'],
-							contents: [board1, board2],
+							contents: [table1, table2],
 						}) -%>
 					</div>
 				</div>

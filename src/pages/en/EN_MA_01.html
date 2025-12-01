@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Main'
+		}) -%>
+	</head>
+	<body class="page-main">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- contents -->
+			<main class="contents">
+				<section class="section-visual">
+					<div class="swiper main-visual-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="visual">
+									<div class="inner">
+										<div class="tit-wrap">
+											<p class="num">01</p>
+											<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+										</div>
+									</div>
+									<div class="img-wrap">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="visual">
+									<div class="inner">
+										<div class="tit-wrap">
+											<p class="num">02</p>
+											<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+										</div>
+									</div>
+									<div class="img-wrap">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="visual">
+									<div class="inner">
+										<div class="tit-wrap">
+											<p class="num">03</p>
+											<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+										</div>
+									</div>
+									<div class="img-wrap">
+										<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<script>
+						const swiper = new Swiper(".main-visual-swiper", {
+							pagination: {
+								el: ".swiper-pagination",
+								clickable: true,
+							},
+						});
+					</script>
+				</section>
+
+				<section class="section-partner">
+					<div class="inner">
+						<div class="main-tit-wrap motion fade-up">
+							<h2 class="tit">a visionary partner, <br/> leading excellent investment</h2>
+						</div>
+						<div class="info-wrap">
+							<div class="img-wrap">
+								<ul class="img-list">
+									<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-02.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-03.png" alt=""></li>
+								</ul>
+							</div>
+							<div class="txt-wrap">
+								<dl>
+									<dt>Total AUM</dt>
+									<dd>
+										<small>USD</small>
+										<span class="counter" data-num="78.6">0</span>
+										<small>B</small>
+									</dd>
+								</dl>
+								<dl>
+									<dt>Domestic <br/> Institutional Clients</dt>
+									<dd><span class="counter" data-num="60">0</span>+</dd>
+								</dl>
+								<dl>
+									<dt>Global Partners</dt>
+									<dd><span class="counter" data-num="50">0</span>+</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-network">
+					<div class="inner">
+						<div class="main-tit-wrap motion fade-up">
+							<h2 class="tit">Global Network</h2>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-banner">
+					<div class="inner">
+						<div class="main-tit-wrap">
+							<h2 class="tit">from promise <br class="mobile-only"/> to prosperity</h2>
+							<p class="sub-tit">We move forward as a comprehensive asset management firm committed to protecting your future.</p>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // contents -->
+			
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+		<script src="/assets/js/main.js" type="text/javascript"></script>
+	</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Contact Us'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">Getting Here</h2>
+						</div>
+						<div class="company-map-wrap">
+							<div class="map-address">
+								<div class="txt-wrap">
+									<p class="tit">Hanwha Finance Center, 50 63-ro, Yeongdeungpo-gu, Seoul</p>
+									<ul class="desc-list">
+										<li>Main Phone: 02 6950-0000</li>
+										<li>Fax: 02 6950-0009</li>
+									</ul>
+								</div>
+								<div class="btn-wrap array-right">
+									<%- include('../../components/button.ejs', {
+										variant: 'outline',
+										preIcon: 'map',
+										label: 'View on Naver Map',
+									}) -%>
+									<%- include('../../components/button.ejs', {
+										variant: 'outline',
+										preIcon: 'map',
+										label: 'View on Kakao Map',
+									}) -%>
+								</div>
+							</div>
+							<div class="map-area">
+								<!-- 지도 영역 -->
+							</div>
+							<div class="map-info">
+								<dl>
+									<dt>By Subway</dt>
+									<dd>
+										<ul class="transport-list">
+											<li>
+												<p class="tit icon-line1">Line 1 Daebang Station</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'From Exit 6, take the free shuttle bus toward Yeouido (40 m from the exit), or take City Bus No. 62 at the bus stop in front of Exit 6.',
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit icon-line5">Line 5 Yeouinaru Station</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'From Exit 4, take the free shuttle bus toward MBC (80 m from the exit).',
+														'From Exit 1, take City Bus Nos. 5534, 5633, 261, 8360, or 7611.',
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit icon-line5">Line 5 Yeouido Station</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														`Fro Exit 5, take the free shuttle bus at the bus stop in front of St. Mary's Hospital, or take take City Bus No. 62 at Exit 5.`,
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit icon-line9">Line 9 Saetgang Station</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'From Exit 1, take the free shuttle bus at the bus stop about 10 m toward Yeouido Station.',
+													],
+												}); -%>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+								<dl>
+									<dt>By Bus</dt>
+									<dd>
+										<ul class="transport-list grid-2">
+											<li>
+												<p class="tit">Green Bus</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'5534, 7611, 5633, 5618, 5012, 8620'
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit">Airport Limousine</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'6030'
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit">Blue Bus</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'261, 362, 503, 505, 162'
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit">Yellow Bus</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'62'
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit">Express Bus</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'7007-1, 700'
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit">Seat Bus</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'108'
+													],
+												}); -%>
+											</li>
+										</ul>
+									</dd>
+								</dl>
+								<dl>
+									<dt>Free Shuttle Bus</dt>
+									<dd>
+										<ul class="transport-list">
+											<li>
+												<p class="tit">63 Building </p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'63 Building East Wing: Board at the East Wing Lobby',
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit line1">Line 1</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'Daebang Station: Exit 6, toward Yeouido, 40 m ahead',
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit line5">Line 5</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'Yeouinaru Station: Exit 4, toward MBC, next to Sambu Apartment Building 6',
+														'Yeouido Station: Exit 5, toward MBC, 20 m ahead at the temporary stop',
+													],
+												}); -%>
+											</li>
+											<li>
+												<p class="tit line9">Line 9</p>
+												<%- include('../../components/note-list.ejs', { 
+													depth: 1,
+													items: [
+														'Saetgang Station: Exit 1, toward Yeouido Station, 10 m ahead',
+													],
+												}); -%>
+											</li>
+										</ul>
+										<div class="gray-box">
+											<p class="tit">Circular Shuttle</p>
+											<%- include('../../components/note-list.ejs', { 
+												depth: 1,
+												items: [
+													'Weekdays: 09:28 AM - 05:23 PM / 08:00 PM - 09:00 PM',
+													'Holidays: 09:28 AM - 08:00 PM',
+												],
+											}); -%>
+											<p class="note-txt fc-black">Shuttle bus arrival times may vary depending on traffic conditions.</p>
+										</div>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

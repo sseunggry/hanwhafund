@@ -2,148 +2,146 @@
 @use "../util" as *;
 
 .page-company{
-	.inner {
-    max-width: var(--#{$prefix}-content-wrap-width-large);
-  }
-
-  .header {
-		position: absolute;
-		top: 0;
-		left: 0;
-    width: 100%;
-    z-index: 2;
-    border-bottom: 0;
-    backdrop-filter: blur(4rem);
-		transition: transform 0.4s ease-out;
-
-		&.is-hidden {
-			transform: translateY(-100%); /* 위로 숨김 */
-		}
-
-    .logo {
-      @include bg("common/logo-w.svg");
-      &-plusetf {
-        a {
-          @include bg("common/logo-plus-etf-w.svg");
-        }
-      }
-      &-pine {
-        a {
-          @include bg("common/logo-pine-w.svg");
-        }
-      }
-    }
-
-    > .header-top {
-      background-color: rgba(0, 0, 0, 0.6);
-      border-bottom: 0;
-      .link {
-        li {
-          &::after {
-            background-color: #d7d5d5;
-          }
-        }
-      }
-    }
-    > .header-con {
-      background-color: rgba(0, 0, 0, 0.3);
-      .nav {
-        .gnb-list {
-					color: #fff;
-
-					.gnb-item{
-						&.active{
-							color: #FFA57F;
-						}
-						&.focus{
-							color: #FFA57F;
-						}
-					}
-
-					.submenu{
-						background-color: rgba(0, 0, 0, 0.3);
-						border: 0;
-						box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, 0.08), 0 16px 16px 0 rgba(0, 0, 0, 0.06);
-
-						.submenu-link{
-							color: #fff;
-
-							&:hover, &:active{
-								background: rgba(0, 0, 0, 0.5);
-							}
-						}
-					}
-        }
-      }
-      .util {
-        .lang {
-          .form-select.text {
-            .select-button {
-              &::after {
-								background: #fff;
-              }
-              .select-value {
-                color: #fff;
-              }
-            }
-						.select-listbox{
-							background-color: rgba(0, 0, 0, 0.3);
-							border: 0;
-
-							.select-option{
-								color: #fff;
-
-								&:hover, &:active{
-									color: var(--#{$prefix}-color-text-primary);
-									background: rgba(0, 0, 0, 0.5);
-								}
-							}
-						}
-          }
-        }
-        .btn.icon {
-          .svg-icon {
-            background-color: #fff;
-          }
-        }
-      }
-    }
-
-		.sitemap{
+	&:has(.company-main){
+		.header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 2;
+			border-bottom: 0;
+			backdrop-filter: blur(4rem);
+			transition: transform 0.4s ease-out;
+	
+			&.is-hidden {
+				transform: translateY(-100%); /* 위로 숨김 */
+			}
+	
 			.logo {
-				@include bg("common/logo.svg");
+				@include bg("common/logo-w.svg");
 				&-plusetf {
 					a {
-						@include bg("common/logo-plus-etf.svg");
+						@include bg("common/logo-plus-etf-w.svg");
 					}
 				}
 				&-pine {
 					a {
-						@include bg("common/logo-pine.svg");
+						@include bg("common/logo-pine-w.svg");
+					}
+				}
+			}
+	
+			> .header-top {
+				background-color: rgba(0, 0, 0, 0.6);
+				border-bottom: 0;
+				.link {
+					li {
+						&::after {
+							background-color: #d7d5d5;
+						}
+					}
+				}
+			}
+			> .header-con {
+				background-color: rgba(0, 0, 0, 0.3);
+				.nav {
+					.gnb-list {
+						color: #fff;
+	
+						.gnb-item{
+							&.active{
+								color: #FFA57F;
+							}
+							&.focus{
+								color: #FFA57F;
+							}
+						}
+	
+						.submenu{
+							background-color: rgba(0, 0, 0, 0.3);
+							border: 0;
+							box-shadow: 0 4rem 6rem 0 rgba(0, 0, 0, 0.08), 0 16px 16px 0 rgba(0, 0, 0, 0.06);
+	
+							.submenu-link{
+								color: #fff;
+	
+								&:hover, &:active{
+									background: rgba(0, 0, 0, 0.5);
+								}
+							}
+						}
+					}
+				}
+				.util {
+					.lang {
+						.form-select.text {
+							.select-button {
+								&::after {
+									background: #fff;
+								}
+								.select-value {
+									color: #fff;
+								}
+							}
+							.select-listbox{
+								background-color: rgba(0, 0, 0, 0.3);
+								border: 0;
+	
+								.select-option{
+									color: #fff;
+	
+									&:hover, &:active{
+										color: var(--#{$prefix}-color-text-primary);
+										background: rgba(0, 0, 0, 0.5);
+									}
+								}
+							}
+						}
+					}
+					.btn.icon {
+						.svg-icon {
+							background-color: #fff;
+						}
+					}
+				}
+			}
+	
+			.sitemap{
+				.logo {
+					@include bg("common/logo.svg");
+					&-plusetf {
+						a {
+							@include bg("common/logo-plus-etf.svg");
+						}
+					}
+					&-pine {
+						a {
+							@include bg("common/logo-pine.svg");
+						}
 					}
 				}
 			}
 		}
-  }
-
-	.company-tit-wrap{
-		text-align: center;
-
-		.txt-gradient{
-			margin: 0 auto;
+		.inner {
+			max-width: var(--#{$prefix}-content-wrap-width-large);
 		}
-
-		.tit{
-			font-size: 9.6rem;
-			font-weight: 500;
-		}
-		.sub-tit{
-			font-family: $font-family-en;
-			font-size: 6.4rem;
+		.company-tit-wrap{
+			text-align: center;
+	
+			.txt-gradient{
+				margin: 0 auto;
+			}
+	
+			.tit{
+				font-size: 9.6rem;
+				font-weight: 500;
+			}
+			.sub-tit{
+				font-family: $font-family-en;
+				font-size: 6.4rem;
+			}
 		}
 	}
-
-
 	.company-main{
 		// .section-visual{
 		// 	position: fixed; 
@@ -250,6 +248,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 2rem;
 
 		.txt-wrap{
 			width: 100%;
@@ -316,7 +315,7 @@
 		}
 		dt{
 			flex-shrink: 0;
-			min-width: 16rem;
+			width: 16rem;
 			color: var(--#{$prefix}-color-text-strong);
 			font-size: 2.8rem;
 			font-weight: 700;
@@ -400,6 +399,7 @@
 			}
 			.btn-wrap{
 				width: 100%;
+				flex-wrap: wrap;
 				.btn{
 					flex: 1;
 				}
@@ -411,6 +411,15 @@
 			}
 			dt{
 				font-size: 2.4rem;
+				width: 100%;
+			}
+			.tit{
+				margin-bottom: 1.6rem;
+			}
+			.transport-list{
+				&.grid-2{
+					grid-template-columns: auto;
+				}
 			}
 		}
 	}

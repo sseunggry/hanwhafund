@@ -1,0 +1,211 @@
+<%
+	const localsSafe = locals || {};
+  const addClass = localsSafe.addClass || '';
+-%>
+<header class="header <%= addClass %>">
+	<div class="header-top">
+		<div class="inner">
+			<ul class="link">
+				<li class="logo-plusetf"><a href="#!"><span class="sr-only">PLUS ETF</span></a></li>
+				<li class="logo-pine"><a href="#!"><span class="sr-only">PINE</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="header-con">
+		<div class="inner">
+			<h1 class="logo"><span class="sr-only">Hanwha Asset Management</span></h1>
+			<nav class="nav">
+				<ul class="gnb-list">
+					<li class="gnb-item active">
+						<a href="#!" class="gnb-link">Our Company</a>
+						<ul class="submenu">
+							<li><a href="#!" class="submenu-link active">Hanwha Asset Management</a></li>
+							<li><a href="#!" class="submenu-link">Management Status</a></li>
+							<li><a href="#!" class="submenu-link">The Hanwha Finance</a></li>
+						</ul>
+					</li>
+					<li class="gnb-item">
+						<a href="#!" class="gnb-link">Risk Management</a>
+						<ul class="submenu">
+							<li><a href="#!" class="submenu-link">Multi-monitoring system</a></li>
+							<li><a href="#!" class="submenu-link">Risk management system</a></li>
+							<li><a href="#!" class="submenu-link">Compliance system</a></li>
+						</ul>
+					</li>
+					<li class="gnb-item">
+						<a href="#!" class="gnb-link">Global Network</a>
+						<ul class="submenu">
+							<li><a href="#!" class="submenu-link">Global Network</a></li>
+						</ul>
+					</li>
+					<li class="gnb-item">
+						<a href="#!" class="gnb-link">Contact Us</a>
+						<ul class="submenu">
+							<li><a href="#!" class="submenu-link">Contact Us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="util">
+				<div class="lang">
+					<%- include('../components/select.ejs', {
+						variant: 'text',
+						size: 'small',
+						name: 'language-select',
+						options: [
+							{ value: 'KR', text: 'KR' },
+							{ value: 'EN', text: 'EN', selected: true },
+						]
+					}) -%>
+				</div>
+				<%- include('../components/button.ejs', {
+					variant: 'icon',
+					label: 'search',
+					size: 'xxlarge',
+					icon: 'search',
+					targetType: 'modal',
+					targetId: 'modalSearch',
+				}) -%>
+				<%- include('../components/button.ejs', {
+					variant: 'icon',
+					label: 'menu',
+					size: 'xxlarge',
+					icon: 'menu',
+					targetType: 'modal',
+					targetId: 'modalAllMenu',
+				}) -%>
+			</div>
+		</div>
+	</div>
+	
+	<!-- popup 검색  -->
+	<% 
+	const searchIcon = include('../components/button.ejs', { variant: 'icon', label: '검색', size: 'xxlarge', icon: 'search'}); 
+	const searchInput = include('../components/input.ejs', {
+		ariaLabel: "펀드명 입력",
+		size: 'xlarge',
+		placeholder: '펀드명을 입력하세요',
+		value: '투자신탁',
+		slot: searchIcon,
+		addClass: 'line search'
+	});
+	const tag = include('../components/tag.ejs', {
+		variant: 'text',
+		tagList: ['#ETF', '#월배당ETF', '#바이오', '#자산분배형', '#ESG'],
+		size: 'medium'
+	});
+	-%>
+	<%- include('../components/modal.ejs', {
+		id: 'modalSearch',
+		variant: 'top-sheet',
+		headerSlot: `<div class="logo"><span class="sr-only">한화자산운용</span></div>`,
+		content: `
+		<div class="search-wrap">
+			<div class="search-con">
+				${searchInput}
+				${tag}
+			</div>
+		</div>
+		`,
+		addClass: 'header-search'
+	}) %>
+	<!-- popup 검색 -->
+	
+	<!-- popup 전체메뉴  -->
+	<% 
+	const menuLang = include('../components/select.ejs', {
+		variant: 'text',
+		size: 'small',
+		name: 'language-select',
+		options: [
+			{ value: 'KR', text: 'KR' },
+			{ value: 'EN', text: 'EN', selected: true },
+		]
+	});
+	
+	const menuSearch = include('../components/button.ejs', {
+		variant: 'icon',
+		label: 'search',
+		size: 'xxlarge',
+		icon: 'search',
+		targetType: 'modal',
+		targetId: 'modalSearch',
+	});
+	
+	const menuClose = include('../components/button.ejs', {
+		variant: 'icon',
+		label: 'close',
+		size: 'xxlarge',
+		icon: 'close',
+		addClass: 'btn-close'
+	});
+	
+	const allMenuHeader = 
+	`<div class="header-top">
+			<div class="inner">
+				<ul class="link">
+					<li class="logo-plusetf"><a href="#!"><span class="sr-only">PLUS ETF</span></a></li>
+					<li class="logo-pine"><a href="#!"><span class="sr-only">PINE</span></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="header-con">
+			<div class="inner">
+				<h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+				<div class="util">
+					<div class="lang">
+						${menuLang}
+					</div>
+					${menuSearch}
+					${menuClose}
+				</div>
+			</div>
+		</div>`;
+	-%>
+	<%- include('../components/modal.ejs', {
+		id: 'modalAllMenu',
+		variant: 'top-sheet',
+		headerSlot: allMenuHeader,
+		content: 
+		`<div class="sitemap-wrap">
+			<ul class="sitemap-list">
+				<li class="sitemap-item">
+					<a href="#!" class="depth1"><span>Our Company</span></a>
+					<ul class="submenu">
+						<li><a href="#!" class="depth2">Hanwha Asset Management</a></li>
+						<li>
+							<a href="#!" class="depth2">Management Status</a>
+							<ul class="submenu">
+								<li><a href="#!" class="depth3">Summary of Consolidated Statement of Comprehensive Income</a></li>
+								<li><a href="#!" class="depth3">Summary of Consolidated Statement of Financial Position</a></li>
+							</ul>
+						</li>
+						<li><a href="#!" class="depth2">The Hanwha Finance</a></li>
+					</ul>
+				</li>	
+				<li class="sitemap-item">
+					<a href="#!" class="depth1"><span>Risk Management</span></a>
+					<ul class="submenu">
+						<li><a href="#!" class="depth2">Multi-monitoring system</a></li>
+						<li><a href="#!" class="depth2">Risk management system</a></li>
+						<li><a href="#!" class="depth2">Compliance system</a></li>
+					</ul>
+				</li>
+				<li class="sitemap-item">
+					<a href="#!" class="depth1"><span>Global Network</span></a>
+					<ul class="submenu">
+						<li><a href="#!" class="depth2">Global Network</a></li>
+					</ul>
+				</li>
+				<li class="sitemap-item company">
+					<a href="#!" class="depth1"><span>Contact Us</span></a>
+					<ul class="submenu">
+						<li><a href="#!" class="depth2">Contact Us</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>`,
+		addClass: 'sitemap'
+	}) %>
+	<!-- // popup 전체메뉴  -->
+</header>

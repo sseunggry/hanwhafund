@@ -580,6 +580,73 @@
   }
 }
 
+html[lang="en"]{
+	.header{
+		.logo {
+			width: 31.2rem;
+			height: 3.1rem;
+			@include bg('common/en-logo.svg');
+		}
+		@include mq(1460){
+			.header-con{
+				.nav{
+					.gnb-list{
+						gap: 4rem;
+						font-size: 1.8rem;
+					}
+				}
+			}
+		}
+		@include mq(pc){
+			.header-con{
+				.nav{
+					display: none;
+				}
+				.util{
+					.lang{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.modal{
+		&.sitemap{
+			.sitemap-wrap{
+				.sitemap-list{
+					.sitemap-item{
+						.depth1{
+							white-space: nowrap;
+						}
+					}
+				}
+			}
+			@include mq(1400){
+				.sitemap-wrap{
+					.sitemap-list{
+						gap: 2rem;
+
+						.sitemap-item{
+							min-width: 25rem;
+						}
+					}
+				}
+			}
+			@include mq(1200){
+				.sitemap-wrap{
+					.sitemap-list{
+						.sitemap-item{
+							min-width: auto;
+							flex: 1;
+						}
+					}
+				}
+			}
+    }
+	}
+}
+
 // #modalSearch{
 //   .logo {
 //     width: 19.2rem;

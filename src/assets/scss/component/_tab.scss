@@ -10,6 +10,7 @@
 
   --#{$prefix}-tab--line-button-size-min-width: 20rem;
   --#{$prefix}-tab--line-button-padding-x: 2rem;
+  --#{$prefix}-tab--line-button-padding-y: 1.2rem;
   --#{$prefix}-tab--line-button-height: 6.4rem;
 }
 
@@ -124,9 +125,9 @@
 		}
 
     .btn-tab {
-      padding: 0 var(--#{$prefix}-tab--line-button-padding-x);
+      padding: 0 var(--#{$prefix}-tab--line-button-padding-x) var(--#{$prefix}-tab--line-button-padding-y);
       min-width: var(--#{$prefix}-tab--line-button-size-min-width);
-			height: var(--#{$prefix}-tab--line-button-height);
+			min-height: var(--#{$prefix}-tab--line-button-height);
 
       &::after {
         @include position($b: 0, $l: 50%);

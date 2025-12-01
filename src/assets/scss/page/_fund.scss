@@ -1208,6 +1208,8 @@
             width: 100%;
             height: fit-content;
             background-color: #f3f2f1;
+						border-bottom: 0.1rem solid #E6E5E5;
+						box-shadow: 0 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.08);
 
             ul {
               display: flex;

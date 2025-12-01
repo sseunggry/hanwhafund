@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '핵심가치 | 채용정보'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container company-employ">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">채용정보</h2>
+						</div>
+						<%
+						const board1 = `
+						board1
+						`;
+						const board2 = `
+						board2
+						`;
+						const board3 = `
+						board3
+						`;
+						%>
+						<%- include('../../components/tab.ejs', {
+							// active: 0,
+							variant: 'line',
+							tablist: ['핵심가치', '복리후생', '채용'],
+							contents: [board1, board2, board3],
+						}) -%>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

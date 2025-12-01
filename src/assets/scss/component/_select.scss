@@ -100,6 +100,16 @@ $form-select-size: (
 
     .select-option {
       padding: var(--#{$prefix}-form-select--option-padding-#{$size});
+			
+			&:has(.item-link){
+				padding: 0;
+
+				.item-link {
+					display: block;
+					padding: var(--#{$prefix}-form-select--option-padding-#{$size});
+					width: 100%;
+				}
+			}
     }
   }
 }

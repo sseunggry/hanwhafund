@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Business Overview | Our Company'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">Business Overview</h2>
+						</div>
+						<%
+						const table1 = include('../../components/table.ejs', { 
+							infoTxt: 'Unit: KRW million',
+							caption: 'Condensed Consolidated Statement of Comprehensive Income',
+							colWidths: ['30%', '30%', 'auto'],
+							thead: ['Items', '37th Fiscal Year (2024.01.01 ~ 2024.12.31)', '36th Fiscal Year (2023.01.01 ~ 2023.12.31)'],
+							tbody: [
+								['Operating Revenue', '2,684,362', '2,137,333'],
+								['Fee Income', '359,216', '328,843'],
+								['Gains on Valuation/Disposal of Securities', '368,225', '379,927'],
+								['Gains on Derivatives', '1,325,077', '836,776'],
+								['Other Income', '631,844', '591,787'],
+								['Operating Expenses', '2,617,720', '2,059,850'],
+								['Fee Expenses', '48,245', '37,462'],
+								['Losses on Valuation/Disposal of Securities', '548,659', '415,772'],
+								['Losses on Derivatives', '1,105,804', '781,925'],
+								['Other Expenses', '915,012', '824,691'],
+								['Operating Profit', '66,642', '77,483'],
+								['Non-operating Income and Expenses', '95,023', '(15,165)'],
+								['Income Tax Expense', '47,725', '15,672'],
+								['Net Income', '113,940', '46,646'],
+								['Other Comprehensive Income', '128,744', '9,626'],
+							],
+							addClass: 'scroll',
+						});
+						const table2 = include('../../components/table.ejs', { 
+							infoTxt: 'Unit: KRW million',
+							caption: 'Condensed Consolidated Statement of Financial Position',
+							colWidths: ['30%', '30%', 'auto'],
+							thead: ['Items', '37th Fiscal Year (2024.12.31)', '36th Fiscal Year (2023.12.31)'],
+							tbody: [
+								['Cash and Deposits', '1,105,284', '1,484,823'],
+								['Financial Assets at FVTPL', '9,568,213', '7,595,314'],
+								['Financial Assets at FVOCI', '970,262', '662,495'],
+								['Investments in Associates', '239,061', '361,447'],
+								['Derivative Assets', '386,661', '248,525'],
+								['Loans Receivable', '2,068,444', '2,965,272'],
+								['Investment Property', '84', '86'],
+								['Property, Plant and Equipment and Intangible Assets', '88,072', '62,861'],
+								['Right-of-use Assets', '48,185', '56,244'],
+								['Other Financial Assets', '502,410', '788,572'],
+								['Other Assets', '133,125', '151,455'],
+								{className: 'emphasis', data: ['<strong>Total Assets</strong>', '<strong>15,109,801</strong>', '<strong>14,382,022</strong>']},
+								['Deposit Liabilities', '902,653', '1,122,515'],
+								['Financial Liabilities at FVTPL', '1,765,887', '1,879,109'],
+								['Borrowings and Bonds Payable', '8,321,435', '7,151,943'],
+								['Derivative Liabilities', '565,297', '537,096'],
+								['Provisions', '65,857', '58,393'],
+								['Net Defined Benefit Liabilities', '7,939', '3,332'],
+								['Lease Liabilities', '48,626', '56,707'],
+								['Other Liabilities', '755,752', '1,140,280'],
+								{className: 'emphasis', data: ['<strong>Total Liabilities</strong>', '<strong>12,433,446</strong>', '<strong>11,949,375</strong>']},
+								['Capital Stock', '1,070,000', '1,070,000'],
+								['Additional Paid-in Capital', '3,394', '3,394'],
+								['Other Components of Equity', '101,673', '23,758'],
+								['Retained Earnings', '570,807', '478,060'],
+								['Non-controlling Interests', '930,481', '857,435'],
+								{className: 'emphasis', data: ['<strong>Total Equity</strong>', '<strong>2,676,355</strong>', '<strong>2,432,647</strong>']},
+							],
+							rowHeaders: true,
+							addClass: 'scroll'
+						});
+						%>
+						<%- include('../../components/tab.ejs', {
+							// active: 0,
+							variant: 'line',
+							tablist: ['Condensed Consolidated <br/> Statement of Comprehensive Income', 'Condensed Consolidated <br/> Statement of Financial Position'],
+							contents: [table1, table2],
+						}) -%>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

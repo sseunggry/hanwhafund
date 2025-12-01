@@ -13,36 +13,44 @@
 			<div class="nav">
 				<ul class="link-list">
 					<li><a href="#!">스튜어드십코드</a></li>
-					<!-- [2025-12-01] 클래스 추가 -->
+					<!-- [2025-12-03] 클래스 추가 -->
 					<li class="active"><a href="#!">개인정보처리방침</a></li>
-					<!-- [2025-12-01] 클래스 추가 -->
+					<!-- [2025-12-03] 클래스 추가 -->
 					<li><a href="#!">신용정보활용체계</a></li>
 					<li><a href="#!">고객정보취급방침</a></li>
-					<!-- [2025-12-01] 마크업 수정 -->
+					<!-- [2025-12-03] 마크업 수정 -->
 					<li><button data-modal-open="modalEmailCollection" aria-controls="modalEmailCollection">이메일무단수집거부</button></li>
-					<!-- // [2025-12-01] 마크업 수정 -->
+					<!-- // [2025-12-03] 마크업 수정 -->
 				</ul>
 				<ul class="link-list">
 					<li><a href="#!">윤리경영</a></li>
-					<!-- [2025-12-01] 마크업 수정 -->
+					<!-- [2025-12-03] 마크업 수정 -->
 					<li><button data-modal-open="modalLegalNotice" aria-controls="modalLegalNotice">법적고시</button></li>
-					<!-- // [2025-12-01] 마크업 수정 -->
+					<!-- // [2025-12-03] 마크업 수정 -->
 					<li><a href="#!">보험금융상품등록</a></li>
 					<li><a href="#!">금융소비자보호포탈</a></li>
 				</ul>
 			</div>
 			<div class="util">
+				<!-- [2025-12-03] 마크업 수정 -->
 				<div class="family-site">
 					<%- include('../components/select.ejs', {
 						size: 'medium',
 						name: 'family-site',
 						addClass: 'bg-gray ico-plus',
-						placeholder: '패밀리 사이트',
+						placeholder: '패밀리 사이트 및 유관기관',
+						optionsLength: 4,
 						options: [
-							{ value: 'site1', text: '사이트 1' },
-							{ value: 'site2', text: '사이트 2' },
+							{ value: 'hanwha', text: '(주)한화', url: 'https://www.hanwha.co.kr/', target: '_blank' },
+							{ value: 'lifeplus', text: 'LIFEPLUS', url: 'https://www.lifeplus.co.kr/', target: '_blank' },
+							{ value: 'hanwhaLife', text: '한화생명', url: 'https://www.hanwhalife.com/index.jsp', target: '_blank' },
+							{ value: 'hanwhawm', text: '한화투자증권', url: 'https://www.hanwhawm.com', target: '_blank' },
+							{ value: 'hwgeneralins', text: '한화손해보험', url: 'https://www.hwgeneralins.com', target: '_blank' },
+							{ value: 'hanwhasbank', text: '한화저축은행', url: 'https://www.hanwhasbank.com', target: '_blank' },
+							{ value: 'hanwhalifefs', text: '한화생명금융서비스', url: 'https://www.hanwhalifefs.com', target: '_blank' },
 						]
 					}) -%>
+					<!-- [2025-12-03] 마크업 수정 -->
 				</div>
 				<ul class="sns-list">
 					<li>

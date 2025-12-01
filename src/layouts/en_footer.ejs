@@ -1,0 +1,38 @@
+<footer class="footer">
+	<div class="inner">
+		<div class="footer-top">
+			<div class="logo"><span class="sr-only">한화자산운용</span></div>
+		</div>
+		<div class="footer-con">
+			<ul class="address">
+				<li>63 Hanwha Financial Center # 50 63-ro, Yeongdeungpo-gu, Seoul 150-603</li>
+				<li>TEL. 02.6950.0000</li>
+				<li>FAX. 02.6950.0009</li>
+			</ul>
+			<div class="util">
+				<div class="family-site">
+					<%- include('../components/select.ejs', {
+						size: 'medium',
+						name: 'family-site',
+						addClass: 'bg-gray ico-plus',
+						placeholder: 'FAMILY SITE',
+						options: [
+							{ value: 'site1', text: 'site 1' },
+							{ value: 'site2', text: 'site 2' },
+						]
+					}) -%>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+		</div>
+		<div class="footer-btn-top">
+			<%- include('../components/button.ejs', {
+				tag: 'a',
+				label: 'TOP',
+				preIcon: 'arrow-up',
+			}) -%>
+		</div>
+	</div>
+</footer>

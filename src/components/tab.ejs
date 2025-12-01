@@ -25,7 +25,7 @@
           <%- active === idx ? `class="active" aria-selected="true"` : `aria-selected="false"` %>
         >
           <button type="button" class="btn-tab">
-            <%= label %><%- active === idx ? '<span class="sr-only">선택됨</span>' : '' -%>
+            <%- label %><%- active === idx ? '<span class="sr-only">선택됨</span>' : '' -%>
           </button>
         </li>
       <% }) -%>
