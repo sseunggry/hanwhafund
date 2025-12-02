@@ -71,6 +71,13 @@ $fw-sizes: (
 		font-weight: 400;
 		color: var(--#{$prefix}-color-text-subtler);
 	}
+	.desc{
+		display: block;
+		width: 100%;
+		font-size: 1.8rem;
+		font-weight: 400;
+		color: var(--#{$prefix}-color-text-basic);
+	}
 }
 .txt-en{
   font-family: $font-family-en;

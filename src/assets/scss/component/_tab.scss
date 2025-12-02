@@ -178,13 +178,25 @@
 	}
 	@include mq(mobile){
     --#{$prefix}-tab--button-font-size: 2.1rem; 
-		--#{$prefix}-tab--line-button-height: 5.6rem;
+		--#{$prefix}-tab--line-button-height: 6.4rem;
+		--#{$prefix}-tab--line-button-padding-y: 1.6rem;
     // --#{$prefix}-tab--line-button-size-min-width: auto;
     // --#{$prefix}-tab--line-button-padding: 1.6rem 2rem;
 
 		&.line{
 			margin-left: calc(var(--#{$prefix}-content-padding-x) * -1);
 			margin-right: calc(var(--#{$prefix}-content-padding-x) * -1);
+
+			.btn-tab {
+				padding-top: var(--#{$prefix}-tab--line-button-padding-y);
+			}
+			.active{
+				.btn-tab{
+					&::before{
+						margin-top: 0;
+					}
+				}
+			}
 		}
 	}
 }

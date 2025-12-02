@@ -234,205 +234,16 @@
 			z-index: 1;
 		}
 	}
-}
 
-//오시는 길
-.company-map-wrap{
-	--company-map-gap: 4rem;
+	.grid-list-wrap{
+		--welfare-list-tit-gap: 2.4rem;
+		--welfare-list-li-gap: 4rem;
 
-	display: flex;
-	flex-direction: column;
-	gap: var(--company-map-gap);
-
-	.map-address{
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 2rem;
-
-		.txt-wrap{
-			width: 100%;
-
-			.tit{
-				color: var(--#{$prefix}-color-text-strong);
-				font-size: 2.8rem;
-				font-weight: 700;
-			}
-			.desc-list{
-				margin-top: 0.8rem;
-				display: flex;
-				color: var(--#{$prefix}-color-text-subtler);
-
-				li{
-					display: flex;
-					align-items: center;
-
-					&::after{
-						content: '';
-						display: block;
-						margin: 0 0.8rem;
-						width: 0.15rem;
-						height: 1.8rem;
-						background-color: #757070;
-					}
-
-					&:last-child::after{
-						display: none;
-					}
-				}
-			}
-		}
-		.btn-wrap{
-			flex-shrink: 0;
-			width: fit-content;
-		}
-	}
-	.map-area{
-		overflow: hidden;
-		position: relative;
-		// width: 100%;
-		// height: 64.9rem;
-		background-color: #D7D5D5;
-		border-radius: 0.2rem;
-
-		&::before{
-			content: '';
-			display: block;
-			padding-top: 49.92%;
-		}
-	}
-	.map-info{
-		dl{
-			display: flex;
-			gap: var(--company-map-gap);
-			border-bottom: 0.1rem solid #E7E5E4;
-			margin-bottom: var(--company-map-gap);
-
-			&:last-child{
-				border-bottom: 0;
-				margin-bottom: 0;
-			}
-		}
-		dt{
-			flex-shrink: 0;
-			width: 16rem;
-			color: var(--#{$prefix}-color-text-strong);
-			font-size: 2.8rem;
-			font-weight: 700;
-		}
-		dd{
-			width: 100%;
-		}
-		.tit{
-			display: flex;
-			align-items: center;
-			gap: 0.8rem;
-			margin-bottom: 2.4rem;
-			color: var(--#{$prefix}-color-text-strong);
-			font-size: 2.1rem;
-			font-weight: 600;
-
-			$numbers : 1, 5, 9;
-			@each $number in $numbers{
-				&.icon-line#{$number}{
-					&::before{
-						content: '';
-						display: inline-block;
-						@include square(2.4rem);
-						@include bg('company/ico-line#{$number}.svg');
-					}
-				}
-			}
-			&.line1{
-				color: #263C96;
-			}
-			&.line5{
-				color: #8936E0;
-			}
-			&.line9{
-				color: #D1A62C;
-			}
-		}
-		.transport-list{
-			> li{
-				margin-bottom: var(--company-map-gap);
-			}
-
-			&.grid-2{
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-			}
-		}
-
-		.gray-box{
-			padding: 2.4rem;
-			background-color: #F3F2F1;
-		}
-		.note-txt{
-			margin-top: 2.4rem;
-		}
-	}
-
-	@include mq(tablet){
-		.map-address{
-			flex-direction: column;
-			gap: 2.4rem;
-			align-items: flex-start;
-		}
-	}
-	@include mq(mobile){
-		--company-map-gap: 2.4rem;
-
-		.map-address{
-			.txt-wrap{
-				.tit{
-					font-size: 2.4rem;
-				}
-				.desc-list{
-					flex-direction: column;
-					li{
-						&::after{
-							display: none;
-						}
-					}
-				}
-			}
-			.btn-wrap{
-				width: 100%;
-				flex-wrap: wrap;
-				.btn{
-					flex: 1;
-				}
-			}
-		}
-		.map-info{
-			dl{
-				flex-direction: column;
-			}
-			dt{
-				font-size: 2.4rem;
-				width: 100%;
-			}
-			.tit{
-				margin-bottom: 1.6rem;
-			}
-			.transport-list{
-				&.grid-2{
-					grid-template-columns: auto;
-				}
-			}
-		}
-	}
-}
-
-//채용정보
-.company-employ{
-	.welfare-list-wrap{
 		> li{
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
-			gap: 4rem;
-			margin-bottom: 4rem;
+			gap: var(--welfare-list-li-gap);
+			margin-bottom: var(--welfare-list-li-gap);
 
 			&:last-child{
 				margin-bottom: 0;
@@ -455,7 +266,7 @@
 					display: flex;
 					align-items: center;
 					gap: 1.2rem;
-					margin-bottom: 2.4rem;
+					margin-bottom: var(--welfare-list-tit-gap);
 					color: var(--#{$prefix}-color-text-primary-dark);
 					font-size: 2.8rem;
 					font-weight: 700;
@@ -464,20 +275,482 @@
 						content: '';
 						display: inline-block;
 						@include square(3.2rem);
-						background: #F54500;
 					}
 				}
 			}
 			.txt-wrap{
 				display: flex;
 				flex-direction: column;
-				gap: 4rem;
+				gap: var(--welfare-list-li-gap);
 
 				dt{
-					margin-bottom: 2.4rem;
+					margin-bottom: var(--welfare-list-tit-gap);
 					color: var(--#{$prefix}-color-text-strong);
 					font-size: 2.1rem;
 					font-weight: 600;
+				}
+			}
+		}
+
+		@for $i from 1 through 4 {
+			.icon-welfare-0#{$i} {
+				&::before{
+					@include bg('company/ico-welfare-0#{$i}.png', $size: 2rem 2rem, $color: #F54500);
+				}
+			}
+		}
+
+		@include mq(tablet-small){
+			> li {
+				grid-template-columns: auto;
+			}
+		}
+
+		@include mq(mobile){
+			--welfare-list-tit-gap: 1.6rem;
+			--welfare-list-li-gap: 2.4rem;
+
+			> li {
+				.tit-wrap{
+					.tit{
+						font-size: 2.4rem;
+					}
+				}
+			}
+		}
+	}
+
+	//오시는 길
+	.company-map-wrap{
+		--company-map-gap: 4rem;
+	
+		display: flex;
+		flex-direction: column;
+		gap: var(--company-map-gap);
+	
+		.map-address{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+	
+			.txt-wrap{
+				width: 100%;
+	
+				.tit{
+					color: var(--#{$prefix}-color-text-strong);
+					font-size: 2.8rem;
+					font-weight: 700;
+				}
+				.desc-list{
+					margin-top: 0.8rem;
+					display: flex;
+					color: var(--#{$prefix}-color-text-subtler);
+	
+					li{
+						display: flex;
+						align-items: center;
+	
+						&::after{
+							content: '';
+							display: block;
+							margin: 0 0.8rem;
+							width: 0.15rem;
+							height: 1.8rem;
+							background-color: #757070;
+						}
+	
+						&:last-child::after{
+							display: none;
+						}
+					}
+				}
+			}
+			.btn-wrap{
+				flex-shrink: 0;
+				width: fit-content;
+			}
+		}
+		.map-area{
+			overflow: hidden;
+			position: relative;
+			// width: 100%;
+			// height: 64.9rem;
+			background-color: #D7D5D5;
+			border-radius: 0.2rem;
+	
+			&::before{
+				content: '';
+				display: block;
+				padding-top: 49.92%;
+			}
+		}
+		.map-info{
+			dl{
+				display: flex;
+				gap: var(--company-map-gap);
+				border-bottom: 0.1rem solid #E7E5E4;
+				margin-bottom: var(--company-map-gap);
+	
+				&:last-child{
+					border-bottom: 0;
+					margin-bottom: 0;
+				}
+			}
+			dt{
+				flex-shrink: 0;
+				width: 16rem;
+				color: var(--#{$prefix}-color-text-strong);
+				font-size: 2.8rem;
+				font-weight: 700;
+			}
+			dd{
+				width: 100%;
+			}
+			.tit{
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+				margin-bottom: 2.4rem;
+				color: var(--#{$prefix}-color-text-strong);
+				font-size: 2.1rem;
+				font-weight: 600;
+	
+				$numbers : 1, 5, 9;
+				@each $number in $numbers{
+					&.icon-line#{$number}{
+						&::before{
+							content: '';
+							display: inline-block;
+							@include square(2.4rem);
+							@include bg('company/ico-line#{$number}.svg');
+						}
+					}
+				}
+				&.line1{
+					color: #263C96;
+				}
+				&.line5{
+					color: #8936E0;
+				}
+				&.line9{
+					color: #D1A62C;
+				}
+			}
+			.transport-list{
+				> li{
+					margin-bottom: var(--company-map-gap);
+				}
+	
+				&.grid-2{
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+				}
+			}
+	
+			.gray-box{
+				padding: 2.4rem;
+				background-color: #F3F2F1;
+			}
+			.note-txt{
+				margin-top: 2.4rem;
+			}
+		}
+	
+		@include mq(tablet){
+			.map-address{
+				flex-direction: column;
+				gap: 2.4rem;
+				align-items: flex-start;
+			}
+		}
+		@include mq(mobile){
+			--company-map-gap: 2.4rem;
+	
+			.map-address{
+				.txt-wrap{
+					.tit{
+						font-size: 2.4rem;
+					}
+					.desc-list{
+						flex-direction: column;
+						li{
+							&::after{
+								display: none;
+							}
+						}
+					}
+				}
+				.btn-wrap{
+					width: 100%;
+					flex-wrap: wrap;
+					.btn{
+						flex: 1;
+					}
+				}
+			}
+			.map-info{
+				dl{
+					flex-direction: column;
+				}
+				dt{
+					font-size: 2.4rem;
+					width: 100%;
+				}
+				.tit{
+					margin-bottom: 1.6rem;
+				}
+				.transport-list{
+					&.grid-2{
+						grid-template-columns: auto;
+					}
+				}
+			}
+		}
+	}
+	
+	//채용정보
+	.company-employ{
+		.section-employ{
+			--section-tit-wrap-margin-bottom: 6.4rem;
+		
+			.tab-conts{
+				.cont-group{
+					padding: 0;
+				}
+				// .section-tit-wrap{
+				// 	margin-bottom: var(--section-tit-wrap-margin-bottom);
+				// }
+			}
+		
+			@include mq(mobile){
+				--section-tit-wrap-margin-bottom: 4rem;
+			}
+			
+			//복리후생
+			.welfare{
+				// .welfare-list-wrap{
+				// 	--welfare-list-tit-gap: 2.4rem;
+				// 	--welfare-list-li-gap: 4rem;
+			
+				// 	> li{
+				// 		display: grid;
+				// 		grid-template-columns: repeat(2, 1fr);
+				// 		gap: var(--welfare-list-li-gap);
+				// 		margin-bottom: var(--welfare-list-li-gap);
+			
+				// 		&:last-child{
+				// 			margin-bottom: 0;
+				// 			&::after{
+				// 				display: none;
+				// 			}
+				// 		}
+			
+				// 		&::after{
+				// 			content: '';
+				// 			display: block;
+				// 			grid-column: -1 / 1;
+				// 			width: 100%;
+				// 			height: 0.1rem;
+				// 			background-color: #E6E5E5;
+				// 		}
+			
+				// 		.tit-wrap{
+				// 			.tit{
+				// 				display: flex;
+				// 				align-items: center;
+				// 				gap: 1.2rem;
+				// 				margin-bottom: var(--welfare-list-tit-gap);
+				// 				color: var(--#{$prefix}-color-text-primary-dark);
+				// 				font-size: 2.8rem;
+				// 				font-weight: 700;
+			
+				// 				&::before{
+				// 					content: '';
+				// 					display: inline-block;
+				// 					@include square(3.2rem);
+				// 				}
+				// 			}
+				// 		}
+				// 		.txt-wrap{
+				// 			display: flex;
+				// 			flex-direction: column;
+				// 			gap: var(--welfare-list-li-gap);
+			
+				// 			dt{
+				// 				margin-bottom: var(--welfare-list-tit-gap);
+				// 				color: var(--#{$prefix}-color-text-strong);
+				// 				font-size: 2.1rem;
+				// 				font-weight: 600;
+				// 			}
+				// 		}
+				// 	}
+			
+				// 	@for $i from 1 through 4 {
+				// 		.icon-welfare-0#{$i} {
+				// 			&::before{
+				// 				@include bg('company/ico-welfare-0#{$i}.png', $size: 2rem 2rem, $color: #F54500);
+				// 			}
+				// 		}
+				// 	}
+			
+				// 	@include mq(tablet-small){
+				// 		> li {
+				// 			grid-template-columns: auto;
+				// 		}
+				// 	}
+			
+				// 	@include mq(mobile){
+				// 		--welfare-list-tit-gap: 1.6rem;
+				// 		--welfare-list-li-gap: 2.4rem;
+			
+				// 		> li {
+				// 			.tit-wrap{
+				// 				.tit{
+				// 					font-size: 2.4rem;
+				// 				}
+				// 			}
+				// 		}
+				// 	}
+				// }
+			}
+			.recruit{
+				.process-wrap{
+					padding: 8rem 6rem;
+					background-color: #FAFAFA;
+	
+					.process-list{
+						--process-list-point-color: #F54500;
+	
+						position: relative;
+						display: flex;
+						justify-content: space-between;
+	
+						&.navy{
+							--process-list-point-color: #02204B;
+						}
+	
+						&::before{
+							content: '';
+							position: absolute;
+							top: 1.8rem;
+							left: 50%;
+							transform: translateX(-50%);
+							display: block;
+							width: 94%;
+							height: 0.1rem;
+							background-color: var(--process-list-point-color);
+						}
+	
+						li{
+							position: relative;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							gap: 0.8rem;
+	
+							&:first-child, &:last-child{
+								.num{
+									color: #fff;
+									background-color: var(--process-list-point-color);
+								}
+							}
+						}
+	
+						.num{
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							flex-shrink: 0;
+							@include square(3.6rem);
+							color: var(--process-list-point-color);
+							font-size: 1.6rem;
+							font-weight: 700;
+							background-color: #FAFAFA;
+							border: 0.1rem solid var(--process-list-point-color); 
+							border-radius: 0.2rem; 
+						}
+						.tit{
+							display: flex;
+							flex-direction: column;
+							gap: 0.8rem;
+							text-align: center;
+						}
+					}
+				}
+	
+				@include mq(960){
+					.process-wrap{
+						padding: 6rem 4rem;
+					}
+				}
+				@include mq(tablet-small){
+					.process-wrap{
+						padding: 4rem 2.4rem;
+						
+						br{
+							display: none;
+						}
+						
+						.process-list{
+							flex-direction: column;
+							gap: 4rem;
+	
+							&::before{
+								top: 50%;
+								left: 1.8rem;
+								transform: translate(0, -50%);
+								width: 0.1rem;
+								height: 94%;
+							}
+	
+							li{
+								flex-direction: row;
+								align-items: flex-start;
+								gap: 2.4rem;
+							}
+							.tit{
+								padding-top: 0.4rem;
+								text-align: left;
+							}
+						}
+					}
+				}
+			}
+		}
+		.section-banner{
+			padding: 8rem 0;
+			@include bg('company/employ-banner.png');
+	
+			.txt-wrap{
+				color: #fff;
+				text-align: center;
+	
+				.tit{
+					margin-bottom: 2.4rem;
+					font-size: 4.8rem;
+					font-weight: 700;
+					word-break: keep-all;
+				}
+				.desc{
+					margin: 0 auto;
+					width: 80%;
+					font-weight: 500;
+					word-break: keep-all;
+				}
+				.btn{
+					margin-top: 6.4rem;
+				}
+			}
+	
+			@include mq(mobile){
+				.txt-wrap{
+					.tit{
+						font-size: 3.2rem;
+					}
+					.btn{
+						margin-top: 4rem;
+					}
 				}
 			}
 		}

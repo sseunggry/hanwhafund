@@ -43,7 +43,8 @@ html{
 .flex-row{flex-direction: row !important;};
 
 .fc-white{color: var(--#{$prefix}-color-text-white) !important;}
-.fc-gray{color: var(var(--#{$prefix}-color-gray-70)) !important;}
+.fc-gray{color: var(--#{$prefix}-color-gray-70) !important;}
+.fc-light-gray{color: var(--#{$prefix}-color-text-subtler) !important;}
 .fc-red{color: #F94339 !important;}
 .fc-primary{color: var(--#{$prefix}-color-text-primary-dark) !important;}
 .fc-black{color: var(--#{$prefix}-color-text-basic) !important;}

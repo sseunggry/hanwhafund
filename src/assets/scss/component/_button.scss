@@ -295,6 +295,12 @@ $button-color-variable: (
     .svg-icon{
       background-color: currentColor;
     }
+
+		&.white{
+			color: #fff;
+			border-color: #fff;
+			background-color: transparent;
+		}
 	}
 
   /* --- Variant: Line Button (.line) --- */
