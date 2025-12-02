@@ -11149,20 +11149,6 @@ html[lang=en] .footer-top .logo {
 		flex-direction: column
 	}
 
-	.page-fund .fund-main .section-detail .overlay-box-wrap {
-		flex-direction: column
-	}
-
-	.page-fund .fund-main .section-detail .overlay-box-wrap .visual-box {
-		width: 100%
-	}
-
-	.page-fund .fund-main .section-detail .overlay-box-wrap .info-box {
-		margin-top: -4rem;
-		margin-left: 0;
-		width: 100%
-	}
-
 	.page-fund .fund-main .section-detail .reference-wrap {
 		flex-direction: column;
 		gap: 4rem
@@ -11278,18 +11264,6 @@ html[lang=en] .footer-top .logo {
 	.page-fund .fund-main .section-detail .guide-wrap .guide-item .info-box dl:last-child {
 		padding-bottom: 0;
 		border-bottom: none
-	}
-
-	.page-fund .fund-main .section-detail .overlay-box-wrap {
-		margin: 0 var(--layout-full-width)
-	}
-
-	.page-fund .fund-main .section-detail .overlay-box-wrap .visual-box {
-		padding: 4rem var(--hwf-content-padding-x)
-	}
-
-	.page-fund .fund-main .section-detail .overlay-box-wrap .info-box {
-		padding: 4rem var(--hwf-content-padding-x)
 	}
 
 	.page-fund .fund-main .section-detail .reference-wrap {
@@ -13706,6 +13680,81 @@ html[lang=en] .footer-top .logo {
 	}
 }
 
+.page-company .company-employ .section-employ .value .talent-list-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: 8rem
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .visual-box {
+	overflow: hidden;
+	position: relative;
+	height: 44.8rem
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .visual-box img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box {
+	padding-left: 10rem;
+	padding-right: 10rem;
+	width: 63.3%;
+	min-height: 44.8rem
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap .sub-tit {
+	color: var(--hwf-color-text-primary-dark);
+	font-size: 1.8rem;
+	font-weight: 600
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap .tit {
+	color: var(--hwf-color-text-strong);
+	font-size: 3.6rem;
+	font-weight: 700
+}
+
+.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .note-list {
+	margin-top: 4rem
+}
+
+@media(max-width: 1024px) {
+	.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box {
+		padding: 8rem;
+		width: 100%;
+		min-height: auto
+	}
+}
+
+@media(max-width: 640px) {
+	.page-company .company-employ .section-employ .value .talent-list-wrap {
+		margin: calc(var(--hwf-content-padding-x)*-1);
+		gap: 4rem
+	}
+
+	.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box {
+		padding: 4rem var(--hwf-content-padding-x)
+	}
+
+	.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap .tit {
+		font-size: 2.8rem
+	}
+}
+
 .page-company .company-employ .section-employ .recruit .process-wrap {
 	padding: 8rem 6rem;
 	background-color: #fafafa
@@ -13887,6 +13936,37 @@ section.bg-gray {
 	border-left: .1rem solid hsla(0, 0%, 100%, .3);
 	background: rgba(225, 224, 224, .2);
 	backdrop-filter: blur(1rem)
+}
+
+@media(max-width: 1024px) {
+	.overlay-box-wrap {
+		flex-direction: column
+	}
+
+	.overlay-box-wrap .visual-box {
+		width: 100%
+	}
+
+	.overlay-box-wrap .info-box {
+		margin-top: -4rem;
+		margin-left: 0;
+		width: 100%
+	}
+}
+
+@media(max-width: 640px) {
+	.overlay-box-wrap {
+		margin: 0 var(--layout-full-width)
+	}
+
+	.overlay-box-wrap .visual-box {
+		padding: 4rem var(--hwf-content-padding-x)
+	}
+
+	.overlay-box-wrap .info-box {
+		padding: 4rem var(--hwf-content-padding-x);
+		background: linear-gradient(to bottom, rgba(225, 224, 224, 0.2) 0%, rgba(225, 224, 224, 0) 100%)
+	}
 }
 
 .pipe-list {
