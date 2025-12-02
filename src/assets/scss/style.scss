@@ -74,6 +74,61 @@ section{
 	}
 }
 
+.gray-box-wrap {
+	display: flex;
+	gap: 2.4rem;
+
+	.gray-box {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+		padding: 3.2rem 2rem 0;
+		background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%);
+
+		.tit-wrap{
+			padding: 0 2rem;
+			word-break: keep-all;
+
+			.sub-tit{
+				margin-bottom: 0.8rem;
+				color: var(--#{$prefix}-color-text-primary-dark);
+				font-size: 2.1rem;
+				font-weight: 500;
+			}
+			.tit-sm{
+				font-weight: 600;
+			}
+		}
+		.white-box{
+			padding: 2.4rem 2rem;
+			word-break: keep-all;
+			background-color: #fff;
+		}
+	}
+
+	@include mq(tablet){
+		flex-direction: column;
+	}
+	@include mq(mobile){
+		.gray-box {
+			padding: 2.4rem 1.2rem 0;
+
+			.tit-wrap{
+				padding: 0 1.2rem;
+
+				br{
+					display: none;
+				}
+			}
+			.white-box{
+				padding-left: 1.2rem;
+				padding-right: 1.2rem;
+			}
+		}
+	}
+}
+
 .pipe-list {
   display: flex;
   align-items: center;
