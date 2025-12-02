@@ -50,6 +50,28 @@ section{
 
 		@include translucent(rgba(225, 224, 224, 0.2), 1rem, rgba(255, 255, 255, 0.3));
   }
+
+	@include mq(tablet){
+		flex-direction: column;
+		.visual-box {
+			width: 100%;
+		}
+		.info-box {
+			margin-top: -4rem;
+			margin-left: 0;
+			width: 100%;
+		}
+	}
+	@include mq(mobile){
+		margin: 0 var(--layout-full-width);
+		.visual-box {
+			padding: 4rem var(--#{$prefix}-content-padding-x);
+		}
+		.info-box {
+			padding: 4rem var(--#{$prefix}-content-padding-x);
+			background: linear-gradient(to bottom, rgba(225, 224, 224, 0.2) 0%,rgba(225, 224, 224, 0) 100%);
+		}
+	}
 }
 
 .pipe-list {
