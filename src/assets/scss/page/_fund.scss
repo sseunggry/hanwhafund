@@ -195,8 +195,9 @@
 					margin-bottom: 0;
 				}
 				a {
-					display: block;
+					display: flex;
 					padding: 1.4rem 5.4rem;
+					padding-right: 0;
 					color: var(--#{$prefix}-color-text-subtler);
 				}
 
@@ -212,6 +213,7 @@
 							content: "";
 							display: inline-block;
 							margin-right: 0.4rem;
+							flex-shrink: 0;
 							width: 0.6rem;
 							height: 0.6rem;
 							background-color: #f54500;
