@@ -247,7 +247,7 @@ td .note-list.option-fold.is-open > li {
   display: block;
 }
 .note-list.option-fold > li:first-child:after {
-  content: "ë”ë³´ê¸°";
+  content: "더보기";
   margin-left: 0.4rem;
   padding: 0.2rem 0.4rem;
   border: 0.1rem solid #e2e4e9;
@@ -256,7 +256,7 @@ td .note-list.option-fold.is-open > li {
   font-family: "Pretendard", Pretendard;
 }
 .note-list.option-fold.is-open > li:first-child:after {
-  content: "ë‹«ê¸°";
+  content: "접기";
 }
 .btn-memo-all {
   padding: 0 0.4rem;
