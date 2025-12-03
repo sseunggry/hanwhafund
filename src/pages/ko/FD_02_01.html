@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 		<%- include('../../layouts/head.ejs', { 
-			title : '상품상세'
+			title : '개인 | 연금펀드 | 한화펀드'
 		}) -%>
 	</head>
 	<body class="page-fund">
@@ -12,524 +12,137 @@
 			<!-- // header -->
 			
 			<!-- container -->
-			<main class="container fund-main">
+			<main class="container fund-pension">
 				<section class="section-visual">
 					<div class="inner">
-						<div class="fund-info motion fade-up">
-							<div class="fund-top">
-								<div class="fund-category">
-									<ul class="pipe-list">
-										<li>국내</li>
-										<li>주식</li>
-										<li>글로벌</li>
-									</ul>
-									<%- include('../../components/button.ejs', {
-										variant: 'icon',
-										label: '공유하기',
-										size: 'xxlarge',
-										icon: 'share',
-										addClass: 'bg-gray round',
-										targetType: 'popover',
-										targetId: 'popover-share',
-										popoverPos: 'bottom-left'
-									}) -%>
-								</div>
-								<!-- [2025-11-21] tit-lg 클래스 삭제 -->
-								<h2 class="fund-tit fc-white">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</h2>
-								<!-- // [2025-11-21] tit-lg 클래스 삭제 -->
-								<div class="fund-actions">
-									<%- include('../../components/select.ejs', {
-										variant: 'underline',
-										name: 'fund-code-select',
-										size: 'large',
-										addClass: 'white',
-										options: [
-											{ value: 'A', text: 'A(수수료선취-오프라인)' },
-											{ value: 'Ae', text: 'Ae(수수료선취-온라인)' },
-											{ value: 'C4', text: 'C4(수수료미징구-오프라인-보수체감)' },
-											{ value: 'Ce', text: 'Ce(수수료미징구-온라인)' },
-											{ value: 'S', text: 'S(수수료후취-온라인슈퍼)' },
-										]
-									}) -%>
-									<%- include('../../components/button.ejs', {
-										variant: 'primary',
-										label: '클래스 비교',
-										size: 'medium',
-										targetType: 'modal',
-										targetId: 'modalClassCompare',
-									}) -%>
-								</div>
-							</div>
-							<ul class="fund-summary">
-								<li>
-									<div class="summary-tit">
-										<p class="tit">기준가(전일대비)</p>
-										<%- include('../../components/button.ejs', {
-											variant: 'icon',
-											label: '더보기',
-											size: 'xlarge',
-											icon: 'plus-fill',
-											targetType: 'modal',
-											targetId: 'modalDailyPrice'
-										}) -%>
-									</div>
-									<div class="summary-con">
-										<p class="value">
-											<strong>1,220.00</strong>
-											<span class="unit">원</span>
-										</p>
-										<p class="change bg up">19.24원(1.60%)</p>
-									</div>
-								</li>
-								<li>
-									<div class="summary-tit">
-										<p class="tit">수익률(1주 기준)</p>
-									</div>
-									<div class="summary-con">
-										<p class="value">
-											<strong>6.48</strong>
-											<span class="unit">%</span>
-										</p>
-										<p class="change bg down">1.60%</p>
-									</div>
-								</li>
-								<li>
-									<div class="summary-tit">
-										<p class="tit">총보수(연기준)</p>
-									</div>
-									<div class="summary-con">
-										<p class="value">
-											<strong>0.5090</strong>
-											<span class="unit">%</span>
-										</p>
-									</div>
-								</li>
-								<li>
-									<div class="summary-tit">
-										<p class="tit">순자산</p>
-									</div>
-									<div class="summary-con">
-										<p class="value">
-											<strong>33.3</strong>
-											<span class="unit">억원</span>
-										</p>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="fund-briefing motion opacity" id="fund-briefing" data-delay="0.2">
-							<div class="tit-wrap">
-								<h3 class="tit">펀드 브리핑</h3>
-							</div>
-							<dl class="desc-wrap motion fade-up">
-								<dt>펀드 특징</dt>
-								<dd>국내 우량 채권에 안정적으로 투자 낮은 위험등급(5등급)으로 꾸준한 이자 수익을 추구하는 채권형 펀드</dd>
-							</dl>
-							<dl class="desc-wrap motion fade-up" data-delay="0.2">
-								<dt>투자 포인트</dt>
-								<dd>장기 안정적 성과 + 분산투자로 신용위험 완화</dd>
-								<dd>저평가 회사채 발굴로 추가 수익 기회</dd>
-								<dd>ESG 평가 반영으로 지속가능한 투자</dd>
-							</dl>
-							<dl class="desc-wrap motion fade-up" data-delay="0.4">
-								<dt>투자 포인트</dt>
-								<dd>예금 이상의 수익을 원하면서도 안정성을 중시하는 투자자</dd>
-								<dd>장기적으로 꾸준히 자산을 불리고 싶은 투자자</dd>
-							</dl>
-						</div>
 					</div>
 				</section>
 				<section class="section-detail">
-					<div class="top-fixed">
-						<div class="inner">
-							<div class="summary">
-								<p class="name">한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</p>
-								<%- include('../../components/button.ejs', {
-									variant: '',
-									hierarchy: 'secondary',
-									label: '클래스 비교',
-									size: 'small',
-									targetType: 'modal',
-									targetId: 'modalClassCompare',
-								}) -%>
-							</div>
-							<div class="btn-wrap">
-								<%- include('../../components/button.ejs', {
-									tag: 'a',
-									url: '#fund-briefing',
-									variant: 'text',
-									label: '펀드 브리핑',
-									size: 'large',
-									preIcon: 'ai-star',
-									addClass: 'fw-sb'
-								}) -%>
-								<%- include('../../components/button.ejs', {
-									variant: 'icon',
-									label: '공유하기',
-									size: 'xxlarge',
-									icon: 'share',
-									addClass: 'bg-white round',
-									targetType: 'popover',
-									targetId: 'popover-share',
-									popoverPos: 'bottom-right'
-								}) -%>
-							</div>
-						</div>
-					</div>
 					<div class="layout-sidebar">
 						<div class="layout-inner">
 							<aside class="sidebar">
 								<ul>
-									<li class="active"><a href="#performance" aria-current="page">수익률</a></li>
-									<li><a href="#assets">자산구성</a></li>
-									<li><a href="#fees">보수 및 수수료</a></li>
-									<li><a href="#info">상품정보</a></li>
+									<li class="active"><a href="#performance" aria-current="page">연금저축이란</a></li>
+									<li><a href="#assets">연금저축 개요</a></li>
+									<li><a href="#fees">세제 혜택 및 과세체계</a></li>
+									<li><a href="#info">한화자산운용 연금펀드의 특징</a></li>
 								</ul>
 							</aside>
 
 							<div class="layout-content">
 								<section id="performance" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
-										<p class="sub-tit txt-gradient">이 상품의 지난 기록을 살펴볼까요?</p>
-										<h2 class="tit">수익률</h2>
+										<h2 class="tit">연금저축이란?</h2>
+										<p class="desc-small">노후 준비와 절세를 함께 원하는 개인이 일정 금액을 적립하고 다양한 펀드를 운용하면서 만 55세 이후 연금으로 수령하는 세제혜택 상품입니다.</p>
 									</div>
-									<div class="chart-wrap line">
-										<div class="chart-top">
-											<p class="date">기준일 2025.10.17</p>
-											<div class="filter-period">
-												<%- include('../../components/segmentControl.ejs', {
-													tag: 'button',
-													variant: 'bg',
-													items: [
-														{ label: '1주' },
-														{ label: '1개월' },
-														{ label: '3개월' },
-														{ label: '6개월' },
-														{ label: '1년' },
-														{ label: '3년' },
-														{ label: '5년' },
-														{ label: '연초이후' },
-														{ label: '설정이후' }
-													]
-												}) -%>
-												<div class="pc-only">
-													<div class="form-input-group">
-														<%- include('../../components/calendar.ejs', {
-															size: 'large'
-														}) -%>
-														<%- include('../../components/button.ejs', {
-															label: '검색',
-															size: 'large',
-														}) -%>
-													</div>
-												</div>
-												<div class="mobile-only justify-end">
-													<%- include('../../components/button.ejs', {
-														tag: 'button',
-														variant: 'text',
-														label: '직접설정',
-														size: 'large',
-														preIcon: 'filter',
-														targetType: 'modal',
-														targetId: 'mobilFilterBottomSheet',
-														addClass: 'calendarOpen'
-													}) -%>
-												</div>
-											</div>
-										</div>
-										<div class="chart-con">
-											<div class="chart-area">
-												<div class="chart">
-													<!-- Chart 영역 -->
-												</div>
-											</div>
-											<div class="chart-legend">
-												<ul class="legend-list">
-													<li>
-														<span class="key"></span>
-														<span class="label">펀드 수익률</span>
-													</li>
-													<li>
-														<span class="key"></span>
-														<span class="label">벤치마크 수익률</span>
-													</li>
-											</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">연금저축 특징</h3>
+										<div class="gray-box">
+
 										</div>
 									</div>
-									<div class="group-wrap gap-40">
-										<h3 class="tit-sm">기간별 수익률 <small>단위 %</small></h3>
-										<!-- [2025-12-05] th scope="row" -> td 태그로 변경 -->
-										<%- include('../../components/table.ejs', { 
-											caption: '기간별 수익률',
-											colWidths: ['auto', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%', '9.5%'],
-											thead: ['구분', '1주', '1개월', '3개월', '6개월', '1년', '3년', '5년', '연초이후', '설정이후'],
-											tbody: [
-												['펀드 수익률', '2.13', '59.16', '66.89', '46.07', '59.50', '62.11', '80.12', '4.12', '2.12'],
-												['벤치마크 수익률', '4.78', '58.58', '62.25', '41.47', '40.75', '42.12', '40.21', '5.45', '3.98']
-											],
-											// rowHeaders: true,
-											addClass: 'scroll'
-										}) %>
-										<!-- // [2025-12-05] th scope="row" -> td 태그로 변경 -->
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">연금저축, 왜 필요할까요?</h3>
+										<div class="txt-wrap">
+											<p class="desc">100세 시대를 맞아 은퇴 후 약 40년간 필요한 노후 생활비는 기본 생활비 약 240만 원, 적정 생활비 약 336만 원, 여유 생활비는 약 400만 원 이상으로 예상됩니다. 하지만 국민연금과 퇴직연금만으로는 이러한 생활비를 충족하기 어려워 (개인)연금저축 가입이 필수적입니다.</p>
+											<p class="note-txt">(출처: 통계청 <가계금융복지조사>, 2024년)</p>
+										</div>
 									</div>
 									<div class="group-wrap">
-										<h3 class="tit-sm">위험수준</h3>
-										<div class="chart-wrap bar">
-											<div class="chart-con">
-												<ul class="chart-area">
-													<!-- [2025-11-21] 클래스명 수정 -->
-													<li class="level level6">
-														<span class="bar"></span>
-														<p class="label">매우 <br class="mobile-only"/> 낮음</p>
-													</li>
-													<li class="level level5">
-														<span class="bar"></span>
-														<p class="label">낮음</p>
-													</li>
-													<li class="level level4">
-														<span class="bar"></span>
-														<p class="label">보통</p>
-													</li>
-													<li class="level level3 active">
-														<!-- [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
-														<span class="bar motion chart-bar-up"></span>
-														<!-- // [D] : active 되는 bar 요소에 motion chart-bar-up 클래스 추가 -->
-														<p class="label">다소 <br class="mobile-only"/> 높음</p>
-													</li>
-													<li class="level level2">
-														<span class="bar"></span>
-														<p class="label">높음</p>
-													</li>
-													<li class="level level1">
-														<span class="bar"></span>
-														<p class="label">매우 <br class="mobile-only"/> 높음</p>
-													</li>
-													<!-- // [2025-11-21] 클래스명 수정 -->
-												</ul>
-												<div class="chart-summary">
-													<div class="txt-wrap">
-														<!-- [2025-11-21] 클래스명 수정 -->
-														<%- include('../../components/badge.ejs', { 
-																variant: 'solid', color: 'level3', label: '4등급' 
-														}) -%>
-														<!-- // [2025-11-21] 클래스명 수정 -->
-														<p class="tit-sm">다소 높은 위험</p>
-													</div>
-													<p class="desc">단기적으로 큰 손실이 발생할 수 있으므로 장기 투자가 필요합니다</p>
-												</div>
-											</div>
+										<div class="gray-box">
+											<p class="tit-sm">늘어나는 수명과 달리 앞당겨지는 은퇴 시기 <br/> 반드시 필요한 노후 대비, 연금 투자는 선택이 아닌 필수입니다</p>
+										</div>
+									</div>
+									<div class="group-wrap">
+										<div class="gray-box">
+											<p class="tit-sm">국민 노후준비 수준은 70점으로 은퇴 후 안정적 노후 소득 마련을 위해서는 <br/> 3층 보장 연금체계 기반 자산 형성이 필요합니다</p>
 										</div>
 									</div>
 								</section>
 								<section id="assets" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
-										<p class="sub-tit txt-gradient">이 상품은 여기에 투자하고 있어요!</p>
-										<h2 class="tit">자산구성</h2>
+										<h2 class="tit">연금저축 개요</h2>
 									</div>
-									<div class="chart-wrap doughnut">
-										<div class="chart-con">
-											<div class="chart-area">
-												<div class="chart">
-													<!-- Chart 영역 -->
-												</div>
-												<dl class="doughnut-txt">
-													<dt class="label">수익증권비</dt>
-													<dd class="value">81.5</dd>
-												</dl>
-											</div>
-											<div class="chart-legend">
-												<ul class="legend-list">
-													<li>
-														<span class="key"></span>
-														<span class="label">수익증권비</span>
-														<span class="value">81.5%</span>
-													</li>
-													<li>
-														<span class="key"></span>
-														<span class="label">현금비</span>
-														<span class="value">13%</span>
-													</li>
-													<li>
-														<span class="key"></span>
-														<span class="label">주식비</span>
-														<span class="value">5.5%</span>
-													</li>
-												</ul>
-												<p class="date">기준일 2025.10.17</p>
-											</div>
-										</div>
-									</div>
-									<div class="group-flex-wrap">
-										<div class="group-wrap">
-											<h3 class="tit-sm line-bottom pb-24">주식 보유 비중 TOP 5</h3>
-											<div class="chart-wrap pie">
-												<div class="chart-con">
-													<div class="chart-area">
-														<div class="chart">
-															<!-- Chart 영역 -->
-														</div>
-													</div>
-													<div class="chart-legend">
-														<ul class="legend-list">
-															<li>
-																<span class="key"></span>
-																<span class="label">삼성전자</span>
-																<span class="value">20.51%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">SK하이닉스</span>
-																<span class="value">9.07%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">LG에너지솔루션</span>
-																<span class="value">3.15%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">삼성바이오로직스</span>
-																<span class="value">2.96%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">효성중공업</span>
-																<span class="value">2.54%</span>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="group-wrap">
-											<h3 class="tit-sm line-bottom pb-24">채권 보유 비중 TOP 5</h3>
-											<div class="chart-wrap pie">
-												<div class="chart-con">
-													<div class="chart-area">
-														<div class="chart">
-															<!-- Chart 영역 -->
-														</div>
-													</div>
-													<div class="chart-legend">
-														<ul class="legend-list">
-															<li>
-																<span class="key"></span>
-																<span class="label">국고02750-5409(국고24-8)</span>
-																<span class="value">6.7%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">국고03500-3406(국고24-5)</span>
-																<span class="value">6.5%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">삼성카드2693</span>
-																<span class="value">5.2%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">신한카드2234-2</span>
-																<span class="value">4.8%</span>
-															</li>
-															<li>
-																<span class="key"></span>
-																<span class="label">HD현대14-3</span>
-																<span class="value">3.4%</span>
-															</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+									<%- include('../../components/table.ejs', { 
+										caption: '기간별 수익률',
+										colWidths: ['auto', '28%', '28%', '28%'],
+										thead: ['구분', {text: '연금저축펀드', class: 'emphasis'}, '연금저축보험', '연금저축신탁'],
+										tbody: [
+											['가입대상', {text: '자산운용사', class: 'emphasis'}, '보험사', '은행'],
+											['주요판매사', {text: '증권사, 은행, 보험사', class: 'emphasis'}, '증권사, 은행, 보험사', '은행'],
+											['납입방식', {text: '자유납입', class: 'emphasis'}, '정기납입', '자유납입'],
+											['연금지급방식', {text: '확정기간형(제한 없음)', class: 'emphasis'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
+											['원금보장', {text: '비보장', class: 'emphasis'}, '보장', '비보장'],
+											['예금자보호', {text: '비보호', class: 'emphasis'}, '보호', '보호'],
+											['가입 대상', {text: '연령 제한 없이 누구나 가입 가능', colspan: 3, align: 'left'}],
+											['납입한도', {text: 
+												`<strong class="desc">연간 1,800만원 內</strong>
+												<ul class="note-list depth-1">
+													<li>전 금융기관 합산 한도 기준, 분기별 한도 제한 없음</li>
+													<li>연금저축계좌 및 퇴직연금 DC/IRP 가입자 납입분 합산</li>
+												</ul>`, 
+												colspan: 3, align: 'left'}],
+											['세액공제', {text: 
+												`<ul class="note-list depth-1">
+													<li>세액공제 한도 : 개인연금 최대 600만원 (IRP 합산 최대 900만원)</li>
+													<li>세액공제율 : <strong>16.5%</strong> (지방소득세율 포함) <br/> 단, 총 급여 5,500만원 또는 종합소득금액 4,500만원 초과의 경우 13.2%</li>
+												</ul>`, 
+												colspan: 3, align: 'left'}],
+											['연금수령대상', {text: '만 55세 이상 및 5년 이상 가입고객', colspan: 3, align: 'left'}],
+											['중도인출', {text: 
+												`<p class="desc">가입자 필요 시 중도인출 가능</p>
+												<ul class="note-list depth-1">
+													<li>중도해지하거나 계약기관 종류 후 연금 외 형태로 수령 시 세액공제 받은 납입원금 및 수익에 대해 기타소득세(16.5%) 부과될 수 있음</li>
+												</ul>`
+												, colspan: 3, align: 'left'}],
+											['인출 시 세금', {text: 
+												`<p class="desc">연금적립금에서 출금 시 차감되는 세금을 줄이기 위해 세율이 낮은 적립금부터 출금</p>
+												<ul class="note-list depth-1">
+													<li>1순위: 연말 세액공제 시청하지 않은 비과세 대상 금액</li>
+													<li>2순위: 연말 세액공제 신청한 납입금 및 연금저축에서 발생한 수익</li>
+												</ul>`
+												, colspan: 3, align: 'left'}],
+										],
+										rowHeaders: true,
+										addClass: 'tertiary scroll',
+										slot: `
+										<ul class="note-list depth-1 small">
+											<li>금융투자규정 법령에 따라 2018년 부터 연금저축신탁은 신규 가입이 불가합니다.</li>
+											<li>연금저축계좌 관련 세제는 소득세법 등 관련 법정의 개정등에 따라 변경될 수 있으니 유의하여 주시기 바랍니다.</li>
+										</ul>
+										`,
+									}) %>
 								</section>
 								<section id="fees" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
-										<p class="sub-tit txt-gradient">투자 전 비용도 함께 확인하세요</p>
-										<h2 class="tit">보수 및 수수료</h2>
+										<h2 class="tit">세제 혜택 및 과세체계</h2>
 									</div>
-									<div class="group-wrap">
-										<div class="fee-wrap">
-											<div class="fee-item line-top">
-												<p class="tit-sm icon-buy flex-col">매입할 때</p>
-												<div class="fee-box">
-													<div class="txt-wrap">
-														<p class="tit">선취판매 수수료</p>
-														<p class="sub-txt">없음</p>
-													</div>
-												</div>
-											</div>
-											<div class="fee-item line-top">
-												<p class="tit-sm icon-invest flex-col">투자기간 동안</p>
-												<div class="fee-box">
-													<div class="txt-wrap">
-														<p class="tit">총 보수</p>
-														<p class="sub-txt">연 0.5090%</p>
-													</div>
-													<div class="sub-txt-wrap">
-														<dl class="desc">
-															<dt>운용보수</dt>
-															<dd>0.290%</dd>
-														</dl>
-														<dl class="desc">
-															<dt>판매보수</dt>
-															<dd>0.2810%</dd>
-														</dl>
-														<dl class="desc">
-															<dt>수탁보수</dt>
-															<dd>0.0200%</dd>
-														</dl>
-														<dl class="desc">
-															<dt>사무보수</dt>
-															<dd>0.0130%</dd>
-														</dl>
-													</div>
-												</div>
-											</div>
-											<div class="fee-item line-top">
-												<p class="tit-sm icon-sell flex-col">환매할 때</p>
-												<div class="fee-box">
-													<div class="txt-wrap">
-														<p class="tit">후취판매 수수료</p>
-														<p class="sub-txt">없음</p>
-													</div>
-													<div class="txt-wrap">
-														<p class="tit">환매 수수료</p>
-														<p class="sub-txt">없음</p>
-													</div>
-												</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">세제혜택</h3>
+										<div class="gray-box">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/company/system-inspect-02.png" alt="">	 -->
 											</div>
 										</div>
+										<%- include('../../components/table.ejs', { 
+											caption: '세제혜택',
+											colWidths: ['30%', '30%', 'auto'],
+											thead: ['총급여(종합소득급여)', {text: '세액공제율(지방소득세 포함)', class: 'emphasis'}, {text: '세금절감 효과(연간불입액*세액공제율 %)', class: 'emphasis'}],
+											tbody: [
+												['5,500만원 이하(4,500만원)', {text: '16.5%', class: 'emphasis'}, {text: '99만원~148.5만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 16.5%)', class: 'emphasis'}],
+												['5,500만원 초과(4,500만원)', {text: '13.2%', class: 'emphasis'}, {text: '79.2만원~118.8만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 13.2%)', class: 'emphasis'}],
+											],
+											addClass: 'tertiary scroll',
+											slot: `
+											<p class="note-txt">상기 세율은 관련 세법에 따라 달라질 수 있습니다</p>
+											`,
+										}) %>
 									</div>
-									<div class="group-wrap">
-										<h3 class="tit-sm">매입/환매지급 기준</h3>
-										<div class="guide-wrap">
-											<div class="guide-item line-bottom">
-												<p class="tit bg-orange">매입기준가 적용일</p>
-												<div class="info-box">
-													<dl>
-														<dt class="icon-day">오후 3시 30분 이전</dt>
-														<dd>2영업일 기준가 2영업일 매입</dd>
-													</dl>
-													<dl>
-														<dt class="icon-night">오후 3시 30분 이후</dt>
-														<dd>3영업일 기준가 3영업일 매입</dd>
-													</dl>
-												</div>
-											</div>
-											<div class="guide-item line-bottom">
-												<p class="tit bg-indigo">환매기준가 적용일</p>
-												<div class="info-box">
-													<dl>
-														<dt class="icon-day">오후 3시 30분 이전</dt>
-														<dd>2영업일 기준가 2영업일 매입</dd>
-													</dl>
-													<dl>
-														<dt class="icon-night">오후 3시 30분 이후</dt>
-														<dd>3영업일 기준가 3영업일 매입</dd>
-													</dl>
-												</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">과세체계</h3>
+										<div class="gray-box">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/company/system-inspect-02.png" alt="">	 -->
 											</div>
 										</div>
 									</div>

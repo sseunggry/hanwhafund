@@ -31,6 +31,8 @@ section{
   display: flex;
 
   .visual-box {
+		overflow: hidden;
+		position: relative;
     padding: 8rem;
     width: 56.002%;
     height: 48rem;
@@ -39,6 +41,16 @@ section{
     .tit-md {
       color: #fff;
     }
+
+		img{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);	
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
   }
   .info-box {
     position: relative;
@@ -51,6 +63,21 @@ section{
 		@include translucent(rgba(225, 224, 224, 0.2), 1rem, rgba(255, 255, 255, 0.3));
   }
 
+	&.reverse{
+		flex-direction: row-reverse;
+
+		.visual-box{
+			width: 66.15%;
+			height: 36rem;
+		}
+		.info-box{
+			margin-top: 18rem;
+			margin-left: 0;
+			margin-right: -16rem;
+			padding: 8rem;
+		}
+	}
+
 	@include mq(tablet){
 		flex-direction: column;
 		.visual-box {
@@ -61,6 +88,21 @@ section{
 			margin-left: 0;
 			width: 100%;
 		}
+
+		&.reverse{
+			flex-direction: column;
+	
+			.visual-box{
+				margin-left: auto;
+				width: 85.3%;
+			}
+			.info-box{
+				margin-top: -4rem;
+				margin-right: 0;
+				padding: 4rem;
+				width: 85.3%;
+			}
+		}
 	}
 	@include mq(mobile){
 		margin: 0 var(--layout-full-width);
@@ -70,6 +112,11 @@ section{
 		.info-box {
 			padding: 4rem var(--#{$prefix}-content-padding-x);
 			background: linear-gradient(to bottom, rgba(225, 224, 224, 0.2) 0%,rgba(225, 224, 224, 0) 100%);
+		}
+		&.reverse{
+			.visual-box{
+				height: 20rem;
+			}
 		}
 	}
 }
@@ -126,6 +173,14 @@ section{
 				padding-right: 1.2rem;
 			}
 		}
+	}
+}
+.gray-box{
+	padding: 8rem;
+	background-color: #F5F4F4;
+
+	@include mq(tablet){
+		padding: 4rem;
 	}
 }
 
@@ -265,9 +320,17 @@ section{
 		gap: 2.4rem 1.6rem;
 	}
 
+	&.spacing-lg{
+		gap: 4rem;
+	}
+
 	@include mq(mobile) {
 		+ .group-wrap {
 			padding-top: 4rem;
+		}
+
+		&.spacing-lg{
+			gap: 2.4rem;
 		}
 
 		[class*="tit-"] {

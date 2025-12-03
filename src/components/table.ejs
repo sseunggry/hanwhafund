@@ -9,6 +9,7 @@
   const captionSummary = thead.map(h => (typeof h === 'object' && h !== null) ? h.text : h).join(', ');
 	const colAligns = Array.isArray(localsSafe.colAligns) ? localsSafe.colAligns : [];
 	const infoTxt = localsSafe.infoTxt || '';
+	const slot = localsSafe.slot || '';
 	
   let colCount = 0;
   if (colWidths.length > 0) {
@@ -116,5 +117,6 @@
     </tbody>
     <% } -%>
   </table>
+	<% if (slot) { -%><%- slot %><% } -%>
 </div>
 <% } -%>

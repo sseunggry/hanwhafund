@@ -105,6 +105,10 @@
 	.note-list{
 		margin-top: 0.8rem;
 	}
+	&.small{
+		--#{$prefix}-note-list--layout-gap-depth1-li-li: 0.4rem;
+		--#{$prefix}-note-list--depth1-font-size: 1.6rem;
+	}
 
 	&.no-bullet {
 		> li {

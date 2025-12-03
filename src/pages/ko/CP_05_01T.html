@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '운용모니터링 체계 | 운용시스템 | 회사소개'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container company-system">
+				<section class="section-employ">
+					<div class="inner">
+						<div class="cont-group">
+							<div class="section-tit-wrap">
+								<h2 class="tit">운용시스템</h2>
+							</div>
+							<%
+							const board1 = `
+							<section class="cont-group monitoring">
+								<div class="section-tit-wrap">
+									<p class="sub-tit fc-light-gray">한화정신</p>
+									<h2 class="tit">한화가 이룩한 성장의 바탕에는 <br/> <span class="fc-primary">신용과 의리</span>의 정신이 자리하고 있습니다.</h2>
+									<p class="sub-desc">한화는 이를 바탕으로 인간적인 기업문화를 발전시켜왔으며 어려움에 처했을 때도 서로에 대한 믿음과 끈끈한 조직력으로 위기를 극복해 왔습니다.</p>
+								</div>
+							</section>
+							`;
+							const board2 = `
+							<section class="cont-group risk">
+								<div class="section-tit-wrap">
+									<h2 class="tit">열심히 일한 한화인, <br/> 누리자!</h2>
+								</div>
+							</section>
+							`;
+							const board3 = `
+							<section class="cont-group inspect">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-inspect-01.jpg" alt="">
+									</div>
+									<div class="info-box">
+										<p class="tit">내부통제와 준법감시를 통해 <br/> 사전에 리스크를 예방하고 <br/> <span class="fc-primary">투명한 운용을 실천</span>합니다.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">내부통제 점검체계 프로세스</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-inspect-02.png" alt="" class="pc-only">	
+											<img src="~@/assets/images/company/mo-system-inspect-02.png" alt="" class="tablet-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">내부통제체계 구축</p>
+											</div>
+											<ul class="note-list depth-1">
+												<li>내부통제 기준의 제/개정</li>
+												<li>법규준수 정책의 수립</li>
+												<li>법규준수 프로그램의 입안</li>
+												<li>준법감시 계획 수립, 결과 보고</li>
+												<li>책무구조도 마련 및 운영</li>
+											</ul>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">모니터링</p>
+											</div>
+											<ul class="note-list depth-1">
+												<li>내부통제제도 운영실태에 대한 모니터링</li>
+												<li>위법, 부당행위에 대한 감사위원회 보고, 제재 의뢰, 문제점과 미비사항 개선 및 시정요구</li>
+												<li>내부통제제도 관련 정보수집</li>
+											</ul>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">일상업무 사전/사후 점검</p>
+											</div>
+											<ul class="note-list depth-1">
+												<li>제반 업무/운용 규정 등의 제정 및 개폐 시 사전 검토</li>
+												<li>이사회 등의 부의사항 사전 검토</li>
+												<li>신규 업무 추진시 사전검토</li>
+												<li>대외문서 및 마케팅자료 사전검토</li>
+												<li>내부통제 준수여부 상시 모니터링 점검 </li>
+											</ul>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">고객, 주주 및 이해관계자 보호</p>
+											</div>
+											<ul class="note-list depth-1">
+												<li>민원처리 및 경영공시 업무	처리와 적정성 검토</li>
+												<li>투자자 보호대책의 적정성 감시감독</li>
+												<li>이해상충 점검 및 방지</li>
+											</ul>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">내부통제제도 관련 지원/자문</p>
+											</div>
+											<ul class="note-list depth-1">
+												<li>내부통제제도 운영 관련 이사회, 경영진, 해당 부서 자문</li>
+												<li>내부통제체계 구축 및 운영상황 경영진, 내부통제위원회 등 정례 보고 </li>
+												<li>임직원의 법규준수 및 업무 추진 관련 문의사항 자문</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							%>
+							<%- include('../../components/tab.ejs', {
+								active: 2,
+								variant: 'line',
+								tablist: ['운용모니터링 체계', '리스크 관리', '내부통제 점검체계'],
+								contents: [board1, board2, board3],
+							}) -%>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

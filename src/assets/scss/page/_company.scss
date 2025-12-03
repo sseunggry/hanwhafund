@@ -2,6 +2,12 @@
 @use "../util" as *;
 
 .page-company{
+	.tab-conts{
+		.cont-group{
+			padding: 0;
+		}
+	}
+
 	&:has(.company-main){
 		.header {
 			position: absolute;
@@ -236,14 +242,20 @@
 	}
 
 	.grid-list-wrap{
-		--welfare-list-tit-gap: 2.4rem;
-		--welfare-list-li-gap: 4rem;
+		--grid-list-tit-gap: 2.4rem;
+		--grid-list-txt-gap: 4rem;
+		--grid-list-li-gap: 4rem;
+		counter-reset: list-number;
 
 		> li{
+			position: relative;
 			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: var(--welfare-list-li-gap);
-			margin-bottom: var(--welfare-list-li-gap);
+			// grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 36.92% auto;
+			gap: var(--grid-list-txt-gap);
+			margin-bottom: var(--grid-list-li-gap);
+			padding-bottom: var(--grid-list-li-gap);
+			counter-increment: list-number;
 
 			&:last-child{
 				margin-bottom: 0;
@@ -254,6 +266,9 @@
 
 			&::after{
 				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
 				display: block;
 				grid-column: -1 / 1;
 				width: 100%;
@@ -266,25 +281,43 @@
 					display: flex;
 					align-items: center;
 					gap: 1.2rem;
-					margin-bottom: var(--welfare-list-tit-gap);
 					color: var(--#{$prefix}-color-text-primary-dark);
-					font-size: 2.8rem;
-					font-weight: 700;
+					font-size: 2.4rem;
+					font-weight: 600;
+
+					+ .desc{
+						margin-top: var(--grid-list-tit-gap);
+					}
 
 					&::before{
 						content: '';
 						display: inline-block;
 						@include square(3.2rem);
 					}
+
+					&.num{
+						color: var(--#{$prefix}-color-text-strong);
+
+						&::before{
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							content: counter(list-number, decimal-leading-zero);
+							font-size: 1.6rem;
+							font-weight: 400;
+							color: #fff;
+							background-color: #52302E;
+						}
+					}
 				}
 			}
 			.txt-wrap{
 				display: flex;
 				flex-direction: column;
-				gap: var(--welfare-list-li-gap);
+				gap: var(--grid-list-txt-gap);
 
-				dt{
-					margin-bottom: var(--welfare-list-tit-gap);
+				.tit{
+					margin-bottom: var(--grid-list-tit-gap);
 					color: var(--#{$prefix}-color-text-strong);
 					font-size: 2.1rem;
 					font-weight: 600;
@@ -307,15 +340,19 @@
 		}
 
 		@include mq(mobile){
-			--welfare-list-tit-gap: 1.6rem;
-			--welfare-list-li-gap: 2.4rem;
+			--grid-list-tit-gap: 1.6rem;
+			--grid-list-txt-gap: 1.6rem;
+			--grid-list-li-gap: 3.2rem;
 
 			> li {
 				.tit-wrap{
 					.tit{
-						font-size: 2.4rem;
+						font-size: 2.1rem;
 					}
 				}
+			}
+			&:has(> li .txt-wrap){
+				--grid-list-txt-gap: 2.4rem;
 			}
 		}
 	}
@@ -509,19 +546,50 @@
 		}
 	}
 	
+	//운용시스템
+	.company-system{
+		.gray-box{
+			img{
+				width: 100%;
+			}
+		}
+		//내부통제 점검체계
+		.inspect{
+			.overlay-box-wrap{
+				.info-box{
+					> .tit{
+						color: var(--#{$prefix}-color-text-strong);
+						font-size: 3.2rem;
+						font-weight: 600;
+					}
+				}
+			}
+			@include mq(mobile){
+				.overlay-box-wrap{
+					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					.info-box{
+						> .tit{
+							word-break: keep-all;
+							font-size: 2.1rem;
+
+							br{
+								display: none;
+							}
+						}
+					}
+				}
+				.gray-box{
+					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					padding: 2.4rem var(--#{$prefix}-content-padding-x);
+				}
+			}
+		}
+	}
+
 	//채용정보
 	.company-employ{
 		.section-employ{
 			--section-tit-wrap-margin-bottom: 6.4rem;
-		
-			.tab-conts{
-				.cont-group{
-					padding: 0;
-				}
-				// .section-tit-wrap{
-				// 	margin-bottom: var(--section-tit-wrap-margin-bottom);
-				// }
-			}
 		
 			@include mq(mobile){
 				--section-tit-wrap-margin-bottom: 4rem;
@@ -536,19 +604,19 @@
 
 					.overlay-box-wrap{
 						.visual-box{
-							overflow: hidden;
-							position: relative;
+							// overflow: hidden;
+							// position: relative;
 							height: 44.8rem;
 
-							img{
-								position: absolute;
-								top: 50%;
-								left: 50%;
-								transform: translate(-50%, -50%);	
-								width: 100%;
-								height: 100%;
-								object-fit: cover;
-							}
+							// img{
+							// 	position: absolute;
+							// 	top: 50%;
+							// 	left: 50%;
+							// 	transform: translate(-50%, -50%);	
+							// 	width: 100%;
+							// 	height: 100%;
+							// 	object-fit: cover;
+							// }
 						}
 						.info-box{
 							padding-left: 10rem;
@@ -592,7 +660,7 @@
 				}
 				@include mq(mobile){
 					.talent-list-wrap{
-						margin: calc(var(--#{$prefix}-content-padding-x) * -1);
+						margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
 						gap: 4rem;
 
 						.overlay-box-wrap{

@@ -6,11 +6,12 @@
 @mixin table-size-variable() {
   --#{$prefix}-table--border-width: 0.1rem;
   --#{$prefix}-table--thead-height: 4rem;
+  --#{$prefix}-table--thead-padding-y: 0.95rem;
   --#{$prefix}-table--thead-font-size: 1.5rem;
   --#{$prefix}-table--tbody-height: 6.4rem;
   --#{$prefix}-table--tbody-font-size: 1.8rem;
   --#{$prefix}-table--tbody-padding-x: 2.4rem;
-  --#{$prefix}-table--tbody-padding-y: 0.8rem;
+  --#{$prefix}-table--tbody-padding-y: 1.85rem;
   --#{$prefix}-table--scroll-padding-bottom: 1.6rem;
   --#{$prefix}-table--scroll-min-width: 118rem;
   --#{$prefix}-table--scrollbar-track-size: 0.4rem;
@@ -35,6 +36,9 @@
   @include table-color-variable();
   @include table-size-variable;
 
+	display: flex;
+	flex-direction: column;
+	gap: 2.4rem;
   overflow-x: auto;
   position: relative;
 	width: 100%;
@@ -55,22 +59,23 @@
     
     thead{
       th {
-				height: var(--#{$prefix}-table--thead-height);
+				padding: var(--#{$prefix}-table--thead-padding-y) 0;
+				min-height: var(--#{$prefix}-table--thead-height);
         color: var(--#{$prefix}-table--thead-color-text);
         font-size: var(--#{$prefix}-table--thead-font-size);
         font-weight: 600;
         text-align: center;
         background-color: var(--#{$prefix}-table--thead-color-surface);
       }
+			.emphasis {
+				background-color: rgba(208, 156, 88, 0.2);
+			}
     }
 
     tbody {
-      th {
-        font-weight: 400;
-      }
       th, td {
 				padding: var(--#{$prefix}-table--tbody-padding-y) var(--#{$prefix}-table--tbody-padding-x);
-        height: var(--#{$prefix}-table--tbody-height);
+        min-height: var(--#{$prefix}-table--tbody-height);
         color: var(--#{$prefix}-table--tbody-color-text);
         font-size: var(--#{$prefix}-table--tbody-font-size);
         text-align: center;
@@ -86,19 +91,32 @@
 					}
 				}
       }
+			th {
+        font-weight: 400;
+				background-color: var(--#{$prefix}-table--thead-color-surface);
+      }
 			.emphasis {
+				background-color: rgba(208, 156, 88, 0.1);
+
 				th, td{
-					background-color: #D09C581A;
+					background-color: rgba(208, 156, 88, 0.1);
 				}
 			}
 			strong{
 				font-weight: 600;
+			}
+			.desc{
+				display: inline-block;
+				margin-bottom: 0.8rem;
 			}
     }
 
     th, td {
       vertical-align: middle;
     }
+		.note-list{
+			gap: 0.4rem;
+		}
   }
 
   &.secondary{
@@ -113,6 +131,26 @@
       }
     }
   }
+	&.tertiary{
+		--#{$prefix}-table--thead-padding-y: 1.85rem;
+		.tbl{
+			thead{
+				th {
+					font-size: 1.8rem;
+				}
+			}
+			tbody{
+				tr:first-child{
+					th, td{
+						border-top: var(--#{$prefix}-table--border-width) solid var(--#{$prefix}-table--tbody-color-divider);
+					}
+				}
+				// th{
+				// 	background-color: #F3F2F1;
+				// }
+			} 
+		}
+	}
 
   &.scroll {
     overflow: auto hidden;
@@ -133,14 +171,18 @@
 			min-width: var(--#{$prefix}-table--scroll-min-width);
     }
   }
+
+	@include mq(mobile){
+		gap: 1.6rem;
+	}
 }
 
 .tbl-info{
-	margin-bottom: 2.4rem;
+	// margin-bottom: 2.4rem;
 	font-size: 1.6rem;
 	color: var(--#{$prefix}-color-text-subtler);
 
 	@include mq(mobile){
-		margin-bottom: 1.6rem;
+		// margin-bottom: 1.6rem;
 	}
 }
