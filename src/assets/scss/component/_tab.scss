@@ -112,6 +112,14 @@
 
   // line 타입
   &.line {
+		> ul > li{
+			flex: 1;
+		}
+
+		@include mq(tablet){
+			padding: 0;
+		}
+
 		position: relative;
 		&::before{
 			content: '';
