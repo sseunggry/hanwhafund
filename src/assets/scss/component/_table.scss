@@ -178,6 +178,10 @@
 		}
   }
 
+	&.has-scroll{
+		padding-bottom: 1.6rem;
+	}
+
 	@include mq(mobile){
 		--#{$prefix}-table--tbody-font-size: 1.6rem;
 		gap: 1.6rem;
