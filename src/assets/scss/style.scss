@@ -347,28 +347,36 @@ section{
   display: inline-flex;
   align-items: center;
 
-  &::before {
-    content: "";
-    display: inline-block;
-    margin-right: 0.2rem;
-    width: 1.6rem;
-    height: 1.6rem;
-    @include icon-set("triangle");
-    background-color: currentColor;
-  }
   &.up {
-    color: var(--#{$prefix}-color-change-up);
+		color: var(--#{$prefix}-color-change-up);
+		&::before {
+			content: "";
+			display: inline-block;
+			margin-right: 0.2rem;
+			width: 1.6rem;
+			height: 1.6rem;
+			@include icon-set("triangle");
+			background-color: currentColor;
+		}
   }
   &.down {
     color: var(--#{$prefix}-color-change-down);
-    &::before {
-      transform: rotate(-180deg);
-    }
+		&::before {
+			content: "";
+			display: inline-block;
+			margin-right: 0.2rem;
+			width: 1.6rem;
+			height: 1.6rem;
+			@include icon-set("triangle");
+			transform: rotate(-180deg);
+			background-color: currentColor;
+		}
   }
 
   &.bg {
     padding: 0 0.8rem;
     height: 3.2rem;
+		color: #fff;
     border-radius: 0.2rem;
     background-color: rgba(0, 0, 0, 0.4);
 
@@ -536,7 +544,7 @@ section{
             margin-bottom: 0.8rem;
 
             dd {
-              color: var(--#{$prefix}-color-change-up);
+              color: var(--#{$prefix}-color-text-subtle);
               font-size: 4rem;
               font-weight: 400;
 
@@ -551,6 +559,11 @@ section{
                 color: var(--#{$prefix}-color-change-down);
               }
             }
+						&.up{
+							dd{
+								color: var(--#{$prefix}-color-change-up);
+							}
+						}
           }
         }
         dt {
