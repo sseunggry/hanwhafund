@@ -63,55 +63,59 @@
 									<div class="section-tit-wrap">
 										<h2 class="tit">연금저축 개요</h2>
 									</div>
-									<%- include('../../components/table.ejs', { 
-										caption: '기간별 수익률',
-										colWidths: ['auto', '28%', '28%', '28%'],
-										thead: ['구분', {text: '연금저축펀드', class: 'emphasis'}, '연금저축보험', '연금저축신탁'],
-										tbody: [
-											['가입대상', {text: '자산운용사', class: 'emphasis'}, '보험사', '은행'],
-											['주요판매사', {text: '증권사, 은행, 보험사', class: 'emphasis'}, '증권사, 은행, 보험사', '은행'],
-											['납입방식', {text: '자유납입', class: 'emphasis'}, '정기납입', '자유납입'],
-											['연금지급방식', {text: '확정기간형(제한 없음)', class: 'emphasis'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
-											['원금보장', {text: '비보장', class: 'emphasis'}, '보장', '비보장'],
-											['예금자보호', {text: '비보호', class: 'emphasis'}, '보호', '보호'],
-											['가입 대상', {text: '연령 제한 없이 누구나 가입 가능', colspan: 3, align: 'left'}],
-											['납입한도', {text: 
-												`<strong class="desc">연간 1,800만원 內</strong>
-												<ul class="note-list depth-1">
-													<li>전 금융기관 합산 한도 기준, 분기별 한도 제한 없음</li>
-													<li>연금저축계좌 및 퇴직연금 DC/IRP 가입자 납입분 합산</li>
-												</ul>`, 
-												colspan: 3, align: 'left'}],
-											['세액공제', {text: 
-												`<ul class="note-list depth-1">
-													<li>세액공제 한도 : 개인연금 최대 600만원 (IRP 합산 최대 900만원)</li>
-													<li>세액공제율 : <strong>16.5%</strong> (지방소득세율 포함) <br/> 단, 총 급여 5,500만원 또는 종합소득금액 4,500만원 초과의 경우 13.2%</li>
-												</ul>`, 
-												colspan: 3, align: 'left'}],
-											['연금수령대상', {text: '만 55세 이상 및 5년 이상 가입고객', colspan: 3, align: 'left'}],
-											['중도인출', {text: 
-												`<p class="desc">가입자 필요 시 중도인출 가능</p>
-												<ul class="note-list depth-1">
-													<li>중도해지하거나 계약기관 종류 후 연금 외 형태로 수령 시 세액공제 받은 납입원금 및 수익에 대해 기타소득세(16.5%) 부과될 수 있음</li>
-												</ul>`
-												, colspan: 3, align: 'left'}],
-											['인출 시 세금', {text: 
-												`<p class="desc">연금적립금에서 출금 시 차감되는 세금을 줄이기 위해 세율이 낮은 적립금부터 출금</p>
-												<ul class="note-list depth-1">
-													<li>1순위: 연말 세액공제 시청하지 않은 비과세 대상 금액</li>
-													<li>2순위: 연말 세액공제 신청한 납입금 및 연금저축에서 발생한 수익</li>
-												</ul>`
-												, colspan: 3, align: 'left'}],
-										],
-										rowHeaders: true,
-										addClass: 'tertiary scroll',
-										slot: `
-										<ul class="note-list depth-1 small">
-											<li>금융투자규정 법령에 따라 2018년 부터 연금저축신탁은 신규 가입이 불가합니다.</li>
-											<li>연금저축계좌 관련 세제는 소득세법 등 관련 법정의 개정등에 따라 변경될 수 있으니 유의하여 주시기 바랍니다.</li>
-										</ul>
-										`,
-									}) %>
+									<div class="group-wrap">
+										<%- include('../../components/table.ejs', { 
+											caption: '기간별 수익률',
+											colWidths: ['auto', '28%', '28%', '28%'],
+											thead: ['구분', {text: '연금저축펀드', class: 'emphasis'}, '연금저축보험', '연금저축신탁'],
+											tbody: [
+												['가입대상', {text: '자산운용사', class: 'emphasis'}, '보험사', '은행'],
+												['주요판매사', {text: '증권사, 은행, 보험사', class: 'emphasis'}, '증권사, 은행, 보험사', '은행'],
+												['납입방식', {text: '자유납입', class: 'emphasis'}, '정기납입', '자유납입'],
+												['연금지급방식', {text: '확정기간형(제한 없음)', class: 'emphasis'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
+												['원금보장', {text: '비보장', class: 'emphasis'}, '보장', '비보장'],
+												['예금자보호', {text: '비보호', class: 'emphasis'}, '보호', '보호'],
+												['가입 대상', {text: '연령 제한 없이 누구나 가입 가능', colspan: 3, align: 'left'}],
+												['납입한도', {text: 
+													`<strong class="desc">연간 1,800만원 內</strong>
+													<ul class="note-list depth-1">
+														<li>전 금융기관 합산 한도 기준, 분기별 한도 제한 없음</li>
+														<li>연금저축계좌 및 퇴직연금 DC/IRP 가입자 납입분 합산</li>
+													</ul>`, 
+													colspan: 3, align: 'left'}],
+												['세액공제', {text: 
+													`<ul class="note-list depth-1">
+														<li>세액공제 한도 : 개인연금 최대 600만원 (IRP 합산 최대 900만원)</li>
+														<li>세액공제율 : <strong>16.5%</strong> (지방소득세율 포함) <br/> 단, 총 급여 5,500만원 또는 종합소득금액 4,500만원 초과의 경우 13.2%</li>
+													</ul>`, 
+													colspan: 3, align: 'left'}],
+												['연금수령대상', {text: '만 55세 이상 및 5년 이상 가입고객', colspan: 3, align: 'left'}],
+												['중도인출', {text: 
+													`<p class="desc">가입자 필요 시 중도인출 가능</p>
+													<ul class="note-list depth-1">
+														<li>중도해지하거나 계약기관 종류 후 연금 외 형태로 수령 시 세액공제 받은 납입원금 및 수익에 대해 기타소득세(16.5%) 부과될 수 있음</li>
+													</ul>`
+													, colspan: 3, align: 'left'}],
+												['인출 시 세금', {text: 
+													`<p class="desc">연금적립금에서 출금 시 차감되는 세금을 줄이기 위해 세율이 낮은 적립금부터 출금</p>
+													<ul class="note-list depth-1">
+														<li>1순위: 연말 세액공제 시청하지 않은 비과세 대상 금액</li>
+														<li>2순위: 연말 세액공제 신청한 납입금 및 연금저축에서 발생한 수익</li>
+													</ul>`
+													, colspan: 3, align: 'left'}],
+											],
+											rowHeaders: true,
+											addClass: 'tertiary scroll',
+										}) %>
+										<%- include('../../components/note-list.ejs', { 
+											depth: 1,
+											items: [
+												'금융투자규정 법령에 따라 2018년 부터 연금저축신탁은 신규 가입이 불가합니다.',
+												'연금저축계좌 관련 세제는 소득세법 등 관련 법정의 개정등에 따라 변경될 수 있으니 유의하여 주시기 바랍니다.',
+											],
+											addClass: 'small'
+										}); %>
+									</div>
 								</section>
 								<section id="fees" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
@@ -133,10 +137,8 @@
 												['5,500만원 초과(4,500만원)', {text: '13.2%', class: 'emphasis'}, {text: '79.2만원~118.8만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 13.2%)', class: 'emphasis'}],
 											],
 											addClass: 'tertiary scroll',
-											slot: `
-											<p class="note-txt">상기 세율은 관련 세법에 따라 달라질 수 있습니다</p>
-											`,
 										}) %>
+										<p class="note-txt">상기 세율은 관련 세법에 따라 달라질 수 있습니다</p>
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">과세체계</h3>

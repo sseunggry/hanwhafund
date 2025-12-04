@@ -29,8 +29,17 @@
 									<p class="terms-txt">한화자산운용이 취급하는 금융상품 중 예금보험공사가 예금자보호법에 의하여 보호하는 종류는 다음과 같습니다.</p>
 								</div>
 								<div class="terms-sub-group">
-									<%
-									const noteList = include('../../components/note-list.ejs', { 
+									<%- include('../../components/table.ejs', { 
+										caption: '위탁업무와 수탁업체',
+										colWidths: ['15%', 'auto'],
+										thead: ['번호', '금융상품명'],
+										tbody: [
+											['1', '집합투자증권 투자자예수금'],
+										],
+										// addClass: 'scroll',
+										infoTxt: '(기준일 : 2025년 09월 01일 현재)',
+									}); %>
+									<%- include('../../components/note-list.ejs', { 
 										depth: 1,
 										items: [
 											'정부, 지방자치단체, 한국은행, 금융감독원, 예금보험공사, 부보금융기관이 가입한 금융상품은 보호되지 않습니다.',
@@ -38,18 +47,6 @@
 											'예금보험공사(1588-0037) 홈페이지(www.kdic.or.kr)를 방문하시면 예금자보호제도에 대한 보다 자세한 안내를 받으실 수 있습니다.',
 										],
 										addClass: 'small'
-									});
-									%>
-									<%- include('../../components/table.ejs', { 
-										caption: '위탁업무와 수탁업체',
-										colWidths: ['10%', 'auto'],
-										thead: ['번호', '금융상품명'],
-										tbody: [
-											['1', '집합투자증권 투자자예수금'],
-										],
-										addClass: 'scroll',
-										infoTxt: '(기준일 : 2025년 09월 01일 현재)',
-										slot: noteList
 									}); %>
 								</div>
 							</div>

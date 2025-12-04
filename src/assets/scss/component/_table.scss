@@ -59,7 +59,7 @@
     
     thead{
       th {
-				padding: var(--#{$prefix}-table--thead-padding-y) 0;
+				padding: var(--#{$prefix}-table--thead-padding-y) 0.8rem;
 				min-height: var(--#{$prefix}-table--thead-height);
         color: var(--#{$prefix}-table--thead-color-text);
         font-size: var(--#{$prefix}-table--thead-font-size);
@@ -170,6 +170,10 @@
     .tbl {
 			min-width: var(--#{$prefix}-table--scroll-min-width);
     }
+
+		&.small{
+			--#{$prefix}-table--scroll-min-width: 40rem;
+		}
   }
 
 	@include mq(mobile){

@@ -22,8 +22,8 @@
 						const table1 = include('../../components/table.ejs', { 
 							infoTxt: '단위 : 백만원',
 							caption: '요약 연결포괄 손익계산서',
-							colWidths: ['30%', '30%', 'auto'],
-							thead: ['항목', '제37기 (2024.01.01~2024.12.31)', '제36기 (2023.01.01~2023.12.31)'],
+							colWidths: ['auto', '35%', '35%'],
+							thead: ['항목', '제37기 <br class="tablet-small-only"/> (2024.01.01 <br class="tablet-small-only"/>~2024.12.31)', '제36기 <br class="tablet-small-only"/> (2023.01.01 <br class="tablet-small-only"/>~2023.12.31)'],
 							tbody: [
 								['영업수익', '2,684,362', '2,137,333'],
 								['수수료수익', '359,216', '328,843'],
@@ -41,12 +41,12 @@
 								['당기순이익', '113,940', '46,646'],
 								['기타포괄손익', '128,744', '9,626'],
 							],
-							addClass: 'tertiary scroll',
+							addClass: 'tertiary scroll small',
 						});
 						const table2 = include('../../components/table.ejs', { 
 							infoTxt: '단위 : 백만원',
 							caption: '요약 연결재무상태표',
-							colWidths: ['30%', '30%', 'auto'],
+							colWidths: ['auto','35%', '35%'],
 							thead: ['항목', '제37기 (2024.12.31)', '제36기 (2023.12.31)'],
 							tbody: [
 								['현금및예치금', '1,105,284', '1,484,823'],
@@ -77,7 +77,7 @@
 								['비지배지분', '930,481', '857,435'],
 								{className: 'emphasis', data: ['<strong>자본총계</strong>', '<strong>2,676,355</strong>', '<strong>2,432,647</strong>']},
 							],
-							addClass: 'tertiary scroll'
+							addClass: 'tertiary scroll small'
 						});
 						%>
 						<%- include('../../components/tab.ejs', {
