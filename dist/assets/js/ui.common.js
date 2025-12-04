@@ -1195,6 +1195,31 @@ const uiSitemap = {
     });
   }
 }
+const uiScrollCheck = {
+	init: function() {
+		const $targets = $('.tbl-wrap.scroll'); 
+
+		if (!$targets.length) return;
+
+		const checkScroll = () => {
+			$targets.each(function() {
+				const $el = $(this);
+				const element = this;
+
+				if (element.scrollWidth > element.clientWidth) {
+					$el.addClass('has-scroll');
+				} else {
+					$el.removeClass('has-scroll');
+				}
+			});
+		};
+		checkScroll();
+		$(window).on('resize', checkScroll);
+		$(document).on('click', '.tab-area .btn-tab', function() {
+      setTimeout(checkScroll, 50);
+    });
+	}
+}
 
 // 캘린더 기능 예시용
 const calendar = {
@@ -1420,6 +1445,7 @@ const commonJs = {
     topButton.init();
     uiGnb.init();
     uiSitemap.init();
+		uiScrollCheck.init();
 
 		calendar.init();
 		calendarInline.init();

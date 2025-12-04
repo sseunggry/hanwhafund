@@ -5960,10 +5960,6 @@ label {
 	min-width: auto
 }
 
-.tab.line {
-	padding: 0 11.5%
-}
-
 .tab.line>ul>li {
 	flex: 1
 }
@@ -6173,6 +6169,7 @@ label {
 }
 
 .tbl-wrap .tbl tbody th {
+	color: var(--hwf-color-text-strong);
 	font-weight: 400;
 	background-color: var(--hwf-table--thead-color-surface)
 }
@@ -6249,6 +6246,10 @@ label {
 
 .tbl-wrap.scroll.small {
 	--hwf-table--scroll-min-width: 64rem
+}
+
+.tbl-wrap.has-scroll {
+	padding-bottom: 1.6rem
 }
 
 @media(max-width: 640px) {
