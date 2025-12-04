@@ -96,11 +96,18 @@
 				color: var(--#{$prefix}-color-text-strong);
         font-weight: 400;
 				background-color: var(--#{$prefix}-table--thead-color-surface);
+
+				&.emphasis {
+					background-color: rgba(208, 156, 88, 0.2);
+				}
       }
 			.emphasis {
 				background-color: rgba(208, 156, 88, 0.1);
 
-				th, td{
+				th{
+					background-color: rgba(208, 156, 88, 0.2);
+				}
+				td{
 					background-color: rgba(208, 156, 88, 0.1);
 				}
 			}

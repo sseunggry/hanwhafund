@@ -2554,6 +2554,71 @@
 			}
 		}
 	}
+	.fund-pension{
+		.section-visual{
+			overflow: hidden;
+			position: relative;
+			padding: 12rem 0;
+			height: 96rem;
+			background: linear-gradient(0deg, #06061B 0%, #06061B 100%), #170E05;
+
+			.inner{
+				height: 100%;
+			}
+
+			.txt-wrap{
+				display: flex;
+				flex-direction: column;
+				width: 47%;
+				height: 100%;
+				color: #fff;
+
+				.sub-tit{
+					margin-bottom: auto;
+					font-size: 2.4rem;
+				}
+				.tit{
+					font-size: 9.6rem;
+					font-weight: 700;
+				}
+				.desc{
+					margin-top: 2.4rem;
+					font-size: 2.4rem;
+				}
+
+				&::after{
+					content: '';
+					display: block;
+					margin-top: 4rem;
+					@include square(4rem);
+					@include icon-set('scroll-down');
+					background-color: currentColor;
+				}
+			}
+			.img-wrap{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 51.1%;
+			}
+		}
+		.section-detail{
+			position: relative;
+
+			#benefit{
+				.img-wrap{
+					margin: 0 auto;
+					max-width: 70rem;
+				}
+			}
+			#feature{
+				.img-wrap{
+					margin: 0 auto;
+					max-width: 60rem;
+				}
+			}
+		}
+	}
 }
 
 

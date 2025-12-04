@@ -89,20 +89,28 @@
 
         let cellText = '';
         let cellAttrs = '';
-        let cellClass = colAligns[index] ? `txt-${colAligns[index]}` : '';
+        let cellClassList = [];
+        if (colAligns[index]) {
+          cellClassList.push(`txt-${colAligns[index]}`);
+        }
 
         if (typeof cellData === 'object' && cellData !== null) {
           cellText = cellData.text || '';
           if (cellData.rowspan) cellAttrs += ` rowspan="${cellData.rowspan}"`;
           if (cellData.colspan) cellAttrs += ` colspan="${cellData.colspan}"`;
-          if (cellData.class) cellClass = cellData.class; // 클래스 직접 지정
-          else if (cellData.align) cellClass = `txt-${cellData.align}`; // 정렬 지정
+          if (cellData.align) {
+						cellClassList = cellClassList.filter(c => !c.startsWith('txt-'));
+						cellClassList.push(`txt-${cellData.align}`);
+          }
+					if (cellData.class) {
+             cellClassList.push(cellData.class);
+          }
         } else {
           cellText = cellData;
         }
         
-        const classAttr = cellClass ? `class="${cellClass}"` : '';
-        const finalAttrs = (cellAttrs + ' ' + classAttr).trim();
+        const classAttr = cellClassList.length > 0 ? `class="${cellClassList.join(' ')}"` : '';
+				const finalAttrs = (cellAttrs + ' ' + classAttr).trim();
       -%>
 			<% if (cellData !== null) { -%>
       <% if (index === 0 && rowHeaders) { -%>

@@ -175,12 +175,27 @@ section{
 		}
 	}
 }
+.group-wrap{
+	.img-wrap{
+		img{
+			width: 100%;
+		}
+	}
+}
 .gray-box{
 	padding: 8rem;
 	background-color: #F5F4F4;
 
+	&.small{
+		padding: 4rem;
+	}
+
 	@include mq(tablet){
 		padding: 4rem;
+
+		&.small{
+			padding: 3.2rem var(--#{$prefix}-content-padding-x);
+		}
 	}
 }
 
@@ -251,6 +266,9 @@ section{
   }
 	.sub-desc{
 		margin-top: 4rem;
+	}
+	.desc-small{
+		margin-top: 2.4rem;
 	}
 
 	+ .card-list-wrap.bg-gray{
