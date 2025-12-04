@@ -79,6 +79,7 @@
         color: var(--#{$prefix}-table--tbody-color-text);
         font-size: var(--#{$prefix}-table--tbody-font-size);
         text-align: center;
+				word-break: keep-all;
         border-bottom: var(--#{$prefix}-table--border-width) solid var(--#{$prefix}-table--tbody-color-divider);
         background-color: var(--#{$prefix}-table--tbody-color-surface);
 
@@ -172,7 +173,7 @@
     }
 
 		&.small{
-			--#{$prefix}-table--scroll-min-width: 40rem;
+			--#{$prefix}-table--scroll-min-width: 42rem;
 		}
   }
 
