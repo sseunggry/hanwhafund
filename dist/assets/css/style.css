@@ -5961,6 +5961,20 @@ label {
 }
 
 .tab.line {
+	padding: 0 11.5%
+}
+
+.tab.line>ul>li {
+	flex: 1
+}
+
+@media(max-width: 1024px) {
+	.tab.line {
+		padding: 0
+	}
+}
+
+.tab.line {
 	position: relative
 }
 
