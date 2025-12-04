@@ -173,11 +173,12 @@
     }
 
 		&.small{
-			--#{$prefix}-table--scroll-min-width: 42rem;
+			--#{$prefix}-table--scroll-min-width: 40rem;
 		}
   }
 
 	@include mq(mobile){
+		--#{$prefix}-table--tbody-font-size: 1.6rem;
 		gap: 1.6rem;
 	}
 }
