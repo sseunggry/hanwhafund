@@ -1106,6 +1106,14 @@
         }
       }
 
+			.tbl-wrap{
+				&.scroll{
+					.tbl{
+						min-width: 118rem;
+					}
+				}
+			}
+
       // .group-flex-wrap {
       //   display: flex;
       //   gap: 4.8rem;
@@ -1604,6 +1612,13 @@
         //     padding-top: 4rem;
         //   }
         // }
+				.tbl-wrap{
+					&.scroll{
+						.tbl{
+							min-width: 96rem;
+						}
+					}
+				}
         .guide-wrap {
           gap: 0;
           .guide-item {
@@ -2545,6 +2560,7 @@
 .tbl-wrap{
   &.fund-list-wrap{
 		.tbl{
+			min-width: 118rem;
 			border-collapse: separate;
 			border-spacing: 0;
 

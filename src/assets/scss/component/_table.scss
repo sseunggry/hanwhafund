@@ -13,7 +13,7 @@
   --#{$prefix}-table--tbody-padding-x: 2.4rem;
   --#{$prefix}-table--tbody-padding-y: 1.85rem;
   --#{$prefix}-table--scroll-padding-bottom: 1.6rem;
-  --#{$prefix}-table--scroll-min-width: 118rem;
+  --#{$prefix}-table--scroll-min-width: 96rem;
   --#{$prefix}-table--scrollbar-track-size: 0.4rem;
 }
 
@@ -173,13 +173,19 @@
     }
 
 		&.small{
-			--#{$prefix}-table--scroll-min-width: 40rem;
+			--#{$prefix}-table--scroll-min-width: 64rem;
 		}
   }
 
 	@include mq(mobile){
 		--#{$prefix}-table--tbody-font-size: 1.6rem;
 		gap: 1.6rem;
+
+		.note-list{
+			> li{
+				font-size: 1.6rem;
+			}
+		}
 	}
 }
 
