@@ -6234,11 +6234,12 @@ label {
 }
 
 .tbl-wrap.scroll.small {
-	--hwf-table--scroll-min-width: 42rem
+	--hwf-table--scroll-min-width: 40rem
 }
 
 @media(max-width: 640px) {
 	.tbl-wrap {
+		--hwf-table--tbody-font-size: 1.6rem;
 		gap: 1.6rem
 	}
 }
