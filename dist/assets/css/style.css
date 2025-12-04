@@ -6099,7 +6099,7 @@ label {
 	--hwf-table--tbody-padding-x: 2.4rem;
 	--hwf-table--tbody-padding-y: 1.85rem;
 	--hwf-table--scroll-padding-bottom: 1.6rem;
-	--hwf-table--scroll-min-width: 118rem;
+	--hwf-table--scroll-min-width: 96rem;
 	--hwf-table--scrollbar-track-size: 0.4rem;
 	display: flex;
 	flex-direction: column;
@@ -6234,13 +6234,17 @@ label {
 }
 
 .tbl-wrap.scroll.small {
-	--hwf-table--scroll-min-width: 40rem
+	--hwf-table--scroll-min-width: 64rem
 }
 
 @media(max-width: 640px) {
 	.tbl-wrap {
 		--hwf-table--tbody-font-size: 1.6rem;
 		gap: 1.6rem
+	}
+
+	.tbl-wrap .note-list>li {
+		font-size: 1.6rem
 	}
 }
 
@@ -10892,6 +10896,10 @@ html[lang=en] .footer-top .logo {
 	color: var(--hwf-color-text-subtler)
 }
 
+.page-fund .fund-main .section-detail .tbl-wrap.scroll .tbl {
+	min-width: 118rem
+}
+
 .page-fund .fund-main .section-detail .box-wrap {
 	display: flex;
 	gap: 2.4rem
@@ -11321,6 +11329,10 @@ html[lang=en] .footer-top .logo {
 
 	.page-fund .fund-main .section-detail .chart-wrap.pie .chart-con {
 		padding-top: 1.6rem
+	}
+
+	.page-fund .fund-main .section-detail .tbl-wrap.scroll .tbl {
+		min-width: 96rem
 	}
 
 	.page-fund .fund-main .section-detail .guide-wrap {
@@ -12160,6 +12172,7 @@ html[lang=en] .footer-top .logo {
 }
 
 .tbl-wrap.fund-list-wrap .tbl {
+	min-width: 118rem;
 	border-collapse: separate;
 	border-spacing: 0
 }
