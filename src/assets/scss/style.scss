@@ -121,6 +121,25 @@ section{
 	}
 }
 
+//위첨자 스타일
+sup{
+	color: var(--#{$prefix}-color-text-primary-dark);
+	vertical-align: sub;
+}
+.sup{
+	position: relative;
+	padding-left: 1rem;
+	color: var(--#{$prefix}-color-text-subtle);
+	font-size: 1.6rem;
+
+	span{
+		position: absolute;
+		top: 0;
+		left: 0;
+		color: var(--#{$prefix}-color-text-primary-dark);
+	}
+}
+
 .gray-box-wrap {
 	display: flex;
 	gap: 2.4rem;
@@ -175,13 +194,6 @@ section{
 		}
 	}
 }
-.group-wrap{
-	.img-wrap{
-		img{
-			width: 100%;
-		}
-	}
-}
 .gray-box{
 	padding: 8rem;
 	background-color: #F5F4F4;
@@ -195,6 +207,39 @@ section{
 
 		&.small{
 			padding: 3.2rem var(--#{$prefix}-content-padding-x);
+		}
+	}
+}
+.box-list-wrap{
+	display: flex;
+	gap: 4.8rem;
+
+	li{
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+		flex: 1;
+	}
+	.tit{
+		display: flex;
+		gap: 1.2rem;
+		padding-bottom: 1.6rem;
+		color: var(--#{$prefix}-color-text-primary-dark);
+		font-size: 2.4rem;
+		font-weight: 600;
+
+		@extend .line-bottom;
+		&::after{
+			height: 0.2rem;
+		}
+
+		&[class*="icon-"]{
+			&::before{
+				content: '';
+				display: block;
+				@include square(3.2rem);
+				background-color: #FE5B16;
+			}
 		}
 	}
 }
@@ -313,6 +358,7 @@ section{
   }
 }
 
+//가로
 .group-flex-wrap {
 	display: flex;
 	gap: 4.8rem;
@@ -320,18 +366,25 @@ section{
 	.group-wrap {
 		flex: 1;
 	}
+	&.small{
+		gap: 4rem;
+	}
+	&.large{
+		gap: 6rem;
+	}
 
 	@include mq(mobile) {
 		gap: 4rem;
 	}
 }
 
+//세로
 .group-wrap {
 	display: flex;
 	flex-direction: column;
 	gap: 2.4rem;
 
-	[class*="tit-"] {
+	> [class*="tit-"] {
 		display: flex;
 		align-items: baseline;
 		flex-wrap: wrap;
@@ -356,6 +409,14 @@ section{
 			align-items: baseline;
 			flex-wrap: wrap;
 			gap: 1.6rem;
+		}
+	}
+}
+
+.group-wrap, .gray-box{
+	.img-wrap{
+		img{
+			width: 100%;
 		}
 	}
 }

@@ -2,7 +2,7 @@
 <html lang="ko">
 	<head>
 		<%- include('../../layouts/head.ejs', { 
-			title : '개인 | 연금펀드 | 한화펀드'
+			title : '개인연금 | 연금펀드 | 한화펀드'
 		}) -%>
 	</head>
 	<body class="page-fund">
@@ -12,7 +12,7 @@
 			<!-- // header -->
 			
 			<!-- container -->
-			<main class="container fund-pension">
+			<main class="container fund-pension personal">
 				<section class="section-visual">
 					<div class="inner">
 						<div class="txt-wrap">
@@ -21,7 +21,7 @@
 							<p class="desc">한화자산운용이 자랑하는 연금 운용 노하우, <br/> 한화 연금 펀드를 소개합니다.</p>
 						</div>
 						<div class="img-wrap">
-							<img src="~@/assets/images/fund/pension-visual.png" alt="">
+							<img src="~@/assets/images/fund/pension-personal-visual.png" alt="">
 						</div>
 					</div>
 				</section>
@@ -46,7 +46,40 @@
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">연금저축 특징</h3>
 										<div class="gray-box small">
-
+											<ul class="box-list-wrap">
+												<li>
+													<p class="tit icon-feature-04">자유로운 운용</p>
+													<p class="desc">ETF, 리츠, 주식/채권형 펀드 등 다양한 금융 상품에 투자할 수 있어요.</p>
+												</li>
+												<li>
+													<p class="tit icon-feature-05">노후자금 준비</p>
+													<p class="desc">만 55세 이후 및 가입 후 5년이 지났다면 연금으로 수령할 수 있어요. 수령 시 연령대에 따라서 3.3~5.5%<sup>*</sup>로 저율 과세가 적용됩니다.</p>
+													<p class="sup"><span>*</span> 지방소득세 포함</p>
+												</li>
+												<li>
+													<p class="tit icon-feature-06">납입액의 세액공제</p>
+													<p class="desc">매년 최대 600만원까지 13.2~16.5%<sup>*</sup> 세액 공제가 가능하며 연 1,800만원까지 입금할 수 있어요.</p>
+													<p class="sup"><span>*</span> 총급여 혹은 종합소득금액 등 소득 기준에 따라 공제율 상이</p>
+												</li>
+											</ul>
+										</div>
+										<div class="group-flex-wrap small">
+											<div class="gray-box small">
+												<ul class="box-list-wrap">
+													<li>
+														<p class="tit">확정급여형(DB), 확정기여형(DC)</p>
+														<p class="desc">근로자의 퇴직급여 재원을 회사가 운용(DB)하거나 근로자 개인이 직접 운용 (DC)하여 근로자가 퇴직 후 연금 또는 일시금으로 받아 노후에 쓸 수 있도록 하는 제도</p>
+													</li>
+												</ul>
+											</div>
+											<div class="gray-box small">
+												<ul class="box-list-wrap">
+													<li>
+														<p class="tit">개인형 퇴직연금(IRP)</p>
+														<p class="desc">이직 또는 퇴직할 때 받은 퇴직급여를 적립하거나, 본인 부담으로 추가 납입한 자금을 만 55세 이후 연금화 할 수 있는 제도</p>
+													</li>
+												</ul>
+											</div>
 										</div>
 									</div>
 									<div class="group-wrap spacing-lg">
@@ -61,6 +94,20 @@
 											<p class="tit-xsm">
 												<span>늘어나는 수명과 달리 앞당겨지는 은퇴 시기 <br/> 반드시 필요한 노후 대비, <span class="fc-primary">연금 투자는 선택이 아닌 필수</span>입니다</span>
 											</p>
+											<div class="group-flex-wrap">
+												<div class="group-wrap">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-personal-intro-01.png" alt="">	
+													</div>
+													<p class="note-txt fc-light-gray">주민등록 인구 기준으로 2000년 통계는 통계청 '2000년 인구주택총조사 전수집계 결과' 기준(자료: 행정안전부, 통계청)</p>
+												</div>
+												<div class="group-wrap">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-personal-intro-02.png" alt="">	
+													</div>
+													<p class="note-txt fc-light-gray">65세 이상 노인 인구가 전체 인구의 15%를 넘는 고령사회에서 20%를 초과하는 초고령 사회로 진입하는 데 걸리는 기간(자료: 경제협력개발기구(OECD))</p>
+												</div>
+											</div>
 										</div>
 									</div>
 									<div class="group-wrap">
@@ -68,6 +115,14 @@
 											<p class="tit-xsm">
 												<span>국민 노후준비 수준은 70점으로 은퇴 후 안정적 노후 소득 마련을 위해서는 <br/> <span class="fc-primary">3층 보장 연금체계</span> 기반 자산 형성이 필요합니다</span>
 											</p>
+											<div class="group-flex-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-personal-intro-03.png" alt="">	
+												</div>
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-personal-intro-04.png" alt="">	
+												</div>
+											</div>
 										</div>
 									</div>
 								</section>
@@ -136,9 +191,8 @@
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">세제혜택</h3>
 										<div class="gray-box small">
-											<!-- <p class="tit-xsm">매년 연금저축에 납입한 돈</p> -->
 											<div class="img-wrap">
-												<img src="~@/assets/images/fund/pension-benefit-01.png" alt="">	
+												<img src="~@/assets/images/fund/pension-personal-benefit-01.png" alt="">	
 											</div>
 										</div>
 										<%- include('../../components/table.ejs', { 
@@ -156,9 +210,8 @@
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">과세체계</h3>
 										<div class="gray-box small">
-											<!-- <p class="tit-xsm">연금 수령 시</p> -->
 											<div class="img-wrap">
-												<img src="~@/assets/images/fund/pension-benefit-02.png" alt="">	
+												<img src="~@/assets/images/fund/pension-personal-benefit-02.png" alt="">	
 											</div>
 										</div>
 										<div class="group-wrap">
@@ -216,7 +269,7 @@
 									</div>
 									<div class="group-wrap">
 										<div class="img-wrap">
-											<img src="~@/assets/images/fund/pension-feature.png" alt="">
+											<img src="~@/assets/images/fund/pension-personal-feature.png" alt="">
 										</div>
 									</div>
 								</section>

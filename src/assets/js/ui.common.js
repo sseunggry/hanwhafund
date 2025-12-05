@@ -555,32 +555,6 @@ const uiTab = {
   },
 
   init: function () {
-    $(document).on("click", '.tab [role="tablist"] .btn-tab', function (e) {
-      e.preventDefault();
-      const $btn = $(this);
-      const $tab = $btn.closest('[role="tab"]');
-
-      if ($tab.hasClass("active") || $btn.is(":disabled")) return;
-
-      const $tabArea = $tab.closest(".tab-area");
-      const $tablist = $tab.closest('[role="tablist"]');
-      const $targetPanel = $(`#${$tab.attr("aria-controls")}`);
-
-      // 기존 활성 탭/패널 비활성화
-      const $activeTab = $tablist.find(".active");
-      const $activePanel = $tabArea.find(".tab-conts.active");
-
-      $activeTab.removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
-      $activePanel.removeClass("active");
-
-      // 새 탭/패널 활성화
-      $tab.addClass("active").attr("aria-selected", "true");
-      $btn.append('<span class="sr-only">선택됨</span>');
-      $targetPanel.addClass("active");
-
-      uiTab.scrollTabIntoView($tab, $tablist, true);
-    });
-
     // 키보드 네비게이션
     $(document).on("keydown", '.tab [role="tablist"] .btn-tab', function (e) {
       const $btn = $(this);
@@ -620,6 +594,36 @@ const uiTab = {
       if ($nextTab && $nextTab.length) {
         $nextTab.find(".btn-tab").focus();
         uiTab.scrollTabIntoView($nextTab, $tablist, false);
+      }
+    });
+
+		// 탭 클릭 이벤트
+		$(document).on("click", '.tab [role="tablist"] .btn-tab', function (e) {
+      e.preventDefault();
+      const $btn = $(this);
+      const $tab = $btn.closest('[role="tab"]');
+
+      if ($tab.hasClass("active") || $btn.is(":disabled")) return;
+
+      const $tabArea = $tab.closest(".tab-area");
+      const $tablist = $tab.closest('[role="tablist"]');
+      const $targetPanel = $(`#${$tab.attr("aria-controls")}`);
+
+      // 탭 전환
+      $tablist.find(".active").removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
+      $tabArea.find(".tab-conts.active").removeClass("active");
+
+      $tab.addClass("active").attr("aria-selected", "true");
+      $btn.append('<span class="sr-only">선택됨</span>');
+      $targetPanel.addClass("active");
+
+      uiTab.scrollTabIntoView($tab, $tablist, true);
+
+      // 탭 스크롤 이동
+      if (typeof uiLnb !== 'undefined' && uiLnb.init) {
+        setTimeout(() => {
+          uiLnb.init(); 
+        }, 50);
       }
     });
   },
@@ -852,7 +856,7 @@ const uiLnb = {
   offset: 150, 
 
   init: function () {
-    this.$sidebar = $(".sidebar");
+    this.$sidebar = $(".sidebar:visible");
     if (!this.$sidebar.length) return;
 
     this.$links = this.$sidebar.find("a[href^='#']");
@@ -868,6 +872,7 @@ const uiLnb = {
 
     if (!this.$sections.length) return;
     
+    $(window).off("scroll.sidebarSpy"); 
     $(window).on("scroll.sidebarSpy", () => {
       this.updateActiveState();
     });
@@ -1440,6 +1445,7 @@ const commonJs = {
     uiSegmentControl.init();
     uiPopover.init();
     uiTooltip.init();
+		// this.uiLnb.init();
     uiLnb.init();
     gsapMotion.init();
     topButton.init();

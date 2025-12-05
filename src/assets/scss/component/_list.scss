@@ -86,21 +86,16 @@
 		// }
 	}
 
+	strong{
+		color: var(--#{$prefix}-color-text-strong);
+		font-weight: 600;
+	}
+
 	@at-root{
 		//예외
 		.terms-group .note-list.depth-1.order, .terms-group .note-list.depth-1.number, .terms-group .note-list.depth-1.dash{
 			gap: 2.4rem;
 		}
-	}
-	&.depth-1{
-	}
-	&.depth-2{
-		// margin-top: 0.8rem;
-		// padding-left: 1.6rem;
-	}
-	&.depth-3{
-		// margin-top: 0.8rem;
-		// padding-left: 1.6rem;
 	}
 	.note-list{
 		margin-top: 0.8rem;
@@ -120,12 +115,9 @@
 	}
 	&.dash {
 		> li {
-			// padding-left: 0;
 			padding-left: 1.6rem;
 			&::before {
 				content: "\002D"; //hyphen-minus
-				// position: initial;
-				// display: inline-block;
 				top: 0;
 				left: 0;
 				width: fit-content;
@@ -136,7 +128,6 @@
 	}
 	&.number {
 		> li {
-			// padding-left: 0;
 			padding-left: 2.8rem;
 
 			> span {
@@ -183,7 +174,6 @@
 				left: 0;
 			}
 			&::before {
-				// display: none;
 				content: "*";
 				top: 0;
 				left: 0;
@@ -193,7 +183,6 @@
 			}
 		}
 	}
-
 
 	//color
 	&.fc-white{
@@ -212,16 +201,13 @@
 	}
 }
 .note-txt {//참고 또는 info성 텍스트
-	// --#{$prefix}-note-txt--margin-top: var(--#{$prefix}-space-9);
 	--#{$prefix}-note-txt--color-text: #757070;
 
-	// margin-top: var(--#{$prefix}-note-txt--margin-top);
 	color: var(--#{$prefix}-note-txt--color-text);
 	font-size: 1.6rem;
 }
 .note-refer {
 	display: flex;
-	// align-items: center;
 	gap: 0.4rem;
 	font-size: 1.8rem;
 	font-weight: 600;

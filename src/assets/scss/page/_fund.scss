@@ -144,6 +144,12 @@
 		&:has(.top-fixed){
 			--top-fixed-height: 8rem;
 		}
+
+		@include mq(1500) {
+			&:has(.tab-area){
+				--top-fixed-height: 6.4rem;
+			}
+		}
 	}
 	.layout-sidebar {
 		// --top-fixed-height: 0;
@@ -151,8 +157,102 @@
 		--layout-content-gap: 2.4rem;
 		--layout-content-bg: #fff;
 		--layout-sidebar-bg: #f3f2f1;
+		--layout-side-bar-tab-height: 18.4rem;
 
 		background-color: var(--layout-sidebar-bg);
+
+		.tab-area{
+			--tab-conts-gap: 4rem;
+
+			position: relative;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 0;
+				width: 50%;
+				height: var(--layout-side-bar-tab-height);
+				background-color: var(--layout-content-bg);
+			}
+
+			.tab{
+				max-width: var(--hwf-content-wrap-width-large);
+				width: 100%;
+				margin: 0 auto;
+
+				> ul{
+					position: relative;
+					margin-right: var(--layout-sidebar-nav-width);
+					padding: 8rem var(--#{$prefix}-content-padding-x) var(--tab-conts-gap);
+					width: calc(100% - var(--layout-sidebar-nav-width));
+					background-color: #fff;
+
+					&::before{
+						content: '';
+						position: absolute;
+						left: 50%;
+						bottom: var(--tab-conts-gap);
+						transform: translateX(-50%);
+						display: block;
+						width: calc(100% - var(--#{$prefix}-content-padding-x) * 2);
+						height: 0.2rem;
+						background-color: var(--#{$prefix}-tab--line-button-color-line);
+					}
+				}
+
+				&.line{
+					&::before{
+						display: none;
+					}
+				}
+			}
+			.tab-conts-wrap{
+				margin-top: 0;
+
+				.tab-conts{
+					margin-top: 0;
+				}
+			}
+			.cont-group{
+				&:first-child{
+					padding-top: 2.4rem;
+				}
+			}
+			.sidebar{
+				margin-top: calc(var(--layout-side-bar-tab-height) * -1);
+			}
+
+			@include mq(1500){
+				.tab{
+					position: sticky;
+					top: 0;
+					z-index: 2;
+					> ul{
+						margin-right: 0;
+						padding: 0;
+						width: 100%;
+
+						&::before{
+							bottom: 0;
+							width: 100%;
+						}
+					}
+					.btn-tab{
+						padding-top: 0.8rem;
+					}
+				}
+				.cont-group{
+					&:first-child{
+						padding-top: 8rem;
+					}
+				}
+				.sidebar{
+					margin-top: 0;
+				}
+			}
+		}
 
 		.layout-inner {
 			position: relative;
@@ -2604,7 +2704,19 @@
 		}
 		.section-detail{
 			position: relative;
+		}
+		//아이콘
+		@for $i from 1 through 6{
+			$num: if($i < 10, "0#{$i}", "#{$i}");
 
+			.icon-feature-#{$num}{
+				&::before{
+					@include bg('fund/ico-pension-feature-#{$num}.svg', $size: 2rem 2rem, $color: #FE5B16);
+				}
+			}
+		}
+		//개인연금
+		&.personal{
 			#benefit{
 				.img-wrap{
 					margin: 0 auto;
@@ -2616,6 +2728,21 @@
 					margin: 0 auto;
 					max-width: 60rem;
 				}
+			}
+		}
+		//퇴직연금
+		&.retire{
+
+		}
+		//tdf
+		&.tdf{
+			#tdf_way{
+				.img-wrap{
+					margin: 0 auto;
+					max-width: 94.2rem;
+				}
+			}
+			#tdf_feature{
 			}
 		}
 	}
