@@ -26,6 +26,15 @@
     colCount = tbody[0].length;
   }
 
+	let theadRows = [];
+  if (thead.length > 0) {
+    if (Array.isArray(thead[0])) {
+      theadRows = thead;
+    } else {
+      theadRows = [thead];
+    }
+  }
+
   const wrapClasses = [
     'tbl-wrap', // 기본 래퍼 클래스
     addClass
@@ -48,10 +57,11 @@
         <% } -%>
       <% } -%>
     </colgroup>
-    <% if (thead.length > 0) { -%>
+    <% if (theadRows.length > 0) { -%>
     <thead>
+			<% theadRows.forEach((row) => { -%>
       <tr>
-        <% thead.forEach((header) => { -%>
+        <% row.forEach((header) => { -%>
 				<%
 					let hText = '';
 					let hAttrs = '';
@@ -68,6 +78,7 @@
         <th scope="col"<%- hAttrs %>><%- hText %></th>
         <% }); -%>
       </tr>
+			<% }); -%>
     </thead>
     <% } -%>
     <% if (tbody.length > 0) { -%>

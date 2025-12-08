@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '퇴직연금 | 연금펀드 | 한화펀드'
+		}) -%>
+	</head>
+	<body class="page-fund">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container fund-pension retire">
+				<section class="section-visual">
+					<div class="inner">
+						<div class="txt-wrap">
+							<p class="sub-tit">연금펀드</p>
+							<p class="tit">퇴직연금</p>
+							<p class="desc">여유로운 노후를 위한 개인연금의 대표주자, <br/> 연금 저축을 소개합니다.</p>
+						</div>
+						<div class="img-wrap">
+							<img src="~@/assets/images/fund/pension-retire-visual.png" alt="">
+						</div>
+					</div>
+				</section>
+				<section class="section-detail">
+					<div class="layout-sidebar">
+						<div class="layout-inner">
+							<aside class="sidebar">
+								<ul>
+									<li class="active"><a href="#intro" aria-current="page">퇴직연금 제도란</a></li>
+									<li><a href="#feature">제도별 특징</a></li>
+									<li><a href="#strategy">퇴직연금 운용전략</a></li>
+									<li><a href="#benefit">세제 혜택 및 과세체계</a></li>
+								</ul>
+							</aside>
+
+							<div class="layout-content">
+								<section id="intro" class="cont-group motion fade-up">
+									<div class="section-tit-wrap">
+										<h2 class="tit">퇴직연금 제도란?</h2>
+										<p class="desc-small">근로자들의 노후소득 보장을 위해 근로자 재직 기간 중 근로자의 퇴직급여를 금융기관에 적립하고, <br/> 이 적립금을 회사(DB) 또는 근로자(DC)가 운용하다가 55세 이후 연금 또는 일시금으로 수령할 수 있도록 하는 제도</p>
+									</div>
+									<div class="img-wrap img1">
+										<img src="~@/assets/images/fund/pension-retire-intro-01.png" alt="">	
+									</div>
+									<div class="gray-box small bg-light-orange">
+										<div class="img-wrap img2">
+											<img src="~@/assets/images/fund/pension-retire-intro-02.png" alt="">	
+										</div>
+									</div>
+									<div class="gray-box">
+										<div class="group-wrap spacing-xlg">
+											<p class="tit-xsm">
+												<span>노인 부양 인구 감소 / 늘어나는 노인 인구 <br/> <small class="desc fc-primary">합계출산율* 0.75명의 시대</small> </span>
+											</p>
+											<div class="group-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-intro-03.png" alt="">	
+												</div>
+												<ul class="note-list depth-1 small">
+													<li>자료 : 통계청 &lt;인구동향조사&gt; 각 연도</li>
+													<li>합계출산율 : 가임기 여성(15-49세) 1명이 가임기간(15-49세) 동안 낳을 것으로 예상되는 평균 출생아수</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="gray-box">
+										<div class="group-wrap spacing-xlg">
+											<p class="tit-xsm">
+												<span>전체 인구 중 65세 이상 노인 인구 비율 <br/> <small class="desc fc-primary">전체 인구 중 노인 인구 비율 (단위 : 만명)</small> </span>
+											</p>
+											<div class="group-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-intro-04.png" alt="">	
+												</div>
+												<ul class="note-list depth-1 small">
+													<li>자료 : 통계청 &lt;장래인구추계&gt; 각 연도</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="gray-box">
+										<div class="img-wrap img5">
+											<img src="~@/assets/images/fund/pension-retire-intro-05.png" alt="">	
+										</div>
+									</div>
+								</section>
+								<section id="feature" class="cont-group motion fade-up">
+									<div class="section-tit-wrap">
+										<h2 class="tit">제도별 특징</h2>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<div class="group-flex-wrap small">
+											<div class="gray-box small">
+												<ul class="box-list-wrap">
+													<li>
+														<p class="tit">확정급여형(DB), 확정기여형(DC)</p>
+														<p class="desc">근로자의 퇴직급여 재원을 회사가 운용(DB)하거나 근로자 개인이 직접 운용 (DC)하여 근로자가 퇴직 후 연금 또는 일시금으로 받아 노후에 쓸 수 있도록 하는 제도</p>
+													</li>
+												</ul>
+											</div>
+											<div class="gray-box small">
+												<ul class="box-list-wrap">
+													<li>
+														<p class="tit">개인형 퇴직연금(IRP)</p>
+														<p class="desc">이직 또는 퇴직할 때 받은 퇴직급여를 적립하거나, 본인 부담으로 추가 납입한 자금을 만 55세 이후 연금화 할 수 있는 제도</p>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap">
+										<%- include('../../components/table.ejs', { 
+											caption: '기간별 수익률',
+											colAligns: [null, 'left'],
+											colWidths: ['26.5%', 'auto'],
+											thead: ['구분', '내용'],
+											tbody: [
+												['가입대상', `<ul class="note-list depth-1">
+														<li>회사 책임형(DB), 근로자 책임형(DC), 기업형 IRP 가입자 </li>
+														<li>퇴직(일시)금을 수령한 사람</li>
+														<li>자영업자, 지역연금 가입자 (공무원, 군인, 교직원 등)</li>
+														<li>퇴직연금제도 미설정 근로자 등</li>
+													</ul>`],
+												['납입한도', `
+													<ul class="note-list depth-1">
+														<li>전 금융기관 합산 한도 기준, 분기별 한도 제한 없음</li>
+														<li>연금저축계좌 및 퇴직 연금 DC/IRP 가입자 납입분 합산 </li>
+													</ul>
+													<strong class="desc fc-dark-black mt-12">[제도별 납입 한도]</strong>
+													<ul class="note-list depth-1 no-bullet">
+														<li>
+															DB형(확정급여형)
+															<ul class="note-list depth-1">
+																<li>회사가 납입하며, 근로자가 직접 추가 납입할 수 있는 한도는 없습니다.</li>
+																<li>근로자는 별도의 IRP 계좌를 개설하여 추가 납입해야 합니다.</li>
+															</ul>
+														</li>
+													</ul>
+													<ul class="note-list depth-1 no-bullet">
+														<li>
+															DC형(확정기여형)
+															<ul class="note-list depth-1">
+																<li>회사 부담금(연간 임금총액의 1/12 이상) 외에 근로자 본인이 추가 납입할 수 있습니다.</li>
+																<li>이 금액은 IRP 및 연금저축 납입액과 합산하여 관리됩니다.</li>
+															</ul>
+														</li>
+													</ul>
+													<ul class="note-list depth-1 no-bullet">
+														<li>
+															IRP(개인형 퇴직연금)
+															<ul class="note-list depth-1">
+																<li>근로자 본인이 직접 납입합니다.</li>
+																<li>DC형 추가 납입액 및 연금저축 납입액과 합산하여 연간 1,800만 원까지 납입할 수 있습니다.</li>
+															</ul>
+														</li>
+													</ul>`],
+												['세액공제', `<ul class="note-list depth-1">
+														<li>세액공제 한도 : 연간 최대 900만원 (연금저축계좌 + DC/IRP 합산 기준)</li>
+														<li>세액공제율 : 13.2% (지방소득세율 포함)</li>
+														<li>단, 총 급여 5,500만원 이하 또는 종합소득금액 4,500만원 이하의 경우 16.5%</li>
+													</ul>`],
+												['연금수령대상', '만 55세 이상 및 5년 이상 가입고객'],
+												['중도인출', `<p class="desc">법에서 정한 사유에 한하여 중도인출 가능</p>
+													<ul class="note-list depth-1">
+														<li>단, 중도해지하거나 계약기간 종료 후 연금 이외의 형태로 수령하는 경우 세액공제 받은 납입원금 및 수익에 대해 기타소득세(16.5%)가 부과될 수 있음</li>
+													</ul>`],
+											],
+											rowHeaders: true,
+											addClass: 'tertiary scroll',
+										}) %>
+										<%- include('../../components/note-list.ejs', { 
+											depth: 1,
+											items: [
+												'상기 기재된 세율 및 과세 관련 내용 등은 조세특례제한법 및 소득세법 등에 근거하며, 해당 법과 동법 시행령 및 시행규칙의 개정내용에 따라 변경될 수 있습니다. 또한 상기 기재되어 있는 세금관련 내용은 수익자의 일부 환매 또는 중도 해지 시 적용기준 및 내용 등이 달라질 수 있으므로 자세한 내용은 판매회사와 사전에 협의하시기 바랍니다.',
+											],
+											addClass: 'small'
+										}); %>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">DB(Defined Benefit) 제도</h3>
+										<div class="gray-box">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">DC(Defined Contribution) 제도</h3>
+										<div class="gray-box">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">IRP(Individual Retirement Pension, 개인형퇴직연금) 제도</h3>
+										<div class="gray-box">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+											</div>
+										</div>
+									</div>
+								</section>
+								<section id="strategy" class="cont-group motion fade-up">
+									<div class="section-tit-wrap">
+										<h2 class="tit">퇴직연금 운용전략</h2>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">수익과 위험과의 관계</h3>
+										<div class="gray-box small">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/fund/pension-personal-benefit-01.png" alt="">	 -->
+											</div>
+										</div>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">장기투자 + 분산투자 → 리스크 감소</h3>
+										<div class="gray-box small">
+											<div class="img-wrap">
+												<!-- <img src="~@/assets/images/fund/pension-personal-benefit-01.png" alt="">	 -->
+											</div>
+										</div>
+									</div>
+								</section>
+								<section id="benefit" class="cont-group motion fade-up">
+									<div class="section-tit-wrap">
+										<h2 class="tit">세제 혜택 및 과세체계</h2>
+									</div>
+									<div class="group-wrap">
+										<h3 class="tit-sm">세제혜택</h3>
+										<%- include('../../components/table.ejs', { 
+											caption: '세제혜택',
+											colWidths: ['auto', 'auto', '35rem', 'auto'],
+											thead: ['연금저축', 'IRP <br/> (개인추가부담금)', '공제금액', '절세금액 <br/> (지방소득세 포함 13.2~16.5%)'],
+											tbody: [
+												['900만원', '0원', '600만원', '79.2 ~ 99만원'],
+												['700만원', '200만원', '800만원 <br/> (연금저축 600만원+퇴직연금 200만원)', '105.6~132만원'],
+												['300만원', '600만원', '900만원', '118.8~148.5만원'],
+												['0원', '900만원', '900만원', '118.8~148.5만원']
+											],
+											addClass: 'tertiary scroll',
+										}) %>
+										<ul class="note-list depth-1 small">
+											<li>연금저축+IRP 세액공제 대상 납입한도 연 900만원(연금저축만 가입 시 연 600만원), 2023년부터 적용</li>
+										</ul>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<h3 class="tit-sm">과세체계</h3>
+										<p class="desc">퇴직연금은 퇴직급여 수령단계에서 퇴직소득세 (일시금 수령시) 또는 연금소득세 (연금 수령시)가 과세됩니다. <br/> 연금을 선택하는 경우에는 퇴직소득세 대신 연금소득세만 납부하면 되므로 노후 실질 소득이 증가할 수 있습니다.</p>
+										<div class="group-wrap">
+											<%- include('../../components/table.ejs', { 
+												caption: '과세체계',
+												colAligns: [null, 'left'],
+												colWidths: ['30%', 'auto'],
+												thead: ['수령방법', '수급요건'],
+												tbody: [
+													['연금', `<ul class="note-list depth-1 number">
+														<li><span>1.</span>가입기간 5년이상(퇴직소득이 입금된 계좌는 면제)</li>	
+														<li><span>2.</span>55세 이후 연금개시 신청</li>	
+														<li><span>3.</span>연간 연금수령 한도 이내 수령</li>	
+													</ul>`],
+													['일시금', `<ul class="note-list depth-1">
+														<li>퇴직자가 일시금 수령을 원하는 경우</li>	
+														<li>상기 연금 수령조건을 충족하지 못한 경우</li>
+													</ul>`]
+												],
+												addClass: 'tertiary scroll',
+											}) %>
+											<ul class="note-list depht-1 small">
+												<li>IRP(개인퇴직연금) 가입자의 경우에는 가입기간에 관계없이 만 55세 이상이 되는 시점에 연금으로 수령가능 (단, 퇴직일로부터 60일 이내 납입 필요)</li>
+											</ul>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="section-trend">
+					<div class="inner">
+						<div class="cont-group motion fade-up">
+							<div class="section-tit-wrap">
+								<h2 class="tit txt-en txt-gradient">Investment Trend</h2>
+								<p class="desc">지금 인기있는 펀드를 확인해보세요</p>
+							</div>
+							<div class="card-list-wrap">
+								<ul class="card-list">
+									<li class="card-item motion fade-up" data-delay="0.1">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
+													]
+												}) -%>
+												<p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis up">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.2">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
+													]
+												}) -%>
+												<p class="tit">한화그린히어로증권자투자신탁(주식) A</p>
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis down">
+														<dt>3개월 수익률</dt>
+														<dd>-13.36<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.3">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
+													]
+												}) -%>
+												<p class="tit">한화코리아레전드4차산업혁명증권자투자신탁(주식)종류A</p>
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis">
+														<dt>3개월 수익률</dt>
+														<dd>-</dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li class="card-item motion fade-up" data-delay="0.4">
+										<a href="#!">
+											<div class="card-top">
+												<%- include('../../components/badge.ejs', { 
+													badgeItems: [
+														{ label: '국내', variant: 'solid', color: 'red' },
+														{ label: '주식', variant: 'solid', color: 'orange' },
+														{ label: '글로벌', variant: 'solid', color: 'purple' }
+													]
+												}) -%>
+												<p class="tit">한화헤라클레스선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+												<p class="desc">종류 C-e(수수료미징구-온라인)</p>
+											</div>
+											<div class="card-con">
+												<div class="chart-area line">
+													<div class="chart">
+														<!-- Chart 영역 -->
+													</div>
+												</div>
+		
+												<div class="info-list">
+													<dl class="txt-emphasis up">
+														<dt>3개월 수익률</dt>
+														<dd>2.56<small>%</small></dd>
+													</dl>
+													<dl>
+														<dt>기준가</dt>
+														<dd>1,452.33원</dd>
+													</dl>
+													<dl>
+														<dt>순자산</dt>
+														<dd>3억원</dd>
+													</dl>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+								<div class="btn-wrap array-center">
+									<%- include('../../components/button.ejs', {
+										tag: 'a',
+										label: '더보기',
+										size: 'large',
+										hierarchy: 'tertiary',
+										addClass: 'more',
+									}) -%>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+
+		<!-- popover -->
+		<%- include('../../components/popover.ejs', {
+			id: 'popover-share',
+			title: '공유하기',
+			popSlot: `
+				<ul class="share-sns-list">
+					<li class="kakao">
+						<a href="#!">카카오톡</a>
+					</li>
+					<li class="blog">
+						<a href="#!">블로그</a>
+					</li>
+					<li class="instagram">
+						<a href="#!">인스타그램</a>
+					</li>
+					<li class="copy">
+						<button type="button">URL복사</button>
+					</li>
+				</ul>
+			`
+		}) %>
+		<!-- // popover -->
+
+		<%- include('../../components/toast.ejs') -%>
+	</body>
+</html>

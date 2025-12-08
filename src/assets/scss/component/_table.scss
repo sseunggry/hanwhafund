@@ -70,6 +70,23 @@
 			.emphasis {
 				background-color: rgba(208, 156, 88, 0.2);
 			}
+			&:has(tr + tr){
+				tr{
+					border-bottom: var(--#{$prefix}-table--border-width) solid var(--#{$prefix}-table--tbody-color-divider);
+
+					th{
+						border-right: var(--#{$prefix}-table--border-width) solid var(--#{$prefix}-table--tbody-color-divider);
+
+						&:last-child{
+							border-right: 0;
+						}
+					}
+
+					&:last-child{
+						border-bottom: 0;
+					}
+				}
+			}
     }
 
     tbody {
@@ -125,6 +142,10 @@
     }
 		.note-list{
 			gap: 0.4rem;
+
+			+ .note-list{
+				margin-top: 1.2rem;
+			}
 		}
   }
 

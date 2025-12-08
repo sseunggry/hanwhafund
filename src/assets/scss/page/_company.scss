@@ -906,4 +906,251 @@
 			}
 		}
 	}
+
+	//글로벌 네트워크
+	.company-network{
+		.section-visual{
+			@include bg('company/network-visual-bg.png');
+
+			.inner{
+				max-width: 182.4rem;
+				padding: 24rem 9.6rem 20rem;
+			}
+			.map-info-list{
+				display: flex;
+				align-items: flex-start;
+				justify-content: center;
+				color: #fff;
+
+				> li {
+					padding-left: 2rem;
+					border-left: 0.2rem solid #FE5B16;
+					word-break: keep-all;
+
+					&:nth-child(1){
+						max-width: 18%;
+						// max-width: 32.5rem;
+					}
+					&:nth-child(2){
+						margin-top: 15.4rem;
+						margin-left: 2.2%;
+						max-width: 16.5%;
+						// max-width: 29.1rem;
+					}
+					&:nth-child(3){
+						margin-top: 19.4rem;
+						margin-left: 6.6%;
+						max-width: 21%;
+						// max-width: 34.5rem;
+					}
+					&:nth-child(4){
+						margin-top: 19.4rem;
+						margin-left: 4.4%;
+						max-width: 18%;
+						// max-width: 30.9rem;
+					}
+					&:nth-child(5){
+						margin-left: 4.4%;
+						max-width: 8.5%;
+						// max-width: 13.9rem;
+					}
+				}
+
+				.tit{
+					display: flex;
+					flex-direction: column;
+					margin-bottom: 2.4rem;
+				}
+			}
+
+			@include mq(1500){
+				.map-info-list{
+					> li {
+						&:nth-child(1){
+							// max-width: 18%;
+						}
+						&:nth-child(2){
+							// margin-top: 15.4rem;
+							margin-left: 1.8%;
+							// max-width: 16.5%;
+						}
+						&:nth-child(3){
+							// margin-top: 19.4rem;
+							margin-left: 5%;
+							// max-width: 21%;
+						}
+						&:nth-child(4){
+							// margin-top: 19.4rem;
+							margin-left: 2.8%;
+							// max-width: 18%;
+						}
+						&:nth-child(5){
+							margin-left: 2.8%;
+							max-width: 12%;
+						}
+					}
+				}
+			}
+			@include mq(pc){
+				.inner{
+					padding-left: var(--#{$prefix}-content-padding-x);
+					padding-right: var(--#{$prefix}-content-padding-x);
+				}
+				.map-info-list{
+					justify-content: space-between;
+					> li {
+						&:nth-child(1){
+							// max-width: 100%;
+						}
+						&:nth-child(2){
+							// margin-top: 15.4rem;
+							margin-left: 0;
+							// max-width: 16.5%;
+						}
+						&:nth-child(3){
+							// margin-top: 19.4rem;
+							margin-left: 0;
+							// max-width: 21%;
+						}
+						&:nth-child(4){
+							// margin-top: 19.4rem;
+							margin-left: 0;
+							// max-width: 18%;
+						}
+						&:nth-child(5){
+							margin-left: 0;
+							// max-width: 11%;
+						}
+					}
+				}
+			}
+			@include mq(tablet){
+				.inner{
+					padding-top: 10rem;
+					padding-bottom: 10rem;
+				}
+				.map-info-list{
+					flex-direction: column;
+					gap: 4rem;
+					
+					> li {
+						&:nth-child(1){
+							max-width: 100%;
+							width: 100%;
+						}
+						&:nth-child(2){
+							margin-top: 0;
+							max-width: 100%;
+							width: 100%;
+						}
+						&:nth-child(3){
+							margin-top: 0;
+							max-width: 100%;
+							width: 100%;
+						}
+						&:nth-child(4){
+							margin-top: 0;
+							max-width: 100%;
+							width: 100%;
+						}
+						&:nth-child(5){
+							max-width: 100%;
+							width: 100%;
+						}
+					}
+				}
+			}
+			@include mq(mobile){
+				.inner{
+					padding-top: 0;
+					padding-bottom: 0;
+					min-height: 17.6rem;
+				}
+				.map-info-list{
+					display: none;
+				}
+			}
+		}
+		.section-detail{
+			.network-list{
+				> li{
+					display: flex;
+					flex-direction: column;
+					gap: 4rem;
+
+					+ li{
+						margin-top: 8rem;
+					}
+
+					.group-flex-wrap{
+						gap: 6rem;
+					}
+					.img-wrap{
+						width: 38.46%;
+
+						img{
+							width: 100%;
+						}
+					}
+					.txt-wrap{
+						&.line-top{
+							&::before{
+								height: 0.2rem;
+							}
+						}
+
+						dl{
+							display: flex;
+							gap: 2rem;
+							padding: 2.8rem 0;
+							border-bottom: 0.1rem solid #1A140F;
+
+							&:last-child{
+								border-bottom: 0;
+							}
+						}
+						dt{
+							min-width: 20rem;
+							color: var(--#{$prefix}-color-text-strong);
+							font-size: 2.1rem;
+							font-weight: 600;
+						}
+					}
+				}
+			}
+
+			@include mq(tablet){
+				.network-list{
+					> li {
+						.group-flex-wrap{
+							flex-direction: column;
+						}
+						.img-wrap{
+							width: 50%;
+						}
+					}
+				}
+			}
+			@include mq(mobile){
+				.network-list{
+					> li {
+						gap: 2.4rem;
+
+						.group-flex-wrap{
+							gap: 4rem;
+						}
+						.img-wrap{
+							width: 100%;
+						}
+						.txt-wrap{
+							dl{
+								flex-direction: column;
+								gap: 1.6rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }

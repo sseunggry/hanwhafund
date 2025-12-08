@@ -201,6 +201,9 @@ sup{
 	&.small{
 		padding: 4rem;
 	}
+	&.bg-light-orange{
+		background: #FDF5F1;
+	}
 
 	@include mq(tablet){
 		padding: 4rem;
@@ -237,10 +240,14 @@ sup{
 			&::before{
 				content: '';
 				display: block;
+				flex-shrink: 0;
 				@include square(3.2rem);
 				background-color: #FE5B16;
 			}
 		}
+	}
+	@include mq(tablet){
+		flex-direction: column;
 	}
 }
 
@@ -391,8 +398,13 @@ sup{
 		gap: 2.4rem 1.6rem;
 	}
 
-	&.spacing-lg{
-		gap: 4rem;
+	&.spacing{
+		&-lg{
+			gap: 4rem;
+		}
+		&-xlg{
+			gap: 6.4rem;
+		}
 	}
 
 	@include mq(mobile) {
