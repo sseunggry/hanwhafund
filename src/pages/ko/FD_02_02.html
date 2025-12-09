@@ -120,7 +120,7 @@
 											thead: ['구분', '내용'],
 											tbody: [
 												['가입대상', `<ul class="note-list depth-1">
-														<li>회사 책임형(DB), 근로자 책임형(DC), 기업형 IRP 가입자 </li>
+														<li>회사 책임형(DB), 근로자 책임형(DC), 기업형 IRP 가입자</li>
 														<li>퇴직(일시)금을 수령한 사람</li>
 														<li>자영업자, 지역연금 가입자 (공무원, 군인, 교직원 등)</li>
 														<li>퇴직연금제도 미설정 근로자 등</li>
@@ -154,7 +154,7 @@
 															IRP(개인형 퇴직연금)
 															<ul class="note-list depth-1">
 																<li>근로자 본인이 직접 납입합니다.</li>
-																<li>DC형 추가 납입액 및 연금저축 납입액과 합산하여 연간 1,800만 원까지 납입할 수 있습니다.</li>
+																<li>DC형 추가 납입액 및 연금저축 납입액과 합산하여 <strong class="desc">연간 1,800만 원</strong>까지 납입할 수 있습니다.</li>
 															</ul>
 														</li>
 													</ul>`],
@@ -182,25 +182,82 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">DB(Defined Benefit) 제도</h3>
-										<div class="gray-box">
-											<div class="img-wrap">
-												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+										<div class="gray-box small">
+											<div class="group-flex-wrap check-point-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-feature-01.png" alt="">
+												</div>
+												<div class="txt-wrap">
+													<p class="txt">근로자가 퇴직할 때 받을 퇴직급여가 사전에 확정된퇴직연금 제도로, 사용자(회사)는 퇴직연금 부담금을 적립해 자기 책임으로 운용합니다.</p>
+													<div class="check-point">
+														<%- include('../../components/badge.ejs', { 
+															variant: 'solid', color: 'gray', label: 'Check Point', size: 'small'
+														}) -%>
+														<%- include('../../components/note-list.ejs', { 
+															depth: 1,
+															items: [
+																'퇴직급여 = 퇴직 전 3개월 평균 임금 X 근속연수',
+																'운용 주체 및 책임: 회사',
+																'퇴직연금 수령: 일시금과 연금 중 선택',
+															],
+															addClass: 'small'
+														}) -%>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">DC(Defined Contribution) 제도</h3>
-										<div class="gray-box">
-											<div class="img-wrap">
-												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+										<div class="gray-box small">
+											<div class="group-flex-wrap check-point-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-feature-02.png" alt="">
+												</div>
+												<div class="txt-wrap">
+													<p class="txt">사용자(회사)가 납입할 부담금이 매년 근로자 연간임금총액의 1/12로 사전에 확정된 퇴직연금제도입니다. 근로자는 직접 자신의 퇴직연금 적립금을 운용하여 적립금과 운용수익을 퇴직급여로 지급받습니다.</p>
+													<div class="check-point">
+														<%- include('../../components/badge.ejs', { 
+															variant: 'solid', color: 'gray', label: 'Check Point', size: 'small'
+														}) -%>
+														<%- include('../../components/note-list.ejs', { 
+															depth: 1,
+															items: [
+																'퇴직급여 = 퇴직 전 3개월 평균 임금 X 근속연수',
+																'운용 주체 및 책임: 회사',
+																'퇴직연금 수령: 일시금과 연금 중 선택',
+															],
+															addClass: 'small'
+														}) -%>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">IRP(Individual Retirement Pension, 개인형퇴직연금) 제도</h3>
-										<div class="gray-box">
-											<div class="img-wrap">
-												<!-- <img src="~@/assets/images/fund/pension-tdf-intro.png" alt=""> -->
+										<div class="gray-box small">
+											<div class="group-flex-wrap check-point-wrap">
+												<div class="img-wrap small">
+													<img src="~@/assets/images/fund/pension-retire-feature-03.png" alt="">
+												</div>
+												<div class="txt-wrap">
+													<p class="txt">근로자가 직장을 옮기거나 퇴직하면서 지급받은 퇴직급여를 한 계좌로 모아 노후재원으로 사용할 수 있도록 하는 퇴직연금 전용계좌 (통산장치) 제도입니다.</p>
+													<div class="check-point">
+														<%- include('../../components/badge.ejs', { 
+															variant: 'solid', color: 'gray', label: 'Check Point', size: 'small'
+														}) -%>
+														<%- include('../../components/note-list.ejs', { 
+															depth: 1,
+															items: [
+																'IRP 해지 시까지 소득세 납부가 연기되는 과세이연 혜택',
+																'DB/DC형 퇴직연금 외 IRP 계좌 개설해 추가 납입 가능',
+																'퇴직연금 수령: 일시금과 연금 중 선택',
+															],
+															addClass: 'small'
+														}) -%>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -211,17 +268,42 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">수익과 위험과의 관계</h3>
-										<div class="gray-box small">
-											<div class="img-wrap">
-												<!-- <img src="~@/assets/images/fund/pension-personal-benefit-01.png" alt="">	 -->
+										<div class="gray-box">
+											<div class="group-wrap">
+												<div class="group-flex-wrap xsmall">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-retire-strategy-01-01.png" alt="">	
+													</div>
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-retire-strategy-01-02.png" alt="">	
+													</div>
+												</div>
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-strategy-01-03.png" alt="">	
+												</div>
 											</div>
 										</div>
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">장기투자 + 분산투자 → 리스크 감소</h3>
-										<div class="gray-box small">
-											<div class="img-wrap">
-												<!-- <img src="~@/assets/images/fund/pension-personal-benefit-01.png" alt="">	 -->
+										<div class="gray-box">
+											<div class="group-flex-wrap invest-wrap">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-strategy-02-01.png" alt="">	
+												</div>
+												<div class="txt-wrap">
+													<%- include('../../components/note-list.ejs', { 
+														depth: 1,
+														items: [
+															'장기적으로 투자 할수록 위험 감소, 수익 증가 ',
+															'주식, 부동산, 예금 등 서로 다른 성격의 자산에 골고루 분산하여 운용함으로써 서로 상호 보완적인 역할을 통한 변동성 최소화 가능'
+														],
+														addClass: 'fc-black'
+													}) -%>
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-retire-strategy-02-02.png" alt="">	
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

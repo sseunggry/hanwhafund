@@ -211,12 +211,18 @@
 	}
 
 	@include mq(mobile){
-		--#{$prefix}-table--tbody-font-size: 1.6rem;
+		--#{$prefix}-table--tbody-font-size: 1.4rem;
 		gap: 1.6rem;
 
 		.note-list{
 			> li{
-				font-size: 1.6rem;
+				padding-left: 1.4rem;
+				font-size: var(--#{$prefix}-table--tbody-font-size);
+
+				&::before{
+					top: 0.8rem;
+					left: 0.3rem;
+				}
 			}
 		}
 	}

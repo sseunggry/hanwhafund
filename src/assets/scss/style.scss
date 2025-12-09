@@ -213,6 +213,18 @@ sup{
 		}
 	}
 }
+.white-gradient-box{
+	display: flex;
+	flex-direction: column;
+	gap: 2.4rem;
+	padding: 4rem;
+	background: linear-gradient(180deg, #FFF 10%, rgba(253, 252, 252, 0.00) 100%);
+
+	.tit-xxsm{
+		text-align: center;
+		justify-content: center;
+	}
+}
 .box-list-wrap{
 	display: flex;
 	gap: 4.8rem;
@@ -373,6 +385,9 @@ sup{
 	.group-wrap {
 		flex: 1;
 	}
+	&.xsmall{
+		gap: 3.4rem;
+	}
 	&.small{
 		gap: 4rem;
 	}
@@ -382,6 +397,12 @@ sup{
 
 	@include mq(mobile) {
 		gap: 4rem;
+
+		.group-wrap {
+			+ .group-wrap {
+				padding-top: 0;
+			}
+		}
 	}
 }
 
@@ -412,8 +433,13 @@ sup{
 			padding-top: 4rem;
 		}
 
-		&.spacing-lg{
-			gap: 2.4rem;
+		&.spacing{
+			&-lg{
+				gap: 2.4rem;
+			}
+			&-xlg{
+				gap: 4rem;
+			}
 		}
 
 		[class*="tit-"] {

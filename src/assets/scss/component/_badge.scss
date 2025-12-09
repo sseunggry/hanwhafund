@@ -81,7 +81,11 @@ $badge-size: (
     new: (
       element: #FE5B16,
       text: var(--#{$prefix}-color-text-white),
-    )
+    ),
+		gray:(
+			element: #DCD8D6,
+      text: var(--#{$prefix}-color-sub-80),
+		)
   ) !default;
 
   // css variable 생성
@@ -103,7 +107,8 @@ $badge-size: (
       }
 
       &.#{'#{$color}'} {
-        color: var(--#{$prefix}-badge--color-text-basic);
+				@include color-text(#{$color});
+        // color: var(--#{$prefix}-badge--color-text-basic);
         @include color-background(#{$color});
       }
     }
@@ -152,6 +157,11 @@ $badge-size: (
     font-size: var(--#{$prefix}-badge--font-size-medium);
     border-radius: var(--#{$prefix}-badge--radius);
   }
+
+	&.small{
+		font-size: 1.4rem;
+		font-weight: 500;
+	}
 }
 
 .badge-wrap {
