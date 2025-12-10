@@ -30,7 +30,7 @@
 						<% 
 						const table1 = include('../../components/table.ejs', { 
 							caption: '2020부터 2045까지 은퇴시점 선택하면 자동으로 투자자산 배분',
-							colWidths: ['23.07%', '23.07%', '23.07%', 'auto'],
+							colWidths: ['18%', '18%', '18%', 'auto'],
 							thead: ['고객 연령', '은퇴 예상시기', '남은 기간', '추천상품 (현재연도+남은 기간)'],
 							tbody: [
 								['22세', '55세', '33년', '2025+33 → LIFEPLUS TDF 2060'],
@@ -39,36 +39,131 @@
 								['42세', '55세', '13년', '2025+13 → LIFEPLUS TDF 2035'],
 								['47세', '55세', '8년', '2025+8  → LIFEPLUS TDF 2030'],
 							],
-							addClass: 'tertiary scroll',
+							addClass: 'tertiary scroll small',
 						});
-						const table2 = include('../../components/table.ejs', { 
-							caption: 'TDF의 지금까지의 수익률은',
-							colWidths: ['auto', 'auto', 'auto', 'auto', 'auto'],
-							thead: ['LIFEPLUS TDF', '6개월', '1년', '3년', '설정 후'],
-							tbody: [
-								['2020', '6.44%,', '8.49%', '28.39%', '46.42%'],
-								['2025', '7.04%,', '9.43%', '33.08%', '56.63%'],
-								['2030', '8.82%,', '12.36%', '39.80%', '70.17%'],
-								['2035', '9.95%,', '14.40%', '46.06%', '83.55%'],
-								['2040', '11.11%', '16.32%', '50.37%', '93.27%'],
-								['2045', '12.33%', '18.13%', '55.65%', '100.51%'],
-								['2050', '12.72%', '18.52%', '56.21%', '68.28%'],
-								['2060', '12.60%', '18.32%', '-', '23.05%'],
-							],
-							addClass: 'tertiary scroll',
+						// const table2 = include('../../components/table.ejs', { 
+						// 	caption: 'TDF의 지금까지의 수익률은',
+						// 	colWidths: ['auto', 'auto', 'auto', 'auto', 'auto'],
+						// 	thead: ['LIFEPLUS TDF', '6개월', '1년', '3년', '설정 후'],
+						// 	tbody: [
+						// 		['2020', '6.44%,', '8.49%', '28.39%', '46.42%'],
+						// 		['2025', '7.04%,', '9.43%', '33.08%', '56.63%'],
+						// 		['2030', '8.82%,', '12.36%', '39.80%', '70.17%'],
+						// 		['2035', '9.95%,', '14.40%', '46.06%', '83.55%'],
+						// 		['2040', '11.11%', '16.32%', '50.37%', '93.27%'],
+						// 		['2045', '12.33%', '18.13%', '55.65%', '100.51%'],
+						// 		['2050', '12.72%', '18.52%', '56.21%', '68.28%'],
+						// 		['2060', '12.60%', '18.32%', '-', '23.05%'],
+						// 	],
+						// 	addClass: 'tertiary scroll',
+						// });
+						// const noteList2 = include('../../components/note-list.ejs', { 
+						// 	depth: 1,
+						// 	items: [
+						// 		'LIFEPLUS TDF는 별도의 비교지수 없이 운용되고 있습니다.',
+						// 		'과거의 운용실적이 미래의 수익을 보장하지 않습니다.',
+						// 		'2025.09.30 기준. 보수, 세액 공제 전 성과 수익률',
+						// 		'출처: 한화자산운용',
+						// 		'<strong>클래스별 보수 및 수수료 차이로 수익률이 달라질 수 있습니다.</strong>',
+						// 		'설정일: 2018.3.21 (TDF 2020~2045), 2020.08.20 (TDF 2050), 2024.05.14 (TDF 2060)',
+						// 	],
+						// 	addClass: 'small'
+						// });
+						const allFundData = include('../../layouts/fundList.ejs', { 
+							fundDataList: [
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+								{
+									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
+									desc: "종류 C-e(수수료미징구-온라인)",
+								},
+							]
 						});
-						const noteList2 = include('../../components/note-list.ejs', { 
-							depth: 1,
-							items: [
-								'LIFEPLUS TDF는 별도의 비교지수 없이 운용되고 있습니다.',
-								'과거의 운용실적이 미래의 수익을 보장하지 않습니다.',
-								'2025.09.30 기준. 보수, 세액 공제 전 성과 수익률',
-								'출처: 한화자산운용',
-								'<strong>클래스별 보수 및 수수료 차이로 수익률이 달라질 수 있습니다.</strong>',
-								'설정일: 2018.3.21 (TDF 2020~2045), 2020.08.20 (TDF 2050), 2024.05.14 (TDF 2060)',
-							],
-							addClass: 'small'
+						const select = include('../../components/select.ejs', {
+							variant: 'outline',
+							options: [
+								{ value: 'default', text: '기준가' },
+								{ value: 'assets', text: '순자산' },
+							]
 						});
+						const moreBtn = include('../../components/button.ejs', {
+							label: '더보기', 
+							hierarchy: 'tertiary',
+							size: 'large',
+							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
+						});
+						const fundContent = `
+						<div class="fund-content">
+							<div class="sort-wrap">
+								<div class="pc-only">
+									<ul class="sort-list">
+										<li class="sort-item">기준가(원)</li>
+										<li class="sort-item">순자산(백만원)</li>
+										<li class="sort-item period">
+											<p class="tit">수익률(%)</p>
+											<ul class="period-list">
+												<li>1개월</li>
+												<li>3개월</li>
+												<li>6개월</li>
+												<li>1년</li>
+												<li>3년</li>
+												<li>5년</li>
+												<li>연초이후</li>
+												<li>설정이후</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+								<div class="tablet-only">
+									<div class="sort-item select">
+										${select}
+									</div>
+									<ul class="sort-list">
+										<li class="sort-item">
+											<button type="button" class="btn text small active sort-asc">낮은순</button>
+										</li>
+										<li class="sort-item">
+											<button type="button" class="btn text small">높은순</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+							${allFundData}
+							<div class="btn-wrap array-center">
+								${moreBtn}
+							</div>
+						</div>`;
+
 						const content1 = `
 						<div class="layout-inner">
 							<aside class="sidebar">
@@ -86,21 +181,28 @@
 										<h2 class="tit">TDF (Target Dated Fund)란?</h2>
 										<p class="desc-small">생애주기에 맞춰 자동적으로 포트폴리오를 조정해주는 펀드로 투자자가 처음에 은퇴시점(Target Date)을 설정하면, 자산배분곡선(Glide Path)에 따라 처음에는 주식 등의 자산을 위주로 적극적으로 투자해서 수익을 추구하고, 은퇴시점이 가까워질수록 점점 채권 등 안전한 자산의 비중을 높여서 자산을 보존하는데 집중합니다.</p>
 									</div>
-									<div class="group-wrap spacing-lg">
-										<h3 class="tit-sm">연금저축 특징</h3>
-										<div class="gray-box">
-											<div class="img-wrap">
-												<img src="~@/assets/images/fund/pension-tdf-intro.png" alt="">	
+									<div class="gray-box">
+										<div class="group-wrap spacing-xlg">
+											<p class="tit-xsm tit-icon">
+												<span>청년기에는 <span class="fc-primary">주식 위주, 안전자산 위주</span>로 적극적 투자</span>
+												<span class="icon-arrow-right"></span>
+												<span>은퇴 가까워질수록 안전자산 위주로 자산관리</span>
+											</p>
+											<div class="white-gradient-box">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-tdf-intro.png" alt="" class="pc-tablet-only">	
+													<img src="~@/assets/images/fund/mo-pension-tdf-intro.png" alt="" class="mobile-only">	
+												</div>
 											</div>
 										</div>
-										<div class="group-wrap">
-											<p class="tit-sm">Glide Path(자산배분곡선)란?</p>
-											<p class="desc">은퇴시점이 다가옴에 따라 위험자산(주식)의 비중을 점차 줄이고 안전자산(채권)의 비중을 점차 늘리는 모습을 일컫는 말로, 점차 줄어드는 위험자산(주식)비중이 상공에서 글라이더(Glider)가 점차 아래로 착륙하는 과정(Path)과 비슷하다고 하여 일컫는 단어입니다.</p>	
-										</div>
-										<div class="group-wrap">
-											<p class="tit-sm">Glide Path는 어떻게 설계 하는지?</p>
-											<p class="desc">한국 투자자 데이터(은퇴연령, 연령에 따른 연봉, 소비 대체 비율 등)와 장기 금융 시장 전망(물가 상승률, 각 자산군 기대수익률, 각 자산군 예상 변동성 등)을 바탕으로 주기별 업데이트 된 테스트 결과 도출을 통하여 최적의 Glide Path를 선택하게 됩니다. 이는 40세까지는 높은 주식 비중으로 자산증대에 초점을 두고, 40~60세 구간에서 적절한 위험 관리를 통해 자산 증대, 보존을 동시에 추구하며 60세 이상에는 자산 보존에 초점을 둡니다.</p>	
-										</div>
+									</div>
+									<div class="group-wrap">
+										<p class="tit-sm">Glide Path(자산배분곡선)란?</p>
+										<p class="desc">은퇴시점이 다가옴에 따라 위험자산(주식)의 비중을 점차 줄이고 안전자산(채권)의 비중을 점차 늘리는 모습을 일컫는 말로, 점차 줄어드는 위험자산(주식)비중이 상공에서 글라이더(Glider)가 점차 아래로 착륙하는 과정(Path)과 비슷하다고 하여 일컫는 단어입니다.</p>	
+									</div>
+									<div class="group-wrap">
+										<p class="tit-sm">Glide Path는 어떻게 설계 하는지?</p>
+										<p class="desc">한국 투자자 데이터(은퇴연령, 연령에 따른 연봉, 소비 대체 비율 등)와 장기 금융 시장 전망(물가 상승률, 각 자산군 기대수익률, 각 자산군 예상 변동성 등)을 바탕으로 주기별 업데이트 된 테스트 결과 도출을 통하여 최적의 Glide Path를 선택하게 됩니다. 이는 40세까지는 높은 주식 비중으로 자산증대에 초점을 두고, 40~60세 구간에서 적절한 위험 관리를 통해 자산 증대, 보존을 동시에 추구하며 60세 이상에는 자산 보존에 초점을 둡니다.</p>	
 									</div>
 								</section>
 								<section id="tdf_way" class="cont-group motion fade-up">
@@ -110,14 +212,15 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">2020부터 2045까지 은퇴시점 선택하면 자동으로 투자자산 배분</h3>
-										<p class="desc">LIFEPLUS TDF는 2020,2025,2030,2035,2040,2045,2050,2060 8가지 빈티지 중 은퇴시기 선택 가능</p>
+										<p class="desc">LIFEPLUS TDF는 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2060 8가지 빈티지 중 은퇴시기 선택 가능</p>
 										${table1}
 									</div>
 									<div class="group-wrap spacing-lg">
-										<h3 class="tit-sm">투자자 성향에 따라서 선택 가능</h3>
+										<h3 class="tit-sm">투자자 성향에 따른 선택 가능 예시</h3>
 										<div class="gray-box">
 											<div class="img-wrap">
-												<img src="~@/assets/images/fund/pension-tdf-way.png" alt="">	
+												<img src="~@/assets/images/fund/pension-tdf-way.png" alt="" class="pc-tablet-only">
+												<img src="~@/assets/images/fund/mo-pension-tdf-way.png" alt="" class="mobile-only">
 											</div>
 										</div>
 									</div>
@@ -126,10 +229,7 @@
 									<div class="section-tit-wrap">
 										<h2 class="tit">TDF의 지금까지의 수익률은?</h2>
 									</div>
-									<div class="group-wrap">
-										${table2}
-										${noteList2}
-									</div>
+									
 								</section>
 								<section id="tdf_feature" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
@@ -155,6 +255,7 @@
 							</div>
 						</div>
 						`;
+						// ${fundContent}
 						%>
 						<% 
 						const pointTable1 = include('../../components/table.ejs', { 
@@ -187,12 +288,12 @@
 								['표준편차', '연수익률', 'IR' ,{ text: '표준편차', class: 'emphasis'}, { text: '연수익률', class: 'emphasis' }, { text: 'IR', class: 'emphasis' }]
 							],
 							tbody: [
-								['···', '-', '-', '-', '-', '-', '-'],
-								['2021', '5.95%', '5.84%', '0.98', '6.02%', '10.65%', '1.77'],
-								['2022', '12.32%', '-15.76%', '-1.28', '12.24%', '-12.93%', '-1.06'],
-								['2023', '7.34%', '14.38%', '1.96', '7.49%', '15.70%', '2.10'],
-								['2024', '6.32%', '7.68%', '1.21', '6.23%', '15.72%', '2.52'],
-								['전구간', '8.55%', '5.60%', '0.65', '8.41%', '6.33%', '0.75'],
+								['···', '-', '-', '-', { text: '-', class: 'emphasis'}, { text: '-', class: 'emphasis'}, { text: '-', class: 'emphasis'}],
+								['2021', '5.95%', '5.84%', '0.98', { text: '6.02%', class: 'emphasis'}, { text: '10.65%', class: 'emphasis'}, { text: '1.77', class: 'emphasis'}],
+								['2022', '12.32%', '-15.76%', '-1.28', { text: '12.24%', class: 'emphasis'}, { text: '-12.93%', class: 'emphasis'}, { text: '-1.06', class: 'emphasis'}],
+								['2023', '7.34%', '14.38%', '1.96', { text: '7.49%', class: 'emphasis'}, { text: '15.70%', class: 'emphasis'}, { text: '2.10', class: 'emphasis'}],
+								['2024', '6.32%', '7.68%', '1.21', { text: '6.23%', class: 'emphasis'}, { text: '15.72%', class: 'emphasis'}, { text: '2.52', class: 'emphasis'}],
+								['전구간', '8.55%', '5.60%', '0.65', { text: '8.41%', class: 'emphasis'}, { text: '6.33%', class: 'emphasis'}, { text: '0.75', class: 'emphasis'}],
 							],
 							addClass: 'scroll',
 						});
@@ -231,8 +332,8 @@
 										<h2 class="tit">한화 LIFEPLUS TDF 투자 포인트</h2>
 										<p class="desc-small">한화 LIFEPLUS TDF는 JP모간의 47년 자산운용 노하우와 한화자산운용의 글로벌자산배분이 더해진 상품입니다.</p>
 									</div>
+									<h3 class="tit-lg"><span class="fc-primary">01</span> 글로벌투자</h3>
 									<div class="group-wrap spacing-lg">
-										<h3 class="tit-lg"><span class="fc-primary">01</span> 글로벌투자</h3>
 										<div class="group-wrap">
 											<p class="tit-sm">전문가 JP모간과의 자문을 통한 투자 노하우를 반영했습니다.</p>
 											<p class="desc">200년 이상의 운용 경험과 검증된 투자전문가로 구성된 JP모간과의 자문을 통해 우수한 투자 노하우를 반영하였습니다.</p>
@@ -269,12 +370,18 @@
 												</div>
 											</div>
 										</div>
-										<div class="group-wrap spacing-lg">
-											<div class="group-wrap">
-												<p class="tit-sm">JP모간 TDF인 SmartRetirement는 꾸준한 중장기 성과를 시현하고 있습니다.</p>
-												<p class="desc">JP 모간에서 운용하고 있는 TDF의 수익률</p>	
-											</div>
+									</div>
+									<div class="group-wrap spacing-lg">
+										<div class="group-wrap">
+											<p class="tit-sm">JP모간 TDF인 SmartRetirement는 꾸준한 중장기 성과를 시현하고 있습니다.</p>
+											<p class="desc">JP 모간에서 운용하고 있는 TDF의 수익률</p>	
+										</div>
+										<div class="group-wrap">
 											${pointTable1}
+											<ul class="note-list depth-1 small">
+												<li>자료: J.P.Morgan Asset Management</li>
+												<li>주1: 2025.9.30 기준</li>
+											</ul>
 										</div>
 									</div>
 								</section>
@@ -289,7 +396,8 @@
 										<p class="tit-sm">효과적인 자산배분 비중 유지 + 알파를 고려한 비용 최소화</p>
 										<div class="gray-box">
 											<div class="img-wrap">
-												<img src="~@/assets/images/fund/pension-point-passive-01.png" alt="">
+												<img src="~@/assets/images/fund/pension-point-passive-01.png" alt="" class="pc-tablet-only">
+												<img src="~@/assets/images/fund/mo-pension-point-passive-01.png" alt="" class="mobile-only">
 											</div>
 										</div>
 									</div>
@@ -298,7 +406,8 @@
 										<div class="gray-box">
 											<div class="group-wrap">
 												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-point-passive-02.png" alt="">
+													<img src="~@/assets/images/fund/pension-point-passive-02.png" alt="" class="pc-tablet-only">
+													<img src="~@/assets/images/fund/mo-pension-point-passive-02.png" alt="" class="mobile-only">
 												</div>
 												<ul class="note-list small">
 													<li>수익률 기준: 과거 10년, 자산군별 패시브 성과 대비 액티브 성과</li>	
@@ -316,28 +425,45 @@
 										<p class="desc">유형별/지역별 환헤지를 차별화 하여, 최적의 투자수익을 추구합니다.</p>
 									</div>
 									<div class="group-wrap spacing-lg">
-										<p class="tit-sm">주식부분은 환오픈(Unhedged)을 통해 장기적으로 안정적인 성과를 냅니다.</p>
+										<p class="tit-sm">
+											<span class="badge line">주식</span>
+											주식부분은 환오픈(Unhedged)을 통해 장기적으로 안정적인 성과를 냅니다.
+										</p>
 										<div class="gray-box">
 											<div class="group-wrap spacing-lg">
-												<p class="tit-xsm justify-center">환오픈(Unhedged) 및 환헤지(Hedged)시 글로벌 주식 성과</p>
-												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-point-discriminate-01.png" alt="">
+												<p class="tit-xsm">환오픈(Unhedged) 및 환헤지(Hedged)시 글로벌 주식 성과</p>
+												<div class="img-box scroll">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-point-discriminate-01.png" alt="" class="pc-tablet-only">
+														<img src="~@/assets/images/fund/mo-pension-point-discriminate-01.png" alt="" class="mobile-only">
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="group-wrap spacing-lg">
 										<div class="group-wrap">
-											<p class="tit-sm">채권부분은 환헤지(Hedged)를 통해 꾸준한 Yield 수익을 확보합니다.</p>
+											<p class="tit-sm">
+												<span class="badge line">채권</span>
+												채권부분은 환헤지(Hedged)를 통해 꾸준한 Yield 수익을 확보합니다.
+											</p>
 											<p class="desc">TDF는 장기투자 상품으로 리스크 관리가 중요합니다. 한화 LIFEPLUS TDF는 유형별 환 운용 차별화로 효율적인 수익을 추구함과 동시에 포트폴리오 위험 관리가 가능합니다.</p>
 										</div>
 										<div class="gray-box">
 											<div class="group-flex-wrap">
-												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-point-discriminate-02-01.png" alt="">
+												<div class="white-gradient-box">
+													<p class="tit-xxsm">주식</p>
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-point-discriminate-02-01.png" alt="" class="pc-tablet-only">
+														<img src="~@/assets/images/fund/mo-pension-point-discriminate-02-01.png" alt="" class="mobile-only">
+													</div>
 												</div>
-												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-point-discriminate-02-02.png" alt="">
+												<div class="white-gradient-box">
+													<p class="tit-xxsm">채권</p>
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-point-discriminate-02-02.png" alt="" class="pc-tablet-only">
+														<img src="~@/assets/images/fund/mo-pension-point-discriminate-02-02.png" alt="" class="mobile-only">
+													</div>
 												</div>
 											</div>
 										</div>
@@ -351,9 +477,12 @@
 										<div class="group-wrap">
 											<div class="gray-box">
 												<div class="group-wrap spacing-lg">
-													<p class="tit-xsm justify-center">한화 TDF 헤지전략 성과추이</p>
-													<div class="img-wrap">
-														<img src="~@/assets/images/fund/pension-point-discriminate-03.png" alt="">
+													<p class="tit-xsm">한화 TDF 헤지전략 성과추이</p>
+													<div class="img-box scroll">
+														<div class="img-wrap">
+															<img src="~@/assets/images/fund/pension-point-discriminate-03.png" alt="" class="pc-tablet-only">
+															<img src="~@/assets/images/fund/mo-pension-point-discriminate-03.png" alt="" class="mobile-only">
+														</div>
 													</div>
 												</div>
 											</div>
@@ -366,7 +495,7 @@
 						`;
 						%>
 						<%- include('../../components/tab.ejs', {
-							active: 0,
+							active: 1,
 							variant: 'line',
 							tablist: ['About TDF', '한화 LIFEPLUS TDF 투자포인트'],
 							contents: [content1, content2],

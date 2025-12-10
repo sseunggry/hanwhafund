@@ -44,11 +44,13 @@
 										<p class="desc-small">근로자들의 노후소득 보장을 위해 근로자 재직 기간 중 근로자의 퇴직급여를 금융기관에 적립하고, <br/> 이 적립금을 회사(DB) 또는 근로자(DC)가 운용하다가 55세 이후 연금 또는 일시금으로 수령할 수 있도록 하는 제도</p>
 									</div>
 									<div class="img-wrap img1">
-										<img src="~@/assets/images/fund/pension-retire-intro-01.png" alt="">	
+										<img src="~@/assets/images/fund/pension-retire-intro-01.png" alt="" class="pc-tablet-only">
+										<img src="~@/assets/images/fund/mo-pension-retire-intro-01.png" alt="" class="mobile-only">
 									</div>
 									<div class="gray-box small bg-light-orange">
 										<div class="img-wrap img2">
-											<img src="~@/assets/images/fund/pension-retire-intro-02.png" alt="">	
+											<img src="~@/assets/images/fund/pension-retire-intro-02.png" alt="" class="pc-tablet-only">
+										<img src="~@/assets/images/fund/mo-pension-retire-intro-02.png" alt="" class="mobile-only">
 										</div>
 									</div>
 									<div class="gray-box">
@@ -58,7 +60,8 @@
 											</p>
 											<div class="group-wrap">
 												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-intro-03.png" alt="">	
+													<img src="~@/assets/images/fund/pension-retire-intro-03.png" alt="" class="pc-tablet-only">
+													<img src="~@/assets/images/fund/mo-pension-retire-intro-03.png" alt="" class="mobile-only">
 												</div>
 												<ul class="note-list depth-1 small">
 													<li>자료 : 통계청 &lt;인구동향조사&gt; 각 연도</li>
@@ -74,7 +77,8 @@
 											</p>
 											<div class="group-wrap">
 												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-intro-04.png" alt="">	
+													<img src="~@/assets/images/fund/pension-retire-intro-04.png" alt="" class="pc-tablet-only">
+													<img src="~@/assets/images/fund/mo-pension-retire-intro-04.png" alt="" class="mobile-only">
 												</div>
 												<ul class="note-list depth-1 small">
 													<li>자료 : 통계청 &lt;장래인구추계&gt; 각 연도</li>
@@ -84,7 +88,8 @@
 									</div>
 									<div class="gray-box">
 										<div class="img-wrap img5">
-											<img src="~@/assets/images/fund/pension-retire-intro-05.png" alt="">	
+											<img src="~@/assets/images/fund/pension-retire-intro-05.png" alt="" class="pc-tablet-only">
+											<img src="~@/assets/images/fund/mo-pension-retire-intro-05.png" alt="" class="mobile-only">
 										</div>
 									</div>
 								</section>
@@ -116,7 +121,7 @@
 										<%- include('../../components/table.ejs', { 
 											caption: '기간별 수익률',
 											colAligns: [null, 'left'],
-											colWidths: ['26.5%', 'auto'],
+											colWidths: ['20%', 'auto'],
 											thead: ['구분', '내용'],
 											tbody: [
 												['가입대상', `<ul class="note-list depth-1">
@@ -170,7 +175,7 @@
 													</ul>`],
 											],
 											rowHeaders: true,
-											addClass: 'tertiary scroll',
+											addClass: 'tertiary scroll small',
 										}) %>
 										<%- include('../../components/note-list.ejs', { 
 											depth: 1,
@@ -182,10 +187,11 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">DB(Defined Benefit) 제도</h3>
-										<div class="gray-box small">
+										<div class="gray-box">
 											<div class="group-flex-wrap check-point-wrap">
 												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-feature-01.png" alt="">
+													<img src="~@/assets/images/fund/pension-retire-feature-01.png" alt="" class="pc-tablet-only">	
+													<img src="~@/assets/images/fund/mo-pension-retire-feature-01.png" alt="" class="mobile-only">
 												</div>
 												<div class="txt-wrap">
 													<p class="txt">근로자가 퇴직할 때 받을 퇴직급여가 사전에 확정된퇴직연금 제도로, 사용자(회사)는 퇴직연금 부담금을 적립해 자기 책임으로 운용합니다.</p>
@@ -209,10 +215,11 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">DC(Defined Contribution) 제도</h3>
-										<div class="gray-box small">
+										<div class="gray-box">
 											<div class="group-flex-wrap check-point-wrap">
 												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-feature-02.png" alt="">
+													<img src="~@/assets/images/fund/pension-retire-feature-02.png" alt="" class="pc-tablet-only">	
+													<img src="~@/assets/images/fund/mo-pension-retire-feature-02.png" alt="" class="mobile-only">
 												</div>
 												<div class="txt-wrap">
 													<p class="txt">사용자(회사)가 납입할 부담금이 매년 근로자 연간임금총액의 1/12로 사전에 확정된 퇴직연금제도입니다. 근로자는 직접 자신의 퇴직연금 적립금을 운용하여 적립금과 운용수익을 퇴직급여로 지급받습니다.</p>
@@ -236,10 +243,11 @@
 									</div>
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">IRP(Individual Retirement Pension, 개인형퇴직연금) 제도</h3>
-										<div class="gray-box small">
+										<div class="gray-box">
 											<div class="group-flex-wrap check-point-wrap">
-												<div class="img-wrap small">
-													<img src="~@/assets/images/fund/pension-retire-feature-03.png" alt="">
+												<div class="img-wrap">
+													<img src="~@/assets/images/fund/pension-retire-feature-03.png" alt="" class="pc-tablet-only">	
+													<img src="~@/assets/images/fund/mo-pension-retire-feature-03.png" alt="" class="mobile-only">
 												</div>
 												<div class="txt-wrap">
 													<p class="txt">근로자가 직장을 옮기거나 퇴직하면서 지급받은 퇴직급여를 한 계좌로 모아 노후재원으로 사용할 수 있도록 하는 퇴직연금 전용계좌 (통산장치) 제도입니다.</p>
@@ -270,16 +278,27 @@
 										<h3 class="tit-sm">수익과 위험과의 관계</h3>
 										<div class="gray-box">
 											<div class="group-wrap">
-												<div class="group-flex-wrap xsmall">
-													<div class="img-wrap">
-														<img src="~@/assets/images/fund/pension-retire-strategy-01-01.png" alt="">	
+												<div class="group-flex-wrap">
+													<div class="white-gradient-box">
+														<p class="tit-xxsm">수익과 위험의 일반적인 관계</p>
+														<div class="img-wrap">
+															<img src="~@/assets/images/fund/pension-retire-strategy-01-01.png" alt="" class="pc-tablet-only">	
+															<img src="~@/assets/images/fund/mo-pension-retire-strategy-01-01.png" alt="" class="mobile-only">
+														</div>
 													</div>
-													<div class="img-wrap">
-														<img src="~@/assets/images/fund/pension-retire-strategy-01-02.png" alt="">	
+													<div class="white-gradient-box">
+														<p class="tit-xxsm">투자성형과 자산배분</p>
+														<div class="img-wrap">
+															<img src="~@/assets/images/fund/pension-retire-strategy-01-02.png" alt="" class="pc-tablet-only">	
+															<img src="~@/assets/images/fund/mo-pension-retire-strategy-01-02.png" alt="" class="mobile-only">
+														</div>
 													</div>
 												</div>
-												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-strategy-01-03.png" alt="">	
+												<div class="white-gradient-box">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-retire-strategy-01-03.png" alt="" class="pc-tablet-only">	
+															<img src="~@/assets/images/fund/mo-pension-retire-strategy-01-03.png" alt="" class="mobile-only">
+													</div>
 												</div>
 											</div>
 										</div>
@@ -288,8 +307,10 @@
 										<h3 class="tit-sm">장기투자 + 분산투자 → 리스크 감소</h3>
 										<div class="gray-box">
 											<div class="group-flex-wrap invest-wrap">
-												<div class="img-wrap">
-													<img src="~@/assets/images/fund/pension-retire-strategy-02-01.png" alt="">	
+												<div class="white-gradient-box">
+													<div class="img-wrap">
+														<img src="~@/assets/images/fund/pension-retire-strategy-02-01.png" alt="">	
+													</div>
 												</div>
 												<div class="txt-wrap">
 													<%- include('../../components/note-list.ejs', { 
@@ -316,15 +337,15 @@
 										<h3 class="tit-sm">세제혜택</h3>
 										<%- include('../../components/table.ejs', { 
 											caption: '세제혜택',
-											colWidths: ['auto', 'auto', '35rem', 'auto'],
+											colWidths: ['auto', 'auto', '30%', 'auto'],
 											thead: ['연금저축', 'IRP <br/> (개인추가부담금)', '공제금액', '절세금액 <br/> (지방소득세 포함 13.2~16.5%)'],
 											tbody: [
 												['900만원', '0원', '600만원', '79.2 ~ 99만원'],
-												['700만원', '200만원', '800만원 <br/> (연금저축 600만원+퇴직연금 200만원)', '105.6~132만원'],
+												['700만원', '200만원', '800만원 <br/> (연금저축 600만원 + 퇴직연금 200만원)', '105.6~132만원'],
 												['300만원', '600만원', '900만원', '118.8~148.5만원'],
 												['0원', '900만원', '900만원', '118.8~148.5만원']
 											],
-											addClass: 'tertiary scroll',
+											addClass: 'tertiary scroll small',
 										}) %>
 										<ul class="note-list depth-1 small">
 											<li>연금저축+IRP 세액공제 대상 납입한도 연 900만원(연금저축만 가입 시 연 600만원), 2023년부터 적용</li>
@@ -337,7 +358,7 @@
 											<%- include('../../components/table.ejs', { 
 												caption: '과세체계',
 												colAligns: [null, 'left'],
-												colWidths: ['30%', 'auto'],
+												colWidths: ['25%', 'auto'],
 												thead: ['수령방법', '수급요건'],
 												tbody: [
 													['연금', `<ul class="note-list depth-1 number">
@@ -350,7 +371,7 @@
 														<li>상기 연금 수령조건을 충족하지 못한 경우</li>
 													</ul>`]
 												],
-												addClass: 'tertiary scroll',
+												addClass: 'tertiary',
 											}) %>
 											<ul class="note-list depht-1 small">
 												<li>IRP(개인퇴직연금) 가입자의 경우에는 가입기간에 관계없이 만 55세 이상이 되는 시점에 연금으로 수령가능 (단, 퇴직일로부터 60일 이내 납입 필요)</li>

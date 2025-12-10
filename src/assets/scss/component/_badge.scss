@@ -12,7 +12,7 @@ $badge-size: (
   medium: (
     size-height: 3rem,
     padding-x: 0.8rem,
-    font-size: 1.6rem,
+    font-size: 1.5rem,
   ),
 ) !default;
 
@@ -155,12 +155,19 @@ $badge-size: (
     padding: 0 var(--#{$prefix}-badge--padding-x-medium);
     height: var(--#{$prefix}-badge--size-height-medium);
     font-size: var(--#{$prefix}-badge--font-size-medium);
+		font-weight: 500;
     border-radius: var(--#{$prefix}-badge--radius);
   }
 
-	&.small{
-		font-size: 1.4rem;
-		font-weight: 500;
+	@each $size, $types in $badge-size {
+    &.#{$size} {
+      padding: 0 var(--#{$prefix}-badge--padding-x-#{$size});
+			height: var(--#{$prefix}-badge--size-height-#{$size});
+			font-size: var(--#{$prefix}-badge--font-size-#{$size});
+    }
+  }
+	&.line{
+		border: 0.1rem solid #969292;
 	}
 }
 

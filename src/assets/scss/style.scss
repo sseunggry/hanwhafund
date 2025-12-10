@@ -224,6 +224,10 @@ sup{
 		text-align: center;
 		justify-content: center;
 	}
+
+	@include mq(mobile){
+		padding: 2.4rem;
+	}
 }
 .box-list-wrap{
 	display: flex;
@@ -377,6 +381,26 @@ sup{
   }
 }
 
+//스크롤바
+.scroll{
+	overflow: auto hidden;
+
+	&::-webkit-scrollbar {
+		@include square(0.4rem);
+	}
+	&::-webkit-scrollbar-track {
+		background-color: #F3F2F1; 
+		border-radius: 0;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #FE5B16;
+	}
+
+	&.has-scroll{
+		padding-bottom: 1.6rem;
+	}
+}
+
 //가로
 .group-flex-wrap {
 	display: flex;
@@ -384,9 +408,6 @@ sup{
 
 	.group-wrap {
 		flex: 1;
-	}
-	&.xsmall{
-		gap: 3.4rem;
 	}
 	&.small{
 		gap: 4rem;
@@ -417,6 +438,11 @@ sup{
 		align-items: baseline;
 		flex-wrap: wrap;
 		gap: 2.4rem 1.6rem;
+
+		&:has(.badge){
+			gap: 1.2rem;
+			align-items: center;
+		}
 	}
 
 	&.spacing{
@@ -1099,16 +1125,20 @@ sup{
   }
 
 	@include mq(1500){
-		&::before{
-			right: calc(var(--#{$prefix}-content-padding-x) * -1);
+		&.obj{
+			&::before{
+				right: calc(var(--#{$prefix}-content-padding-x) * -1);
+			}
 		}
 	}
   @include mq(tablet-small){
     margin-top: 1.6rem;
     padding: 2.4rem var(--#{$prefix}-content-padding-x) 1.6rem;
 
-		&::before{
+		&.obj{
+			&::before{
 			width: 8rem;
+			}
 		}
 
     .search-con{
