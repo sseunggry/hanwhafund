@@ -103,10 +103,6 @@
 									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
 									desc: "종류 C-e(수수료미징구-온라인)",
 								},
-								{
-									title: "선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)",
-									desc: "종류 C-e(수수료미징구-온라인)",
-								},
 							]
 						});
 						const select = include('../../components/select.ejs', {
@@ -122,42 +118,49 @@
 							size: 'large',
 							slot: `<span class="page-num">(<strong>1</strong>/<em>10</em>)</span>`
 						});
-						const fundContent = `
-						<div class="fund-content">
-							<div class="sort-wrap">
-								<div class="pc-only">
-									<ul class="sort-list">
-										<li class="sort-item">기준가(원)</li>
-										<li class="sort-item">순자산(백만원)</li>
-										<li class="sort-item period">
-											<p class="tit">수익률(%)</p>
-											<ul class="period-list">
-												<li>1개월</li>
-												<li>3개월</li>
-												<li>6개월</li>
-												<li>1년</li>
-												<li>3년</li>
-												<li>5년</li>
-												<li>연초이후</li>
-												<li>설정이후</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
-								<div class="tablet-only">
-									<div class="sort-item select">
-										${select}
-									</div>
-									<ul class="sort-list">
-										<li class="sort-item">
-											<button type="button" class="btn text small active sort-asc">낮은순</button>
-										</li>
-										<li class="sort-item">
-											<button type="button" class="btn text small">높은순</button>
-										</li>
-									</ul>
-								</div>
+						const sortWrap = `
+						<div class="sort-wrap">
+							<div class="pc-only">
+								<ul class="sort-list">
+									<li class="sort-item">비교</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small active sort-asc">기준가(원)</button>
+									</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small">순자산(백만원)</button>
+									</li>
+									<li class="sort-item period">
+										<p class="tit">수익률(%)</p>
+										<ul class="period-list">
+											<li><button type="button" class="btn text small">1개월</button></li>
+											<li><button type="button" class="btn text small">3개월</button></li>
+											<li><button type="button" class="btn text small">6개월</button></li>
+											<li><button type="button" class="btn text small">1년</button></li>
+											<li><button type="button" class="btn text small">3년</button></li>
+											<li><button type="button" class="btn text small">5년</button></li>
+											<li><button type="button" class="btn text small">연초이후</button></li>
+											<li><button type="button" class="btn text small">설정이후</button></li>
+										</ul>
+									</li>
+								</ul>
 							</div>
+							<div class="tablet-only">
+								<div class="sort-item select">
+									${select}
+								</div>
+								<ul class="sort-list">
+									<li class="sort-item">
+										<button type="button" class="btn text small active sort-asc">낮은순</button>
+									</li>
+									<li class="sort-item">
+										<button type="button" class="btn text small">높은순</button>
+									</li>
+								</ul>
+							</div>
+						</div>`;
+						const fundContent = `
+						<div class="fund-content type-view">
+							${sortWrap}
 							${allFundData}
 							<div class="btn-wrap array-center">
 								${moreBtn}
@@ -189,7 +192,7 @@
 												<span>은퇴 가까워질수록 안전자산 위주로 자산관리</span>
 											</p>
 											<div class="white-gradient-box">
-												<div class="img-wrap">
+												<div class="img-wrap img-intro">
 													<img src="~@/assets/images/fund/pension-tdf-intro.png" alt="" class="pc-tablet-only">	
 													<img src="~@/assets/images/fund/mo-pension-tdf-intro.png" alt="" class="mobile-only">	
 												</div>
@@ -218,7 +221,7 @@
 									<div class="group-wrap spacing-lg">
 										<h3 class="tit-sm">투자자 성향에 따른 선택 가능 예시</h3>
 										<div class="gray-box">
-											<div class="img-wrap">
+											<div class="img-wrap img-way">
 												<img src="~@/assets/images/fund/pension-tdf-way.png" alt="" class="pc-tablet-only">
 												<img src="~@/assets/images/fund/mo-pension-tdf-way.png" alt="" class="mobile-only">
 											</div>
@@ -229,7 +232,7 @@
 									<div class="section-tit-wrap">
 										<h2 class="tit">TDF의 지금까지의 수익률은?</h2>
 									</div>
-									
+									${fundContent}
 								</section>
 								<section id="tdf_feature" class="cont-group motion fade-up">
 									<div class="section-tit-wrap">
@@ -255,7 +258,6 @@
 							</div>
 						</div>
 						`;
-						// ${fundContent}
 						%>
 						<% 
 						const pointTable1 = include('../../components/table.ejs', { 
@@ -395,7 +397,7 @@
 									<div class="group-wrap spacing-lg">
 										<p class="tit-sm">효과적인 자산배분 비중 유지 + 알파를 고려한 비용 최소화</p>
 										<div class="gray-box">
-											<div class="img-wrap">
+											<div class="img-wrap img-point-passive-01">
 												<img src="~@/assets/images/fund/pension-point-passive-01.png" alt="" class="pc-tablet-only">
 												<img src="~@/assets/images/fund/mo-pension-point-passive-01.png" alt="" class="mobile-only">
 											</div>
@@ -405,7 +407,7 @@
 										<p class="tit-sm">패시브 대비 액티브 상대성과</p>
 										<div class="gray-box">
 											<div class="group-wrap">
-												<div class="img-wrap">
+												<div class="img-wrap img-point-passive-02">
 													<img src="~@/assets/images/fund/pension-point-passive-02.png" alt="" class="pc-tablet-only">
 													<img src="~@/assets/images/fund/mo-pension-point-passive-02.png" alt="" class="mobile-only">
 												</div>
@@ -433,7 +435,7 @@
 											<div class="group-wrap spacing-lg">
 												<p class="tit-xsm">환오픈(Unhedged) 및 환헤지(Hedged)시 글로벌 주식 성과</p>
 												<div class="img-box scroll">
-													<div class="img-wrap">
+													<div class="img-wrap img-point-discriminate-01">
 														<img src="~@/assets/images/fund/pension-point-discriminate-01.png" alt="" class="pc-tablet-only">
 														<img src="~@/assets/images/fund/mo-pension-point-discriminate-01.png" alt="" class="mobile-only">
 													</div>
@@ -453,14 +455,14 @@
 											<div class="group-flex-wrap">
 												<div class="white-gradient-box">
 													<p class="tit-xxsm">주식</p>
-													<div class="img-wrap">
+													<div class="img-wrap img-point-discriminate-02">
 														<img src="~@/assets/images/fund/pension-point-discriminate-02-01.png" alt="" class="pc-tablet-only">
 														<img src="~@/assets/images/fund/mo-pension-point-discriminate-02-01.png" alt="" class="mobile-only">
 													</div>
 												</div>
 												<div class="white-gradient-box">
 													<p class="tit-xxsm">채권</p>
-													<div class="img-wrap">
+													<div class="img-wrap img-point-discriminate-02">
 														<img src="~@/assets/images/fund/pension-point-discriminate-02-02.png" alt="" class="pc-tablet-only">
 														<img src="~@/assets/images/fund/mo-pension-point-discriminate-02-02.png" alt="" class="mobile-only">
 													</div>
@@ -495,7 +497,7 @@
 						`;
 						%>
 						<%- include('../../components/tab.ejs', {
-							active: 1,
+							active: 0,
 							variant: 'line',
 							tablist: ['About TDF', '한화 LIFEPLUS TDF 투자포인트'],
 							contents: [content1, content2],
