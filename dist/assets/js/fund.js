@@ -112,25 +112,26 @@ const uiRangeSlider = {
     });
   }
 };
-const uiSortWrapSticky = {
+const uiSortWrapSticky2 = {
   init: function () {
     const $stickyEl = $('.sort-wrap');
     const $window = $(window);
     
     if ($stickyEl.length === 0) return;
 
-    let stickyOffsetTop = $stickyEl.offset().top;;
+    let stickyOffsetTop = $stickyEl.offset().top;
+		console.log(stickyOffsetTop);
 
     const handleScroll = () => {
       const scrollTop = $window.scrollTop();
 
       if (scrollTop >= stickyOffsetTop) {
-        if (!$stickyEl.hasClass('fixed')) {
-          $stickyEl.addClass('fixed');
+        if (!$stickyEl.hasClass('is-fixed')) {
+          $stickyEl.addClass('is-fixed');
         }
       } else {
-        if ($stickyEl.hasClass('fixed')) {
-          $stickyEl.removeClass('fixed');
+        if ($stickyEl.hasClass('is-fixed')) {
+          $stickyEl.removeClass('is-fixed');
         }
       }
     };
@@ -138,6 +139,53 @@ const uiSortWrapSticky = {
 
     $window.on('scroll', handleScroll);
     $window.on('resize', () => {
+      handleScroll();
+    });
+  }
+};
+const uiSortWrapSticky = {
+  init: function () {
+    const $stickyEl = $('.sort-wrap');
+    if (!$stickyEl.length) return;
+
+    const $window = $(window);
+    let stickyOffsetTop = 0;
+    let stickyHeight = 0;
+
+    const updateDimensions = () => {
+      if (!$stickyEl.hasClass('is-fixed')) {
+        stickyOffsetTop = $stickyEl.offset().top;
+        stickyHeight = $stickyEl.outerHeight();
+      }
+    };
+
+    const handleScroll = () => {
+      const scrollTop = $window.scrollTop();
+
+			console.log(scrollTop, stickyOffsetTop);
+
+      if (scrollTop >= stickyOffsetTop) {
+        if (!$stickyEl.hasClass('is-fixed')) {
+          $stickyEl.addClass('is-fixed');
+          $stickyEl.parent().css('padding-top', stickyHeight);
+        }
+      } else {
+        if ($stickyEl.hasClass('is-fixed')) {
+          $stickyEl.removeClass('is-fixed');
+          $stickyEl.parent().css('padding-top', 0);
+        }
+      }
+    };
+
+    // 초기화
+    updateDimensions();
+    handleScroll();
+
+    $window.on('scroll', handleScroll);
+    $window.on('resize', () => {
+      // 리사이즈 시 fixed를 잠깐 풀고 다시 계산하는 것이 안전함
+      $stickyEl.removeClass('is-fixed').parent().css('padding-top', 0);
+      updateDimensions();
       handleScroll();
     });
   }

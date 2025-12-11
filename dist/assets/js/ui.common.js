@@ -555,32 +555,6 @@ const uiTab = {
   },
 
   init: function () {
-    $(document).on("click", '.tab [role="tablist"] .btn-tab', function (e) {
-      e.preventDefault();
-      const $btn = $(this);
-      const $tab = $btn.closest('[role="tab"]');
-
-      if ($tab.hasClass("active") || $btn.is(":disabled")) return;
-
-      const $tabArea = $tab.closest(".tab-area");
-      const $tablist = $tab.closest('[role="tablist"]');
-      const $targetPanel = $(`#${$tab.attr("aria-controls")}`);
-
-      // 기존 활성 탭/패널 비활성화
-      const $activeTab = $tablist.find(".active");
-      const $activePanel = $tabArea.find(".tab-conts.active");
-
-      $activeTab.removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
-      $activePanel.removeClass("active");
-
-      // 새 탭/패널 활성화
-      $tab.addClass("active").attr("aria-selected", "true");
-      $btn.append('<span class="sr-only">선택됨</span>');
-      $targetPanel.addClass("active");
-
-      uiTab.scrollTabIntoView($tab, $tablist, true);
-    });
-
     // 키보드 네비게이션
     $(document).on("keydown", '.tab [role="tablist"] .btn-tab', function (e) {
       const $btn = $(this);
@@ -621,6 +595,39 @@ const uiTab = {
         $nextTab.find(".btn-tab").focus();
         uiTab.scrollTabIntoView($nextTab, $tablist, false);
       }
+    });
+
+		// 탭 클릭 이벤트
+		$(document).on("click", '.tab [role="tablist"] .btn-tab', function (e) {
+      e.preventDefault();
+      const $btn = $(this);
+      const $tab = $btn.closest('[role="tab"]');
+
+      if ($tab.hasClass("active") || $btn.is(":disabled")) return;
+
+      const $tabArea = $tab.closest(".tab-area");
+      const $tablist = $tab.closest('[role="tablist"]');
+      const $targetPanel = $(`#${$tab.attr("aria-controls")}`);
+
+      // 탭 전환
+      $tablist.find(".active").removeClass("active").attr("aria-selected", "false").find(".sr-only").remove();
+      $tabArea.find(".tab-conts.active").removeClass("active");
+
+      $tab.addClass("active").attr("aria-selected", "true");
+      $btn.append('<span class="sr-only">선택됨</span>');
+      $targetPanel.addClass("active");
+
+      uiTab.scrollTabIntoView($tab, $tablist, true);
+
+      // 탭 스크롤 이동
+			setTimeout(() => {
+				if (window.commonJs && commonJs.uiLnb && commonJs.uiLnb.init) {
+					commonJs.uiLnb.init(); 
+				}
+				if (typeof gsapMotion !== 'undefined') {
+					gsapMotion.refresh($targetPanel);
+				}
+			}, 50);
     });
   },
 };
@@ -852,7 +859,7 @@ const uiLnb = {
   offset: 150, 
 
   init: function () {
-    this.$sidebar = $(".sidebar");
+    this.$sidebar = $(".sidebar:visible");
     if (!this.$sidebar.length) return;
 
     this.$links = this.$sidebar.find("a[href^='#']");
@@ -868,6 +875,7 @@ const uiLnb = {
 
     if (!this.$sections.length) return;
     
+    $(window).off("scroll.sidebarSpy"); 
     $(window).on("scroll.sidebarSpy", () => {
       this.updateActiveState();
     });
@@ -1041,7 +1049,7 @@ const uiLnb2 = {
     this.scrollItemIntoView($li, this.$sidebar, isSmooth);
   }
 };
-const gsapMotion = {
+const gsapMotion2 = {
   animationTypes: {
     "fade-up": { y: 50 },
     "fade-down": { y: -50 },
@@ -1096,6 +1104,101 @@ const gsapMotion = {
       } else {
         gsap.from(el, gsapProps);
       }
+    });
+  }
+};
+const gsapMotion = {
+  animationTypes: {
+    "fade-up": { y: 50 },
+    "fade-down": { y: -50 },
+    "fade-left": { x: 50 },
+    "fade-right": { x: -50 },
+    "zoom-in": { scale: 0.8 },
+    "zoom-out": { scale: 1.2 },
+    "opacity": {},
+    "chart-bar-up": { height: "0.5rem", opacity: 1 },
+  },
+  defaults: {
+    gsap: {
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    },
+    scrollTrigger: {
+      start: "top 75%",
+      toggleActions: "restart none none reverse",
+      markers: false
+    }
+  },
+
+  /**
+   * [핵심] 개별 요소에 애니메이션을 적용하는 함수 (분리됨)
+   */
+  applyMotion: function(el) {
+    let gsapProps = { ...this.defaults.gsap };
+    let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el };
+
+    // 1. 애니메이션 타입 확인
+    for (const type in this.animationTypes) {
+      if (el.classList.contains(type)) {
+        gsapProps = { ...gsapProps, ...this.animationTypes[type] };
+        break;
+      }
+    }
+
+    // 2. data 속성 오버라이딩
+    const delay = el.dataset.delay;
+    const duration = el.dataset.duration;
+    const start = el.dataset.start;
+    const stagger = el.dataset.stagger;
+
+    if (delay) gsapProps.delay = parseFloat(delay);
+    if (duration) gsapProps.duration = parseFloat(duration);
+    if (start) scrollTriggerProps.start = start;
+
+    gsapProps.scrollTrigger = scrollTriggerProps;
+
+    // 3. 기존 애니메이션 초기화 (중복 실행 방지)
+    // 해당 요소에 걸린 기존 트윈/ScrollTrigger 제거
+    const existingTrigger = ScrollTrigger.getById(el); 
+    if(existingTrigger) existingTrigger.kill();
+    gsap.killTweensOf(el);
+
+    // 4. 애니메이션 실행
+    if (stagger) {
+      gsap.from(el.children, { ...gsapProps, stagger: parseFloat(stagger) });
+    } else {
+      gsap.from(el, gsapProps);
+    }
+  },
+
+  /**
+   * 초기 전체 실행
+   */
+  init: function() {
+    const $motion = $('.motion');
+    $motion.each((index, el) => {
+      // 탭 안에 있는 건 초기 로드 시 제외하고 싶다면 조건 추가 가능
+      // if($(el).closest('.tab-conts').length && !$(el).is(':visible')) return;
+      this.applyMotion(el);
+    });
+  },
+
+  /**
+   * [신규] 특정 컨테이너 안의 모션을 재실행하는 함수
+   * 탭 클릭 시 호출됩니다.
+   */
+  refresh: function($container) {
+    const $motions = $container.find('.motion');
+    
+    // 1. ScrollTrigger 위치 재계산 (display: none -> block 되면서 위치가 변함)
+    ScrollTrigger.refresh();
+
+    // 2. 컨테이너 내부의 모션 요소들만 다시 세팅
+    $motions.each((i, el) => {
+      // 강제로 스타일을 초기화하여 다시 애니메이션 될 준비
+      gsap.set(el, { clearProps: "all" });
+      this.applyMotion(el);
     });
   }
 };
@@ -1197,7 +1300,7 @@ const uiSitemap = {
 }
 const uiScrollCheck = {
 	init: function() {
-		const $targets = $('.tbl-wrap.scroll'); 
+		const $targets = $('.scroll');
 
 		if (!$targets.length) return;
 
@@ -1206,11 +1309,13 @@ const uiScrollCheck = {
 				const $el = $(this);
 				const element = this;
 
-				if (element.scrollWidth > element.clientWidth) {
-					$el.addClass('has-scroll');
-				} else {
-					$el.removeClass('has-scroll');
-				}
+				if ($el.is(':visible')) {
+          if (element.scrollWidth > element.clientWidth) {
+            $el.addClass('has-scroll');
+          } else {
+            $el.removeClass('has-scroll');
+          }
+        }
 			});
 		};
 		checkScroll();
@@ -1440,6 +1545,7 @@ const commonJs = {
     uiSegmentControl.init();
     uiPopover.init();
     uiTooltip.init();
+		// this.uiLnb.init();
     uiLnb.init();
     gsapMotion.init();
     topButton.init();
