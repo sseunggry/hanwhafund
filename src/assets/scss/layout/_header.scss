@@ -609,6 +609,12 @@ html[lang="en"]{
 				}
 			}
 		}
+		@include mq(mobile){
+			.logo{
+				width: 24.2rem;
+				height: 2.4rem;
+			}
+		}
 	}
 
 	.modal{

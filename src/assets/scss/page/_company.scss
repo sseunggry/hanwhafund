@@ -1189,4 +1189,109 @@
 			}
 		}
 	}
+
+	//영문 한화금융
+	.company-finance{
+		.section-intro{
+			padding: 8rem 0;
+			background-color: #F5F4F4;
+
+			.gray-box-wrap{
+				.tit-sm{
+					margin-bottom: 1.6rem;
+					font-weight: 700;
+				}
+				.desc-small{
+					margin-top: 0.8rem;
+					color: var(--#{$prefix}-color-text-subtle);
+					font-weight: 1.6rem;
+				}
+				.emphasis{
+					display: flex;
+					gap: 0.8rem;
+					align-items: baseline;
+					justify-content: flex-end;
+					color: var(--#{$prefix}-color-text-primary);
+					font-family: $f-trust;
+					font-size: 8rem;
+					line-height: 1.2;
+
+					small{
+						font-family: $f-pretend;
+						font-size: 4rem;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+		.section-network{
+			.category-list{
+				display: flex;
+				gap: 2.4rem;
+
+				li{
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0.8rem 3rem;
+					min-height: 3.2rem;
+					color: #fff;
+					font-size: 2.1rem;
+					font-weight: 600;
+					text-align: center;
+					background-color: #F54500;
+
+					br{
+						display: none;
+					}
+				}
+			}
+			.img-wrap{
+				width: 100%;
+
+				img{
+					width: 100%;
+				}
+			}
+
+			@include mq(tablet){
+				.category-list{
+					flex-wrap: wrap;
+					gap: 0.8rem;
+
+					li{
+						justify-content: flex-start;
+						flex: 1;
+						min-width: 32%;
+						text-align: left;
+						
+						br{
+							display: block;
+						}
+
+						&:nth-child(4){
+							flex: none;
+							width: calc(50% - 0.4rem);
+						}
+						&:nth-child(5){
+							flex: none;
+							width: calc(50% - 0.4rem);
+						}
+					}
+				}
+			}
+			@include mq(mobile){
+				.category-list{
+					li{
+						padding: 0.8rem 1.2rem;
+						font-size: 1.8rem;
+					}
+				}
+				.img-wrap{
+					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
+				}
+			}
+		}
+	}
 }
