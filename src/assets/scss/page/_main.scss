@@ -381,6 +381,8 @@
         }
         dd {
 					position: relative;
+					display: flex;
+    			align-items: baseline;
           font-size: var(--main-partner-dd-font-size);
           font-family: $font-family-en;
           line-height: 1;
