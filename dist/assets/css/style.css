@@ -9432,6 +9432,8 @@ html[lang=en] .footer-top .logo {
 
 .page-main .section-partner .info-wrap .txt-wrap dd {
 	position: relative;
+	display: flex;
+	align-items: baseline;
 	font-size: var(--main-partner-dd-font-size);
 	font-family: "Trust2ATRIAL", sans-serif;
 	line-height: 1;
