@@ -3254,6 +3254,7 @@
 				),
 				'strategy-03': (
 					pc: 106rem,
+					tablet: 40rem,
 					mo: 34.3rem
 				),
 				'strategy-04': (
@@ -3271,6 +3272,12 @@
 					margin: 0 auto;
 					max-width: map.get($breakpoints, pc);
 
+					@if map.has-key($breakpoints, tablet) {
+						@include mq(tablet) { 
+							max-width: map.get($breakpoints, tablet);
+						}
+					}
+
 					@if map.has-key($breakpoints, mo) {
 						@include mq(mobile) { 
 							max-width: map.get($breakpoints, mo);
@@ -3284,10 +3291,12 @@
 			$img-sizes: (
 				'intro': (
 					pc: 107rem,
+					tablet: 50rem,
 					mo: 31.6rem
 				),
 				'way': (
 					pc: 94.2rem,
+					tablet: 50rem,
 					mo: 34.3rem 
 				),
 				'point-passive-01': (
@@ -3316,6 +3325,12 @@
 				.img-#{$num} {
 					margin: 0 auto;
 					max-width: map.get($breakpoints, pc);
+
+					@if map.has-key($breakpoints, tablet) {
+						@include mq(tablet) { 
+							max-width: map.get($breakpoints, tablet);
+						}
+					}
 
 					@if map.has-key($breakpoints, mo) {
 						@include mq(mobile) { 

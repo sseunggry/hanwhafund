@@ -150,14 +150,14 @@
 										<%- include('../../components/table.ejs', { 
 											caption: '기간별 수익률',
 											colWidths: ['auto', '26%', '26%', '26%'],
-											thead: ['구분', {text: '연금저축펀드', class: 'emphasis'}, '연금저축보험', '연금저축신탁'],
+											thead: ['구분', {text: '연금저축펀드', class: 'compare'}, '연금저축보험', '연금저축신탁'],
 											tbody: [
-												['가입대상', {text: '자산운용사', class: 'emphasis'}, '보험사', '은행'],
-												['주요판매사', {text: '증권사, 은행, 보험사', class: 'emphasis'}, '증권사, 은행, 보험사', '은행'],
-												['납입방식', {text: '자유납입', class: 'emphasis'}, '정기납입', '자유납입'],
-												['연금지급방식', {text: '확정기간형(제한 없음)', class: 'emphasis'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
-												['원금보장', {text: '비보장', class: 'emphasis'}, '보장', '비보장'],
-												['예금자보호', {text: '비보호', class: 'emphasis'}, '보호', '보호'],
+												['가입대상', {text: '자산운용사', class: 'compare'}, '보험사', '은행'],
+												['주요판매사', {text: '증권사, 은행, 보험사', class: 'compare'}, '증권사, 은행, 보험사', '은행'],
+												['납입방식', {text: '자유납입', class: 'compare'}, '정기납입', '자유납입'],
+												['연금지급방식', {text: '확정기간형(제한 없음)', class: 'compare'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
+												['원금보장', {text: '비보장', class: 'compare'}, '보장', '비보장'],
+												['예금자보호', {text: '비보호', class: 'compare'}, '보호', '보호'],
 												['가입 대상', {text: '연령 제한 없이 누구나 가입 가능', colspan: 3, align: 'left'}],
 												['납입한도', {text: 
 													`<strong class="desc">연간 1,800만원 內</strong>
@@ -205,7 +205,7 @@
 										<h2 class="tit">세제 혜택 및 과세체계</h2>
 									</div>
 									<div class="group-wrap spacing-lg">
-										<h3 class="tit-sm">세제혜택</h3>
+										<h3 class="tit-sm">세제 혜택</h3>
 										<div class="gray-box small">
 											<div class="group-wrap">
 												<p class="tit-xsm justify-center">매년 연금저축에 납입한 돈</p>
@@ -218,10 +218,10 @@
 										<%- include('../../components/table.ejs', { 
 											caption: '세제혜택',
 											colWidths: ['30%', '28%', 'auto'],
-											thead: ['총급여 <br class="mobile-only"/>(종합소득급여)', {text: '세액공제율 <br class="mobile-only"/>(지방소득세 포함)', class: 'emphasis'}, {text: '세금절감 효과 <br class="mobile-only"/>(연간불입액*세액공제율 %)', class: 'emphasis'}],
+											thead: ['총급여 <br class="mobile-only"/>(종합소득급여)', {text: '세액공제율 <br class="mobile-only"/>(지방소득세 포함)', class: 'compare'}, {text: '세금절감 효과 <br class="mobile-only"/>(연간불입액*세액공제율 %)', class: 'compare'}],
 											tbody: [
-												['5,500만원 이하(4,500만원)', {text: '16.5%', class: 'emphasis'}, {text: '99만원~148.5만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 16.5%)', class: 'emphasis'}],
-												['5,500만원 초과(4,500만원)', {text: '13.2%', class: 'emphasis'}, {text: '79.2만원~118.8만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 13.2%)', class: 'emphasis'}],
+												['5,500만원 이하(4,500만원)', {text: '16.5%', class: 'compare'}, {text: '99만원~148.5만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 16.5%)', class: 'compare'}],
+												['5,500만원 초과(4,500만원)', {text: '13.2%', class: 'compare'}, {text: '79.2만원~118.8만원 <br/> (연금저축 600만원 혹은 IRP 900만원 * 13.2%)', class: 'compare'}],
 											],
 											// addClass: 'scroll',
 										}) %>
@@ -247,13 +247,13 @@
 												colAligns: ['left', 'left'],
 												thead: [],
 												tbody: [
-													[{text: '세액 공제 받지 않은 금액', class: 'emphasis'}, {text: '비과세', class: 'emphasis'},],
-													[{text: '세액 공제 받은 금액 및 운용수익', class: 'emphasis'}, {text: 
+													[{text: '세액 공제 받지 않은 금액', class: 'compare'}, {text: '비과세', class: 'compare'},],
+													[{text: '세액 공제 받은 금액 및 운용수익', class: 'compare'}, {text: 
 													`<ul class="note-list depth-1">
 														<li>연간 연금액 1,500만원 이하: 연금소득세만 부담 (연금소득세 연령대에 따라 차등 부담: 만 55세 이상~만 70세 미만 5.5%, 만 70세 이상~만 80세 미만 4.4%, 만 80세 이상 3.3%)</li>
 														<li>연간 연금액 1,500만원 초과: 종합소득신고 혹은 분리과세(16.5%) 신고</li>	
-													</ul>`, class: 'emphasis'},],
-													[{text: '연한도', class: 'emphasis'}, {text: '계좌 평가금액/(11-연금수령연차)*120%', class: 'emphasis'},],
+													</ul>`, class: 'compare'},],
+													[{text: '연한도', class: 'compare'}, {text: '계좌 평가금액/(11-연금수령연차)*120%', class: 'compare'},],
 												],
 												// addClass: 'scroll',
 											}) %>

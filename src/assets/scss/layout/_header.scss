@@ -585,7 +585,7 @@ html[lang="en"]{
 		.logo {
 			width: 31.2rem;
 			height: 3.1rem;
-			@include bg('common/en-logo.svg');
+			@include bg('common/en-logo.svg', $size:contain);
 		}
 		@include mq(1460){
 			.header-con{

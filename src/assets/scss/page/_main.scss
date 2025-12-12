@@ -363,6 +363,7 @@
         dt {
 					position: absolute;
 					left: 0;
+					display: flex;
           padding-right: 4rem;
           color: var(--#{$prefix}-color-text-strong);
           font-size: var(--main-partner-dt-font-size);
@@ -991,4 +992,39 @@
 			--main-banner-margin-top: 0;
 		}
   }
+}
+
+
+//영문 메인
+html[lang="en"]{
+	.page-main{
+		.section-network{
+			.main-tit-wrap{
+				margin-bottom: 6.4rem;
+				.tit{
+					margin: 0 auto;
+					color: #fff;
+					-webkit-text-fill-color: #fff;
+					background: none;
+				}
+			}
+			.global-network-map{
+				// padding-top: 14rem;
+				// padding-bottom: 14rem;
+			}
+			.btn-wrap{
+				margin-top: 4.8rem;
+			}
+
+			@include mq(mobile){
+				.global-network-map{
+					padding-top: 8rem;
+					padding-bottom: 8rem;
+				}
+			}
+		}
+		.section-banner{
+			margin-top: 0;
+		}
+	}
 }

@@ -67,6 +67,9 @@
 			.emphasis {
 				background-color: rgba(208, 156, 88, 0.2);
 			}
+			.compare {
+				background-color: #FEEAE1;
+			}
 			&:has(tr + tr){
 				tr{
 					border-bottom: var(--#{$prefix}-table--border-width) solid var(--#{$prefix}-table--tbody-color-divider);
@@ -114,6 +117,9 @@
 				&.emphasis {
 					background-color: rgba(208, 156, 88, 0.2);
 				}
+				&.compare {
+					background-color: #FEEAE1;
+				}
       }
 			.emphasis {
 				background-color: rgba(208, 156, 88, 0.1);
@@ -123,6 +129,16 @@
 				}
 				td{
 					background-color: rgba(208, 156, 88, 0.1);
+				}
+			}
+			.compare {
+				background-color: #FDF5F1;
+
+				th{
+					background-color: #FEEAE1;
+				}
+				td{
+					background-color: #FDF5F1;
 				}
 			}
 			strong{
