@@ -112,37 +112,6 @@ const uiRangeSlider = {
     });
   }
 };
-const uiSortWrapSticky2 = {
-  init: function () {
-    const $stickyEl = $('.sort-wrap');
-    const $window = $(window);
-    
-    if ($stickyEl.length === 0) return;
-
-    let stickyOffsetTop = $stickyEl.offset().top;
-		console.log(stickyOffsetTop);
-
-    const handleScroll = () => {
-      const scrollTop = $window.scrollTop();
-
-      if (scrollTop >= stickyOffsetTop) {
-        if (!$stickyEl.hasClass('is-fixed')) {
-          $stickyEl.addClass('is-fixed');
-        }
-      } else {
-        if ($stickyEl.hasClass('is-fixed')) {
-          $stickyEl.removeClass('is-fixed');
-        }
-      }
-    };
-    handleScroll();
-
-    $window.on('scroll', handleScroll);
-    $window.on('resize', () => {
-      handleScroll();
-    });
-  }
-};
 const uiSortWrapSticky = {
   init: function () {
     const $stickyEl = $('.sort-wrap');
@@ -161,8 +130,6 @@ const uiSortWrapSticky = {
 
     const handleScroll = () => {
       const scrollTop = $window.scrollTop();
-
-			console.log(scrollTop, stickyOffsetTop);
 
       if (scrollTop >= stickyOffsetTop) {
         if (!$stickyEl.hasClass('is-fixed')) {

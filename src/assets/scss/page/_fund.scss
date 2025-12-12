@@ -339,7 +339,7 @@
 				border-bottom: 0.1rem solid #D7D5D5;
 
 				&:has(input[type="checkbox"]:checked) {
-					background-color: #FDF5F1;
+					background-color: #FAFAFA;
 				}
 
 				.form-check{
@@ -580,10 +580,10 @@
 
 						input{
 							&:checked + label{
-								color: var(--#{$prefix}-color-orange-dark);
+								color: #fff;
 								font-weight: 600;
-								border: 0.1rem solid var(--#{$prefix}-color-orange-dark);
-								background-color: #FEEAE1;
+								border: 0.1rem solid #FE5B16;
+								background-color: #FE5B16;
 
 								&::after{
 									background-color: currentColor;
@@ -1640,7 +1640,7 @@
       .top-fixed {
         position: sticky;
         top: 0;
-        z-index: 2;
+        z-index: 3;
         display: flex;
         align-items: center;
         height: var(--top-fixed-height);

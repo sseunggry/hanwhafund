@@ -172,6 +172,10 @@ sup{
 			word-break: keep-all;
 			background-color: #fff;
 		}
+
+		&:not(.white-box){
+			padding: 4rem;
+		}
 	}
 
 	@include mq(tablet){
@@ -191,6 +195,9 @@ sup{
 			.white-box{
 				padding-left: 1.2rem;
 				padding-right: 1.2rem;
+			}
+			&:not(.white-box){
+				padding: 2.4rem;
 			}
 		}
 	}
@@ -1367,7 +1374,7 @@ sup{
 	@include mq(mobile){
 		padding-top: 0;
 		padding-bottom: 0;
-		
+
 		.inner{
 			min-height: 17.6rem;
 		}

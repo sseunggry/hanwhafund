@@ -3,9 +3,9 @@
   const fundDataList = localsSafe.fundDataList || []; 
 
   const defaultBadges = [
-    { label: '아세안', variant: 'solid', color: 'red'},
-    { label: '주식혼합', variant: 'solid', color: 'orange'},
-    { label: '중소형주/성장주', variant: 'solid', color: 'purple'}
+    { label: '아세안', variant: 'solid', color: 'light-orange'},
+    { label: '주식혼합', variant: 'solid', color: 'light-orange'},
+    { label: '중소형주/성장주', variant: 'solid', color: 'light-orange'}
   ];
 
   const includePath = localsSafe.includePath || '../';
@@ -21,9 +21,11 @@
     }) -%>
     <div class="fund-info">
       <div class="fund-top">
+				<!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
         <%- include(badgePath, { 
-          badgeItems: fund.badges || defaultBadges
+					badgeItems: fund.badges || defaultBadges
         }) -%>
+				<!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
         <div class="tit-wrap">
           <a href="#!">
             <p class="tit"><%= fund.title %></p>

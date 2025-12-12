@@ -114,19 +114,19 @@
 // 컬러 정의
 @mixin form-chip-color-variable() {
   --#{$prefix}-form-chip--color-text: var(--#{$prefix}-color-text-basic);
-  --#{$prefix}-form-chip--color-text-checked: var(--#{$prefix}-color-text-primary-dark);
+  --#{$prefix}-form-chip--color-text-checked: #fff;
   --#{$prefix}-form-chip--color-text-disabled: var(--#{$prefix}-color-text-disabled);
-  --#{$prefix}-form-chip--color-border: #D7D5D5;
+  --#{$prefix}-form-chip--color-border: var(--#{$prefix}-color-orange-base);
   --#{$prefix}-form-chip--color-border-disabled: var(--#{$prefix}-color-sub-30);
   --#{$prefix}-form-chip--color-border-checked: var(--#{$prefix}-color-orange-base);
-  --#{$prefix}-form-chip--color-action: #fff;
+  --#{$prefix}-form-chip--color-action: var(--#{$prefix}-color-orange-base);
   --#{$prefix}-form-chip--color-action-disabled: var(var(--#{$prefix}-color-sub-30));
-  --#{$prefix}-form-chip--color-action-checked: #FEEAE1;
+  --#{$prefix}-form-chip--color-action-checked: var(--#{$prefix}-color-orange-base);
   --#{$prefix}-form-chip--checkbox-color-border: #E6E5E5;
   --#{$prefix}-form-chip--checkbox-color-action: #F5F4F4;
   --#{$prefix}-form-chip--checkbox-color-check-icon: var(--#{$prefix}-color-gray-40);
   --#{$prefix}-form-chip--checkbox-color-check-icon-disabled: var(--#{$prefix}-color-gray-40);
-  --#{$prefix}-form-chip--checkbox-color-check-icon-checked: var(--#{$prefix}-color-text-primary-dark);
+  --#{$prefix}-form-chip--checkbox-color-check-icon-checked: var(--#{$prefix}-form-chip--color-text-checked);
 }
 
 // 칩 사이즈 정의
@@ -160,8 +160,8 @@
       align-items: center;
       position: relative;
 			color: var(--#{$prefix}-form-chip--color-text);
-			border: 0.1rem solid var(--#{$prefix}-form-chip--color-border);
-			background-color: var(--#{$prefix}-form-chip--color-action);
+			border: 0.1rem solid #D7D5D5;
+			background-color: #fff;
 
       @include form-chip(#{$size});
     }
@@ -183,12 +183,24 @@
 		&:checked {
 			~ label {
 				color: var(--#{$prefix}-form-chip--color-text-checked);
-				font-weight: 700;
+				font-weight: 600;
 				border-color: var(--#{$prefix}-form-chip--color-border-checked);
 				background-color: var(--#{$prefix}-form-chip--color-action-checked);
 
 				&::before {
 					background-color: var(--#{$prefix}-form-chip--color-check-checked);
+				}
+			}
+		}
+
+		&:hover{
+			~ label {
+				color: #F54500;
+				border-color: #FE5B16;
+				background-color: #fff;
+
+				&::before{
+					background-color: currentColor;
 				}
 			}
 		}

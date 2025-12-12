@@ -55,8 +55,8 @@ $badge-size: (
       text: var(--#{$prefix}-color-text-white),
     ),
     level1: (
-			text: var(--#{$prefix}-color-text-white),
       element: #F91D00,
+			text: var(--#{$prefix}-color-text-white),
     ),
     level2: (
       element: #ff4891,
@@ -85,6 +85,10 @@ $badge-size: (
 		gray:(
 			element: #DCD8D6,
       text: var(--#{$prefix}-color-sub-80),
+		),
+		light-orange: (
+			element: #FEEAE1,
+			text:  var(--#{$prefix}-color-text-primary-dark),
 		)
   ) !default;
 

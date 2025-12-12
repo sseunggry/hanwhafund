@@ -33,11 +33,16 @@
     const badge = include('../../components/badge.ejs', {
       size: 'small',
       badgeItems: [
-        { label: '아세안', variant: 'solid', color: 'red'},
-        { label: '주식혼합', variant: 'solid', color: 'orange'},
-        { label: '중소형주/성장주', variant: 'solid', color: 'purple'}
+        { label: '아세안', variant: 'solid', color: 'light-orange'},
+        { label: '주식혼합', variant: 'solid', color: 'light-orange'},
+        { label: '중소형주/성장주', variant: 'solid', color: 'light-orange'}
       ]
-    }); 
+    });
+		const badgeWrap = `
+		<!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+		${badge}
+		<!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+		`; 
     -%>
     <%- include('../../components/modal.ejs', {
       id: 'modalCompare',
@@ -79,7 +84,7 @@
               <tr>
                 <td>
                   <div class="fund-name">
-                    ${badge}
+                    ${badgeWrap}
                     <div class="txt-wrap">
                       <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
                       <p class="desc">종류 C-e(수수료미징구-온라인)</p>
@@ -117,7 +122,7 @@
               <tr>
                 <td>
                   <div class="fund-name">
-                    ${badge}
+                    ${badgeWrap}
                     <div class="txt-wrap">
                       <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
                       <p class="desc">종류 C-e(수수료미징구-온라인)</p>
@@ -155,7 +160,7 @@
               <tr>
                 <td>
                   <div class="fund-name">
-                    ${badge}
+                    ${badgeWrap}
                     <div class="txt-wrap">
                       <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
                       <p class="desc">종류 C-e(수수료미징구-온라인)</p>
