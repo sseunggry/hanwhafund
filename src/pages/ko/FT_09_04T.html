@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '금융소비자보호헌장 | 금융소비자보호포탈'
+		}) -%>
+	</head>
+	<body class="page-policy">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">금융소비자보호포탈</h2>
+						</div>
+						<%
+						const downLoadBtn = include('../../components/button.ejs', { variant: 'outline', tag: 'a', label: 'PDF 다운로드', size: 'large', icon: 'download', download: true});
+						const linkBtn = include('../../components/button.ejs', { variant: 'outline', tag: 'a', url: 'https://fine.fss.or.kr/fine/main/main.do?menuNo=900000', label: 'FINE - 금융소비자정보포탈', size: 'large', target: '_blank', icon: 'link'});
+						const board1 = `
+						<div class="terms-content">
+							<div class="terms-group">
+								<h3 class="terms-tit">한화자산운용 금융소비자보호헌장</h3>
+								<p class="terms-txt">
+									한화자산운용의 모든 임직원은 금융소비자 권익 보호가 최상의 핵심가치임을 명심하고, "함께 멀리"의 경영철학을 바탕으로더 멀리 더 길게 바라보며 정도를 지키는 자산운용을 지향하면서, 다음 사항을 적극 실천할 것을 다짐합니다.
+								</p>
+								<ul class="note-list depth-1 order">
+									<li>
+										<span>1.</span> 언제나 고객의 입장에서 고민하고, 고객을 먼저 생각합니다.
+									</li>
+									<li>
+										<span>2.</span> 고객에게 적합한 금융투자상품을 개발·제공하여 고객이 더 풍요로운 내일을 만들어 나가는데 기여하겠습니다.
+									</li>
+									<li>
+										<span>3.</span> 불건전 영업행위나 특정고객을 우대·배제하는 불합리한 차별행위를 하지 않겠습니다.
+									</li>
+									<li>
+										<span>4.</span> 고객의 소중한 금융거래정보 및 개인정보를 철저하게 그리고 안전하게 관리하겠습니다.
+									</li>
+									<li>
+										<span>5.</span> 고객의 불만사항은 공정하고 신속하게 처리하며, 고객의 소리에 항상 귀 기울이겠습니다.
+									</li>
+									<li>
+										<span>6.</span> 고객에게 최선의 금융투자상품을 제공하기 위해 전문역량 개발에 최선의 노력을 다하겠습니다.
+									</li>
+								</ul>
+							</div>
+						</div>`;
+						const board2 = `
+						<div class="terms-content">
+							<div class="terms-group">
+								<h3 class="terms-tit">금융소비자보호 내부통제체계</h3>
+								<ul class="control-system-wrap">
+									<li>
+										<div class="box center">
+											<p class="tit">이사회</p>
+										</div>
+									</li>
+									<li>
+										<div class="box center">
+											<p class="tit">대표이사</p>
+											<p class="desc">CEO</p>
+										</div>
+									</li>
+									<li>
+										<div class="box right indigo">
+											<p class="tit">금융소비자보호 내부통제협의회</p>
+											<p class="desc">(금융소비자보호 최고의사결정기구)</p>
+										</div>
+									</li>
+									<li>
+										<div class="box center orange">
+											<p class="tit">금융소비자보호 총괄책임자</p>
+											<p class="desc">Chief Consumer Officer</p>
+										</div>
+									</li>
+									<li>
+										<ul class="box-list">
+											<li class="box">
+												<p class="tit">금융소비자보호 <br/> 정책ㆍ기획</p>
+												<ul class="note-list depth-1">
+													<li>금융소비자보호 내부통제기준 수립</li>
+													<li>금융소비자보호 제도 기획 및 운영</li>
+													<li>금융소비자보호 교육</li>
+													<li>금융소비자보호 점검 및 평가</li>
+													<li>투자광고 사전심의</li>
+												</ul>
+											</li>
+											<li class="box">
+												<p class="tit">금융상품 全 단계별 <br/> 소비자보호체계 관리ㆍ감독</p>
+												<ul class="note-list depth-1">
+													<li>금융상품 개발/판매/사후관리 단계 프로세스 관리ㆍ감독</li>
+												</ul>
+											</li>
+											<li class="box">
+												<p class="tit">금융분쟁ㆍ민원 <br/> 관리ㆍ감독</p>
+												<ul class="note-list depth-1">
+													<li>금융분쟁ㆍ민원 접수 및 업무처리</li>
+													<li>고객의 소리 (VOC) 운영 및 업무처리</li>
+													<li>금융소비자보호 제도개선</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="terms-group">
+								<h3 class="terms-tit">금융소비자보호 내부통제기준</h3>
+								<p class="terms-txt">“금융소비자보호에 관한 법률” 및 동 시행령에 따라 한화자산운용은 금융소비자보호 내부통제에 관한 규정을 제정하여 운영 중에 있습니다.</p>
+								<div class="btn-wrap array-left">${downLoadBtn}</div>
+							</div>
+							<div class="terms-group">
+								<h3 class="terms-tit">금융소비자보호기준</h3>
+								<p class="terms-txt">“금융소비자 보호에 관한 법률 제32조 제3항”에 따라 금융소비자 불만예방 및 신속한 사후구제를 통하여 금융소비자를 보호하기 위하여 임직원이 업무를 수행할 때 준수하여야 할 기본적인 절차와 기준을 마련하고 있습니다.</p>
+								<div class="btn-wrap array-left">${downLoadBtn}</div>
+							</div>
+						</div>`;
+						const board3 = `
+						<div class="terms-content">
+							<div class="terms-group">
+								<h3 class="terms-tit">칭찬하기 / 제안·문의하기 (VOC)</h3>
+								<p class="terms-txt">단순 문의사항, 칭찬사항, 제안사항은 아래 이메일로 자유롭게 말씀해주시면 신속한 답변을 받으실 수 있습니다.</p>
+								<div class="terms-txt-wrap">
+									<p class="terms-txt">이메일 : hamc_voc@hanwha.com</p>	
+									<p class="terms-txt">양식 : 자유양식</p>	
+								</div>
+							</div>
+						</div>`;
+
+						const boardTable1 = include('../../components/table.ejs', {
+							rowHeaders: true,
+							caption: '자료열람요구권',
+							colWidths: ['20%', 'auto'],
+							colAligns: ['left', 'left'],
+							thead: [],
+							tbody: [
+								['권리주체', '전 금융소비자'],
+								['회사의 자료 열람 통지 기한', '자료열람 요구서 수령일부터 6영업일 이내'],
+								['프로세스', 
+								`<ul class="note-list depth-1 order">
+									<li><span>(1)</span> 금융소비자가 자료열람요구서를 직접 작성하여 판매사에 제출 및 접수</li>
+									<li><span>(2)</span> 담당부서에서 열람가능여부 판단 및 통지</li>
+									<li><span>(3)</span> 금융소비자 자료 열람요구 통지서 수신 및 자료 열람</li>
+									</ul>`]
+							],
+							addClass: 'scroll',
+						});
+						const boardNotice1 = include('../../components/note-list.ejs', { 
+							depth: 1,
+							items: [
+								'금융소비자가 요구한 자료가 정보보호대상, 영업비밀 등에 해당하는 등 금융소비자에게 제공하지 못하는 부득이한 사유가 있는 경우, 자료의 일부 또는 전부의 열람을 제한하거나 거절할 수 있습니다.',
+								'금융소비자가 열람을 요구한 자료를 제공할 때 우송료 등 일정한 비용이 발생하는 경우 회사는 금융소비자에게 실비를 청구할 수 있습니다.',
+							],
+							addClass: 'small'
+						});
+						const boardTable2 = include('../../components/table.ejs', {
+							rowHeaders: true,
+							caption: '청약철회권',
+							colWidths: ['20%', 'auto'],
+							colAligns: ['left', 'left'],
+							thead: [],
+							tbody: [
+								['권리주체', '일반금융소비자 (전문금융소비자 제외)'],
+								['대상상품', '고난도 금융투자상품 (단위형 상품만 해당), 고난도 투자일임계약'],
+								['청약철회기한', '계약서류를 제공받은 날 또는 계약체결일로부터 7일 이내 (금융소비자보호법 제23조 제1항)'],
+								['프로세스', 
+								`<ul class="note-list depth-1 order">
+									<li><span>(1)</span> 금융소비자가 청약철회요청서를 직접 작성하여 판매사에 제출 및 접수</li>
+									<li><span>(2)</span> 담당부서에서 청약철회 대상상품 여부, 청약철회 기한 적정성, 즉시운용 여부 등 확인</li>
+									<li><span>(3)</span> 요건이 충족되는 경우 3영업일 이내에 청약한 전액(원금, 수수료 등) 반환</li>
+									</ul>`]
+							],
+							addClass: 'scroll',
+						});
+						const boardNotice2 = include('../../components/note-list.ejs', { 
+							depth: 1,
+							items: [
+								'단, 청약 철회가 가능한 기간 내에 금융소비자가 계약/청약한 금액을 지체 없이 운용하는 것에 대해 녹취 전화 등을 통해 즉시운용에 동의 한 경우에는 청약철회권을 행사할 수 없습니다.',
+							],
+							addClass: 'small'
+						});
+						const boardTable3 = include('../../components/table.ejs', {
+							rowHeaders: true,
+							caption: '위법계약해지권',
+							colWidths: ['20%', 'auto'],
+							colAligns: ['left', 'left'],
+							thead: [],
+							tbody: [
+								['권리주체', '전 금융소비자'],
+								['신청기한', '계약체결에 대한 위반사항을 안 날로부터 1년 이내 <br/> (단, 계약체결일로부터 5년 이내 범위에 있어야 함)'],
+								['프로세스', 
+								`<ul class="note-list depth-1 order">
+									<li><span>(1)</span> 금융소비자가 위법계약해지요구서를 직접 작성하여 판매사에 제출 및 접수</li>
+									<li><span>(2)</span> 담당부서 위법계약 여부 조사</li>
+									<li><span>(3)</span> 투자자의 해지를 요구를 받은 날로부터 10일 이내 수락여부 통지</li>
+									</ul>`]
+							],
+							addClass: 'scroll',
+						});
+						const board4 = `
+						<div class="terms-content">
+							<div class="terms-group">
+								<h3 class="terms-tit">금융소비자권리 안내</h3>
+								<p class="terms-txt">
+									금융소비자인 고객님들의 권리인 자료열람요구권, 청약철회권, 위법계약해지권을 설명 드립니다. <br/>
+									금융소비자보호법에 따라 아래에서 설명 드리는 요건 충족시 고객님들께서 펀드를 가입하신 금융상품판매업자등에게 해당 권리를 행사하실 수 있습니다.
+								</p>
+								<div class="terms-sub-group">
+									<p class="terms-sub-tit">(1) 자료열람요구권</p>
+									<p class="terms-txt">금융소비자가 분쟁 조정 또는 소송의 수행 등 권리 구제를 위한 목적으로 금융상품판매업자 등이 기록 및 유지, 관리하는 자료의 열람(사본의 제공 또는 청취를 포함)을 법령에 따른 기한 내에 요구할 수 있는 권리 (금융소비자보호법 제28조)</p>
+									${boardTable1}
+									${boardNotice1}
+								</div>
+								<div class="terms-sub-group">
+									<p class="terms-sub-tit">(2) 청약철회권</p>
+									<p class="terms-txt">금융소비자가 아래 대상상품에 관한 계약을 청약한 경우 청약철회 기한 내에 청약을 철회할 수 있는 제도 (금융소비자보호법 제46조)</p>
+									${boardTable2}
+									${boardNotice2}
+								</div>
+								<div class="terms-sub-group">
+									<p class="terms-sub-tit">(3) 위법계약해지권</p>
+									<p class="terms-txt">회사가 적합성원칙, 적정성원칙, 설명의무, 불공정영업행위 금지, 부당권유금지를 위반하여 금융상품의 계약을 체결한 경우 법령 등에서 정하는 기간 내에 금융소비자가 계약해지를 요구할 수 있는 제도 (금융소비자보호법 제47조)</p>
+									${boardTable3}
+								</div>
+							</div>
+							<div class="terms-group">
+								<h3 class="terms-tit">분쟁조정 사례 및 판례</h3>
+								<p class="terms-txt">민원과 관련하여 참고하실 수 있는 분쟁조정 사례 및 판례에 대해 확인해보실 수 있습니다.</p>
+								<div class="btn-wrap array-left">${downLoadBtn}</div>
+							</div>
+							<div class="terms-group">
+								<h3 class="terms-tit">정보제공포탈</h3>
+								<p class="terms-txt">“금융소비자 보호에 관한 법률 제32조 제3항”에 따라 금융소비자 불만예방 및 신속한 사후구제를 통하여 금융소비자를 보호하기 위하여임직원이 업무를 수행할 때 준수하여야 할 기본적인 절차와 기준을 마련하고 있습니다.</p>
+								<div class="btn-wrap array-left">${linkBtn}</div>
+							</div>
+						</div>
+						`;
+						%>
+						<%- include('../../components/tab.ejs', {
+							active: 3,
+							variant: 'line',
+							tablist: ['금융소비자보호헌장', '금융소비자보호체계', '고객의소리', '소비자권리 및 유익한 정보'],
+							contents: [board1, board2, board3, board4],
+						}) -%>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>
