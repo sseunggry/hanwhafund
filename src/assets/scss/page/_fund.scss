@@ -667,13 +667,20 @@
 									margin-bottom: 0.8rem;
 			
 									.val {
-										color: var(--#{$prefix}-color-change-up);
+										color: var(--#{$prefix}-color-text-subtle);
 										font-size: 3.2rem;
 										font-weight: 400;
 			
 										small {
 											font-size: 2.1rem;
 											font-weight: 400;
+										}
+
+										&.up{
+											color: var(--#{$prefix}-color-change-up);
+										}
+										&.down{
+											color: var(--#{$prefix}-color-change-down);
 										}
 									}
 								}

@@ -195,5 +195,5 @@ const gsapVisual = {
 // };
 
 $(function() {
-  gsapVisual.init();
+  // gsapVisual.init();
 });
