@@ -1,6 +1,6 @@
 "use strict";
 
-const gsapVisionAni = {
+const gsapVisionAni2 = {
   init: function () {
     const $section = $(".section-vision");
     if (!$section.length) return;
@@ -42,6 +42,57 @@ const gsapVisionAni = {
     }, "-=0.2");
   }
 };
+const gsapVisionAni = {
+  init: function () {
+    const $section = $(".section-vision");
+    if (!$section.length) return;
+
+    // 요소 선택
+    const $subDesc = $section.find(".sub-desc");
+    const $tit = $section.find(".tit");
+    const $subTit = $section.find(".sub-tit");
+    const $allTexts = $section.find(".txt-gradient");
+    
+    // 딤드 레이어 선택
+    const $dimmed = $section.find(".dimmed");
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $section,
+        start: "top 60%",
+        toggleActions: "play none none reverse",
+      }
+    });
+
+    // 1. 딤드 & 텍스트 동시 등장
+    tl.fromTo($dimmed, 
+      { y: "100%" }, 
+      { y: "0%", duration: 1.2, ease: "power3.inOut" }
+    );
+    tl.fromTo($subDesc, 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 
+      "<0.2"
+    )
+    .fromTo($tit, 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 
+      "<0.2"
+    )
+    .fromTo($subTit, 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 
+      "<0.2"
+    );
+
+    // 2. 그라디언트 채우기 (텍스트 정착 후)
+    tl.to($allTexts, {
+      backgroundPosition: "0% 0", // 색상 채우기
+      duration: 1.5,
+      ease: "power2.out"
+    }, "-=0.2");
+  }
+};
 const gsapMissionAni = {
   init: function () {
     const $section = $(".section-mission");
@@ -51,6 +102,8 @@ const gsapMissionAni = {
     const $titLines = $section.find(".tit p"); 
     const $subTit = $section.find(".sub-tit");
     const $allTexts = $section.find(".txt-gradient");
+    
+    // 이미지 리스트 전체 선택
     const $bgImages = $section.find(".img-list li");
 
     const tl = gsap.timeline({
@@ -61,7 +114,7 @@ const gsapMissionAni = {
       }
     });
 
-    // 1. 텍스트 등장 애니메이션 (기존 로직 유지)
+    // 1. 텍스트 등장 애니메이션
     tl.fromTo($subDesc, 
       { y: 30, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
@@ -82,24 +135,33 @@ const gsapMissionAni = {
       ease: "power2.out"
     }, "-=0.2");
 
-    // 2. 배경 이미지 순차 전환 (한 번만 실행 후 정지)
+    // 2. 배경 이미지 순차 전환 (자동 루프)
     if ($bgImages.length > 1) {
-      tl.to($bgImages.eq(1), {
-        opacity: 1,
-        duration: 2,
-        ease: "power1.inOut"
-      }, 0); // 타임라인 시작 0.5초 지점에 시작 (텍스트와 함께 은은하게 바뀜)
-      if ($bgImages.length > 2) {
-        tl.to($bgImages.eq(2), {
-          opacity: 1,
-          duration: 2,
-          ease: "power1.inOut"
-        }, ">-0.5"); // 앞 이미지(Image 2)가 끝나기 0.5초 전에 시작 (자연스러운 연결)
-      }
+      $bgImages.each(function(index, item) {
+        if (index === 0) return;
+
+        // 두 번째 이미지 (index 1) : 시작 타이밍을 직접 지정
+        if (index === 1) {
+          tl.to(item, {
+            opacity: 1,
+            duration: 2,
+            ease: "power1.inOut"
+          }, 0.5);
+        } 
+        // 세 번째 이미지부터 나머지 전체 (index 2 ~ 끝)
+        else {
+          tl.to(item, {
+            opacity: 1,
+            duration: 2,
+            ease: "power1.inOut"
+          }, ">-0.5"); // 바로 앞 이미지 애니메이션이 끝나기 0.5초 전에 시작 (자연스러운 겹침)
+        }
+
+      });
     }
   }
 };
-const gsapSloganAni = {
+const gsapSloganAni2 = {
   init: function () {
     const $sloganSection = $(".section-slogan");
     if (!$sloganSection.length) return;
@@ -109,7 +171,7 @@ const gsapSloganAni = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $sloganSection,
-        start: "top 30%",
+        start: "top 10%",
         end: "bottom top",
         toggleActions: "play none none reverse",
         markers: false
@@ -142,6 +204,57 @@ const gsapSloganAni = {
         duration: 1.5,
         ease: "power2.out"
       }, "<"); // 동시에 시작
+  }
+};
+const gsapSloganAni = {
+  init: function () {
+    const $sloganSection = $(".section-slogan");
+    if (!$sloganSection.length) return;
+
+    const $tit = $sloganSection.find(".tit");
+    const $decoTit = $sloganSection.find(".deco-tit");
+
+    gsap.set($tit, { y: 50, opacity: 0 });
+    gsap.set($decoTit, { y: 100, scale: 1.5});
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $sloganSection,
+        start: "top 40%", // 섹션이 화면 중간쯤 오면 시작
+        end: "bottom top",
+        toggleActions: "play none none reverse",
+        markers: false
+      }
+    });
+
+    // 2. 애니메이션 시퀀스
+    // [Step 1] '앞서가는 내일(.tit)' 텍스트가 아래서 슥 올라옴
+    tl.to($tit, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    // [Step 2] .deco-tit이 .tit 위치로 올라가면서 덮어씀 (tit은 사라짐)
+    tl.to($decoTit, {
+      y: function () {
+        const titTop = $tit.offset().top; 
+        const decoTop = $decoTit.offset().top;
+        return titTop - decoTop; 
+      },
+      scale: 1, 
+      opacity: 1,
+      duration: 1.5,
+      ease: "power3.inOut" 
+    }, "+=0.2") 
+		
+    .to($tit, {
+      opacity: 0,
+      y: -30,
+      duration: 1,
+      ease: "power2.in"
+    }, "<");
   }
 };
 const gsapValueAni = {
