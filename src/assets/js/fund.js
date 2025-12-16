@@ -129,6 +129,14 @@ const uiSortWrapSticky = {
     };
 
     const handleScroll = () => {
+      if (window.innerWidth <= 1400) {
+        if ($stickyEl.hasClass('is-fixed')) {
+          $stickyEl.removeClass('is-fixed');
+          $stickyEl.parent().css('padding-top', 0);
+        }
+        return;
+      }
+
       const scrollTop = $window.scrollTop();
 
       if (scrollTop >= stickyOffsetTop) {
@@ -150,7 +158,6 @@ const uiSortWrapSticky = {
 
     $window.on('scroll', handleScroll);
     $window.on('resize', () => {
-      // 리사이즈 시 fixed를 잠깐 풀고 다시 계산하는 것이 안전함
       $stickyEl.removeClass('is-fixed').parent().css('padding-top', 0);
       updateDimensions();
       handleScroll();
