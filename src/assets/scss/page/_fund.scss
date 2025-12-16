@@ -526,10 +526,30 @@
 						&:first-child{
 							padding-left: 0;
 							width: fit-content;
+
+							.btn{
+								&.sort-asc{
+									&::after{
+										transform: rotate(0);
+									}
+								}
+							}
+							
 						}
 						&:nth-child(2){
 							padding-right: 0;
 							width: fit-content;
+
+							.btn{
+								&::after{
+									transform: rotate(180deg);
+								}
+								&.sort-asc{
+									&::after{
+										transform: rotate(180deg);
+									}
+								}
+							}
 						}
 
 						&::after{
