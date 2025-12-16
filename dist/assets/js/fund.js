@@ -112,37 +112,6 @@ const uiRangeSlider = {
     });
   }
 };
-const uiSortWrapSticky2 = {
-  init: function () {
-    const $stickyEl = $('.sort-wrap');
-    const $window = $(window);
-    
-    if ($stickyEl.length === 0) return;
-
-    let stickyOffsetTop = $stickyEl.offset().top;
-		console.log(stickyOffsetTop);
-
-    const handleScroll = () => {
-      const scrollTop = $window.scrollTop();
-
-      if (scrollTop >= stickyOffsetTop) {
-        if (!$stickyEl.hasClass('is-fixed')) {
-          $stickyEl.addClass('is-fixed');
-        }
-      } else {
-        if ($stickyEl.hasClass('is-fixed')) {
-          $stickyEl.removeClass('is-fixed');
-        }
-      }
-    };
-    handleScroll();
-
-    $window.on('scroll', handleScroll);
-    $window.on('resize', () => {
-      handleScroll();
-    });
-  }
-};
 const uiSortWrapSticky = {
   init: function () {
     const $stickyEl = $('.sort-wrap');
@@ -160,9 +129,15 @@ const uiSortWrapSticky = {
     };
 
     const handleScroll = () => {
-      const scrollTop = $window.scrollTop();
+      if (window.innerWidth <= 1400) {
+        if ($stickyEl.hasClass('is-fixed')) {
+          $stickyEl.removeClass('is-fixed');
+          $stickyEl.parent().css('padding-top', 0);
+        }
+        return;
+      }
 
-			console.log(scrollTop, stickyOffsetTop);
+      const scrollTop = $window.scrollTop();
 
       if (scrollTop >= stickyOffsetTop) {
         if (!$stickyEl.hasClass('is-fixed')) {
@@ -183,7 +158,6 @@ const uiSortWrapSticky = {
 
     $window.on('scroll', handleScroll);
     $window.on('resize', () => {
-      // 리사이즈 시 fixed를 잠깐 풀고 다시 계산하는 것이 안전함
       $stickyEl.removeClass('is-fixed').parent().css('padding-top', 0);
       updateDimensions();
       handleScroll();

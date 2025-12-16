@@ -1068,7 +1068,7 @@ const gsapMotion2 = {
     },
     scrollTrigger: {
       start: "top 75%",
-      toggleActions: "restart none none reverse",
+      toggleActions: "play none none reverse",
       markers: false
     }
   },
@@ -1077,7 +1077,7 @@ const gsapMotion2 = {
 
     $motion.each((index, el) => {
       let gsapProps = { ...this.defaults.gsap };
-      let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el };
+      let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el,  };
 
       let typeApplied = false;
       for (const type in this.animationTypes) {
@@ -1126,17 +1126,23 @@ const gsapMotion = {
     },
     scrollTrigger: {
       start: "top 75%",
-      toggleActions: "restart none none reverse",
+      toggleActions: "play none none reverse",
       markers: false
     }
   },
 
-  /**
-   * [핵심] 개별 요소에 애니메이션을 적용하는 함수 (분리됨)
-   */
   applyMotion: function(el) {
     let gsapProps = { ...this.defaults.gsap };
-    let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el };
+
+		const toggleActions = el.dataset.toggle || this.defaults.scrollTrigger.toggleActions;
+
+    let scrollTriggerProps = { 
+      ...this.defaults.scrollTrigger, 
+      trigger: el, 
+      toggleActions: toggleActions,
+			fastScrollEnd: true,
+			preventOverlaps: true
+		};
 
     // 1. 애니메이션 타입 확인
     for (const type in this.animationTypes) {
@@ -1152,18 +1158,24 @@ const gsapMotion = {
     const start = el.dataset.start;
     const stagger = el.dataset.stagger;
 
-    if (delay) gsapProps.delay = parseFloat(delay);
+    if (delay !== undefined) gsapProps.delay = parseFloat(delay);
     if (duration) gsapProps.duration = parseFloat(duration);
     if (start) scrollTriggerProps.start = start;
 
     gsapProps.scrollTrigger = scrollTriggerProps;
 
     // 3. 기존 애니메이션 초기화 (중복 실행 방지)
-    // 해당 요소에 걸린 기존 트윈/ScrollTrigger 제거
-    const existingTrigger = ScrollTrigger.getById(el); 
-    if(existingTrigger) existingTrigger.kill();
-    gsap.killTweensOf(el);
-
+    const triggers = ScrollTrigger.getAll();
+		triggers.forEach(trigger => {
+			if (trigger.trigger === el) {
+				trigger.kill();
+			}
+		});
+		if (stagger) {
+			gsap.killTweensOf(el.children);
+		} else {
+			gsap.killTweensOf(el);
+		}
     // 4. 애니메이션 실행
     if (stagger) {
       gsap.from(el.children, { ...gsapProps, stagger: parseFloat(stagger) });
@@ -1178,16 +1190,10 @@ const gsapMotion = {
   init: function() {
     const $motion = $('.motion');
     $motion.each((index, el) => {
-      // 탭 안에 있는 건 초기 로드 시 제외하고 싶다면 조건 추가 가능
-      // if($(el).closest('.tab-conts').length && !$(el).is(':visible')) return;
       this.applyMotion(el);
     });
   },
 
-  /**
-   * [신규] 특정 컨테이너 안의 모션을 재실행하는 함수
-   * 탭 클릭 시 호출됩니다.
-   */
   refresh: function($container) {
     const $motions = $container.find('.motion');
     
