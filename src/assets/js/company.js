@@ -57,7 +57,7 @@ const gsapMissionAni = {
       scrollTrigger: {
         trigger: $section,
         start: "top 60%", 
-        toggleActions: "restart none none reverse", 
+        toggleActions: "play none none reverse", 
       }
     });
 
