@@ -1090,6 +1090,7 @@
 			position: relative;
 			z-index: 1;
 			padding: 20rem 0 12.6rem;
+			min-height: auto;
 			@include bg('company/main-banner-bg.png');
 
 			.company-tit-wrap{
@@ -1364,6 +1365,9 @@
 		}
 		.overlay-box-wrap{
 			.info-box{
+				background: rgba(0, 0, 0, 0.03);
+				backdrop-filter: blur(2rem);
+
 				> .tit{
 					color: var(--#{$prefix}-color-text-strong);
 					font-size: 3.2rem;
@@ -1384,16 +1388,23 @@
 					> .tit{
 						word-break: keep-all;
 						font-size: 2.1rem;
-
-						br{
-							display: none;
-						}
 					}
 				}
 			}
 			.gray-box{
 				margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
 				padding: 4rem var(--#{$prefix}-content-padding-x);
+			}
+		}
+		@include mq(360){
+			.overlay-box-wrap{
+				.info-box{
+					> .tit{
+						br{
+							display: none;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1670,7 +1681,9 @@
 					.img-wrap{
 						overflow: hidden;
 						position: relative;
+						flex-shrink: 0;
 						width: 38.46%;
+						height: 100%;
 
 						&::before{
 							content: '';
@@ -1689,6 +1702,8 @@
 						}
 					}
 					.txt-wrap{
+						width: 100%;
+
 						&.line-top{
 							&::before{
 								height: 0.2rem;
@@ -1697,6 +1712,7 @@
 
 						dl{
 							display: flex;
+							justify-content: space-between;
 							gap: 2rem;
 							padding: 2.8rem 0;
 							border-bottom: 0.1rem solid #1A140F;
@@ -1706,10 +1722,13 @@
 							}
 						}
 						dt{
-							min-width: 20rem;
+							// min-width: 10rem;
 							color: var(--#{$prefix}-color-text-strong);
 							font-size: 2.1rem;
 							font-weight: 600;
+						}
+						dd{
+							width: 64.45%;
 						}
 					}
 				}
@@ -1742,6 +1761,10 @@
 							dl{
 								flex-direction: column;
 								gap: 1.6rem;
+								padding: 2rem 0;
+							}
+							dd{
+								width: 100%;
 							}
 						}
 					}
