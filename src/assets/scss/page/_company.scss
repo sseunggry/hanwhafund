@@ -605,21 +605,26 @@
 					position: relative;
 					display: flex;
     			align-items: baseline;
-					
+
 					.counter{
 						display: inline-block;
 						min-width: 2ch;
 						font-size: 16rem;
 						font-family: $font-family-en;
 						line-height: 1;
-						@include txt-gradient;
+						// @include txt-gradient;
+						background: linear-gradient(270deg, #FF5532 -7.07%, #04021E 168.69%);
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
 						white-space: nowrap;
 						font-variant-numeric: tabular-nums;
 						text-align: right;
+
 					}
 
           .unit {
-						color: var(--#{$prefix}-color-text-strong);
+						color: #fff;
             font-size: 6.4rem;
           }
 				}
@@ -632,6 +637,7 @@
 			}
 			@include mq(mobile){
 				padding: 8rem 0;
+				@include bg('company/mo-main-info-bg.png');
 				.inner{
 					gap: 6.4rem;
 				}
