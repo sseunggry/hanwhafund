@@ -14933,18 +14933,17 @@ html[lang=en] .page-main .section-banner {
 	font-size: 16rem;
 	font-family: "Trust2ATRIAL", sans-serif;
 	line-height: 1;
-	background: var(--hwf-color-gradient-text);
+	background: linear-gradient(270deg, #FF5532 -7.07%, #04021E 168.69%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: rgba(0, 0, 0, 0);
-	text-transform: capitalize;
 	white-space: nowrap;
 	font-variant-numeric: tabular-nums;
 	text-align: right
 }
 
 .page-company .company-main .section-info .txt-wrap dd .unit {
-	color: var(--hwf-color-text-strong);
+	color: #fff;
 	font-size: 6.4rem
 }
 
@@ -14956,7 +14955,8 @@ html[lang=en] .page-main .section-banner {
 
 @media(max-width: 640px) {
 	.page-company .company-main .section-info {
-		padding: 8rem 0
+		padding: 8rem 0;
+		background: url(../images/company/mo-main-info-bg.png) no-repeat center/cover
 	}
 
 	.page-company .company-main .section-info .inner {
