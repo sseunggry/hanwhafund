@@ -8269,7 +8269,25 @@ label {
 }
 
 .header {
-	border-bottom: .1rem solid #e6e5e5
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: .1rem solid #e6e5e5;
+	transition: top .3s ease;
+	z-index: 2
+}
+
+.header.is-fixed {
+	position: fixed !important
+}
+
+.header.is-hide {
+	top: -100% !important
+}
+
+.header.is-show {
+	top: 0 !important
 }
 
 .header .inner {
@@ -12720,7 +12738,7 @@ html[lang=en] .page-main .section-banner {
 
 	.page-fund .fund-pension .gray-box {
 		margin: 0 calc(var(--hwf-content-padding-x)*-1);
-		padding: 3.2rem var(--hwf-content-padding-x)
+		padding: 4rem var(--hwf-content-padding-x)
 	}
 
 	.page-fund .fund-pension .img-box.scroll {
@@ -14488,18 +14506,13 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company:has(.company-main) .header {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 2;
 	border-bottom: 0;
-	backdrop-filter: blur(4rem);
-	transition: transform .4s ease-out
-}
-
-.page-company:has(.company-main) .header.is-hidden {
-	transform: translateY(-100%)
+	background-color: rgba(0, 0, 0, 0)
 }
 
 .page-company:has(.company-main) .header .logo {
@@ -14765,7 +14778,6 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 40vh;
 	color: #fff
 }
 
@@ -15697,7 +15709,7 @@ html[lang=en] .page-main .section-banner {
 
 	.page-company .company-system .gray-box {
 		margin: 0 calc(var(--hwf-content-padding-x)*-1);
-		padding: 2.4rem var(--hwf-content-padding-x)
+		padding: 4rem var(--hwf-content-padding-x)
 	}
 }
 
@@ -16169,7 +16181,7 @@ section.bg-gray {
 }
 
 .overlay-box-wrap.reverse .visual-box {
-	width: 66.15%;
+	width: 90.6%;
 	height: 36rem
 }
 

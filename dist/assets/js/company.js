@@ -5,14 +5,16 @@ const gsapVisionAni = {
     const $section = $(".section-vision");
     if (!$section.length) return;
 
-    // 요소 선택
     const $subDesc = $section.find(".sub-desc");
     const $tit = $section.find(".tit");
     const $subTit = $section.find(".sub-tit");
     const $allTexts = $section.find(".txt-gradient");
-    
-    // 딤드 레이어 선택
     const $dimmed = $section.find(".dimmed");
+		const $header = $(".page-company:has(.company-main) .header");
+
+		if ($header.length) {
+			gsap.set($header, { transition: "none" }); 
+		}
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -27,6 +29,24 @@ const gsapVisionAni = {
       { opacity: 0 }, 
       { opacity: 1, duration: 1.2, ease: "power3.inOut" }
     );
+		if ($header.length) {
+      tl.to($header, {
+        top: "-100%",
+        duration: 1.2,
+        ease: "power3.inOut",
+        overwrite: true, 
+
+        onComplete: function() {
+          gsap.set($header, { clearProps: "all" });
+          $header.addClass('is-fixed is-hide').removeClass('is-show');
+        },
+				
+        onReverseComplete: function() {
+           gsap.set($header, { clearProps: "all" });
+           $header.removeClass('is-fixed is-hide').addClass('is-show');
+        }
+      }, "<"); 
+    }
     tl.fromTo($subDesc, 
       { y: 50, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 
@@ -74,16 +94,16 @@ const gsapMissionAni = {
 
     // 1. 텍스트 등장 애니메이션
     tl.fromTo($subDesc, 
-      { y: 30, opacity: 0 }, 
+      { y: 50, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
     )
     .fromTo($titLines, 
-      { y: 30, opacity: 0 }, 
+      { y: 50, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 1, ease: "power2.out", stagger: 0.2 }, 
       "-=0.8"
     )
     .fromTo($subTit, 
-      { y: 30, opacity: 0 }, 
+      { y: 50, opacity: 0 }, 
       { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, 
       "-=0.8"
     )
@@ -102,7 +122,7 @@ const gsapMissionAni = {
         if (index === 1) {
           tl.to(item, {
             opacity: 1,
-            duration: 2,
+            duration: 1,
             ease: "power1.inOut"
           }, 0.5);
         } 
@@ -110,7 +130,7 @@ const gsapMissionAni = {
         else {
           tl.to(item, {
             opacity: 1,
-            duration: 2,
+            duration: 1,
             ease: "power1.inOut"
           }, ">-0.5"); // 바로 앞 이미지 애니메이션이 끝나기 0.5초 전에 시작 (자연스러운 겹침)
         }
@@ -133,7 +153,7 @@ const gsapSloganAni = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $sloganSection,
-        start: "top 10%",
+        start: "top 20%",
         end: "bottom top",
         toggleActions: "play none none reverse",
         markers: false
@@ -145,7 +165,7 @@ const gsapSloganAni = {
     tl.to($tit, {
       y: 0,
       opacity: 1,
-      duration: 1,
+      duration: 0.5,
       ease: "power2.out"
     });
 
