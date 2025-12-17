@@ -1049,64 +1049,6 @@ const uiLnb2 = {
     this.scrollItemIntoView($li, this.$sidebar, isSmooth);
   }
 };
-const gsapMotion2 = {
-  animationTypes: {
-    "fade-up": { y: 50 },
-    "fade-down": { y: -50 },
-    "fade-left": { x: 50 }, // (X축 기준) 오른쪽에서 왼쪽으로
-    "fade-right": { x: -50 }, // (X축 기준) 왼쪽에서 오른쪽으로
-    "zoom-in": { scale: 0.8 },
-    "zoom-out": { scale: 1.2 },
-    "opacity": { /* opacity: 0은 기본값이므로 별도 속성 없음 */ },
-		"chart-bar-up": { height: "0.5rem", opacity: 1},
-  },
-  defaults: {
-    gsap: {
-      opacity: 0,
-      duration: 1, 
-      ease: "power3.out", 
-    },
-    scrollTrigger: {
-      start: "top 75%",
-      toggleActions: "play none none reverse",
-      markers: false
-    }
-  },
-  init: function() {
-    const $motion = $('.motion');
-
-    $motion.each((index, el) => {
-      let gsapProps = { ...this.defaults.gsap };
-      let scrollTriggerProps = { ...this.defaults.scrollTrigger, trigger: el,  };
-
-      let typeApplied = false;
-      for (const type in this.animationTypes) {
-        if (el.classList.contains(type)) {
-          gsapProps = { ...gsapProps, ...this.animationTypes[type] };
-          typeApplied = true;
-          break;
-        }
-      }
-
-      const delay = el.dataset.delay;       // data-delay="0.2" (0.2초 지연)
-      const duration = el.dataset.duration; // data-duration="1.5" (1.5초 동안)
-      const start = el.dataset.start;       // data-start="top 90%" (트리거 위치)
-      const stagger = el.dataset.stagger;   // data-stagger="0.1" (자식 요소들 0.1초 간격)
-
-      if (delay) gsapProps.delay = parseFloat(delay);
-      if (duration) gsapProps.duration = parseFloat(duration);
-      if (start) scrollTriggerProps.start = start;
-
-      gsapProps.scrollTrigger = scrollTriggerProps;
-
-      if (stagger) {
-        gsap.from(el.children, { ...gsapProps, stagger: parseFloat(stagger) });
-      } else {
-        gsap.from(el, gsapProps);
-      }
-    });
-  }
-};
 const gsapMotion = {
   animationTypes: {
     "fade-up": { y: 50 },
@@ -1331,6 +1273,42 @@ const uiScrollCheck = {
     });
 	}
 }
+const uiHeader = {
+  init: function() {
+    const $header = $('.header');
+    const $sidebar = $('.layout-sidebar');
+    
+    if (!$header.length || $sidebar.length) return;
+
+    let lastScrollTop = 0;
+    const delta = 5;
+    const headerHeight = $header.outerHeight();
+
+    $(window).on('scroll', function() {
+      const st = $(this).scrollTop();
+
+      if (Math.abs(lastScrollTop - st) <= delta) return;
+
+      // 1. 스크롤을 내릴 때 (Down)
+      if (st > lastScrollTop && st > headerHeight) {
+        $header.addClass('is-fixed'); 
+        $header.removeClass('is-show').addClass('is-hide');
+      } 
+      // 2. 스크롤을 올릴 때 (Up)
+      else {
+        if (st + $(window).height() < $(document).height()) {
+          $header.addClass('is-fixed is-show').removeClass('is-hide');
+        }
+      }
+      // 3. 최상단에 도달했을 때 (초기화)
+      if (st <= 0) {
+        $header.removeClass('is-fixed is-hide is-show');
+      }
+
+      lastScrollTop = st;
+    });
+  }
+};
 
 // 캘린더 기능 예시용
 const calendar = {
@@ -1558,6 +1536,7 @@ const commonJs = {
     uiGnb.init();
     uiSitemap.init();
 		uiScrollCheck.init();
+		uiHeader.init();
 
 		calendar.init();
 		calendarInline.init();

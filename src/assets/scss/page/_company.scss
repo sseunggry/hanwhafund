@@ -128,18 +128,19 @@
 
 	&:has(.company-main){
 		.header {
-			position: absolute;
+			position: fixed;
 			top: 0;
 			left: 0;
 			width: 100%;
 			z-index: 2;
 			border-bottom: 0;
-			backdrop-filter: blur(4rem);
-			transition: transform 0.4s ease-out;
+			background-color: transparent;
+			// backdrop-filter: blur(4rem);
+			// transition: top 0.5s ease-out;
 	
-			&.is-hidden {
-				transform: translateY(-100%); /* 위로 숨김 */
-			}
+			// &.is-hidden {
+			// 	transform: translateY(-100%); /* 위로 숨김 */
+			// }
 	
 			.logo {
 				@include bg("common/logo-w.svg");
@@ -471,7 +472,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			margin-bottom: 40vh;
+			// margin-bottom: 40vh;
 			color: #fff;
 		}
 		.section-slogan{
@@ -1397,7 +1398,7 @@
 			}
 			.gray-box{
 				margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
-				padding: 2.4rem var(--#{$prefix}-content-padding-x);
+				padding: 4rem var(--#{$prefix}-content-padding-x);
 			}
 		}
 	}

@@ -3,7 +3,23 @@
 
 /* header */
 .header {
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
 	border-bottom: 0.1rem solid #E6E5E5;
+	transition: top 0.3s ease;
+	z-index: 2;
+
+	&.is-fixed{
+		position: fixed !important;
+	}
+	&.is-hide{
+		top: -100% !important;
+	}
+	&.is-show{
+		top: 0 !important;
+	}
 
   .inner{
     max-width: var(--#{$prefix}-content-wrap-width-large);
