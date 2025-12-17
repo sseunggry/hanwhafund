@@ -15892,7 +15892,13 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	flex-direction: column;
 	gap: .8rem;
-	text-align: center
+	text-align: center;
+	color: var(--hwf-color-text-strong)
+}
+
+.page-company .company-employ .section-employ .recruit .process-wrap .process-list .tit small {
+	color: var(--hwf-color-text-subtle);
+	font-size: 1.6rem
 }
 
 @media(max-width: 960px) {
@@ -16584,6 +16590,10 @@ sup {
 	.cont-group {
 		gap: 4rem;
 		padding: 4rem 0 8rem
+	}
+
+	.cont-group>.group-wrap+.group-wrap {
+		padding-top: 0
 	}
 }
 

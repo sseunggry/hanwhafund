@@ -60,7 +60,7 @@ const iaPageAData = {
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "핵심가치", depth3: "-", pageName: "핵심가치", pageType: "tab", pageID: "CP_06_01T", link: "", isAdminLinked: false, status: "작업중", memo: [], },
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "복리후생", depth3: "-", pageName: "복리후생", pageType: "tab", pageID: "CP_06_02T", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "채용", depth3: "-", pageName: "채용", pageType: "tab", pageID: "CP_06_03T", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "2025-11-25", modifyDate: "", category: "회사소개", depth1: "오시는 길", depth2: "-", depth3: "-", pageName: "오시는길", pageType: "page", pageID: "CP_07", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-11-25", modifyDate: "2025-12-17", category: "회사소개", depth1: "오시는 길", depth2: "-", depth3: "-", pageName: "오시는길", pageType: "page", pageID: "CP_07", link: "", isAdminLinked: false, status: "완료", memo: [{detail: 'br 태그 추가'}], },
 
 		// --- Footer ---
 		{ createDate: "2025-11-17", modifyDate: "2025-12-04", category: "Footer", depth1: "스튜어드십코드", depth2: "스튜어드십코드", depth3: "-", pageName: "스튜어드십코드", pageType: "tab", pageID: "FT_01_01T", link: "", isAdminLinked: true, status: "완료", memo: [{detail: `2025-12-04: th scope="row" -> td 태그로 변경`}], },
