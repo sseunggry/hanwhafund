@@ -95,6 +95,10 @@
 		//예외
 		.terms-group .note-list.depth-1.order, .terms-group .note-list.depth-1.number, .terms-group .note-list.depth-1.dash{
 			gap: 2.4rem;
+
+			@include mq(mobile){
+				gap: 1.6rem;
+			}
 		}
 	}
 	.note-list{

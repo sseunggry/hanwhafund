@@ -6,7 +6,7 @@
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
-		gap: 0.8rem;
+		gap: 4rem 0.8rem;
 
 		.form-select{
 			max-width: 100%;
@@ -92,6 +92,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
+	}
+
+	.txt-appendix{
+		color: #F94339;
+		font-size: 1.6rem;
 	}
 
 	.note-list{
@@ -182,6 +187,17 @@
 
 		.terms-sub-group{
 			gap: 1.6rem;
+		}
+
+		.terms-tit{
+			font-size: 2.4rem;
+		}
+
+		.btn{
+			&:has(.icon-download){
+				justify-content: space-between;
+				width: 100%;
+			}
 		}
 	}
 }
