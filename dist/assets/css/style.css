@@ -14894,7 +14894,19 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 8rem 0
+	padding: 6rem 0
+}
+
+.page-company .company-main .section-info .txt-wrap dl:first-child {
+	padding-top: 0
+}
+
+.page-company .company-main .section-info .txt-wrap dl:last-child {
+	padding-bottom: 0
+}
+
+.page-company .company-main .section-info .txt-wrap dl:last-child::after {
+	display: none
 }
 
 .page-company .company-main .section-info .txt-wrap dl::after {
