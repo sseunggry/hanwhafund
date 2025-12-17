@@ -15389,6 +15389,7 @@ html[lang=en] .page-main .section-banner {
 	position: relative;
 	z-index: 1;
 	padding: 20rem 0 12.6rem;
+	min-height: auto;
 	background: url(../images/company/main-banner-bg.png) no-repeat center/cover
 }
 
@@ -15682,6 +15683,11 @@ html[lang=en] .page-main .section-banner {
 	width: 100%
 }
 
+.page-company .company-system .overlay-box-wrap .info-box {
+	background: rgba(0, 0, 0, .03);
+	backdrop-filter: blur(2rem)
+}
+
 .page-company .company-system .overlay-box-wrap .info-box>.tit {
 	color: var(--hwf-color-text-strong);
 	font-size: 3.2rem;
@@ -15704,13 +15710,15 @@ html[lang=en] .page-main .section-banner {
 		font-size: 2.1rem
 	}
 
-	.page-company .company-system .overlay-box-wrap .info-box>.tit br {
-		display: none
-	}
-
 	.page-company .company-system .gray-box {
 		margin: 0 calc(var(--hwf-content-padding-x)*-1);
 		padding: 4rem var(--hwf-content-padding-x)
+	}
+}
+
+@media(max-width: 360px) {
+	.page-company .company-system .overlay-box-wrap .info-box>.tit br {
+		display: none
 	}
 }
 
@@ -15957,7 +15965,9 @@ html[lang=en] .page-main .section-banner {
 .page-company .company-network .section-detail .network-list>li .img-wrap {
 	overflow: hidden;
 	position: relative;
-	width: 38.46%
+	flex-shrink: 0;
+	width: 38.46%;
+	height: 100%
 }
 
 .page-company .company-network .section-detail .network-list>li .img-wrap::before {
@@ -15977,12 +15987,17 @@ html[lang=en] .page-main .section-banner {
 	object-fit: cover
 }
 
+.page-company .company-network .section-detail .network-list>li .txt-wrap {
+	width: 100%
+}
+
 .page-company .company-network .section-detail .network-list>li .txt-wrap.line-top::before {
 	height: .2rem
 }
 
 .page-company .company-network .section-detail .network-list>li .txt-wrap dl {
 	display: flex;
+	justify-content: space-between;
 	gap: 2rem;
 	padding: 2.8rem 0;
 	border-bottom: .1rem solid #1a140f
@@ -15993,10 +16008,13 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-network .section-detail .network-list>li .txt-wrap dt {
-	min-width: 20rem;
 	color: var(--hwf-color-text-strong);
 	font-size: 2.1rem;
 	font-weight: 600
+}
+
+.page-company .company-network .section-detail .network-list>li .txt-wrap dd {
+	width: 64.45%
 }
 
 @media(max-width: 1024px) {
@@ -16024,7 +16042,12 @@ html[lang=en] .page-main .section-banner {
 
 	.page-company .company-network .section-detail .network-list>li .txt-wrap dl {
 		flex-direction: column;
-		gap: 1.6rem
+		gap: 1.6rem;
+		padding: 2rem 0
+	}
+
+	.page-company .company-network .section-detail .network-list>li .txt-wrap dd {
+		width: 100%
 	}
 }
 
@@ -16229,7 +16252,7 @@ section.bg-gray {
 		margin-top: -4rem;
 		margin-right: 0;
 		padding: 4rem;
-		width: 85.3%
+		width: 86.3%
 	}
 }
 
