@@ -578,6 +578,13 @@
 					justify-content: space-between;
 					padding: 8rem 0;
 
+					&:first-child{
+						padding-top: 0;
+					}
+					&:last-child{
+						padding-top: 0;
+					}
+
 					&::after {
 						content: '';
 						position: absolute;
