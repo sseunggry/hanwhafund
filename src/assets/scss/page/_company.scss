@@ -25,6 +25,7 @@
 
 			&:last-child{
 				margin-bottom: 0;
+				padding-bottom: 0;
 				&::after{
 					display: none;
 				}
