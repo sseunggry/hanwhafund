@@ -14704,11 +14704,27 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-vision {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #fff;
 	background: url(../images/company/main-vision-bg.png) no-repeat center/cover
+}
+
+.page-company .company-main .section-vision .inner {
+	position: relative;
+	z-index: 1
+}
+
+.page-company .company-main .section-vision .dimmed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .6);
+	z-index: 0
 }
 
 .page-company .company-main .section-vision .txt-gradient {
@@ -14727,6 +14743,7 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 40vh;
 	color: #fff
 }
 
