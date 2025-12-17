@@ -123,11 +123,13 @@
       }
 			.emphasis {
 				background-color: rgba(208, 156, 88, 0.1);
-
+				
 				th{
+					color: var(--#{$prefix}-color-text-basic);
 					background-color: rgba(208, 156, 88, 0.2);
 				}
 				td{
+					color: var(--#{$prefix}-color-text-basic);
 					background-color: rgba(208, 156, 88, 0.1);
 				}
 			}
