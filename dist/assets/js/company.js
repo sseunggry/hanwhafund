@@ -24,8 +24,8 @@ const gsapVisionAni = {
 
     // 1. 딤드 & 텍스트 동시 등장
     tl.fromTo($dimmed, 
-      { y: "100%" }, 
-      { y: "0%", duration: 1.2, ease: "power3.inOut" }
+      { opacity: 0 }, 
+      { opacity: 1, duration: 1.2, ease: "power3.inOut" }
     );
     tl.fromTo($subDesc, 
       { y: 50, opacity: 0 }, 

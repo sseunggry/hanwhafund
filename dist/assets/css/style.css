@@ -7608,6 +7608,15 @@ label {
 	gap: 2.4rem
 }
 
+@media(max-width: 640px) {
+
+	.terms-group .note-list.depth-1.order,
+	.terms-group .note-list.depth-1.number,
+	.terms-group .note-list.depth-1.dash {
+		gap: 1.6rem
+	}
+}
+
 .note-list .note-list {
 	margin-top: .8rem
 }
@@ -12680,9 +12689,8 @@ html[lang=en] .page-main .section-banner {
 	}
 }
 
-.page-fund .fund-pension .gray-box .tit-xsm {
-	justify-content: center;
-	text-align: center
+.page-fund .fund-pension .txt-center {
+	justify-content: center
 }
 
 .page-fund .fund-pension .gray-box .img-box.scroll::-webkit-scrollbar-track {
@@ -13847,7 +13855,7 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: .8rem
+	gap: 4rem .8rem
 }
 
 .page-policy .section-tit-wrap .form-select {
@@ -13940,6 +13948,11 @@ html[lang=en] .page-main .section-banner {
 	gap: .8rem
 }
 
+.terms-group .txt-appendix {
+	color: #f94339;
+	font-size: 1.6rem
+}
+
 .terms-group .note-list .terms-txt {
 	margin-top: .8rem
 }
@@ -14030,6 +14043,15 @@ html[lang=en] .page-main .section-banner {
 
 	.terms-group .terms-sub-group {
 		gap: 1.6rem
+	}
+
+	.terms-group .terms-tit {
+		font-size: 2.4rem
+	}
+
+	.terms-group .btn:has(.icon-download) {
+		justify-content: space-between;
+		width: 100%
 	}
 }
 
@@ -16541,6 +16563,10 @@ sup {
 
 	.group-flex-wrap .group-wrap+.group-wrap {
 		padding-top: 0
+	}
+
+	.group-flex-wrap.small {
+		gap: 2.4rem
 	}
 }
 
