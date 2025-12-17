@@ -6319,10 +6319,12 @@ label {
 }
 
 .tbl-wrap .tbl tbody .emphasis th {
+	color: var(--hwf-color-text-basic);
 	background-color: rgba(208, 156, 88, .2)
 }
 
 .tbl-wrap .tbl tbody .emphasis td {
+	color: var(--hwf-color-text-basic);
 	background-color: rgba(208, 156, 88, .1)
 }
 
@@ -15045,11 +15047,16 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-history .timeline-wrap.reverse .txt-wrap .blur-box {
-	padding: 0
+	padding: 0;
+	gap: .2rem
 }
 
 .page-company .company-main .section-history .timeline-wrap.reverse .txt-wrap .blur-box::before {
 	left: 0
+}
+
+.page-company .company-main .section-history .timeline-wrap.reverse .txt-wrap .blur-box .timeline-list {
+	--scroll-bg-color: #fff
 }
 
 .page-company .company-main .section-history .timeline-wrap.reverse .img-wrap {
@@ -15137,10 +15144,26 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list {
+	--scroll-bg-color: #F3F2F1;
+	--scroll-bar-color: #FE5B16;
 	position: relative;
 	overflow-y: auto;
 	padding: var(--history-list-padding);
 	height: 72rem
+}
+
+.page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list::-webkit-scrollbar {
+	width: .4rem;
+	height: .4rem
+}
+
+.page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list::-webkit-scrollbar-track {
+	background-color: var(--scroll-bg-color);
+	border-radius: 0
+}
+
+.page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list::-webkit-scrollbar-thumb {
+	background-color: var(--scroll-bar-color)
 }
 
 .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list>li {
@@ -15310,7 +15333,7 @@ html[lang=en] .page-main .section-banner {
 	.page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list {
 		padding: 0;
 		padding-right: var(--hwf-content-padding-x);
-		width: 100%
+		width: calc(100% - .2rem)
 	}
 
 	.page-company .company-main .section-history .timeline-wrap .img-wrap {
@@ -15750,7 +15773,9 @@ html[lang=en] .page-main .section-banner {
 	padding-left: 10rem;
 	padding-right: 10rem;
 	width: 63.3%;
-	min-height: 44.8rem
+	min-height: 44.8rem;
+	background: rgba(225, 224, 224, .2);
+	backdrop-filter: blur(3rem)
 }
 
 .page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap {
@@ -16316,11 +16341,12 @@ sup {
 .gray-box-wrap .gray-box .tit-wrap .sub-tit {
 	margin-bottom: .8rem;
 	color: var(--hwf-color-text-primary-dark);
-	font-size: 2.1rem;
+	font-size: 1.8rem;
 	font-weight: 500
 }
 
-.gray-box-wrap .gray-box .tit-wrap .tit-sm {
+.gray-box-wrap .gray-box .tit-wrap .tit-sm,
+.gray-box-wrap .gray-box .tit-wrap .tit-xsm {
 	font-weight: 600
 }
 
