@@ -388,10 +388,9 @@ sup{
     gap: 4rem;
     padding: 4rem 0 8rem;
 
-
-		&:has(> .group-wrap){
-			padding-top: 0;
+		> .group-wrap{
 			+ .group-wrap{
+				padding-top: 0;
 			}
 		}
   }
