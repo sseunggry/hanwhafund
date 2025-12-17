@@ -13434,7 +13434,7 @@ html[lang=en] .page-main .section-banner {
 .board-con {
 	--board-con-gap: 2.4rem;
 	--board-search-top: 1.6rem;
-	--board-btn-wrap: 1.6rem;
+	--board-btn-wrap: 2.4rem;
 	display: flex;
 	flex-direction: column;
 	gap: var(--board-con-gap)
@@ -13543,6 +13543,7 @@ html[lang=en] .page-main .section-banner {
 }
 
 .board-con .board-list-wrap .board-tbody li .badge {
+	padding-top: .1rem;
 	width: 1.9rem;
 	height: 1.9rem;
 	font-size: 1.3rem;
@@ -15723,6 +15724,10 @@ html[lang=en] .page-main .section-banner {
 	}
 }
 
+.page-company .company-employ .section-employ .value .section-tit-wrap .sub-tit {
+	margin-bottom: 2.4rem
+}
+
 .page-company .company-employ .section-employ .value .talent-list-wrap {
 	display: flex;
 	flex-direction: column;
@@ -15771,6 +15776,10 @@ html[lang=en] .page-main .section-banner {
 }
 
 @media(max-width: 640px) {
+	.page-company .company-employ .section-employ .value .section-tit-wrap .sub-tit {
+		margin-bottom: 1.6rem
+	}
+
 	.page-company .company-employ .section-employ .value .section-tit-wrap .tit br {
 		display: none
 	}

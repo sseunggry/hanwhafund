@@ -32,7 +32,7 @@ const gsapVisionAni = {
 		if ($header.length) {
       tl.to($header, {
         top: "-100%",
-        duration: 1.2,
+        duration: 2,
         ease: "power3.inOut",
         overwrite: true, 
 
@@ -40,7 +40,7 @@ const gsapVisionAni = {
           gsap.set($header, { clearProps: "all" });
           $header.addClass('is-fixed is-hide').removeClass('is-show');
         },
-				
+
         onReverseComplete: function() {
            gsap.set($header, { clearProps: "all" });
            $header.removeClass('is-fixed is-hide').addClass('is-show');
