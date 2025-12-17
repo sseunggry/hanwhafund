@@ -2959,11 +2959,10 @@
 				}
 			}
 		}
+		.txt-center{
+			justify-content: center;
+		}
 		.gray-box{
-			.tit-xsm{
-				justify-content: center;
-				text-align: center;
-			}
 			.img-box.scroll{
 				&::-webkit-scrollbar-track {
 					background-color: #fff;
