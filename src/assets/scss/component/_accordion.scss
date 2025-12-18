@@ -59,6 +59,7 @@
       width: 100%;
       text-align: left;
       background-color: var(--#{$prefix}-accordion--button-color-action);
+			color: var(--#{$prefix}-accordion--title-color);
 
       .category{
         flex-shrink: 0;
@@ -66,7 +67,6 @@
         font-weight: 500;
       }
       .tit {
-        color: var(--#{$prefix}-accordion--title-color);
 				word-break: keep-all;
       }
       // &:hover {

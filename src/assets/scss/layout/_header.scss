@@ -191,8 +191,13 @@
       .lang{
         display: flex;
         height: 100%;
-
+				
         .form-select.text{
+					.select-button{
+						.select-value{
+							color: var(--#{$prefix}-color-text-strong);
+						}
+					}
           .select-listbox{
 						top: 100%;
             left: 50%;
@@ -212,6 +217,9 @@
           }
         }
       }
+			.svg-icon{
+				background-color: var(--#{$prefix}-color-text-strong);
+			}
     }
   }
 
