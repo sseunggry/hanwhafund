@@ -3094,7 +3094,10 @@
 				height: 100%;
 
 				img{
-					width: 100%;
+					position: absolute;
+					top: 0;
+					right: 0;
+					// width: 100%;
 					height: 100%;
 					object-fit: cover;
 				}
@@ -3107,7 +3110,7 @@
 				height: auto;
 
 				.inner{
-					padding-top: 36rem;
+					// padding-top: 36rem;
 				}
 
 				.txt-wrap{
@@ -3117,12 +3120,17 @@
 					width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
 				}
 				.img-wrap{
-					height: 42.4rem;
-					// position: relative;
-					// order: -1;
-					// margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
-					// width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
-					// height: 36rem;
+					// height: 42.4rem;
+					position: relative;
+					order: -1;
+					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
+					height: 60rem;
+
+					img{
+						width: 100%;
+						height: auto;
+					}
 				}
 			}
 			@include mq(mobile){
@@ -3140,6 +3148,9 @@
 					&::after{
 						margin-top: 2.4rem;
 					}
+				}
+				.img-wrap{
+					height: 42.4rem;
 				}
 			}
 		}
@@ -3358,6 +3369,7 @@
 				),
 				'point-passive-01': (
 					pc: 107.6rem,
+					tablet: 50rem,
 					mo: 34.3rem 
 				),
 				'point-passive-02': (
@@ -3397,9 +3409,9 @@
 				}
 			}
 			.img-wrap{
-				&.img-point-discriminate-01{
-					margin: 0;
-				}
+				// &.img-point-discriminate-01{
+				// 	margin: 0;
+				// }
 			}
 		}
 	}
