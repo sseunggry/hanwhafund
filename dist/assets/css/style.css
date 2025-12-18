@@ -12782,21 +12782,43 @@ html[lang=en] .page-main .section-banner {
 .page-fund .fund-pension .section-visual {
 	overflow: hidden;
 	position: relative;
-	padding: 12rem 0;
-	height: 96rem;
-	background: linear-gradient(0deg, #06061B 0%, #06061B 100%), #170e05
+	height: 96rem
 }
 
 .page-fund .fund-pension .section-visual .inner {
+	position: relative;
 	height: 100%
 }
 
 .page-fund .fund-pension .section-visual .txt-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: flex;
 	flex-direction: column;
-	width: 47%;
+	padding: 12rem 12rem 12rem var(--hwf-content-padding-x);
+	width: 46.5%;
 	height: 100%;
-	color: #fff
+	color: #fff;
+	z-index: 1
+}
+
+.page-fund .fund-pension .section-visual .txt-wrap::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100vw;
+	height: 100%;
+	background: linear-gradient(90deg, #06061B 0%, rgba(6, 6, 27, 0.7) 100%);
+	backdrop-filter: blur(2rem);
+	z-index: -1
+}
+
+.page-fund .fund-pension .section-visual .txt-wrap .txt-box {
+	display: flex;
+	flex-direction: column;
+	height: 100%
 }
 
 .page-fund .fund-pension .section-visual .txt-wrap .sub-tit {
@@ -12835,7 +12857,7 @@ html[lang=en] .page-main .section-banner {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 51.1%;
+	width: 100%;
 	height: 100%
 }
 
@@ -12848,27 +12870,24 @@ html[lang=en] .page-main .section-banner {
 
 @media(max-width: 1024px) {
 	.page-fund .fund-pension .section-visual {
-		padding-top: 0;
-		padding-bottom: 0;
+		display: flex;
+		flex-direction: column;
 		height: auto
 	}
 
 	.page-fund .fund-pension .section-visual .inner {
-		display: flex;
-		flex-direction: column
+		padding-top: 36rem
 	}
 
 	.page-fund .fund-pension .section-visual .txt-wrap {
-		padding: 4rem 0 4.6rem;
-		width: 100%
+		position: relative;
+		padding: 4rem var(--hwf-content-padding-x) 4.6rem;
+		margin: 0 calc(var(--hwf-content-padding-x)*-1) 0;
+		width: calc(100% + var(--hwf-content-padding-x)*2)
 	}
 
 	.page-fund .fund-pension .section-visual .img-wrap {
-		position: relative;
-		order: -1;
-		margin: 0 calc(var(--hwf-content-padding-x)*-1);
-		width: calc(100% + var(--hwf-content-padding-x)*2);
-		height: 36rem
+		height: 42.4rem
 	}
 }
 
@@ -14812,6 +14831,12 @@ html[lang=en] .page-main .section-banner {
 	white-space: nowrap
 }
 
+@media(max-width: 1024px) {
+	.page-company .company-main .section-slogan .deco-tit {
+		font-size: 12rem
+	}
+}
+
 @media(max-width: 640px) {
 	.page-company .company-main .section-slogan .deco-tit {
 		font-size: 6.4rem
@@ -16679,10 +16704,6 @@ sup {
 	word-break: keep-all
 }
 
-.group-wrap>[class*=tit-] br {
-	display: none
-}
-
 .group-wrap>[class*=tit-]:has(.badge) {
 	gap: 1.2rem;
 	align-items: center
@@ -16697,6 +16718,10 @@ sup {
 }
 
 @media(max-width: 640px) {
+	.group-wrap>[class*=tit-] br {
+		display: none
+	}
+
 	.group-wrap+.group-wrap {
 		padding-top: 4rem
 	}
