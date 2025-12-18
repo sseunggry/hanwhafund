@@ -371,6 +371,9 @@ sup{
         font-size: 4rem;
       }
     }
+		.sub-desc{
+			margin-top: 2.4rem;
+		}
     .desc {
       margin-top: 0.8rem;
       font-size: 1.8rem;
@@ -481,7 +484,7 @@ sup{
 				display: none;
 			}
 		}
-		
+
 		+ .group-wrap {
 			padding-top: 4rem;
 		}
@@ -495,7 +498,7 @@ sup{
 			}
 		}
 
-		[class*="tit-"] {
+		[class*="tit-"]:not(.tit-wrap) {
 			display: flex;
 			align-items: baseline;
 			flex-wrap: wrap;

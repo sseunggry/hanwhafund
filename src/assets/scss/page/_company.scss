@@ -1538,6 +1538,9 @@
 						gap: 4rem;
 
 						.overlay-box-wrap{
+							.visual-box{
+								height: calc(26.3rem + 4rem);
+							}
 							.info-box{
 								padding: 4rem var(--#{$prefix}-content-padding-x);
 
@@ -1826,10 +1829,13 @@
 					margin-bottom: 1.6rem;
 					font-weight: 700;
 				}
+				.desc{
+					margin-bottom: 0.8rem;
+				}
 				.desc-small{
 					margin-top: 0.8rem;
 					color: var(--#{$prefix}-color-text-subtle);
-					font-weight: 1.6rem;
+					font-size: 1.6rem;
 				}
 				.emphasis{
 					display: flex;
@@ -1845,6 +1851,28 @@
 						font-family: $f-pretend;
 						font-size: 4rem;
 						font-weight: 600;
+					}
+				}
+				.gray-box{
+					padding: 3.2rem 2rem 0;
+				}
+				.white-box{
+					margin-top: auto;
+				}
+			}
+
+			@include mq(mobile){
+				padding: 4rem 0;
+				.gray-box-wrap{
+					.emphasis{
+						font-size: 6rem;
+
+						small{
+							font-size: 2.8rem;
+						}
+					}
+					.gray-box{
+						padding: 2.4rem 1.2rem 0;
 					}
 				}
 			}
@@ -1887,7 +1915,7 @@
 					li{
 						justify-content: flex-start;
 						flex: 1;
-						min-width: 32%;
+						// min-width: 32%;
 						text-align: left;
 						
 						br{
