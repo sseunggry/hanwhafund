@@ -6162,7 +6162,7 @@ label {
 
 @media(max-width: 640px) {
 	.tab {
-		--hwf-tab--button-font-size: 2.1rem;
+		--hwf-tab--button-font-size: 1.8rem;
 		--hwf-tab--line-button-height: 6.4rem;
 		--hwf-tab--line-button-padding-y: 1.6rem
 	}
@@ -14401,7 +14401,8 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .grid-list-wrap>li:last-child {
-	margin-bottom: 0
+	margin-bottom: 0;
+	padding-bottom: 0
 }
 
 .page-company .grid-list-wrap>li:last-child::after {
