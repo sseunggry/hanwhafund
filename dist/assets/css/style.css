@@ -12862,7 +12862,9 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-fund .fund-pension .section-visual .img-wrap img {
-	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
 	height: 100%;
 	-o-object-fit: cover;
 	object-fit: cover
@@ -12875,10 +12877,6 @@ html[lang=en] .page-main .section-banner {
 		height: auto
 	}
 
-	.page-fund .fund-pension .section-visual .inner {
-		padding-top: 36rem
-	}
-
 	.page-fund .fund-pension .section-visual .txt-wrap {
 		position: relative;
 		padding: 4rem var(--hwf-content-padding-x) 4.6rem;
@@ -12887,7 +12885,16 @@ html[lang=en] .page-main .section-banner {
 	}
 
 	.page-fund .fund-pension .section-visual .img-wrap {
-		height: 42.4rem
+		position: relative;
+		order: -1;
+		margin: 0 calc(var(--hwf-content-padding-x)*-1);
+		width: calc(100% + var(--hwf-content-padding-x)*2);
+		height: 60rem
+	}
+
+	.page-fund .fund-pension .section-visual .img-wrap img {
+		width: 100%;
+		height: auto
 	}
 }
 
@@ -12907,6 +12914,10 @@ html[lang=en] .page-main .section-banner {
 
 	.page-fund .fund-pension .section-visual .txt-wrap::after {
 		margin-top: 2.4rem
+	}
+
+	.page-fund .fund-pension .section-visual .img-wrap {
+		height: 42.4rem
 	}
 }
 
@@ -13200,6 +13211,12 @@ html[lang=en] .page-main .section-banner {
 	max-width: 107.6rem
 }
 
+@media(max-width: 1024px) {
+	.page-fund .fund-pension.tdf .img-point-passive-01 {
+		max-width: 50rem
+	}
+}
+
 @media(max-width: 640px) {
 	.page-fund .fund-pension.tdf .img-point-passive-01 {
 		max-width: 34.3rem
@@ -13248,10 +13265,6 @@ html[lang=en] .page-main .section-banner {
 	.page-fund .fund-pension.tdf .img-point-discriminate-03 {
 		max-width: 34.3rem
 	}
-}
-
-.page-fund .fund-pension.tdf .img-wrap.img-point-discriminate-01 {
-	margin: 0
 }
 
 .tbl-wrap.fund-list-wrap .tbl {
