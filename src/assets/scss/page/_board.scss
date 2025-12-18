@@ -136,6 +136,10 @@
 				}
 			}
 		}
+
+		& + .btn-wrap{
+			margin-top: var(--board-btn-wrap);
+		}
 	}
 
 	@include mq(tablet){
