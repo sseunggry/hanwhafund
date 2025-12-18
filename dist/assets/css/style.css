@@ -2571,7 +2571,8 @@ html[lang=en] {
 	padding: var(--hwf-accordion--padding-y) var(--hwf-accordion--button-padding-right) var(--hwf-accordion--padding-y) var(--hwf-accordion--padding-x);
 	width: 100%;
 	text-align: left;
-	background-color: var(--hwf-accordion--button-color-action)
+	background-color: var(--hwf-accordion--button-color-action);
+	color: var(--hwf-accordion--title-color)
 }
 
 .accordion .accordion-item .btn-accordion .category {
@@ -2581,7 +2582,6 @@ html[lang=en] {
 }
 
 .accordion .accordion-item .btn-accordion .tit {
-	color: var(--hwf-accordion--title-color);
 	word-break: keep-all
 }
 
@@ -3069,7 +3069,7 @@ textarea.input {
 	--hwf-form-select--icon-size-small: var(--hwf-icon-size-small);
 	--hwf-form-select--option-padding-small: 1.2rem;
 	--hwf-form-select--radius-small: var(--hwf-radius-medium);
-	--hwf-form-select--font-size-small: var(--hwf-font-size-label-small);
+	--hwf-form-select--font-size-small: 1.8rem;
 	--hwf-form-select--size-height-medium: 4.8rem;
 	--hwf-form-select--icon-size-medium: 2rem;
 	--hwf-form-select--option-padding-medium: 1.4rem;
@@ -8472,6 +8472,10 @@ label {
 	height: 100%
 }
 
+.header .header-con .util .lang .form-select.text .select-button .select-value {
+	color: var(--hwf-color-text-strong)
+}
+
 .header .header-con .util .lang .form-select.text .select-listbox {
 	top: 100%;
 	left: 50%;
@@ -8489,6 +8493,10 @@ label {
 .header .header-con .util .lang .form-select.text .select-listbox .select-option:hover,
 .header .header-con .util .lang .form-select.text .select-listbox .select-option:active {
 	background-color: #fafafa
+}
+
+.header .header-con .util .svg-icon {
+	background-color: var(--hwf-color-text-strong)
 }
 
 @media(max-width: 1280px) {
@@ -9176,6 +9184,7 @@ html[lang=en] .footer-top .logo {
 	width: 100%;
 	z-index: 2;
 	border-bottom: 0;
+	background-color: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(4rem)
 }
 
@@ -9228,6 +9237,7 @@ html[lang=en] .footer-top .logo {
 
 .page-main .header>.header-con .nav .gnb-list .submenu .submenu-link:hover,
 .page-main .header>.header-con .nav .gnb-list .submenu .submenu-link:active {
+	color: var(--hwf-color-text-primary);
 	background: rgba(0, 0, 0, .5)
 }
 
@@ -9390,13 +9400,13 @@ html[lang=en] .footer-top .logo {
 
 @media(max-width: 640px) {
 	.page-main .section-visual .visual .tit-wrap .desc {
-		font-size: 1.8rem
+		font-size: 1.6rem
 	}
 }
 
 .page-main .section-partner {
 	--main-partner-padding-top: 14rem;
-	--main-partner-padding-bottom: 14rem;
+	--main-partner-padding-bottom: 24rem;
 	--main-partner-dt-font-size: 3.2rem;
 	--main-partner-dd-font-size: 24rem;
 	--main-partner-dd-small-font-size: 14rem;
@@ -9717,6 +9727,10 @@ html[lang=en] .footer-top .logo {
 	background-color: var(--hwf-color-orange-dark)
 }
 
+.page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit::after {
+	background-color: #272626
+}
+
 .page-main .section-business .accordion.translucent .accordion-item .accordion-body {
 	padding: 4rem var(--accordion-padding-x) var(--accordion-padding-y);
 	font-size: 2.1rem
@@ -9734,7 +9748,8 @@ html[lang=en] .footer-top .logo {
 	-webkit-mask-size: contain;
 	mask-size: contain;
 	-webkit-mask-image: url(../images/icon/ico-minus-large.svg);
-	mask-image: url(../images/icon/ico-minus-large.svg)
+	mask-image: url(../images/icon/ico-minus-large.svg);
+	background-color: #272626
 }
 
 @media(max-width: 1024px) {
@@ -9787,6 +9802,10 @@ html[lang=en] .footer-top .logo {
 @media(max-width: 640px) {
 	.page-main .section-business {
 		--main-business-margin-top: 8rem
+	}
+
+	.page-main .section-business .img-wrap::before {
+		padding-top: 120%
 	}
 
 	.page-main .section-business .accordion.translucent {
@@ -10080,6 +10099,17 @@ html[lang=en] .footer-top .logo {
 @media(max-width: 1500px) {
 	.page-main .section-banner {
 		--main-banner-margin-top: 0
+	}
+}
+
+@media(max-width: 640px) {
+	.page-main .section-banner .main-tit-wrap {
+		gap: 2.4rem;
+		padding-top: 16rem
+	}
+
+	.page-main .section-banner .main-tit-wrap .sub-tit {
+		font-size: 1.8rem
 	}
 }
 
@@ -12782,43 +12812,23 @@ html[lang=en] .page-main .section-banner {
 .page-fund .fund-pension .section-visual {
 	overflow: hidden;
 	position: relative;
-	height: 96rem
+	padding: 12rem 0;
+	height: 96rem;
+	background: linear-gradient(0deg, #06061B 0%, #06061B 100%), #170e05
 }
 
 .page-fund .fund-pension .section-visual .inner {
-	position: relative;
 	height: 100%
 }
 
 .page-fund .fund-pension .section-visual .txt-wrap {
-	position: absolute;
-	top: 0;
-	left: 0;
 	display: flex;
 	flex-direction: column;
-	padding: 12rem 12rem 12rem var(--hwf-content-padding-x);
 	width: 46.5%;
 	height: 100%;
 	color: #fff;
-	z-index: 1
-}
-
-.page-fund .fund-pension .section-visual .txt-wrap::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100vw;
-	height: 100%;
-	background: linear-gradient(90deg, #06061B 0%, rgba(6, 6, 27, 0.7) 100%);
-	backdrop-filter: blur(2rem);
-	z-index: -1
-}
-
-.page-fund .fund-pension .section-visual .txt-wrap .txt-box {
-	display: flex;
-	flex-direction: column;
-	height: 100%
+	z-index: 1;
+	word-break: keep-all
 }
 
 .page-fund .fund-pension .section-visual .txt-wrap .sub-tit {
@@ -12857,7 +12867,7 @@ html[lang=en] .page-main .section-banner {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 100%;
+	width: 51.1%;
 	height: 100%
 }
 
@@ -12865,26 +12875,38 @@ html[lang=en] .page-main .section-banner {
 	position: absolute;
 	top: 0;
 	right: 0;
+	width: 100%;
 	height: 100%;
 	-o-object-fit: cover;
 	object-fit: cover
 }
 
+@media(max-width: 1280px) {
+	.page-fund .fund-pension .section-visual .txt-wrap br {
+		display: none
+	}
+}
+
 @media(max-width: 1024px) {
 	.page-fund .fund-pension .section-visual {
-		display: flex;
-		flex-direction: column;
+		padding-top: 0;
+		padding-bottom: 0;
 		height: auto
+	}
+
+	.page-fund .fund-pension .section-visual .inner {
+		display: flex;
+		flex-direction: column
 	}
 
 	.page-fund .fund-pension .section-visual .txt-wrap {
 		position: relative;
-		padding: 4rem var(--hwf-content-padding-x) 4.6rem;
-		margin: 0 calc(var(--hwf-content-padding-x)*-1) 0;
-		width: calc(100% + var(--hwf-content-padding-x)*2)
+		padding: 4rem 0 4.6rem;
+		width: 100%
 	}
 
 	.page-fund .fund-pension .section-visual .img-wrap {
+		overflow: hidden;
 		position: relative;
 		order: -1;
 		margin: 0 calc(var(--hwf-content-padding-x)*-1);
@@ -12894,7 +12916,7 @@ html[lang=en] .page-main .section-banner {
 
 	.page-fund .fund-pension .section-visual .img-wrap img {
 		width: 100%;
-		height: auto
+		height: 100%
 	}
 }
 
@@ -13468,7 +13490,7 @@ html[lang=en] .page-main .section-banner {
 .board-con {
 	--board-con-gap: 2.4rem;
 	--board-search-top: 1.6rem;
-	--board-btn-wrap: 2.4rem;
+	--board-btn-wrap: 1.6rem;
 	display: flex;
 	flex-direction: column;
 	gap: var(--board-con-gap)
@@ -13660,7 +13682,8 @@ html[lang=en] .page-main .section-banner {
 @media(max-width: 640px) {
 	.board-con {
 		--board-con-gap: 1.6rem;
-		--board-search-top: 0.8rem
+		--board-search-top: 0.8rem;
+		--board-btn-wrap: 2.4rem
 	}
 
 	.board-con .board-search {
@@ -15875,6 +15898,10 @@ html[lang=en] .page-main .section-banner {
 		gap: 4rem
 	}
 
+	.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .visual-box {
+		height: 30.3rem
+	}
+
 	.page-company .company-employ .section-employ .value .talent-list-wrap .overlay-box-wrap .info-box {
 		padding: 4rem var(--hwf-content-padding-x)
 	}
@@ -16088,6 +16115,7 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-network .section-detail .network-list>li .txt-wrap dl:last-child {
+	padding-bottom: 0;
 	border-bottom: 0
 }
 
@@ -16145,10 +16173,14 @@ html[lang=en] .page-main .section-banner {
 	font-weight: 700
 }
 
+.page-company .company-finance .section-intro .gray-box-wrap .desc {
+	margin-bottom: .8rem
+}
+
 .page-company .company-finance .section-intro .gray-box-wrap .desc-small {
 	margin-top: .8rem;
 	color: var(--hwf-color-text-subtle);
-	font-weight: 1.6rem
+	font-size: 1.6rem
 }
 
 .page-company .company-finance .section-intro .gray-box-wrap .emphasis {
@@ -16166,6 +16198,32 @@ html[lang=en] .page-main .section-banner {
 	font-family: "Pretendard", sans-serif;
 	font-size: 4rem;
 	font-weight: 600
+}
+
+.page-company .company-finance .section-intro .gray-box-wrap .gray-box {
+	padding: 3.2rem 2rem 0
+}
+
+.page-company .company-finance .section-intro .gray-box-wrap .white-box {
+	margin-top: auto
+}
+
+@media(max-width: 640px) {
+	.page-company .company-finance .section-intro {
+		padding: 4rem 0
+	}
+
+	.page-company .company-finance .section-intro .gray-box-wrap .emphasis {
+		font-size: 6rem
+	}
+
+	.page-company .company-finance .section-intro .gray-box-wrap .emphasis small {
+		font-size: 2.8rem
+	}
+
+	.page-company .company-finance .section-intro .gray-box-wrap .gray-box {
+		padding: 2.4rem 1.2rem 0
+	}
 }
 
 .page-company .company-finance .section-network .category-list {
@@ -16207,7 +16265,6 @@ html[lang=en] .page-main .section-banner {
 	.page-company .company-finance .section-network .category-list li {
 		justify-content: flex-start;
 		flex: 1;
-		min-width: 32%;
 		text-align: left
 	}
 
@@ -16289,7 +16346,7 @@ section.bg-gray {
 	border-right: .1rem solid hsla(0, 0%, 100%, .3);
 	border-left: .1rem solid hsla(0, 0%, 100%, .3);
 	background: rgba(225, 224, 224, .2);
-	backdrop-filter: blur(1rem)
+	backdrop-filter: blur(5rem)
 }
 
 .overlay-box-wrap.reverse {
@@ -16626,6 +16683,10 @@ sup {
 		font-size: 4rem
 	}
 
+	.section-tit-wrap .sub-desc {
+		margin-top: 2.4rem
+	}
+
 	.section-tit-wrap .desc {
 		margin-top: .8rem;
 		font-size: 1.8rem
@@ -16747,7 +16808,7 @@ sup {
 		gap: 4rem
 	}
 
-	.group-wrap [class*=tit-] {
+	.group-wrap [class*=tit-]:not(.tit-wrap) {
 		display: flex;
 		align-items: baseline;
 		flex-wrap: wrap;
@@ -17015,7 +17076,7 @@ sup {
 }
 
 .card-list-wrap .btn-wrap {
-	margin-top: 4.8rem
+	margin-top: 4rem
 }
 
 @media(max-width: 1280px) {
@@ -17091,6 +17152,10 @@ sup {
 
 	.card-list-wrap .card-list .card-item a {
 		padding: 2.4rem
+	}
+
+	.card-list-wrap .card-list .card-item .card-top {
+		margin-bottom: 2.4rem
 	}
 
 	.card-list-wrap .card-list .card-item .tit {
