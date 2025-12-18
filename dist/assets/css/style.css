@@ -13707,7 +13707,7 @@ html[lang=en] .page-main .section-banner {
 
 .board-detail {
 	--board-detail-cont-gap: 4rem;
-	--board-detail-btn-gap: 4.8rem;
+	--board-detail-btn-gap: 4rem;
 	--board-detail-nav-gap: 2rem;
 	--board-detail-nav-padding: 4rem;
 	--board-detail-nav-padding-x: calc(var(--board-detail-nav-padding) + var(--board-detail-nav-icon-size) + 1.6rem);
@@ -13917,7 +13917,6 @@ html[lang=en] .page-main .section-banner {
 @media(max-width: 640px) {
 	.board-detail {
 		--board-detail-cont-gap: 2.4rem;
-		--board-detail-btn-gap: 4rem;
 		--board-detail-file-btn-padding: 2rem 1.6rem;
 		--board-detail-nav-gap: 0.8rem
 	}
