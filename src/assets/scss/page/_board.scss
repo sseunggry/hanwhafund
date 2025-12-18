@@ -213,7 +213,7 @@
 //게시판 상세
 .board-detail{
 	--board-detail-cont-gap: 4rem;
-	--board-detail-btn-gap: 4.8rem;
+	--board-detail-btn-gap: 4rem;
 	--board-detail-nav-gap: 2rem;
 	--board-detail-nav-padding: 4rem;
 	--board-detail-nav-padding-x: calc(var(--board-detail-nav-padding) + var(--board-detail-nav-icon-size) + 1.6rem);
@@ -392,7 +392,7 @@
 	}
 	@include mq(mobile){
 		--board-detail-cont-gap: 2.4rem;
-		--board-detail-btn-gap: 4rem;
+		// --board-detail-btn-gap: 4rem;
 		--board-detail-file-btn-padding: 2rem 1.6rem; 
 		--board-detail-nav-gap: 0.8rem;
 
