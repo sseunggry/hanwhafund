@@ -3044,6 +3044,7 @@
 				height: 100%;
 				color: #fff;
 				z-index: 1;
+				word-break: keep-all;
 
 				&::before{
 					content: '';
@@ -3055,12 +3056,6 @@
 					background: linear-gradient(90deg, #06061B 0%, rgba(6, 6, 27, 0.70) 100%);
 					backdrop-filter: blur(2rem);
 					z-index: -1;
-				}
-
-				.txt-box{
-					display: flex;
-					flex-direction: column;
-					height: 100%;
 				}
 
 				.sub-tit{
@@ -3100,6 +3095,13 @@
 					// width: 100%;
 					height: 100%;
 					object-fit: cover;
+				}
+			}
+			@include mq(pc){
+				.txt-wrap{
+					br{
+						display: none;
+					}
 				}
 			}
 			@include mq(tablet){
