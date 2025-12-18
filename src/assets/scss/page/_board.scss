@@ -5,15 +5,12 @@
 .board-con{
 	--board-con-gap: 2.4rem;
 	--board-search-top: 1.6rem;
-	--board-btn-wrap: 2.4rem;
+	--board-btn-wrap: 1.6rem;
 
 	display: flex;
 	flex-direction: column;
 	gap: var(--board-con-gap);
 
-	.segment-control{
-		// min-width: 90.7rem;
-	}
 	.board-search{
 		display: flex;
 		align-items: flex-end;
@@ -76,11 +73,6 @@
 					color: var(--#{$prefix}-color-text-subtle);
 					font-size: 1.8rem;
 					text-align: center;
-					
-
-					// &:hover{
-					// 	background-color: #F3F2F1;
-					// }
 				}
 
 				.td{
@@ -198,6 +190,7 @@
 	@include mq(mobile){
 		--board-con-gap: 1.6rem;
 		--board-search-top: 0.8rem;
+		--board-btn-wrap: 2.4rem;
 
 		.board-search{
 			flex-direction: column;
