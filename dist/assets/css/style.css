@@ -14871,6 +14871,8 @@ html[lang=en] .page-main .section-banner {
 .page-company .company-main .section-info {
 	position: relative;
 	z-index: 1;
+	display: flex;
+	align-items: center;
 	padding: 18rem 0;
 	background: url(../images/company/main-info-bg.png) no-repeat center/cover
 }
