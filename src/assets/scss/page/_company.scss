@@ -498,6 +498,12 @@
 				white-space: nowrap;
 			}
 
+			@include mq(tablet){
+				.deco-tit{
+					font-size: 12rem;
+				}
+			}
+
 			@include mq(mobile){
 				.deco-tit{
 					font-size: 6.4rem;
