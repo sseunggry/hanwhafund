@@ -555,6 +555,8 @@
 		.section-info{
 			position: relative;
 			z-index: 1;
+			display: flex;
+			align-items: center;
 			padding: 18rem 0;
 			@include bg('company/main-info-bg.png');
 
