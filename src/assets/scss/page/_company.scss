@@ -136,7 +136,14 @@
 			z-index: 2;
 			border-bottom: 0;
 			background-color: transparent;
-			// backdrop-filter: blur(4rem);
+			backdrop-filter: blur(4rem);
+
+			&:has(.modal.in), 
+			&:has(.modal.show),
+			&:has(.modal[style*="display: block"]) {
+				transform: none !important;  
+				backdrop-filter: none !important;
+			}
 	
 			.logo {
 				@include bg("common/logo-w.svg");
