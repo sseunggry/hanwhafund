@@ -1153,6 +1153,7 @@
 		.layout-content {
 			position: relative;
 			width: calc(100% - var(--layout-sidebar-nav-width));
+			background-color: var(--layout-sidebar-bg);
 
 			.cont-group {
 				position: relative;
@@ -3412,10 +3413,15 @@
 					}
 				}
 			}
-			.img-wrap{
-				// &.img-point-discriminate-01{
-				// 	margin: 0;
-				// }
+
+			#point_invest{
+				.gray-box-wrap{
+					.gray-box{
+						.white-box{
+							height: 100%;
+						}
+					}
+				}
 			}
 		}
 	}

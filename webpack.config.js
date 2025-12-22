@@ -101,6 +101,13 @@ module.exports = {
         //   filename: 'assets/images/[name][ext]', // 이미지 파일 경로 지정
         // },
       },
+			{
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        type: 'asset/resource',
+        // generator: {
+        //   filename: 'assets/images/[name][ext]', // 이미지 파일 경로 지정
+        // },
+      },
       {
         test: /\.(woff2?|ttf|eot|otf)$/i,
         type: 'asset/resource',
