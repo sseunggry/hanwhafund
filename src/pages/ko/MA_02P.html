@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '메인공지 팝업'
+		}) -%>
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container" style="padding: 6rem 0;">
+				<div class="inner">
+          <%- include('../../components/button.ejs', {
+            label: '메인공지 팝업',
+            targetType: 'modal',
+            targetId: 'modalReportDownload',
+          }) -%>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+
+    <!-- popup 메인공지 팝업 -->
+    <% 
+			const check = include('../../components/checkbox.ejs', {
+				label: '오늘 하루동안 보지 않기',
+				id: 'chkToday',
+				variant: '',
+			});
+			const textBtn = include('../../components/button.ejs', {
+				variant: 'text',
+				label: '닫기',
+				size: 'medium',
+			});
+			const footerHtml = `
+				<div class="today-btn-wrap">
+					<div class="left">${check}</div>
+					<div class="right">
+						<button type="button" class="btn text medium btn-close" aria-controls="modalReportDownload">닫기</button>
+					</div>
+				</div>
+			`;
+			const swiperContent = `
+			<div class="swiper main-notice-swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="#!"><img src="~@/assets/images/temp/notice-01.jpg" alt="공지사항 1번 배너 내용"></a>
+					</div>
+					<div class="swiper-slide">
+						<a href="#!"><img src="~@/assets/images/temp/notice-01.jpg" alt="공지사항 2번 배너 내용"></a>
+					</div>
+					</div>
+				<div class="swiper-pagination"></div> </div>
+		`;
+    -%>
+    <%- include('../../components/modal.ejs', {
+      id: 'modalReportDownload',
+      variant: 'modal',
+      content: swiperContent,
+      size: 'sm',
+      open: true,
+			footerSlot: footerHtml,
+			showCloseBtn: false,
+			addClass: 'popup-main-notice'
+    }) %>
+    <!-- popup 메인공지 팝업 -->
+	</body>
+</html>

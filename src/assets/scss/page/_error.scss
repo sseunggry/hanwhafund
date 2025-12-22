@@ -1,0 +1,64 @@
+@use "sass:list";
+@use "../util" as *;
+
+.page-error{
+	.contents{
+		// min-height: calc(100vh - 13.7rem);
+		padding: 24rem 0;
+	}
+
+	.error-wrap{
+		display: flex;
+		flex-direction: column;
+		gap: 2.4rem;
+		text-align: center;
+
+		&::before{
+			content: '';
+			margin: 0 auto;
+			display: block;
+			@include square(5.6rem);
+			@include icon-set('alert-circle');
+			background-color: #FE5B16;
+		}
+
+		.tit{
+			color: var(--#{$prefix}-color-text-strong);
+			font-size: 3.2rem;
+			font-weight: 700;
+			word-break: keep-all;
+		}
+		.desc{
+			word-break: keep-all;
+		}
+		.btn-wrap{
+			margin-top: 4rem;
+		}
+	}
+
+	@include mq(mobile){
+		.contents{
+			padding: 16rem 0;
+		}
+
+		.error-wrap{
+			gap: 1.6rem;
+
+			&::before{
+				@include square(4rem);
+			}
+
+			.tit{
+				font-size: 2.4rem;
+			}
+			.desc{
+				font-size: 1.6rem;
+			}
+
+			.btn-wrap{
+				margin-top: 2.4rem;
+			}
+		}
+
+	}
+}

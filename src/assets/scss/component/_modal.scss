@@ -25,7 +25,7 @@ $modal-size: (
 @mixin modal-size-variable() {
   --#{$prefix}-modal--size-large: calc(130rem + (var(--#{$prefix}-content-padding-x))*2);
   --#{$prefix}-modal--size-medium: calc(64rem  + (var(--#{$prefix}-content-padding-x))*2);
-  --#{$prefix}-modal--size-small: calc(40rem  + (var(--#{$prefix}-content-padding-x))*2);
+  --#{$prefix}-modal--size-small: calc(48rem  + (var(--#{$prefix}-content-padding-x))*2);
   --#{$prefix}-modal--size-min-height: 26.4rem;
   --#{$prefix}-modal--wrap-radius: 0.4rem;
 
@@ -449,7 +449,7 @@ $modal-size: (
 					}
         }
 
-        &.modal-md{
+        &.modal-md, &.modal-sm{
           min-height: auto;
 
           .modal-header{
@@ -476,7 +476,7 @@ $modal-size: (
     }
     &.in {
       .modal-dialog{
-        &.modal-md{
+        &.modal-md, &.modal-sm{
           .modal-content {
             bottom: 0;
           }

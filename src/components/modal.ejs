@@ -14,6 +14,7 @@
   const headerSlot = localsSafe.headerSlot || '';
   const hasHeader = headerSlot || title;
   const size = localsSafe.size || '';
+	const footerSlot = localsSafe.footerSlot || '';
 
   const titleId = `tit_${id}`;
   const modalClasses = [
@@ -58,7 +59,11 @@
       <div class="modal-conts" <%= scrollable ? 'tabindex="0"' : '' %>>
         <%- content %>
       </div>
-      <%_ if (buttons.length > 0) { -%>
+			<%_ if (footerSlot) { -%>
+			<div class="modal-footer">
+				<%- footerSlot %>
+			</div>
+      <%_ } else if (buttons.length > 0) { -%>
       <div class="<%= btnWrapClasses %>">
         <%_ buttons.forEach(button => { -%>
         <%

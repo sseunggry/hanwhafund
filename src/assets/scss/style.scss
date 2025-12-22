@@ -1427,3 +1427,22 @@ sup{
 		}
 	}
 }
+
+//메인 공지 팝업
+.popup-main-notice{
+	&.modal{
+		.modal-dialog{
+			.modal-conts{
+				padding: 0;
+			}
+		}
+	}
+	a{
+		display: block;
+		width: 100%;
+
+		img{
+			width: 100%;
+		}
+	}
+}

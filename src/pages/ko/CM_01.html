@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '오류안내'
+		}) -%>
+	</head>
+	<body class="page-error">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- contents -->
+			<main class="contents">
+				<div class="inner">
+					<div class="error-wrap">
+						<p class="tit">서비스 이용에 불편을 드려 대단히 죄송합니다.</p>
+						<p class="desc">주소가 잘 못 되었거나, 변경 혹은 삭제되어 요청하신 페이지를 찾을 수 없습니다. <br/> 입력한 주소가 정확한 지 다시 한번 확인해 주세요.</p>
+						<div class="btn-wrap array-center">
+							<%- include('../../components/button.ejs', {
+								variant: 'tertiary',
+								label: '메인으로 이동하기',
+								size: 'large',
+							}) -%>
+						</div>
+					</div>
+				</div>
+			</main>
+			<!-- // contents -->
+		</div>
+	</body>
+</html>
