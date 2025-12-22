@@ -1287,22 +1287,20 @@ const uiHeader = {
     $(window).on('scroll', function() {
       const st = $(this).scrollTop();
 
-      if (Math.abs(lastScrollTop - st) <= delta) return;
+      if (st <= 0) {
+        $header.removeClass('is-fixed is-hide is-show');
+        lastScrollTop = 0;
+        return;
+      }
 
-      // 1. 스크롤을 내릴 때 (Down)
+      if (Math.abs(lastScrollTop - st) <= delta) return;
       if (st > lastScrollTop && st > headerHeight) {
         $header.addClass('is-fixed'); 
         $header.removeClass('is-show').addClass('is-hide');
-      } 
-      // 2. 스크롤을 올릴 때 (Up)
-      else {
+      } else {
         if (st + $(window).height() < $(document).height()) {
           $header.addClass('is-fixed is-show').removeClass('is-hide');
         }
-      }
-      // 3. 최상단에 도달했을 때 (초기화)
-      if (st <= 0) {
-        $header.removeClass('is-fixed is-hide is-show');
       }
 
       lastScrollTop = st;

@@ -2643,7 +2643,7 @@ html[lang=en] {
 }
 
 .accordion+.btn-wrap {
-	--hwf-accordion--more-button-gap: 4.8rem;
+	--hwf-accordion--more-button-gap: 4rem;
 	margin-top: var(--hwf-accordion--more-button-gap)
 }
 
@@ -8074,12 +8074,6 @@ label {
 	text-underline-offset: .3rem
 }
 
-@media(max-width: 640px) {
-	.tag-wrap {
-		--hwf-btn-tag--font-size-medium: 1.6rem
-	}
-}
-
 .tit-xxlg {
 	font-size: 6.4rem;
 	line-height: 1.1;
@@ -8277,7 +8271,7 @@ label {
 	background-color: #fff;
 	border-bottom: .1rem solid #e6e5e5;
 	transition: top .3s ease;
-	z-index: 2
+	z-index: 6
 }
 
 .header.is-fixed {
@@ -8473,6 +8467,10 @@ label {
 }
 
 .header .header-con .util .lang .form-select.text .select-button .select-value {
+	color: var(--hwf-color-text-strong)
+}
+
+.header .header-con .util .lang .form-select.text .select-button::after {
 	color: var(--hwf-color-text-strong)
 }
 
@@ -8856,7 +8854,7 @@ label {
 	}
 
 	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth2 {
-		font-weight: 400
+		font-weight: 500
 	}
 
 	.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .submenu,
@@ -8885,8 +8883,8 @@ label {
 }
 
 html[lang=en] .header .logo {
-	width: 31.2rem;
-	height: 3.1rem;
+	width: 46.6rem;
+	height: 4.8rem;
 	background: url(../images/common/en-logo.svg) no-repeat center/contain
 }
 
@@ -8909,8 +8907,8 @@ html[lang=en] .header .logo {
 
 @media(max-width: 640px) {
 	html[lang=en] .header .logo {
-		width: 24.2rem;
-		height: 2.4rem
+		width: 31.1rem;
+		height: 3.2rem
 	}
 }
 
@@ -8932,6 +8930,19 @@ html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
 	html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item {
 		min-width: auto;
 		flex: 1
+	}
+}
+
+html[lang=en] .modal.header-search .logo {
+	width: 46.6rem;
+	height: 4.8rem;
+	background: url(../images/common/en-logo.svg) no-repeat center/contain !important
+}
+
+@media(max-width: 640px) {
+	html[lang=en] .modal.header-search .logo {
+		width: 31.1rem;
+		height: 3.2rem
 	}
 }
 
@@ -9138,9 +9149,16 @@ html[lang=en] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
 }
 
 html[lang=en] .footer-top .logo {
-	width: 31.2rem;
-	height: 3.1rem;
+	width: 38.8rem;
+	height: 4rem;
 	background: url(../images/common/en-logo-w.svg) no-repeat center/cover
+}
+
+@media(max-width: 640px) {
+	html[lang=en] .footer-top .logo {
+		width: 31.1rem;
+		height: 3.2rem
+	}
 }
 
 .page-main {
@@ -9180,12 +9198,17 @@ html[lang=en] .footer-top .logo {
 }
 
 .page-main .header {
-	position: absolute;
-	width: 100%;
-	z-index: 2;
+	position: fixed;
 	border-bottom: 0;
 	background-color: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(4rem)
+}
+
+.page-main .header:has(.modal.in),
+.page-main .header:has(.modal.show),
+.page-main .header:has(.modal[style*="display: block"]) {
+	transform: none !important;
+	backdrop-filter: none !important
 }
 
 .page-main .header .logo {
@@ -9350,7 +9373,9 @@ html[lang=en] .footer-top .logo {
 	color: #fff
 }
 
-.page-main .section-visual .visual .img-wrap {
+.page-main .section-visual .visual .img-wrap,
+.page-main .section-visual .visual .video-wrap {
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9359,11 +9384,22 @@ html[lang=en] .footer-top .logo {
 	z-index: 0
 }
 
-.page-main .section-visual .visual .img-wrap img {
+.page-main .section-visual .visual .img-wrap img,
+.page-main .section-visual .visual .video-wrap img {
 	width: 100%;
 	height: 100%;
 	-o-object-fit: cover;
 	object-fit: cover
+}
+
+.page-main .section-visual .visual .img-wrap video,
+.page-main .section-visual .visual .video-wrap video {
+	width: 100%;
+	height: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+	-o-object-position: center center;
+	object-position: center center
 }
 
 .page-main .section-visual .main-visual-swiper .swiper-horizontal>.swiper-pagination-bullets,
@@ -9399,6 +9435,10 @@ html[lang=en] .footer-top .logo {
 }
 
 @media(max-width: 640px) {
+	.page-main .section-visual .visual .tit-wrap .num {
+		font-size: 1.6rem
+	}
+
 	.page-main .section-visual .visual .tit-wrap .desc {
 		font-size: 1.6rem
 	}
@@ -10111,6 +10151,10 @@ html[lang=en] .footer-top .logo {
 	.page-main .section-banner .main-tit-wrap .sub-tit {
 		font-size: 1.8rem
 	}
+}
+
+html[lang=en] .page-main .header .logo {
+	background: url(../images/common/en-logo-w.svg) no-repeat center/cover
 }
 
 html[lang=en] .page-main .section-network .main-tit-wrap {
@@ -11087,7 +11131,8 @@ html[lang=en] .page-main .section-banner {
 
 .page-fund .layout-sidebar .layout-content {
 	position: relative;
-	width: calc(100% - var(--layout-sidebar-nav-width))
+	width: calc(100% - var(--layout-sidebar-nav-width));
+	background-color: var(--layout-sidebar-bg)
 }
 
 .page-fund .layout-sidebar .layout-content .cont-group {
@@ -11488,7 +11533,7 @@ html[lang=en] .page-main .section-banner {
 
 @media(max-width: 640px) {
 	.page-fund .fund-main .section-visual {
-		padding: 4rem 0 2.4rem
+		padding: 4rem 0
 	}
 
 	.page-fund .fund-main .section-visual .inner {
@@ -11927,8 +11972,14 @@ html[lang=en] .page-main .section-banner {
 	background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%)
 }
 
+.page-fund .fund-main .section-detail .fee-wrap .fee-item .tit-sm {
+	display: flex;
+	gap: 1.6rem
+}
+
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .icon-buy::before {
 	content: "";
+	display: inline-block;
 	width: 2.4rem;
 	height: 2.4rem;
 	background-color: currentColor;
@@ -11944,6 +11995,7 @@ html[lang=en] .page-main .section-banner {
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .icon-invest::before {
 	content: "";
+	display: inline-block;
 	width: 2.4rem;
 	height: 2.4rem;
 	background-color: currentColor;
@@ -11959,6 +12011,7 @@ html[lang=en] .page-main .section-banner {
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .icon-sell::before {
 	content: "";
+	display: inline-block;
 	width: 2.4rem;
 	height: 2.4rem;
 	background-color: currentColor;
@@ -11978,7 +12031,7 @@ html[lang=en] .page-main .section-banner {
 	flex-direction: column;
 	justify-content: center;
 	margin-top: 2.4rem;
-	padding: 2.4rem 2rem;
+	padding: 2.4rem 1.6rem;
 	height: 100%;
 	text-align: center;
 	background-color: #fff
@@ -11998,9 +12051,9 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .sub-txt-wrap {
-	display: flex;
-	justify-content: center;
-	gap: 1.6rem
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2.4rem
 }
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .tit {
@@ -12015,13 +12068,20 @@ html[lang=en] .page-main .section-banner {
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .desc {
 	display: flex;
-	flex-direction: column;
 	gap: .8rem;
-	font-size: 1.5rem
+	padding: 0 .4rem;
+	font-size: 1.6rem
+}
+
+.page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .desc dt {
+	flex-shrink: 0;
+	color: var(--hwf-color-text-subtle)
 }
 
 .page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .desc dd {
-	font-weight: 600
+	width: 100%;
+	font-weight: 600;
+	text-align: right
 }
 
 .page-fund .fund-main .section-detail .guide-wrap {
@@ -12253,6 +12313,11 @@ html[lang=en] .page-main .section-banner {
 		flex-direction: column
 	}
 
+	.page-fund .fund-main .section-detail .overlay-box-wrap .visual-box {
+		height: 40rem;
+		background: url(../images/fund/mo-main-info-bg.png) no-repeat center/cover
+	}
+
 	.page-fund .fund-main .section-detail .reference-wrap {
 		flex-direction: column;
 		gap: 4rem
@@ -12359,6 +12424,14 @@ html[lang=en] .page-main .section-banner {
 		border-bottom: none
 	}
 
+	.page-fund .fund-main .section-detail .fee-wrap .fee-item .tit-sm {
+		gap: .8rem
+	}
+
+	.page-fund .fund-main .section-detail .product-info-wrap {
+		flex-direction: column
+	}
+
 	.page-fund .fund-main .section-detail .reference-wrap {
 		padding: 2.4rem var(--hwf-content-padding-x) 4rem var(--hwf-content-padding-x);
 		margin: 0 var(--layout-full-width)
@@ -12380,6 +12453,12 @@ html[lang=en] .page-main .section-banner {
 	.page-fund .fund-main .section-detail .box-wrap.bg-gray {
 		margin: 0 var(--layout-full-width);
 		padding: 3.2rem var(--hwf-content-padding-x)
+	}
+}
+
+@media(max-width: 360px) {
+	.page-fund .fund-main .section-detail .fee-wrap .fee-item .fee-box .sub-txt-wrap {
+		grid-template-columns: auto
 	}
 }
 
@@ -12655,6 +12734,12 @@ html[lang=en] .page-main .section-banner {
 @media(max-width: 768px) {
 	.page-fund .fund-find .section-detail .fund-compare-floating .compare-list {
 		display: none
+	}
+}
+
+@media(max-width: 640px) {
+	.page-fund .fund-find .section-detail {
+		padding-bottom: 8rem
 	}
 }
 
@@ -13289,6 +13374,10 @@ html[lang=en] .page-main .section-banner {
 	}
 }
 
+.page-fund .fund-pension.tdf #point_invest .gray-box-wrap .gray-box .white-box {
+	height: 100%
+}
+
 .tbl-wrap.fund-list-wrap .tbl {
 	min-width: 118rem;
 	border-collapse: separate;
@@ -13577,7 +13666,7 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	gap: .8rem;
-	color: var(--hwf-color-text-basic);
+	color: var(--hwf-color-text-subtle);
 	text-align: left
 }
 
@@ -13665,7 +13754,12 @@ html[lang=en] .page-main .section-banner {
 	}
 
 	.board-con .board-list-wrap .board-tbody li .tit {
-		font-size: 1.8rem
+		font-size: 1.8rem;
+		color: var(--hwf-color-text-strong)
+	}
+
+	.board-con .board-list-wrap .board-tbody li .tit strong {
+		font-weight: 500
 	}
 
 	.board-con .board-list-wrap .board-tbody li .file {
@@ -14309,6 +14403,12 @@ html[lang=en] .page-main .section-banner {
 	z-index: 5
 }
 
+@media(max-width: 640px) {
+	.page-search .section-tit-wrap .desc {
+		margin-top: 1.6rem
+	}
+}
+
 .page-search .section-search {
 	position: relative;
 	padding-top: 8rem
@@ -14431,9 +14531,13 @@ html[lang=en] .page-main .section-banner {
 	}
 
 	.page-search .section-result .result-group {
-		--result-group-tit-count-gap: 1.6rem;
+		--result-group-tit-count-gap: 2.4rem;
 		--result-group-tit-count-font-size: 2.4rem;
 		--result-group-margin-top: 8rem
+	}
+
+	.page-search .section-result .result-group:last-child {
+		margin-bottom: 8rem
 	}
 }
 
@@ -14574,7 +14678,15 @@ html[lang=en] .page-main .section-banner {
 	width: 100%;
 	z-index: 2;
 	border-bottom: 0;
-	background-color: rgba(0, 0, 0, 0)
+	background-color: rgba(0, 0, 0, 0);
+	backdrop-filter: blur(4rem)
+}
+
+.page-company:has(.company-main) .header:has(.modal.in),
+.page-company:has(.company-main) .header:has(.modal.show),
+.page-company:has(.company-main) .header:has(.modal[style*="display: block"]) {
+	transform: none !important;
+	backdrop-filter: none !important
 }
 
 .page-company:has(.company-main) .header .logo {
@@ -14688,12 +14800,14 @@ html[lang=en] .page-main .section-banner {
 	margin-bottom: 8rem;
 	font-family: "Trust2ATRIAL", sans-serif;
 	font-size: 3.2rem;
-	text-transform: capitalize
+	text-transform: capitalize;
+	word-break: keep-all
 }
 
 .page-company:has(.company-main) .company-tit-wrap .tit {
 	font-size: 9.6rem;
-	font-weight: 600
+	font-weight: 600;
+	word-break: keep-all
 }
 
 .page-company:has(.company-main) .company-tit-wrap .tit+.sub-tit {
@@ -14703,17 +14817,20 @@ html[lang=en] .page-main .section-banner {
 .page-company:has(.company-main) .company-tit-wrap .sub-tit {
 	font-family: "Trust2ATRIAL", sans-serif;
 	font-size: 6.4rem;
-	text-transform: capitalize
+	text-transform: capitalize;
+	word-break: keep-all
 }
 
 .page-company:has(.company-main) .company-tit-wrap .desc {
 	font-size: 6.4rem;
-	font-weight: 600
+	font-weight: 600;
+	word-break: keep-all
 }
 
 .page-company:has(.company-main) .company-tit-wrap .desc-small {
 	font-size: 4.8rem;
-	font-weight: 500
+	font-weight: 500;
+	word-break: keep-all
 }
 
 .page-company:has(.company-main) .company-tit-wrap .tit.txt-en {
@@ -14840,17 +14957,26 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #fff
+	color: #fff;
+	will-change: transform
+}
+
+.page-company .company-main .section-slogan,
+.page-company .company-main .section-value,
+.page-company .company-main .section-info,
+.page-company .company-main .section-history,
+.page-company .company-main .section-banner {
+	position: relative;
+	z-index: 1;
+	background-color: #fff;
+	transform: translate3d(0, 0, 0)
 }
 
 .page-company .company-main .section-slogan {
 	overflow: hidden;
-	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	background-color: #fff;
-	z-index: 1
+	justify-content: center
 }
 
 .page-company .company-main .section-slogan .txt-gradient {
@@ -14863,11 +14989,13 @@ html[lang=en] .page-main .section-banner {
 	position: absolute;
 	left: 50%;
 	bottom: 0;
-	transform: translate(-50%, 50%);
+	width: 100%;
+	max-width: var(--hwf-content-wrap-width-large);
+	padding: 0 var(--hwf-content-padding-x);
 	font-family: "Trust2ATRIAL", sans-serif;
 	font-size: 16rem;
-	text-transform: capitalize;
-	white-space: nowrap
+	line-height: 1.2;
+	text-transform: capitalize
 }
 
 @media(max-width: 1024px) {
@@ -14883,8 +15011,6 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-value {
-	position: relative;
-	z-index: 1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -14933,12 +15059,10 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-info {
-	position: relative;
-	z-index: 1;
 	display: flex;
 	align-items: center;
 	padding: 18rem 0;
-	background: url(../images/company/main-info-bg.png) no-repeat center/cover
+	background: #04021e url(../images/company/main-info-bg.png) no-repeat center/cover
 }
 
 .page-company .company-main .section-info .inner {
@@ -14961,7 +15085,7 @@ html[lang=en] .page-main .section-banner {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 6rem 0
+	padding: 5rem 0
 }
 
 .page-company .company-main .section-info .txt-wrap dl:first-child {
@@ -15012,7 +15136,7 @@ html[lang=en] .page-main .section-banner {
 	font-size: 16rem;
 	font-family: "Trust2ATRIAL", sans-serif;
 	line-height: 1;
-	background: linear-gradient(270deg, #FF5532 -7.07%, #04021E 168.69%);
+	background: linear-gradient(270deg, #D83A00 0%, #EB6C31 49.04%, #EEC3B0 100%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: rgba(0, 0, 0, 0);
@@ -15032,6 +15156,21 @@ html[lang=en] .page-main .section-banner {
 	}
 }
 
+@media(max-width: 768px) {
+	.page-company .company-main .section-info .txt-wrap dl {
+		flex-wrap: wrap
+	}
+
+	.page-company .company-main .section-info .txt-wrap dt {
+		width: 100%
+	}
+
+	.page-company .company-main .section-info .txt-wrap dd {
+		width: 100%;
+		justify-content: flex-end
+	}
+}
+
 @media(max-width: 640px) {
 	.page-company .company-main .section-info {
 		padding: 8rem 0;
@@ -15043,8 +15182,6 @@ html[lang=en] .page-main .section-banner {
 	}
 
 	.page-company .company-main .section-info .txt-wrap dl {
-		flex-direction: column;
-		align-items: normal;
 		gap: 2.4rem;
 		padding: 4rem 0
 	}
@@ -15055,10 +15192,6 @@ html[lang=en] .page-main .section-banner {
 
 	.page-company .company-main .section-info .txt-wrap dt {
 		font-size: 2.4rem
-	}
-
-	.page-company .company-main .section-info .txt-wrap dd {
-		justify-content: flex-end
 	}
 
 	.page-company .company-main .section-info .txt-wrap dd .counter {
@@ -15072,11 +15205,8 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-history {
-	position: relative;
-	z-index: 1;
 	overflow: hidden;
-	padding: 20rem 0;
-	background-color: #fff
+	padding: 20rem 0
 }
 
 .page-company .company-main .section-history .message {
@@ -15488,8 +15618,6 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-banner {
-	position: relative;
-	z-index: 1;
 	padding: 20rem 0 12.6rem;
 	min-height: auto;
 	background: url(../images/company/main-banner-bg.png) no-repeat center/cover
@@ -17005,7 +17133,7 @@ sup {
 
 .card-list-wrap .card-list .card-item .tit {
 	margin: 2.4rem 0 .8rem;
-	color: var(--hwf-color-text-basic);
+	color: var(--hwf-color-text-strong);
 	font-size: 2.8rem;
 	font-weight: 600
 }
@@ -17035,7 +17163,7 @@ sup {
 }
 
 .card-list-wrap .card-list .card-item .info-list {
-	margin-top: 2.4rem
+	margin-top: 1.6rem
 }
 
 .card-list-wrap .card-list .card-item .info-list dl {
@@ -17486,19 +17614,19 @@ sup {
 	background-repeat: no-repeat
 }
 
-.share-sns-list li.instagram a::before,
-.share-sns-list li.instagram button::before {
+.share-sns-list li.facebook a::before,
+.share-sns-list li.facebook button::before {
 	-webkit-mask-repeat: no-repeat;
 	mask-repeat: no-repeat;
 	-webkit-mask-position: center center;
 	mask-position: center center;
 	-webkit-mask-size: contain;
 	mask-size: contain;
-	-webkit-mask-image: url(../images/icon/ico-instagram-fill.svg);
-	mask-image: url(../images/icon/ico-instagram-fill.svg);
+	-webkit-mask-image: url(../images/icon/ico-facebook-fill.svg);
+	mask-image: url(../images/icon/ico-facebook-fill.svg);
 	-webkit-mask-image: none;
 	mask-image: none;
-	background-image: url(../images/icon/ico-instagram-fill.svg);
+	background-image: url(../images/icon/ico-facebook-fill.svg);
 	background-color: rgba(0, 0, 0, 0) !important;
 	background-size: contain;
 	background-repeat: no-repeat
