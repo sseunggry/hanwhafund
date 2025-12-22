@@ -2,7 +2,7 @@ const iaPageBData = {
 	language: "en",
 	list: [
 		// --- 메인 ---
-		{ createDate: "2025-12-18",  modifyDate: "",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{ detail: '글로벌네트워크 -번역본 일부 미수급' }] },
+		{ createDate: "2025-12-18",  modifyDate: "2025-12-23",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{ detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
 
 		// --- Our Company ---
 		{ createDate: "", modifyDate: "", category: "Our Company", depth1: "Our Company ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "EN_CP_01", link: "", isAdminLinked: true, status: "", memo: [], },
@@ -16,7 +16,7 @@ const iaPageBData = {
 		{ createDate: "2025-12-18", modifyDate: "", category: "Risk Management", depth1: "Compliance system", depth2: "-", depth3: "-", pageName: "내부통제 점검체계", pageType: "tab", pageID: "EN_RM_03", link: "", isAdminLinked: false, status: "", memo: [], },
 
 		// --- Global Network ---
-		{ createDate: "2025-12-18", modifyDate: "", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '번역본 일부 미수급' }], },
+		{ createDate: "2025-12-18", modifyDate: "2025-12-23", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2025-12-23: 텍스트 수정' }], },
 
 		// --- Contact Us ---
 		{ createDate: "2025-12-18", modifyDate: "", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
