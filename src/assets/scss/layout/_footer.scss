@@ -188,9 +188,18 @@
 html[lang="en"]{
 	.footer-top{
     .logo {
-      width: 31.2rem;
-      height: 3.1rem;
+      width: 38.8rem;
+      height: 4rem;
       @include bg("common/en-logo-w.svg");
     }
   }
+
+	@include mq(mobile){
+		.footer-top{
+			.logo {
+				width: 31.1rem;
+				height: 3.2rem;
+			}
+		}
+	}
 }

@@ -148,7 +148,7 @@ const gsapSloganAni = {
     const $decoTit = $sloganSection.find(".deco-tit");
 
     gsap.set($tit, { y: 50, opacity: 0 });
-    gsap.set($decoTit, { y: 100, scale: 1.5});
+		gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 1.5 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -177,6 +177,7 @@ const gsapSloganAni = {
         return titTop - decoTop; 
       },
       scale: 1, 
+			yPercent: 0,
       opacity: 1,
       duration: 1.5,
       ease: "power2.out" 

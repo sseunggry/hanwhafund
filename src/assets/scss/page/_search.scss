@@ -5,6 +5,12 @@
   .section-tit-wrap{
     position: relative;
     z-index: 5;
+
+		@include mq(mobile){
+			.desc{
+				margin-top: 1.6rem;
+			}
+		}
   }
 
   .section-search{
@@ -91,11 +97,6 @@
       +.result-group{
         margin-top: var(--result-group-margin-top);
       }
-
-      // .card-list-wrap{
-      //   padding-top: var(--result-group-card-list-padding);
-      //   padding-bottom: var(--result-group-card-list-padding);
-      // }
     }
 
     @include mq(mobile){
@@ -114,10 +115,13 @@
 				--tab-cont-wrap-margin-top: 4rem;
 			}
 			.result-group{
-				--result-group-tit-count-gap: 1.6rem;
+				--result-group-tit-count-gap: 2.4rem;
 				--result-group-tit-count-font-size: 2.4rem;
 				--result-group-margin-top: 8rem;
-				// --result-group-card-list-padding: 0;
+				
+				&:last-child{
+					margin-bottom: 8rem;
+				}
 			}
     }
   }

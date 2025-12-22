@@ -288,6 +288,9 @@
 		@include mq(mobile){
 			.visual{
 				.tit-wrap{
+					.num {
+						font-size: 1.6rem;
+					}
 					.desc{
 						font-size: 1.6rem;
 					}
@@ -1034,6 +1037,11 @@
 //영문 메인
 html[lang="en"]{
 	.page-main{
+		.header{
+			.logo {
+				@include bg("common/en-logo-w.svg");
+			}
+		}
 		.section-network{
 			.main-tit-wrap{
 				margin-bottom: 6.4rem;

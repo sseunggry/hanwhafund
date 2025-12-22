@@ -227,9 +227,6 @@
 	// }
 
 	@include mq(mobile){
-		--#{$prefix}-btn-tag--font-size-medium: 1.6rem;
-		.btn-tag {
-
-		}
+		// --#{$prefix}-btn-tag--font-size-medium: 1.6rem;
 	}
 }

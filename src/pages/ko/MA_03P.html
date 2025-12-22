@@ -27,38 +27,5 @@
 			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
-		
-    <!-- popup 검색  -->
-		<% 
-		const searchIcon = include('../../components/button.ejs', { variant: 'icon', label: '검색', size: 'xxlarge', icon: 'search'}); 
-		const searchInput = include('../../components/input.ejs', {
-			ariaLabel: "펀드명 입력",
-			size: 'xlarge',
-			placeholder: '펀드명을 입력하세요',
-			value: '투자신탁',
-			slot: searchIcon,
-			addClass: 'line search'
-		});
-		const tag = include('../../components/tag.ejs', {
-			variant: 'text',
-			tagList: ['#ETF', '#월배당ETF', '#바이오', '#자산분배형', '#ESG'],
-			size: 'medium'
-		});
-		-%>
-		<%- include('../../components/modal.ejs', {
-			id: 'modalSearch',
-			variant: 'top-sheet',
-			headerSlot: `<div class="logo"><span class="sr-only">한화자산운용</span></div>`,
-			content: `
-			<div class="search-wrap">
-				<div class="search-con">
-					${searchInput}
-					${tag}
-				</div>
-			</div>
-			`,
-			open: true,
-		}) %>
-		<!-- popup 검색 -->
 	</body>
 </html>

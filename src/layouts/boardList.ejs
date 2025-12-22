@@ -8,6 +8,8 @@
   const hideNumber = localsSafe.hideNumber || false;
   const showNumberColumn = !hideNumber;
   const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : items.length;
+	// const showDownload = (typeof download !== 'undefined') ? download : true;
+	const showDownload = localsSafe.download !== false;
 
   const defaultThead = [
     { text: 'NO', key: 'num', class: 'num' },
@@ -30,7 +32,7 @@
       .filter(col => {
         if (col.key === 'num' && !showNumberColumn) return false;
         if (col.key === 'category' && !hasCategory) return false;
-        if (col.key === 'file' && !hasFile) return false;
+        if (col.key === 'file' && (!showDownload || !hasFile)) return false;
         if (col.key === 'date' && !hasDate) return false;
         
         return true;

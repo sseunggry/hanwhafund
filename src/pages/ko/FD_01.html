@@ -521,20 +521,22 @@
 				],
 			}); 
 			-%>
+			<!-- [2025-12-22] 버튼명 '다시 선택' -> '설정 초기화' 수정 -->
 			<%- include('../../components/modal.ejs', {
 				id: 'mobileDetailSearchBottomSheet',
 				variant: 'bottom-sheet',
 				title: '상세검색',
 				content: `
-					${acc1}
-					<div class=""></div>
+				${acc1}
+				<div class=""></div>
 				`,
 				buttons: [
-					{ text: '다시 선택', class: 'outline', action: 'close' },
+					{ text: '설정 초기화', class: 'outline', action: 'close' },
 					{ text: '검색 결과보기', action: 'close' },
 				],
 				buttonAddClass: 'ratio',
 			}) %>
+			<!-- // [2025-12-22] 버튼명 '다시 선택' -> '설정 초기화' 수정 -->
 			<!-- // popup 상세검색 -->
 
 			<!-- popup 상품비교 -->

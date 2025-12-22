@@ -1242,10 +1242,6 @@
 	}
 
   .fund-main {
-		// .inner{
-		// 	max-width: var(--#{$prefix}-content-wrap-width-large);
-		// }
-
     .section-visual {
       padding: 10rem 0 8rem;
       @include bg("fund/main-visual.png");
@@ -1537,7 +1533,7 @@
         }
       }
       @include mq(mobile) {
-        padding: 4rem 0 2.4rem;
+        padding: 4rem 0;
 
         .inner {
           gap: 2.4rem;
@@ -1659,12 +1655,6 @@
       }
     }
     .section-detail {
-      // --top-fixed-height: 8rem;
-      // --layout-sidebar-nav-width: calc(26rem + var(--#{$prefix}-content-padding-x));
-      // --layout-content-gap: 2.4rem;
-      // --layout-content-bg: #fff;
-      // --layout-sidebar-bg: #f3f2f1;
-
       .top-fixed {
         position: sticky;
         top: 0;
@@ -1703,106 +1693,6 @@
           gap: 4rem;
         }
       }
-
-      // .layout-sidebar {
-      //   background-color: var(--layout-sidebar-bg);
-
-      //   .layout-inner {
-      //     position: relative;
-      //     max-width: var(--#{$prefix}-content-wrap-width-large);
-      //     width: 100%;
-      //     margin: 0 auto;
-      //     display: flex;
-      //     align-items: flex-start;
-      //   }
-
-      //   .sidebar {
-      //     position: sticky;
-      //     top: var(--top-fixed-height);
-      //     // right: var(--layout-sidebar-pos);
-      //     z-index: 2;
-      //     flex-shrink: 0;
-      //     order: 1;
-      //     padding: 6.4rem var(--#{$prefix}-content-padding-x) 6.4rem 0;
-      //     width: var(--layout-sidebar-nav-width);
-      //     font-size: 2.1rem;
-      //     font-weight: 600;
-
-      //     li {
-      //       position: relative;
-      //       margin-bottom: 1.6rem;
-
-      //       &::after{
-      //         content: '';
-      //         position: absolute;
-      //         top: 0;
-      //         left: 0;
-      //         display: block;
-      //         width: 0;
-      //         height: 100%;
-      //         background: linear-gradient(90deg, rgba(244, 178, 134, 0.7) 0%, rgba(223, 188, 165, 0) 100%);
-      //         transition: var(--#{$prefix}-transition-base);
-      //         z-index: -1;
-      //       }
-      //       &:last-child {
-      //         margin-bottom: 0;
-      //       }
-      //       a {
-      //         display: block;
-      //         padding: 1.4rem 5.4rem;
-      //         color: var(--#{$prefix}-color-text-subtler);
-      //       }
-
-      //       &.active {
-      //         &::after{
-      //           width: 100%;
-      //         }
-      //         a {
-      //           color: var(--#{$prefix}-color-text-basic);
-      //           // background: linear-gradient(90deg, rgba(244, 178, 134, 0.7) 0%, rgba(223, 188, 165, 0) 100%);
-
-      //           &::before {
-      //             content: "";
-      //             display: inline-block;
-      //             margin-right: 0.4rem;
-      //             width: 0.6rem;
-      //             height: 0.6rem;
-      //             background-color: #f54500;
-      //             vertical-align: top;
-      //           }
-      //         }
-      //       }
-      //     }
-      //   }
-      //   .layout-content {
-      //     position: relative;
-      //     width: calc(100% - var(--layout-sidebar-nav-width));
-
-      //     .cont-group {
-      //       position: relative;
-      //       z-index: 1;
-      //       padding: 8rem 6.81% calc(12rem + var(--layout-content-gap)) var(--#{$prefix}-content-padding-x);
-      //       width: 100%;
-      //       background-color: var(--layout-content-bg);
-      //       border-bottom: var(--layout-content-gap) solid var(--layout-sidebar-bg);
-
-      //       &[id] {
-      //         scroll-margin-top: calc(var(--top-fixed-height) + var(--layout-content-gap));
-      //       }
-
-      //       &::before {
-      //         content: "";
-      //         position: absolute;
-      //         top: 0;
-      //         right: 100%;
-      //         z-index: -1;
-      //         width: 100vw;
-      //         height: 100%;
-      //         background-color: var(--layout-content-bg);
-      //       }
-      //     }
-      //   }
-      // }
 
       .chart-wrap {
         .chart-top{
@@ -2042,31 +1932,6 @@
 				}
 			}
 
-      // .group-flex-wrap {
-      //   display: flex;
-      //   gap: 4.8rem;
-
-      //   .group-wrap {
-      //     flex: 1;
-      //   }
-      // }
-
-      // .group-wrap {
-      //   display: flex;
-      //   flex-direction: column;
-      //   gap: 2.4rem;
-
-      //   [class*="tit-"] {
-      //     display: flex;
-      //     align-items: baseline;
-      //     gap: 1.6rem;
-      //   }
-
-      //   &.spacing-lg {
-      //     gap: 4rem;
-      //   }
-      // }
-
       .box-wrap {
         display: flex;
         gap: 2.4rem;
@@ -2098,11 +1963,17 @@
           padding: 3.2rem 2rem 0;
           background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%);
 
+					.tit-sm{
+						display: flex;
+						gap: 1.6rem;
+					}
+
           $icons: "buy", "invest", "sell";
           @each $name in $icons {
             .icon-#{$name} {
               &::before {
                 content: "";
+								display: inline-block;
                 width: 2.4rem;
                 height: 2.4rem;
                 background-color: currentColor;
@@ -2117,7 +1988,7 @@
             flex-direction: column;
             justify-content: center;
             margin-top: 2.4rem;
-            padding: 2.4rem 2rem;
+            padding: 2.4rem 1.6rem;
             height: 100%;
             text-align: center;
             background-color: #fff;
@@ -2137,9 +2008,9 @@
               }
             }
             .sub-txt-wrap {
-              display: flex;
-              justify-content: center;
-              gap: 1.6rem;
+              display: grid;
+							grid-template-columns: repeat(2, 1fr);
+              gap: 2.4rem;
             }
 
             .tit {
@@ -2152,13 +2023,19 @@
             }
             .desc {
               display: flex;
-              flex-direction: column;
               gap: 0.8rem;
+							padding: 0 0.4rem;
+              font-size: 1.6rem;
 
-              font-size: 1.5rem;
+							dt{
+								flex-shrink: 0;
+								color: var(--#{$prefix}-color-text-subtle);
+							}
 
 							dd{
+								width: 100%;
 								font-weight: 600;
+								text-align: right;
 							}
             }
           }
@@ -2302,48 +2179,6 @@
         }
       }
 
-      // @include mq(1740) {
-      //   .layout-sidebar {
-      //     .layout-content {
-      //       .cont-group {
-      //         padding-right: var(--#{$prefix}-content-padding-x);
-      //       }
-      //     }
-      //   }
-      // }
-      // @include mq(1500) {
-      //   .layout-sidebar {
-      //     .layout-inner {
-      //       flex-direction: column;
-      //     }
-      //     .sidebar {
-      //       overflow-x: auto;
-      //       order: -1;
-      //       padding: 0;
-      //       width: 100%;
-      //       height: fit-content;
-      //       background-color: #f3f2f1;
-			// 			border-bottom: 0.1rem solid #E6E5E5;
-			// 			box-shadow: 0 0.2rem 1.6rem 0 rgba(0, 0, 0, 0.08);
-
-      //       ul {
-      //         display: flex;
-      //         min-width: max-content;
-      //       }
-      //       li {
-      //         margin-bottom: 0;
-
-      //         a {
-      //           padding-left: 3.2rem;
-      //           padding-right: 3.2rem;
-      //         }
-      //       }
-      //     }
-      //     .layout-content {
-      //       width: 100%;
-      //     }
-      //   }
-      // }
       @include mq(pc) {
         .chart-wrap {
           &.pie {
@@ -2425,17 +2260,12 @@
         .guide-wrap {
           flex-direction: column;
         }
-        // .overlay-box-wrap {
-        //   flex-direction: column;
-        //   .visual-box {
-        //     width: 100%;
-        //   }
-        //   .info-box {
-        //     margin-top: -4rem;
-        //     margin-left: 0;
-        //     width: 100%;
-        //   }
-        // }
+        .overlay-box-wrap {
+          .visual-box {
+						height: 40rem;
+            @include bg('fund/mo-main-info-bg.png');
+          }
+        }
         .reference-wrap {
           flex-direction: column;
           gap: 4rem;
@@ -2476,27 +2306,6 @@
         }
       }
       @include mq(mobile) {
-        // --layout-sidebar-nav-width: 100%;
-        // --layout-sidebar-bg-width: 100%;
-        // --layout-sidebar-pos: 0;
-        // --layout-content-gap: 1.6rem;
-        // --layout-full-width: calc(var(--#{$prefix}-content-padding-x) * -1);
-
-        // .layout-sidebar {
-        //   .sidebar {
-        //     li {
-        //       a {
-        //         font-size: 1.6rem;
-        //         padding: 0.8rem 2.4rem;
-        //       }
-        //     }
-        //   }
-        //   .layout-content {
-        //     .cont-group {
-        //       padding-bottom: calc(8rem + var(--layout-content-gap));
-        //     }
-        //   }
-        // }
         .chart-wrap {
           .chart-top{
             gap: 1.6rem;
@@ -2532,14 +2341,6 @@
             }
           }
         }
-        // .group-flex-wrap {
-        //   gap: 4rem;
-        // }
-        // .group-wrap {
-        //   + .group-wrap {
-        //     padding-top: 4rem;
-        //   }
-        // }
 				.tbl-wrap{
 					&.scroll{
 						.tbl{
@@ -2578,16 +2379,16 @@
             }
           }
         }
-        // .overlay-box-wrap {
-        //   margin: 0 var(--layout-full-width);
-        //   // flex-direction: column;
-        //   .visual-box {
-        //     padding: 4rem var(--#{$prefix}-content-padding-x);
-        //   }
-        //   .info-box {
-        //     padding: 4rem var(--#{$prefix}-content-padding-x);
-        //   }
-        // }
+				.fee-wrap{
+					.fee-item {
+						.tit-sm{
+							gap: 0.8rem;
+						}
+					}
+				}
+				.product-info-wrap{
+					flex-direction: column;
+				}
         .reference-wrap {
           padding: 2.4rem var(--#{$prefix}-content-padding-x) 4rem var(--#{$prefix}-content-padding-x);
           margin: 0 var(--layout-full-width);
@@ -2612,6 +2413,17 @@
           }
         }
       }
+			@include mq(360){
+				.fee-wrap{
+					.fee-item{
+						.fee-box{
+							.sub-txt-wrap{
+								grid-template-columns: auto;
+							}
+						}
+					}
+				}
+			}
     }
     .section-trend {
       .cont-group{
@@ -2894,6 +2706,9 @@
 					}
 				}
 			}
+			@include mq(mobile){
+				padding-bottom: 8rem;
+			}
 		}
 	}
 	.fund-pension{
@@ -3030,34 +2845,17 @@
 			background: linear-gradient(0deg, #06061B 0%, #06061B 100%), #170E05;
 
 			.inner{
-				// position: relative;
 				height: 100%;
 			}
 
 			.txt-wrap{
-				// position: absolute;
-				// top: 0;
-				// left: 0;
 				display: flex;
 				flex-direction: column;
-				// padding: 12rem 12rem 12rem var(--#{$prefix}-content-padding-x);
 				width: 46.5%;
 				height: 100%;
 				color: #fff;
 				z-index: 1;
 				word-break: keep-all;
-
-				// &::before{
-				// 	content: '';
-				// 	position: absolute;
-				// 	top: 0;
-				// 	right: 0;
-				// 	width: 100vw;
-				// 	height: 100%;
-				// 	background: linear-gradient(90deg, #06061B 0%, rgba(6, 6, 27, 0.70) 100%);
-				// 	backdrop-filter: blur(2rem);
-				// 	z-index: -1;
-				// }
 
 				.sub-tit{
 					margin-bottom: auto;
@@ -3117,9 +2915,6 @@
 
 				.txt-wrap{
 					position: relative;
-					// padding: 4rem var(--#{$prefix}-content-padding-x) 4.6rem;
-					// margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1) 0;
-					// width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
 					padding: 4rem 0 4.6rem;
 					width: 100%;
 				}

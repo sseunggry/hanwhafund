@@ -17,6 +17,8 @@
   const inputPath = includePath + 'components/input.ejs';
   const boardListPath = includePath + 'layouts/boardList.ejs';
 
+	const download = localsSafe.download !== false;
+
   const defaultSegmentItems = [
     { label: '전체' },
     { label: '투자설명서' },
@@ -64,6 +66,7 @@
     items: boardListItems,
     thead: boardListThead,
     startNumber: startNumber,
+		download: download
   }) -%>
   <div class="btn-wrap array-center">
     <%- include(buttonPath, {
