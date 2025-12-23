@@ -18,7 +18,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-25", modifyDate: "", category: "한화펀드", depth1: "펀드찾기", depth2: "-", depth3: "자산운용보고서 다운로드", pageName: "자산운용보고서 다운로드 팝업", pageType: "popup", pageID: "FD_01_02_03P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		
 		{ createDate: "2025-12-18", modifyDate: "2025-12-24", category: "한화펀드", depth1: "연금펀드", depth2: "개인연금", depth3: "-", pageName: "개인연금", pageType: "page", pageID: "FD_02_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2025-12-24: br 추가`}], },
-		{ createDate: "2025-12-18", modifyDate: "2025-12-24", category: "한화펀드", depth1: "연금펀드", depth2: "퇴직연금", depth3: "-", pageName: "퇴직연금", pageType: "page", pageID: "FD_02_02", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `테이블 <th scope="row"> -> td로 변경, note-list br 추가`}], },
+		{ createDate: "2025-12-18", modifyDate: "2025-12-24", category: "한화펀드", depth1: "연금펀드", depth2: "퇴직연금", depth3: "-", pageName: "퇴직연금", pageType: "page", pageID: "FD_02_02", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `테이블 th scope="row" -> td로 변경, note-list br 추가`}], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "TDF", depth3: "About TDF", pageName: "About TDF", pageType: "tab", pageID: "FD_02_03_01T", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "-", depth3: "한화 LIIFEPLUS TDF 투자포인트", pageName: "TDF투자포인트", pageType: "tab", pageID: "FD_02_03_02T", link: "", isAdminLinked: false, status: "완료", memo: [], },
 
