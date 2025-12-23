@@ -4,7 +4,6 @@
 @use "./base" as *;
 @use "./component" as *;
 @use "./layout" as *;
-// @forward "./test.scss";
 
 @forward "./page";
 
@@ -16,10 +15,6 @@
   width: 100%;
 }
 
-// section .inner {
-//   padding-top: 28px;
-//   padding-bottom: 28px;
-// }
 section{
   &.bg-gray{
     background-color: #F3F2F1;

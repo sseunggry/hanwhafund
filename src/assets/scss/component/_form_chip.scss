@@ -193,14 +193,16 @@
 			}
 		}
 
-		&:hover{
-			~ label {
-				color: #F54500;
-				border-color: #FE5B16;
-				background-color: #fff;
-
-				&::before{
-					background-color: currentColor !important;
+		@media (hover: hover) {
+			&:hover {
+				~ label {
+					color: #F54500;
+					border-color: #FE5B16;
+					background-color: #fff;
+	
+					&::before {
+						background-color: currentColor !important;
+					}
 				}
 			}
 		}

@@ -85,7 +85,7 @@
 
 @mixin tag($size) {
   gap: 0.2rem;
-  height: var(--#{$prefix}-btn-tag--size-height-#{$size});
+  min-height: var(--#{$prefix}-btn-tag--size-height-#{$size});
   padding: 0.8rem var(--#{$prefix}-btn-tag--padding-x-#{$size});
   border-radius: var(--#{$prefix}-btn-tag--size-height-#{$size});
   font-size: var(--#{$prefix}-btn-tag--font-size-#{$size});
@@ -98,7 +98,7 @@
 @mixin tag-expand-button($size, $type) {
 	@if $type == 'wrap' {
 		width: calc(var(--#{$prefix}-btn-tag--size-height-#{$size}) + 2.4rem);
-		height: calc(var(--#{$prefix}-btn-tag--size-height-#{$size}));
+		min-height: calc(var(--#{$prefix}-btn-tag--size-height-#{$size}));
 	} @else if $type == 'btn' {
 		@include square(calc(var(--#{$prefix}-btn-tag--size-height-#{$size}) - var(--#{$prefix}-btn-tag--expand-button-gap-#{$size}) * 2));
 	} @else if $type == 'icon' {
@@ -149,9 +149,6 @@
 
     position: relative;
 		@include tag(#{$size});
-    // background-color: var(--#{$prefix}-btn-tag--color-action);
-    // border: 0.1rem solid var(--#{$prefix}-btn-tag--color-border);
-    // transition: var(--#{$prefix}-transition-base);
 
     &:hover, &:active {
       background-color: var(--#{$prefix}-btn-tag--color-action-hover);
@@ -166,67 +163,11 @@
 				color: var(--#{$prefix}-color-text-primary-dark);
 				font-weight: 600;
 				text-decoration: underline;
-				// border-bottom: 0.1rem solid #F54500;
 				text-underline-offset: 0.3rem;
 			}
 		}
 	}
 
-	// .btn-expand-wrap {
-	// 	@include flex-layout($ai: center, $jc: flex-end);
-	// 	position: absolute;
-	// 	right: 0;
-	// 	background: linear-gradient(90deg,rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
-
-	// 	.btn-expand {
-	// 		@include flex-layout($ai: center, $jc: center);
-	// 		border-radius: var(--#{$prefix}-radius-full);
-	// 		border: 0.1rem solid var(--#{$prefix}-btn-tag--button-color-border);
-	// 		background-color: var(--#{$prefix}-btn-tag--button-color-background);
-	
-	// 		&::before {
-	// 			@include pseudo;
-	// 			transform: rotate(0);
-	// 			transition: transform 0.3s;
-	
-	// 			background-color: var(--#{$prefix}-btn-tag--button-color-icon);
-	// 		}
-	// 	}
-	// }
-
-	// &.scroll {
-	// 	overflow-x: scroll;
-	// 	flex-wrap: nowrap;
-
-	// 	.btn-tag {
-	// 		flex-shrink: 0;
-	// 	}
-	// }
-
-	// &.expand {
-	// 	overflow-x: hidden;
-	// 	flex-wrap: nowrap;
-	// 	transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-
-	// 	.btn-tag {
-	// 		flex-shrink: 0;
-	// 	}
-
-	// 	&.active {
-	// 		flex-wrap: wrap;
-	// 		transition: max-height 1.5s ease-in-out;
-
-	// 		.btn-expand-wrap {
-	// 			.btn-expand {
-	// 				&::before {
-	// 					transform: rotate(180deg);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
-
 	@include mq(mobile){
-		// --#{$prefix}-btn-tag--font-size-medium: 1.6rem;
 	}
 }
