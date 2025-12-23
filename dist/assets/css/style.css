@@ -18148,7 +18148,7 @@ sup {
 }
 
 html[lang=en] .global-network-map .map-info-list>li:nth-child(5) {
-	max-width: 12%
+	max-width: 15%
 }
 
 @media(max-width: 1200px) {
