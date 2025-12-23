@@ -6,10 +6,7 @@
 html{
   font-size: var(--#{$prefix}-font-size-base);
   scroll-behavior: smooth;
-
-  &[lang="ko-KR"], &[lang="ko"], &[lang="en-EN"], &[lang="en"]{
-    font-family: $font-family-kr;
-  }
+	font-family: $font-family-kr;
 }
 
 .wrap{
