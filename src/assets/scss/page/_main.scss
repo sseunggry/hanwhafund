@@ -1054,12 +1054,18 @@ html[lang="en"]{
 			}
 			.btn-wrap{
 				margin-top: 4.8rem;
+				text-transform: capitalize;
 			}
 
 			@include mq(mobile){
 				.global-network-map{
 					padding-top: 8rem;
-					padding-bottom: 8rem;
+					padding-bottom: 27.6rem;
+					@include bg('/main/mo-network-visual-bg-en.png');
+
+					.main-tit-wrap{
+						margin-bottom: 0;
+					}
 				}
 			}
 		}
