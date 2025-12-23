@@ -11159,7 +11159,7 @@ html[lang=en] .page-main .section-banner {
 .page-fund .layout-sidebar .layout-content .cont-group {
 	position: relative;
 	z-index: 1;
-	padding: 8rem 6.81% calc(12rem + var(--layout-content-gap)) var(--hwf-content-padding-x);
+	padding: 8rem 6.81% 12rem var(--hwf-content-padding-x);
 	width: 100%;
 	background-color: var(--layout-content-bg);
 	border-bottom: var(--layout-content-gap) solid var(--layout-sidebar-bg)
@@ -13160,6 +13160,10 @@ html[lang=en] .page-main .section-banner {
 	width: 38.5%
 }
 
+.page-fund .fund-pension.retire #strategy .group-flex-wrap {
+	justify-content: space-between
+}
+
 @media(max-width: 1024px) {
 	.page-fund .fund-pension.retire #strategy .invest-wrap {
 		gap: 2.4rem
@@ -13171,6 +13175,12 @@ html[lang=en] .page-main .section-banner {
 
 	.page-fund .fund-pension.retire #strategy .invest-wrap .txt-wrap {
 		width: 100%
+	}
+}
+
+@media(max-width: 640px) {
+	.page-fund .fund-pension.retire #strategy .group-wrap:not(.spacing-lg) {
+		gap: 4rem
 	}
 }
 
@@ -13394,6 +13404,10 @@ html[lang=en] .page-main .section-banner {
 	.page-fund .fund-pension.tdf .img-point-discriminate-03 {
 		max-width: 34.3rem
 	}
+}
+
+.page-fund .fund-pension.tdf #point_invest .gray-box-wrap .gray-box {
+	padding-bottom: 0
 }
 
 .page-fund .fund-pension.tdf #point_invest .gray-box-wrap .gray-box .white-box {
@@ -14953,7 +14967,7 @@ html[lang=en] .page-main .section-banner {
 	align-items: center;
 	justify-content: center;
 	color: #fff;
-	background: url(../images/company/main-vision-bg.png) no-repeat center/cover;
+	background: #fff url(../images/company/main-vision-bg.png) no-repeat center/cover;
 	text-transform: capitalize
 }
 
@@ -15046,7 +15060,7 @@ html[lang=en] .page-main .section-banner {
 	align-items: center;
 	justify-content: center;
 	color: #fff;
-	background: url(../images/company/main-mission-bg.png) no-repeat center/cover
+	background: #fff url(../images/company/main-mission-bg.png) no-repeat center/cover
 }
 
 .page-company .company-main .section-value .value-list {
@@ -15651,7 +15665,7 @@ html[lang=en] .page-main .section-banner {
 .page-company .company-main .section-banner {
 	padding: 20rem 0 12.6rem;
 	min-height: auto;
-	background: url(../images/company/main-banner-bg.png) no-repeat center/cover
+	background: #fff url(../images/company/main-banner-bg.png) no-repeat center/cover
 }
 
 .page-company .company-main .section-banner .company-tit-wrap {
