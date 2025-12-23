@@ -15678,6 +15678,8 @@ html[lang=en] .page-main .section-banner {
 }
 
 .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
+	word-break: keep-all;
+	white-space: normal;
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
@@ -15728,8 +15730,7 @@ html[lang=en] .page-main .section-banner {
 	}
 
 	.page-company .company-main .section-banner .blur-box .btn-wrap .btn {
-		min-width: -moz-fit-content;
-		min-width: fit-content
+		min-width: auto
 	}
 }
 
@@ -16457,34 +16458,34 @@ html[lang=en] .page-main .section-banner {
 	}
 }
 
-html[lang=en]:has(.company-main) .header .logo {
+html[lang=en] .page-company:has(.company-main) .header .logo {
 	background: url(../images/common/en-logo-w.svg) no-repeat center/cover
 }
 
-html[lang=en]:has(.company-main) .header .sitemap .logo {
+html[lang=en] .page-company:has(.company-main) .header .sitemap .logo {
 	background: url(../images/common/en-logo.svg) no-repeat center/cover
 }
 
-html[lang=en]:has(.company-main) .company-tit-wrap.medium .tit {
+html[lang=en] .page-company:has(.company-main) .company-tit-wrap.medium .tit {
 	font-size: 6.8rem
 }
 
 @media(max-width: 640px) {
-	html[lang=en]:has(.company-main) .company-tit-wrap.medium .tit {
+	html[lang=en] .page-company:has(.company-main) .company-tit-wrap.medium .tit {
 		font-size: 3.2rem
 	}
 }
 
-html[lang=en] .company-main .section-info .company-tit-wrap .tit {
+html[lang=en] .page-company .company-main .section-info .company-tit-wrap .tit {
 	font-size: 8rem;
 	letter-spacing: -0.08rem
 }
 
-html[lang=en] .company-main .section-info .txt-wrap dd .unit {
+html[lang=en] .page-company .company-main .section-info .txt-wrap dd .unit {
 	font-size: 4.8rem
 }
 
-html[lang=en] .company-main .section-info .txt-wrap dd .txt {
+html[lang=en] .page-company .company-main .section-info .txt-wrap dd .txt {
 	display: inline-block;
 	font-size: 16rem;
 	font-family: "Trust2ATRIAL", sans-serif;
@@ -16497,12 +16498,34 @@ html[lang=en] .company-main .section-info .txt-wrap dd .txt {
 	text-align: right
 }
 
-html[lang=en] .company-main .section-info .txt-wrap dl:nth-child(2) dt {
+html[lang=en] .page-company .company-main .section-info .txt-wrap dl:nth-child(2) dt {
 	max-width: 37rem
 }
 
-html[lang=en] .company-main .section-info .txt-wrap dl:nth-child(2) dd .counter {
+html[lang=en] .page-company .company-main .section-info .txt-wrap dl:nth-child(2) dd .counter {
 	min-width: 1ch
+}
+
+html[lang=en] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
+	min-width: 24rem
+}
+
+@media(max-width: 640px) {
+	html[lang=en] .page-company .company-main .section-info .company-tit-wrap .tit {
+		font-size: 4.8rem
+	}
+
+	html[lang=en] .page-company .company-main .section-info .txt-wrap dd .unit {
+		font-size: 3.2rem
+	}
+
+	html[lang=en] .page-company .company-main .section-info .txt-wrap dd .txt {
+		font-size: 9.6rem
+	}
+
+	html[lang=en] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
+		min-width: auto
+	}
 }
 
 .page-error .contents {
