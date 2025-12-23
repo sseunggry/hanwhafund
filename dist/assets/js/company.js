@@ -144,11 +144,18 @@ const gsapSloganAni = {
     const $sloganSection = $(".section-slogan");
     if (!$sloganSection.length) return;
 
+    // 필요한 요소 선택
+    const $subDesc = $sloganSection.find(".sub-desc");
     const $tit = $sloganSection.find(".tit");
     const $decoTit = $sloganSection.find(".deco-tit");
 
-    gsap.set($tit, { y: 50, opacity: 0 });
-		gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 1.5 });
+    // 1. 초기 세팅
+    // tit이 있을 때만 세팅
+    if ($tit.length) {
+      gsap.set($tit, { y: 50, opacity: 0 });
+    }
+    // decoTit은 항상 세팅
+    gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 1.5 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -160,35 +167,50 @@ const gsapSloganAni = {
       }
     });
 
-    // 2. 애니메이션 시퀀스
-    // [Step 1] '앞서가는 내일(.tit)' 텍스트가 아래서 슥 올라옴
-    tl.to($tit, {
-      y: 0,
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out"
-    });
+    // [Step 1] '앞서가는 내일(.tit)' 등장 (있을 경우에만)
+    if ($tit.length) {
+      tl.to($tit, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      });
+    }
 
-    // [Step 2] .deco-tit이 .tit 위치로 올라가면서 덮어씀 (tit은 사라짐)
+    // [Step 2] .deco-tit 이동 모션
+    // tit이 있든 없든 무조건 sub-desc 밑으로 이동시킵니다.
     tl.to($decoTit, {
       y: function () {
-        const titTop = $tit.offset().top; 
-        const decoTop = $decoTit.offset().top;
-        return titTop - decoTop; 
+        // 1. 기준이 되는 sub-desc의 위치 정보
+        const subTop = $subDesc.offset().top;           // sub-desc 윗변
+        const subHeight = $subDesc.outerHeight();       // sub-desc 높이
+        const subMargin = parseFloat($subDesc.css("marginBottom")) || 0; // sub-desc 아래 마진
+        
+        // 2. 목표 지점 = (윗변 + 높이 + 마진) -> 요소의 바로 아래 시작점
+        const targetTop = subTop + subHeight + subMargin;
+
+        // 3. 현재 deco-tit의 위치
+        const currentTop = $decoTit.offset().top;
+
+        // 4. 이동 거리 반환
+        return targetTop - currentTop; 
       },
       scale: 1, 
-			yPercent: 0,
+      yPercent: 0, // [중요] yPercent 초기화 (Top 라인 맞춤)
       opacity: 1,
       duration: 1.5,
       ease: "power2.out" 
-    }, "+=0.1") 
-		
-    .to($tit, {
-      opacity: 0,
-      y: -50,
-      duration: 0.5,
-      ease: "power2.in"
-    }, "<");
+    }, $tit.length ? "+=0.1" : "0") // tit이 있으면 딜레이 주고, 없으면 바로 시작
+    
+    // [Step 3] tit 사라짐 (있을 경우에만)
+    if ($tit.length) {
+      tl.to($tit, {
+        opacity: 0,
+        y: -50,
+        duration: 0.5,
+        ease: "power2.in"
+      }, "<");
+    }
   }
 };
 const gsapValueAni = {
@@ -255,9 +277,9 @@ const gsapInfoAni = {
 		const $counters = $section.find(".counter");
 		const $dl = $section.find(".txt-wrap dl");
 
-		const endNum1 = $counters.eq(0).data('num') || 0;
-		const endNum2 = $counters.eq(1).data('num') || 0;
-		const endNum3 = $counters.eq(2).data('num') || 0;
+		const endNum1 = parseFloat($counters.eq(0).data('num')) || 0; 
+    const endNum2 = parseFloat($counters.eq(1).data('num')) || 0;
+    const endNum3 = parseFloat($counters.eq(2).data('num')) || 0;
 
 		const counters = { counter1: 0, counter2: 0, counter3: 0 };
 		const spinOffset = 50;
@@ -285,9 +307,14 @@ const gsapInfoAni = {
 		tl.to(counters, {
 			counter1: endNum1,
 			duration: counterDuration,
-			snap: "counter1",
 			ease: "ease-in-out",
-			onUpdate: () => $counters.eq(0).text(Math.round(counters.counter1))
+			onUpdate: () => {
+				if (Number.isInteger(endNum1)) {
+					$counters.eq(0).text(Math.round(counters.counter1));
+				} else {
+					$counters.eq(0).text(counters.counter1.toFixed(1)); 
+				}
+			}
 		}, "<");
 
 		// Part 2
