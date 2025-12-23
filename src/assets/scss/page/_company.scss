@@ -395,7 +395,7 @@
 			justify-content: center;
 			// min-height: 100vh;
 			color: #fff;
-			@include bg('company/main-vision-bg.png');
+			@include bg('company/main-vision-bg.png', $color: #fff);
 			text-transform: capitalize;
 
 			.inner{
@@ -511,7 +511,7 @@
 			align-items: center;
 			justify-content: center;
 			color: #fff;
-			@include bg('company/main-mission-bg.png');
+			@include bg('company/main-mission-bg.png', $color: #fff);
 
 			.value-list{
 				display: flex;
@@ -1136,7 +1136,7 @@
 			// z-index: 1;
 			padding: 20rem 0 12.6rem;
 			min-height: auto;
-			@include bg('company/main-banner-bg.png');
+			@include bg('company/main-banner-bg.png', $color: #fff);
 
 			.company-tit-wrap{
 				margin: 0;
