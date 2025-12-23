@@ -15205,7 +15205,7 @@ html[lang=en] .page-main .section-banner {
 @media(max-width: 640px) {
 	.page-company .company-main .section-info {
 		padding: 8rem 0;
-		background: url(../images/company/mo-main-info-bg.png) no-repeat center/cover
+		background: #04021e url(../images/company/mo-main-info-bg.png) no-repeat center/cover
 	}
 
 	.page-company .company-main .section-info .inner {
@@ -16508,6 +16508,12 @@ html[lang=en] .page-company .company-main .section-info .txt-wrap dl:nth-child(2
 
 html[lang=en] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
 	min-width: 24rem
+}
+
+@media(max-width: 1400px) {
+	html[lang=en] .page-company .company-main .section-banner .company-tit-wrap br {
+		display: none
+	}
 }
 
 @media(max-width: 640px) {
