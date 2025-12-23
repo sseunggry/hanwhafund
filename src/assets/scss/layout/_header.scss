@@ -540,6 +540,7 @@
                   &.active{
                     .depth2{
                       color: var(--#{$prefix}-color-text-primary);
+											font-weight: 600;
 
                       &::after{
                         @include icon-set('minus');
@@ -565,7 +566,7 @@
                 }
               }
               .depth2{
-                font-weight: 500;
+                font-weight: 400;
               }
               .submenu, &.company .submenu{
                 display: none;
@@ -595,6 +596,7 @@
               }
               .depth2{
                 padding: 1.45rem 0.8rem;
+								font-size: 1.8rem;
               }
               > .submenu{
                 padding: 0.8rem 2.4rem;

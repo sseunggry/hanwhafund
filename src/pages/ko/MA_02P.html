@@ -42,8 +42,8 @@
 			});
 			const footerHtml = `
 				<div class="today-btn-wrap">
-					<div class="left">${check}</div>
-					<div class="right">
+					<div class="check-wrap">${check}</div>
+					<div class="btn-wrap">
 						<button type="button" class="btn text medium btn-close" aria-controls="modalReportDownload">닫기</button>
 					</div>
 				</div>
@@ -57,8 +57,9 @@
 					<div class="swiper-slide">
 						<a href="#!"><img src="~@/assets/images/temp/notice-01.jpg" alt="공지사항 2번 배너 내용"></a>
 					</div>
-					</div>
-				<div class="swiper-pagination"></div> </div>
+				</div>
+				<div class="swiper-pagination"></div> 
+			</div>
 		`;
     -%>
     <%- include('../../components/modal.ejs', {
@@ -72,5 +73,15 @@
 			addClass: 'popup-main-notice'
     }) %>
     <!-- popup 메인공지 팝업 -->
+
+		<script>
+			const swiper = new Swiper(".main-notice-swiper", {
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+			});
+		</script>
+
 	</body>
 </html>

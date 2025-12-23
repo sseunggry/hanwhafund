@@ -1964,6 +1964,7 @@
           background: linear-gradient(180deg, rgba(232, 232, 232, 0.93) 0%, #fff 75%);
 
 					.tit-sm{
+						padding: 0 2rem;
 						display: flex;
 						gap: 1.6rem;
 					}
@@ -3220,8 +3221,19 @@
 			}
 		}
 	}
-}
 
+	//상세검색 팝업
+	#mobileDetailSearchBottomSheet{
+		.accordion.list .accordion-item.active .btn-accordion{
+			&::after{
+				background-color: #272626;
+			}
+			.tit{
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
 
 .tbl-wrap{
   &.fund-list-wrap{

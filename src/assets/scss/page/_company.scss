@@ -396,6 +396,7 @@
 			// min-height: 100vh;
 			color: #fff;
 			@include bg('company/main-vision-bg.png');
+			text-transform: capitalize;
 
 			.inner{
 				position: relative;
@@ -629,7 +630,6 @@
 						white-space: nowrap;
 						font-variant-numeric: tabular-nums;
 						text-align: right;
-
 					}
 
           .unit {
@@ -1963,11 +1963,55 @@ html[lang="en"]{
 				}
 			}
 		}
+		.company-tit-wrap{
+			&.medium{
+				.tit{
+					font-size: 6.8rem;
+
+					@include mq(mobile){
+						font-size: 3.2rem;
+					}
+				}
+			}
+		}
 	}
 	.company-main{
 		.section-info{
+			.company-tit-wrap{
+				.tit{
+					font-size: 8rem;
+					letter-spacing: -0.08rem;
+				}
+			}
 			.txt-wrap{
+				dd{
+					.unit{
+						font-size: 4.8rem;
+					}
+					.txt{
+						display: inline-block;
+						font-size: 16rem;
+						font-family: $font-family-en;
+						line-height: 1;
+						background: linear-gradient(270deg, #D83A00 0%, #EB6C31 49.04%, #EEC3B0 100%);
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+						white-space: nowrap;
+						text-align: right;
+					}
+				}
+				dl:nth-child(1){
+					dd{
+						.counter{
+							// min-width: 3ch;
+						}
+					}
+				}
 				dl:nth-child(2){
+					dt{
+						max-width: 37rem;
+					}
 					dd{
 						.counter{
 							min-width: 1ch;

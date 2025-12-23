@@ -200,7 +200,7 @@
 				background-color: #fff;
 
 				&::before{
-					background-color: currentColor;
+					background-color: currentColor !important;
 				}
 			}
 		}
@@ -209,33 +209,12 @@
   input[type='radio'] {
 		~ label {
 			justify-content: center;
-			// color: var(--#{$prefix}-form-chip--radio-color-text);
-			// border-color: var(--#{$prefix}-form-chip--radio-color-border);
-      // background-color: var(--#{$prefix}-form-chip--radio-color-action);
-    }
-
-    &:disabled {
-      ~ label {
-        // color: var(--#{$prefix}-form-chip--radio-color-text-disabled);
-        // border-color: var(--#{$prefix}-form-chip--radio-color-border-disabled);
-        // background-color: var(--#{$prefix}-form-chip--radio-color-action-disabled);
-      }
-    }
-
-    &:checked {
-      ~ label {
-        // color: var(--#{$prefix}-form-chip--radio-color-text-checked);
-        // border-color: var(--#{$prefix}-form-chip--radio-color-border-checked);
-        // background-color: var(--#{$prefix}-form-chip--radio-color-action-checked);
-      }
     }
   }
 
 	// checkbox 인 경우에만 아이콘 노출
 	input[type='checkbox'] {
 		~ label {
-			// color: var(--#{$prefix}-form-chip--checkbox-color-text);
-			// border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
 			background-color: var(--#{$prefix}-form-chip--checkbox-color-action);
 			border-color: var(--#{$prefix}-form-chip--checkbox-color-border);
 
@@ -249,10 +228,6 @@
 		}	
 		&:disabled{
 			~ label {
-				// color: var(--#{$prefix}-form-chip--checkbox-color-text-disabled);
-				// border-color: var(--#{$prefix}-form-chip--checkbox-color-border-disabled);
-				// background-color: var(--#{$prefix}-form-chip--checkbox-color-action-disabled);
-
 				&::before {
 					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon-disabled);
 				}
@@ -261,12 +236,7 @@
 
 		&:checked {
 			~ label {
-				// color: var(--#{$prefix}-form-chip--checkbox-color-text-checked);
-				// border-color: var(--#{$prefix}-form-chip--checkbox-color-border-checked);
-				// background-color: var(--#{$prefix}-form-chip--checkbox-color-action-checked);
-
 				&::before {
-					// @include icon-set(checkbox-checked);
 					background-color: var(--#{$prefix}-form-chip--checkbox-color-check-icon-checked);
 				}
 			}
