@@ -2033,6 +2033,16 @@ html[lang="en"]{
 					}
 				}
 			}
+
+			@include mq(1400){
+				.section-banner{
+					.company-tit-wrap{
+						br{
+							display: none;
+						}
+					}
+				}
+			}
 	
 			@include mq(mobile){
 				.section-info{
