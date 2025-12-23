@@ -660,7 +660,7 @@
 			}
 			@include mq(mobile){
 				padding: 8rem 0;
-				@include bg('company/mo-main-info-bg.png');
+				@include bg('company/mo-main-info-bg.png', $color: #04021E);
 				.inner{
 					gap: 6.4rem;
 				}
