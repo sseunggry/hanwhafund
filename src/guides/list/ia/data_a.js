@@ -20,7 +20,7 @@ const iaPageAData = {
 		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "개인연금", depth3: "-", pageName: "개인연금", pageType: "page", pageID: "FD_02_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "퇴직연금", depth3: "-", pageName: "퇴직연금", pageType: "page", pageID: "FD_02_02", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "TDF", depth3: "About TDF", pageName: "About TDF", pageType: "tab", pageID: "FD_02_03_01T", link: "", isAdminLinked: false, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "-", depth3: "한화 LIIFEPLUS TDF 투자포인트", pageName: "TDF투자포인트", pageType: "tab", pageID: "FD_02_03_02T", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "", category: "한화펀드", depth1: "연금펀드", depth2: "-", depth3: "한화 LIIFEPLUS TDF 투자포인트", pageName: "TDF투자포인트", pageType: "tab", pageID: "FD_02_03_02T", link: "", isAdminLinked: false, status: "완료", memo: [], },
 
 		// --- 인사이트 ---
 		{ createDate: "2025-11-10", modifyDate: "", category: "인사이트", depth1: "공지 목록", depth2: "-", depth3: "-", pageName: "공지목록", pageType: "page", pageID: "IS_01", link: "", isAdminLinked: true, status: "완료", memo: [], },
@@ -43,7 +43,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-10", modifyDate: "", category: "공시", depth1: "연금공시", depth2: "-", depth3: "-", pageName: "연금공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 
 		// --- 회사소개 ---
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "2025-12-23", modifyDate: "", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "PE", depth3: "-", pageName: "주요비즈니스PE", pageType: "tab", pageID: "CP_02_01T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "VC", depth3: "-", pageName: "주요비즈니스VC", pageType: "tab", pageID: "CP_02_02T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "FoFs", depth3: "-", pageName: "주요비즈니스FoFs", pageType: "tab", pageID: "CP_02_03T", link: "", isAdminLinked: true, status: "", memo: [], },
@@ -55,11 +55,11 @@ const iaPageAData = {
 		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "경영현황", depth2: "요약 연결포괄 손익계산서", depth3: "-", pageName: "연결포괄손익계산서", pageType: "tab", pageID: "CP_04_01T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "경영현황", depth2: "요약 연결재무상태표", depth3: "-", pageName: "연결재무상태표", pageType: "tab", pageID: "CP_04_02T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "운용시스템", depth2: "운용모니터링 체계", depth3: "-", pageName: "운용모니터링 체계", pageType: "tab", pageID: "CP_05_01T", link: "", isAdminLinked: false, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "운용시스템", depth2: "리스크 관리", depth3: "-", pageName: "리스크 관리", pageType: "tab", pageID: "CP_05_02T", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "운용시스템", depth2: "내부통제 점검체계", depth3: "-", pageName: "내부통제 점검체계", pageType: "tab", pageID: "CP_05_03T", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "운용시스템", depth2: "리스크 관리", depth3: "-", pageName: "리스크 관리", pageType: "tab", pageID: "CP_05_02T", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "운용시스템", depth2: "내부통제 점검체계", depth3: "-", pageName: "내부통제 점검체계", pageType: "tab", pageID: "CP_05_03T", link: "", isAdminLinked: false, status: "", memo: [], },
 		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "핵심가치", depth3: "-", pageName: "핵심가치", pageType: "tab", pageID: "CP_06_01T", link: "", isAdminLinked: false, status: "완료", memo: [], },
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "복리후생", depth3: "-", pageName: "복리후생", pageType: "tab", pageID: "CP_06_02T", link: "", isAdminLinked: false, status: "", memo: [], },
-		{ createDate: "", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "채용", depth3: "-", pageName: "채용", pageType: "tab", pageID: "CP_06_03T", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "복리후생", depth3: "-", pageName: "복리후생", pageType: "tab", pageID: "CP_06_02T", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "", category: "회사소개", depth1: "채용정보", depth2: "채용", depth3: "-", pageName: "채용", pageType: "tab", pageID: "CP_06_03T", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-25", modifyDate: "2025-12-17", category: "회사소개", depth1: "오시는 길", depth2: "-", depth3: "-", pageName: "오시는길", pageType: "page", pageID: "CP_07", link: "", isAdminLinked: false, status: "완료", memo: [{detail: 'br 태그 추가'}], },
 
 		// --- Footer ---
@@ -82,6 +82,6 @@ const iaPageAData = {
 		{ createDate: "2025-12-12", modifyDate: "", category: "Footer", depth1: "금융소비자보호포탈", depth2: "소비자권리 및 유익한 정보", depth3: "-", pageName: "소비자권리및유익한정보", pageType: "tab", pageID: "FT_09_04T", link: "", isAdminLinked: false, status: "완료", memo: [], },
 
 		// --- 공통 ---
-		{ createDate: "", modifyDate: "", category: "공통", depth1: "오류 안내", depth2: "-", depth3: "-", pageName: "오류 안내", pageType: "page", pageID: "CM_01", link: "", isAdminLinked: false, status: "", memo: [], },
+		{ createDate: "2025-12-23", modifyDate: "", category: "공통", depth1: "오류 안내", depth2: "-", depth3: "-", pageName: "오류 안내", pageType: "page", pageID: "CM_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
 	],
 };

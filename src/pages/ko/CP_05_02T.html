@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : '운용모니터링 체계 | 운용시스템 | 회사소개'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container company-system">
+				<section class="section-employ">
+					<div class="inner">
+						<div class="cont-group">
+							<div class="section-tit-wrap">
+								<h2 class="tit">운용시스템</h2>
+							</div>
+							<%
+							const board1 = `
+							<section class="cont-group monitoring">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-monitoring-01.jpg" alt="" class="pc-only">
+										<img src="~@/assets/images/company/mo-system-monitoring-01.jpg" alt="" class="tablet-mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit"><span class="f-hanwha">한화자산운용</span>은 체계적이고 <br/> 정교한 리스크 관리로 <br/> <span class="fc-primary">시장 변동성에 대응</span>합니다.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">운용모니터링 체계 프로세스</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-monitoring-02.png" alt="" class="pc-only">	
+											<img src="~@/assets/images/company/mo-system-monitoring-02.png" alt="" class="tablet-mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">포트폴리오 운영</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">운용팀</p>
+													<ul class="note-list depth-1">
+														<li>운용계획서 준수</li>
+														<li>법규 및 가이드라인 상 운용제한사항 점검</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">리스크 관리</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">리스크 관리팀</p>
+													<ul class="note-list depth-1">
+														<li>리스크유형별(시장, 신용, 유동성) 위험관리 </li>
+														<li>포지션/손실/위험 한도 설정 및 모니터링</li>
+														<li>리스크지표 산출 및 분석 </li>
+														<li>펀드성과평가 및 성과요인 분석</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">컴플라이언스</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">컴플라이언스</p>
+													<ul class="note-list depth-1">
+														<li>제반 통제기준 준수여부 감시 : 법률사항/약관사항/기타 특약사항</li>
+														<li>일상업무 사전/사후 모니터링 : 법률위험 사전관리 및 업무상 오류점검/조치</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							const board2 = `
+							<section class="cont-group risk">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-risk-01.jpg" alt="" class="pc-only">
+										<img src="~@/assets/images/company/mo-system-risk-01.jpg" alt="" class="tablet-mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit"><span class="fc-primary">이중 모니터링</span>을 통해 <br/> 운용 전 과정의 리스크를 <br/> 철저히 관리 합니다.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">리스크 관리 프로세스</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-risk-02.png" alt="" class="pc-only">	
+											<img src="~@/assets/images/company/mo-system-risk-02.png" alt="" class="tablet-mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">리스크 정책 수립 및 절차 설정</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">위험관리 위원회</p>
+													<ul class="note-list depth-1">
+														<li>리스크 관리 정책 수립 및  리스크 수준의 설정 및 변경</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk 측정</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>신규펀드 및 상품 리스크 분석</li>
+														<li>포트폴리오 핵심 리스크 확인 및 계량적 측정</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk 평가</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>위험/수익 목표와 현황 비교</li>
+														<li>위험 요인 기여도 분석</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk 보고</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>위험요인 분석 후 관계자 소집 / 사후조치, 재발 방지 대책</li>
+														<li>일간 위험 보고</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							const board3 = `
+							<section class="cont-group inspect">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-inspect-01.jpg" alt="" class="pc-only">
+										<img src="~@/assets/images/company/mo-system-inspect-01.jpg" alt="" class="tablet-mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit">내부통제와 준법감시를 통해 <br/> 사전에 리스크를 예방하고 <br/> <span class="fc-primary">투명한 운용을 실천</span>합니다.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">내부통제 점검체계 프로세스</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-inspect-02.png" alt="" class="pc-only">	
+											<img src="~@/assets/images/company/mo-system-inspect-02.png" alt="" class="tablet-mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">내부통제체계 구축</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>내부통제 기준의 제/개정</li>
+														<li>법규준수 정책의 수립</li>
+														<li>법규준수 프로그램의 입안</li>
+														<li>준법감시 계획 수립, 결과 보고</li>
+														<li>책무구조도 마련 및 운영</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">모니터링</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>내부통제제도 운영실태에 대한 모니터링</li>
+														<li>위법, 부당행위에 대한 감사위원회 보고, 제재 의뢰, 문제점과 미비사항 개선 및 시정요구</li>
+														<li>내부통제제도 관련 정보수집</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">일상업무 사전/사후 점검</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>제반 업무/운용 규정 등의 제정 및 개폐 시 사전 검토</li>
+														<li>이사회 등의 부의사항 사전 검토</li>
+														<li>신규 업무 추진시 사전검토</li>
+														<li>대외문서 및 마케팅자료 사전검토</li>
+														<li>내부통제 준수여부 상시 모니터링 점검 </li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">고객, 주주 및 이해관계자 보호</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>민원처리 및 경영공시 업무	처리와 적정성 검토</li>
+														<li>투자자 보호대책의 적정성 감시감독</li>
+														<li>이해상충 점검 및 방지</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">내부통제제도 관련 지원/자문</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>내부통제제도 운영 관련 이사회, 경영진, 해당 부서 자문</li>
+														<li>내부통제체계 구축 및 운영상황 경영진, 내부통제위원회 등 정례 보고 </li>
+														<li>임직원의 법규준수 및 업무 추진 관련 문의사항 자문</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							%>
+							<%- include('../../components/tab.ejs', {
+								active: 1,
+								variant: 'line',
+								tablist: ['운용모니터링 체계', '리스크 관리', '내부통제 점검체계'],
+								contents: [board1, board2, board3],
+							}) -%>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>
