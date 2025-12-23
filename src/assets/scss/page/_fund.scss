@@ -1158,7 +1158,8 @@
 			.cont-group {
 				position: relative;
 				z-index: 1;
-				padding: 8rem 6.81% calc(12rem + var(--layout-content-gap)) var(--#{$prefix}-content-padding-x);
+				// padding: 8rem 6.81% calc(12rem + var(--layout-content-gap)) var(--#{$prefix}-content-padding-x);
+				padding: 8rem 6.81% 12rem var(--#{$prefix}-content-padding-x);
 				width: 100%;
 				background-color: var(--layout-content-bg);
 				border-bottom: var(--layout-content-gap) solid var(--layout-sidebar-bg);
@@ -3018,17 +3019,6 @@
 		}
 		//퇴직연금
 		&.retire{
-			// #intro{
-			// 	.img1{
-			// 		max-width: 74.5rem;
-			// 	}
-			// 	.img2{
-			// 		max-width: 66rem;
-			// 	}
-			// 	.img5{
-			// 		max-width: 81.7rem;
-			// 	}
-			// }
 			.check-point-wrap{
 				gap: 6rem;
 
@@ -3074,6 +3064,9 @@
 						width: 38.5%;
 					}
 				}
+				.group-flex-wrap {
+					justify-content: space-between;
+				}
 				@include mq(tablet){
 					.invest-wrap{
 						gap: 2.4rem;
@@ -3083,6 +3076,13 @@
 						}
 						.txt-wrap{
 							width: 100%;
+						}
+					}
+				}
+				@include mq(mobile){
+					.group-wrap{
+						&:not(.spacing-lg){
+							gap: 4rem;
 						}
 					}
 				}
@@ -3213,6 +3213,7 @@
 			#point_invest{
 				.gray-box-wrap{
 					.gray-box{
+						padding-bottom: 0;
 						.white-box{
 							height: 100%;
 						}
