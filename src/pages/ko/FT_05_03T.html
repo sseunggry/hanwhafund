@@ -519,6 +519,8 @@
 							label: '자세히보기',
 							size: 'medium',
 							icon: 'arrow-right',
+							targetType: 'modal',
+            	targetId: 'modalPrivacyAgree',
 						});
 						const formBtn = include('../../components/button.ejs', {
 							label: '제보하기',
@@ -568,6 +570,9 @@
 										${radio2}
 									</div>
 									<div class="form-wrap">
+										<!-- [2025-12-17] 마크업 추가 -->
+										<p class="txt-appendix full">*은 필수 입력 항목입니다.</p>
+										<!-- //[2025-12-17] 마크업 추가 -->
 										${inputName}
 										${inputPhone}
 										${inputEmail}
@@ -576,7 +581,9 @@
 									</div>
 									<div class="agree-chk-wrap">
 										${check}
+										<!-- [2025-12-24] 마크업 수정 -->
 										${textBtn}
+										<!-- // [2025-12-24] 마크업 수정 -->
 									</div>
 									<div class="btn-wrap array-center">
 										${formBtn}
@@ -601,5 +608,42 @@
 			<%- include('../../layouts/footer.ejs') -%>
 			<!-- // footer -->
 		</div>
+
+		<!-- [2025-12-24] 팝업 마크업 추가 -->
+		<!-- popup 개인정보 수집 및 이용, 제공 등에 관한 동의 -->
+		<%- include('../../components/modal.ejs', {
+			id: 'modalPrivacyAgree',
+			variant: 'modal',
+			title: '개인정보 수집 및 이용, 제공 등에 관한 동의',
+			content: `
+				<div class="group-wrap spacing-lg">
+					<div class="group-wrap">
+						<p class="tit-xxsm fw-sb">개인정보 수집항목</p>
+						<p class="desc">&lt;선택&gt; 신고자 성명, 이메일, 휴대폰 번호</p>
+					</div>
+					<div class="group-wrap">
+						<p class="tit-xxsm fw-sb">개인정보 수집·이용 주체</p>
+						<p class="desc">한화자산운용㈜</p>
+					</div>
+					<div class="group-wrap">
+						<p class="tit-xxsm fw-sb">개인정보 이용목적</p>
+						<p class="desc">제보내용 사실관계 확인, 제보처리 및 제보사항 처리결과 안내 등을 위해 사용합니다.</p>
+					</div>
+					<div class="group-wrap">
+						<p class="tit-xxsm fw-sb">개인정보 보유기간</p>
+						<p class="desc">수집한 개인정보는 해당 업무처리를 위하여 관계 법령의 규정에 따라 1년간 기록 및 보존되며, 신고 후 처리가 불가하거나 조사 후 처리완료 시 또는 고객의 삭제 요청 시 즉시 파기됩니다.</p>
+					</div>
+					<div class="group-wrap">
+						<p class="tit-xxsm fw-sb">동의 거부 권리 및 거부 시 불이익</p>
+						<p class="desc">
+							귀하는 개인정보 수집 및 이용에 대한 동의를 거부하실 수 있습니다. 다만, 선택 수집 항목에 대한 동의를 하지 않을 경우 익명 제보는 가능합니다.<br/>
+							이 경우에 구체적인 증거 또는 제보 사실이 확인되지 않으면 조사가 진행되지 않을 수 있습니다.
+						</p>
+					</div>
+				</div>
+			`,
+		}) %>
+		<!-- popup 개인정보 수집 및 이용, 제공 등에 관한 동의 -->
+		<!-- [2025-12-24] 팝업 마크업 추가 -->
 	</body>
 </html>
