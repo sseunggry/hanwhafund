@@ -1259,9 +1259,9 @@
         &:only-child {
           width: 100%;
 
-          .fund-top {
-            width: 58%;
-          }
+          // .fund-top {
+          //   width: 58%;
+          // }
           .fund-summary {
             --fund-summary-li-gap: 4.8rem;
             justify-content: space-between;
@@ -1694,6 +1694,48 @@
           gap: 4rem;
         }
       }
+
+			// .chart-pie-wrap{
+			// 	.group-wrap{
+			// 		&:only-child{
+			// 			.chart-area{
+			// 				margin: 0 12rem;
+			// 				width: 28rem;
+			// 			}
+			// 			.chart-legend{
+			// 				width: 100%;
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			.group-flex-wrap{
+				&:has(.chart-wrap.pie){
+					.group-wrap:only-child{
+						.chart-area{
+							margin: 0 12rem;
+							width: 28rem;
+						}
+						.chart-legend{
+							padding-right: 12rem;
+							width: 100%;
+						}
+					}
+
+					@include mq(pc){
+						.group-wrap:only-child{
+							.chart-area{
+								margin: 0 4rem;
+								// width: 28rem;
+							}
+							.chart-legend{
+								padding-right: 0;
+								// width: 100%;
+							}
+						}
+					}
+				}
+			}
 
       .chart-wrap {
         .chart-top{

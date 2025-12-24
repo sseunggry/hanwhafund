@@ -350,7 +350,11 @@
 	//회사소개-메인
 	.company-main{
 		section{
-			min-height: 100vh;
+			min-height: 108rem;
+
+			@include mq(mobile){
+				min-height: 81.2rem;
+			}
 		}
 
 		.img-wrap{
@@ -393,7 +397,6 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			// min-height: 100vh;
 			color: #fff;
 			@include bg('company/main-vision-bg.png', $color: #fff);
 			text-transform: capitalize;
@@ -402,23 +405,6 @@
 				position: relative;
 				z-index: 1;
 			}
-
-			// .bg-wrap {
-			// 	position: absolute;
-			// 	top: 0; left: 0;
-			// 	width: 100%; height: 100%;
-			// 	z-index: 0;
-		
-			// 	.bg-img {
-			// 		position: absolute;
-			// 		top: 0; left: 0;
-			// 		width: 100%; height: 100%;
-			// 		background-size: cover;
-			// 		background-position: center;
-			// 		/* 이미지는 처음에 그냥 보임 */
-			// 	}
-		
-			// }
 			.dimmed {
 				position: absolute;
 				top: 0; left: 0;
@@ -443,6 +429,10 @@
 				background-size: 200% 100%;
 				background-position: 100% 0;
 
+			}
+
+			@include mq(mobile){
+				@include bg('company/mo-main-vision-bg.png', $color: #fff);
 			}
 		}
 		.section-mission{
@@ -732,7 +722,7 @@
 				}
 				&.reverse{
 					--history-list-padding: 8rem 8rem 8rem 16rem;
-					--history-txt-img-gap: -5.14%;
+					--history-txt-img-gap: -11%;
 
 					.txt-wrap{
 						margin-left: var(--history-txt-img-gap);
@@ -762,11 +752,11 @@
 					}
 					.img-wrap{
 						order: -1;
-						width: 48rem;
+						// width: 48rem;
 
-						&::before{
-							padding-top: 133%;
-						}
+						// &::before{
+						// 	padding-top: 133%;
+						// }
 					}
 				}
 				

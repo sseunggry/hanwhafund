@@ -1190,7 +1190,7 @@ sup{
 	}
 }
 
-//
+//모달
 .modal{
   .download-list{
     li{
@@ -1224,6 +1224,17 @@ sup{
       }
     }
   }
+	.filter-period{
+		.segment-control{
+			overflow-x: initial;
+		}
+
+		@include mq(1400){
+			.segment-control{
+				overflow-x: auto;
+			}
+		}
+	}
 }
 
 //글로벌 네트워크
