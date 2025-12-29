@@ -13021,11 +13021,16 @@ html[lang="en"] .page-main .section-banner {
   min-width: var(--history-blur-box-padding-left);
   order: 1;
 }
+.page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-sidebar ul {
+  overflow-x: auto;
+}
 .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-sidebar li {
   color: var(--hwf-color-text-subtler);
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }
 .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-sidebar li.active {
   color: var(--hwf-color-text-strong);
@@ -13243,7 +13248,7 @@ html[lang="en"] .page-main .section-banner {
     font-size: 1.6rem;
   }
   .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-sidebar li a {
-    padding: 1.6rem 1.2rem;
+    padding: 1.6rem 1rem;
   }
   .page-company .company-main .section-history .timeline-wrap .txt-wrap .blur-box .timeline-list > li {
     flex-direction: column;
