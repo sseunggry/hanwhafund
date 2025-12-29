@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "webpack serve",
-    "build": "cross-env NODE_ENV=production webpack && prettier --write \"dist/**/*.html\""
+    "build": "cross-env NODE_ENV=production webpack && prettier --write \"{dist,dist_dev}/**/*.html\" \"{dist,dist_dev}/assets/css/style.css\""
   },
   "devDependencies": {
     "autoprefixer": "^10.4.22",

@@ -47,7 +47,7 @@ const generateConfig = (outputPath, publicPathVal, isRelative) => {
               loader: 'html-loader',
               options: {
                 sources: {
-                  urlFilter: (attribute, value) => !/\.(css|js)$/.test(value),
+                  // urlFilter: (attribute, value) => !/\.(css|js)$/.test(value),
                 },
                 minimize: false,
                 esModule: false,
@@ -65,6 +65,24 @@ const generateConfig = (outputPath, publicPathVal, isRelative) => {
           //   }
           // ]
         },
+				{
+					test: /\.js$/,
+					include: [
+						path.resolve(__dirname, 'src/assets/js'),
+						path.resolve(__dirname, 'src/guides') // guides 관련 JS도 필요하다면 추가
+					],
+					type: 'asset/resource', // 이미지처럼 파일을 내보내고 URL을 생성함
+					generator: {
+						// filename: 'assets/js/[name][ext]' // 출력될 파일명 유지
+						filename: (pathData) => {
+							const filepath = path.dirname(pathData.filename);
+							const relativePath = path.relative(path.resolve(__dirname, 'src'), filepath);							
+							const normalizedPath = relativePath.replace(/\\/g, '/');
+
+							return `${normalizedPath}/[name][ext]`;
+						}
+					}
+				},
         {
           test: /\.scss$/,
           use: [
@@ -86,10 +104,22 @@ const generateConfig = (outputPath, publicPathVal, isRelative) => {
             }
           ],
         },
-        {
-          test: /\.css$/i,
-          use: ["style-loader", "css-loader", "postcss-loader"],
-        },
+        // {
+        //   test: /\.css$/i,
+        //   use: ["style-loader", "css-loader", "postcss-loader"],
+        // },
+				{
+					test: /\.css$/i,
+					type: 'asset/resource',
+					generator: {
+						filename: (pathData) => {
+							const filepath = path.dirname(pathData.filename);
+							const relativePath = path.relative(path.resolve(__dirname, 'src'), filepath);
+							const normalizedPath = relativePath.replace(/\\/g, '/');
+							return `${normalizedPath}/[name][ext]`;
+						}
+					}
+				},
         {
           test: /\.(png|jpe?g|gif|svg)$/i,
           type: 'asset/resource',

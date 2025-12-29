@@ -551,7 +551,7 @@ td .note-list.option-fold.is-open > li {
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: saturate(180%) blur(0.5rem);
-  box-shadow: rgba(0, 0, 0, 0.1) 0-1px 0 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 -1px 0 0 inset;
 }
 .ia-list-header .top-head {
   display: flex;
