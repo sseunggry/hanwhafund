@@ -8959,6 +8959,7 @@ html[lang="en"] .page-main .section-banner {
   mask-size: contain;
   -webkit-mask-image: url(/assets/images/icon/ico-desc.svg);
   mask-image: url(/assets/images/icon/ico-desc.svg);
+  transform: rotate(180deg);
   background-color: currentColor;
 }
 .page-fund .fund-content .sort-wrap .sort-list .btn.active {
@@ -8966,7 +8967,7 @@ html[lang="en"] .page-main .section-banner {
   font-weight: 600;
 }
 .page-fund .fund-content .sort-wrap .sort-list .btn.sort-asc::after {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 .page-fund .fund-content .fund-list-wrap .fund-item {
   display: flex;
@@ -9120,6 +9121,9 @@ html[lang="en"] .page-main .section-banner {
     padding-left: 0;
     width: -moz-fit-content;
     width: fit-content;
+  }
+  .page-fund .fund-content .sort-wrap .sort-list .sort-item:first-child .btn::after {
+    transform: rotate(0);
   }
   .page-fund .fund-content .sort-wrap .sort-list .sort-item:first-child .btn.sort-asc::after {
     transform: rotate(0);
@@ -10967,7 +10971,7 @@ html[lang="en"] .page-main .section-banner {
   overflow: hidden;
   position: relative;
   padding: 12rem 0;
-  height: 96rem;
+  height: 72rem;
   background: linear-gradient(0deg, #06061b 0%, #06061b 100%), #170e05;
 }
 .page-fund .fund-pension .section-visual .inner {
@@ -11074,7 +11078,7 @@ html[lang="en"] .page-main .section-banner {
     margin-top: 2.4rem;
   }
   .page-fund .fund-pension .section-visual .img-wrap {
-    height: 42.4rem;
+    height: 27.2rem;
   }
 }
 .page-fund .fund-pension .section-detail {
