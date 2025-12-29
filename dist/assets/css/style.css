@@ -13944,6 +13944,10 @@ html[lang="en"] .page-company:has(.company-main) .company-tit-wrap.medium .tit {
     font-size: 3.2rem;
   }
 }
+html[lang="en"] .page-company .company-main .section-mission {
+  text-transform: capitalize;
+  letter-spacing: -0.068rem;
+}
 html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit {
   font-size: 8rem;
   letter-spacing: -0.08rem;

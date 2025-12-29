@@ -43,7 +43,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-10", modifyDate: "", category: "공시", depth1: "연금공시", depth2: "-", depth3: "-", pageName: "연금공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 
 		// --- 회사소개 ---
-		{ createDate: "2025-12-23", modifyDate: "", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-12-23", modifyDate: "2025-12-30", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: "2025-12-30: core value 부분 텍스트 수정"}], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "PE", depth3: "-", pageName: "주요비즈니스PE", pageType: "tab", pageID: "CP_02_01T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "VC", depth3: "-", pageName: "주요비즈니스VC", pageType: "tab", pageID: "CP_02_02T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "FoFs", depth3: "-", pageName: "주요비즈니스FoFs", pageType: "tab", pageID: "CP_02_03T", link: "", isAdminLinked: true, status: "", memo: [], },
