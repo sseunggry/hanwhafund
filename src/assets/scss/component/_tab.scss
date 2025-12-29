@@ -49,6 +49,12 @@
       &:last-child {
         margin-right: auto;
       }
+
+			&.active{
+				.btn-tab{
+					font-weight: 700;
+				}
+			}
     }
   }
 
@@ -66,7 +72,7 @@
     border: 0.1rem solid var(--#{$prefix}-tab--button-color-border);
     font-size: var(--#{$prefix}-tab--button-font-size);
     color: var(--#{$prefix}-tab--button-color-text);
-    font-weight: 700;
+    font-weight: 600;
     transition: var(--#{$prefix}-transition-base);
 
     &:not(:disabled):hover {
