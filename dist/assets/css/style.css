@@ -5093,6 +5093,9 @@ label {
 .tab > ul li:last-child {
   margin-right: auto;
 }
+.tab > ul li.active .btn-tab {
+  font-weight: 700;
+}
 .tab li,
 .tab .btn-tab {
   display: inline-flex;
@@ -5107,7 +5110,7 @@ label {
   border: 0.1rem solid var(--hwf-tab--button-color-border);
   font-size: var(--hwf-tab--button-font-size);
   color: var(--hwf-tab--button-color-text);
-  font-weight: 700;
+  font-weight: 600;
   transition: var(--hwf-transition-base);
 }
 .tab .btn-tab:not(:disabled):hover {
@@ -7569,6 +7572,9 @@ html[lang="en"] .header .logo {
   height: 4.8rem;
   background: url(../../assets/images/common/en-logo.svg) no-repeat center/contain;
 }
+html[lang="en"] .header .util .btn.icon[aria-controls="modalSearch"] {
+  display: none;
+}
 @media (max-width: 1550px) {
   html[lang="en"] .header .logo {
     width: 35rem;
@@ -7591,8 +7597,8 @@ html[lang="en"] .header .logo {
 }
 @media (max-width: 640px) {
   html[lang="en"] .header .logo {
-    width: 31.1rem;
-    height: 3.2rem;
+    width: 22.4rem;
+    height: 2.3rem;
   }
 }
 html[lang="en"] .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth1 {
@@ -7625,8 +7631,8 @@ html[lang="en"] .modal.header-search .logo {
 }
 @media (max-width: 640px) {
   html[lang="en"] .modal.header-search .logo {
-    width: 31.1rem;
-    height: 3.2rem;
+    width: 22.4rem;
+    height: 2.3rem;
   }
 }
 .footer {
@@ -8982,6 +8988,7 @@ html[lang="en"] .page-main .section-banner {
   flex-direction: column;
   gap: 2.4rem;
   width: 100%;
+  height: 100%;
 }
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .tit-wrap {
   margin-top: 1.6rem;
@@ -9148,6 +9155,7 @@ html[lang="en"] .page-main .section-banner {
   .page-fund .fund-content .fund-list-wrap .fund-item {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 2.4rem var(--fund-list-padding-x);
     border-bottom: 0;
   }
@@ -9199,6 +9207,7 @@ html[lang="en"] .page-main .section-banner {
   }
   .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-chart {
     display: block;
+    margin-top: auto;
   }
   .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-chart .chart-area {
     position: relative;
