@@ -32,6 +32,7 @@ const uiSort = {
 
       const $clickedButton = $(this);
       const $sortList = $clickedButton.closest('.sort-list');
+
       const $allButtons = $sortList.find('.sort-item .btn, .period-list .btn');
 
       const wasActive = $clickedButton.hasClass('active');
@@ -39,9 +40,12 @@ const uiSort = {
       if (wasActive) {
         $clickedButton.toggleClass('sort-asc');
       } else {
-        $allButtons.removeClass('active sort-asc');
+        $allButtons.removeClass('active sort-asc').removeAttr('data-order-by');
         $clickedButton.addClass('active sort-asc');
       }
+
+      const orderValue = $clickedButton.hasClass('sort-asc') ? 'asc' : 'desc';
+      $clickedButton.attr('data-order-by', orderValue);
     });
   }
 };
