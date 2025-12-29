@@ -804,12 +804,17 @@
 							flex-shrink: 0;
 							min-width: var(--history-blur-box-padding-left);
 							order: 1;
+
+							ul{
+								overflow-x: auto;
+							}
 							
 							li{
 								color: var(--#{$prefix}-color-text-subtler);
 								font-size: 2.4rem;
 								font-weight: 700;
 								text-align: center;
+								min-width: fit-content;
 								
 								&.active{
 									color: var(--#{$prefix}-color-text-strong);
@@ -943,28 +948,6 @@
 					&.reverse{
 						--history-list-padding: 8rem;
 					}
-
-					// &:has(.timeline-sidebar){
-					// 	.txt-wrap{
-					// 		.blur-box{
-					// 			flex-direction: column;
-
-					// 			.timeline-sidebar{
-					// 				order: -1;
-					// 				padding-left: var(--history-list-padding);
-					// 				padding-right: var(--history-list-padding);
-
-					// 				ul{
-					// 					display: flex;
-
-					// 					li{
-					// 						flex: 1;
-					// 					}
-					// 				}
-					// 			}
-					// 		}
-					// 	}
-					// }
 				}
 			}
 			@include mq(1440){
@@ -1093,7 +1076,7 @@
 								li{
 									font-size: 1.6rem;
 									a{
-										padding: 1.6rem 1.2rem;
+										padding: 1.6rem 1rem;
 									}
 								}
 							}
