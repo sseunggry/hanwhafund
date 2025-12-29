@@ -7225,6 +7225,7 @@ label {
   color: var(--hwf-color-text-strong);
 }
 .header .header-con .util .lang .form-select.text .select-listbox {
+  --hwf-form-select--size-height-small: 4.8rem;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
