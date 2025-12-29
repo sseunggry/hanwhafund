@@ -167,6 +167,12 @@
 		width: 100%;
 		background: rgba(255, 255, 255, 0.10);
 		backdrop-filter: blur(5rem);
+
+		&:has(.modal.in), 
+		&:has(.modal.show),
+		&:has(.modal[style*="display: block"]) {
+			backdrop-filter: none !important;
+		}
 	}
 
   .main-tit-wrap {
