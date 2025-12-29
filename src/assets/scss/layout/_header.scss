@@ -203,6 +203,8 @@
 						}
 					}
           .select-listbox{
+						--#{$prefix}-form-select--size-height-small: 4.8rem;
+
 						top: 100%;
             left: 50%;
             transform: translateX(-50%);
