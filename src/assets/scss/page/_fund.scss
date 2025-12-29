@@ -312,6 +312,7 @@
 						display: inline-block;
 						@include square(1.6rem);
 						@include icon-set('desc');
+						transform: rotate(180deg);
 						background-color: currentColor;
 					}
 
@@ -321,7 +322,7 @@
 					}
 					&.sort-asc{
 						&::after{
-							transform: rotate(180deg);
+							transform: rotate(0deg);
 						}
 					}
 				}
@@ -526,6 +527,9 @@
 							width: fit-content;
 
 							.btn{
+								&::after{
+									transform: rotate(0);
+								}
 								&.sort-asc{
 									&::after{
 										transform: rotate(0);
@@ -2694,7 +2698,7 @@
 			overflow: hidden;
 			position: relative;
 			padding: 12rem 0;
-			height: 96rem;
+			height: 72rem;
 			background: linear-gradient(0deg, #06061B 0%, #06061B 100%), #170E05;
 
 			.inner{
@@ -2803,7 +2807,7 @@
 					}
 				}
 				.img-wrap{
-					height: 42.4rem;
+					height: 27.2rem;
 				}
 			}
 		}
