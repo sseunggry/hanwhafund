@@ -7941,6 +7941,11 @@ html[lang="en"] .footer-top .logo {
   background: hsla(0, 0%, 100%, 0.1);
   backdrop-filter: blur(5rem);
 }
+.page-main .footer:has(.modal.in),
+.page-main .footer:has(.modal.show),
+.page-main .footer:has(.modal[style*="display: block"]) {
+  backdrop-filter: none !important;
+}
 .page-main .main-tit-wrap {
   display: flex;
   flex-direction: column;
@@ -10992,7 +10997,7 @@ html[lang="en"] .page-main .section-banner {
   font-size: 2.4rem;
 }
 .page-fund .fund-pension .section-visual .txt-wrap .tit {
-  font-size: 9.6rem;
+  font-size: 7.6rem;
   font-weight: 700;
 }
 .page-fund .fund-pension .section-visual .txt-wrap .desc {
