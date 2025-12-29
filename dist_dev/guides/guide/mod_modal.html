@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>팝업 &gt; 가이드</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+
+    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="tit-lg">
+          <span class="txt">모달</span>
+        </div>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">기본 모달</span>
+          </div>
+
+          <!-- <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>전체적인 내용 구분을 위해 화면 헤더 영역 및 콘텐츠 영역 상단에서 사용하는 탭</li>
+                <li>콘텐츠 영역 상단에서 사용하는 밑줄 형태</li>
+                <li>화면 개수가 화면 가로 너비를 초과하는 경우 가로스크롤 <strong class="fc-red">불가능</strong></li>
+                <li>
+                  <strong class="fc-red">[!디자인 가이드, 반드시 확인!]</strong>
+                  기본적으로 .section은 상단 4rem에 대한 디자인 여백 가이드 존재 함.
+                  <br />
+                  바닥페이지(모바일에서만), 팝업 최상단에 첫 콘텐츠가 탭일 경우
+                  <strong class="fc-red">margin-top: -4rem</strong>
+                  이 적용 됨.(위에 붙어야 함.)
+                  <br />
+                  만약 경우에 따라 상단 콘텐츠의 삭제여부에 따라 적용되어야 할 경우
+                  <strong class="fc-red">.first-tab-space</strong>
+                  부여로 적용 가능
+                </li>
+              </ul>
+            </div>
+          </div> -->
+
+          <div class="group">
+            <div class="hls_preview">
+              <button type="button" class="btn large" data-modal-open="myModal1" aria-controls="myModal1">
+                <span>기본 모달 열기</span>
+              </button>
+              <div id="myModal1" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_myModal1" data-type="modal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myModal1" class="modal-title">기본 모달 제목</h2>
+                    </div>
+                    <div class="modal-conts">
+                      <p>모달 내용입니다. 확인 또는 취소 버튼을 누르세요.</p>
+                    </div>
+                    <div class="modal-btn btn-wrap">
+                      <button type="button" class="btn medium tertiary btn-close" aria-controls="myModal1">취소</button>
+                      <button type="button" class="btn medium primary" onclick="alert('확인됨!');">확인</button>
+                    </div>
+                    <button type="button" class="btn icon btn-close" aria-controls="myModal1">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="modal-back in"></div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">풀스크린 모달</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <button type="button" class="btn large btn-open-modal" data-modal-open="myFullModal" aria-controls="myFullModal">
+                <span>풀스크린 모달 열기</span>
+              </button>
+              <div id="myFullModal" class="modal fade full" role="dialog" aria-modal="true" aria-labelledby="tit_myFullModal" data-type="full">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myFullModal" class="modal-title">긴 내용의 모달</h2>
+                    </div>
+                    <div class="modal-conts" tabindex="&#34;0&#34;">
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                      <p>내용... (아주 긴 내용)</p>
+                    </div>
+                    <div class="modal-btn btn-wrap">
+                      <button type="button" class="btn large primary btn-close" aria-controls="myFullModal">닫기</button>
+                    </div>
+                    <button type="button" class="btn icon btn-close" aria-controls="myFullModal">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="modal-back in"></div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">바텀 시트</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <button type="button" class="btn large btn-open-bottom-sheet" data-modal-open="myBottomSheet" aria-controls="myBottomSheet">
+                <span>바텀 시트 열기</span>
+              </button>
+              <div id="myBottomSheet" class="modal fade bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_myBottomSheet" data-type="bottom-sheet">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h2 id="tit_myBottomSheet" class="modal-title">바텀 시트 제목</h2>
+                    </div>
+                    <div class="modal-conts">
+                      <p>옵션을 선택하세요.</p>
+                    </div>
+                    <div class="modal-btn btn-wrap column">
+                      <button type="button" class="btn medium primary btn-close" aria-controls="myBottomSheet">옵션 1</button>
+                      <button type="button" class="btn medium secondary btn-close" aria-controls="myBottomSheet">옵션 2</button>
+                      <button type="button" class="btn medium text-secondary btn-close" aria-controls="myBottomSheet">취소</button>
+                    </div>
+                    <button type="button" class="btn icon btn-close" aria-controls="myBottomSheet">
+                      <span class="sr-only">닫기</span>
+                      <i class="svg-icon icon-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="modal-back in"></div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

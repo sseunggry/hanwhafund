@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>마크업 가이드</title>
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="wrap">
+      <header id="header">
+        <div class="inner">
+          <h1 class="title">한화자산운용 마크업 가이드</h1>
+          <ul class="nav" id="topNav">
+            <li>
+              <a href="./markupguide.html">마크업 가이드</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div id="contents">
+        <div class="side_nav" id="sideNav">
+          <div id="pages">
+            <div id="markupGuide">
+              <h2 class="side_title">마크업 가이드</h2>
+              <div id="treemenu"></div>
+            </div>
+          </div>
+        </div>
+        <div class="contents">
+          <iframe class="content_frame" id="content_frame" name="content_frame"></iframe>
+          <script>
+            const treeContainer = document.getElementById("treemenu");
+            const iframe = document.getElementById("content_frame");
+            const data = {
+              가이드: {
+                가이드: ["./guide.html", "complete"],
+              },
+
+              엘리먼트: {
+                클래스규칙: ["./ele_class.html", "complete"],
+                타이포그래피: ["./ele_typo.html", "complete"],
+                뱃지: ["./ele_badge.html", "complete"],
+                칩: ["./ele_chip.html", "complete"],
+                "세그먼트 컨트롤": ["./ele_segmentControl.html", "complete"],
+                "스피너(로딩)": ["./ele_spinner.html", "complete"],
+              },
+
+              모듈: {
+                탭: ["./mod_tabs.html", "complete"],
+                아코디언: ["./mod_accordions.html", "complete"],
+                목록: ["./mod_lists.html", "complete"],
+                // 인디케이터: ["./mod_indicators.html", "complete"],
+                테이블: ["./mod_tables.html", "complete"],
+                모달: ["./mod_modal.html", "complete"],
+              },
+
+              폼: {
+                버튼: ["./form_buttons.html", "complete"],
+                "텍스트 필드": ["./form_inputs.html", "complete"],
+                셀렉트박스: ["./form_selects.html", "complete"],
+                달력: ["./form_calendar.html", "complete"],
+                // 파일첨부: ["./form_files.html", "complete"],
+                // 스위치: ["./form_switch.html", "complete"],
+                체크박스: ["./form_checks.html", "complete"],
+                라디오버튼: ["./form_radios.html", "complete"],
+                // 폼조합: ["./form_combine.html", "complete"],
+              },
+            };
+
+            // 트리 메뉴 생성 함수 (CSS 구조 반영)
+            function createTreeMenu(container, treeData, frameName) {
+              if (!container || !treeData || !frameName) return;
+
+              for (const category in treeData) {
+                const categoryWrap = document.createElement("div");
+                categoryWrap.className = "tree_wrap active"; // ⭐️ 초기 상태: active 클래스 추가
+
+                const categoryNav = document.createElement("div");
+                categoryNav.className = "tree_nav";
+                categoryNav.setAttribute("role", "button");
+                categoryNav.setAttribute("tabindex", "0");
+                categoryNav.textContent = category;
+                categoryWrap.appendChild(categoryNav);
+
+                const subWrap = document.createElement("div");
+                subWrap.className = "tree_sub_wrap";
+                // subWrap.style.display = 'block'; // active 클래스로 제어하므로 불필요
+
+                for (const subItemName in treeData[category]) {
+                  const itemData = treeData[category][subItemName];
+                  const url = itemData[0];
+                  const status = itemData[1] || "";
+
+                  const itemDiv = document.createElement("div");
+                  itemDiv.className = "tree_lists";
+                  if (status) {
+                    itemDiv.classList.add(status);
+                  }
+
+                  const itemSpan = document.createElement("span");
+                  const link = document.createElement("a");
+                  link.href = url;
+                  link.textContent = subItemName;
+                  link.className = "name";
+                  link.target = frameName;
+
+                  itemSpan.appendChild(link);
+                  itemDiv.appendChild(itemSpan);
+                  subWrap.appendChild(itemDiv);
+                }
+
+                categoryWrap.appendChild(subWrap);
+                container.appendChild(categoryWrap);
+
+                // 카테고리 토글 이벤트 리스너 추가 (⭐️ 클래스명 변경: active)
+                categoryNav.addEventListener("click", () => {
+                  categoryWrap.classList.toggle("active");
+                });
+                categoryNav.addEventListener("keydown", (e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    categoryWrap.classList.toggle("active");
+                  }
+                });
+              }
+
+              // iframe 로드 시 해당 링크 하이라이트
+              highlightActiveLink(container, frameName);
+            }
+
+            // iframe 로드 시 해당 링크 하이라이트 함수 (CSS 구조 반영)
+            function highlightActiveLink(treeRoot, frameName) {
+              const frameElement = document.getElementById(frameName);
+              if (!frameElement) {
+                console.error(`Iframe with id "${frameName}" not found.`);
+                return;
+              }
+
+              const handleLoad = function () {
+                try {
+                  const currentFramePath = frameElement.contentWindow.location.pathname;
+                  const allLinks = treeRoot.querySelectorAll(".tree_lists a.name");
+
+                  allLinks.forEach((link) => {
+                    if (link.pathname === currentFramePath) {
+                      link.classList.add("highlight"); // 하이라이트 클래스 (유지)
+                      const parentWrap = link.closest(".tree_wrap");
+                    } else {
+                      link.classList.remove("highlight");
+                    }
+                  });
+                } catch (e) {
+                  // console.warn("Cannot access iframe location...");
+                }
+              };
+
+              frameElement.addEventListener("load", handleLoad);
+              if (frameElement.contentDocument && frameElement.contentDocument.readyState === "complete") {
+                setTimeout(handleLoad, 100);
+              }
+            }
+
+            // --- 스크립트 실행 ---
+            if (treeContainer && iframe && iframe.name) {
+              createTreeMenu(treeContainer, data, iframe.name);
+
+              // 초기 iframe 로드
+              const firstLinkElement = treeContainer.querySelector(".tree_lists a.name");
+              if (firstLinkElement && firstLinkElement.href) {
+                iframe.src = firstLinkElement.href;
+              } else {
+                console.warn("No links found to set initial iframe source.");
+              }
+            } else {
+              console.error("Tree container or iframe (with name attribute) not found!");
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

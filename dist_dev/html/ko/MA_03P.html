@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="keywords" content="한화자산운용, " />
+    <meta name="description" content="한화자산운용 웹사이트 입니다." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="검색 팝업 | 한화자산운용" />
+    <meta property="og:description" content="한화자산운용 웹사이트 입니다." />
+    <!-- <meta property="og:image" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/common/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/common/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/common/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/common/favicon_32.png" />
+    <title>검색 팝업 | 한화자산운용</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="/assets/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+    <!-- <link href="/assets/scss/style.scss" rel="stylesheet"> -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- header -->
+      <header class="header">
+        <div class="header-top">
+          <div class="inner">
+            <ul class="link">
+              <li class="logo-plusetf">
+                <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+              </li>
+              <li class="logo-pine">
+                <a href="#!"><span class="sr-only">PINE</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-con">
+          <div class="inner">
+            <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+            <!-- [2025-11-25] 마크업 수정 -->
+            <nav class="nav">
+              <ul class="gnb-list">
+                <li class="gnb-item active">
+                  <a href="#!" class="gnb-link">한화펀드</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link active">펀드찾기</a></li>
+                    <li><a href="#!" class="submenu-link">연금펀드</a></li>
+                    <li><a href="#!" class="submenu-link">PLUS ETF</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">인사이트</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">공지</a></li>
+                    <li><a href="#!" class="submenu-link">투자정보</a></li>
+                    <li><a href="#!" class="submenu-link">시황</a></li>
+                    <li><a href="#!" class="submenu-link">뉴스룸</a></li>
+                    <li><a href="#!" class="submenu-link">자주 묻는 질문</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">공시안내</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">전체공시</a></li>
+                    <li><a href="#!" class="submenu-link">펀드공시</a></li>
+                    <li><a href="#!" class="submenu-link">경영공시</a></li>
+                    <li><a href="#!" class="submenu-link">리츠공시</a></li>
+                    <li><a href="#!" class="submenu-link">연금공시</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">회사소개</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">한화자산운용 소개</a></li>
+                    <li><a href="#!" class="submenu-link">글로벌 네트워크</a></li>
+                    <li><a href="#!" class="submenu-link">경영현황</a></li>
+                    <li><a href="#!" class="submenu-link">운용시스템</a></li>
+                    <li><a href="#!" class="submenu-link">채용정보</a></li>
+                    <li><a href="#!" class="submenu-link">오시는 길</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <!-- // [2025-11-25] 마크업 수정 -->
+            <div class="util">
+              <div class="lang">
+                <div class="form-select text small">
+                  <select class="sr-only" name="language-select" id="select-ylcr1ei" tabindex="-1" aria-hidden="true">
+                    <option value="KR" selected="selected">KR</option>
+                    <option value="EN">EN</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ylcr1ei-listbox" tabindex="0">
+                    <span class="select-value">KR</span>
+                  </button>
+                  <ul id="select-ylcr1ei-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
+                    <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                <span class="sr-only">검색</span>
+                <i class="svg-icon icon-search"></i>
+              </button>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalAllMenu" aria-controls="modalAllMenu">
+                <span class="sr-only">메뉴</span>
+                <i class="svg-icon icon-menu"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
+        <!-- popup 검색  -->
+        <div id="modalSearch" class="modal fade top-sheet header-search" role="dialog" aria-modal="true" aria-labelledby="tit_modalSearch" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="logo"><span class="sr-only">한화자산운용</span></div>
+              </div>
+              <div class="modal-conts">
+                <div class="search-wrap">
+                  <div class="search-con">
+                    <div class="input xlarge line search">
+                      <input type="text" id="input-u7s7145" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="tag-wrap text medium">
+                      <a href="#!" class="btn-tag">#ETF</a>
+                      <a href="#!" class="btn-tag">#월배당ETF</a>
+                      <a href="#!" class="btn-tag">#바이오</a>
+                      <a href="#!" class="btn-tag">#자산분배형</a>
+                      <a href="#!" class="btn-tag">#ESG</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalSearch">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- popup 검색 -->
+        <!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
+
+        <!-- [2025-11-25] 팝업 추가 -->
+        <!-- popup 전체메뉴  -->
+        <div id="modalAllMenu" class="modal fade top-sheet sitemap" role="dialog" aria-modal="true" aria-labelledby="tit_modalAllMenu" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="header-top">
+                  <div class="inner">
+                    <ul class="link">
+                      <li class="logo-plusetf">
+                        <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+                      </li>
+                      <li class="logo-pine">
+                        <a href="#!"><span class="sr-only">PINE</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="header-con">
+                  <div class="inner">
+                    <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+                    <div class="util">
+                      <div class="lang">
+                        <div class="form-select text small">
+                          <select class="sr-only" name="language-select" id="select-sb6wyqw" tabindex="-1" aria-hidden="true">
+                            <option value="KR" selected="selected">KR</option>
+                            <option value="EN">EN</option>
+                          </select>
+                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-sb6wyqw-listbox" tabindex="0">
+                            <span class="select-value">KR</span>
+                          </button>
+                          <ul id="select-sb6wyqw-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                            <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
+                            <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge btn-close">
+                        <span class="sr-only">닫기</span>
+                        <i class="svg-icon icon-close"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-conts">
+                <div class="sitemap-wrap">
+                  <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>한화펀드</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">펀드찾기</a></li>
+                        <li>
+                          <a href="#!" class="depth2">연금펀드</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">개인연금</a></li>
+                            <li><a href="#!" class="depth3">퇴직연금</a></li>
+                            <li><a href="#!" class="depth3">TDF</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#!" class="depth2 link">PLUS ETF</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>인사이트</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">공지</a></li>
+                        <li><a href="#!" class="depth2">투자정보</a></li>
+                        <li><a href="#!" class="depth2">시황</a></li>
+                        <li><a href="#!" class="depth2">뉴스룸</a></li>
+                        <li><a href="#!" class="depth2">자주 묻는 질문</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>공시안내</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">전체공시</a></li>
+                        <li><a href="#!" class="depth2">펀드공시</a></li>
+                        <li><a href="#!" class="depth2">경영공시</a></li>
+                        <li><a href="#!" class="depth2">리츠공시</a></li>
+                        <li><a href="#!" class="depth2">연금공시</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item company">
+                      <a href="#!" class="depth1"><span>회사소개</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">한화자산운용 소개</a></li>
+                        <li><a href="#!" class="depth2">글로벌 네트워크</a></li>
+                        <li>
+                          <a href="#!" class="depth2">경영현황</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">요약 연결포괄 손익계산서</a></li>
+                            <li><a href="#!" class="depth3">요약 연결재무상태표</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#!" class="depth2">운용시스템</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">운용모니터링 체계</a></li>
+                            <li><a href="#!" class="depth3">리스크 관리</a></li>
+                            <li><a href="#!" class="depth3">내부통제 점검체계</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#!" class="depth2">채용정보</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">한화 인재상</a></li>
+                            <li><a href="#!" class="depth3">복리후생</a></li>
+                            <li><a href="#!" class="depth3">채용</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#!" class="depth2">오시는 길</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalAllMenu">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 전체메뉴  -->
+        <!-- // [2025-11-25] 팝업 추가 -->
+      </header>
+      <!-- // header -->
+
+      <!-- container -->
+      <main class="container" style="padding: 20rem 0">
+        <div class="inner">
+          <button type="button" class="btn large" data-modal-open="modalSearch" aria-controls="modalSearch">
+            <span>검색 팝업</span>
+          </button>
+        </div>
+      </main>
+      <!-- // container -->
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="inner">
+          <div class="footer-top">
+            <div class="logo"><span class="sr-only">한화자산운용</span></div>
+          </div>
+          <div class="footer-con">
+            <ul class="address">
+              <li>07345 서울시 영등포구 63로 50 한화금융센터</li>
+              <li>대표번호 02-6950-0000</li>
+              <li>팩스 02-6950-0009</li>
+              <li>한화자산운용㈜ 준법감시인 심사필 제2025-525호(2025.10.02~2026.10.01)</li>
+            </ul>
+            <div class="nav">
+              <ul class="link-list">
+                <li><a href="#!">스튜어드십코드</a></li>
+                <!-- [2025-12-03] 클래스 추가 -->
+                <li class="active"><a href="#!">개인정보처리방침</a></li>
+                <!-- [2025-12-03] 클래스 추가 -->
+                <li><a href="#!">신용정보활용체계</a></li>
+                <li><a href="#!">고객정보취급방침</a></li>
+                <!-- [2025-12-03] 마크업 수정 -->
+                <li><button data-modal-open="modalEmailCollection" aria-controls="modalEmailCollection">이메일무단수집거부</button></li>
+                <!-- // [2025-12-03] 마크업 수정 -->
+              </ul>
+              <ul class="link-list">
+                <li><a href="#!">윤리경영</a></li>
+                <!-- [2025-12-03] 마크업 수정 -->
+                <li><button data-modal-open="modalLegalNotice" aria-controls="modalLegalNotice">법적고시</button></li>
+                <!-- // [2025-12-03] 마크업 수정 -->
+                <li><a href="#!">보험금융상품등록</a></li>
+                <li><a href="#!">금융소비자보호포탈</a></li>
+              </ul>
+            </div>
+            <div class="util">
+              <!-- [2025-12-03] 마크업 수정 -->
+              <div class="family-site">
+                <div class="form-select medium bg-gray ico-plus">
+                  <select class="sr-only" name="family-site" id="select-nhfpjk1" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트 및 유관기관">
+                    <option value="hanwha">(주)한화</option>
+                    <option value="lifeplus">LIFEPLUS</option>
+                    <option value="hanwhaLife">한화생명</option>
+                    <option value="hanwhawm">한화투자증권</option>
+                    <option value="hwgeneralins">한화손해보험</option>
+                    <option value="hanwhasbank">한화저축은행</option>
+                    <option value="hanwhalifefs">한화생명금융서비스</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-nhfpjk1-listbox" tabindex="0">
+                    <span class="select-value placeholder">패밀리 사이트 및 유관기관</span>
+                  </button>
+                  <ul id="select-nhfpjk1-listbox" class="select-listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 4">
+                    <li class="select-option" data-value="hanwha" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwha.co.kr/" target="_blank" class="item-link" title="&#34;새창열림&#34;">(주)한화</a>
+                    </li>
+                    <li class="select-option" data-value="lifeplus" aria-selected="false" tabindex="-1">
+                      <a href="https://www.lifeplus.co.kr/" target="_blank" class="item-link" title="&#34;새창열림&#34;">LIFEPLUS</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhaLife" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhalife.com/index.jsp" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화생명</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhawm" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhawm.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화투자증권</a>
+                    </li>
+                    <li class="select-option" data-value="hwgeneralins" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hwgeneralins.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화손해보험</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhasbank" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhasbank.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화저축은행</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhalifefs" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhalifefs.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화생명금융서비스</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- [2025-12-03] 마크업 수정 -->
+              </div>
+              <ul class="sns-list">
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">youtube</span>
+                    <i class="svg-icon icon-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">instagram</span>
+                    <i class="svg-icon icon-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">blog</span>
+                    <i class="svg-icon icon-blog"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+          </div>
+          <div class="footer-btn-top">
+            <a href="#!" class="btn large">
+              <i class="svg-icon icon-arrow-up"></i>
+              <span>TOP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- popup 이메일무단수집거부 -->
+        <div id="modalEmailCollection" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalEmailCollection" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalEmailCollection" class="modal-title">이메일주소 무단수집거부</h2>
+              </div>
+              <div class="modal-conts">
+                <p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집 되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 형사 처벌됨을 유념하여 주시기 바랍니다.</p>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalEmailCollection">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 이메일무단수집거부 -->
+
+        <!-- popup 법적고시 -->
+        <div id="modalLegalNotice" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalLegalNotice" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalLegalNotice" class="modal-title">법적고시</h2>
+              </div>
+              <div class="modal-conts">
+                <div class="info-txt-list">
+                  <p>본 웹사이트는 한화자산운용의 독점적 소유의 정보자산입니다.</p>
+                  <p>한화자산운용은 이 웹사이트를 개발하기 위하여 자금, 시간 및 노력을 투입하였습니다. 이러한 자산들은 저작권, 상표권,기술에 대한 정보에만 국한되지는 않습니다.</p>
+                  <p>한화자산운용에 소유권이 있는 정보자산들은 문자, 그림, 음성, 화상, 내려 받기 파일, 링크 및 소스 코드들(이하 ‘서비스와 자료들’)의 형태로 제공됩니다. 한화자산운용은 이러한 서비스와 자료들에 대한 모든 권리를 소유합니다.</p>
+                  <p>이러한 서비스와 자료들은 오직 한화자산운용의 고객들과 고객들의 편의를 위해서 제공되었습니다.한화자산운용은 본 웹사이트에서 고객들께 제공되는 서비스와 자료들에 대하여 고객들에게 지적인 재산권을 부여한 것은 아닙니다.</p>
+                  <p>한화자산운용은 이 웹사이트 및 다른 관련사이트들의 서비스와 자료들 및 정보에 대한 정확도, 완성도, 신뢰도에 대하여 보장하지 않습니다.</p>
+                  <p>따라서 한화자산운용에서 문서로 특별히 조언을 드리는 경우를 제외하고는 이 사이트에 포함된 정보를 고객의 이익에 관련된 결정상의 참고자료로 의존하지 마시기 바랍니다.</p>
+                  <p>서비스와 자료들은 한화자산운용에 의해 사실에 기초하여 제공되었습니다. 그리고 한화자산운용은 서비스나 자료들에 대한 판매 목적상의 무제한 보증이나 특별한 목적하의 맞추어진 적합성을 포함하여 표현되거나 함축된 어떤 또는 모든 보증을 부인합니다.</p>
+                  <p>서비스와 자료들에 관련된 어떤 종류의 직접적, 간접적, 우발적, 징벌적 또는 필연적인 피해에 관련 된 경우에 대하여 한화자산운용에서는 책임을 지지 않습니다.</p>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalLegalNotice">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 법적고시 -->
+      </footer>
+      <!-- // footer -->
+    </div>
+  </body>
+</html>

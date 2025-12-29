@@ -1,0 +1,3325 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="keywords" content="한화자산운용, " />
+    <meta name="description" content="한화자산운용 웹사이트 입니다." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="펀드찾기 | 한화펀드 | 한화자산운용" />
+    <meta property="og:description" content="한화자산운용 웹사이트 입니다." />
+    <!-- <meta property="og:image" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/common/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/common/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/common/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/common/favicon_32.png" />
+    <title>펀드찾기 | 한화펀드 | 한화자산운용</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="/assets/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+    <!-- <link href="/assets/scss/style.scss" rel="stylesheet"> -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="page-fund">
+    <div class="wrap">
+      <!-- header -->
+      <header class="header">
+        <div class="header-top">
+          <div class="inner">
+            <ul class="link">
+              <li class="logo-plusetf">
+                <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+              </li>
+              <li class="logo-pine">
+                <a href="#!"><span class="sr-only">PINE</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-con">
+          <div class="inner">
+            <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+            <!-- [2025-11-25] 마크업 수정 -->
+            <nav class="nav">
+              <ul class="gnb-list">
+                <li class="gnb-item active">
+                  <a href="#!" class="gnb-link">한화펀드</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link active">펀드찾기</a></li>
+                    <li><a href="#!" class="submenu-link">연금펀드</a></li>
+                    <li><a href="#!" class="submenu-link">PLUS ETF</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">인사이트</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">공지</a></li>
+                    <li><a href="#!" class="submenu-link">투자정보</a></li>
+                    <li><a href="#!" class="submenu-link">시황</a></li>
+                    <li><a href="#!" class="submenu-link">뉴스룸</a></li>
+                    <li><a href="#!" class="submenu-link">자주 묻는 질문</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">공시안내</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">전체공시</a></li>
+                    <li><a href="#!" class="submenu-link">펀드공시</a></li>
+                    <li><a href="#!" class="submenu-link">경영공시</a></li>
+                    <li><a href="#!" class="submenu-link">리츠공시</a></li>
+                    <li><a href="#!" class="submenu-link">연금공시</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">회사소개</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">한화자산운용 소개</a></li>
+                    <li><a href="#!" class="submenu-link">글로벌 네트워크</a></li>
+                    <li><a href="#!" class="submenu-link">경영현황</a></li>
+                    <li><a href="#!" class="submenu-link">운용시스템</a></li>
+                    <li><a href="#!" class="submenu-link">채용정보</a></li>
+                    <li><a href="#!" class="submenu-link">오시는 길</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <!-- // [2025-11-25] 마크업 수정 -->
+            <div class="util">
+              <div class="lang">
+                <div class="form-select text small">
+                  <select class="sr-only" name="language-select" id="select-1s4v3nt" tabindex="-1" aria-hidden="true">
+                    <option value="KR" selected="selected">KR</option>
+                    <option value="EN">EN</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-1s4v3nt-listbox" tabindex="0">
+                    <span class="select-value">KR</span>
+                  </button>
+                  <ul id="select-1s4v3nt-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
+                    <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                <span class="sr-only">검색</span>
+                <i class="svg-icon icon-search"></i>
+              </button>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalAllMenu" aria-controls="modalAllMenu">
+                <span class="sr-only">메뉴</span>
+                <i class="svg-icon icon-menu"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
+        <!-- popup 검색  -->
+        <div id="modalSearch" class="modal fade top-sheet header-search" role="dialog" aria-modal="true" aria-labelledby="tit_modalSearch" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="logo"><span class="sr-only">한화자산운용</span></div>
+              </div>
+              <div class="modal-conts">
+                <div class="search-wrap">
+                  <div class="search-con">
+                    <div class="input xlarge line search">
+                      <input type="text" id="input-4h6f8s4" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="tag-wrap text medium">
+                      <a href="#!" class="btn-tag">#ETF</a>
+                      <a href="#!" class="btn-tag">#월배당ETF</a>
+                      <a href="#!" class="btn-tag">#바이오</a>
+                      <a href="#!" class="btn-tag">#자산분배형</a>
+                      <a href="#!" class="btn-tag">#ESG</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalSearch">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- popup 검색 -->
+        <!-- [2025-11-25] 팝업 위치 수정, header-search 클래스 추가 -->
+
+        <!-- [2025-11-25] 팝업 추가 -->
+        <!-- popup 전체메뉴  -->
+        <div id="modalAllMenu" class="modal fade top-sheet sitemap" role="dialog" aria-modal="true" aria-labelledby="tit_modalAllMenu" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="header-top">
+                  <div class="inner">
+                    <ul class="link">
+                      <li class="logo-plusetf">
+                        <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+                      </li>
+                      <li class="logo-pine">
+                        <a href="#!"><span class="sr-only">PINE</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="header-con">
+                  <div class="inner">
+                    <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+                    <div class="util">
+                      <div class="lang">
+                        <div class="form-select text small">
+                          <select class="sr-only" name="language-select" id="select-r24uvvr" tabindex="-1" aria-hidden="true">
+                            <option value="KR" selected="selected">KR</option>
+                            <option value="EN">EN</option>
+                          </select>
+                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-r24uvvr-listbox" tabindex="0">
+                            <span class="select-value">KR</span>
+                          </button>
+                          <ul id="select-r24uvvr-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                            <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
+                            <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge btn-close">
+                        <span class="sr-only">닫기</span>
+                        <i class="svg-icon icon-close"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-conts">
+                <div class="sitemap-wrap">
+                  <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>한화펀드</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">펀드찾기</a></li>
+                        <li>
+                          <a href="#!" class="depth2">연금펀드</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">개인연금</a></li>
+                            <li><a href="#!" class="depth3">퇴직연금</a></li>
+                            <li><a href="#!" class="depth3">TDF</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#!" class="depth2 link">PLUS ETF</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>인사이트</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">공지</a></li>
+                        <li><a href="#!" class="depth2">투자정보</a></li>
+                        <li><a href="#!" class="depth2">시황</a></li>
+                        <li><a href="#!" class="depth2">뉴스룸</a></li>
+                        <li><a href="#!" class="depth2">자주 묻는 질문</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>공시안내</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">전체공시</a></li>
+                        <li><a href="#!" class="depth2">펀드공시</a></li>
+                        <li><a href="#!" class="depth2">경영공시</a></li>
+                        <li><a href="#!" class="depth2">리츠공시</a></li>
+                        <li><a href="#!" class="depth2">연금공시</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item company">
+                      <a href="#!" class="depth1"><span>회사소개</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">한화자산운용 소개</a></li>
+                        <li><a href="#!" class="depth2">글로벌 네트워크</a></li>
+                        <li>
+                          <a href="#!" class="depth2">경영현황</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">요약 연결포괄 손익계산서</a></li>
+                            <li><a href="#!" class="depth3">요약 연결재무상태표</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#!" class="depth2">운용시스템</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">운용모니터링 체계</a></li>
+                            <li><a href="#!" class="depth3">리스크 관리</a></li>
+                            <li><a href="#!" class="depth3">내부통제 점검체계</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a href="#!" class="depth2">채용정보</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">한화 인재상</a></li>
+                            <li><a href="#!" class="depth3">복리후생</a></li>
+                            <li><a href="#!" class="depth3">채용</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#!" class="depth2">오시는 길</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalAllMenu">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 전체메뉴  -->
+        <!-- // [2025-11-25] 팝업 추가 -->
+      </header>
+      <!-- // header -->
+
+      <!-- container -->
+      <main class="container fund-find">
+        <section class="section-search">
+          <div class="inner">
+            <div class="section-tit-wrap">
+              <p class="sub-tit txt-gradient">원하는 펀드를 빠르게 찾아보세요</p>
+              <h2 class="tit lg">펀드찾기</h2>
+            </div>
+            <div class="search-wrap obj">
+              <div class="search-con">
+                <div class="input xlarge line search">
+                  <input type="text" id="input-ehq6rnh" name="" value="" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                  <button type="button" class="btn icon btn-clear">
+                    <span class="sr-only">입력 내용 지우기</span>
+                    <i class="svg-icon icon-clear"></i>
+                  </button>
+                  <button type="button" class="btn icon xxlarge">
+                    <span class="sr-only">검색</span>
+                    <i class="svg-icon icon-search"></i>
+                  </button>
+                </div>
+                <div class="tag-wrap text">
+                  <a href="#!" class="btn-tag">#ETF</a>
+                  <a href="#!" class="btn-tag">#월배당ETF</a>
+                  <a href="#!" class="btn-tag">#바이오</a>
+                  <a href="#!" class="btn-tag">#ESG</a>
+                  <a href="#!" class="btn-tag">#자산분배형</a>
+                  <a href="#!" class="btn-tag">#개인연금</a>
+                </div>
+              </div>
+              <div class="detail-search-wrap">
+                <div class="search-option-btn">
+                  <button type="button" class="btn xlarge pc-tablet-only">
+                    <span>상세 검색</span>
+                    <i class="svg-icon icon-plus"></i>
+                  </button>
+                  <button type="button" class="btn xlarge mobile-only" data-modal-open="mobileDetailSearchBottomSheet" aria-controls="mobileDetailSearchBottomSheet">
+                    <span>상세 검색</span>
+                    <i class="svg-icon icon-plus"></i>
+                  </button>
+                </div>
+                <div class="search-option-wrap">
+                  <ul class="option-list">
+                    <li class="option-item">
+                      <p class="option-tit">투자를 희망하는 지역을 선택하세요</p>
+                      <div class="option-con">
+                        <div class="check-area chip-wrap">
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-cfvpvo7" name="chip-region" value="all" />
+                            <label for="chip-cfvpvo7" class="form-chip-outline">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-ft9odm1" name="chip-region" value="domestic" checked="checked" />
+                            <label for="chip-ft9odm1" class="form-chip-outline">
+                              <span>국내</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-jjt7iaw" name="chip-region" value="global" />
+                            <label for="chip-jjt7iaw" class="form-chip-outline">
+                              <span>해외</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="option-item">
+                      <p class="option-tit">펀드 유형을 선택하세요</p>
+                      <div class="option-con">
+                        <div class="check-area chip-wrap">
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-8j4qara" name="chip-type" value="all" checked="checked" />
+                            <label for="chip-8j4qara" class="form-chip-outline">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-03f7589" name="chip-type" value="mmf" />
+                            <label for="chip-03f7589" class="form-chip-outline">
+                              <span>MMF</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-25rcpc6" name="chip-type" value="etc" />
+                            <label for="chip-25rcpc6" class="form-chip-outline">
+                              <span>기타</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-2sdgqp1" name="chip-type" value="real_estate" />
+                            <label for="chip-2sdgqp1" class="form-chip-outline">
+                              <span>부동산</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-t5myun4" name="chip-type" value="infra" />
+                            <label for="chip-t5myun4" class="form-chip-outline">
+                              <span>인프라</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-oo5dq24" name="chip-type" value="stock" />
+                            <label for="chip-oo5dq24" class="form-chip-outline">
+                              <span>주식</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-z9dw0nc" name="chip-type" value="stock_mixed" />
+                            <label for="chip-z9dw0nc" class="form-chip-outline">
+                              <span>주식혼합</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-723gwfq" name="chip-type" value="bond" />
+                            <label for="chip-723gwfq" class="form-chip-outline">
+                              <span>채권</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-0qhvowd" name="chip-type" value="bond_mixed" />
+                            <label for="chip-0qhvowd" class="form-chip-outline">
+                              <span>채권혼합</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-n58khdz" name="chip-type" value="derivative" />
+                            <label for="chip-n58khdz" class="form-chip-outline">
+                              <span>파생</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-lh2q2kd" name="chip-type" value="multi_asset" />
+                            <label for="chip-lh2q2kd" class="form-chip-outline">
+                              <span>혼합자산</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-6tq3zrm" name="chip-type" value="fund_of_funds" />
+                            <label for="chip-6tq3zrm" class="form-chip-outline">
+                              <span>재간접</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="option-item">
+                      <p class="option-tit">펀드 테마를 선택하세요</p>
+                      <div class="option-con">
+                        <div class="check-area chip-wrap col-2">
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-1wm10rq" name="chip-theme" value="all" checked="checked" />
+                            <label for="chip-1wm10rq" class="form-chip-outline">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-exzv9tf" name="chip-theme" value="ai" />
+                            <label for="chip-exzv9tf" class="form-chip-outline">
+                              <span>AI</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-nhlarxm" name="chip-theme" value="esg" />
+                            <label for="chip-nhlarxm" class="form-chip-outline">
+                              <span>ESG</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-4r9eq09" name="chip-theme" value="tdf" />
+                            <label for="chip-4r9eq09" class="form-chip-outline">
+                              <span>TDF</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-xufrbfm" name="chip-theme" value="pension" />
+                            <label for="chip-xufrbfm" class="form-chip-outline">
+                              <span>개인연금</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-2e3d71m" name="chip-theme" value="ipo" />
+                            <label for="chip-2e3d71m" class="form-chip-outline">
+                              <span>공모주</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-4039f3v" name="chip-theme" value="global" />
+                            <label for="chip-4039f3v" class="form-chip-outline">
+                              <span>글로벌</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-4cfcguk" name="chip-theme" value="interest_rate" />
+                            <label for="chip-4cfcguk" class="form-chip-outline">
+                              <span>금리</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-3mlqbtn" name="chip-theme" value="multi_asset" />
+                            <label for="chip-3mlqbtn" class="form-chip-outline">
+                              <span>멀티에셋</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-44l7m8l" name="chip-theme" value="target_conversion" />
+                            <label for="chip-44l7m8l" class="form-chip-outline">
+                              <span>목표전환</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-tdas1td" name="chip-theme" value="dividend" />
+                            <label for="chip-tdas1td" class="form-chip-outline">
+                              <span>배당</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-t7vdcob" name="chip-theme" value="sector_leader" />
+                            <label for="chip-t7vdcob" class="form-chip-outline">
+                              <span>업종대표</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-pp2gbwv" name="chip-theme" value="index" />
+                            <label for="chip-pp2gbwv" class="form-chip-outline">
+                              <span>인덱스</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-31q9h9t" name="chip-theme" value="income" />
+                            <label for="chip-31q9h9t" class="form-chip-outline">
+                              <span>인컴형</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-pm9xxma" name="chip-theme" value="small_cap" />
+                            <label for="chip-pm9xxma" class="form-chip-outline">
+                              <span>중소형주</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-atshk0s" name="chip-theme" value="retirement_pension" />
+                            <label for="chip-atshk0s" class="form-chip-outline">
+                              <span>퇴직연금</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-tguupvh" name="chip-theme" value="value_stock" />
+                            <label for="chip-tguupvh" class="form-chip-outline">
+                              <span>가치주</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-oert5xq" name="chip-theme" value="global_asset_allocation" />
+                            <label for="chip-oert5xq" class="form-chip-outline">
+                              <span>글로벌자산배분</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-9ej2orb" name="chip-theme" value="climate_crisis" />
+                            <label for="chip-9ej2orb" class="form-chip-outline">
+                              <span>기후위기</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-fs9wdyr" name="chip-theme" value="short_bond" />
+                            <label for="chip-fs9wdyr" class="form-chip-outline">
+                              <span>단기채</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-s8z7xwl" name="chip-theme" value="leverage" />
+                            <label for="chip-s8z7xwl" class="form-chip-outline">
+                              <span>레버리지</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-61kmys4" name="chip-theme" value="north_america" />
+                            <label for="chip-61kmys4" class="form-chip-outline">
+                              <span>북미</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-oyak3vb" name="chip-theme" value="sector" />
+                            <label for="chip-oyak3vb" class="form-chip-outline">
+                              <span>섹터</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-j9c6ord" name="chip-theme" value="emerging_market" />
+                            <label for="chip-j9c6ord" class="form-chip-outline">
+                              <span>신흥국</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-btqee47" name="chip-theme" value="asean" />
+                            <label for="chip-btqee47" class="form-chip-outline">
+                              <span>아세안</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-203ajjj" name="chip-theme" value="commodity" />
+                            <label for="chip-203ajjj" class="form-chip-outline">
+                              <span>원자재</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-02flfdr" name="chip-theme" value="europe" />
+                            <label for="chip-02flfdr" class="form-chip-outline">
+                              <span>유럽</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-0of8b3e" name="chip-theme" value="japan" />
+                            <label for="chip-0of8b3e" class="form-chip-outline">
+                              <span>일본</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-ygvxtu9" name="chip-theme" value="ultra_short_bond" />
+                            <label for="chip-ygvxtu9" class="form-chip-outline">
+                              <span>초단기채</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-iwk1hdb" name="chip-theme" value="long_bond" />
+                            <label for="chip-iwk1hdb" class="form-chip-outline">
+                              <span>장기채</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-zo8ix0h" name="chip-theme" value="mid_bond" />
+                            <label for="chip-zo8ix0h" class="form-chip-outline">
+                              <span>중기채</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-dhq1toa" name="chip-theme" value="mid_short_bond" />
+                            <label for="chip-dhq1toa" class="form-chip-outline">
+                              <span>중단기채</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-pi0xx84" name="chip-theme" value="china" />
+                            <label for="chip-pi0xx84" class="form-chip-outline">
+                              <span>중국</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-v8qwpse" name="chip-theme" value="tech" />
+                            <label for="chip-v8qwpse" class="form-chip-outline">
+                              <span>테크</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="checkbox" id="chip-aoof4cd" name="chip-theme" value="healthcare" />
+                            <label for="chip-aoof4cd" class="form-chip-outline">
+                              <span>헬스케어</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="option-item">
+                      <p class="option-tit">수익률을 정해서 검색할 수 있어요</p>
+                      <div class="option-con">
+                        <div class="check-area chip-wrap">
+                          <div class="form-chip">
+                            <input type="radio" id="chip-ums07yp" name="chip-period" value="all" checked="checked" />
+                            <label for="chip-ums07yp" class="form-chip-outline">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-ctdeyib" name="chip-period" value="1m" />
+                            <label for="chip-ctdeyib" class="form-chip-outline">
+                              <span>1개월</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-4fyu5hf" name="chip-period" value="3m" />
+                            <label for="chip-4fyu5hf" class="form-chip-outline">
+                              <span>3개월</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-afqv90j" name="chip-period" value="6m" />
+                            <label for="chip-afqv90j" class="form-chip-outline">
+                              <span>6개월</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-k5qot2y" name="chip-period" value="1y" />
+                            <label for="chip-k5qot2y" class="form-chip-outline">
+                              <span>1년</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-5dio1rq" name="chip-period" value="3y" />
+                            <label for="chip-5dio1rq" class="form-chip-outline">
+                              <span>3년</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-ttx3h58" name="chip-period" value="5y" />
+                            <label for="chip-ttx3h58" class="form-chip-outline">
+                              <span>5년</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-q5c88pz" name="chip-period" value="ytd" />
+                            <label for="chip-q5c88pz" class="form-chip-outline">
+                              <span>연초이후</span>
+                            </label>
+                          </div>
+                          <div class="form-chip">
+                            <input type="radio" id="chip-4sstum0" name="chip-period" value="since_inception" />
+                            <label for="chip-4sstum0" class="form-chip-outline">
+                              <span>설정이후</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="range-slider-wrap">
+                          <div class="range-slider num-range" data-grid='{"type":"num", "min": 0, "max": 5, "step": 1, "values":[1,5]}'>
+                            <div class="range-legend" aria-hidden="true">
+                              <span>
+                                -10%
+                                <br class="mobile-only" />
+                                이하
+                              </span>
+                              <span>0%</span>
+                              <span>20%</span>
+                              <span>40%</span>
+                              <span>60%</span>
+                              <span>
+                                80%
+                                <br class="mobile-only" />
+                                이상
+                              </span>
+                            </div>
+                            <div class="handle ui-slider-handle">
+                              <input type="text" class="amount" name="minRtn" tabindex="-1" readonly="readonly" title="최저 수익률(%)" />
+                            </div>
+                            <div class="handle ui-slider-handle">
+                              <input type="text" class="amount" name="maxRtn" tabindex="-1" readonly="readonly" title="최고 수익률(%)" />
+                            </div>
+                            <span class="blind alt" aria-live="polite"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="btn-wrap array-center">
+                    <button type="button" class="btn outline large">
+                      <span>설정 초기화</span>
+                    </button>
+                    <button type="button" class="btn large">
+                      <span>검색 결과보기</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="promo-banner pension">
+              <div class="txt-wrap">
+                <p class="tit">
+                  든든한 노후,
+                  <br class="mobile-only" />
+                  한화 연금펀드로 준비하세요.
+                </p>
+                <button type="button" class="btn text medium">
+                  <span>연금 상품 보러가기</span>
+                  <i class="svg-icon icon-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-detail">
+          <div class="inner">
+            <div class="tab-area">
+              <div class="tab line full">
+                <ul role="tablist">
+                  <li id="tab-tab-1" role="tab" aria-controls="tab-panel-1" class="active" aria-selected="true">
+                    <button type="button" class="btn-tab">
+                      전체
+                      <span class="sr-only">선택됨</span>
+                    </button>
+                  </li>
+                  <li id="tab-tab-2" role="tab" aria-controls="tab-panel-2" aria-selected="false">
+                    <button type="button" class="btn-tab">연금</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-conts-wrap">
+                <div id="tab-panel-1" class="tab-conts active" role="tabpanel" aria-labelledby="tab-tab-1">
+                  <div class="fund-content">
+                    <p class="total-count">
+                      <span class="fc-primary">전체</span>
+                      에 대한
+                      <span class="fc-primary">370</span>
+                      건의 검색결과가 있습니다
+                    </p>
+
+                    <div class="sort-wrap">
+                      <div class="pc-only">
+                        <ul class="sort-list">
+                          <li class="sort-item">비교</li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small active sort-asc">기준가(원)</button>
+                          </li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small">순자산(백만원)</button>
+                          </li>
+                          <li class="sort-item period">
+                            <p class="tit">수익률(%)</p>
+                            <ul class="period-list">
+                              <li><button type="button" class="btn text small">1개월</button></li>
+                              <li><button type="button" class="btn text small">3개월</button></li>
+                              <li><button type="button" class="btn text small">6개월</button></li>
+                              <li><button type="button" class="btn text small">1년</button></li>
+                              <li><button type="button" class="btn text small">3년</button></li>
+                              <li><button type="button" class="btn text small">5년</button></li>
+                              <li><button type="button" class="btn text small">연초이후</button></li>
+                              <li><button type="button" class="btn text small">설정이후</button></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tablet-only">
+                        <div class="sort-item select">
+                          <div class="form-select outline medium">
+                            <select class="sr-only" name="select-b1h5cfq" id="select-b1h5cfq" tabindex="-1" aria-hidden="true">
+                              <option value="default" selected="selected">기준가</option>
+                              <option value="assets">순자산</option>
+                            </select>
+                            <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-b1h5cfq-listbox" tabindex="0">
+                              <span class="select-value">기준가</span>
+                            </button>
+                            <ul id="select-b1h5cfq-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                              <li class="select-option" role="&#34;option&#34;" data-value="default" aria-selected="true" tabindex="-1">기준가</li>
+                              <li class="select-option" role="&#34;option&#34;" data-value="assets" aria-selected="false" tabindex="-1">순자산</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <ul class="sort-list">
+                          <li class="sort-item">
+                            <button type="button" class="btn text small active sort-asc">낮은순</button>
+                          </li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small">높은순</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <ul class="fund-list-wrap">
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-v4n9qhl" />
+                          <label for="chk-v4n9qhl">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-1dlnwak" />
+                          <label for="chk-1dlnwak">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-mcv1qxz" />
+                          <label for="chk-mcv1qxz">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-lpu2fvr" />
+                          <label for="chk-lpu2fvr">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-n2w99pr" />
+                          <label for="chk-n2w99pr">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-p9gswjw" />
+                          <label for="chk-p9gswjw">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-39z08sj" />
+                          <label for="chk-39z08sj">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-zz4h6vz" />
+                          <label for="chk-zz4h6vz">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-tpmzd8d" />
+                          <label for="chk-tpmzd8d">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="btn-wrap array-center">
+                      <button type="button" class="btn tertiary large">
+                        <span>더보기</span>
+                        <span class="page-num">
+                          (
+                          <strong>1</strong>
+                          /
+                          <em>10</em>
+                          )
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="fund-compare-floating">
+                    <div class="inner">
+                      <ul class="compare-list">
+                        <li class="compare-item">
+                          <span>한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                        <li class="compare-item">
+                          <span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                        <li class="compare-item">
+                          <span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                      </ul>
+                      <div class="compare-btn-wrap">
+                        <button type="button" class="btn large reset">
+                          <i class="svg-icon icon-reset"></i>
+                          <span>다시 선택</span>
+                        </button>
+                        <button type="button" class="btn primary large" data-modal-open="modalCompare" aria-controls="modalCompare">
+                          <span>비교하기(1/3)</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab-panel-2" class="tab-conts" role="tabpanel" aria-labelledby="tab-tab-2">
+                  <div class="fund-content">
+                    <p class="total-count">
+                      <span class="fc-primary">전체</span>
+                      에 대한
+                      <span class="fc-primary">370</span>
+                      건의 검색결과가 있습니다
+                    </p>
+
+                    <div class="sort-wrap">
+                      <div class="pc-only">
+                        <ul class="sort-list">
+                          <li class="sort-item">비교</li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small active sort-asc">기준가(원)</button>
+                          </li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small">순자산(백만원)</button>
+                          </li>
+                          <li class="sort-item period">
+                            <p class="tit">수익률(%)</p>
+                            <ul class="period-list">
+                              <li><button type="button" class="btn text small">1개월</button></li>
+                              <li><button type="button" class="btn text small">3개월</button></li>
+                              <li><button type="button" class="btn text small">6개월</button></li>
+                              <li><button type="button" class="btn text small">1년</button></li>
+                              <li><button type="button" class="btn text small">3년</button></li>
+                              <li><button type="button" class="btn text small">5년</button></li>
+                              <li><button type="button" class="btn text small">연초이후</button></li>
+                              <li><button type="button" class="btn text small">설정이후</button></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tablet-only">
+                        <div class="sort-item select">
+                          <div class="form-select outline medium">
+                            <select class="sr-only" name="select-b1h5cfq" id="select-b1h5cfq" tabindex="-1" aria-hidden="true">
+                              <option value="default" selected="selected">기준가</option>
+                              <option value="assets">순자산</option>
+                            </select>
+                            <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-b1h5cfq-listbox" tabindex="0">
+                              <span class="select-value">기준가</span>
+                            </button>
+                            <ul id="select-b1h5cfq-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                              <li class="select-option" role="&#34;option&#34;" data-value="default" aria-selected="true" tabindex="-1">기준가</li>
+                              <li class="select-option" role="&#34;option&#34;" data-value="assets" aria-selected="false" tabindex="-1">순자산</li>
+                            </ul>
+                          </div>
+                        </div>
+                        <ul class="sort-list">
+                          <li class="sort-item">
+                            <button type="button" class="btn text small active sort-asc">낮은순</button>
+                          </li>
+                          <li class="sort-item">
+                            <button type="button" class="btn text small">높은순</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <ul class="fund-list-wrap">
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-6m8ifty" />
+                          <label for="chk-6m8ifty">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-8k30vvs" />
+                          <label for="chk-8k30vvs">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-fiadyps" />
+                          <label for="chk-fiadyps">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-qh45s6d" />
+                          <label for="chk-qh45s6d">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-oq6533d" />
+                          <label for="chk-oq6533d">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-ks5xbak" />
+                          <label for="chk-ks5xbak">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-kn4dz8q" />
+                          <label for="chk-kn4dz8q">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-1dz6257" />
+                          <label for="chk-1dz6257">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="fund-item">
+                        <div class="form-check">
+                          <input type="checkbox" id="chk-xsmso5t" />
+                          <label for="chk-xsmso5t">
+                            <span class="sr-only">비교담기</span>
+                          </label>
+                        </div>
+                        <div class="fund-info">
+                          <div class="fund-top">
+                            <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="badge-wrap">
+                              <span class="badge light-orange">아세안</span>
+                              <span class="badge light-orange">주식혼합</span>
+                              <span class="badge light-orange">중소형주/성장주</span>
+                            </div>
+                            <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                            <div class="tit-wrap">
+                              <a href="#!">
+                                <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                                <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="fund-chart">
+                            <div class="chart-area line">
+                              <div class="chart">
+                                <!-- Chart 영역 -->
+                              </div>
+                            </div>
+                          </div>
+                          <div class="fund-con">
+                            <div class="fund-txt revenue">
+                              <p class="tit">3개월 수익률</p>
+                              <p class="val">-</p>
+                              <!-- up / down -->
+                              <!-- <p class="val up">25.5%</p>
+					<p class="val down">-25.5%</p> -->
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">기준가</p>
+                              <p class="val">
+                                2,698.34
+                                <span class="unit">원</span>
+                              </p>
+                            </div>
+                            <div class="fund-txt">
+                              <p class="tit">순자산</p>
+                              <p class="val">
+                                1,463
+                                <span class="unit">백만원</span>
+                              </p>
+                            </div>
+                            <div class="period-grid">
+                              <div class="fund-txt">
+                                <p class="val down">-22.02</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">45.89</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">2.45</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">87.98</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">103.62</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">179.85</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val down">-75.15</p>
+                              </div>
+                              <div class="fund-txt">
+                                <p class="val up">169.83</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <div class="btn-wrap array-center">
+                      <button type="button" class="btn tertiary large">
+                        <span>더보기</span>
+                        <span class="page-num">
+                          (
+                          <strong>1</strong>
+                          /
+                          <em>10</em>
+                          )
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="fund-compare-floating">
+                    <div class="inner">
+                      <ul class="compare-list">
+                        <li class="compare-item">
+                          <span>한화100세시대퇴직연금코리아레전드4차산업혁명증권자투자신탁(채권혼합)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                        <li class="compare-item">
+                          <span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                        <li class="compare-item">
+                          <span>한화2.2배레버리지인덱스증권투자신탁(주식-파생재간접형)</span>
+                          <button type="button" class="btn icon large delete">
+                            <i class="svg-icon icon-delete"></i>
+                            <span class="sr-only">삭제</span>
+                          </button>
+                        </li>
+                      </ul>
+                      <div class="compare-btn-wrap">
+                        <button type="button" class="btn large reset">
+                          <i class="svg-icon icon-reset"></i>
+                          <span>다시 선택</span>
+                        </button>
+                        <button type="button" class="btn primary large" data-modal-open="modalCompare" aria-controls="modalCompare">
+                          <span>비교하기(1/3)</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- // container -->
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="inner">
+          <div class="footer-top">
+            <div class="logo"><span class="sr-only">한화자산운용</span></div>
+          </div>
+          <div class="footer-con">
+            <ul class="address">
+              <li>07345 서울시 영등포구 63로 50 한화금융센터</li>
+              <li>대표번호 02-6950-0000</li>
+              <li>팩스 02-6950-0009</li>
+              <li>한화자산운용㈜ 준법감시인 심사필 제2025-525호(2025.10.02~2026.10.01)</li>
+            </ul>
+            <div class="nav">
+              <ul class="link-list">
+                <li><a href="#!">스튜어드십코드</a></li>
+                <!-- [2025-12-03] 클래스 추가 -->
+                <li class="active"><a href="#!">개인정보처리방침</a></li>
+                <!-- [2025-12-03] 클래스 추가 -->
+                <li><a href="#!">신용정보활용체계</a></li>
+                <li><a href="#!">고객정보취급방침</a></li>
+                <!-- [2025-12-03] 마크업 수정 -->
+                <li><button data-modal-open="modalEmailCollection" aria-controls="modalEmailCollection">이메일무단수집거부</button></li>
+                <!-- // [2025-12-03] 마크업 수정 -->
+              </ul>
+              <ul class="link-list">
+                <li><a href="#!">윤리경영</a></li>
+                <!-- [2025-12-03] 마크업 수정 -->
+                <li><button data-modal-open="modalLegalNotice" aria-controls="modalLegalNotice">법적고시</button></li>
+                <!-- // [2025-12-03] 마크업 수정 -->
+                <li><a href="#!">보험금융상품등록</a></li>
+                <li><a href="#!">금융소비자보호포탈</a></li>
+              </ul>
+            </div>
+            <div class="util">
+              <!-- [2025-12-03] 마크업 수정 -->
+              <div class="family-site">
+                <div class="form-select medium bg-gray ico-plus">
+                  <select class="sr-only" name="family-site" id="select-qco1hyw" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트 및 유관기관">
+                    <option value="hanwha">(주)한화</option>
+                    <option value="lifeplus">LIFEPLUS</option>
+                    <option value="hanwhaLife">한화생명</option>
+                    <option value="hanwhawm">한화투자증권</option>
+                    <option value="hwgeneralins">한화손해보험</option>
+                    <option value="hanwhasbank">한화저축은행</option>
+                    <option value="hanwhalifefs">한화생명금융서비스</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-qco1hyw-listbox" tabindex="0">
+                    <span class="select-value placeholder">패밀리 사이트 및 유관기관</span>
+                  </button>
+                  <ul id="select-qco1hyw-listbox" class="select-listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 4">
+                    <li class="select-option" data-value="hanwha" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwha.co.kr/" target="_blank" class="item-link" title="&#34;새창열림&#34;">(주)한화</a>
+                    </li>
+                    <li class="select-option" data-value="lifeplus" aria-selected="false" tabindex="-1">
+                      <a href="https://www.lifeplus.co.kr/" target="_blank" class="item-link" title="&#34;새창열림&#34;">LIFEPLUS</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhaLife" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhalife.com/index.jsp" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화생명</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhawm" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhawm.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화투자증권</a>
+                    </li>
+                    <li class="select-option" data-value="hwgeneralins" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hwgeneralins.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화손해보험</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhasbank" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhasbank.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화저축은행</a>
+                    </li>
+                    <li class="select-option" data-value="hanwhalifefs" aria-selected="false" tabindex="-1">
+                      <a href="https://www.hanwhalifefs.com" target="_blank" class="item-link" title="&#34;새창열림&#34;">한화생명금융서비스</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- [2025-12-03] 마크업 수정 -->
+              </div>
+              <ul class="sns-list">
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">youtube</span>
+                    <i class="svg-icon icon-youtube"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">instagram</span>
+                    <i class="svg-icon icon-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="btn icon xxxlarge bg-deep-gray round">
+                    <span class="sr-only">blog</span>
+                    <i class="svg-icon icon-blog"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+          </div>
+          <div class="footer-btn-top">
+            <a href="#!" class="btn large">
+              <i class="svg-icon icon-arrow-up"></i>
+              <span>TOP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- popup 이메일무단수집거부 -->
+        <div id="modalEmailCollection" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalEmailCollection" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalEmailCollection" class="modal-title">이메일주소 무단수집거부</h2>
+              </div>
+              <div class="modal-conts">
+                <p>본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집 되는 것을 거부하며, 이를 위반 시 정보통신법에 의해 형사 처벌됨을 유념하여 주시기 바랍니다.</p>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalEmailCollection">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 이메일무단수집거부 -->
+
+        <!-- popup 법적고시 -->
+        <div id="modalLegalNotice" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalLegalNotice" data-type="modal">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 id="tit_modalLegalNotice" class="modal-title">법적고시</h2>
+              </div>
+              <div class="modal-conts">
+                <div class="info-txt-list">
+                  <p>본 웹사이트는 한화자산운용의 독점적 소유의 정보자산입니다.</p>
+                  <p>한화자산운용은 이 웹사이트를 개발하기 위하여 자금, 시간 및 노력을 투입하였습니다. 이러한 자산들은 저작권, 상표권,기술에 대한 정보에만 국한되지는 않습니다.</p>
+                  <p>한화자산운용에 소유권이 있는 정보자산들은 문자, 그림, 음성, 화상, 내려 받기 파일, 링크 및 소스 코드들(이하 ‘서비스와 자료들’)의 형태로 제공됩니다. 한화자산운용은 이러한 서비스와 자료들에 대한 모든 권리를 소유합니다.</p>
+                  <p>이러한 서비스와 자료들은 오직 한화자산운용의 고객들과 고객들의 편의를 위해서 제공되었습니다.한화자산운용은 본 웹사이트에서 고객들께 제공되는 서비스와 자료들에 대하여 고객들에게 지적인 재산권을 부여한 것은 아닙니다.</p>
+                  <p>한화자산운용은 이 웹사이트 및 다른 관련사이트들의 서비스와 자료들 및 정보에 대한 정확도, 완성도, 신뢰도에 대하여 보장하지 않습니다.</p>
+                  <p>따라서 한화자산운용에서 문서로 특별히 조언을 드리는 경우를 제외하고는 이 사이트에 포함된 정보를 고객의 이익에 관련된 결정상의 참고자료로 의존하지 마시기 바랍니다.</p>
+                  <p>서비스와 자료들은 한화자산운용에 의해 사실에 기초하여 제공되었습니다. 그리고 한화자산운용은 서비스나 자료들에 대한 판매 목적상의 무제한 보증이나 특별한 목적하의 맞추어진 적합성을 포함하여 표현되거나 함축된 어떤 또는 모든 보증을 부인합니다.</p>
+                  <p>서비스와 자료들에 관련된 어떤 종류의 직접적, 간접적, 우발적, 징벌적 또는 필연적인 피해에 관련 된 경우에 대하여 한화자산운용에서는 책임을 지지 않습니다.</p>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalLegalNotice">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 법적고시 -->
+      </footer>
+      <!-- // footer -->
+
+      <!-- popup 상세검색 -->
+      <!-- [2025-12-22] 버튼명 '다시 선택' -> '설정 초기화' 수정 -->
+      <div id="mobileDetailSearchBottomSheet" class="modal fade bottom-sheet" role="dialog" aria-modal="true" aria-labelledby="tit_mobileDetailSearchBottomSheet" data-type="bottom-sheet">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="tit_mobileDetailSearchBottomSheet" class="modal-title">상세검색</h2>
+            </div>
+            <div class="modal-conts">
+              <div class="accordion list" data-type="multiOpen">
+                <div class="accordion-item active">
+                  <div class="accordion-header" id="accordionHeader-0">
+                    <button type="button" class="btn-accordion" aria-controls="accordionCollapse-0" aria-expanded="true">
+                      <span class="tit">
+                        투자를 희망하는 지역을 선택하세요
+                        <span class="count">1</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="accordion-collapse collapse active" id="accordionCollapse-0" aria-labelledby="accordionHeader-0" role="region">
+                    <div class="accordion-body">
+                      <div class="check-area chip-wrap">
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-o8d10y0" name="chip-region" value="all" />
+                          <label for="chip-o8d10y0" class="form-chip-outline">
+                            <span>전체</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-dq3hbsy" name="chip-region" value="domestic" checked="checked" />
+                          <label for="chip-dq3hbsy" class="form-chip-outline">
+                            <span>국내</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-9zlp5eb" name="chip-region" value="global" />
+                          <label for="chip-9zlp5eb" class="form-chip-outline">
+                            <span>해외</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="accordionHeader-1">
+                    <button type="button" class="btn-accordion" aria-controls="accordionCollapse-1" aria-expanded="false">
+                      <span class="tit">
+                        펀드 유형을 선택하세요
+                        <span class="count">2</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="accordion-collapse collapse" id="accordionCollapse-1" aria-labelledby="accordionHeader-1" role="region">
+                    <div class="accordion-body">
+                      <div class="check-area chip-wrap">
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-vg6xcot" name="chip-type" value="all" checked="checked" />
+                          <label for="chip-vg6xcot" class="form-chip-outline">
+                            <span>전체</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-4cf45c5" name="chip-type" value="mmf" />
+                          <label for="chip-4cf45c5" class="form-chip-outline">
+                            <span>MMF</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-jn2s7oq" name="chip-type" value="etc" />
+                          <label for="chip-jn2s7oq" class="form-chip-outline">
+                            <span>기타</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-jngwyb1" name="chip-type" value="real_estate" />
+                          <label for="chip-jngwyb1" class="form-chip-outline">
+                            <span>부동산</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-xb23vsa" name="chip-type" value="infra" />
+                          <label for="chip-xb23vsa" class="form-chip-outline">
+                            <span>인프라</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-2r8s5q6" name="chip-type" value="stock" />
+                          <label for="chip-2r8s5q6" class="form-chip-outline">
+                            <span>주식</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-39tstaa" name="chip-type" value="stock_mixed" />
+                          <label for="chip-39tstaa" class="form-chip-outline">
+                            <span>주식혼합</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-uidk3lz" name="chip-type" value="bond" />
+                          <label for="chip-uidk3lz" class="form-chip-outline">
+                            <span>채권</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-j44tbk7" name="chip-type" value="bond_mixed" />
+                          <label for="chip-j44tbk7" class="form-chip-outline">
+                            <span>채권혼합</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-tv9hnhf" name="chip-type" value="derivative" />
+                          <label for="chip-tv9hnhf" class="form-chip-outline">
+                            <span>파생</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-z0bhktd" name="chip-type" value="multi_asset" />
+                          <label for="chip-z0bhktd" class="form-chip-outline">
+                            <span>혼합자산</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-ut6tiz5" name="chip-type" value="fund_of_funds" />
+                          <label for="chip-ut6tiz5" class="form-chip-outline">
+                            <span>재간접</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="accordionHeader-2">
+                    <button type="button" class="btn-accordion" aria-controls="accordionCollapse-2" aria-expanded="false">
+                      <span class="tit">
+                        펀드 테마를 선택하세요
+                        <span class="count">2</span>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="accordion-collapse collapse" id="accordionCollapse-2" aria-labelledby="accordionHeader-2" role="region">
+                    <div class="accordion-body">
+                      <div class="check-area chip-wrap col-2">
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-pbnu4d1" name="chip-theme" value="all" checked="checked" />
+                          <label for="chip-pbnu4d1" class="form-chip-outline">
+                            <span>전체</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-1kz7kbz" name="chip-theme" value="ai" />
+                          <label for="chip-1kz7kbz" class="form-chip-outline">
+                            <span>AI</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-n9emvqb" name="chip-theme" value="esg" />
+                          <label for="chip-n9emvqb" class="form-chip-outline">
+                            <span>ESG</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-ulzzpu7" name="chip-theme" value="tdf" />
+                          <label for="chip-ulzzpu7" class="form-chip-outline">
+                            <span>TDF</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-hjuz7i6" name="chip-theme" value="pension" />
+                          <label for="chip-hjuz7i6" class="form-chip-outline">
+                            <span>개인연금</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-ph24pcl" name="chip-theme" value="ipo" />
+                          <label for="chip-ph24pcl" class="form-chip-outline">
+                            <span>공모주</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-uotci7y" name="chip-theme" value="global" />
+                          <label for="chip-uotci7y" class="form-chip-outline">
+                            <span>글로벌</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-0l3lf03" name="chip-theme" value="interest_rate" />
+                          <label for="chip-0l3lf03" class="form-chip-outline">
+                            <span>금리</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-xfr1zxs" name="chip-theme" value="multi_asset" />
+                          <label for="chip-xfr1zxs" class="form-chip-outline">
+                            <span>멀티에셋</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-rj92dgi" name="chip-theme" value="target_conversion" />
+                          <label for="chip-rj92dgi" class="form-chip-outline">
+                            <span>목표전환</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-44i1b3j" name="chip-theme" value="dividend" />
+                          <label for="chip-44i1b3j" class="form-chip-outline">
+                            <span>배당</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-ew7dj1v" name="chip-theme" value="sector_leader" />
+                          <label for="chip-ew7dj1v" class="form-chip-outline">
+                            <span>업종대표</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-rf51o8h" name="chip-theme" value="index" />
+                          <label for="chip-rf51o8h" class="form-chip-outline">
+                            <span>인덱스</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-xxh1qe5" name="chip-theme" value="income" />
+                          <label for="chip-xxh1qe5" class="form-chip-outline">
+                            <span>인컴형</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-6wjgati" name="chip-theme" value="small_cap" />
+                          <label for="chip-6wjgati" class="form-chip-outline">
+                            <span>중소형주</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-yeoeg9n" name="chip-theme" value="retirement_pension" />
+                          <label for="chip-yeoeg9n" class="form-chip-outline">
+                            <span>퇴직연금</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-wbew0q0" name="chip-theme" value="value_stock" />
+                          <label for="chip-wbew0q0" class="form-chip-outline">
+                            <span>가치주</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-bledkrn" name="chip-theme" value="global_asset_allocation" />
+                          <label for="chip-bledkrn" class="form-chip-outline">
+                            <span>글로벌자산배분</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-w93r30l" name="chip-theme" value="climate_crisis" />
+                          <label for="chip-w93r30l" class="form-chip-outline">
+                            <span>기후위기</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-u4bz2q1" name="chip-theme" value="short_bond" />
+                          <label for="chip-u4bz2q1" class="form-chip-outline">
+                            <span>단기채</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-mao47ys" name="chip-theme" value="leverage" />
+                          <label for="chip-mao47ys" class="form-chip-outline">
+                            <span>레버리지</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-243ioul" name="chip-theme" value="north_america" />
+                          <label for="chip-243ioul" class="form-chip-outline">
+                            <span>북미</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-wfowxwi" name="chip-theme" value="sector" />
+                          <label for="chip-wfowxwi" class="form-chip-outline">
+                            <span>섹터</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-rznx620" name="chip-theme" value="emerging_market" />
+                          <label for="chip-rznx620" class="form-chip-outline">
+                            <span>신흥국</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-oiixxc6" name="chip-theme" value="asean" />
+                          <label for="chip-oiixxc6" class="form-chip-outline">
+                            <span>아세안</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-2hx7c3r" name="chip-theme" value="commodity" />
+                          <label for="chip-2hx7c3r" class="form-chip-outline">
+                            <span>원자재</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-5ura6rr" name="chip-theme" value="europe" />
+                          <label for="chip-5ura6rr" class="form-chip-outline">
+                            <span>유럽</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-aaddgyh" name="chip-theme" value="japan" />
+                          <label for="chip-aaddgyh" class="form-chip-outline">
+                            <span>일본</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-56h388i" name="chip-theme" value="ultra_short_bond" />
+                          <label for="chip-56h388i" class="form-chip-outline">
+                            <span>초단기채</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-pholdf7" name="chip-theme" value="long_bond" />
+                          <label for="chip-pholdf7" class="form-chip-outline">
+                            <span>장기채</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-0i78x3n" name="chip-theme" value="mid_bond" />
+                          <label for="chip-0i78x3n" class="form-chip-outline">
+                            <span>중기채</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-pf5k3x0" name="chip-theme" value="mid_short_bond" />
+                          <label for="chip-pf5k3x0" class="form-chip-outline">
+                            <span>중단기채</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-2t7lve8" name="chip-theme" value="china" />
+                          <label for="chip-2t7lve8" class="form-chip-outline">
+                            <span>중국</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-xvsvvzb" name="chip-theme" value="tech" />
+                          <label for="chip-xvsvvzb" class="form-chip-outline">
+                            <span>테크</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="checkbox" id="chip-3dny1cm" name="chip-theme" value="healthcare" />
+                          <label for="chip-3dny1cm" class="form-chip-outline">
+                            <span>헬스케어</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-header" id="accordionHeader-3">
+                    <button type="button" class="btn-accordion" aria-controls="accordionCollapse-3" aria-expanded="false">
+                      <span class="tit">수익률을 정해서 검색할 수 있어요</span>
+                    </button>
+                  </div>
+                  <div class="accordion-collapse collapse" id="accordionCollapse-3" aria-labelledby="accordionHeader-3" role="region">
+                    <div class="accordion-body">
+                      <div class="check-area chip-wrap">
+                        <div class="form-chip">
+                          <input type="radio" id="chip-bjw99tu" name="chip-period2" value="all" checked="checked" />
+                          <label for="chip-bjw99tu" class="form-chip-outline">
+                            <span>전체</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-oa7z962" name="chip-period2" value="1m" />
+                          <label for="chip-oa7z962" class="form-chip-outline">
+                            <span>1개월</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-5ceytu2" name="chip-period2" value="3m" />
+                          <label for="chip-5ceytu2" class="form-chip-outline">
+                            <span>3개월</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-luhjg0e" name="chip-period2" value="6m" />
+                          <label for="chip-luhjg0e" class="form-chip-outline">
+                            <span>6개월</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-ovr65sf" name="chip-period2" value="1y" />
+                          <label for="chip-ovr65sf" class="form-chip-outline">
+                            <span>1년</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-xckno1o" name="chip-period2" value="3y" />
+                          <label for="chip-xckno1o" class="form-chip-outline">
+                            <span>3년</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-e1gjajd" name="chip-period2" value="5y" />
+                          <label for="chip-e1gjajd" class="form-chip-outline">
+                            <span>5년</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-w5d1tza" name="chip-period2" value="ytd" />
+                          <label for="chip-w5d1tza" class="form-chip-outline">
+                            <span>연초이후</span>
+                          </label>
+                        </div>
+                        <div class="form-chip">
+                          <input type="radio" id="chip-iaz3uhp" name="chip-period2" value="since_inception" />
+                          <label for="chip-iaz3uhp" class="form-chip-outline">
+                            <span>설정이후</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="range-slider-wrap">
+                        <div class="range-slider num-range" data-grid='{"type":"num", "min": 0, "max": 5, "step": 1, "values":[1,5]}'>
+                          <div class="range-legend" aria-hidden="true">
+                            <span>
+                              -10%
+                              <br class="mobile-only" />
+                              이하
+                            </span>
+                            <span>0%</span>
+                            <span>20%</span>
+                            <span>40%</span>
+                            <span>60%</span>
+                            <span>
+                              80%
+                              <br class="mobile-only" />
+                              이상
+                            </span>
+                          </div>
+                          <div class="handle ui-slider-handle">
+                            <input type="text" class="amount" name="minRtn" tabindex="-1" readonly="readonly" title="최저 수익률(%)" />
+                          </div>
+                          <div class="handle ui-slider-handle">
+                            <input type="text" class="amount" name="maxRtn" tabindex="-1" readonly="readonly" title="최고 수익률(%)" />
+                          </div>
+                          <span class="blind alt" aria-live="polite"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class=""></div>
+            </div>
+            <div class="modal-btn btn-wrap ratio">
+              <button type="button" class="btn outline btn-close" aria-controls="mobileDetailSearchBottomSheet">설정 초기화</button>
+              <button type="button" class="btn btn-close" aria-controls="mobileDetailSearchBottomSheet">검색 결과보기</button>
+            </div>
+            <button type="button" class="btn icon btn-close" aria-controls="mobileDetailSearchBottomSheet">
+              <span class="sr-only">닫기</span>
+              <i class="svg-icon icon-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-back in"></div>
+      </div>
+      <!-- // [2025-12-22] 버튼명 '다시 선택' -> '설정 초기화' 수정 -->
+      <!-- // popup 상세검색 -->
+
+      <!-- popup 상품비교 -->
+      <div id="modalCompare" class="modal fade modal" role="dialog" aria-modal="true" aria-labelledby="tit_modalCompare" data-type="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="tit_modalCompare" class="modal-title">상품비교</h2>
+            </div>
+            <div class="modal-conts">
+              <div class="tbl-wrap scroll fund-list-wrap">
+                <table class="tbl">
+                  <caption>
+                    <span>상품명, 차트, 투자지역, 기준가(원), 총보수(연, %), 설정일, 환매방법으로 구성된 표</span>
+                  </caption>
+                  <colgroup>
+                    <col width="auto" />
+                    <col width="11.5%" />
+                    <col width="10.5%" />
+                    <col width="13%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="4%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th rowspan="2">상품명</th>
+                      <th rowspan="2">차트</th>
+                      <th>투자지역</th>
+                      <th>기준가(원)</th>
+                      <th rowspan="2">설정일</th>
+                      <th rowspan="2">총보수(연, %)</th>
+                      <th rowspan="2">환매방법</th>
+                      <th rowspan="2">
+                        상세
+                        <br />
+                        보기
+                      </th>
+                    </tr>
+                    <tr>
+                      <th>상품유형</th>
+                      <th>순자산(원)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="fund-name">
+                          <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                          <div class="badge-wrap">
+                            <span class="badge light-orange small">아세안</span>
+                            <span class="badge light-orange small">주식혼합</span>
+                            <span class="badge light-orange small">중소형주/성장주</span>
+                          </div>
+
+                          <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+
+                          <div class="txt-wrap">
+                            <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                            <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-chart">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-type col">
+                          <span>국내</span>
+                          <span>주식형</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-price col">
+                          <span>724.47</span>
+                          <span>152,851,304</span>
+                        </div>
+                      </td>
+                      <td>2012.02.08</td>
+                      <td>1.532%</td>
+                      <td>해당사항없음</td>
+                      <td>
+                        <a href="#!" class="fund-link"><span class="sr-only">상세보기</span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="fund-name">
+                          <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                          <div class="badge-wrap">
+                            <span class="badge light-orange small">아세안</span>
+                            <span class="badge light-orange small">주식혼합</span>
+                            <span class="badge light-orange small">중소형주/성장주</span>
+                          </div>
+
+                          <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+
+                          <div class="txt-wrap">
+                            <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                            <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-chart">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-type col">
+                          <span>국내</span>
+                          <span>주식형</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-price col">
+                          <span>724.47</span>
+                          <span>152,851,304</span>
+                        </div>
+                      </td>
+                      <td>2012.02.08</td>
+                      <td>1.532%</td>
+                      <td>해당사항없음</td>
+                      <td>
+                        <a href="#!" class="fund-link"><span class="sr-only">상세보기</span></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="fund-name">
+                          <!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
+                          <div class="badge-wrap">
+                            <span class="badge light-orange small">아세안</span>
+                            <span class="badge light-orange small">주식혼합</span>
+                            <span class="badge light-orange small">중소형주/성장주</span>
+                          </div>
+
+                          <!-- // [2025-12-12] badge 컬러 light-orange 로 변경 -->
+
+                          <div class="txt-wrap">
+                            <p class="tit">선진국액티브증권자투자신탁(H)(주식)C-Pe(연금저축)</p>
+                            <p class="desc">종류 C-e(수수료미징구-온라인)</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-chart">
+                          <div class="chart-area line">
+                            <div class="chart">
+                              <!-- Chart 영역 -->
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-type col">
+                          <span>국내</span>
+                          <span>주식형</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="fund-price col">
+                          <span>724.47</span>
+                          <span>152,851,304</span>
+                        </div>
+                      </td>
+                      <td>2012.02.08</td>
+                      <td>1.532%</td>
+                      <td>해당사항없음</td>
+                      <td>
+                        <a href="#!" class="fund-link"><span class="sr-only">상세보기</span></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <button type="button" class="btn icon btn-close" aria-controls="modalCompare">
+              <span class="sr-only">닫기</span>
+              <i class="svg-icon icon-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="modal-back in"></div>
+      </div>
+      <!-- popup 상품비교 -->
+    </div>
+    <script src="/assets/js/fund.js" type="text/javascript"></script>
+  </body>
+</html>

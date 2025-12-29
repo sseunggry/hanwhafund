@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>버튼 &gt; 가이드</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+
+    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="tit-lg">
+          <span class="txt">버튼</span>
+        </div>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">기본형 Button</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">default</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn large">
+                  <span>확인</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn large">
+                  <span>확인(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Primary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn primary large">
+                  <span>확인(.primary)</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn primary large">
+                  <span>확인(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Secondary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn secondary large">
+                  <span>확인(.secondary)</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn secondary large">
+                  <span>확인(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">Tertiary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn tertiary large">
+                  <span>확인(.tertiary)</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn tertiary large">
+                  <span>확인(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">크기별 Button</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>.btn.small, medium, large (사이즈 class)를 선언하면 해당 사이즈가 적용됨.</li>
+                <li>사이즈 선언이 없을 경우 Basic(56h)가 default로 선언됨.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <button type="button" class="btn primary xlarge">
+                <span>버튼 xlarge - 64h</span>
+              </button>
+              <button type="button" class="btn primary large">
+                <span>버튼 large - 56h</span>
+              </button>
+              <button type="button" class="btn primary medium">
+                <span>버튼 medium - 48h</span>
+              </button>
+              <button type="button" class="btn primary small">
+                <span>버튼 small - 32h</span>
+              </button>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">텍스트 Button</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">text</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn text large">
+                  <span>지난 보고서 전체보기</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn text large">
+                  <span>지난 보고서 전체보기(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">text primary</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn text primary large">
+                  <span>지난 보고서 전체보기</span>
+                </button>
+                <button type="button" disabled="disabled" class="btn text primary large">
+                  <span>지난 보고서 전체보기(비활성화)</span>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">아이콘 조합 버튼</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">아이콘(Default)</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn large">
+                  <span>다운로드</span>
+                  <i class="svg-icon icon-download"></i>
+                </button>
+                <button type="button" class="btn text large">
+                  <i class="svg-icon icon-file"></i>
+                  <span>지난 보고서 전체보기</span>
+                  <i class="svg-icon icon-arrow-right"></i>
+                </button>
+                <button type="button" class="btn icon xlarge">
+                  <span class="sr-only">공유</span>
+                  <i class="svg-icon icon-share"></i>
+                </button>
+                <button type="button" class="btn icon xxlarge">
+                  <span class="sr-only">검색</span>
+                  <i class="svg-icon icon-search"></i>
+                </button>
+                <button type="button" class="btn icon xxlarge">
+                  <span class="sr-only">메뉴</span>
+                  <i class="svg-icon icon-menu"></i>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">텍스트 버튼</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">텍스트 버튼-1.6rem</span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted">
+                <span>텍스트버튼(.texted)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-c-black">
+                <span>텍스트색상(.texted.type-c-black)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-c-gray">
+                <span>텍스트색상 #5a5b63(.texted.type-c-gray)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-c-gray2">
+                <span>텍스트색상 #868a93(.texted.type-c-gray2)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-c-red">
+                <span>텍스트색상(.texted.type-c-red)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.4rem(.texted.type-sm)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-sm">
+                <span>텍스트버튼 폰트크기 1.4rem(.texted.type-sm)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.8rem(.texted.type-lg)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-lg">
+                <span>텍스트버튼 폰트크기 1.8rem(.texted.type-lg)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-lg type-c-red">
+                <span>동의 철회</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  Text UnderLine 추가(.texted.type-underline)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-underline">
+                <span>
+                  텍스트버튼 Text UnderLine 추가 button 태그일
+                  경우(.texted.type-underline)
+                </span>
+              </button>
+              <br />
+              <a type="button" class="btn texted type-underline">
+                <span>텍스트버튼 Text UnderLine 추가 a 태그일 경우</span>
+              </a>
+            </div>
+          </div>
+        </section> -->
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">라인 버튼</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <button type="button" class="btn line xlarge">
+                  <span>집합투자규약</span>
+                  <i class="svg-icon icon-download"></i>
+                </button>
+                <button type="button" class="btn line xlarge">
+                  <span>IBK투자증권</span>
+                  <i class="svg-icon icon-link"></i>
+                </button>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인 - column</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="btn-wrap column">
+                  <button type="button" class="btn line xlarge">
+                    <span>집합투자규약</span>
+                    <i class="svg-icon icon-download"></i>
+                  </button>
+                  <button type="button" class="btn line xlarge">
+                    <span>IBK투자증권</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">라인 - grid-3</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="btn-wrap grid-3">
+                  <button type="button" class="btn line xlarge">
+                    <span>IBK투자증권</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                  <button type="button" class="btn line xlarge">
+                    <span>KB증권</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                  <button type="button" class="btn line xlarge">
+                    <span>LS증권</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                  <button type="button" class="btn line xlarge">
+                    <span>대신증권</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                  <button type="button" class="btn line xlarge">
+                    <span>미래에셋자산운용</span>
+                    <i class="svg-icon icon-link"></i>
+                  </button>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.4rem(.texted.type-sm)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-sm">
+                <span>텍스트버튼 폰트크기 1.4rem(.texted.type-sm)</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  텍스트 버튼 폰트크기-1.8rem(.texted.type-lg)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-lg">
+                <span>텍스트버튼 폰트크기 1.8rem(.texted.type-lg)</span>
+              </button>
+              <br />
+              <button type="button" class="btn texted type-lg type-c-red">
+                <span>동의 철회</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">
+                  Text UnderLine 추가(.texted.type-underline)
+                </span>
+              </div>
+            </div>
+
+            <div class="group">
+              <button type="button" class="btn texted type-underline">
+                <span>
+                  텍스트버튼 Text UnderLine 추가 button 태그일
+                  경우(.texted.type-underline)
+                </span>
+              </button>
+              <br />
+              <a type="button" class="btn texted type-underline">
+                <span>텍스트버튼 Text UnderLine 추가 a 태그일 경우</span>
+              </a>
+            </div>
+          </div> -->
+        </section>
+
+        <!-- <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">블릿 버튼</span>
+            </div>
+          </div>
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  "확인하세요" 텍스트로된 콘텐츠 중간에 사용/관련본문 텍스트
+                  크기에 따라 영향을 받음(18/16/14)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <button type="button" class="btn bulleted">
+              <span>다른 보험사 가입내역 보기(.bulleted)</span>
+            </button>
+            <br />
+            <button type="button" class="btn bulleted black">
+              <span>
+                다른 보험사 가입내역 보기 글자색상 #0b0d0f(.bulleted.black)
+              </span>
+            </button>
+            <br />
+            <button type="button" class="btn bulleted gray">
+              <span>
+                다른 보험사 가입내역 보기 글자색상 #868a93(.bulleted.gray)
+              </span>
+            </button>
+          </div>
+        </section> -->
+
+        <!-- <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">아이콘 + 텍스트 버튼</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <button type="button" class="btn texted icon refresh">
+              <span>텍스트버튼(.texted)</span>
+            </button>
+          </div>
+        </section> -->
+
+        <!-- <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">아이콘 버튼(.ico-xxx)</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <button type="button" class="btn ico-tooltip">
+              <span>도움말</span>
+            </button>
+            <br />
+            <button type="button" class="btn ico-pdf">
+              <span>pdf다운로드</span>
+            </button>
+            <br />
+            <button type="button" class="btn ico-docx">
+              <span>docx다운로드</span>
+            </button>
+            <br />
+            <button type="button" class="btn ico-excel">
+              <span>excel다운로드</span>
+            </button>
+            <br />
+            <button type="button" class="btn ico-listen">
+              <span>오디오듣기</span>
+            </button>
+            <br />
+            <button type="button" class="btn ico-download">
+              <span>다운로드</span>
+            </button>
+          </div>
+
+          <div class="group"></div>
+        </section> -->
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">button Group</span>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 1개일 때</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <button type="button" class="btn large">
+                  <span>확인</span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 2개일 때</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <button type="button" class="btn secondary large">
+                  <span>취소</span>
+                </button>
+                <button type="button" class="btn primary large">
+                  <span>확인</span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼이 3개일 때</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap grid-3">
+                <button type="button" class="btn secondary large">
+                  <span>취소</span>
+                </button>
+                <button type="button" class="btn primary large">
+                  <span>확인</span>
+                </button>
+                <button type="button" class="btn large">
+                  <span>확인</span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">3:7 비율(.btn.ratio-3)</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <button type="button" class="btn secondary large ratio-3">
+                  <span>취소</span>
+                </button>
+                <button type="button" class="btn primary large">
+                  <span>확인</span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">더보기 버튼(넘버링 있음)</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap">
+                <button type="button" class="btn tertiary large">
+                  <span>더보기</span>
+
+                  <span class="page-num">
+                    (
+                    <strong>1</strong>
+                    /
+                    <em>10</em>
+                    )
+                  </span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">버튼 상하배열</span>
+            </div>
+
+            <div class="hls_preview">
+              <div class="btn-wrap column">
+                <button type="button" class="btn secondary large">
+                  <span>취소</span>
+                </button>
+                <button type="button" class="btn primary large">
+                  <span>확인</span>
+                </button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">기타 버튼타입</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">버튼 + 체크버튼형 추가</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="btn-wrap option-array">
+                        <button
+                          type="button"
+                          class="btn outlined option-xsm option-round"
+                        >
+                          <span>상세보기</span>
+                        </button>
+                        <label
+                          for="btnLikeChk1"
+                          class="btn outlined type2 option-xsm option-round check-icon heart"
+                        >
+                          <input type="checkbox" id="btnLikeChk1" name="" />
+                          <div class="label">
+                            <span class="">관심상품 등록</span>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+      </div>
+    </div>
+  </body>
+</html>

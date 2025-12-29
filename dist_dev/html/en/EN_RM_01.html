@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="keywords" content="한화자산운용, " />
+    <meta name="description" content="한화자산운용 웹사이트 입니다." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Multi-monitoring system | Risk Management | 한화자산운용" />
+    <meta property="og:description" content="한화자산운용 웹사이트 입니다." />
+    <!-- <meta property="og:image" content=""> -->
+    <!-- <meta property="og:url" content=""> -->
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/common/favicon_180.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/common/favicon_512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/common/favicon_192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/common/favicon_32.png" />
+    <title>Multi-monitoring system | Risk Management | 한화자산운용</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+    <script src="/assets/js/swiper-bundle.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/swiper-bundle.min.css" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+    <!-- <link href="/assets/scss/style.scss" rel="stylesheet"> -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="page-company">
+    <div class="wrap">
+      <!-- header -->
+      <header class="header">
+        <div class="header-top">
+          <div class="inner">
+            <ul class="link">
+              <li class="logo-plusetf">
+                <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+              </li>
+              <li class="logo-pine">
+                <a href="#!"><span class="sr-only">PINE</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header-con">
+          <div class="inner">
+            <h1 class="logo"><span class="sr-only">Hanwha Asset Management</span></h1>
+            <nav class="nav">
+              <ul class="gnb-list">
+                <li class="gnb-item active">
+                  <a href="#!" class="gnb-link">Our Company</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link active">Hanwha Asset Management</a></li>
+                    <li><a href="#!" class="submenu-link">Management Status</a></li>
+                    <li><a href="#!" class="submenu-link">The Hanwha Finance</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">Risk Management</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">Multi-monitoring system</a></li>
+                    <li><a href="#!" class="submenu-link">Risk management system</a></li>
+                    <li><a href="#!" class="submenu-link">Compliance system</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">Global Network</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">Global Network</a></li>
+                  </ul>
+                </li>
+                <li class="gnb-item">
+                  <a href="#!" class="gnb-link">Contact Us</a>
+                  <ul class="submenu">
+                    <li><a href="#!" class="submenu-link">Contact Us</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <div class="util">
+              <div class="lang">
+                <div class="form-select text small">
+                  <select class="sr-only" name="language-select" id="select-ii8tc47" tabindex="-1" aria-hidden="true">
+                    <option value="KR">KR</option>
+                    <option value="EN" selected="selected">EN</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ii8tc47-listbox" tabindex="0">
+                    <span class="select-value">EN</span>
+                  </button>
+                  <ul id="select-ii8tc47-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
+                    <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="true" tabindex="-1">EN</li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                <span class="sr-only">search</span>
+                <i class="svg-icon icon-search"></i>
+              </button>
+              <button type="button" class="btn icon xxlarge" data-modal-open="modalAllMenu" aria-controls="modalAllMenu">
+                <span class="sr-only">menu</span>
+                <i class="svg-icon icon-menu"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- popup 검색  -->
+        <div id="modalSearch" class="modal fade top-sheet header-search" role="dialog" aria-modal="true" aria-labelledby="tit_modalSearch" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="logo"><span class="sr-only">한화자산운용</span></div>
+              </div>
+              <div class="modal-conts">
+                <div class="search-wrap">
+                  <div class="search-con">
+                    <div class="input xlarge line search">
+                      <input type="text" id="input-deqc4wt" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                    </div>
+
+                    <div class="tag-wrap text medium">
+                      <a href="#!" class="btn-tag">#ETF</a>
+                      <a href="#!" class="btn-tag">#월배당ETF</a>
+                      <a href="#!" class="btn-tag">#바이오</a>
+                      <a href="#!" class="btn-tag">#자산분배형</a>
+                      <a href="#!" class="btn-tag">#ESG</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalSearch">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- popup 검색 -->
+
+        <!-- popup 전체메뉴  -->
+        <div id="modalAllMenu" class="modal fade top-sheet sitemap" role="dialog" aria-modal="true" aria-labelledby="tit_modalAllMenu" data-type="top-sheet">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="header-top">
+                  <div class="inner">
+                    <ul class="link">
+                      <li class="logo-plusetf">
+                        <a href="#!"><span class="sr-only">PLUS ETF</span></a>
+                      </li>
+                      <li class="logo-pine">
+                        <a href="#!"><span class="sr-only">PINE</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="header-con">
+                  <div class="inner">
+                    <h1 class="logo"><span class="sr-only">한화자산운용</span></h1>
+                    <div class="util">
+                      <div class="lang">
+                        <div class="form-select text small">
+                          <select class="sr-only" name="language-select" id="select-e7xzguz" tabindex="-1" aria-hidden="true">
+                            <option value="KR">KR</option>
+                            <option value="EN" selected="selected">EN</option>
+                          </select>
+                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-e7xzguz-listbox" tabindex="0">
+                            <span class="select-value">EN</span>
+                          </button>
+                          <ul id="select-e7xzguz-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                            <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="false" tabindex="-1">KR</li>
+                            <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="true" tabindex="-1">EN</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <button type="button" class="btn icon xxlarge" data-modal-open="modalSearch" aria-controls="modalSearch">
+                        <span class="sr-only">search</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                      <button type="button" class="btn icon xxlarge btn-close">
+                        <span class="sr-only">close</span>
+                        <i class="svg-icon icon-close"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-conts">
+                <div class="sitemap-wrap">
+                  <ul class="sitemap-list">
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>Our Company</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">Hanwha Asset Management</a></li>
+                        <li>
+                          <a href="#!" class="depth2">Management Status</a>
+                          <ul class="submenu">
+                            <li><a href="#!" class="depth3">Summary of Consolidated Statement of Comprehensive Income</a></li>
+                            <li><a href="#!" class="depth3">Summary of Consolidated Statement of Financial Position</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#!" class="depth2">The Hanwha Finance</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>Risk Management</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">Multi-monitoring system</a></li>
+                        <li><a href="#!" class="depth2">Risk management system</a></li>
+                        <li><a href="#!" class="depth2">Compliance system</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item">
+                      <a href="#!" class="depth1"><span>Global Network</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">Global Network</a></li>
+                      </ul>
+                    </li>
+                    <li class="sitemap-item company">
+                      <a href="#!" class="depth1"><span>Contact Us</span></a>
+                      <ul class="submenu">
+                        <li><a href="#!" class="depth2">Contact Us</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button type="button" class="btn icon btn-close" aria-controls="modalAllMenu">
+                <span class="sr-only">닫기</span>
+                <i class="svg-icon icon-close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="modal-back in"></div>
+        </div>
+        <!-- // popup 전체메뉴  -->
+      </header>
+      <!-- // header -->
+
+      <!-- container -->
+      <main class="container company-system">
+        <section class="section-employ">
+          <div class="inner">
+            <div class="cont-group">
+              <div class="section-tit-wrap">
+                <h2 class="tit">Investment Management System</h2>
+              </div>
+
+              <div class="tab-area">
+                <div class="tab line">
+                  <ul role="tablist">
+                    <li id="tab-tab-1" role="tab" aria-controls="tab-panel-1" class="active" aria-selected="true">
+                      <button type="button" class="btn-tab">
+                        Investment Monitoring Framework
+                        <span class="sr-only">선택됨</span>
+                      </button>
+                    </li>
+                    <li id="tab-tab-2" role="tab" aria-controls="tab-panel-2" aria-selected="false">
+                      <button type="button" class="btn-tab">Risk Management</button>
+                    </li>
+                    <li id="tab-tab-3" role="tab" aria-controls="tab-panel-3" aria-selected="false">
+                      <button type="button" class="btn-tab">Internal Control Review System</button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="tab-conts-wrap">
+                  <div id="tab-panel-1" class="tab-conts active" role="tabpanel" aria-labelledby="tab-tab-1">
+                    <section class="cont-group monitoring">
+                      <div class="overlay-box-wrap reverse">
+                        <div class="visual-box">
+                          <img src="/assets/images/company/system-monitoring-01.jpg" alt="" class="pc-tablet-only" />
+                          <img src="/assets/images/company/mo-system-monitoring-01.jpg" alt="" class="mobile-only" />
+                        </div>
+                        <div class="info-box">
+                          <p class="tit">
+                            <span class="f-hanwha">Hanwha Asset Management</span>
+                            <span class="fc-primary">responds to market volatility</span>
+                            through a systematic and robust risk management framework.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="group-wrap spacing-lg">
+                        <h3 class="tit-sm">Investment Monitoring Framework Process</h3>
+                        <div class="gray-box">
+                          <div class="img-wrap">
+                            <img src="/assets/images/company/system-monitoring-02-en.png" alt="" class="pc-tablet-only" />
+                            <img src="/assets/images/company/mo-system-monitoring-02-en.png" alt="" class="mobile-only" />
+                          </div>
+                        </div>
+                        <ul class="grid-list-wrap">
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Portfolio Management</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <p class="tit">Investment Team</p>
+                                <ul class="note-list depth-1">
+                                  <li>Compliance with investment plans</li>
+                                  <li>Review of regulatory and guideline-based investment limits</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Risk Management</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <p class="tit">Risk Management Team</p>
+                                <ul class="note-list depth-1">
+                                  <li>Risk management by type (market, credit, liquidity)</li>
+                                  <li>Setting and monitoring of position, loss, and risk limits</li>
+                                  <li>Calculation and analysis of risk metrics</li>
+                                  <li>Fund performance evaluation and performance attribution</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Compliance</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <p class="tit">Compliance Team</p>
+                                <ul class="note-list depth-1">
+                                  <li>Monitoring of compliance with all internal control standards: Ongoing review of compliance with applicable laws, terms and conditions, and special agreements</li>
+                                  <li>Pre- and post-monitoring of daily operations: Proactive management of legal risks and review of operational errors, including corrective actions and confirmation of their implementation</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                  </div>
+                  <div id="tab-panel-2" class="tab-conts" role="tabpanel" aria-labelledby="tab-tab-2">
+                    <section class="cont-group risk">
+                      <div class="overlay-box-wrap reverse">
+                        <div class="visual-box">
+                          <img src="/assets/images/company/system-risk-01.jpg" alt="" class="pc-tablet-only" />
+                          <img src="/assets/images/company/mo-system-risk-01.jpg" alt="" class="mobile-only" />
+                        </div>
+                        <div class="info-box">
+                          <p class="tit">
+                            Through
+                            <span class="fc-primary">dual monitoring</span>
+                            , we rigorously manage risks across the entire investment process.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="group-wrap spacing-lg">
+                        <h3 class="tit-sm">Risk Management Process</h3>
+                        <div class="gray-box">
+                          <div class="img-wrap">
+                            <img src="/assets/images/company/system-risk-02-en.png" alt="" class="pc-tablet-only" />
+                            <img src="/assets/images/company/mo-system-risk-02-en.png" alt="" class="mobile-only" />
+                          </div>
+                        </div>
+                        <ul class="grid-list-wrap">
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Establishing risk policies and procedures</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <p class="tit">Risk Management Committee</p>
+                                <ul class="note-list depth-1">
+                                  <li>Formulating and revising risk management policies and overall risk levels</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Portfolio Risk Measurement</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Risk assessment for new funds and products</li>
+                                  <li>Identification and quantitative measurement of key portfolio risks</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Portfolio Risk Evaluation</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Comparing current risk/return levels with established targets</li>
+                                  <li>Analyzing risk factor contributions</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Portfolio Risk Reporting</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Convening relevant parties and implementing follow-up actions, including measures to prevent recurrence</li>
+                                  <li>Daily risk reporting</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                  </div>
+                  <div id="tab-panel-3" class="tab-conts" role="tabpanel" aria-labelledby="tab-tab-3">
+                    <section class="cont-group inspect">
+                      <div class="overlay-box-wrap reverse">
+                        <div class="visual-box">
+                          <img src="/assets/images/company/system-inspect-01.jpg" alt="" class="pc-tablet-only" />
+                          <img src="/assets/images/company/mo-system-inspect-01.jpg" alt="" class="mobile-only" />
+                        </div>
+                        <div class="info-box">
+                          <p class="tit">
+                            We prevent risks in advance and
+                            <span class="fc-primary">ensure transparent investment management</span>
+                            through internal controls and compliance oversight.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="group-wrap spacing-lg">
+                        <h3 class="tit-sm">Internal Control Review Process</h3>
+                        <div class="gray-box">
+                          <div class="img-wrap">
+                            <img src="/assets/images/company/system-inspect-02-en.png" alt="" class="pc-tablet-only" />
+                            <img src="/assets/images/company/mo-system-inspect-02-en.png" alt="" class="mobile-only" />
+                          </div>
+                        </div>
+                        <ul class="grid-list-wrap">
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Establishment of the Internal Control System</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Enactment and Revision of the Internal Control System</li>
+                                  <li>Establishment of the Regulatory Compliance Policy</li>
+                                  <li>Development of the Regulatory Compliance Programs</li>
+                                  <li>Compliance Oversight and Result Reporting</li>
+                                  <li>Establishment and Operation of the Responsibility Map</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Monitoring and inspection</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Monitoring of the operation of the internal control system</li>
+                                  <li>Reporting unlawful or improper activities to the Audit Committee, requesting sanctions, and requiring corrective and remedial measures for identified issues and deficiencies</li>
+                                  <li>Collecting information related to the internal control system</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Pre- and post-review of daily operations</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Prior review of the establishment, amendment, or repeal of internal rules, operational policies, and related procedures</li>
+                                  <li>Prior review of agenda items to be submitted to the Board of Directors</li>
+                                  <li>Prior review of new business initiatives</li>
+                                  <li>Prior review of external documents and marketing materials</li>
+                                  <li>Ongoing monitoring to ensure compliance with internal control requirements</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Protection of clients, shareholders, and stakeholders</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Handling customer complaints and reviewing the adequacy and appropriateness of public disclosure activities</li>
+                                  <li>Monitoring and supervising the adequacy of investor protection measures</li>
+                                  <li>Reviewing and preventing conflicts of interest</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="tit-wrap">
+                              <p class="tit num">Support and advisory services related to the internal control system</p>
+                            </div>
+                            <div class="txt-wrap">
+                              <div class="txt-item">
+                                <ul class="note-list depth-1">
+                                  <li>Providing guidance to the Board of Directors, management, and relevant departments on the operation of the internal control system</li>
+                                  <li>Regular reporting to management and the Internal Control Committee on the establishment and implementation of the internal control system</li>
+                                  <li>Advising employees on regulatory compliance and operational matters</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- // container -->
+
+      <!-- footer -->
+      <footer class="footer">
+        <div class="inner">
+          <div class="footer-top">
+            <div class="logo"><span class="sr-only">한화자산운용</span></div>
+          </div>
+          <div class="footer-con">
+            <ul class="address">
+              <li>63 Hanwha Financial Center # 50 63-ro, Yeongdeungpo-gu, Seoul 150-603</li>
+              <li>TEL. 02.6950.0000</li>
+              <li>FAX. 02.6950.0009</li>
+            </ul>
+            <div class="util">
+              <div class="family-site">
+                <div class="form-select medium bg-gray ico-plus">
+                  <select class="sr-only" name="family-site" id="select-mo2plo2" tabindex="-1" aria-hidden="true" data-placeholder="FAMILY SITE">
+                    <option value="site1">site 1</option>
+                    <option value="site2">site 2</option>
+                  </select>
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-mo2plo2-listbox" tabindex="0">
+                    <span class="select-value placeholder">FAMILY SITE</span>
+                  </button>
+                  <ul id="select-mo2plo2-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                    <li class="select-option" role="&#34;option&#34;" data-value="site1" aria-selected="false" tabindex="-1">site 1</li>
+                    <li class="select-option" role="&#34;option&#34;" data-value="site2" aria-selected="false" tabindex="-1">site 2</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="copyright">ⓒ Hanwha Asset Management Co., Ltd. All Rights Reserved.</p>
+          </div>
+          <div class="footer-btn-top">
+            <a href="#!" class="btn large">
+              <i class="svg-icon icon-arrow-up"></i>
+              <span>TOP</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+      <!-- // footer -->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>파일첨부 &gt; 가이드</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+
+    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="list-head">
+          <div class="tit-lg">
+            <span class="txt">파일첨부</span>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">Basic</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>두가지 서로 다른 형태로 구성, 쓰임새에 따라 다르게 사용가능</li>
+                <li>Input Type - file : 클릭시 첨부파일을 불러들이는 형태</li>
+                <li>Button Type : 클릭시 팝업을 호출하는 형태</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">input Type - file</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="file-regist">
+                        <label for="fileItem1" class="lb-file" aria-hidden="false" tabindex="0">
+                          <input type="file" name="" id="fileItem1" />
+                          <div class="btn-file">
+                            <span class="txt">서류를 등록해 주세요</span>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">Button Type</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="file-regist">
+                        <button type="button" class="lb-file" aria-hidden="false" tabindex="0" fui-toggle="url: /v2/html/modal/M3_05_001_014.html;">
+                          <div class="btn-file">
+                            <span class="txt">
+                              진료비 납입확인서와 카드 매출전표는
+                              <br />
+                              등록할 수 없습니다.
+                            </span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="group">
+              <a href="/v2/html/claim/M3_05_001_004.html?step=5" class="btn outlined option-md" target="_blank" title="새창열림">
+                <span>샘플 확인</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">파일첨부 + 첨부된 스와이프 Type</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>좌측 파일첨부 버튼, 우측 첨부된 파일 스와이프 방식(첨부파일 삭제버튼 있음)</li>
+                <li>이미지의 경우 첨부한 파일 클릭시 사진 미리보기 팝업 호출 / PDF 파일의 경우 별도 기능 없음</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="box-img-regist">
+                        <!-- 등록된 서류가 없는 경우 non-regist 클래스 추가 -->
+                        <div class="file-regist">
+                          <label for="fileItem1" class="lb-file" aria-hidden="false" tabindex="0">
+                            <input type="file" name="" id="fileItem1" />
+                            <div class="btn-file">
+                              <span class="txt">서류를 등록해 주세요</span>
+                            </div>
+                          </label>
+                        </div>
+                        <!-- 등록된 서류가 없는 경우 노출 -->
+                        <p class="text-empty">
+                          진료비 납입확인서와 카드매출전표는
+                          <br />
+                          등록할 수 없습니다.
+                        </p>
+
+                        <div class="img-preview-list">
+                          <div class="ui-floating-wrap">
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <div class="thumb-pdf"><span>병원</span></div>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">Button Type</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="box-img-regist">
+                        <!-- 등록된 서류가 없는 경우 non-regist 클래스 추가 -->
+                        <div class="file-regist">
+                          <button type="button" class="lb-file" aria-hidden="false" tabindex="0" fui-toggle="url: /v2/html/modal/M3_05_001_014.html;">
+                            <div class="btn-file">
+                              <span class="txt">서류를 등록해 주세요</span>
+                            </div>
+                          </button>
+                        </div>
+                        <!-- 등록된 서류가 없는 경우 노출 -->
+                        <p class="text-empty">
+                          진료비 납입확인서와 카드매출전표는
+                          <br />
+                          등록할 수 없습니다.
+                        </p>
+
+                        <div class="img-preview-list">
+                          <div class="ui-floating-wrap">
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <div class="thumb-pdf"><span>병원</span></div>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                            <div class="img-area">
+                              <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                <!-- <img
+                                  src="/v2/resources/images/claim/file2.jpg"
+                                  alt="미리보기이미지"
+                                /> -->
+                              </button>
+                              <button type="button" class="btn-img-delete">
+                                <span class="sr-only">이미지삭제</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="group">
+              <a href="/v2/html/claim/04/C_040_020_002.html?step=3" class="btn outlined option-md" target="_blank" title="새창열림">
+                <span>샘플 확인</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="list-head">
+            <div class="tit-xsm">
+              <span class="txt">첨부된 파일 알림</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>좌측 파일첨부 버튼, 우측 첨부된 파일 스와이프 방식(첨부파일 삭제버튼 있음)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">박스 내 첨부 스와이프</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="box-img-regist-wrap">
+                        <div class="box-img-regist">
+                          <div class="img-preview-list">
+                            <div class="ui-floating-wrap non-regist">
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file4.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <div class="thumb-pdf"><span>병원</span></div>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file2.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file2.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file4.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file2.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                              <div class="img-area">
+                                <button type="button" class="btn-img-view" tabindex="0" fui-toggle="url: /v2/html/modal/SL_Z_000_021.html;">
+                                  <!-- <img
+                                    src="/v2/resources/images/claim/file4.jpg"
+                                    alt="미리보기이미지"
+                                  /> -->
+                                </button>
+                                <button type="button" class="btn-img-delete">
+                                  <span class="sr-only">이미지삭제</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-wrap option-full">
+                          <button type="button" class="btn secondary option-md option-round">
+                            <span>서류 다시 등록</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">박스 내 첨부 + 확인버튼</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <ul class="list-doc">
+                        <li>
+                          <div class="txt-wrap">
+                            <strong>2023.09.10</strong>
+                            <p>3529553_IMG20220704153511.jpg</p>
+                          </div>
+                          <div class="btn-wrap">
+                            <button type="button" class="btn outlined option-xsm option-round">
+                              <span>서류 확인</span>
+                            </button>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="txt-wrap">
+                            <strong>2023.09.10</strong>
+                            <p>3529553_IMG20220704153511.jpg</p>
+                          </div>
+                          <div class="btn-wrap">
+                            <button type="button" class="btn outlined option-xsm option-round">
+                              <span>서류 확인</span>
+                            </button>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">업로드 단일 사진</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <figure class="files-img-area">
+                        <!-- <img
+                          src="/v2/resources/images/temp/img_650_884.png"
+                          alt="예시이미지"
+                        /> -->
+                        <button type="button" class="btn-img-delete">
+                          <span class="sr-only">이미지삭제</span>
+                        </button>
+                      </figure>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">서류 등록</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <ul class="list-module-box option-list">
+                        <li class="mob-only">
+                          <a href="javascript:;" class="btn-module">
+                            <div class="item option-img icon ico-file1">
+                              <div class="text">
+                                <span class="tit">QR코드</span>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="btn-module type-file">
+                            <div class="item option-img icon ico-file2">
+                              <div class="text">
+                                <label for="upload-photo" class="lb-upload" aria-hidden="false" tabindex="0">
+                                  <input type="file" name="" id="upload-photo" />
+                                  <div>
+                                    <span class="txt mob-only">사진 촬영/선택</span>
+                                    <span class="txt pc-only">사진 선택</span>
+                                  </div>
+                                </label>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;" class="btn-module type-file">
+                            <div class="item option-img icon ico-file3">
+                              <div class="text">
+                                <label for="upload-pdf" class="lb-upload" aria-hidden="false" tabindex="0">
+                                  <input type="file" name="" id="upload-pdf" />
+                                  <div><span class="txt">PDF 파일</span></div>
+                                </label>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

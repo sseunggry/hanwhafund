@@ -5,17 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>클래스규칙 &gt; 가이드</title>
 
-    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
-    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
-    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
-    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
-    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="../../assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="../../guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="../../guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="../../assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="../../assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
 
-    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
-    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
-    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
-    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link href="../../guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="../../guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="../../assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -58,10 +60,13 @@
                   회사소개:
                   <strong class="fc-red">.page-company</strong>
                 </li>
-                <!-- <li>회사소개 영문:<strong class="fc-red">.page-company.eng</strong></li> -->
               </ul>
             </div>
+          </div>
+        </section>
 
+        <section class="section">
+          <div class="group">
             <div class="tit-sm">
               <span class="txt">하위 화면별로 구분 Class 부여 규칙</span>
             </div>
@@ -74,36 +79,56 @@
                   "&gt;
                 </li>
                 <li>
-                  펀드 메인:
+                  펀드 - 메인:
                   <strong class="fc-red">.fund-main</strong>
                 </li>
                 <li>
-                  펀드 검색 결과:
+                  펀드 - 검색 결과:
                   <strong class="fc-red">.fund-search</strong>
                 </li>
-                <!-- <li>인사이트: <strong class="fc-red">.page-insight</strong></li>
-                <li>공시: <strong class="fc-red">.page-notice</strong></li>
-                <li>회사소개: <strong class="fc-red">.page-company</strong></li> -->
-                <!-- <li>회사소개 영문:<strong class="fc-red">.page-company.eng</strong></li> -->
+                <li>
+                  회사소개 - 메인:
+                  <strong class="fc-red">.company-main</strong>
+                </li>
+                <li>
+                  회사소개 - 글로벌 네트워크:
+                  <strong class="fc-red">.company-network</strong>
+                </li>
+                <li>
+                  회사소개 - 운용시스템:
+                  <strong class="fc-red">.company-system</strong>
+                </li>
+                <li>
+                  회사소개 - 채용정보:
+                  <strong class="fc-red">.company-employ</strong>
+                </li>
               </ul>
             </div>
 
-            <div class="tit-sm">
-              <span class="txt">하위 화면별로 구분 Class 부여 규칙</span>
-            </div>
-
-            <div class="module-box option-bg">| 레벨 | 클래스 예시 | 역할 / 설명 | | ------------- | -------------------------------------------------- | ------------------------------------- | | **페이지 단위** | `.section-detail` | 페이지 전체 컨테이너 | | **레이아웃 단위** | `.layout-sidebar`, `.layout-content` | 페이지 레이아웃 구성 | | **콘텐츠 영역 단위** | `.cont-area` | 주요 콘텐츠를 담는 큰 영역 (예: 그래프 영역, 데이터 영역 등) | | **콘텐츠 그룹 단위** | `.cont-group` | 하나의 콘텐츠 블록 단위, 여러 개 반복 가능 | | **세부 묶음 단위** | `.group-wrap` | `cont-group` 내부에서 논리적으로 묶이는 하위 영역 | | **요소 단위** | `.tit-wrap`, `.img-wrap`, `.txt-wrap`, `.btn-wrap` | 시각적 요소 감싸기 |</div>
+            <!-- <div class="tit-sm">
+							<span class="txt">하위 화면별로 구분 Class 부여 규칙</span>
+						</div>
+            <div class="module-box option-bg">
+              | 레벨            | 클래스 예시                                             | 역할 / 설명                               |
+							| ------------- | -------------------------------------------------- | ------------------------------------- |
+							| **페이지 단위**    | `.section-detail`                                  | 페이지 전체 컨테이너                           |
+							| **레이아웃 단위**   | `.layout-sidebar`, `.layout-content`               | 페이지 레이아웃 구성                           |
+							| **콘텐츠 영역 단위** | `.cont-area`                                       | 주요 콘텐츠를 담는 큰 영역 (예: 그래프 영역, 데이터 영역 등) |
+							| **콘텐츠 그룹 단위** | `.cont-group`                                      | 하나의 콘텐츠 블록 단위, 여러 개 반복 가능             |
+							| **세부 묶음 단위**  | `.group-wrap`                                      | `cont-group` 내부에서 논리적으로 묶이는 하위 영역     |
+							| **요소 단위**     | `.tit-wrap`, `.img-wrap`, `.txt-wrap`, `.btn-wrap` | 시각적 요소 감싸기                            |
+            </div> -->
           </div>
         </section>
 
         <section class="section">
-          <div class="tit-xsm">
+          <div class="tit-sm">
             <span class="txt">강제 클래스</span>
           </div>
 
           <div class="group">
             <div class="list-head">
-              <div class="tit-xxsm">
+              <div class="tit-xsm">
                 <span class="txt">경우에 따른 Show/Hide</span>
               </div>
             </div>
@@ -113,18 +138,10 @@
                 <li>
                   Mobile에서만 보여야 하는 경우:
                   <strong class="fc-red">.mob-only</strong>
-                  <!-- / Mobile에서만 읽혀야 하는 경우:
-                  <strong class="fc-red">.mob-only.read</strong> -->
                 </li>
                 <li>
                   PC에서만 보여야 하는 경우:
                   <strong class="fc-red">.pc-only</strong>
-                  <!-- / PC에서만 읽혀야 하는 경우:
-                  <strong class="fc-red">.pc-only.read</strong>
-                  / PC에서만 보여야하는 경우인데 flex로 되어야 할 경우:
-                  <strong class="fc-red">.pc-only-flex</strong>
-                  / PC에서만 보여야하는 경우인데 inline-flex로 되어야 할 경우:
-                  <strong class="fc-red">.pc-only-inlineflex</strong> -->
                 </li>
               </ul>
             </div>

@@ -18,7 +18,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/common/favicon_32.png" />
     <title>스튜어드십코드 | 한화자산운용</title>
 
-    <script type="text/javascript" src="../../assets/js/jquery3.min.js"></script>
+    <script src="../../assets/js/jquery3.min.js" type="text/javascript"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script src="../../assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
     <script src="../../assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
@@ -26,12 +26,14 @@
     <script src="../../assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
     <script src="../../assets/js/swiper-bundle.min.js" type="text/javascript"></script>
     <script src="../../assets/js/ui.common.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="../../assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
     <link href="../../assets/css/swiper-bundle.min.css" rel="stylesheet" />
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js"></script>
+
+    <!-- <link href="/assets/scss/style.scss" rel="stylesheet"> -->
     <link href="../../assets/css/style.css" rel="stylesheet" />
   </head>
   <body class="page-policy">
@@ -101,14 +103,14 @@
             <div class="util">
               <div class="lang">
                 <div class="form-select text small">
-                  <select class="sr-only" name="language-select" id="select-45f76vu" tabindex="-1" aria-hidden="true">
+                  <select class="sr-only" name="language-select" id="select-p2tv1xx" tabindex="-1" aria-hidden="true">
                     <option value="KR" selected="selected">KR</option>
                     <option value="EN">EN</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-45f76vu-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-p2tv1xx-listbox" tabindex="0">
                     <span class="select-value">KR</span>
                   </button>
-                  <ul id="select-45f76vu-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                  <ul id="select-p2tv1xx-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                     <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
                     <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                   </ul>
@@ -138,7 +140,7 @@
                 <div class="search-wrap">
                   <div class="search-con">
                     <div class="input xlarge line search">
-                      <input type="text" id="input-9q6tbq6" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
+                      <input type="text" id="input-me67gid" name="" value="투자신탁" placeholder="펀드명을 입력하세요" aria-label="펀드명 입력" />
                       <button type="button" class="btn icon btn-clear">
                         <span class="sr-only">입력 내용 지우기</span>
                         <i class="svg-icon icon-clear"></i>
@@ -194,14 +196,14 @@
                     <div class="util">
                       <div class="lang">
                         <div class="form-select text small">
-                          <select class="sr-only" name="language-select" id="select-kad3r10" tabindex="-1" aria-hidden="true">
+                          <select class="sr-only" name="language-select" id="select-fnka881" tabindex="-1" aria-hidden="true">
                             <option value="KR" selected="selected">KR</option>
                             <option value="EN">EN</option>
                           </select>
-                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-kad3r10-listbox" tabindex="0">
+                          <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-fnka881-listbox" tabindex="0">
                             <span class="select-value">KR</span>
                           </button>
-                          <ul id="select-kad3r10-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
+                          <ul id="select-fnka881-listbox" class="select-listbox" role="&#34;listbox&#34;" tabindex="-1" hidden style="--form-select-listbox-option-length: 2">
                             <li class="select-option" role="&#34;option&#34;" data-value="KR" aria-selected="true" tabindex="-1">KR</li>
                             <li class="select-option" role="&#34;option&#34;" data-value="EN" aria-selected="false" tabindex="-1">EN</li>
                           </ul>
@@ -342,6 +344,7 @@
                           회사는 기관투자자로서 투자대상회사의 지속적인 성장과 고객∙ 수익자 등(이하 '고객')의 수익 향상을 위한 선량한 자산관리자로서 2018년 7월 25일 부로 ‘원칙 준수 및 예외 설명(comply or explain)’ 방식에 따라 스튜어드십 코드 7가지 원칙 모두에 대해 다음과 같은 방침을 정하여 이행하고 있습니다.
                         </p>
                       </div>
+                      <!-- [2025-12-24] active 클래스 삭제 -->
                       <div class="accordion" data-type="singleOpen">
                         <div class="accordion-item">
                           <div class="accordion-header" id="accordionHeader-0">
@@ -416,14 +419,14 @@
                             </div>
                           </div>
                         </div>
-                        <div class="accordion-item active">
+                        <div class="accordion-item">
                           <div class="accordion-header" id="accordionHeader-2">
-                            <button type="button" class="btn-accordion" aria-controls="accordionCollapse-2" aria-expanded="true">
+                            <button type="button" class="btn-accordion" aria-controls="accordionCollapse-2" aria-expanded="false">
                               <span class="category">원칙 3.</span>
                               <span class="tit">기관투자자는 투자대상회사의 중장기적인 가치를 제고하여 투자자산의 가치를 보존하고 높일 수 있도록 투자대상회사를 주기적으로 점검해야 한다.</span>
                             </button>
                           </div>
-                          <div class="accordion-collapse collapse active" id="accordionCollapse-2" aria-labelledby="accordionHeader-2" role="region">
+                          <div class="accordion-collapse collapse" id="accordionCollapse-2" aria-labelledby="accordionHeader-2" role="region">
                             <div class="accordion-body">
                               <div class="terms-group">
                                 <p class="terms-txt">회사는 투자대상회사의 재무적 요인과 ESG 등 비재무적 요인을 고려한 개별 기업, 산업, 매크로 전반에 대한 점검(모니터링)을 투자 활동의 매우 중요한 요소로 인식하고 있으며, 효과적인 점검을 위해 리서치, 운용역과 긴밀하게 협업합니다. 투자대상회사에 대한 점검은 향후 주주가치 및 기업가치에 큰 악영향을 미칠 수 있는 이슈 및 리스크에 대한 사전적이고 능동적인 초기 예방 및 관리를 그 목적으로 하고 있습니다. 다만, 투자대상회사에 대한 집합투자재산의 투자규모 등을 고려하여 점검의 수준을 달리 정할 수 있습니다.</p>
@@ -603,6 +606,8 @@
                           </div>
                         </div>
                       </div>
+
+                      <!-- // [2025-12-24] active 클래스 삭제 -->
                     </div>
                     <div class="terms-group">
                       <h3 class="terms-tit">스튜어드십 코드 담당자 및 책임자</h3>
@@ -667,7 +672,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-96lik5e" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-s3ump08" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -843,7 +848,7 @@
                           <span class="sr-only">검색</span>
                           <i class="svg-icon icon-search"></i>
                         </button>
-                        <input type="text" id="input-dp9cy74" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
+                        <input type="text" id="input-27ix6be" name="" value="" placeholder="검색어를 입력해 주세요." aria-label="검색어 입력" />
                         <button type="button" class="btn icon btn-clear">
                           <span class="sr-only">입력 내용 지우기</span>
                           <i class="svg-icon icon-clear"></i>
@@ -989,7 +994,7 @@
               <!-- [2025-12-03] 마크업 수정 -->
               <div class="family-site">
                 <div class="form-select medium bg-gray ico-plus">
-                  <select class="sr-only" name="family-site" id="select-ayax1su" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트 및 유관기관">
+                  <select class="sr-only" name="family-site" id="select-e9xxdom" tabindex="-1" aria-hidden="true" data-placeholder="패밀리 사이트 및 유관기관">
                     <option value="hanwha">(주)한화</option>
                     <option value="lifeplus">LIFEPLUS</option>
                     <option value="hanwhaLife">한화생명</option>
@@ -998,10 +1003,10 @@
                     <option value="hanwhasbank">한화저축은행</option>
                     <option value="hanwhalifefs">한화생명금융서비스</option>
                   </select>
-                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-ayax1su-listbox" tabindex="0">
+                  <button type="button" role="combobox" class="select-button" aria-haspopup="listbox" aria-expanded="false" aria-controls="select-e9xxdom-listbox" tabindex="0">
                     <span class="select-value placeholder">패밀리 사이트 및 유관기관</span>
                   </button>
-                  <ul id="select-ayax1su-listbox" class="select-listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 4">
+                  <ul id="select-e9xxdom-listbox" class="select-listbox" tabindex="-1" hidden style="--form-select-listbox-option-length: 4">
                     <li class="select-option" data-value="hanwha" aria-selected="false" tabindex="-1">
                       <a href="https://www.hanwha.co.kr/" target="_blank" class="item-link" title="&#34;새창열림&#34;">(주)한화</a>
                     </li>

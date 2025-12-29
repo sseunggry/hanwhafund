@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>세그먼트 컨트롤 &gt; 가이드</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+
+    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="tit-lg">
+          <span class="txt">세그먼트 컨트롤</span>
+        </div>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Radio 타입</span>
+          </div>
+
+          <!-- <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>
+                  크기는 (.fz-변수) !important로 기본 선언되어 우선 순위로 선언
+                </li>
+              </ul>
+            </div>
+          </div> -->
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="segment-control" aria-label="세그먼트 컨트롤">
+                <label for="segment-0-4bu1ygn" class="control-btn">
+                  <input type="radio" class="sr-only" id="segment-0-4bu1ygn" name="segment" value="옵션 1" checked="checked" />
+                  <span>옵션 1</span>
+                </label>
+                <label for="segment-1-rue5guc" class="control-btn">
+                  <input type="radio" class="sr-only" id="segment-1-rue5guc" name="segment" value="옵션 2" />
+                  <span>옵션 2</span>
+                </label>
+                <label for="segment-2-cv7w042" class="control-btn">
+                  <input type="radio" class="sr-only" id="segment-2-cv7w042" name="segment" value="옵션 3" />
+                  <span>옵션 3</span>
+                </label>
+                <label for="segment-3-4zfpfpf" class="control-btn">
+                  <input type="radio" class="sr-only" id="segment-3-4zfpfpf" name="segment" value="옵션 4" />
+                  <span>옵션 4</span>
+                </label>
+                <label for="segment-4-93hpciz" class="control-btn">
+                  <input type="radio" class="sr-only" id="segment-4-93hpciz" name="segment" value="옵션 5" />
+                  <span>옵션 5</span>
+                </label>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Button 타입</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="segment-control" role="radiogroup" aria-label="세그먼트 컨트롤">
+                <button type="button" class="control-btn active" role="radio" aria-checked="true" tabindex="0">옵션 1</button>
+                <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">옵션 2</button>
+                <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">옵션 3</button>
+                <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">옵션 4</button>
+                <button type="button" class="control-btn" role="radio" aria-checked="false" tabindex="-1">옵션 5</button>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

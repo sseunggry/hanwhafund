@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>텍스트 필드 &gt; 가이드</title>
+
+    <script src="/assets/js/jquery3.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="/assets/js/bootstrap-datepicker.ko.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ui.common.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/prism.js" type="text/javascript"></script>
+    <script src="/guides/guide/assets/js/guide_script.js" type="text/javascript"></script>
+    <script src="/assets/js/gsap.min.js" type="text/javascript"></script>
+    <script src="/assets/js/ScrollTrigger.min.js" type="text/javascript"></script>
+
+    <link href="/guides/guide/assets/css/prism.css" rel="stylesheet" />
+    <link href="/guides/guide/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <link href="/assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="tit-lg">
+          <span class="txt">텍스트 필드</span>
+        </div>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Input Basic</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>텍스트 필드의 기본적인 형태</li>
+                <li>label에는 항목명이 표시되고, placeholder에는 힌트 텍스트가 표시됨</li>
+                <li>placeholder가 label로 이동하는 상호작용이 일어나지 않음</li>
+                <li>필수입력 .bullet-must는 .label-txt상이 아닌 단독으로도 사용가능(모듈 &gt; 리스트 참조)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="input-stm47td">
+                    아이디
+                    <small class="required">*</small>
+                  </label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large">
+                    <input type="text" id="input-stm47td" name="" value="" placeholder="아이디 입력" required />
+                    <button type="button" class="btn icon btn-clear">
+                      <span class="sr-only">입력 내용 지우기</span>
+                      <i class="svg-icon icon-clear"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group readonly">
+                <div class="form-tit">
+                  <label for="input-wztrw9o">readonly</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large readonly">
+                    <input type="text" id="input-wztrw9o" name="" value="123" placeholder="" readonly="readonly" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group disabled">
+                <div class="form-tit">
+                  <label for="input-fp8rhn8">disabled</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large disabled">
+                    <input type="text" id="input-fp8rhn8" name="" value="" placeholder="placeholder" disabled="disabled" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group is-error">
+                <div class="form-tit">
+                  <label for="input-syqnnrv">error</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large is-error">
+                    <input type="text" id="input-syqnnrv" name="" value="123" placeholder="" />
+                    <button type="button" class="btn icon btn-clear">
+                      <span class="sr-only">입력 내용 지우기</span>
+                      <i class="svg-icon icon-clear"></i>
+                    </button>
+                  </div>
+                  <p class="form-error-msg">true</p>
+                </div>
+              </div>
+              <div class="form-group is-success">
+                <div class="form-tit">
+                  <label for="input-s52z4ul">success</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large is-success">
+                    <input type="text" id="input-s52z4ul" name="" value="123" placeholder="" />
+                    <button type="button" class="btn icon btn-clear">
+                      <span class="sr-only">입력 내용 지우기</span>
+                      <i class="svg-icon icon-clear"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="input-8o9avpp">비밀번호</label>
+                </div>
+                <div class="form-conts">
+                  <div class="input large">
+                    <input type="password" id="input-8o9avpp" name="" value="" placeholder="비밀번호 입력" />
+                    <button type="button" class="btn icon btn-clear">
+                      <span class="sr-only">입력 내용 지우기</span>
+                      <i class="svg-icon icon-clear"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">그룹 Input (Dash 스타일)</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>placeholder가 label인 형태로 힌트 텍스트를 별도로 사용하면 안됨.</li>
+                <li>사용자가 텍스트 필드에 포커스가 들어가면 placeholder의 텍스트가 label로 이동하는 상호작용이 일어남</li>
+                <li>텍스트 필드에 포커스가 들어가면 .form-wrap에 .is-focus가 들어감. 텍스트 없는 상태에서 포커스 아웃 될 경우 .is-focus 삭제됨.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <span>주민등록번호</span>
+                </div>
+                <div class="form-conts">
+                  <div class="input-group dash">
+                    <div class="input large">
+                      <input type="number" id="input-279zvlo-group-0" value="" placeholder="앞자리" aria-label="주민등록번호 앞자리" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                    </div>
+                    <div class="input large">
+                      <input type="number" id="input-279zvlo-group-1" value="" placeholder="뒷자리" aria-label="주민등록번호 뒷자리" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">그룹 Input</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>placeholder가 label인 형태로 힌트 텍스트를 별도로 사용하면 안됨.</li>
+                <li>사용자가 텍스트 필드에 포커스가 들어가면 placeholder의 텍스트가 label로 이동하는 상호작용이 일어남</li>
+                <li>텍스트 필드에 포커스가 들어가면 .form-wrap에 .is-focus가 들어감. 텍스트 없는 상태에서 포커스 아웃 될 경우 .is-focus 삭제됨.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <span>이메일</span>
+                </div>
+                <div class="form-conts">
+                  <div class="input-group">
+                    <div class="input large">
+                      <input type="text" id="input-7brmym5-group-0" value="" placeholder="앞자리" aria-label="이메일 1번째 자리" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                    </div>
+                    <div class="input large">
+                      <input type="text" id="input-7brmym5-group-1" value="" placeholder="뒷자리" aria-label="이메일 2번째 자리" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Input Complex</span>
+          </div>
+
+          <div class="group">
+            <div class="module-box option-bg">
+              <ul class="note-list depth-1">
+                <li>Basic에 unit, button, image를 각각 조합해서 사용하는 형태</li>
+                <li>.inp-wrap에 .has-button을 추가함.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">unit 조합</span>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetInputUnit1_1" class="label-txt">
+                            label unit
+                          </label>
+                        </div>
+                        <div class="input-wrap md has-button search" fui-input>
+                          <input
+                            type="text"
+                            class="inp-base inp-ani"
+                            id="targetInputUnit1_1"
+                            name=""
+                            value=""
+                            placeholder="입력해주세요."
+                          />
+                          <div class="combine">
+                            <span>만원</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">image 조합</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="form-group">
+                  <div class="form-tit">
+                    <label for="input-rwvngij">검색</label>
+                  </div>
+                  <div class="form-conts">
+                    <div class="input large">
+                      <input type="text" id="input-rwvngij" name="" value="" placeholder="검색어 입력" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                      <button type="button" class="btn icon xlarge">
+                        <span class="sr-only">검색</span>
+                        <i class="svg-icon icon-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="tit-xxsm">
+              <span class="txt">button 조합</span>
+            </div>
+
+            <div class="group">
+              <div class="hls_preview">
+                <div class="form-group">
+                  <div class="form-tit">
+                    <label for="input-oulwq65">검색</label>
+                  </div>
+                  <div class="form-conts">
+                    <div class="input large">
+                      <input type="text" id="input-oulwq65" name="" value="" placeholder="검색어 입력" />
+                      <button type="button" class="btn icon btn-clear">
+                        <span class="sr-only">입력 내용 지우기</span>
+                        <i class="svg-icon icon-clear"></i>
+                      </button>
+                      <button type="button" class="btn small">
+                        <span>확인</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-code-toggle">View Code</button>
+              <div class="hls-wrap">
+                <pre><code class="hls language-html"></code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Text Area</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+              <div class="form-group">
+                <div class="form-tit">
+                  <label for="textarea">
+                    자기소개
+                    <small class="required">*</small>
+                  </label>
+                </div>
+                <div class="form-conts">
+                  <div class="textarea-wrap large">
+                    <textarea id="textarea" class="input large" name="" placeholder="자신을 소개해주세요..." maxlength="&#34;200&#34;" required></textarea>
+
+                    <p class="textarea-count">
+                      <span class="count-now">0</span>
+                      <span class="count-total">/200</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- <section class="section">
+          <div class="group">
+            <div class="list-head">
+              <div class="tit-xxsm">
+                <span class="txt">ELInputBoxIcon</span>
+              </div>
+            </div>
+
+            <div class="mui_tabs" fui-tab="">
+              <div class="ui-tab-btns">
+                <a class="ui-tab-btn" href="#none">PREVIEW</a>
+                <a class="ui-tab-btn" href="#none">MARKUP</a>
+              </div>
+              <div class="ui-tab-pnls">
+                <div class="ui-tab-pnl selected">
+                  <section class="section fui-mg-center">
+                    <div class="hls_preview">
+                      <div class="form-wrap">
+                        <div class="form-name">
+                          <label for="targetInpBox3_1" class="label-txt">
+                            검색
+                          </label>
+                        </div>
+                        <div
+                          class="input-wrap sm option-box has-button search"
+                          fui-input
+                        >
+                          <input
+                            type="text"
+                            class="inp-base"
+                            id="targetInpBox3_1"
+                            name=""
+                            value=""
+                            placeholder="입력"
+                          />
+                          <div class="combine">
+                            <button type="button" class="btn ico-search">
+                              <span class="sr-only">검색</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-wrap uAddress">
+                        <div class="form-wrap">
+                          <div class="form-name">
+                            <label for="targetInputAddress_2" class="label-txt">
+                              주소검색+삭제버튼 조합
+                            </label>
+                          </div>
+                          <div class="item-row gap-0-2">
+                            <div class="unit filled">
+                              <div
+                                class="input-wrap sm option-box has-button address"
+                                fui-input
+                              >
+                                <input
+                                  type="text"
+                                  class="inp-base"
+                                  id="targetInputAddress_3"
+                                  name=""
+                                  value=""
+                                  placeholder="주소 검색"
+                                  readonly
+                                />
+                                <div class="combine">
+                                  <button type="button" class="btn ico-search">
+                                    <span class="sr-only">검색</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="unit fixed">
+                              <button
+                                type="button"
+                                class="btn tertiary option-xsm option-round"
+                              >
+                                <span>삭제</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-wrap">
+                          <div
+                            class="input-wrap sm option-box readonly-line"
+                            fui-input
+                          >
+                            <input
+                              type="text"
+                              class="inp-base"
+                              id="targetInputAddress_3_1"
+                              name=""
+                              value=""
+                              placeholder=""
+                              disabled
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="ui-tab-pnl">
+                  <div>
+                    <pre><code class="hls" data-language="html"></code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+      </div>
+    </div>
+  </body>
+</html>
