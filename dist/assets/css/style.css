@@ -7275,6 +7275,8 @@ label {
 }
 .header .modal.sitemap .modal-dialog .icon.btn-close {
   position: static;
+  width: var(--hwf-button--icon-size-xxlarge);
+  height: var(--hwf-button--icon-size-xxlarge);
 }
 .header .modal.sitemap .header-con .util .lang .form-select.text .select-listbox {
   border-top: 0.1rem solid #e6e5e5;
