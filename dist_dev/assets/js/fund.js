@@ -1,4 +1,5 @@
 "use strict";
+
 const uiDetailSearch = {
   init: function () {
     $(document).on("click.uiDetailSearch", ".search-option-btn .btn", function (e) {
@@ -62,10 +63,10 @@ const uiRangeSlider = {
       const options = $slider.data('grid') || {};
       const sliderOptions = {
         range: true,
-        min: options.min || 0,     // 0
-        max: options.max || (valueMap.length - 1), // 5
-        step: options.step || 1,   // 1
-        values: options.values || [1, 5] // 초기값 (0%, 80% 이상)
+        min: options.min || 0, 
+        max: options.max || (valueMap.length - 1), 
+        step: options.step || 1,
+        values: options.values || [1, 5] 
       };
 
       const handleset = (event, ui) => {
@@ -97,7 +98,6 @@ const uiRangeSlider = {
           });
           handleset(event, { values: sliderOptions.values });
           
-          //눈금 위치 동적 설정
           const $legend = $(event.target).find('.range-legend');
           const $spans = $legend.find('span');
           const totalItems = $spans.length;
@@ -156,7 +156,6 @@ const uiSortWrapSticky = {
       }
     };
 
-    // 초기화
     updateDimensions();
     handleScroll();
 
