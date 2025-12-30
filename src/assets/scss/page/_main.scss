@@ -255,14 +255,15 @@
       .swiper-horizontal > .swiper-pagination-bullets,
       .swiper-pagination-bullets.swiper-pagination-horizontal {
         display: flex;
-        max-width: var(--#{$prefix}-content-wrap-width-large);
         margin: 0 var(--#{$prefix}-content-padding-x);
+        max-width: var(--#{$prefix}-content-wrap-width-large);
         left: 50%;
         bottom: 8rem;
         transform: translateX(-50%);
       }
       .swiper-pagination-bullet {
-        width: 8rem;
+				flex: 1;
+        max-width: 8rem;
         height: 0.4rem;
         border-radius: 0;
         opacity: 1;
@@ -289,6 +290,13 @@
 					.desc{
 						font-size: 1.6rem;
 					}
+				}
+			}
+			.main-visual-swiper{
+				.swiper-horizontal > .swiper-pagination-bullets,
+      	.swiper-pagination-bullets.swiper-pagination-horizontal {
+					margin: 0;
+					max-width: calc(100% - var(--#{$prefix}-content-padding-x) * 2);
 				}
 			}
 		}
@@ -943,7 +951,7 @@
 		}
 		@include mq(mobile){
 			@include bg("main/mo-banner-bg.png");
-			
+
 			.main-tit-wrap{
 				gap: 2.4rem;
 				padding-top: 16rem;
