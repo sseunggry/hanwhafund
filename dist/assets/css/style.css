@@ -8030,8 +8030,8 @@ html[lang="en"] .footer-top .logo {
   --main-partner-padding-top: 14rem;
   --main-partner-padding-bottom: 24rem;
   --main-partner-dt-font-size: 3.2rem;
-  --main-partner-dd-font-size: 24rem;
-  --main-partner-dd-small-font-size: 14rem;
+  --main-partner-dd-font-size: 20rem;
+  --main-partner-dd-small-font-size: 12rem;
   padding: var(--main-partner-padding-top) 0 var(--main-partner-padding-bottom);
 }
 .page-main .section-partner .info-wrap {
@@ -8039,7 +8039,7 @@ html[lang="en"] .footer-top .logo {
   align-items: center;
   justify-content: space-around;
   gap: 8rem;
-  margin-top: 30rem;
+  margin-top: 28rem;
 }
 .page-main .section-partner .info-wrap .img-wrap {
   flex-shrink: 0;
@@ -8186,8 +8186,8 @@ html[lang="en"] .footer-top .logo {
     --main-partner-padding-top: 8rem;
     --main-partner-padding-bottom: 12rem;
     --main-partner-dt-font-size: 1.8rem;
-    --main-partner-dd-font-size: 9.6rem;
-    --main-partner-dd-small-font-size: 4.8rem;
+    --main-partner-dd-font-size: 8rem;
+    --main-partner-dd-small-font-size: 4rem;
   }
   .page-main .section-partner .info-wrap {
     gap: 4rem;
@@ -8267,8 +8267,8 @@ html[lang="en"] .footer-top .logo {
   object-fit: cover;
 }
 .page-main .section-business .accordion.translucent {
-  --accordion-padding-y: 8rem;
-  --accordion-padding-x: 10rem;
+  --accordion-padding-y: 6rem;
+  --accordion-padding-x: 8rem;
   --accordion-icon-size: 5.6rem;
   width: 68rem;
 }
@@ -8292,14 +8292,12 @@ html[lang="en"] .footer-top .logo {
   mask-image: url(../../assets/images/icon/ico-plus-large.svg);
 }
 .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit {
-  position: relative;
+  display: flex;
+  gap: 0.4rem;
   font-size: 4rem;
   font-weight: 700;
 }
 .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit::before {
-  position: absolute;
-  top: 0;
-  left: -1.6rem;
   content: "";
   display: block;
   width: 1.2rem;
@@ -8310,7 +8308,7 @@ html[lang="en"] .footer-top .logo {
   background-color: #272626;
 }
 .page-main .section-business .accordion.translucent .accordion-item .accordion-body {
-  padding: 4rem var(--accordion-padding-x) var(--accordion-padding-y);
+  padding: 4rem var(--accordion-padding-x) var(--accordion-padding-y) calc(var(--accordion-padding-x) + 1.6rem);
   font-size: 2.1rem;
 }
 .page-main .section-business .accordion.translucent .accordion-item.active .btn-accordion {
@@ -8378,10 +8376,10 @@ html[lang="en"] .footer-top .logo {
     --accordion-icon-size: 4rem;
   }
   .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit {
+    gap: 0.6rem;
     font-size: 2.8rem;
   }
   .page-main .section-business .accordion.translucent .accordion-item .btn-accordion .tit::before {
-    margin-right: 0.6rem;
     width: 0.6rem;
     height: 0.6rem;
   }
