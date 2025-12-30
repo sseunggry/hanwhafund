@@ -2,7 +2,7 @@ const iaPageAData = {
 	language: "ko",
 	list: [
 		// --- 메인 ---
-		{ createDate: "2025-11-21",  modifyDate: "2025-12-22",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2025-12-22: 텍스트 수정`}, {detail: `2025-12-12: badge 컬러 light-orange 로 변경`}, {detail: "2025-12-04: business 영역 문구 및 fc-primary 추가"}], },
+		{ createDate: "2025-11-21",  modifyDate: "2025-12-30",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2025-12-30: 메인비주얼 a태그 추가`}, {detail: `2025-12-22: 텍스트 수정`}, {detail: `2025-12-12: badge 컬러 light-orange 로 변경`}, {detail: "2025-12-04: business 영역 문구 및 fc-primary 추가"}], },
 		{ createDate: "2025-12-23", modifyDate: "", category: "메인", depth1: "메인 공지 팝업", depth2: "", depth3: "-", pageName: "메인공지팝업", pageType: "popup", pageID: "MA_02P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-21", modifyDate: "", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-21", modifyDate: "2025-12-12", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2025-12-12: badge 컬러 light-orange 로 변경`}], },
