@@ -7957,6 +7957,7 @@ html[lang="en"] .footer-top .logo {
   font-size: 2.4rem;
   font-weight: 600;
   color: #fff;
+  word-break: keep-all;
 }
 .page-main .section-visual .visual .img-wrap,
 .page-main .section-visual .visual .video-wrap {
