@@ -326,6 +326,7 @@
         }
         .icon.btn-close{
           position: static;
+					@include square(var(--#{$prefix}-button--icon-size-xxlarge));
         }
       }
 
