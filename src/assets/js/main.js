@@ -46,13 +46,9 @@ const gsapPartnerAni = {
         trigger: $section[0],
         start: "top 10%",
         toggleActions: "restart none none reverse",
-        // markers: true,
       }
     });
 
-    // 3.자동 재생 시퀀스 (fromTo 사용)
-    // Part 1
-    // 이미지
     tl.fromTo($imagesWrap, 
       { opacity: 0 },
       { opacity: 1, duration: 0.5, ease: "power2.out" }
@@ -61,13 +57,11 @@ const gsapPartnerAni = {
       { scale: 1.1, opacity: 0 },
       { scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" }
     );
-    // 텍스트
     tl.fromTo($dl.eq(0), 
       { y: 50, opacity: 0 },
       { y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
       "<0.2"
     ); 
-    // 카운터
     tl.to(counters, { 
       counter1: endNum1,
       duration: counterDuration, 
@@ -76,7 +70,6 @@ const gsapPartnerAni = {
       onUpdate: () => $counters.eq(0).text(Math.round(counters.counter1))
     }, "<");
 
-    // Part 2
     tl.fromTo($images.eq(1), 
       { scale: 1.1, opacity: 0 },
       { scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" },
@@ -95,7 +88,6 @@ const gsapPartnerAni = {
       onUpdate: () => $counters.eq(1).text(Math.round(counters.counter2))
     }, "<");
 
-    // Part 3: (Part 2가 끝나고 0.5초 후)
     tl.fromTo($images.eq(2), 
       { scale: 1.1, opacity: 0 },
       { scale: 1, opacity: 1, duration: imgDuration, ease: "power2.out" },
@@ -125,19 +117,17 @@ const gsapMessageAni = {
 
     gsap.timeline({
       scrollTrigger: {
-        trigger: $sectionMsgContainer, // 트리거 .section-message가 뷰포트 상단에 닿을 때 시작
+        trigger: $sectionMsgContainer,
         start: "top top", 
-        endTrigger: $sectionBiz, // 종료: .section-business의 'top'이 뷰포트의 'top + (msgHeight / 2)px' 지점에 닿을 때
+        endTrigger: $sectionBiz,
         end: `top ${msgHeight / 2}px`,
-        pin: $sectionMsgContainer, // 고정 : section-message를 고정(pin)
-        pinSpacing: false, // 고정 시 여백(padding)을 추가X
+        pin: $sectionMsgContainer, 
+        pinSpacing: false, 
         scrub: 1, 
-        // markers: true // (디버깅 시 true로 변경)
       }
     })
     .to($sectionMsgText, {
-      // y: -(msgHeight / 2),
-      ease: "none" // 스크롤과 동일한 속도로 이동
+      ease: "none"
     });
   }
 };
@@ -159,7 +149,6 @@ const gsapBusinessAni = {
     $allItems.removeClass("active");
     $allContents.hide();
     
-    // 2. 타임라인 생성
     ScrollTrigger.create({
       trigger: $sectionBiz,
       start: "top 20%", 
@@ -191,7 +180,6 @@ const gsapInsightAni = {
         trigger: $visualBox[0], 
         start: "top 30%",     
         toggleActions: "restart none none reverse", 
-        // markers: true 
       }
     });
 
@@ -202,11 +190,11 @@ const gsapInsightAni = {
       ease: "power3.out"
     });
     tl.from($newsItems, {
-      y: 50,      // 50px 아래에서
+      y: 50,
       opacity: 0,
       duration: 0.8,
       ease: "power3.out",
-      stagger: 0.2 // 0.2초 간격으로 순차 재생
+      stagger: 0.2
     }, 
     "<0.3");
   }
@@ -217,14 +205,13 @@ const gsapBannerTextFillAni = {
     if (!$bannerTit.length) return;
 
     gsap.to($bannerTit, {
-      backgroundPosition: "0% 0", // 배경 이미지를 왼쪽 끝으로 이동시켜 색상이 채워지는 효과
-      duration: 1.5,              // 1.5초 동안
-      ease: "power2.out",         // 부드러운 가속/감속
+      backgroundPosition: "0% 0",
+      duration: 1.5,             
+      ease: "power2.out",         
       scrollTrigger: {
         trigger: $bannerTit[0],
         start: "top 50%",     
         toggleActions: "restart none none reverse", 
-        // markers: true // (디버깅 시 true로 변경)
       }
     });
   }

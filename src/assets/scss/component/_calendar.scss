@@ -178,8 +178,6 @@
 
         &.old,
         &.new {
-          // visibility: hidden;
-
           color: var(--#{$prefix}-calendar--cell-color-off-month);
           &.today {
             color: var(--#{$prefix}-calendar--cell-color-off-month);

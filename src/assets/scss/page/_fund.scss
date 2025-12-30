@@ -147,9 +147,6 @@
 			}
 		}
 		.sort-wrap{
-			// position: sticky;
-			// top: -0.1rem;
-			// z-index: 3;
 			background-color: #fff;
 
 			&.is-fixed{
@@ -188,12 +185,9 @@
 			}
 
 			.sort-list{
-				// overflow-x: auto;
 				display: flex;
 				align-items: center;
 				width: 100%;
-				// border-top: 0.1rem solid #757070;
-				// border-bottom: 0.1rem solid #D7D5D5;
 				border: 0.1rem solid #E6E5E5;
 				background-color: #FAFAFA;
 				border-radius: 0.3rem;
@@ -202,7 +196,6 @@
 					display: flex;
 					align-items: center;
 					padding: 0 1.6rem;
-					// width: 19%;
 					height: 100%;
 
 					&:not(.period){
@@ -213,7 +206,6 @@
 					}
 
 					&:first-child{
-						// width: 6%;
 						width: 5.6rem;
 					}
 					&.period{
@@ -227,7 +219,6 @@
 					text-align: center;
 				}
 				.period{
-					// overflow-x: auto;
 					display: flex;
 					flex-direction: column;
 
@@ -241,7 +232,6 @@
 					}
 					
 					.period-list{
-						// overflow-x: auto;
 						position: relative;
 						display: flex;
 						align-items: center;
@@ -257,7 +247,6 @@
 							height: 0.1rem;
 							background-color: #E6E5E5;
 						}
-						// border-top: 0.1rem solid #E6E5E5;
 
 						li{
 							display: flex;
@@ -289,7 +278,6 @@
 						top: 50%;
 						right: 0;
 						transform: translateY(-50%);
-						// margin-left: 1.6rem;
 						width: 0.1rem;
 						height: 100%;
 						background-color: #E6E5E5;
@@ -330,8 +318,6 @@
 		}
 		.fund-list-wrap{
 			.fund-item{
-				// overflow-x: auto;
-				// overflow: hidden;
 				display: flex;
 				align-items: center;
 				gap: 2.4rem;
@@ -386,7 +372,6 @@
 							font-size: 1.6rem;
 						}
 						.val{
-							// margin-top: 0.8rem;
 							font-size: 2.1rem;
 							font-weight: 500;
 						}
@@ -399,13 +384,10 @@
 						}
 
 						.period-grid{
-							// overflow: auto hidden;
 							display: flex;
 							justify-content: space-between;
 							padding-right: 1.6rem;
 							width: 86rem;
-							// gap: 0.8rem;
-							// width: 100%;
 
 							.fund-txt{
 								border-right: 0;
@@ -512,7 +494,6 @@
 				}
 
 				.sort-list{
-					// overflow: visible;
 					width: fit-content;
 					border: 0;
 					background-color: transparent;
@@ -592,10 +573,6 @@
 						border-left: 0.1rem solid #D7D5D5;
 					}
 
-					// &:first-child{
-					// 	border-top: 0.1rem solid #D7D5D5;
-					// }
-
 					.form-check{
 						order: 1;
 						margin: 0;
@@ -651,7 +628,6 @@
 							.chart-area {
 								position: relative;
 								width: 100%;
-								// height: 35.29%;
 				
 								&::before {
 									content: "";
@@ -665,7 +641,6 @@
 									left: 0;
 									width: 100%;
 									height: 100%;
-									// background-color: #ddd;
 								}
 							}
 						}
@@ -904,7 +879,6 @@
 		.sidebar {
 			position: sticky;
 			top: var(--top-fixed-height);
-			// right: var(--layout-sidebar-pos);
 			z-index: 2;
 			flex-shrink: 0;
 			order: 1;
@@ -945,7 +919,6 @@
 					}
 					a {
 						color: var(--#{$prefix}-color-text-basic);
-						// background: linear-gradient(90deg, rgba(244, 178, 134, 0.7) 0%, rgba(223, 188, 165, 0) 100%);
 
 						&::before {
 							content: "";
@@ -969,7 +942,6 @@
 			.cont-group {
 				position: relative;
 				z-index: 1;
-				// padding: 8rem 6.81% calc(12rem + var(--layout-content-gap)) var(--#{$prefix}-content-padding-x);
 				padding: 8rem 6.81% 12rem var(--#{$prefix}-content-padding-x);
 				width: 100%;
 				background-color: var(--layout-content-bg);
@@ -1070,9 +1042,6 @@
         &:only-child {
           width: 100%;
 
-          // .fund-top {
-          //   width: 58%;
-          // }
           .fund-summary {
             --fund-summary-li-gap: 4.8rem;
             justify-content: space-between;
@@ -1229,10 +1198,7 @@
 
           dt {
             margin-bottom: 1.6rem;
-            // padding: 0.4rem 1.2rem;
-            // font-size: 1.6rem;
             font-weight: 700;
-            // background: linear-gradient(90deg, rgba(255, 85, 50, 0.8) 0%, rgba(4, 2, 30, 0.7) 100%);
           }
           dd {
             position: relative;
@@ -1506,20 +1472,6 @@
         }
       }
 
-			// .chart-pie-wrap{
-			// 	.group-wrap{
-			// 		&:only-child{
-			// 			.chart-area{
-			// 				margin: 0 12rem;
-			// 				width: 28rem;
-			// 			}
-			// 			.chart-legend{
-			// 				width: 100%;
-			// 			}
-			// 		}
-			// 	}
-			// }
-
 			.group-flex-wrap{
 				&:has(.chart-wrap.pie){
 					.group-wrap:only-child{
@@ -1537,11 +1489,9 @@
 						.group-wrap:only-child{
 							.chart-area{
 								margin: 0 4rem;
-								// width: 28rem;
 							}
 							.chart-legend{
 								padding-right: 0;
-								// width: 100%;
 							}
 						}
 					}
@@ -1569,7 +1519,6 @@
           .chart{
             width: 100%;
             height: 100%;
-            // background-color: #f8f8f8; //임시
           }
         }
         .chart-summary {
@@ -1691,7 +1640,6 @@
               font-size: 1.6rem;
             }
 
-            // $levelColor: #119eff, #00cecf, #ffb80d, #fe6220, #ff4891, #f91d00;
             $levelColor: #f91d00, #ff4891, #fe6220, #ffb80d, #00cecf, #119eff;
             @for $i from 1 through list.length($levelColor) {
               .level#{$i} .bar {
@@ -1709,7 +1657,6 @@
           .chart-area {
             position: relative;
             width: 38rem;
-            // height: 38rem;
 
             &::before {
               content: "";
@@ -1754,7 +1701,6 @@
             position: relative;
             margin: 0 4rem;
             width: 20rem;
-            // height: 20rem;
 
             &::before {
               content: "";
@@ -1905,7 +1851,6 @@
           flex: 1;
           display: flex;
           flex-direction: column;
-          // padding: 3.2rem 2rem 0;
 
           .tit {
             padding: 1.4rem;
@@ -2148,9 +2093,6 @@
             }
           }
           &.pie {
-            .chart-area {
-              // width: 70%;
-            }
             .chart-legend {
               width: 100%;
             }
@@ -2295,7 +2237,6 @@
 	.fund-find{
 		.section-search{
 			position: relative;
-			// padding: 8rem 0 12rem;
 			padding: 8rem 0 4rem;
 
 			&::before{
@@ -2359,18 +2300,10 @@
 						background-color: #fff;
 						box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.20), 0 4px 12px 0 rgba(0, 0, 0, 0.08);
 
-						// .option-list, .btn-wrap{
-						// 	visibility: hidden;
-						// }
-
 						&.active {
 							max-height: 200rem;
 							visibility: visible;
 							opacity: 1;
-
-							// .option-list, .btn-wrap{
-							// 	visibility: visible;
-							// }
 						}
 
 						.option-item{
@@ -2395,7 +2328,6 @@
 				justify-content: center;
 				gap: 0.8rem;
 				margin-top: 7.2rem;
-				// padding: 2rem 4rem;
 				min-height: 8rem;
 				@include bg('fund/banner-pension.png');
 
@@ -2431,14 +2363,6 @@
 			@include mq(tablet-small){
 				.search-wrap{
 					padding-bottom: 4rem;
-				// 	margin-top: 4rem;
-				// 	padding: 4rem var(--hwf-content-padding-x) 6.4rem;
-
-				// 	.search-con{
-				// 		.tag-wrap{
-				// 			margin-top: 1.2rem;
-				// 		}
-				// 	}
 				}
 				.promo-banner{
 					gap: 1.6rem;
@@ -2517,7 +2441,6 @@
 	
 				.compare-list{
 					display: flex;
-					// align-items: center;
 					gap: 0.8rem;
 	
 					.compare-item{
@@ -2741,7 +2664,6 @@
 				top: 0;
 				right: 0;
 				width: 51.1%;
-				// width: 100%;
 				height: 100%;
 
 				img{
@@ -2777,7 +2699,6 @@
 				}
 				.img-wrap{
 					overflow: hidden;
-					// height: 42.4rem;
 					position: relative;
 					order: -1;
 					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
@@ -2830,16 +2751,6 @@
 		}
 		//개인연금
 		&.personal{
-			// #benefit{
-			// 	.img-wrap{
-			// 		max-width: 70rem;
-			// 	}
-			// }
-			// #feature{
-			// 	.img-wrap{
-			// 		max-width: 60rem;
-			// 	}
-			// }
 			$img-sizes: (
 				'intro-01': (
 					pc: 46.6rem,
@@ -3104,7 +3015,6 @@
 		}
 
 		thead{
-			// border: 0.1rem solid #E6E5E5;
 			border-radius: 0.3rem;
 
 			tr{
@@ -3248,7 +3158,6 @@
       .chart-area {
         position: relative;
         width: 100%;
-        // height: 35.29%;
 
         &::before {
           content: "";
@@ -3262,7 +3171,6 @@
           left: 0;
           width: 100%;
           height: 100%;
-          // background-color: #ddd;
         }
       }
     }

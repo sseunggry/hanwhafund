@@ -4,8 +4,6 @@
 @use "sass:list";
 
 /* 버튼 / 링크 */
-
-// 1. 사이즈 맵
 $button-size: (
   small: (
     size-height: 3.2rem,
@@ -45,7 +43,6 @@ $button-size: (
   ),
 ) !default;
 
-// 2. 컬러 맵
 $button-color-variable: (
   primary: (
     fill: var(--#{$prefix}-color-button-primary-fill),
@@ -89,7 +86,6 @@ $button-color-variable: (
   ),
 ) !default;
 
-// [Mixin] 사이즈 CSS 변수 정의
 @mixin button-size-variable() {
   @each $size, $types in $button-size {
     @each $type, $value in $types {
@@ -98,7 +94,6 @@ $button-color-variable: (
   }
 }
 
-// [Mixin] 컬러 CSS 변수 정의
 @mixin button-color-variable() {
   @each $color, $types in $button-color-variable {
     @each $type, $value in $types {
@@ -107,7 +102,6 @@ $button-color-variable: (
   }
 }
 
-// [Mixin] 버튼 사이즈 적용
 @mixin btn-size($size) {
   gap: var(--#{$prefix}-button--gap-#{$size});
   height: var(--#{$prefix}-button--size-height-#{$size});
@@ -123,7 +117,6 @@ $button-color-variable: (
   }
 }
 
-// [Mixin] 버튼 컬러 적용
 @mixin btn-color($color) {
   background-color: var(--#{$prefix}-button--color-#{$color}-fill);
   border-color: var(--#{$prefix}-button--color-#{$color}-border);
@@ -148,12 +141,10 @@ $button-color-variable: (
   background-color: var(--#{$prefix}-color-text-#{$color});
 }
 
-/* Base Button */
 .btn {
   @include button-size-variable;
   @include button-color-variable;
 
-  /* --- Base Styles --- */
   @include flex-layout($d: inline-flex, $ai: center, $jc: center);
   width: auto;
   border-style: solid;
@@ -162,7 +153,6 @@ $button-color-variable: (
   white-space: nowrap;
   transition: var(--#{$prefix}-transition-base);
 
-  /* --- Default Presentation (large, black) --- */
   @include btn-size(large);
   @include btn-color(black);
 
@@ -190,14 +180,12 @@ $button-color-variable: (
     }
   }
 
-  /* --- Size Overrides --- */
   @each $size, $types in $button-size {
     &.#{$size} {
       @include btn-size(#{$size});
     }
   }
 
-  /* --- Color Overrides --- */
   @each $color, $types in $button-color-variable {
     &.#{$color} {
       @include btn-color(#{$color});
@@ -222,7 +210,6 @@ $button-color-variable: (
     }
   }
 
-  /* --- Variant: Text Button (.text) --- */
   &.text {
     padding: 0;
     height: auto;
@@ -273,7 +260,6 @@ $button-color-variable: (
 		}
   }
 
-  /* --- Variant: link Button (.text) --- */
   &.link {
     border-radius: var(--#{$prefix}-radius-large);
 
@@ -285,7 +271,6 @@ $button-color-variable: (
     }
   }
 
-	/* --- Variant: Line Button (.outline) --- */
 	&.outline {
 		padding: 0 2.4rem;
 		color: #2C2320;
@@ -303,7 +288,6 @@ $button-color-variable: (
 		}
 	}
 
-  /* --- Variant: Line Button (.line) --- */
   &.line {
     justify-content: space-between;
     padding: 0 1.6rem;
@@ -330,7 +314,6 @@ $button-color-variable: (
 		&:active,
     &:focus {
 			background-color: #F3F2F1;
-      // background-color: var(--#{$prefix}-color-button-text-fill-hover);
     }
     &[disabled],
     &.disabled {
@@ -350,13 +333,11 @@ $button-color-variable: (
 		text-decoration: underline;
 	}
 
-  /* --- Variant: Icon Button (.icon) --- */
   &.icon {
     @each $size, $value in $icon-size {
       --#{$prefix}-button--icon-size-#{$size}: #{$value};
     }
 
-    // 기본 (투명 배경)
     @include square(var(--#{$prefix}-button--icon-size-large));
     padding: 0 !important;
     background-color: var(--#{$prefix}-color-button-text-fill);
@@ -366,8 +347,6 @@ $button-color-variable: (
     .svg-icon {
       background-color: var(--#{$prefix}-color-text-basic);
     }
-
-    // 기본 hover/active 상태 (투명 배경용)
     &:hover {
       background-color: var(--#{$prefix}-color-button-text-fill-hover);
     }
@@ -376,30 +355,26 @@ $button-color-variable: (
       background-color: var(--#{$prefix}-color-button-text-fill-pressed);
     }
 
-    // 크기 클래스
     @each $size, $value in $icon-size {
       &.#{$size} {
         @include square(var(--#{$prefix}-button--icon-size-#{$size}));
         .svg-icon {
-          @include square(100%); // 기본: 100%
+          @include square(100%);
         }
       }
     }
 
-    // --- Icon Modifiers ---
     &.round {
       border-radius: var(--#{$prefix}-radius-max);
     }
 
-    // 배경색 아이콘 svg-icon 크기 조정
     &[class*="bg-"] {
-      // 기본 (small, medium 등)
       .svg-icon {
         @include square(60%);
       }
       &.xxlarge {
         .svg-icon {
-          @include square(var(--#{$prefix}-icon-size-xlarge)); //2.4rem
+          @include square(var(--#{$prefix}-icon-size-xlarge));
         }
       }
       &.xxxlarge {
@@ -409,7 +384,7 @@ $button-color-variable: (
       }
     }
 
-    // 배경색 Modifiers (hover 상태 포함)
+
     &.bg-deep-gray {
       background-color: var(--#{$prefix}-color-gray-80);
       .svg-icon {
@@ -487,7 +462,6 @@ $button-color-variable: (
   }
 }
 
-/* **** button area **** */
 .btn-wrap {
   display: flex;
   width: 100%;
@@ -536,7 +510,6 @@ $button-color-variable: (
   &.array-center {
 		justify-content: center;
     .btn {
-			// margin: 0 auto;
       width: fit-content;
       flex: none;
     }
@@ -553,17 +526,8 @@ $button-color-variable: (
       grid-template-columns: 1fr;
     }
     &:has(.btn.line) {
-      &.column {
-        // gap: 0;
-
-        // .line + .line {
-        //   border-top: 0;
-        // }
-      }
       &.grid-3 {
         gap: 0;
-        // gap: 0 4rem;
-
         .line + .line {
           border-top: 0;
         }

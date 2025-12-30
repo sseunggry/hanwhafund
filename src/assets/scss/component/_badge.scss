@@ -99,7 +99,6 @@ $badge-size: (
     }
   }
 
-  // --#{$prefix}-badge--color-background-basic: var(--#{$prefix}-color-background-white);
   --#{$prefix}-badge--color-text-basic: var(--#{$prefix}-color-text-white);
 
   // class 정의
@@ -112,7 +111,6 @@ $badge-size: (
 
       &.#{'#{$color}'} {
 				@include color-text(#{$color});
-        // color: var(--#{$prefix}-badge--color-text-basic);
         @include color-background(#{$color});
       }
     }

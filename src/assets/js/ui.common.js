@@ -11,7 +11,6 @@ const uiUtils = {
     const $firstFocusableElement = $focusableElements.first();
     const $lastFocusableElement = $focusableElements.last();
 
-    // 'keydown.focustrap' 네임스페이스를 사용하여 이벤트 중복 방지
     $trap.on("keydown.focustrap", (event) => {
       if (event.key === "Tab") {
         const $activeElement = $(document.activeElement);
@@ -54,8 +53,8 @@ const uiUtils = {
     } else if (isLeft) {
       if (isAlignTop) idealTop = btnRect.top;
       else if (isAlignBottom) idealTop = btnRect.bottom - popoverHeight;
-      else idealTop = btnRect.top + (btnRect.height / 2) - (popoverHeight / 2); // Center
-    } else { // 기본값: bottom
+      else idealTop = btnRect.top + (btnRect.height / 2) - (popoverHeight / 2);
+    } else {
       idealTop = btnRect.bottom + gap;
     }
 
@@ -106,7 +105,6 @@ const uiSelect = {
     // 셀렉트 버튼 클릭 (토글)
     $(document).on("click", ".form-select .select-button", function (e) {
       e.preventDefault();
-      // e.stopPropagation(); // document 클릭 전파 중단
       const $btn = $(this);
       const $select = $btn.closest(".form-select");
       const isOpening = $btn.attr("aria-expanded") === "false";
@@ -215,7 +213,6 @@ const uiSelect = {
       }
     });
 
-		// 
 		$(".form-select[data-target-group]").each(function() {
       const $select = $(this);
       const targetGroup = $select.data("target-group");
@@ -734,7 +731,6 @@ const uiPopover = {
   init: function () {
     $(document).on("click", "[data-popover-open]", function (e) {
       e.preventDefault();
-      // e.stopPropagation(); 
       const $btn = $(this);
       const popoverId = $btn.data("popover-open");
       const $popover = $(`#${popoverId}`);
@@ -1122,9 +1118,6 @@ const gsapMotion = {
     }
   },
 
-  /**
-   * 초기 전체 실행
-   */
   init: function() {
     const $motion = $('.motion');
     $motion.each((index, el) => {
@@ -1134,13 +1127,9 @@ const gsapMotion = {
 
   refresh: function($container) {
     const $motions = $container.find('.motion');
-    
-    // 1. ScrollTrigger 위치 재계산 (display: none -> block 되면서 위치가 변함)
-    ScrollTrigger.refresh();
 
-    // 2. 컨테이너 내부의 모션 요소들만 다시 세팅
+    ScrollTrigger.refresh();
     $motions.each((i, el) => {
-      // 강제로 스타일을 초기화하여 다시 애니메이션 될 준비
       gsap.set(el, { clearProps: "all" });
       this.applyMotion(el);
     });
@@ -1211,7 +1200,7 @@ const uiSitemap = {
 
     $sitemap.on('click', '.has-sub > a', function(e) {
       if (window.innerWidth > 1024) return;
-      e.preventDefault(); // 링크 이동 막기
+      e.preventDefault();
 
       const $btn = $(this);
       const $li = $btn.parent('li'); // .has-sub
@@ -1222,7 +1211,6 @@ const uiSitemap = {
         $li.removeClass('active');
         $submenu.stop().slideUp(300);
       } else {
-        // (선택사항) 형제 메뉴 닫기 (Accordion behavior)
         $li.siblings('.has-sub.active').each(function() {
           $(this).removeClass('active').find('> .submenu').stop().slideUp(300);
         });
@@ -1235,7 +1223,6 @@ const uiSitemap = {
     // 2. 리사이즈 이벤트 (PC로 갈 때 스타일 초기화)
     $(window).on('resize', function() {
       if (window.innerWidth > 1024) {
-        // PC로 커지면 JS로 들어간 style(display)과 class를 제거
         $sitemap.find('.has-sub').removeClass('active');
         $sitemap.find('.submenu').removeAttr('style'); 
       }
@@ -1523,7 +1510,6 @@ const commonJs = {
     uiSegmentControl.init();
     uiPopover.init();
     uiTooltip.init();
-		// this.uiLnb.init();
     uiLnb.init();
     gsapMotion.init();
     topButton.init();

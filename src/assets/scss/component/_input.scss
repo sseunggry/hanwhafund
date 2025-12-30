@@ -39,8 +39,6 @@ $input-size: (
 
 // 사이즈 정의
 @mixin input-size-variable() {
-  // --#{$prefix}-input--padding-x: 1.6rem;
-
   @each $size, $types in $input-size {
     @each $type, $value in $types {
       --#{$prefix}-input--#{$type}-#{$size}: #{$value};

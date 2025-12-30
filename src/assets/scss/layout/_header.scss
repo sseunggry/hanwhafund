@@ -32,16 +32,18 @@
 
     &-plusetf {
       a {
+				flex-shrink: 0;
         width: 9.9rem;
         height: 1.2rem;
-        @include bg('common/logo-plus-etf.svg');
+        @include bg('common/logo-plus-etf.svg', $size: contain);
       }
     }
     &-pine {
       a {
-        width: 3.8rem;
+				flex-shrink: 0;
+        width: 4rem;
         height: 1rem;
-        @include bg('common/logo-pine.svg');
+        @include bg('common/logo-pine.svg', $size: contain);
       }
     }
   }

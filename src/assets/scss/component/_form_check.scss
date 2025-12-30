@@ -71,10 +71,8 @@ label {
     ),
   ) !default;
 
-  // css variable 생성
   @each $size, $types in $form-check-size {
     @each $type, $value in $types {
-      // css variable 생성
       --#{$prefix}-form-check--#{$type}-#{$size}: #{$value};
     }
   }
@@ -82,9 +80,7 @@ label {
   --#{$prefix}-form-check--gap: 0.8rem;
   --#{$prefix}-form-check--button-margin-top: 0.2rem;
 
-  // class 정의
   & {
-    // 사이즈 별 class
     @each $size, $types in $form-check-size {
       &.#{$size} {
         > input[type='radio'],
@@ -205,15 +201,12 @@ label {
 
 // radio ::after 사이즈 정의
 @mixin form-check-radio-check($size, $pos: left) {
-  // 포지션: (전체사이즈 - 체크영역) / 2
 	top: calc(50% + var(--#{$prefix}-form-check--button-margin-top)/2);
   // top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2 + var(--#{$prefix}-form-check--button-margin-top));
   left: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2);
 	transform: translateY(-50%);
 
 	@include square(var(--#{$prefix}-form-check--radio-check-size-#{$size}));
-
-  // background-color: var(--#{$prefix}-form-check--radio-check-color-element);
   border-radius: 100rem;
 
 	@if $pos == right {
@@ -229,7 +222,6 @@ label {
 
 // checkbox ::after 사이즈 정의
 @mixin form-check-checkbox-check($size, $checkIcon: false) {
-  // 포지션: (전체사이즈 - 체크영역) / 2
 	--form-check-check-size: var(--#{$prefix}-form-check--checkbox-check-size-#{$size});
 	--form-check-color: var(--#{$prefix}-form-check--checkbox-check-color-element);
 
@@ -318,9 +310,6 @@ label {
   input[type='checkbox'] {
     ~ label {
       position: relative;
-      // display: inline-flex;
-			// align-items: center;
-			// width: 100%;
       @include form-check(#{$size});
 
       &::before,

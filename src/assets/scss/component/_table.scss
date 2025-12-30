@@ -233,11 +233,6 @@
 }
 
 .tbl-info{
-	// margin-bottom: 2.4rem;
 	font-size: 1.6rem;
 	color: var(--#{$prefix}-color-text-subtler);
-
-	@include mq(mobile){
-		// margin-bottom: 1.6rem;
-	}
 }

@@ -293,7 +293,6 @@ $form-select-size: (
     }
   }
 
-  // --- Variant: outline (라인 스타일) ---
   &.outline {
     background-color: var(--#{$prefix}-form-select--outline-color-background);
     border: 0.1rem solid var(--#{$prefix}-form-select--outline-color-border);
@@ -445,10 +444,6 @@ $form-select-size: (
       &.#{$size} {
         height: auto;
         border-radius: 0;
-
-        // .select-listbox {
-        //   --form-select-listbox-max-height: calc(var(--#{$prefix}-form-select--option-padding-#{$size}) * 10);
-        // }
       }
     }
 
@@ -505,9 +500,5 @@ $form-select-size: (
 		&.completed {
 			color: #fff;
 		}
-	}
-
-	@include mq(mobile){
-
 	}
 }

@@ -40,7 +40,6 @@
 	}
 
 	.terms-tit{
-		// margin-bottom: 4rem;
 		color: var(--#{$prefix}-color-text-strong);
 		font-size: 2.8rem;
 		font-weight: 700;
@@ -244,7 +243,6 @@
 				transform: translateY(-50%);
 				width: 50%;
 				height: 0.1rem;
-				// background-color: #C3C1C1;
 				border-bottom: 0.1rem dashed #C3C1C1;
 				z-index: -1;
 			}
@@ -304,7 +302,6 @@
 			left: 50%;
 			transform: translateX(-50%);
 			display: block;
-			// width: 100%;
 			width: calc((100% - var(--control-system-li-gap-x) * 2) /3  * 2 + var(--control-system-li-gap-x) * 2);
 			height: 0.1rem;
 			background-color: #C3C1C1;
@@ -360,9 +357,6 @@
 			&.center{
 				grid-column: 1 / -1;
 			}
-			// &.indigo{
-			// 	grid-column: 2 / 3;
-			// }
 		}
 		.box-list{
 			grid-template-columns: auto;

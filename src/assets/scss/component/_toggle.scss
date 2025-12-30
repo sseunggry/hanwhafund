@@ -44,7 +44,6 @@
   // css variable 생성
   @each $size, $types in $form-toggle-switch-size {
     @each $type, $value in $types {
-      // css variable 생성
       --#{$prefix}-form-toggle-switch--#{$type}-#{$size}: #{$value};
     }
   }

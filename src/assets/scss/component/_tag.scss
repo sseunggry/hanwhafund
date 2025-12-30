@@ -4,7 +4,6 @@
 /* tag style */
 // 사이즈 정의
 @mixin tag-size-variable() {
-  // 컬러 변수 배열 생성
   $tag-size: (
     small: (
       wrapper-gap-x: 0.8rem,

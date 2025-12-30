@@ -1,10 +1,6 @@
-// only component
 
-// 공통
-//@forward '../common/include';
 @use "../util" as *;
 
-// component
 @forward 'button';
 @forward 'badge';
 @forward 'accordion';
@@ -20,13 +16,9 @@
 @forward 'modal';
 @forward 'popover';
 @forward 'tooltip';
-@forward 'spinner';
 @forward 'segmented_control';
 @forward 'icon';
 @forward 'list';
 @forward 'toast';
 @forward 'tag';
 @forward 'typo';
-// @forward 'pagination';
-// @forward 'step_indicator';
-// @forward 'progress_bar';

@@ -75,10 +75,8 @@
     ),
   ) !default;
 
-  // css variable 새성
   @each $size, $types in $form-chip-size {
     @each $type, $value in $types {
-      // css variable 생성
       --#{$prefix}-form-chip--#{$type}-#{$size}: #{$value};
     }
   }
@@ -87,7 +85,6 @@
 
   // class 정의
   & {
-    // 사이즈 별 class
     @each $size, $types in $form-chip-size {
       &.#{$size} {
         input[type='radio'],
@@ -202,6 +199,21 @@
 	
 					&::before {
 						background-color: currentColor !important;
+					}
+				}
+			}
+		}
+
+		@include mq(mobile){
+			&:hover {
+				~ label {
+					color: var(--#{$prefix}-form-chip--color-text-checked);
+					font-weight: 600;
+					border-color: var(--#{$prefix}-form-chip--color-border-checked);
+					background-color: var(--#{$prefix}-form-chip--color-action-checked);
+	
+					&::before {
+						background-color: var(--#{$prefix}-form-chip--color-check-checked);
 					}
 				}
 			}

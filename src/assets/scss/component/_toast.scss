@@ -4,23 +4,6 @@
 /* 토스트 */
 // 사이즈 정의
 @mixin toast-size-variable() {
-  // --#{$prefix}-toast--group-space-y: 4rem; 
-  // --#{$prefix}-toast--group-space-x: var(--#{$prefix}-grid-screen-margin); 
-  // --#{$prefix}-toast--group-gap: 1.2rem;
-  // --#{$prefix}-toast--small-padding-y: var(--#{$prefix}-small-padding-card-small);
-  // --#{$prefix}-toast--medium-padding-y: var(--#{$prefix}-medium-padding-card-small);
-  // --#{$prefix}-toast--large-padding-y: var(--#{$prefix}-large-padding-card-small);
-  // --#{$prefix}-toast--small-padding-x: var(--#{$prefix}-small-padding-card-large);
-  // --#{$prefix}-toast--medium-padding-x: var(--#{$prefix}-medium-padding-card-large);
-  // --#{$prefix}-toast--large-padding-x: var(--#{$prefix}-large-padding-card-large);
-  // --#{$prefix}-toast--radius: var(--#{$prefix}-radius-full);
-  // --#{$prefix}-toast--contents-mobile-font-size: 1.5rem;
-  // --#{$prefix}-toast--contents-tablet-font-size-: 1.5rem;
-  // --#{$prefix}-toast--contents-pc-font-size-: 1.5rem;
-  // --#{$prefix}-toast--contents-letter-spacing: var(--#{$prefix}-typo-letter-spacing-0);
-  // --#{$prefix}-toast--contents-gap: 1rem;
-  // --#{$prefix}-toast--contents-icon-size: var(--#{$prefix}-number-11);
-
   --#{$prefix}-toast--group-padding: 4rem;
   --#{$prefix}-toast--group-gap: 1.2rem;
   --#{$prefix}-toast--padding: 2rem;
@@ -48,9 +31,6 @@
 
   .toast {
     @include toast-color-variable();
-
-    // width: fit-content;
-    // min-width: 24rem; /* 최소 너비 조정 */
     display: flex;
     align-items: center;
 		justify-content: center;
@@ -71,7 +51,6 @@
     }
   }
 
-  /* 위치별 스타일 */
   &.top-left {
     top: var(--#{$prefix}-toast--group-space-y);
     left: var(--#{$prefix}-toast--group-space-x);
@@ -110,15 +89,12 @@
     align-items: flex-end;
   }
 
-
-  /* 위치별 애니메이션 시작점 설정 */
   &.top-left .toast,
   &.top-center .toast,
   &.top-right .toast {
     transform: translateY(-100%);
   }
 
-  /* Toast가 보이는 상태의 스타일 */
   .toast{
     &.show {
       opacity: 1;
