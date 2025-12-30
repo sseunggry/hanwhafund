@@ -7987,14 +7987,15 @@ html[lang="en"] .footer-top .logo {
 .page-main .section-visual .main-visual-swiper .swiper-horizontal > .swiper-pagination-bullets,
 .page-main .section-visual .main-visual-swiper .swiper-pagination-bullets.swiper-pagination-horizontal {
   display: flex;
-  max-width: var(--hwf-content-wrap-width-large);
   margin: 0 var(--hwf-content-padding-x);
+  max-width: var(--hwf-content-wrap-width-large);
   left: 50%;
   bottom: 8rem;
   transform: translateX(-50%);
 }
 .page-main .section-visual .main-visual-swiper .swiper-pagination-bullet {
-  width: 8rem;
+  flex: 1;
+  max-width: 8rem;
   height: 0.4rem;
   border-radius: 0;
   opacity: 1;
@@ -8017,6 +8018,11 @@ html[lang="en"] .footer-top .logo {
   }
   .page-main .section-visual .visual .tit-wrap .desc {
     font-size: 1.6rem;
+  }
+  .page-main .section-visual .main-visual-swiper .swiper-horizontal > .swiper-pagination-bullets,
+  .page-main .section-visual .main-visual-swiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+    margin: 0;
+    max-width: calc(100% - var(--hwf-content-padding-x) * 2);
   }
 }
 .page-main .section-partner {
