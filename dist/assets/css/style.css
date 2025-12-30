@@ -13440,6 +13440,9 @@ html[lang="en"] .page-main .section-banner {
 .page-company .company-map-wrap .map-info .note-txt {
   margin-top: 2.4rem;
 }
+.page-company .company-map-wrap .root_daum_roughmap {
+  width: 100%;
+}
 @media (max-width: 1024px) {
   .page-company .company-map-wrap .map-address {
     flex-direction: column;
