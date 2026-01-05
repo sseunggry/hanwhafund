@@ -2,7 +2,7 @@ const iaPageBData = {
 	language: "en",
 	list: [
 		// --- 메인 ---
-		{ createDate: "2025-12-18",  modifyDate: "2025-12-30",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2025-12-30: 메인비주얼 a태그 추가`}, { detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
+		{ createDate: "2025-12-18",  modifyDate: "2026-01-05",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2026-01-05: 클래스 삭제`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, { detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
 
 		// --- Our Company ---
 		{ createDate: "2025-12-23", modifyDate: "2026-01-05", category: "Our Company", depth1: "Our Company ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "EN_CP_01", link: "", isAdminLinked: true, status: "완료", memo: [{detail: `2026-01-05: 텍스트 수정`}], },

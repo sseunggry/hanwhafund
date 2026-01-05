@@ -5229,7 +5229,7 @@ label {
 @media (max-width: 640px) {
   .tab {
     --hwf-tab--button-font-size: 1.8rem;
-    --hwf-tab--line-button-height: 6.4rem;
+    --hwf-tab--line-button-height: 5.6rem;
     --hwf-tab--line-button-padding-y: 1.6rem;
   }
   .tab.line {
@@ -5238,9 +5238,6 @@ label {
   }
   .tab.line .btn-tab {
     padding-top: var(--hwf-tab--line-button-padding-y);
-  }
-  .tab.line .active .btn-tab::before {
-    margin-top: 0;
   }
 }
 .tab-conts-wrap {
@@ -6668,7 +6665,7 @@ label {
   --hwf-btn-tag--size-height-medium: 4rem;
   --hwf-btn-tag--expand-button-gap-medium: 0.2rem;
   --hwf-btn-tag--button-size-medium: 1.6rem;
-  --hwf-btn-tag--padding-x-medium: 1.6rem;
+  --hwf-btn-tag--padding-x-medium: 1.2rem;
   --hwf-btn-tag--font-size-medium: 1.8rem;
   --hwf-btn-tag--wrapper-gap-x-large: 0.8rem;
   --hwf-btn-tag--wrapper-gap-y-large: 1rem;
@@ -6684,7 +6681,7 @@ label {
 .tag-wrap.small .btn-tag {
   gap: 0.2rem;
   min-height: var(--hwf-btn-tag--size-height-small);
-  padding: 0.8rem var(--hwf-btn-tag--padding-x-small);
+  padding: 0.4rem var(--hwf-btn-tag--padding-x-small);
   border-radius: var(--hwf-btn-tag--size-height-small);
   font-size: var(--hwf-btn-tag--font-size-small);
 }
@@ -6727,7 +6724,7 @@ label {
 .tag-wrap.medium .btn-tag {
   gap: 0.2rem;
   min-height: var(--hwf-btn-tag--size-height-medium);
-  padding: 0.8rem var(--hwf-btn-tag--padding-x-medium);
+  padding: 0.4rem var(--hwf-btn-tag--padding-x-medium);
   border-radius: var(--hwf-btn-tag--size-height-medium);
   font-size: var(--hwf-btn-tag--font-size-medium);
 }
@@ -6770,7 +6767,7 @@ label {
 .tag-wrap.large .btn-tag {
   gap: 0.2rem;
   min-height: var(--hwf-btn-tag--size-height-large);
-  padding: 0.8rem var(--hwf-btn-tag--padding-x-large);
+  padding: 0.4rem var(--hwf-btn-tag--padding-x-large);
   border-radius: var(--hwf-btn-tag--size-height-large);
   font-size: var(--hwf-btn-tag--font-size-large);
 }
@@ -6818,7 +6815,7 @@ label {
   position: relative;
   gap: 0.2rem;
   min-height: var(--hwf-btn-tag--size-height-medium);
-  padding: 0.8rem var(--hwf-btn-tag--padding-x-medium);
+  padding: 0.4rem var(--hwf-btn-tag--padding-x-medium);
   border-radius: var(--hwf-btn-tag--size-height-medium);
   font-size: var(--hwf-btn-tag--font-size-medium);
 }
