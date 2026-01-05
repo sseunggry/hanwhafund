@@ -7132,8 +7132,7 @@ label {
   justify-content: space-between;
   min-width: 20.2rem;
   min-height: 4.8rem;
-  padding-left: 2.4rem;
-  padding-right: 2rem;
+  padding: 1.1rem 2rem 1.1rem 2.4rem;
   color: var(--hwf-color-text-subtle);
   font-size: 1.7rem;
   font-weight: 400;
@@ -7148,6 +7147,7 @@ label {
 .header .header-con .nav .gnb-list .submenu .submenu-link:active::after {
   content: "";
   display: inline-block;
+  flex-shrink: 0;
   width: 2rem;
   height: 2rem;
   -webkit-mask-repeat: no-repeat;
@@ -7533,6 +7533,9 @@ html[lang="en"] .header .logo {
 }
 html[lang="en"] .header .util .btn.icon[aria-controls="modalSearch"] {
   display: none;
+}
+html[lang="en"] .header .header-con .nav .gnb-list .submenu .submenu-link {
+  min-width: 22.2rem;
 }
 @media (max-width: 1550px) {
   html[lang="en"] .header .logo {
@@ -11731,6 +11734,9 @@ html[lang="en"] .page-main .section-banner {
 .board-detail .board-detail-con {
   padding: var(--board-detail-cont-gap) 0;
   min-height: 36rem;
+}
+.board-detail .board-detail-con img {
+  width: 100%;
 }
 .board-detail .board-detail-file {
   display: flex;
