@@ -156,8 +156,7 @@
             justify-content: space-between;
             min-width: 20.2rem;
             min-height: 4.8rem;
-            padding-left: 2.4rem;
-            padding-right: 2rem; 
+						padding: 1.1rem 2rem 1.1rem 2.4rem;
             color: var(--#{$prefix}-color-text-subtle);
             font-size: 1.7rem;
             font-weight: 400;
@@ -170,6 +169,7 @@
               &::after{
                 content: '';
                 display: inline-block;
+								flex-shrink: 0;
                 @include square(2rem);
                 @include icon-set('arrow-up');
                 transform: rotate(90deg);
@@ -626,6 +626,17 @@ html[lang="en"]{
 			.btn.icon{
 				&[aria-controls="modalSearch"]{
 					display: none;
+				}
+			}
+		}
+		.header-con{
+			.nav{
+				.gnb-list{
+					.submenu{
+						.submenu-link{
+							min-width: 22.2rem;
+						}
+					}
 				}
 			}
 		}
