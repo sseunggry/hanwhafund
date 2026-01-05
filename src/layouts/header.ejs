@@ -109,7 +109,7 @@
 	});
 	const tag = include('../components/tag.ejs', {
 		variant: 'text',
-		tagList: ['#ETF', '#월배당ETF', '#바이오', '#자산분배형', '#ESG'],
+		tagList: [' #ETF', '# 월배당ETF', '# 바이오', '# 자산분배형', '# ESG'],
 		size: 'medium'
 	});
 	-%>
@@ -121,7 +121,9 @@
 		<div class="search-wrap">
 			<div class="search-con">
 				${searchInput}
+				<!-- [2026-01-05] 띄어쓰기 추가 -->
 				${tag}
+				<!-- // [2026-01-05] 띄어쓰기 추가 -->
 			</div>
 		</div>
 		`,
