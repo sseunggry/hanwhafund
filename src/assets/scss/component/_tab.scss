@@ -187,7 +187,7 @@
 	}
 	@include mq(mobile){
     --#{$prefix}-tab--button-font-size: 1.8rem; 
-		--#{$prefix}-tab--line-button-height: 6.4rem;
+		--#{$prefix}-tab--line-button-height: 5.6rem;
 		--#{$prefix}-tab--line-button-padding-y: 1.6rem;
 
 		&.line{
@@ -197,13 +197,13 @@
 			.btn-tab {
 				padding-top: var(--#{$prefix}-tab--line-button-padding-y);
 			}
-			.active{
-				.btn-tab{
-					&::before{
-						margin-top: 0;
-					}
-				}
-			}
+			// .active{
+			// 	.btn-tab{
+			// 		&::before{
+			// 			margin-top: 0;
+			// 		}
+			// 	}
+			// }
 		}
 	}
 }
