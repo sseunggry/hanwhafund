@@ -791,6 +791,7 @@
         margin-left: -6rem;
 				margin-top: 0;
         width: 62.7%;
+				min-width: 0;
 
         .news-list {
           display: flex;
@@ -830,6 +831,7 @@
                 color: var(--#{$prefix}-color-text-strong);
                 font-size: 3.2rem;
                 font-weight: 700;
+								@include ellipsis(1);
               }
               .desc {
                 color: var(--#{$prefix}-color-text-subtle);
