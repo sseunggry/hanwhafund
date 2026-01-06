@@ -22,6 +22,6 @@ const iaPageBData = {
 		{ createDate: "2025-12-18", modifyDate: "2025-12-30", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2025-12-30: 텍스트 수정' }], },
 
 		// --- Site Map ---
-		{ createDate: "2025-12-18", modifyDate: "", category: "Site Map", depth1: "-", depth2: "-", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "EU_SM_01", link: "", isAdminLinked: false, status: "완료", memo: [], },
+		{ createDate: "2025-12-18", modifyDate: "2026-01-06", category: "Site Map", depth1: "-", depth2: "-", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "EU_SM_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-06: 텍스트 수정`}], },
 	],
 };

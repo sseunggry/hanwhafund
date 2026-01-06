@@ -8482,6 +8482,7 @@ html[lang="en"] .footer-top .logo {
   margin-left: -6rem;
   margin-top: 0;
   width: 62.7%;
+  min-width: 0;
 }
 .page-main .section-insight .overlay-box-wrap .info-box .news-list {
   display: flex;
@@ -8525,6 +8526,9 @@ html[lang="en"] .footer-top .logo {
   color: var(--hwf-color-text-strong);
   font-size: 3.2rem;
   font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .page-main .section-insight .overlay-box-wrap .info-box .news-list .news-item .news-con .desc {
   color: var(--hwf-color-text-subtle);
@@ -14836,6 +14840,7 @@ sup {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  height: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 }
