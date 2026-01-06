@@ -356,9 +356,20 @@
             }
             &.company{
               > .submenu{
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                // display: grid;
+                // grid-template-columns: repeat(2, 1fr);
+								column-count: 2;
                 gap: 0 8rem;
+
+								> li{
+									break-inside: avoid;
+									-webkit-column-break-inside: avoid;
+									page-break-inside: avoid;
+
+									&:nth-child(5){
+										break-before: column;
+									}
+								}
               }
             }
             a{
@@ -480,6 +491,18 @@
 
             .sitemap-item{
               min-width: 15rem;
+
+							&.company{
+								> .submenu{
+									column-count: auto;
+
+									> li{
+										&:nth-child(5){
+											break-before: auto;
+										}
+									}
+								}
+							}
 
               &.has-sub{
                 margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
