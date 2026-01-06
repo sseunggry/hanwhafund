@@ -7290,9 +7290,18 @@ label {
   margin-right: 0;
 }
 .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.company > .submenu {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  -moz-column-count: 2;
+  column-count: 2;
   gap: 0 8rem;
+}
+.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.company > .submenu > li {
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.company > .submenu > li:nth-child(5) {
+  -moz-column-break-before: column;
+  break-before: column;
 }
 .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item a {
   display: flex;
@@ -7397,6 +7406,14 @@ label {
   }
   .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item {
     min-width: 15rem;
+  }
+  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.company > .submenu {
+    -moz-column-count: auto;
+    column-count: auto;
+  }
+  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.company > .submenu > li:nth-child(5) {
+    -moz-column-break-before: auto;
+    break-before: auto;
   }
   .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub {
     margin: 0 calc(var(--hwf-content-padding-x) * -1);
