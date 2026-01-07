@@ -978,6 +978,18 @@
 		}
 	}
 }
+.page-company.test{
+	.company-main{
+		.section-mission{
+			position: initial;
+		}
+		.section-slogan{
+			.deco-tit{
+				transform: translateX(-50%);
+			}
+		}
+	}
+}
 
 
 //영문 메인

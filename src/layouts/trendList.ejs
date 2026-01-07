@@ -2,6 +2,7 @@
 const localsSafe = locals || {};
 const type = locals.type || '';
 const wrapClass = (type === 'gray') ? 'bg-gray' : '';
+const wrapAddClass = locals.wrapAddClass || '';
 const isMotion = (locals.motion !== false);
 const badgeLabel = locals.badgeLabels || ['국내', '주식', '글로벌'];
 const commonBadges = badgeLabel.map((text, index) => {
@@ -43,7 +44,7 @@ const cards = [
 ];
 %>
 
-<div class="card-list-wrap <%= wrapClass %>">
+<div class="card-list-wrap <%= wrapClass %> <%= wrapAddClass %>">
   <ul class="card-list">
     <% cards.forEach((card, index) => { %>
       <% 
