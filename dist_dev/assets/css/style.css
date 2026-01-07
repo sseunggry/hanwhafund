@@ -8660,6 +8660,25 @@ html[lang="en"] .footer-top .logo {
 .page-main.test .section-business .accordion.translucent .accordion-item.active .btn-accordion::after {
   display: none;
 }
+@media (max-width: 1500px) {
+  .card-list-wrap.no-scroll:not(.bg-gray) .card-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .card-list-wrap.no-scroll:not(.bg-gray) .card-list {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+.page-company.test .company-main .section-mission {
+  position: initial;
+}
+.page-company.test .company-main .section-slogan .deco-tit {
+  transform: translateX(-50%);
+}
 html[lang="en"] .page-main .header .logo {
   background: url(/assets/images/common/en-logo-w.svg) no-repeat center/cover;
 }
