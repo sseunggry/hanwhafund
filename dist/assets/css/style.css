@@ -8653,13 +8653,6 @@ html[lang="en"] .footer-top .logo {
 .page-main.test .section-partner {
   --main-partner-padding-bottom: 10rem;
 }
-.page-main.test .section-business {
-  min-height: 108rem;
-  height: auto;
-}
-.page-main.test .section-business .accordion.translucent .accordion-item.active .btn-accordion::after {
-  display: none;
-}
 @media (max-width: 1500px) {
   .card-list-wrap.no-scroll:not(.bg-gray) .card-list {
     display: grid;
@@ -8862,6 +8855,7 @@ html[lang="en"] .page-main .section-banner {
   width: 105vw;
   height: 100%;
   background-color: #fafafa;
+  border-bottom: 0.1rem solid #e6e5e5;
 }
 .page-fund .fund-content .sort-wrap.is-fixed .pc-only .sort-list {
   border-top: 0;
@@ -12392,6 +12386,9 @@ html[lang="en"] .page-main .section-banner {
     margin-bottom: 8rem;
   }
 }
+.page-search .section-trend {
+  overflow: hidden;
+}
 .page-company .tab-conts .cont-group {
   padding: 0;
 }
@@ -14768,6 +14765,9 @@ sup {
 }
 .card-list-wrap .btn-wrap {
   margin-top: 4rem;
+}
+.card-list-wrap .btn-wrap .btn.tertiary {
+  background-color: #e7e5e4;
 }
 @media (max-width: 1280px) {
   .card-list-wrap {
