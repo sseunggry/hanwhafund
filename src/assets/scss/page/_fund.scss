@@ -759,7 +759,7 @@
 			--top-fixed-height: 8rem;
 		}
 		&:has(.tab-area){
-			--top-fixed-height: 6.4rem;
+			// --top-fixed-height: 6.4rem;
 		}
 
 		@include mq(1500) {

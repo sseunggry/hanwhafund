@@ -201,10 +201,8 @@ label {
 
 // radio ::after 사이즈 정의
 @mixin form-check-radio-check($size, $pos: left) {
-	top: calc(50% + var(--#{$prefix}-form-check--button-margin-top)/2);
-  // top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2 + var(--#{$prefix}-form-check--button-margin-top));
+  top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2 + var(--#{$prefix}-form-check--button-margin-top));
   left: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--#{$prefix}-form-check--radio-check-size-#{$size})) / 2);
-	transform: translateY(-50%);
 
 	@include square(var(--#{$prefix}-form-check--radio-check-size-#{$size}));
   border-radius: 100rem;
@@ -230,10 +228,8 @@ label {
 		--form-check-color: var(--#{$prefix}-form-check--check-icon-color-element);
 	}
 
-	top: 50%;
-	// top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--form-check-check-size)) / 2 + var(--#{$prefix}-form-check--button-margin-top));
+	top: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--form-check-check-size)) / 2 + var(--#{$prefix}-form-check--button-margin-top));
 	left: calc((var(--#{$prefix}-form-check--button-size-#{$size}) - var(--form-check-check-size)) / 2);
-	transform: translateY(-50%);
 	
 	@include svg-icon($size: var(--form-check-check-size));
 	@include icon-set(checkbox-checked);

@@ -32,13 +32,14 @@
 				</ul>
 			</div>
 			<div class="util">
+				<!-- [2026-01-08] 텍스트 수정 -->
 				<!-- [2025-12-03] 마크업 수정 -->
 				<div class="family-site">
 					<%- include('../components/select.ejs', {
 						size: 'medium',
 						name: 'family-site',
 						addClass: 'bg-gray ico-plus',
-						placeholder: '패밀리 사이트 및 유관기관',
+						placeholder: '패밀리 사이트',
 						optionsLength: 4,
 						options: [
 							{ value: 'hanwha', text: '(주)한화', url: 'https://www.hanwha.co.kr/', target: '_blank' },
@@ -51,6 +52,7 @@
 						]
 					}) -%>
 					<!-- [2025-12-03] 마크업 수정 -->
+					<!-- // [2026-01-08] 텍스트 수정 -->
 				</div>
 				<ul class="sns-list">
 					<li>
@@ -83,6 +85,18 @@
 							addClass: 'bg-deep-gray round'
 						}) -%>
 					</li>
+					<!-- [2026-01-08] 마크업 추가 -->
+					<li>
+						<%- include('../components/button.ejs', {
+							tag: 'a',
+							variant: 'icon',
+							label: 'linkedin',
+							size: 'xxxlarge',
+							icon: 'linkedin',
+							addClass: 'bg-deep-gray round'
+						}) -%>
+					</li>
+					<!-- // [2026-01-08] 마크업 추가 -->
 				</ul>
 			</div>
 		</div>

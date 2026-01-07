@@ -640,6 +640,11 @@ sup{
         }
       }
     }
+		.btn-wrap{
+			.btn.tertiary{
+				background-color: #E7E5E4;
+			}
+		}
   }
   .card-list {
     display: flex;
@@ -739,10 +744,6 @@ sup{
   }
   .btn-wrap {
     margin-top: 4rem;
-
-		.btn.tertiary{
-			background-color: #E7E5E4;
-		}
   }
 
   @include mq(pc) {
