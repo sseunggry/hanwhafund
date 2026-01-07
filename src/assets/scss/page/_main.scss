@@ -965,6 +965,20 @@
   }
 }
 
+//test
+.page-main.test{
+	.section-partner{
+		--main-partner-padding-bottom: 10rem;
+	}
+	.section-business{
+		min-height: 108rem;
+		height: auto;
+		.accordion.translucent .accordion-item.active .btn-accordion::after{
+			display: none;
+		}
+	}
+}
+
 
 //영문 메인
 html[lang="en"]{

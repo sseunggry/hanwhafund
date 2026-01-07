@@ -2,6 +2,7 @@
 const localsSafe = locals || {};
 const type = locals.type || '';
 const wrapClass = (type === 'gray') ? 'bg-gray' : '';
+const isMotion = (locals.motion !== false);
 const badgeLabel = locals.badgeLabels || ['국내', '주식', '글로벌'];
 const commonBadges = badgeLabel.map((text, index) => {
 	return {
@@ -46,7 +47,6 @@ const cards = [
   <ul class="card-list">
     <% cards.forEach((card, index) => { %>
       <% 
-        const delay = 0.1 * (index + 1);
         let rateClass = '';
         let rateText = '-';
         
@@ -55,8 +55,17 @@ const cards = [
 					if (card.rate > 0) rateClass = 'up';
 					else if (card.rate < 0) rateClass = 'down';
         }
+
+				let motionClass = '';
+        let motionAttr = '';
+
+        if (isMotion) {
+          const delay = 0.1 * (index + 1);
+          motionClass = ' motion fade-up';
+          motionAttr = `data-delay="${delay}"`;
+        }
       %>
-      <li class="card-item motion fade-up" data-delay="<%= delay %>">
+      <li class="card-item <%= motionClass %>" <%- motionAttr %>>
         <a href="#!">
           <div class="card-top">
 						<!-- [2025-12-12] badge 컬러 light-orange 로 변경 -->
