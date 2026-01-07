@@ -154,16 +154,16 @@ const gsapBusinessAni = {
       start: "top 20%", 
       toggleActions: "play none none reverse", 
       onEnter: () => {
-        // $firstItem.addClass("active");
-        // $firstButton.attr("aria-expanded", "true");
+        $firstItem.addClass("active");
+        $firstButton.attr("aria-expanded", "true");
         
-        // $firstContent.stop().slideDown(500);
+        $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
-        // $firstItem.removeClass("active");
-        // $firstButton.attr("aria-expanded", "false");
+        $firstItem.removeClass("active");
+        $firstButton.attr("aria-expanded", "false");
         
-        // $firstContent.stop().slideUp(500);
+        $firstContent.stop().slideUp(500);
       }
     });
   }
@@ -280,7 +280,7 @@ $(function () {
 	
   uiFooterBanner.init();
 
-  // gsapBusinessAni.init();
+  gsapBusinessAni.init();
   // gsapBusinessAniTest.init();
   gsapInsightAniTest.init();
 });
