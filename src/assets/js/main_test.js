@@ -232,7 +232,7 @@ const gsapInsightAniTest = {
 		const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $visualBox[0], 
-        start: "top 30%",      
+        start: "top 70%",      
         toggleActions: "restart none none reverse", 
       }
     });
