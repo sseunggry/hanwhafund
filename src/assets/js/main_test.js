@@ -154,16 +154,19 @@ const gsapBusinessAni = {
       start: "top 20%", 
       toggleActions: "play none none reverse", 
       onEnter: () => {
+				$allItems.removeClass("active");
+        $allButtons.attr("aria-expanded", "false");
+        $allContents.stop().slideUp(500);
+
         $firstItem.addClass("active");
         $firstButton.attr("aria-expanded", "true");
         
         $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
-        $firstItem.removeClass("active");
-        $firstButton.attr("aria-expanded", "false");
-        
-        $firstContent.stop().slideUp(500);
+        $allItems.removeClass("active");
+        $allButtons.attr("aria-expanded", "false");
+        $allContents.stop().slideUp(500);
       }
     });
   }
