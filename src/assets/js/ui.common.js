@@ -614,8 +614,8 @@ const uiTab = {
 
       // 탭 스크롤 이동
 			setTimeout(() => {
-				if (window.commonJs && commonJs.uiLnb && commonJs.uiLnb.init) {
-					commonJs.uiLnb.init(); 
+				if (typeof uiLnb !== 'undefined' && uiLnb.init) {
+					uiLnb.init(); 
 				}
 				if (typeof gsapMotion !== 'undefined') {
 					gsapMotion.refresh($targetPanel);
@@ -851,7 +851,7 @@ const uiLnb = {
   offset: 150, 
 
   init: function () {
-    this.$sidebar = $(".sidebar:visible");
+    this.$sidebar = $(".tab-conts.active .sidebar");
     if (!this.$sidebar.length) return;
 
     this.$links = this.$sidebar.find("a[href^='#']");
@@ -1290,6 +1290,27 @@ const uiHeader = {
     });
   }
 };
+const uiTabSticky = {
+  init: function() {
+    const $tab = $('.layout-sidebar .tab.line');
+    if (!$tab.length) return;
+
+    $(window).on('scroll', function() {
+      const stickyTop = 0; 
+      const currentTop = $tab.offset().top - $(window).scrollTop();
+    
+      if (currentTop <= stickyTop + 1) { 
+        if (!$tab.hasClass('is-sticky')) {
+            $tab.addClass('is-sticky');
+        }
+      } else {
+        if ($tab.hasClass('is-sticky')) {
+            $tab.removeClass('is-sticky');
+        }
+      }
+    });
+  }
+};
 
 // 캘린더 기능 예시용
 const calendar = {
@@ -1517,6 +1538,7 @@ const commonJs = {
     uiSitemap.init();
 		uiScrollCheck.init();
 		uiHeader.init();
+		uiTabSticky.init();
 
 		calendar.init();
 		calendarInline.init();
