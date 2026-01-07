@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Multi-monitoring system | Risk Management'
+		}) -%>
+	</head>
+	<body class="page-company">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container company-system">
+				<section class="section-employ">
+					<div class="inner">
+						<div class="cont-group">
+							<div class="section-tit-wrap">
+								<h2 class="tit">Investment Management System</h2>
+							</div>
+							<%
+							const board1 = `
+							<section class="cont-group monitoring">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-monitoring-01.jpg" alt="" class="pc-tablet-only">
+										<img src="~@/assets/images/company/mo-system-monitoring-01.jpg" alt="" class="mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit"><span class="f-hanwha">Hanwha Asset Management</span> <span class="fc-primary">responds to market volatility</span> through a systematic and robust risk management framework.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">Investment Monitoring Framework Process</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-monitoring-02-en.png" alt="" class="pc-tablet-only">	
+											<img src="~@/assets/images/company/mo-system-monitoring-02-en.png" alt="" class="mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Management</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">Investment Team</p>
+													<ul class="note-list depth-1">
+														<li>Compliance with investment plans</li>
+														<li>Review of regulatory and guideline-based investment limits</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Risk Management</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">Risk Management Team</p>
+													<ul class="note-list depth-1">
+														<li>Risk management by type (market, credit, liquidity)</li>
+														<li>Setting and monitoring of position, loss, and risk limits</li>
+														<li>Calculation and analysis of risk metrics</li>
+														<li>Fund performance evaluation and performance attribution</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Compliance</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">Compliance Team</p>
+													<ul class="note-list depth-1">
+														<li>Monitoring of  compliance with all internal control standards: Ongoing review of compliance with applicable laws, terms and conditions, and special agreements</li>
+														<li>Pre- and post-monitoring of daily operations: Proactive management of legal risks and review of operational errors, including corrective actions and confirmation of their implementation</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							const board2 = `
+							<section class="cont-group risk">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-risk-01.jpg" alt="" class="pc-tablet-only">
+										<img src="~@/assets/images/company/mo-system-risk-01.jpg" alt="" class="mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit">Through <span class="fc-primary">dual monitoring</span>, we rigorously manage risks across the entire investment process.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">Risk Management Process</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-risk-02-en.png" alt="" class="pc-tablet-only">	
+											<img src="~@/assets/images/company/mo-system-risk-02-en.png" alt="" class="mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Establishing risk policies and procedures</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<p class="tit">Risk Management Committee</p>
+													<ul class="note-list depth-1">
+														<li>Formulating and revising risk management policies and overall risk levels</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk Measurement</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Risk assessment for new funds and products</li>
+														<li>Identification and quantitative measurement of key portfolio risks</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk Evaluation</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Comparing current risk/return levels with established targets</li>
+														<li>Analyzing risk factor contributions</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Portfolio Risk Reporting</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Convening relevant parties and implementing follow-up actions, including measures to prevent recurrence</li>
+														<li>Daily risk reporting</li>
+													</ul>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							const board3 = `
+							<section class="cont-group inspect">
+								<div class="overlay-box-wrap reverse">
+									<div class="visual-box">
+										<img src="~@/assets/images/company/system-inspect-01.jpg" alt="" class="pc-tablet-only">
+										<img src="~@/assets/images/company/mo-system-inspect-01.jpg" alt="" class="mobile-only">
+									</div>
+									<div class="info-box">
+										<p class="tit">We prevent risks in advance and <span class="fc-primary">ensure transparent investment management</span> through internal controls and compliance oversight.</p>
+									</div>
+								</div>
+								<div class="group-wrap spacing-lg">
+									<h3 class="tit-sm">Internal Control Review Process</h3>
+									<div class="gray-box">
+										<div class="img-wrap">
+											<img src="~@/assets/images/company/system-inspect-02-en.png" alt="" class="pc-tablet-only">	
+											<img src="~@/assets/images/company/mo-system-inspect-02-en.png" alt="" class="mobile-only">	
+										</div>
+									</div>
+									<ul class="grid-list-wrap">
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Establishment of the Internal Control System</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Enactment and Revision of the Internal Control System</li>
+														<li>Establishment of the Regulatory Compliance Policy</li>
+														<li>Development of the Regulatory Compliance Programs</li>
+														<li>Compliance Oversight and Result Reporting</li>
+														<li>Establishment and Operation of the Responsibility Map</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Monitoring and inspection</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Monitoring of the operation of the internal control system</li>
+														<li>Reporting unlawful or improper activities to the Audit Committee, requesting sanctions, and requiring corrective and remedial measures for identified issues and deficiencies</li>
+														<li>Collecting information related to the internal control system</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Pre- and post-review of daily operations</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Prior review of the establishment, amendment, or repeal of internal rules, operational policies, and related procedures</li>
+														<li>Prior review of agenda items to be submitted to the Board of Directors</li>
+														<li>Prior review of new business initiatives</li>
+														<li>Prior review of external documents and marketing materials</li>
+														<li>Ongoing monitoring to ensure compliance with internal control requirements</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Protection of clients, shareholders, and stakeholders</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Handling customer complaints and reviewing the adequacy and appropriateness of public disclosure activities</li>
+														<li>Monitoring and supervising the adequacy of investor protection measures</li>
+														<li>Reviewing and preventing conflicts of interest</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+										<li>
+											<div class="tit-wrap">
+												<p class="tit num">Support and advisory services related to the internal control system</p>
+											</div>
+											<div class="txt-wrap">
+												<div class="txt-item">
+													<ul class="note-list depth-1">
+														<li>Providing guidance to the Board of Directors, management, and relevant departments on the operation of the internal control system</li>
+														<li>Regular reporting to management and the Internal Control Committee on the establishment and implementation of the internal control system</li>
+														<li>Advising employees on regulatory compliance and operational matters</li>
+													</ul>
+												</div>	
+											</div>
+										</li>
+									</ul>
+								</div>
+							</section>
+							`;
+							%>
+							<%- include('../../components/tab.ejs', {
+								active: 1,
+								variant: 'line',
+								tablist: ['Investment Monitoring Framework', 'Risk Management', 'Internal Control Review System'],
+								contents: [board1, board2, board3],
+							}) -%>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

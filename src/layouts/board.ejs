@@ -29,6 +29,7 @@
     { label: '기타' },
   ];
   const segmentControl = localsSafe.segmentControl;
+	const segmentActiveIndex = (typeof localsSafe.segmentActiveIndex === 'number') ? localsSafe.segmentActiveIndex : 0;
   let segmentItems;
 
   if (segmentControl === true) {
@@ -42,7 +43,18 @@
   } else {
     segmentItems = false;
   }
+
+	if (segmentItems) {
+    segmentItems = segmentItems.map((item, index) => {
+      return {
+        ...item,
+        checked: index === segmentActiveIndex
+      };
+    });
+  }
+
   const searchIcon = include(buttonPath, { variant: 'icon', label: '검색', size: 'xlarge', icon: 'search'});
+	const includeContent = localsSafe.includeContent || null;
 -%>
 <div class="board-con">
   <% if (segmentItems) { -%>
@@ -62,12 +74,16 @@
     }) -%>
   </form>
   <% } -%>
+	<% if (includeContent) { -%>
+		<%- includeContent %>
+	<% } else{ -%>
   <%- include(boardListPath, {
     items: boardListItems,
     thead: boardListThead,
     startNumber: startNumber,
 		download: download
   }) -%>
+	<% } -%>
   <div class="btn-wrap array-center">
     <%- include(buttonPath, {
       tag: moreButtonTag,

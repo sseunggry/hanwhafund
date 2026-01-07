@@ -321,12 +321,14 @@
 							</section>
 							`;
 							%>
+							<!-- [2026-01-07] 복리후생 탭 삭제 -->
 							<%- include('../../components/tab.ejs', {
 								active: 0,
 								variant: 'line',
-								tablist: ['핵심가치', '복리후생', '채용'],
-								contents: [board1, board2, board3],
+								tablist: ['핵심가치', '채용'],
+								contents: [board1, board3],
 							}) -%>
+							<!-- // [2026-01-07] 복리후생 탭 삭제 -->
 						</div>
 					</div>
 				</section>
