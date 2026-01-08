@@ -12608,18 +12608,17 @@ html[lang="en"] .page-main .section-banner {
   text-transform: capitalize;
 }
 .page-company:has(.company-main) .company-tit-wrap.medium .tit {
-  font-size: 8rem;
+  font-size: 6.4rem;
 }
 .page-company:has(.company-main) .company-tit-wrap.medium .tit + .sub-tit {
   margin-top: 4rem;
 }
 .page-company:has(.company-main) .company-tit-wrap.medium .sub-tit {
-  font-size: 4rem;
+  font-size: 3.2rem;
 }
 @media (max-width: 640px) {
   .page-company:has(.company-main) .company-tit-wrap .sub-desc {
     margin-bottom: 6rem;
-    font-size: 2.8rem;
   }
   .page-company:has(.company-main) .company-tit-wrap .tit {
     font-size: 4.8rem;
@@ -12722,17 +12721,8 @@ html[lang="en"] .page-main .section-banner {
   color: #fff;
   background: url(../../assets/images/company/main-mission-bg-01.png) no-repeat center/cover;
 }
-.page-company .company-main .section-slogan,
-.page-company .company-main .section-value,
-.page-company .company-main .section-info,
-.page-company .company-main .section-history,
-.page-company .company-main .section-banner {
-  position: relative;
-  z-index: 1;
-  background-color: #fff;
-  transform: translate3d(0, 0, 0);
-}
 .page-company .company-main .section-slogan {
+  position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -12751,9 +12741,10 @@ html[lang="en"] .page-main .section-banner {
   max-width: var(--hwf-content-wrap-width-large);
   padding: 0 var(--hwf-content-padding-x);
   font-family: "Trust2ATRIAL", sans-serif;
-  font-size: 16rem;
+  font-size: 9.6rem;
   line-height: 1.2;
   text-transform: capitalize;
+  transform: translateX(-50%);
 }
 @media (max-width: 1024px) {
   .page-company .company-main .section-slogan .deco-tit {
@@ -12808,56 +12799,30 @@ html[lang="en"] .page-main .section-banner {
 .page-company .company-main .section-info {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 18rem 0;
   background: #04021e url(../../assets/images/company/main-info-bg.png) no-repeat center/cover;
 }
-.page-company .company-main .section-info .inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 4rem;
-}
-.page-company .company-main .section-info .company-tit-wrap {
-  margin: 0;
-  text-align: left;
-}
-.page-company .company-main .section-info .company-tit-wrap .txt-gradient {
-  margin: 0;
+.page-company .company-main .section-info .txt-wrap {
+  margin-top: 8rem;
 }
 .page-company .company-main .section-info .txt-wrap dl {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5rem 0;
-}
-.page-company .company-main .section-info .txt-wrap dl:first-child {
-  padding-top: 0;
-}
-.page-company .company-main .section-info .txt-wrap dl:last-child {
-  padding-bottom: 0;
-}
-.page-company .company-main .section-info .txt-wrap dl:last-child::after {
-  display: none;
-}
-.page-company .company-main .section-info .txt-wrap dl::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0.1rem;
-  background: linear-gradient(90deg, #ff4d32 25%, #803c4a 50%, #022a62 100%);
+  justify-content: center;
+  gap: 8rem;
 }
 .page-company .company-main .section-info .txt-wrap dt {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   color: #fff;
-  font-size: 3.2rem;
+  font-size: 3.6rem;
   font-weight: 600;
+  word-break: keep-all;
 }
 .page-company .company-main .section-info .txt-wrap dt small {
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 400;
 }
 .page-company .company-main .section-info .txt-wrap dd {
@@ -12867,7 +12832,6 @@ html[lang="en"] .page-main .section-banner {
 }
 .page-company .company-main .section-info .txt-wrap dd .counter {
   display: inline-block;
-  min-width: 2ch;
   font-size: 16rem;
   font-family: "Trust2ATRIAL", sans-serif;
   line-height: 1;
@@ -12876,62 +12840,35 @@ html[lang="en"] .page-main .section-banner {
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   white-space: nowrap;
-  font-variant-numeric: tabular-nums;
   text-align: right;
-}
-.page-company .company-main .section-info .txt-wrap dd .unit {
-  color: #fff;
-  font-size: 6.4rem;
-}
-@media (max-width: 1460px) {
-  .page-company .company-main .section-info .inner {
-    flex-direction: column;
-  }
-}
-@media (max-width: 768px) {
-  .page-company .company-main .section-info .txt-wrap dl {
-    flex-wrap: wrap;
-  }
-  .page-company .company-main .section-info .txt-wrap dt {
-    width: 100%;
-  }
-  .page-company .company-main .section-info .txt-wrap dd {
-    width: 100%;
-    justify-content: flex-end;
-  }
 }
 @media (max-width: 640px) {
   .page-company .company-main .section-info {
     padding: 8rem 0;
     background: #04021e url(../../assets/images/company/mo-main-info-bg.png) no-repeat center/cover;
   }
-  .page-company .company-main .section-info .inner {
-    gap: 6.4rem;
+  .page-company .company-main .section-info .txt-wrap {
+    margin-top: 6rem;
   }
   .page-company .company-main .section-info .txt-wrap dl {
-    gap: 2.4rem;
-    padding: 4rem 0;
-  }
-  .page-company .company-main .section-info .txt-wrap dl:first-child {
-    padding-top: 0;
+    gap: 7.2rem;
   }
   .page-company .company-main .section-info .txt-wrap dt {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
+  }
+  .page-company .company-main .section-info .txt-wrap dt small {
+    font-size: 1.8rem;
   }
   .page-company .company-main .section-info .txt-wrap dd .counter {
     font-size: 9.6rem;
   }
-  .page-company .company-main .section-info .txt-wrap dd .unit {
-    margin-left: 0.8rem;
-    font-size: 3.2rem;
-  }
 }
 .page-company .company-main .section-history {
   overflow: hidden;
-  padding: 20rem 0;
+  padding: 16rem 0 20rem;
 }
 .page-company .company-main .section-history .message {
-  padding: 16.2rem 0 20rem;
+  padding-bottom: 20rem;
 }
 .page-company .company-main .section-history .message .company-tit-wrap .desc {
   background-clip: text;
@@ -13219,10 +13156,10 @@ html[lang="en"] .page-main .section-banner {
 }
 @media (max-width: 640px) {
   .page-company .company-main .section-history {
-    padding: 12rem 0 8rem;
+    padding: 8rem 0;
   }
   .page-company .company-main .section-history .message {
-    padding: 0 0 8rem;
+    padding-bottom: 8rem;
   }
   .page-company .company-main .section-history .timeline-wrap {
     --history-list-desc-gap: 1.6rem;
@@ -13943,17 +13880,18 @@ html[lang="en"] .page-main .section-banner {
 html[lang="en"] .page-company:has(.company-main) .header .logo {
   background: url(../../assets/images/common/en-logo2-w.svg) no-repeat center/cover;
 }
-html[lang="en"] .page-company:has(.company-main) .company-tit-wrap.medium .tit {
-  font-size: 6.8rem;
-}
-@media (max-width: 640px) {
-  html[lang="en"] .page-company:has(.company-main) .company-tit-wrap.medium .tit {
-    font-size: 3.2rem;
-  }
+html[lang="en"] .page-company:has(.company-main) .company-tit-wrap .tit {
+  font-family: "Trust2ATRIAL", sans-serif;
+  font-weight: 400;
 }
 html[lang="en"] .page-company .company-main .section-mission {
   text-transform: capitalize;
   letter-spacing: -0.068rem;
+}
+html[lang="en"] .page-company .company-main .section-value .value-list .tit {
+  font-family: "Trust2ATRIAL", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
 }
 html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit {
   font-size: 8rem;

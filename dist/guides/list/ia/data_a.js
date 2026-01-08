@@ -2,7 +2,7 @@ const iaPageAData = {
 	language: "ko",
 	list: [
 		// --- 메인 ---
-		{ createDate: "2025-11-21",  modifyDate: "2026-01-05",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2026-01-05: 마크업 수정`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, {detail: `2025-12-22: 텍스트 수정`}, {detail: `2025-12-12: badge 컬러 light-orange 로 변경`}, {detail: "2025-12-04: business 영역 문구 및 fc-primary 추가"}], },
+		{ createDate: "2025-11-21",  modifyDate: "2026-01-08",  category: "메인", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 마크업 수정`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, {detail: `2025-12-22: 텍스트 수정`}, {detail: `2025-12-12: badge 컬러 light-orange 로 변경`}, {detail: "2025-12-04: business 영역 문구 및 fc-primary 추가"}], },
 		{ createDate: "2025-12-23", modifyDate: "", category: "메인", depth1: "메인 공지 팝업", depth2: "", depth3: "-", pageName: "메인공지팝업", pageType: "popup", pageID: "MA_02P", link: "", isAdminLinked: false, status: "완료", memo: [], },
 		{ createDate: "2025-11-21", modifyDate: "2026-01-05", category: "메인", depth1: "검색", depth2: "", depth3: "-", pageName: "검색", pageType: "popup", pageID: "MA_03P", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-05: 태그 띄어쓰기 추가`}], },
 		{ createDate: "2025-11-21", modifyDate: "2026-01-05", category: "메인", depth1: "", depth2: "검색 결과", depth3: "-", pageName: "검색결과", pageType: "page", pageID: "MA_03_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-05: 태그 띄어쓰기 추가`}, {detail: `2025-12-12: badge 컬러 light-orange 로 변경`}], },
@@ -46,7 +46,7 @@ const iaPageAData = {
 		{ createDate: "2025-11-10", modifyDate: "", category: "공시", depth1: "연금공시", depth2: "-", depth3: "-", pageName: "연금공시", pageType: "tab", pageID: "IF_05T", link: "", isAdminLinked: true, status: "완료", memo: [], },
 
 		// --- 회사소개 ---
-		{ createDate: "2025-12-23", modifyDate: "2025-12-30", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: "2025-12-30: core value 부분 텍스트 수정"}], },
+		{ createDate: "2025-12-23", modifyDate: "2025-01-08", category: "회사소개", depth1: "회사소개 ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "CP_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-08: 마크업 수정`}, {detail: "2025-12-30: core value 부분 텍스트 수정"}], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "PE", depth3: "-", pageName: "주요비즈니스PE", pageType: "tab", pageID: "CP_02_01T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "VC", depth3: "-", pageName: "주요비즈니스VC", pageType: "tab", pageID: "CP_02_02T", link: "", isAdminLinked: true, status: "", memo: [], },
 		// { createDate: "", modifyDate: "", category: "회사소개", depth1: "주요 비즈니스", depth2: "FoFs", depth3: "-", pageName: "주요비즈니스FoFs", pageType: "tab", pageID: "CP_02_03T", link: "", isAdminLinked: true, status: "", memo: [], },
