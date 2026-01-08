@@ -285,21 +285,21 @@
 
 			&.medium{
 				.tit{
-					font-size: 8rem;
+					font-size: 6.4rem;
 
 					+ .sub-tit{
 						margin-top: 4rem;
 					}
 				}
 				.sub-tit{
-					font-size: 4rem;
+					font-size: 3.2rem;
 				}
 			}
 
 			@include mq(mobile){
 				.sub-desc{
 					margin-bottom: 6rem;
-					font-size: 2.8rem;
+					// font-size: 3.2rem;
 				}
 				.tit{
 					font-size: 4.8rem;
@@ -430,17 +430,8 @@
 
 			@include bg('company/main-mission-bg-01.png');
 		}
-		.section-slogan,
-		.section-value,
-		.section-info,
-		.section-history,
-		.section-banner {
-			position: relative;
-			z-index: 1;
-			background-color: #fff;
-			transform: translate3d(0, 0, 0);
-		}
 		.section-slogan{
+			position: relative;
 			overflow: hidden;
 			display: flex;
 			align-items: center;
@@ -459,9 +450,11 @@
 				max-width: var(--#{$prefix}-content-wrap-width-large);
 				padding: 0 var(--#{$prefix}-content-padding-x);
 				font-family: $font-family-en;
-				font-size: 16rem;
+				// font-size: 16rem;
+				font-size: 9.6rem;
 				line-height: 1.2;
 				text-transform: capitalize;
+				transform: translateX(-50%);
 			}
 
 			@include mq(tablet){
@@ -525,60 +518,30 @@
 		.section-info{
 			display: flex;
 			align-items: center;
+			justify-content: center;
 			padding: 18rem 0;
 			@include bg('company/main-info-bg.png', $color: #04021E);
 
-			.inner{
-				display: flex;
-				justify-content: space-between;
-				gap: 4rem;
-			}
-			.company-tit-wrap{
-				margin: 0;
-				text-align: left;
-
-				.txt-gradient{
-					margin: 0;
-				}
-			}
 			.txt-wrap{
+				margin-top: 8rem;
+
 				dl{
-					position: relative;
 					display: flex;
 					align-items: center;
-					justify-content: space-between;
-					padding: 5rem 0;
-
-					&:first-child{
-						padding-top: 0;
-					}
-					&:last-child{
-						padding-bottom: 0;
-						&::after{
-							display: none;
-						}
-					}
-
-					&::after {
-						content: '';
-						position: absolute;
-						bottom: 0;
-						left: 0;
-						width: 100%;
-						height: 0.1rem;
-						background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
-					}
+					justify-content: center;
+					gap: 8rem;
 				}
 				dt{
 					display: flex;
 					flex-direction: column;
 					gap: 0.8rem;
 					color: #fff;
-					font-size: 3.2rem;
+					font-size: 3.6rem;
 					font-weight: 600;
+					word-break: keep-all;
 
 					small{
-						font-size: 1.8rem;
+						font-size: 2.4rem;
 						font-weight: 400;
 					}
 				}
@@ -589,7 +552,6 @@
 
 					.counter{
 						display: inline-block;
-						min-width: 2ch;
 						font-size: 16rem;
 						font-family: $font-family-en;
 						line-height: 1;
@@ -598,61 +560,30 @@
 						-webkit-background-clip: text;
 						-webkit-text-fill-color: transparent;
 						white-space: nowrap;
-						font-variant-numeric: tabular-nums;
 						text-align: right;
-					}
-
-          .unit {
-						color: #fff;
-            font-size: 6.4rem;
-          }
-				}
-			}
-
-			@include mq(1460){
-				.inner{
-					flex-direction: column;
-				}
-			}
-			@include mq(tablet-small){
-				.txt-wrap{
-					dl{
-						flex-wrap: wrap;
-					}
-					dt{
-						width: 100%;
-					}
-					dd{
-						width: 100%;
-						justify-content: flex-end;
 					}
 				}
 			}
 			@include mq(mobile){
 				padding: 8rem 0;
 				@include bg('company/mo-main-info-bg.png', $color: #04021E);
-				.inner{
-					gap: 6.4rem;
-				}
-				.txt-wrap{
-					dl{
-						gap: 2.4rem;
-						padding: 4rem 0;
 
-						&:first-child{
-							padding-top: 0;
-						}
+				.txt-wrap{
+					margin-top: 6rem;
+
+					dl{
+						gap: 7.2rem;
 					}
 					dt{
-						font-size: 2.4rem;
+						font-size: 2.8rem;
+
+						small{
+							font-size: 1.8rem;
+						}
 					}
 					dd{
 						.counter{
 							font-size: 9.6rem;
-						}
-						.unit{
-							margin-left: 0.8rem;
-							font-size: 3.2rem;
 						}
 					}
 				}
@@ -660,10 +591,10 @@
 		}
 		.section-history{
 			overflow: hidden;
-			padding: 20rem 0;
+			padding: 16rem 0 20rem;
 
 			.message{
-				padding: 16.2rem 0 20rem;
+				padding-bottom: 20rem;
 
 				.company-tit-wrap{
 					.desc{
@@ -1004,10 +935,10 @@
 				}
 			}
 			@include mq(mobile){
-				padding: 12rem 0 8rem;
+				padding: 8rem 0;
 
 				.message{
-					padding: 0 0 8rem;
+					padding-bottom: 8rem;
 				}
 
 				.timeline-wrap{
@@ -1895,14 +1826,9 @@ html[lang="en"]{
 				}
 			}
 			.company-tit-wrap{
-				&.medium{
-					.tit{
-						font-size: 6.8rem;
-	
-						@include mq(mobile){
-							font-size: 3.2rem;
-						}
-					}
+				.tit{
+					font-family: $font-family-en;
+					font-weight: 400;
 				}
 			}
 		}
@@ -1910,6 +1836,15 @@ html[lang="en"]{
 			.section-mission{
 				text-transform: capitalize;
 				letter-spacing: -0.068rem;
+			}
+			.section-value{
+				.value-list{
+					.tit{
+						font-family: $font-family-en;
+						font-weight: 400;
+						line-height: 1.2;
+					}
+				}
 			}
 			.section-info{
 				.company-tit-wrap{

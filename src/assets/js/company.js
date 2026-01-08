@@ -75,12 +75,10 @@ const gsapMissionAni = {
     if (!$section.length) return;
 
     const $subDesc = $section.find(".sub-desc");
-    const $titLines = $section.find(".tit p"); 
+    const $titLines = $section.find(".tit"); 
     const $subTit = $section.find(".sub-tit");
     const $allTexts = $section.find(".txt-gradient");
     
-    const $bgImages = $section.find(".img-list li");
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $section,
@@ -108,28 +106,6 @@ const gsapMissionAni = {
       duration: 1.5,
       ease: "power2.out"
     }, "-=0.2");
-
-    // if ($bgImages.length > 1) {
-    //   $bgImages.each(function(index, item) {
-    //     if (index === 0) return;
-
-    //     if (index === 1) {
-    //       tl.to(item, {
-    //         opacity: 1,
-    //         duration: 1,
-    //         ease: "power1.inOut"
-    //       }, 0.5);
-    //     } 
-    //     else {
-    //       tl.to(item, {
-    //         opacity: 1,
-    //         duration: 1,
-    //         ease: "power1.inOut"
-    //       }, ">-0.5");
-    //     }
-
-    //   });
-    // }
   }
 };
 const gsapSloganAni = {
@@ -229,17 +205,11 @@ const gsapInfoAni = {
 		const $section = $(".section-info");
 		if (!$section.length) return;
 
-		// const $counters = $section.find(".counter");
+		const $subDesc = $section.find(".sub-desc");
+    const $tit = $section.find(".tit"); 
 		const $dl = $section.find(".txt-wrap dl");
 
-		// const endNum1 = parseFloat($counters.eq(0).data('num')) || 0; 
-    // const endNum2 = parseFloat($counters.eq(1).data('num')) || 0;
-    // const endNum3 = parseFloat($counters.eq(2).data('num')) || 0;
-
-		// const counters = { counter1: 0, counter2: 0, counter3: 0 };
-		const spinOffset = 50;
 		const dlDuration = 0.8;
-		const counterDuration = 1;
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -249,56 +219,20 @@ const gsapInfoAni = {
 			}
 		});
 
-		tl.fromTo($dl.eq(0),
+		tl.fromTo($subDesc, 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out" }
+    )
+    .fromTo($tit, 
+      { y: 50, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 1, ease: "power2.out"}, 
+      "-=0.8"
+    )
+		.fromTo($dl.eq(0),
 			{ y: 50, opacity: 0 },
-			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
+			{ y: 0, opacity: 1, duration: dlDuration, ease: "power2.out" },
 			"<"
 		);
-
-		// tl.to(counters, {
-		// 	counter1: endNum1,
-		// 	duration: counterDuration,
-		// 	ease: "ease-in-out",
-		// 	onUpdate: () => {
-		// 		if (Number.isInteger(endNum1)) {
-		// 			$counters.eq(0).text(Math.round(counters.counter1));
-		// 		} else {
-		// 			$counters.eq(0).text(counters.counter1.toFixed(1)); 
-		// 		}
-		// 	}
-		// }, "<");
-
-		tl.fromTo($dl.eq(1),
-			{ y: 50, opacity: 0 },
-			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
-			">"
-		);
-		// tl.to(counters, {
-		// 	counter2: endNum2 + spinOffset,
-		// 	duration: counterDuration,
-		// 	snap: "counter2",
-		// 	ease: "ease-in-out",
-		// 	onUpdate: () => {
-		// 		const showNum = Math.round(counters.counter2) % 10;
-    //     $counters.eq(1).text(showNum);
-		// 	}
-		// }, "<");
-
-		tl.fromTo($dl.eq(2),
-			{ y: 50, opacity: 0 },
-			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
-			">"
-		);
-		// tl.to(counters, {
-		// 	counter3: endNum3 + spinOffset,
-		// 	duration: counterDuration,
-		// 	snap: "counter3",
-		// 	ease: "ease-in-out",
-		// 	onUpdate: () => {
-		// 		const showNum = Math.round(counters.counter3) % 10;
-    //     $counters.eq(2).text(showNum);
-		// 	}
-		// }, "<");
 	}
 };
 const gsapHistoryTextFillAni = {
