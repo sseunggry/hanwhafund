@@ -117,8 +117,25 @@ const gsapSloganAni = {
     const $tit = $sloganSection.find(".tit");
     const $decoTit = $sloganSection.find(".deco-tit");
 
-    if ($tit.length) gsap.set($tit, { y: 50, opacity: 0 });
-    gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 2.5 });
+		if ($tit.length) {
+      $decoTit.css({
+        "position": "absolute",
+      });
+    }
+
+    const getStartY = () => {
+      const sectionBottom = $sloganSection.offset().top + $sloganSection.outerHeight();
+      const decoCenter = $decoTit.offset().top + ($decoTit.outerHeight() / 2);
+      return sectionBottom - decoCenter;
+    };
+		const getTargetY = () => {
+      if (!$tit.length) return 0;
+
+      const titTop = $tit.offset().top;
+      const decoTop = $decoTit.offset().top;
+
+      return titTop - decoTop;
+    };
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -130,38 +147,29 @@ const gsapSloganAni = {
     });
 
     if ($tit.length) {
+			gsap.set($tit, { y: 0, opacity: 1 });
       tl.to($tit, {
-        y: 0,
-        opacity: 1,
+        y: -50,
+        opacity: 0,
         duration: 0.5,
         ease: "power2.out"
       });
     }
-    tl.to($decoTit, {
-      y: function () {
-        const subTop = $subDesc.offset().top;      
-        const subHeight = $subDesc.outerHeight();  
-        const subMargin = parseFloat($subDesc.css("marginBottom")) || 0;
-        const targetTop = subTop + subHeight + subMargin;
-        const currentTop = $decoTit.offset().top;
-
-        return targetTop - currentTop; 
-      },
-      scale: 1, 
-      yPercent: 0,
-      opacity: 1,
-      duration: 1,
-      ease: "power2.out" 
-    }, $tit.length ? "+=0.1" : "0")
-    
-    if ($tit.length) {
-      tl.to($tit, {
-        opacity: 0,
-        y: -50,
-        duration: 0.5,
-        ease: "power2.in"
-      }, "<");
-    }
+    tl.fromTo($decoTit,
+			{
+				y: getStartY(), 
+				scale: 2.5,     
+				autoAlpha: 1,       
+				transformOrigin: "center center"
+			},
+			{
+				y: getTargetY(), 
+				scale: 1,
+				duration: 1,
+				ease: "power2.out"
+			},
+			$tit.length ? "<+=0.1" : "0"
+		);
   }
 };
 const gsapValueAni = {

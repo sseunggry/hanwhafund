@@ -12734,9 +12734,8 @@ html[lang="en"] .page-main .section-banner {
   background-clip: text;
 }
 .page-company .company-main .section-slogan .deco-tit {
-  position: absolute;
+  position: relative;
   left: 50%;
-  bottom: 0;
   width: 100%;
   max-width: var(--hwf-content-wrap-width-large);
   padding: 0 var(--hwf-content-padding-x);
@@ -12745,6 +12744,8 @@ html[lang="en"] .page-main .section-banner {
   line-height: 1.2;
   text-transform: capitalize;
   transform: translateX(-50%);
+  visibility: hidden;
+  opacity: 0;
 }
 @media (max-width: 1024px) {
   .page-company .company-main .section-slogan .deco-tit {
