@@ -443,9 +443,10 @@
 			}
 
 			.deco-tit{
-				position: absolute;
+				position: relative;
+				// position: absolute;
 				left: 50%;
-				bottom: 0;
+				// bottom: 0;
 				width: 100%;
 				max-width: var(--#{$prefix}-content-wrap-width-large);
 				padding: 0 var(--#{$prefix}-content-padding-x);
@@ -455,6 +456,8 @@
 				line-height: 1.2;
 				text-transform: capitalize;
 				transform: translateX(-50%);
+				visibility: hidden; 
+    		opacity: 0;
 			}
 
 			@include mq(tablet){
