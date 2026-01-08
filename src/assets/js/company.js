@@ -118,13 +118,12 @@ const gsapSloganAni = {
     const $decoTit = $sloganSection.find(".deco-tit");
 
     if ($tit.length) gsap.set($tit, { y: 50, opacity: 0 });
-    gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 1.5 });
+    gsap.set($decoTit, { xPercent: -50, yPercent: 50, scale: 2.5 });
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $sloganSection,
         start: "top 50%",
-        // end: "bottom top",
         toggleActions: "play none none reverse",
         markers: false
       }
@@ -138,7 +137,6 @@ const gsapSloganAni = {
         ease: "power2.out"
       });
     }
-
     tl.to($decoTit, {
       y: function () {
         const subTop = $subDesc.offset().top;      
