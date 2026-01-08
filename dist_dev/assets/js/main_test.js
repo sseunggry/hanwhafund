@@ -154,45 +154,18 @@ const gsapBusinessAni = {
       start: "top 20%", 
       toggleActions: "play none none reverse", 
       onEnter: () => {
-				$allItems.removeClass("active");
-        $allButtons.attr("aria-expanded", "false");
-        $allContents.stop().slideUp(500);
-
         $firstItem.addClass("active");
         $firstButton.attr("aria-expanded", "true");
         
         $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
-        $allItems.removeClass("active");
-        $allButtons.attr("aria-expanded", "false");
-        $allContents.stop().slideUp(500);
+        $firstItem.removeClass("active");
+        $firstButton.attr("aria-expanded", "false");
+        
+        $firstContent.stop().slideUp(500);
       }
     });
-  }
-};
-const gsapBusinessAniTest = {
-  init: function() {
-    const $sectionBiz = $(".page-main.test .section-business");
-    if (!$sectionBiz.length) return;
-
-    // 모든 아이템, 버튼, 컨텐츠 선택
-    const $allItems = $sectionBiz.find(".accordion-item");
-    const $allButtons = $sectionBiz.find(".btn-accordion");
-    const $allContents = $sectionBiz.find(".accordion-collapse");
-
-    if (!$allItems.length) return;
-
-    $allItems.addClass("active");         
-    $allButtons.attr("aria-expanded", "true");
-    $allContents.show();                    
-
-    $allButtons.css({
-        "pointer-events": "none", 
-        "cursor": "default" 
-    });
-
-    $allButtons.off("click");
   }
 };
 const gsapInsightAni = {
@@ -226,38 +199,6 @@ const gsapInsightAni = {
     "<0.3");
   }
 };
-const gsapInsightAniTest = {
-  init: function() {
-    const $visualBox = $(".page-main.test .section-insight .visual-box"); 
-    const $infoBox = $(".page-main.test .section-insight .info-box");
-    if (!$visualBox.length || !$infoBox.length) return;
-
-		const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: $visualBox[0], 
-        start: "top 70%",      
-        toggleActions: "restart none none reverse", 
-      }
-    });
-
-		tl.from($visualBox, {
-      y: 50,      
-      opacity: 0, 
-      duration: 1,
-      ease: "power3.out",
-    }, 0);
-
-		tl.from($infoBox, {
-      y: 50,     
-      opacity: 0, 
-      duration: 1,
-      ease: "power3.out",
-      force3D: false, 
-      onStart: () => { gsap.set($visualBox, { willChange: "transform, opacity" }); },
-      onComplete: () => { gsap.set($visualBox, { willChange: "auto" }); }
-    }, 0);
-  }
-};
 const gsapBannerTextFillAni = {
   init: function() {
     const $bannerTit = $(".section-banner .tit");
@@ -279,11 +220,9 @@ const gsapBannerTextFillAni = {
 $(function () {
   gsapPartnerAni.init();
   gsapMessageAni.init();
-  gsapBannerTextFillAni.init();
-	
-  uiFooterBanner.init();
-
   gsapBusinessAni.init();
-  // gsapBusinessAniTest.init();
-  gsapInsightAniTest.init();
+  gsapInsightAni.init();
+  gsapBannerTextFillAni.init();
+
+  uiFooterBanner.init();
 });

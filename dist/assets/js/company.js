@@ -84,11 +84,10 @@ const gsapMissionAni = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $section,
-        start: "top 60%", 
+        start: "top 50%", 
         toggleActions: "play none none reverse", 
       }
     });
-
 
     tl.fromTo($subDesc, 
       { y: 50, opacity: 0 }, 
@@ -110,27 +109,27 @@ const gsapMissionAni = {
       ease: "power2.out"
     }, "-=0.2");
 
-    if ($bgImages.length > 1) {
-      $bgImages.each(function(index, item) {
-        if (index === 0) return;
+    // if ($bgImages.length > 1) {
+    //   $bgImages.each(function(index, item) {
+    //     if (index === 0) return;
 
-        if (index === 1) {
-          tl.to(item, {
-            opacity: 1,
-            duration: 1,
-            ease: "power1.inOut"
-          }, 0.5);
-        } 
-        else {
-          tl.to(item, {
-            opacity: 1,
-            duration: 1,
-            ease: "power1.inOut"
-          }, ">-0.5");
-        }
+    //     if (index === 1) {
+    //       tl.to(item, {
+    //         opacity: 1,
+    //         duration: 1,
+    //         ease: "power1.inOut"
+    //       }, 0.5);
+    //     } 
+    //     else {
+    //       tl.to(item, {
+    //         opacity: 1,
+    //         duration: 1,
+    //         ease: "power1.inOut"
+    //       }, ">-0.5");
+    //     }
 
-      });
-    }
+    //   });
+    // }
   }
 };
 const gsapSloganAni = {
@@ -148,8 +147,8 @@ const gsapSloganAni = {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $sloganSection,
-        start: "top 20%",
-        end: "bottom top",
+        start: "top 50%",
+        // end: "bottom top",
         toggleActions: "play none none reverse",
         markers: false
       }
@@ -177,7 +176,7 @@ const gsapSloganAni = {
       scale: 1, 
       yPercent: 0,
       opacity: 1,
-      duration: 1.5,
+      duration: 1,
       ease: "power2.out" 
     }, $tit.length ? "+=0.1" : "0")
     
@@ -198,12 +197,11 @@ const gsapValueAni = {
 
     const $subDesc = $section.find(".sub-desc");
     const $listItems = $section.find(".value-list li");
-    const $bgImages = $section.find(".img-list li");
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $section,
-        start: "top 20%",
+        start: "top 40%",
         toggleActions: "restart none none reverse",
       }
     });
@@ -220,27 +218,10 @@ const gsapValueAni = {
         y: 0, 
         opacity: 1, 
         duration: 0.8, 
-        ease: "power2.out", 
-        stagger: 0.15 
+        ease: "power2.out",
       },
       "startContent"
     );
-
-    if ($bgImages.length > 1) {
-      let imgDelay = 0; 
-
-      $bgImages.each(function (index, item) {
-        if (index === 0) return;
-
-        tl.to(item, {
-          opacity: 1,
-          duration: 2,
-          ease: "power1.inOut"
-        }, `startContent+=${imgDelay}`);
-
-        imgDelay += 1.2; 
-      });
-    }
   }
 };
 const gsapInfoAni = {
@@ -248,22 +229,22 @@ const gsapInfoAni = {
 		const $section = $(".section-info");
 		if (!$section.length) return;
 
-		const $counters = $section.find(".counter");
+		// const $counters = $section.find(".counter");
 		const $dl = $section.find(".txt-wrap dl");
 
-		const endNum1 = parseFloat($counters.eq(0).data('num')) || 0; 
-    const endNum2 = parseFloat($counters.eq(1).data('num')) || 0;
-    const endNum3 = parseFloat($counters.eq(2).data('num')) || 0;
+		// const endNum1 = parseFloat($counters.eq(0).data('num')) || 0; 
+    // const endNum2 = parseFloat($counters.eq(1).data('num')) || 0;
+    // const endNum3 = parseFloat($counters.eq(2).data('num')) || 0;
 
-		const counters = { counter1: 0, counter2: 0, counter3: 0 };
+		// const counters = { counter1: 0, counter2: 0, counter3: 0 };
 		const spinOffset = 50;
-		const dlDuration = 1;
+		const dlDuration = 0.8;
 		const counterDuration = 1;
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: $section[0],
-				start: "top 30%",
+				start: "top 40%",
 				toggleActions: "restart none none reverse",
 			}
 		});
@@ -271,53 +252,53 @@ const gsapInfoAni = {
 		tl.fromTo($dl.eq(0),
 			{ y: 50, opacity: 0 },
 			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
-			"<0.2"
+			"<"
 		);
 
-		tl.to(counters, {
-			counter1: endNum1,
-			duration: counterDuration,
-			ease: "ease-in-out",
-			onUpdate: () => {
-				if (Number.isInteger(endNum1)) {
-					$counters.eq(0).text(Math.round(counters.counter1));
-				} else {
-					$counters.eq(0).text(counters.counter1.toFixed(1)); 
-				}
-			}
-		}, "<");
+		// tl.to(counters, {
+		// 	counter1: endNum1,
+		// 	duration: counterDuration,
+		// 	ease: "ease-in-out",
+		// 	onUpdate: () => {
+		// 		if (Number.isInteger(endNum1)) {
+		// 			$counters.eq(0).text(Math.round(counters.counter1));
+		// 		} else {
+		// 			$counters.eq(0).text(counters.counter1.toFixed(1)); 
+		// 		}
+		// 	}
+		// }, "<");
 
 		tl.fromTo($dl.eq(1),
 			{ y: 50, opacity: 0 },
 			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
-			">0.2"
+			">"
 		);
-		tl.to(counters, {
-			counter2: endNum2 + spinOffset,
-			duration: counterDuration,
-			snap: "counter2",
-			ease: "ease-in-out",
-			onUpdate: () => {
-				const showNum = Math.round(counters.counter2) % 10;
-        $counters.eq(1).text(showNum);
-			}
-		}, "<");
+		// tl.to(counters, {
+		// 	counter2: endNum2 + spinOffset,
+		// 	duration: counterDuration,
+		// 	snap: "counter2",
+		// 	ease: "ease-in-out",
+		// 	onUpdate: () => {
+		// 		const showNum = Math.round(counters.counter2) % 10;
+    //     $counters.eq(1).text(showNum);
+		// 	}
+		// }, "<");
 
 		tl.fromTo($dl.eq(2),
 			{ y: 50, opacity: 0 },
 			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
-			">0.2"
+			">"
 		);
-		tl.to(counters, {
-			counter3: endNum3 + spinOffset,
-			duration: counterDuration,
-			snap: "counter3",
-			ease: "ease-in-out",
-			onUpdate: () => {
-				const showNum = Math.round(counters.counter3) % 10;
-        $counters.eq(2).text(showNum);
-			}
-		}, "<");
+		// tl.to(counters, {
+		// 	counter3: endNum3 + spinOffset,
+		// 	duration: counterDuration,
+		// 	snap: "counter3",
+		// 	ease: "ease-in-out",
+		// 	onUpdate: () => {
+		// 		const showNum = Math.round(counters.counter3) % 10;
+    //     $counters.eq(2).text(showNum);
+		// 	}
+		// }, "<");
 	}
 };
 const gsapHistoryTextFillAni = {

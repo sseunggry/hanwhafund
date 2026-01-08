@@ -154,49 +154,53 @@ const gsapBusinessAni = {
       start: "top 20%", 
       toggleActions: "play none none reverse", 
       onEnter: () => {
+				$allItems.removeClass("active");
+        $allButtons.attr("aria-expanded", "false");
+        $allContents.stop().slideUp(500);
+
         $firstItem.addClass("active");
         $firstButton.attr("aria-expanded", "true");
         
         $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
-        $firstItem.removeClass("active");
-        $firstButton.attr("aria-expanded", "false");
-        
-        $firstContent.stop().slideUp(500);
+        $allItems.removeClass("active");
+        $allButtons.attr("aria-expanded", "false");
+        $allContents.stop().slideUp(500);
       }
     });
   }
 };
 const gsapInsightAni = {
   init: function() {
-    const $visualBox = $(".section-insight .visual-box"); 
-    const $infoBox = $(".section-insight .info-box"); 
-    const $newsItems = $infoBox.find(".news-item");
-    if (!$visualBox.length || !$infoBox.length || !$newsItems.length) return;
+    const $visualBox = $(".page-main.test .section-insight .visual-box"); 
+    const $infoBox = $(".page-main.test .section-insight .info-box");
+    if (!$visualBox.length || !$infoBox.length) return;
 
-    const tl = gsap.timeline({
+		const tl = gsap.timeline({
       scrollTrigger: {
         trigger: $visualBox[0], 
-        start: "top 30%",     
+        start: "top 70%",      
         toggleActions: "restart none none reverse", 
       }
     });
 
-    tl.from($infoBox, {
-      y: 120,
-      opacity: 1,
-      duration: 1.0,
-      ease: "power3.out"
-    });
-    tl.from($newsItems, {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
+		tl.from($visualBox, {
+      y: 50,      
+      opacity: 0, 
+      duration: 1,
       ease: "power3.out",
-      stagger: 0.2
-    }, 
-    "<0.3");
+    }, 0);
+
+		tl.from($infoBox, {
+      y: 50,     
+      opacity: 0, 
+      duration: 1,
+      ease: "power3.out",
+      force3D: false, 
+      onStart: () => { gsap.set($visualBox, { willChange: "transform, opacity" }); },
+      onComplete: () => { gsap.set($visualBox, { willChange: "auto" }); }
+    }, 0);
   }
 };
 const gsapBannerTextFillAni = {
@@ -220,9 +224,10 @@ const gsapBannerTextFillAni = {
 $(function () {
   gsapPartnerAni.init();
   gsapMessageAni.init();
+  gsapBannerTextFillAni.init();
+	
+  uiFooterBanner.init();
+
   gsapBusinessAni.init();
   gsapInsightAni.init();
-  gsapBannerTextFillAni.init();
-
-  uiFooterBanner.init();
 });
