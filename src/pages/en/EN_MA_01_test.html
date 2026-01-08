@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Main'
+		}) -%>
+	</head>
+	<body class="page-main">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- contents -->
+			<main class="contents">
+				<section class="section-visual">
+					<div class="swiper main-visual-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<!-- [2025-12-30] a태그 추가 -->
+								<a href="#!">
+									<div class="visual">
+										<div class="inner">
+											<div class="tit-wrap">
+												<p class="num">01</p>
+												<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+											</div>
+										</div>
+										<div class="img-wrap">
+											<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+										</div>
+									</div>
+								</a>
+								<!-- // [2025-12-30] a태그 추가 -->
+							</div>
+							<div class="swiper-slide">
+								<a href="#!">
+									<div class="visual">
+										<div class="inner">
+											<div class="tit-wrap">
+												<p class="num">02</p>
+												<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+											</div>
+										</div>
+										<div class="img-wrap">
+											<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#!">
+									<div class="visual">
+										<div class="inner">
+											<div class="tit-wrap">
+												<p class="num">03</p>
+												<p class="desc">A comprehensive asset management firm <br/>  dedicated to protecting your tomorrow.</p>
+											</div>
+										</div>
+										<div class="img-wrap">
+											<img src="~@/assets/images/main/visual-bg-01.png" alt="">
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+					<script>
+						const swiper = new Swiper(".main-visual-swiper", {
+							pagination: {
+								el: ".swiper-pagination",
+								clickable: true,
+							},
+						});
+					</script>
+				</section>
+
+				<section class="section-partner">
+					<div class="inner">
+						<div class="main-tit-wrap motion fade-up">
+							<h2 class="tit">a visionary partner, <br/> leading excellent investment</h2>
+						</div>
+						<div class="info-wrap">
+							<div class="img-wrap">
+								<ul class="img-list">
+									<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-02.png" alt=""></li>
+									<li><img src="~@/assets/images/main/partner-03.png" alt=""></li>
+								</ul>
+							</div>
+							<div class="txt-wrap">
+								<dl>
+									<dt>Total AUM <br/> (USD)</dt>
+									<dd>
+										<span class="counter" data-num="86">0</span>
+										<small>B</small>
+									</dd>
+								</dl>
+								<dl>
+									<dt>Domestic <br/> Institutional  <br/> Clients</dt>
+									<dd><span class="counter" data-num="60">0</span>+</dd>
+								</dl>
+								<dl>
+									<dt>Global <br/> Partners</dt>
+									<dd><span class="counter" data-num="50">0</span>+</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-network">
+					<div class="global-network-map">
+						<div class="inner">
+							<div class="main-tit-wrap motion fade-up">
+								<h2 class="tit">Global Network</h2>
+							</div>
+							<!-- [2025-12-23] 텍스트 및 마크업 수정 -->
+							<ul class="map-info-list">
+								<li>
+									<p class="tit">
+										<!-- [2026-01-05] 클래스 삭제 -->
+										<!-- [2025-12-23] 클래스 추가 -->
+										<small>First Overseas AI Centerby a Domestic Financial Institution</small>
+										<!-- // [2025-12-23] 클래스 추가 -->
+										<!-- // [2026-01-05] 클래스 삭제 -->
+										<strong>Hanwha AI Center (San Francisco)</strong>
+									</p>
+									<ul class="note-list depth-1 fc-white">
+										<li>Established: December 2024</li>
+									</ul>
+								</li>
+								<li>
+									<p class="tit">
+										<small class="f-hanwha">Hanwha Asset Management USA.,Ltd.</small>
+										<strong>U.S. Subsidiary (San Francisco)</strong>
+									</p>
+									<ul class="note-list depth-1 fc-white">
+										<li>Established: June 2005</li>
+									</ul>
+								</li>
+								<li>
+									<p class="tit">
+										<small class="f-hanwha">Hanwha Asset Management (MENA) Ltd.</small>
+										<strong>UAE Subsidiary</strong>
+									</p>
+									<ul class="note-list depth-1 fc-white">
+										<li>Established: July 2025</li>
+									</ul>
+								</li>
+								<li>
+									<p class="tit">
+										<small class="f-hanwha">Hanwha Asset Management Pte., Ltd.</small>
+										<strong>Singapore Subsidiary</strong>
+									</p>
+									<ul class="note-list depth-1 fc-white">
+										<li>Established: October 2014</li>
+									</ul>
+								</li>
+								<li>
+									<p class="tit">
+										<small class="f-hanwha">Hanwha Asset Management Co., Ltd.</small>
+										<strong>Headquarters (Seoul)</strong>
+									</p>
+									<ul class="note-list depth-1 fc-white">
+										<li>Established: 1988</li>
+									</ul>
+								</li>
+							</ul>
+							<!-- [2025-12-23] 텍스트 및 마크업 수정 -->
+							<div class="btn-wrap array-center">
+								<%- include('../../components/button.ejs', {
+									tag: 'a',
+									label: 'more',
+									size: 'large',
+									variant: 'outline',
+									addClass: 'white more',
+								}) -%>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="section-banner">
+					<div class="inner">
+						<div class="main-tit-wrap">
+							<h2 class="tit">from promise <br class="mobile-only"/> to prosperity</h2>
+							<p class="sub-tit">We move forward as a comprehensive asset management firm committed to protecting your future.</p>
+						</div>
+					</div>
+				</section>
+			</main>
+			<!-- // contents -->
+			
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+		<script src="../../assets/js/main_test.js" type="text/javascript"></script>
+	</body>
+</html>

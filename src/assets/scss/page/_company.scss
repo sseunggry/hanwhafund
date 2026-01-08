@@ -231,22 +231,6 @@
 					}
 				}
 			}
-	
-			.sitemap{
-				.logo {
-					@include bg("common/logo.svg");
-					&-plusetf {
-						a {
-							@include bg("common/logo-plus-etf.svg", $size: contain);
-						}
-					}
-					&-pine {
-						a {
-							@include bg("common/logo-pine.svg", $size: contain);
-						}
-					}
-				}
-			}
 		}
 		.inner {
 			max-width: var(--#{$prefix}-content-wrap-width-large);
@@ -435,14 +419,16 @@
 			}
 		}
 		.section-mission{
-			position: sticky;
-			top: 0;
-			z-index: 0;
+			// position: sticky;
+			// top: 0;
+			// z-index: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			color: #fff;
-			will-change: transform;
+			// will-change: transform;
+
+			@include bg('company/main-mission-bg-01.png');
 		}
 		.section-slogan,
 		.section-value,
@@ -495,7 +481,7 @@
 			align-items: center;
 			justify-content: center;
 			color: #fff;
-			@include bg('company/main-mission-bg.png', $color: #fff);
+			@include bg('company/main-value-bg-01.png');
 
 			.value-list{
 				display: flex;
@@ -1905,13 +1891,7 @@ html[lang="en"]{
 		&:has(.company-main){
 			.header {
 				.logo {
-					@include bg("common/en-logo-w.svg");
-				}
-		
-				.sitemap{
-					.logo {
-						@include bg("common/en-logo.svg");
-					}
+					@include bg("common/en-logo2-w.svg");
 				}
 			}
 			.company-tit-wrap{

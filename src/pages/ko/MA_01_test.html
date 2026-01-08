@@ -5,7 +5,7 @@
 			title : '메인',
 		}) -%>
 	</head>
-	<body class="page-main test">
+	<body class="page-main">
 		<div class="wrap">
 			<!-- header -->
 			<%- include('../../layouts/header.ejs') -%>
@@ -96,17 +96,14 @@
 						});
 					</script>
 				</section>
-				
+
 				<section class="section-partner">
 					<div class="inner">
 						<div class="main-tit-wrap motion fade-up">
-							<!-- [2026-01-07] 텍스트 수정 -->
-							<h2 class="tit">A Generational Partner,<br/> leading excellent investment</h2>
-							<p class="sub-tit">탁월한 성과를 내는 금융 파트너</p>
-							<!-- [2026-01-07] 텍스트 수정 -->
+							<h2 class="tit">a visionary partner, <br/> leading excellent investment</h2>
+							<p class="sub-tit">탁월한 성과를 내는 비저너리 파트너</p>
 						</div>
-						<!-- [2026-01-07] 마크업 삭제 -->
-						<!-- <div class="info-wrap">
+						<div class="info-wrap">
 							<div class="img-wrap">
 								<ul class="img-list">
 									<li><img src="~@/assets/images/main/partner-01.png" alt=""></li>
@@ -128,18 +125,17 @@
 									<dd><span class="counter" data-num="50">0</span>+</dd>
 								</dl>
 							</div>
-						</div> -->
-						<!-- //[2026-01-07] 마크업 삭제 -->
+						</div>
 					</div>
 				</section>
 
-				<!-- [2026-01-07] 마크업 삭제 -->
-				<!-- <section class="section-message">
+				<section class="section-message">
 					<div class="inner">
+						<!-- [2025-12-22] 텍스트 수정 -->
 						<h2 class="tit">one step ahead</h2>
+						<!-- // [2025-12-22] 텍스트 수정 -->
 					</div>
-				</section> -->
-				<!-- //[2026-01-07] 마크업 삭제 -->
+				</section>
 
 				<section class="section-business">
 					<!-- [2026-01-05] 마크업 수정 -->
@@ -152,7 +148,6 @@
 						<!-- [2025-12-04] 마크업 수정 -->
 						<%- include('../../components/accordion.ejs', {
 							addClass: 'translucent',
-							// type: 'multiOpen',
 							items: [
 								{title: '글로벌', content: '한화자산운용은 <span class="fc-primary">미국, 싱가포르, 아랍에미레이트 등 해외 법인 설립</span>을 통해 글로벌 투자 네트워크를 확대하고 있으며, 2025년 MENA 지역 진출로 글로벌 비즈니스를 강화할 계획입니다' },
 								{title: 'ETF', content: '한화자산운용은 한화 그룹의 강점을 바탕으로 한 미래 혁신기술에 투자하여 <span class="fc-primary">글로벌 메가 트렌드를 선도하는 테마형 ETF를 적극적으로 육성</span>하고 있습니다. 맞춤형 투자 솔루션으로 <span class="fc-primary">33조 원의 운용자산을 돌파</span>했으며, 2024년 신규 브랜드 ‘PLUS ETF’를 론칭해 성장세를 이어가고 있습니다' },
@@ -163,21 +158,12 @@
 					</div>
 				</section>
 
-				<!-- [2026-01-07] motion fade-up 클래스 추가 -->
-				<section class="section-trend motion fade-up">
-				<!-- //[2026-01-07] motion fade-up 클래스 추가 -->
-					<div class="inner">
-						<!-- [2026-01-07] motion fade-up 클래스 삭제 -->
+				<section class="section-trend">
+					<div class="inner motion fade-up">
 						<div class="main-tit-wrap">
-						<!-- //[2026-01-07] motion fade-up 클래스 삭제 -->
 							<h2 class="tit">Investment Trend</h2>
 						</div>
-						<!-- [2026-01-07] motion fade-up 클래스 삭제 -->
-						<%- include('../../layouts/trendList.ejs', {
-							// wrapAddClass: 'grid no-scroll',
-							motion: false,
-						}) -%>
-						<!-- //[2026-01-07] motion fade-up 클래스 삭제 -->
+						<%- include('../../layouts/trendList.ejs') -%>
 					</div>
 				</section>
 

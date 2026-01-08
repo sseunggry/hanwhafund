@@ -11,7 +11,7 @@
 
 .page-main {
 	--main-section-title-gap: 4rem;
-	--main-section-title-font-size: 12rem;
+	--main-section-title-font-size: 10rem;
 	--main-section-sub-title-font-size: 3.2rem;
 	
 	--main-message-title-font-size: 16rem;
@@ -144,22 +144,6 @@
         }
       }
     }
-
-		.sitemap{
-			.logo {
-				@include bg("common/logo.svg");
-				&-plusetf {
-					a {
-						@include bg("common/logo-plus-etf.svg");
-					}
-				}
-				&-pine {
-					a {
-						@include bg("common/logo-pine.svg");
-					}
-				}
-			}
-		}
   }
 	.footer{
 		position: absolute;
@@ -305,7 +289,7 @@
 
   .section-partner {
 		--main-partner-padding-top: 14rem;
-		--main-partner-padding-bottom: 24rem;
+		--main-partner-padding-bottom: 14rem;
 		--main-partner-dt-font-size: 3.2rem;
 		--main-partner-dd-font-size: 20rem;
 		--main-partner-dd-small-font-size: 12rem;
@@ -466,7 +450,7 @@
 		}
 		@include mq(mobile) {
 			--main-partner-padding-top: 8rem;
-			--main-partner-padding-bottom: 12rem;
+			--main-partner-padding-bottom: 8rem;
 			--main-partner-dt-font-size: 1.8rem;
 			--main-partner-dd-font-size: 8rem;
 			--main-partner-dd-small-font-size: 4rem;
@@ -532,10 +516,10 @@
   }
 
   .section-business {
-		--main-business-margin-top: 12rem;
+		// --main-business-margin-top: 12rem;
 
 		position: relative;
-		margin-top: var(--main-business-margin-top);
+		// margin-top: var(--main-business-margin-top);
     height: 108rem;
 
     .inner {
@@ -951,6 +935,8 @@
 			--main-banner-margin-top: 0;
 		}
 		@include mq(mobile){
+			--main-banner-padding-bottom: 20rem;
+
 			@include bg("main/mo-banner-bg.png");
 
 			.main-tit-wrap{
@@ -968,7 +954,7 @@
 //test
 .page-main.test{
 	.section-partner{
-		--main-partner-padding-bottom: 10rem;
+		--main-partner-padding-bottom: 0;
 	}
 	.section-business{
 		// min-height: 108rem;
@@ -979,24 +965,24 @@
 	}
 
 }
-.card-list-wrap{
-	&.no-scroll:not(.bg-gray){
-		@include mq(1500){
-			.card-list{
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 2.4rem 0;
-			}
-		}
-		@include mq(tablet-small){
-			.card-list{
-				display: grid;
-				grid-template-columns: auto;
+// .card-list-wrap{
+// 	&.no-scroll:not(.bg-gray){
+// 		@include mq(1500){
+// 			.card-list{
+// 				display: grid;
+// 				grid-template-columns: repeat(2, 1fr);
+// 				gap: 2.4rem 0;
+// 			}
+// 		}
+// 		@include mq(tablet-small){
+// 			.card-list{
+// 				display: grid;
+// 				grid-template-columns: auto;
 				
-			}
-		}
-	}
-}
+// 			}
+// 		}
+// 	}
+// }
 .page-company.test{
 	.company-main{
 		.section-mission{
@@ -1016,7 +1002,7 @@ html[lang="en"]{
 	.page-main{
 		.header{
 			.logo {
-				@include bg("common/en-logo-w.svg");
+				@include bg("common/en-logo2-w.svg");
 			}
 		}
 		.section-network{

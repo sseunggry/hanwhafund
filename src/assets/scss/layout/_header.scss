@@ -283,28 +283,30 @@
 
   .modal{
     &.header-search{
-      .logo {
-        width: 19.2rem;
-        height: 4.8rem;
-        @include bg('common/logo.svg');
-      }
-      .search-wrap{
-        margin-top: 0;
-        background: transparent;
-        padding-top: 0;
-        padding-bottom: 0;
-      }
-
-      @include mq(mobile){
-        .logo {
-          width: 12.8rem;
-          height: 3.2rem;
-        }
-        .search-wrap{
-          padding-left: 0;
-          padding-right: 0;
-        }
-      }
+			.modal-dialog{
+				.logo {
+					width: 19.2rem;
+					height: 4.8rem;
+					@include bg('common/logo.svg');
+				}
+				.search-wrap{
+					margin-top: 0;
+					background: transparent;
+					padding-top: 0;
+					padding-bottom: 0;
+				}
+	
+				@include mq(mobile){
+					.logo {
+						width: 12.8rem;
+						height: 3.2rem;
+					}
+					.search-wrap{
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+			}
     }
     &.sitemap{
       .modal-dialog{
@@ -330,7 +332,36 @@
         }
       }
 
+			.header-top{
+				.logo{
+					&-plusetf {
+						a {
+							@include bg('common/logo-plus-etf.svg', $size: contain);
+						}
+					}
+					&-pine {
+						a {
+							@include bg('common/logo-pine.svg', $size: contain);
+						}
+					}
+				}
+			}
+			
 			.header-con{
+				.logo{
+					@include bg("common/logo.svg");
+		
+					&-plusetf {
+						a {
+							@include bg("common/logo-plus-etf.svg");
+						}
+					}
+					&-pine {
+						a {
+							@include bg("common/logo-pine.svg");
+						}
+					}
+				}
 				.util{
 					.lang{
 						.form-select.text{
@@ -641,9 +672,9 @@
 html[lang="en"]{
 	.header{
 		.logo {
-			width: 46.6rem;
+			width: 19.7rem;
 			height: 4.8rem;
-			@include bg('common/en-logo.svg', $size:contain);
+			@include bg('common/en-logo2.svg', $size:contain);
 		}
 		.util{
 			.btn.icon{
@@ -661,12 +692,6 @@ html[lang="en"]{
 						}
 					}
 				}
-			}
-		}
-		@include mq(1550){
-			.logo{
-				width: 35rem;
-				height: 3.6rem;
 			}
 		}
 		@include mq(1460){
@@ -693,14 +718,21 @@ html[lang="en"]{
 		}
 		@include mq(mobile){
 			.logo{
-				width: 22.4rem;
-				height: 2.3rem;
+				width: 13.1rem;
+				height: 3.1rem;
 			}
 		}
 	}
 
 	.modal{
 		&.sitemap{
+			.modal-header{
+				.header-con{
+					.logo{
+						@include bg("common/en-logo2.svg");
+					}
+				}
+			}
 			.sitemap-wrap{
 				.sitemap-list{
 					.sitemap-item{
@@ -736,7 +768,7 @@ html[lang="en"]{
 			.logo{
 				width: 46.6rem;
 				height: 4.8rem;
-				@include bg('common/en-logo.svg', $size:contain !important);
+				@include bg('common/en-logo2.svg', $size:contain !important);
 			}
 			@include mq(1550){
 				.logo{

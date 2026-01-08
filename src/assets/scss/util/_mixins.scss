@@ -33,8 +33,10 @@
   font-style: $style;
 }
 
-@mixin bg($url, $pos: center, $size: cover, $color: null) {
-	background: $color url(#{$base-url}images/#{$url}) no-repeat $pos / $size;
+@mixin bg($url, $pos: center, $size: cover, $color: null, $important: false) {
+	$imp: if($important, "!important", "");
+
+	background: $color url(#{$base-url}images/#{$url}) no-repeat $pos / $size #{$imp};
 }
 
 // focus color
