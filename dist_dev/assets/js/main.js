@@ -173,8 +173,8 @@ const gsapBusinessAni = {
 };
 const gsapInsightAni = {
   init: function() {
-    const $visualBox = $(".page-main.test .section-insight .visual-box"); 
-    const $infoBox = $(".page-main.test .section-insight .info-box");
+    const $visualBox = $(".page-main .section-insight .visual-box"); 
+    const $infoBox = $(".page-main .section-insight .info-box");
     if (!$visualBox.length || !$infoBox.length) return;
 
 		const tl = gsap.timeline({
