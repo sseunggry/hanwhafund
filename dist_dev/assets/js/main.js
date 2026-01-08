@@ -185,22 +185,29 @@ const gsapInsightAni = {
       }
     });
 
-		tl.from($visualBox, {
-      y: 50,      
-      opacity: 0, 
-      duration: 1,
-      ease: "power3.out",
-    }, 0);
-
 		tl.from($infoBox, {
-      y: 50,     
-      opacity: 0, 
-      duration: 1,
-      ease: "power3.out",
-      force3D: false, 
-      onStart: () => { gsap.set($visualBox, { willChange: "transform, opacity" }); },
-      onComplete: () => { gsap.set($visualBox, { willChange: "auto" }); }
-    }, 0);
+      y: 120,
+      opacity: 1,
+      duration: 1.0,
+      ease: "power3.out"
+    });
+
+		// tl.from($visualBox, {
+    //   y: 120,      
+    //   opacity: 1, 
+    //   duration: 1,
+    //   ease: "power3.out",
+    // }, 0);
+
+		// tl.from($infoBox, {
+    //   y: 50,     
+    //   opacity: 0, 
+    //   duration: 1,
+    //   ease: "power3.out",
+    //   force3D: false, 
+    //   onStart: () => { gsap.set($visualBox, { willChange: "transform, opacity" }); },
+    //   onComplete: () => { gsap.set($visualBox, { willChange: "auto" }); }
+    // }, 0);
   }
 };
 const gsapBannerTextFillAni = {
