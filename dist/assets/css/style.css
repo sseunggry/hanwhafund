@@ -13996,8 +13996,11 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
     margin-top: 2.4rem;
   }
 }
-body:not(.page-main, .page-company .company-main).container {
+body:not(.page-main) .container {
   padding-top: var(--hwf-header-height);
+}
+body.page-company .company-main.container {
+  padding-top: 0;
 }
 .container {
   min-height: calc(100vh - var(--hwf-header-height) - var(--hwf-footer-height));
