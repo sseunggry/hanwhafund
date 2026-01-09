@@ -131,6 +131,46 @@ const gsapMessageAni = {
     });
   }
 };
+// const gsapBusinessAni = {
+//   init: function() {
+//     const $sectionBiz = $(".section-business");
+//     if (!$sectionBiz.length) return;
+
+//     const $allItems = $sectionBiz.find(".accordion-item");
+//     const $allButtons = $sectionBiz.find(".btn-accordion");
+//     const $allContents = $sectionBiz.find(".accordion-collapse");
+
+//     const $firstItem = $allItems.first();
+//     const $firstButton = $allButtons.first();
+//     const $firstContent = $firstItem.find(".accordion-collapse");
+
+//     if (!$firstItem.length) return;
+
+//     $allItems.removeClass("active");
+//     $allContents.hide();
+    
+//     ScrollTrigger.create({
+//       trigger: $sectionBiz,
+//       start: "top 20%", 
+//       toggleActions: "play none none reverse", 
+//       onEnter: () => {
+// 				$allItems.removeClass("active");
+//         $allButtons.attr("aria-expanded", "false");
+//         $allContents.stop().slideUp(500);
+
+//         $firstItem.addClass("active");
+//         $firstButton.attr("aria-expanded", "true");
+        
+//         $firstContent.stop().slideDown(500);
+//       },
+//       onLeaveBack: () => {
+//         $allItems.removeClass("active");
+//         $allButtons.attr("aria-expanded", "false");
+//         $allContents.stop().slideUp(500);
+//       }
+//     });
+//   }
+// };
 const gsapBusinessAni = {
   init: function() {
     const $sectionBiz = $(".section-business");
@@ -146,21 +186,34 @@ const gsapBusinessAni = {
 
     if (!$firstItem.length) return;
 
-    $allItems.removeClass("active");
+		if ($allItems.length === 1) {
+      $firstItem.addClass("active");
+      $firstButton.attr("aria-expanded", "true");
+      $firstContent.show();
+
+      $firstButton.css({
+        "pointer-events": "none",
+        "cursor": "default"
+      });
+			$allItems.addClass('is-static');
+			// $sectionBiz.addClass("is-static");
+      return; 
+    }
+
+		$allItems.removeClass("active");
     $allContents.hide();
-    
-    ScrollTrigger.create({
+
+		ScrollTrigger.create({
       trigger: $sectionBiz,
       start: "top 20%", 
       toggleActions: "play none none reverse", 
       onEnter: () => {
-				$allItems.removeClass("active");
+        $allItems.removeClass("active");
         $allButtons.attr("aria-expanded", "false");
         $allContents.stop().slideUp(500);
 
         $firstItem.addClass("active");
         $firstButton.attr("aria-expanded", "true");
-        
         $firstContent.stop().slideDown(500);
       },
       onLeaveBack: () => {
@@ -191,23 +244,6 @@ const gsapInsightAni = {
       duration: 1.0,
       ease: "power3.out"
     });
-
-		// tl.from($visualBox, {
-    //   y: 120,      
-    //   opacity: 1, 
-    //   duration: 1,
-    //   ease: "power3.out",
-    // }, 0);
-
-		// tl.from($infoBox, {
-    //   y: 50,     
-    //   opacity: 0, 
-    //   duration: 1,
-    //   ease: "power3.out",
-    //   force3D: false, 
-    //   onStart: () => { gsap.set($visualBox, { willChange: "transform, opacity" }); },
-    //   onComplete: () => { gsap.set($visualBox, { willChange: "auto" }); }
-    // }, 0);
   }
 };
 const gsapBannerTextFillAni = {
