@@ -9,7 +9,7 @@
 
 body{
 	&:not(.page-main, .page-company .company-main){
-		.container{
+		&.container{
 			padding-top: var(--#{$prefix}-header-height);
 		}
 	}
