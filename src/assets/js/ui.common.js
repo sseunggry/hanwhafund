@@ -1221,6 +1221,24 @@ const uiTabSticky = {
     });
   }
 };
+const uiFooterHeight = {
+	init: function(){
+		const $footer = $('.footer');
+		const $header = $('.header');
+		if(!$footer.length) return;
+
+		const setHeight = () => {
+      const footerHeight = $footer.outerHeight();
+			const headerHeight = $header.outerHeight();
+      $('body').css({'--hwf-header-height': headerHeight + 'px' ,'--hwf-footer-height': footerHeight + 'px'});
+    };
+    setHeight();
+
+    $(window).off('resize').on('resize', function() {
+      setHeight();
+    });
+	}
+}
 
 // 캘린더 기능 예시용
 const calendar = {
@@ -1449,6 +1467,7 @@ const commonJs = {
 		uiScrollCheck.init();
 		uiHeader.init();
 		uiTabSticky.init();
+		uiFooterHeight.init();
 
 		calendar.init();
 		calendarInline.init();

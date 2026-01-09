@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Our Business | News Room'
+		}) -%>
+	</head>
+	<body class="page-business">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container">
+				<div class="inner" style="min-height: calc(100vh - var(--hwf-header-height) - var(--hwf-footer-height));">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">News Room</h2>
+						</div>
+						<%- include('../../layouts/board.ejs', {
+							theadChanges: { category: { text: '언론사' } },
+							showSearch: false,
+							download: false,
+							noData: false,
+							moreButton: false,
+							boardListItems: [
+								{
+									category: '프레스나인',
+									title: '테슬라·美테크지수 동시 투자…3개월 수익률 11.76%[ETF 줌인]',
+									date: '2025-09-17',
+									isNew: true
+								},
+								{
+									category: '이데일리',
+									title: '테슬라·美테크지수 동시 투자…3개월 수익률 11.76%[ETF 줌인]',
+									date: '2025-09-17'
+								},
+							],
+						}); %>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

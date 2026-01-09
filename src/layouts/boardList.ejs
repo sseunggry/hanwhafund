@@ -4,7 +4,7 @@
   const addClass = localsSafe.addClass || '';
   const noDataMessage = localsSafe.noDataMessage || '등록된 게시글이 없습니다';
   const isNew = localsSafe.isNew === false;
-  const showNoData = localsSafe.showNoData !== false;
+  const showNoData = localsSafe.noData !== false;
   const hideNumber = localsSafe.hideNumber || false;
   const showNumberColumn = !hideNumber;
   const startNumber = (typeof localsSafe.startNumber === 'number') ? localsSafe.startNumber : items.length;

@@ -5,7 +5,8 @@ const iaPageBData = {
 		{ createDate: "2025-12-18",  modifyDate: "2026-01-09",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: `2026-01-09: 마크업 추가`}, {detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 클래스 삭제`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, { detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
 
 		// --- Our Business ---
-		{ createDate: "2026-01-09", modifyDate: "", category: "Our Business", depth1: "What we do ", depth2: "-", depth3: "-", pageName: "What we do", pageType: "page", pageID: "EN_BS_01", link: "", isAdminLinked: true, status: "완료", memo: []},
+		{ createDate: "2026-01-09", modifyDate: "", category: "Our Business", depth1: "What we do", depth2: "-", depth3: "-", pageName: "What we do", pageType: "page", pageID: "EN_BS_01", link: "", isAdminLinked: true, status: "완료", memo: []},
+		{ createDate: "2026-01-12", modifyDate: "", category: "Our Business", depth1: "News Room ", depth2: "-", depth3: "-", pageName: "News Room", pageType: "page", pageID: "EN_BS_02", link: "", isAdminLinked: true, status: "작업중", memo: []},
 
 		// --- Our Company ---
 		{ createDate: "2025-12-23", modifyDate: "2026-01-08", category: "Our Company", depth1: "Our Company ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "EN_CP_01", link: "", isAdminLinked: true, status: "완료", memo: [{detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 텍스트 수정`}], },
