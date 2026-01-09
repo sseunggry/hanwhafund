@@ -13942,14 +13942,12 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
     margin-left: 0;
   }
 }
-.page-error .contents {
-  padding: 24rem 0;
-}
 .page-error .error-wrap {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   text-align: center;
+  padding: 24rem 0;
 }
 .page-error .error-wrap::before {
   content: "";
@@ -13980,11 +13978,9 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   margin-top: 4rem;
 }
 @media (max-width: 640px) {
-  .page-error .contents {
-    padding: 16rem 0;
-  }
   .page-error .error-wrap {
     gap: 1.6rem;
+    padding: 16rem 0;
   }
   .page-error .error-wrap::before {
     width: 4rem;
@@ -14002,6 +13998,10 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
 }
 body:not(.page-main, .page-company .company-main) .container {
   padding-top: var(--hwf-header-height);
+}
+.container {
+  min-height: calc(100vh - var(--hwf-header-height) - var(--hwf-footer-height));
+  box-sizing: content-box;
 }
 .inner {
   margin-left: auto;

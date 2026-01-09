@@ -1227,8 +1227,8 @@ const uiFooterHeight = {
 		const $header = $('.header');
 
 		const setHeight = () => {
-      const footerHeight = $footer.outerHeight();
-			const headerHeight = $header.outerHeight();
+      const footerHeight = $footer.outerHeight() || 0;
+			const headerHeight = $header.outerHeight() || 0;
       $('body').css({'--hwf-header-height': headerHeight + 'px' ,'--hwf-footer-height': footerHeight + 'px'});
     };
     setHeight();
