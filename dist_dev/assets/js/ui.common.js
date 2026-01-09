@@ -1225,7 +1225,6 @@ const uiFooterHeight = {
 	init: function(){
 		const $footer = $('.footer');
 		const $header = $('.header');
-		if(!$footer.length) return;
 
 		const setHeight = () => {
       const footerHeight = $footer.outerHeight();
