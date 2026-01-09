@@ -2,15 +2,12 @@
 @use "../util" as *;
 
 .page-error{
-	.contents{
-		padding: 24rem 0;
-	}
-
 	.error-wrap{
 		display: flex;
 		flex-direction: column;
 		gap: 2.4rem;
 		text-align: center;
+		padding: 24rem 0;
 
 		&::before{
 			content: '';
@@ -36,12 +33,9 @@
 	}
 
 	@include mq(mobile){
-		.contents{
-			padding: 16rem 0;
-		}
-
 		.error-wrap{
 			gap: 1.6rem;
+			padding: 16rem 0;
 
 			&::before{
 				@include square(4rem);
