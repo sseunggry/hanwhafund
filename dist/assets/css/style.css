@@ -14001,13 +14001,7 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   }
 }
 body:not(.page-main, .page-company .company-main) .container {
-  --hwf-header-height: 13.7rem;
   padding-top: var(--hwf-header-height);
-}
-@media (max-width: 640px) {
-  body:not(.page-main, .page-company .company-main) .container {
-    --hwf-header-height: 10.5rem;
-  }
 }
 .inner {
   margin-left: auto;
