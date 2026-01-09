@@ -15,6 +15,11 @@ body{
 	}
 }
 
+.container{
+	min-height: calc(100vh - var(--#{$prefix}-header-height) - var(--#{$prefix}-footer-height));
+	box-sizing: content-box;
+}
+
 .inner {
   margin-left: auto;
   margin-right: auto;
