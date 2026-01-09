@@ -197,13 +197,13 @@
 			.btn-tab {
 				padding-top: var(--#{$prefix}-tab--line-button-padding-y);
 			}
-			// .active{
-			// 	.btn-tab{
-			// 		&::before{
-			// 			margin-top: 0;
-			// 		}
-			// 	}
-			// }
+			.active{
+				.btn-tab{
+					&::before{
+						margin-top: 0;
+					}
+				}
+			}
 		}
 	}
 }
