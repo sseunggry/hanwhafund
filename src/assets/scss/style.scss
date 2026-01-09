@@ -35,6 +35,7 @@ section{
 
 //contents
 .overlay-box-wrap {
+	--overlay-box-wrap-overlapping-gap: -4.8rem;
   display: flex;
 
   .visual-box {
@@ -62,7 +63,7 @@ section{
   .info-box {
     position: relative;
     margin-top: 6rem;
-    margin-left: -4.8rem;
+    margin-left: var(--overlay-box-wrap-overlapping-gap);
     padding: 8rem 12rem;
     width: 61.407%;
     z-index: 1;
@@ -73,15 +74,9 @@ section{
 	&.reverse{
 		flex-direction: row-reverse;
 
-		.visual-box{
-			width: 90.6%;
-			height: 36rem;
-		}
 		.info-box{
-			margin-top: 18rem;
 			margin-left: 0;
-			margin-right: -16rem;
-			padding: 8rem;
+			margin-right: var(--overlay-box-wrap-overlapping-gap);
 		}
 	}
 
@@ -98,17 +93,6 @@ section{
 
 		&.reverse{
 			flex-direction: column;
-	
-			.visual-box{
-				margin-left: auto;
-				width: 85.3%;
-			}
-			.info-box{
-				margin-top: -4rem;
-				margin-right: 0;
-				padding: 4rem;
-				width: 86.3%;
-			}
 		}
 	}
 	@include mq(mobile){
@@ -120,13 +104,89 @@ section{
 			padding: 4rem var(--#{$prefix}-content-padding-x);
 			background: linear-gradient(to bottom, rgba(225, 224, 224, 0.2) 0%,rgba(225, 224, 224, 0) 100%);
 		}
-		&.reverse{
+	}
+}
+
+//채용정보, What we do
+.overlay-list-wrap, .talent-list-wrap{
+	display: flex;
+	flex-direction: column;
+	gap: 8rem;
+
+	.overlay-box-wrap{
+		--overlay-box-wrap-overlapping-gap: -6rem;
+
+		.visual-box{
+			width: 56.5%;
+			height: 44.8rem;
+		}
+		.info-box{
+			padding-left: 10rem;
+			padding-right: 10rem;
+			width: 63.3%;
+			min-height: 44.8rem;
+			background: rgba(225, 224, 224, 0.20);
+			backdrop-filter: blur(3rem);
+
+			.tit-wrap{
+				display: flex;
+				flex-direction: column;
+				gap: 0.8rem;
+
+				.sub-tit{
+					color: var(--#{$prefix}-color-text-primary-dark);
+					font-size: 1.8rem;
+					font-weight: 600;
+				}
+				.tit{
+					color: var(--#{$prefix}-color-text-strong);
+					font-size: 3.6rem;
+					font-weight: 700;
+				}
+
+				&.spacing-lg{
+					gap: 4rem;
+				}
+			}
+			.note-list{
+				margin-top: 4rem;
+			}
+		}
+	}
+	@include mq(tablet){
+		.overlay-box-wrap{
 			.visual-box{
-				height: 20rem;
+				width: 100%;
+			}
+			.info-box{
+				padding: 8rem;
+				width: 100%;
+				min-height: auto;
+				background: rgba(255, 255, 255, 0.1);
+			}
+		}
+	}
+	@include mq(mobile){
+		margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+		gap: 4rem;
+
+		.overlay-box-wrap{
+			.visual-box{
+				height: calc(26.3rem + 4rem);
+			}
+			.info-box{
+				padding: 4rem var(--#{$prefix}-content-padding-x);
+
+				.tit-wrap{
+					.tit{
+						font-size: 2.8rem;
+					}
+				}
 			}
 		}
 	}
 }
+
 
 //위첨자 스타일
 sup{
@@ -468,11 +528,17 @@ sup{
 	}
 
 	&.spacing{
+		&-sm{
+			gap: 2.4rem;
+		}
 		&-lg{
 			gap: 4rem;
 		}
 		&-xlg{
 			gap: 6.4rem;
+		}
+		&-xxlg{
+			gap: 8rem;
 		}
 	}
 
@@ -489,10 +555,16 @@ sup{
 		}
 
 		&.spacing{
+			&-sm{
+				gap: 1.6rem;
+			}
 			&-lg{
 				gap: 2.4rem;
 			}
 			&-xlg{
+				gap: 4rem;
+			}
+			&-xxlg{
 				gap: 4rem;
 			}
 		}

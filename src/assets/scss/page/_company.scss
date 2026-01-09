@@ -1281,6 +1281,18 @@
 			}
 		}
 		.overlay-box-wrap{
+			&.reverse{
+				.visual-box{
+					width: 90.6%;
+					height: 36rem;
+				}
+				.info-box{
+					margin-top: 18rem;
+					margin-left: 0;
+					margin-right: -16rem;
+					padding: 8rem;
+				}
+			}
 			.info-box{
 				background: rgba(0, 0, 0, 0.03);
 				backdrop-filter: blur(2rem);
@@ -1298,6 +1310,22 @@
 				}
 			}
 		}
+		@include mq(tablet){
+			.overlay-box-wrap{
+				&.reverse{
+					.visual-box{
+						margin-left: auto;
+						width: 85.3%;
+					}
+					.info-box{
+						margin-top: -4rem;
+						margin-right: 0;
+						padding: 4rem;
+						width: 86.3%;
+					}
+				}
+			}
+		}
 		@include mq(mobile){
 			.overlay-box-wrap{
 				margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
@@ -1305,6 +1333,11 @@
 					> .tit{
 						word-break: keep-all;
 						font-size: 2.1rem;
+					}
+				}
+				&.reverse{
+					.visual-box{
+						height: 20rem;
 					}
 				}
 			}
@@ -1342,56 +1375,56 @@
 						margin-bottom: 2.4rem;
 					}
 				}
-				.talent-list-wrap{
-					display: flex;
-					flex-direction: column;
-					gap: 8rem;
+				// .talent-list-wrap{
+				// 	display: flex;
+				// 	flex-direction: column;
+				// 	gap: 8rem;
 
-					.overlay-box-wrap{
-						.visual-box{
-							height: 44.8rem;
-						}
-						.info-box{
-							padding-left: 10rem;
-							padding-right: 10rem;
-							width: 63.3%;
-							min-height: 44.8rem;
-							background: rgba(225, 224, 224, 0.20);
-							backdrop-filter: blur(3rem);
+				// 	.overlay-box-wrap{
+				// 		.visual-box{
+				// 			height: 44.8rem;
+				// 		}
+				// 		.info-box{
+				// 			padding-left: 10rem;
+				// 			padding-right: 10rem;
+				// 			width: 63.3%;
+				// 			min-height: 44.8rem;
+				// 			background: rgba(225, 224, 224, 0.20);
+				// 			backdrop-filter: blur(3rem);
 
-							.tit-wrap{
-								display: flex;
-								flex-direction: column;
-								gap: 0.8rem;
+				// 			.tit-wrap{
+				// 				display: flex;
+				// 				flex-direction: column;
+				// 				gap: 0.8rem;
 
-								.sub-tit{
-									color: var(--#{$prefix}-color-text-primary-dark);
-									font-size: 1.8rem;
-									font-weight: 600;
-								}
-								.tit{
-									color: var(--#{$prefix}-color-text-strong);
-									font-size: 3.6rem;
-									font-weight: 700;
-								}
-							}
-							.note-list{
-								margin-top: 4rem;
-							}
-						}
-					}
-				}
+				// 				.sub-tit{
+				// 					color: var(--#{$prefix}-color-text-primary-dark);
+				// 					font-size: 1.8rem;
+				// 					font-weight: 600;
+				// 				}
+				// 				.tit{
+				// 					color: var(--#{$prefix}-color-text-strong);
+				// 					font-size: 3.6rem;
+				// 					font-weight: 700;
+				// 				}
+				// 			}
+				// 			.note-list{
+				// 				margin-top: 4rem;
+				// 			}
+				// 		}
+				// 	}
+				// }
 
 				@include mq(tablet){
-					.talent-list-wrap{
-						.overlay-box-wrap{
-							.info-box{
-								padding: 8rem;
-								width: 100%;
-								min-height: auto;
-							}
-						}
-					}
+					// .talent-list-wrap{
+					// 	.overlay-box-wrap{
+					// 		.info-box{
+					// 			padding: 8rem;
+					// 			width: 100%;
+					// 			min-height: auto;
+					// 		}
+					// 	}
+					// }
 				}
 				@include mq(mobile){
 					.section-tit-wrap{
@@ -1405,29 +1438,26 @@
 						}
 					}
 					
-					.talent-list-wrap{
-						margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
-						gap: 4rem;
+					// .talent-list-wrap{
+					// 	margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					// 	gap: 4rem;
 
-						.overlay-box-wrap{
-							.visual-box{
-								height: calc(26.3rem + 4rem);
-							}
-							.info-box{
-								padding: 4rem var(--#{$prefix}-content-padding-x);
+					// 	.overlay-box-wrap{
+					// 		.visual-box{
+					// 			height: calc(26.3rem + 4rem);
+					// 		}
+					// 		.info-box{
+					// 			padding: 4rem var(--#{$prefix}-content-padding-x);
 
-								.tit-wrap{
-									.tit{
-										font-size: 2.8rem;
-									}
-								}
-							}
-						}
-					}
+					// 			.tit-wrap{
+					// 				.tit{
+					// 					font-size: 2.8rem;
+					// 				}
+					// 			}
+					// 		}
+					// 	}
+					// }
 				}
-			}
-			//복리후생
-			.welfare{
 			}
 			//채용
 			.recruit{

@@ -114,6 +114,40 @@
 					</div>
 				</section>
 
+				<!-- [2026-01-09] 마크업 추가 -->
+				<section class="section-business">
+					<div class="img-wrap">
+						<img src="~@/assets/images/main/business-bg.png" alt="" class="pc-tablet-only">
+						<img src="~@/assets/images/main/mo-business-bg.png" alt="" class="mobile-only">
+					</div>
+					<div class="inner">
+						<%
+						const noteList = include('../../components/note-list.ejs', { 
+							depth: 1,
+							items: [
+								'PE Investment',
+								'Credit Investment',
+								'Real Estate Platform Investment',
+								'Infrastructure Platform Investment',
+								'Public Investment',
+								'ETF',
+							],
+						}) -%>
+						<%- include('../../components/accordion.ejs', {
+							addClass: 'translucent',
+							items: [
+								{title: 'What we do', content: `
+								<div class="group-wrap spacing-sm">
+									<p>Hanwha Asset Management has led the growth of Korea's asset management industry backed by more than 40 years of investment experience.</p>
+									${noteList}
+								</div>
+								` },
+							],
+						}) %>
+					</div>
+				</section>
+				<!-- // [2026-01-09] 마크업 추가 -->
+
 				<section class="section-network">
 					<div class="global-network-map">
 						<div class="inner">

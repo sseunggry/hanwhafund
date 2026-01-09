@@ -596,6 +596,16 @@
             }
           }
         }
+
+				&.is-static{
+					&.active{
+						.btn-accordion{
+							&::after{
+								display: none;
+							}
+						}
+					}
+				}
       }
     }
 
