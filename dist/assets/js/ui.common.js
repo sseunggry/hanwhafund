@@ -848,198 +848,108 @@ const uiLnb = {
   $sidebar: null,
   $links: null,
   $sections: null,
-  offset: 150, 
+  offset: 150,
 
   init: function () {
-    this.$sidebar = $(".tab-conts.active .sidebar");
-    if (!this.$sidebar.length) return;
+    let $sidebarCandidate = $(".tab-conts.active .sidebar");
+    
+    if (!$sidebarCandidate.length) {
+      $sidebarCandidate = $(".sidebar");
+    }
 
+    if (!$sidebarCandidate.length || !$sidebarCandidate.is(':visible')) return;
+
+    this.$sidebar = $sidebarCandidate;
+    
+    // 링크 찾기
     this.$links = this.$sidebar.find("a[href^='#']");
     if (!this.$links.length) return;
 
+    // 섹션 연결
     this.$sections = $();
     this.$links.each((i, link) => {
-      const $section = $($(link).attr("href"));
-      if ($section.length) {
-        this.$sections = this.$sections.add($section);
+      const hash = $(link).attr("href");
+      if(hash.length > 1) {
+        const $section = $(hash);
+        if ($section.length) {
+          this.$sections = this.$sections.add($section);
+        }
       }
     });
 
     if (!this.$sections.length) return;
-    
-    $(window).off("scroll.sidebarSpy"); 
+
+    this.bindEvents();
+    this.updateActiveState();
+  },
+
+  bindEvents: function() {
+    $(window).off("scroll.sidebarSpy");
     $(window).on("scroll.sidebarSpy", () => {
       this.updateActiveState();
     });
 
-    this.updateActiveState();
+    $(".tab-area .btn-tab, .tab-area button").off("click.lnbRefresh").on("click.lnbRefresh", () => {
+      setTimeout(() => {
+        this.init();
+        this.updateActiveState();
+      }, 100); 
+    });
+
+    this.$links.off("click.lnbActive").on("click.lnbActive", (e) => {
+      const $this = $(e.currentTarget);
+      const $li = $this.closest("li");
+      
+      this.$links.closest("li").removeClass("active");
+      this.$links.removeAttr("aria-current");
+
+      $li.addClass("active");
+      $this.attr("aria-current", "page");
+      
+    });
   },
 
   updateActiveState: function () {
+    if (!this.$sections || !this.$sections.length) return;
+
     const scrollTop = $(window).scrollTop();
     const triggerPos = scrollTop + this.offset;
     let currentActiveId = null;
 
     const sectionsReversed = this.$sections.get().reverse();
+    
     for (const section of sectionsReversed) {
       const $section = $(section);
-      
       if ($section.offset() && $section.offset().top <= triggerPos) {
         currentActiveId = $section.attr("id");
         break;
       }
     }
-    if (currentActiveId === null) {
-      currentActiveId = this.$sections.first().attr("id");
+
+    if (currentActiveId === null && scrollTop < this.offset) {
+       currentActiveId = this.$sections.first().attr("id");
     }
+
     if (scrollTop + $(window).height() >= $(document).height() - 50) {
       currentActiveId = this.$sections.last().attr("id");
     }
+
     this.$links.each(function () {
       const $link = $(this);
       const $li = $link.closest("li");
       const href = $link.attr("href");
 
       if (href === "#" + currentActiveId) {
-        $li.addClass("active");
-        $link.attr("aria-current", "page");
+        if (!$li.hasClass("active")) {
+            $li.addClass("active");
+            $link.attr("aria-current", "page");
+        }
       } else {
         $li.removeClass("active");
         $link.removeAttr("aria-current");
       }
     });
   },
-};
-const uiLnb2 = {
-  $sidebar: null,
-  $links: null,
-  $sections: null,
-  offset: 150, 
-  isClickScrolling: false,
-  pauseTimer: null, 
-  scrollItemIntoView: function($item, $container, smooth = true) {
-    if (!$item.length || !$container.length) return;
-    
-    const isHorizontallyScrollable = $container[0].scrollWidth > $container[0].clientWidth;
-    if (!isHorizontallyScrollable) return;
-
-    const containerWidth = $container.outerWidth();
-    const scrollLeft = $container.scrollLeft();
-    const itemOffsetLeft = $item[0].offsetLeft;
-    const itemWidth = $item.outerWidth();
-    
-    const containerVisibleRight = scrollLeft + containerWidth;
-    const itemRight = itemOffsetLeft + itemWidth;
-    let newScrollLeft = null;
-    const buffer = 20; 
-
-    if (itemRight > containerVisibleRight) { 
-      newScrollLeft = itemRight - containerWidth + buffer;
-    } else if (itemOffsetLeft < scrollLeft) { 
-      newScrollLeft = itemOffsetLeft - buffer;
-    }
-    
-    if (newScrollLeft !== null) {
-      if (smooth) {
-        $container.stop().animate({ scrollLeft: newScrollLeft }, 300);
-      } else {
-        $container.scrollLeft(newScrollLeft);
-      }
-    }
-  },
-
-  init: function () {
-    this.$sidebar = $(".sidebar");
-    if (!this.$sidebar.length) return;
-
-    this.$links = this.$sidebar.find("a[href^='#']");
-    if (!this.$links.length) return;
-
-    this.$sections = $();
-    this.$links.each((i, link) => {
-      const $section = $($(link).attr("href"));
-      if ($section.length) {
-        this.$sections = this.$sections.add($section);
-      }
-    });
-
-    if (!this.$sections.length) return;
-    
-    this.setupClickHandlers();
-    
-    $(window).on("scroll.sidebarSpy", () => {
-      this.updateActiveState();
-    });
-
-    this.updateActiveState();
-  },
-  setupClickHandlers: function() {
-    const self = this;
-    this.$links.on('click.lnbClick', function(e) {
-      e.preventDefault(); 
-      const $link = $(this);
-      const $targetSection = $($link.attr('href'));
-      
-      if ($targetSection.length) {
-        self.isClickScrolling = true;
-        clearTimeout(self.pauseTimer);
-
-        self.setActiveIndicator($link, true);
-
-        const targetScrollTop = $targetSection.offset().top - self.offset + 1;
-        const animationDuration = 500; 
-
-        $('html, body').stop().animate({
-          scrollTop: targetScrollTop
-        }, animationDuration, () => {
-          self.pauseTimer = setTimeout(() => {
-            self.isClickScrolling = false;
-          }, 50); 
-        });
-      }
-    });
-  },
-  updateActiveState: function () {
-    if (this.isClickScrolling) return;
-
-    const scrollTop = $(window).scrollTop();
-    const triggerPos = scrollTop + this.offset;
-    let currentActiveId = null;
-
-    const sectionsReversed = this.$sections.get().reverse();
-    for (const section of sectionsReversed) {
-      const $section = $(section);
-      if ($section.offset() && $section.offset().top <= triggerPos) {
-        currentActiveId = $section.attr("id");
-        break; 
-      }
-    }
-
-    if (currentActiveId === null) {
-      currentActiveId = this.$sections.first().attr("id");
-    }
-
-    if (scrollTop + $(window).height() >= $(document).height() - 50) {
-      currentActiveId = this.$sections.last().attr("id");
-    }
-
-    const $activeLink = this.$links.filter(`[href="#${currentActiveId}"]`);
-    this.setActiveIndicator($activeLink, false);
-  },
-  setActiveIndicator: function($anchor, isSmooth) {
-    if (!$anchor || !$anchor.length) return;
-    const $li = $anchor.closest('li');
-
-    if ($li.hasClass('active')) return;
-    
-    this.$links.closest('li').removeClass('active');
-    this.$links.removeAttr('aria-current');
-    
-    $li.addClass('active');
-    $anchor.attr('aria-current', 'page');
-    
-    this.scrollItemIntoView($li, this.$sidebar, isSmooth);
-  }
 };
 const gsapMotion = {
   animationTypes: {
