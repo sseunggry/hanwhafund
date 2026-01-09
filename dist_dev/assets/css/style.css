@@ -5225,6 +5225,9 @@ label {
   .tab.line .btn-tab {
     padding-top: var(--hwf-tab--line-button-padding-y);
   }
+  .tab.line .active .btn-tab::before {
+    margin-top: 0;
+  }
 }
 .tab-conts-wrap {
   --hwf-tab--conts-padding-top: 4rem;
