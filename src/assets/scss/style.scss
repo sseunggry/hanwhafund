@@ -8,12 +8,6 @@
 @forward "./page";
 
 body{
-	--#{$prefix}-header-height: 13.7rem;
-	
-	@include mq(mobile){
-		--#{$prefix}-header-height: 10.5rem;
-	}
-
 	&:not(.page-main, .page-company .company-main){
 		.container{
 			padding-top: var(--#{$prefix}-header-height);
