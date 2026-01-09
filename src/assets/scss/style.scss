@@ -8,9 +8,16 @@
 @forward "./page";
 
 body{
-	&:not(.page-main, .page-company .company-main){
-		&.container{
+	&:not(.page-main){
+		.container{
 			padding-top: var(--#{$prefix}-header-height);
+		}
+	}
+	&.page-company{
+		.company-main{
+			&.container{
+				padding-top: 0;
+			}
 		}
 	}
 }
