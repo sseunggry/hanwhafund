@@ -13996,7 +13996,7 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
     margin-top: 2.4rem;
   }
 }
-body:not(.page-main, .page-company .company-main) .container {
+body:not(.page-main, .page-company .company-main).container {
   padding-top: var(--hwf-header-height);
 }
 .container {
