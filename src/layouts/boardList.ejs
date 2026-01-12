@@ -56,7 +56,7 @@
     <% items.forEach((item, index) => { -%>
     <% const itemNumber = startNumber - index; -%>
     <li>
-      <a href="<%= item.url || '#!' %>">
+      <a href="<%= item.url || '#!' %>" target="<%= item.target || '_self' %>">
       <% thead.forEach(col => { -%>
         <% if (col.key === 'num') { -%>
         <p class="td <%= col.class %>"><%= itemNumber %></p>

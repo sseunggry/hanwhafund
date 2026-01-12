@@ -1170,8 +1170,9 @@ const uiHeader = {
   init: function() {
     const $header = $('.header');
     const $sidebar = $('.layout-sidebar');
+		const $pageFundFind = $('.page-fund .fund-find');
     
-    if (!$header.length || $sidebar.length) return;
+    if (!$header.length || $sidebar.length || $pageFundFind.length) return;
 
     let lastScrollTop = 0;
     const delta = 5;

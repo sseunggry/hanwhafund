@@ -209,6 +209,9 @@
 					&:first-child{
 						width: 5.6rem;
 					}
+					&:nth-child(3){
+						width: 19.1rem;
+					}
 					&.period{
 						width: 100%;
 					}
@@ -366,6 +369,10 @@
 							flex-shrink: 0;
 							width: calc(13.1rem + 2.4rem);
 							border-right: 0.1rem solid #E6E5E5;
+
+							&:nth-child(3){
+								width: 16.6rem;
+							}
 						}
 						.tit{
 							display: none;
@@ -684,6 +691,10 @@
 											color: var(--#{$prefix}-color-change-down);
 										}
 									}
+								}
+
+								&:nth-child(3){
+									width: 100%;
 								}
 							}
 							.tit {

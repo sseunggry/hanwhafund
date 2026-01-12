@@ -6,7 +6,7 @@ const iaPageBData = {
 
 		// --- Our Business ---
 		{ createDate: "2026-01-09", modifyDate: "", category: "Our Business", depth1: "What we do", depth2: "-", depth3: "-", pageName: "What we do", pageType: "page", pageID: "EN_BS_01", link: "", isAdminLinked: true, status: "완료", memo: []},
-		{ createDate: "2026-01-12", modifyDate: "", category: "Our Business", depth1: "News Room ", depth2: "-", depth3: "-", pageName: "News Room", pageType: "page", pageID: "EN_BS_02", link: "", isAdminLinked: true, status: "작업중", memo: []},
+		{ createDate: "2026-01-14", modifyDate: "", category: "Our Business", depth1: "News Room ", depth2: "-", depth3: "-", pageName: "News Room", pageType: "page", pageID: "EN_BS_02", link: "", isAdminLinked: true, status: "완료", memo: []},
 
 		// --- Our Company ---
 		{ createDate: "2025-12-23", modifyDate: "2026-01-08", category: "Our Company", depth1: "Our Company ", depth2: "-", depth3: "-", pageName: "회사소개", pageType: "page", pageID: "EN_CP_01", link: "", isAdminLinked: true, status: "완료", memo: [{detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 텍스트 수정`}], },
@@ -26,7 +26,7 @@ const iaPageBData = {
 		{ createDate: "2025-12-18", modifyDate: "2026-01-05", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-05: 클래스 삭제`}, { detail: '2025-12-23: 텍스트 수정' }], },
 
 		// --- Contact Us ---
-		{ createDate: "2025-12-18", modifyDate: "2025-12-30", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2025-12-30: 텍스트 수정' }], },
+		{ createDate: "2025-12-18", modifyDate: "2026-01-12", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2026-01-12: 버튼명 수정' }, { detail: '2025-12-30: 텍스트 수정' }], },1
 
 		// --- Site Map ---
 		{ createDate: "2025-12-18", modifyDate: "2026-01-06", category: "Site Map", depth1: "-", depth2: "-", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "EU_SM_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-06: 텍스트 수정`}], },

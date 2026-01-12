@@ -392,8 +392,8 @@
 				position: absolute;
 				top: 0; left: 0;
 				width: 100%; height: 100%;
-				background-color: rgba(0, 0, 0, 0.6); /* 검은색 반투명 */
-				z-index: 0; /* 이미지보다 위에 */
+				background-color: rgba(0, 0, 0, 0.6);
+				z-index: 0;
 			}
 
 			.txt-gradient{
@@ -419,15 +419,10 @@
 			}
 		}
 		.section-mission{
-			// position: sticky;
-			// top: 0;
-			// z-index: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			color: #fff;
-			// will-change: transform;
-
 			@include bg('company/main-mission-bg-01.png');
 		}
 		.section-slogan{
@@ -518,33 +513,158 @@
 				}
 			}
 		}
+		// .section-info{
+		// 	display: flex;
+		// 	align-items: center;
+		// 	justify-content: center;
+		// 	padding: 18rem 0;
+		// 	@include bg('company/main-info-bg.png', $color: #04021E);
+
+		// 	.txt-wrap{
+		// 		margin-top: 8rem;
+
+		// 		dl{
+		// 			display: flex;
+		// 			align-items: center;
+		// 			justify-content: center;
+		// 			gap: 8rem;
+		// 		}
+		// 		dt{
+		// 			display: flex;
+		// 			flex-direction: column;
+		// 			gap: 0.8rem;
+		// 			color: #fff;
+		// 			font-size: 3.6rem;
+		// 			font-weight: 600;
+		// 			word-break: keep-all;
+
+		// 			small{
+		// 				font-size: 2.4rem;
+		// 				font-weight: 400;
+		// 			}
+		// 		}
+		// 		dd{
+		// 			position: relative;
+		// 			display: flex;
+    // 			align-items: baseline;
+
+		// 			.counter{
+		// 				display: inline-block;
+		// 				font-size: 16rem;
+		// 				font-family: $font-family-en;
+		// 				line-height: 1;
+		// 				background: linear-gradient(270deg, #D83A00 0%, #EB6C31 49.04%, #EEC3B0 100%);
+		// 				background-clip: text;
+		// 				-webkit-background-clip: text;
+		// 				-webkit-text-fill-color: transparent;
+		// 				white-space: nowrap;
+		// 				text-align: right;
+		// 			}
+		// 		}
+		// 	}
+		// 	@include mq(mobile){
+		// 		padding: 8rem 0;
+		// 		@include bg('company/mo-main-info-bg.png', $color: #04021E);
+
+		// 		.txt-wrap{
+		// 			margin-top: 6rem;
+
+		// 			dl{
+		// 				gap: 7.2rem;
+		// 			}
+		// 			dt{
+		// 				font-size: 2.8rem;
+
+		// 				small{
+		// 					font-size: 1.8rem;
+		// 				}
+		// 			}
+		// 			dd{
+		// 				.counter{
+		// 					font-size: 9.6rem;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 		.section-info{
 			display: flex;
 			align-items: center;
-			justify-content: center;
 			padding: 18rem 0;
 			@include bg('company/main-info-bg.png', $color: #04021E);
 
-			.txt-wrap{
-				margin-top: 8rem;
+			.inner{
+				display: flex;
+				justify-content: space-between;
+				gap: 4rem;
+			}
+			.company-tit-wrap{
+				margin: 0;
+				text-align: left;
 
+				.tit{
+					font-size: 6.4rem;
+				}
+
+				.txt-gradient{
+					margin: 0;
+				}
+			}
+			.txt-wrap{
+				width: 42.85%;
 				dl{
+					position: relative;
 					display: flex;
 					align-items: center;
-					justify-content: center;
-					gap: 8rem;
+					justify-content: space-between;
+					gap: 4rem;
+					padding: 5rem 0;
+
+					&:first-child{
+						padding-top: 0;
+					}
+					&:last-child{
+						padding-bottom: 0;
+						&::after{
+							display: none;
+						}
+					}
+
+					&::after {
+						content: '';
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						height: 0.1rem;
+						background: linear-gradient(90deg, #FF4D32 25%, #803C4A 50%, #022A62 100%);
+					}
+
+					&:nth-child(2){
+						dd{
+							.counter{
+								min-width: 1ch;
+							}
+						}
+					}
+					&:nth-child(3){
+						dd{
+							.counter{
+								min-width: 1ch;
+							}
+						}
+					}
 				}
 				dt{
 					display: flex;
 					flex-direction: column;
 					gap: 0.8rem;
 					color: #fff;
-					font-size: 3.6rem;
+					font-size: 3.2rem;
 					font-weight: 600;
-					word-break: keep-all;
 
 					small{
-						font-size: 2.4rem;
+						font-size: 1.8rem;
 						font-weight: 400;
 					}
 				}
@@ -555,38 +675,74 @@
 
 					.counter{
 						display: inline-block;
+						min-width: 2ch;
 						font-size: 16rem;
 						font-family: $font-family-en;
 						line-height: 1;
-						background: linear-gradient(270deg, #D83A00 0%, #EB6C31 49.04%, #EEC3B0 100%);
+						// background: linear-gradient(270deg, #D83A00 0%, #EB6C31 49.04%, #EEC3B0 100%);
+						background: linear-gradient(270deg, #D83A00 0%, #EB6C31 36.54%, #EEC3B0 63.46%, #FFF 100%);
 						background-clip: text;
 						-webkit-background-clip: text;
 						-webkit-text-fill-color: transparent;
 						white-space: nowrap;
+						font-variant-numeric: tabular-nums;
 						text-align: right;
+					}
+
+          .unit {
+						color: #fff;
+            font-size: 6.4rem;
+          }
+				}
+			}
+
+			@include mq(1460){
+				.inner{
+					flex-direction: column;
+				}
+				.txt-wrap{
+					width: 100%;
+				}
+			}
+			@include mq(tablet-small){
+				.txt-wrap{
+					dl{
+						flex-wrap: wrap;
+					}
+					dt{
+						width: 100%;
+					}
+					dd{
+						width: 100%;
+						justify-content: flex-end;
 					}
 				}
 			}
 			@include mq(mobile){
 				padding: 8rem 0;
 				@include bg('company/mo-main-info-bg.png', $color: #04021E);
-
+				.inner{
+					gap: 6.4rem;
+				}
 				.txt-wrap{
-					margin-top: 6rem;
-
 					dl{
-						gap: 7.2rem;
+						gap: 2.4rem;
+						padding: 4rem 0;
+
+						&:first-child{
+							padding-top: 0;
+						}
 					}
 					dt{
-						font-size: 2.8rem;
-
-						small{
-							font-size: 1.8rem;
-						}
+						font-size: 2.4rem;
 					}
 					dd{
 						.counter{
 							font-size: 9.6rem;
+						}
+						.unit{
+							margin-left: 0.8rem;
+							font-size: 3.2rem;
 						}
 					}
 				}
@@ -1375,57 +1531,6 @@
 						margin-bottom: 2.4rem;
 					}
 				}
-				// .talent-list-wrap{
-				// 	display: flex;
-				// 	flex-direction: column;
-				// 	gap: 8rem;
-
-				// 	.overlay-box-wrap{
-				// 		.visual-box{
-				// 			height: 44.8rem;
-				// 		}
-				// 		.info-box{
-				// 			padding-left: 10rem;
-				// 			padding-right: 10rem;
-				// 			width: 63.3%;
-				// 			min-height: 44.8rem;
-				// 			background: rgba(225, 224, 224, 0.20);
-				// 			backdrop-filter: blur(3rem);
-
-				// 			.tit-wrap{
-				// 				display: flex;
-				// 				flex-direction: column;
-				// 				gap: 0.8rem;
-
-				// 				.sub-tit{
-				// 					color: var(--#{$prefix}-color-text-primary-dark);
-				// 					font-size: 1.8rem;
-				// 					font-weight: 600;
-				// 				}
-				// 				.tit{
-				// 					color: var(--#{$prefix}-color-text-strong);
-				// 					font-size: 3.6rem;
-				// 					font-weight: 700;
-				// 				}
-				// 			}
-				// 			.note-list{
-				// 				margin-top: 4rem;
-				// 			}
-				// 		}
-				// 	}
-				// }
-
-				@include mq(tablet){
-					// .talent-list-wrap{
-					// 	.overlay-box-wrap{
-					// 		.info-box{
-					// 			padding: 8rem;
-					// 			width: 100%;
-					// 			min-height: auto;
-					// 		}
-					// 	}
-					// }
-				}
 				@include mq(mobile){
 					.section-tit-wrap{
 						.sub-tit{
@@ -1437,26 +1542,6 @@
 							}
 						}
 					}
-					
-					// .talent-list-wrap{
-					// 	margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
-					// 	gap: 4rem;
-
-					// 	.overlay-box-wrap{
-					// 		.visual-box{
-					// 			height: calc(26.3rem + 4rem);
-					// 		}
-					// 		.info-box{
-					// 			padding: 4rem var(--#{$prefix}-content-padding-x);
-
-					// 			.tit-wrap{
-					// 				.tit{
-					// 					font-size: 2.8rem;
-					// 				}
-					// 			}
-					// 		}
-					// 	}
-					// }
 				}
 			}
 			//채용
@@ -1882,14 +1967,15 @@ html[lang="en"]{
 			.section-info{
 				.company-tit-wrap{
 					.tit{
-						font-size: 8rem;
+						font-size: 6.4rem;
 						letter-spacing: -0.08rem;
 					}
 				}
 				.txt-wrap{
 					dd{
 						.unit{
-							font-size: 4.8rem;
+							font-family: $font-family-en;
+							font-size: 10rem;
 						}
 						.txt{
 							display: inline-block;
@@ -1904,13 +1990,22 @@ html[lang="en"]{
 							text-align: right;
 						}
 					}
-					dl:nth-child(2){
-						dt{
-							max-width: 37rem;
+					dl{
+						&:nth-child(2){
+							dt{
+								max-width: 37rem;
+							}
+							dd{
+								.counter{
+									min-width: 1ch;
+								}
+							}
 						}
-						dd{
-							.counter{
-								min-width: 1ch;
+						&:nth-child(3){
+							dd{
+								.counter{
+									min-width: 1ch;
+								}
 							}
 						}
 					}
