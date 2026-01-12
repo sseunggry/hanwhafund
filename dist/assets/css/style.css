@@ -8883,6 +8883,9 @@ html[lang="en"] .page-main .section-banner {
 .page-fund .fund-content .sort-wrap .sort-list .sort-item:first-child {
   width: 5.6rem;
 }
+.page-fund .fund-content .sort-wrap .sort-list .sort-item:nth-child(3) {
+  width: 19.1rem;
+}
 .page-fund .fund-content .sort-wrap .sort-list .sort-item.period {
   width: 100%;
 }
@@ -9027,6 +9030,9 @@ html[lang="en"] .page-main .section-banner {
   flex-shrink: 0;
   width: 15.5rem;
   border-right: 0.1rem solid #e6e5e5;
+}
+.page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con > .fund-txt:nth-child(3) {
+  width: 16.6rem;
 }
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .tit {
   display: none;
@@ -9278,6 +9284,9 @@ html[lang="en"] .page-main .section-banner {
   }
   .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .fund-txt.revenue .val.down {
     color: var(--hwf-color-change-down);
+  }
+  .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .fund-txt:nth-child(3) {
+    width: 100%;
   }
   .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .tit {
     display: block;
@@ -11945,6 +11954,9 @@ html[lang="en"] .page-main .section-banner {
     margin-top: 1.6rem;
   }
 }
+.business-news .board-con .board-list-wrap .category {
+  width: 22%;
+}
 .page-policy .section-tit-wrap {
   display: flex;
   align-items: center;
@@ -12811,30 +12823,69 @@ html[lang="en"] .page-main .section-banner {
 .page-company .company-main .section-info {
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 18rem 0;
   background: #04021e url(../../assets/images/company/main-info-bg.png) no-repeat center/cover;
 }
+.page-company .company-main .section-info .inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+.page-company .company-main .section-info .company-tit-wrap {
+  margin: 0;
+  text-align: left;
+}
+.page-company .company-main .section-info .company-tit-wrap .tit {
+  font-size: 6.4rem;
+}
+.page-company .company-main .section-info .company-tit-wrap .txt-gradient {
+  margin: 0;
+}
 .page-company .company-main .section-info .txt-wrap {
-  margin-top: 8rem;
+  width: 42.85%;
 }
 .page-company .company-main .section-info .txt-wrap dl {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8rem;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 5rem 0;
+}
+.page-company .company-main .section-info .txt-wrap dl:first-child {
+  padding-top: 0;
+}
+.page-company .company-main .section-info .txt-wrap dl:last-child {
+  padding-bottom: 0;
+}
+.page-company .company-main .section-info .txt-wrap dl:last-child::after {
+  display: none;
+}
+.page-company .company-main .section-info .txt-wrap dl::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(90deg, #ff4d32 25%, #803c4a 50%, #022a62 100%);
+}
+.page-company .company-main .section-info .txt-wrap dl:nth-child(2) dd .counter {
+  min-width: 1ch;
+}
+.page-company .company-main .section-info .txt-wrap dl:nth-child(3) dd .counter {
+  min-width: 1ch;
 }
 .page-company .company-main .section-info .txt-wrap dt {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
   color: #fff;
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   font-weight: 600;
-  word-break: keep-all;
 }
 .page-company .company-main .section-info .txt-wrap dt small {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: 400;
 }
 .page-company .company-main .section-info .txt-wrap dd {
@@ -12844,35 +12895,66 @@ html[lang="en"] .page-main .section-banner {
 }
 .page-company .company-main .section-info .txt-wrap dd .counter {
   display: inline-block;
+  min-width: 2ch;
   font-size: 16rem;
   font-family: "Trust2ATRIAL", sans-serif;
   line-height: 1;
-  background: linear-gradient(270deg, #d83a00 0%, #eb6c31 49.04%, #eec3b0 100%);
+  background: linear-gradient(270deg, #d83a00 0%, #eb6c31 36.54%, #eec3b0 63.46%, #fff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
   text-align: right;
+}
+.page-company .company-main .section-info .txt-wrap dd .unit {
+  color: #fff;
+  font-size: 6.4rem;
+}
+@media (max-width: 1460px) {
+  .page-company .company-main .section-info .inner {
+    flex-direction: column;
+  }
+  .page-company .company-main .section-info .txt-wrap {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .page-company .company-main .section-info .txt-wrap dl {
+    flex-wrap: wrap;
+  }
+  .page-company .company-main .section-info .txt-wrap dt {
+    width: 100%;
+  }
+  .page-company .company-main .section-info .txt-wrap dd {
+    width: 100%;
+    justify-content: flex-end;
+  }
 }
 @media (max-width: 640px) {
   .page-company .company-main .section-info {
     padding: 8rem 0;
     background: #04021e url(../../assets/images/company/mo-main-info-bg.png) no-repeat center/cover;
   }
-  .page-company .company-main .section-info .txt-wrap {
-    margin-top: 6rem;
+  .page-company .company-main .section-info .inner {
+    gap: 6.4rem;
   }
   .page-company .company-main .section-info .txt-wrap dl {
-    gap: 7.2rem;
+    gap: 2.4rem;
+    padding: 4rem 0;
+  }
+  .page-company .company-main .section-info .txt-wrap dl:first-child {
+    padding-top: 0;
   }
   .page-company .company-main .section-info .txt-wrap dt {
-    font-size: 2.8rem;
-  }
-  .page-company .company-main .section-info .txt-wrap dt small {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
   }
   .page-company .company-main .section-info .txt-wrap dd .counter {
     font-size: 9.6rem;
+  }
+  .page-company .company-main .section-info .txt-wrap dd .unit {
+    margin-left: 0.8rem;
+    font-size: 3.2rem;
   }
 }
 .page-company .company-main .section-history {
@@ -13877,11 +13959,12 @@ html[lang="en"] .page-company .company-main .section-value .value-list .tit {
   line-height: 1.2;
 }
 html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit {
-  font-size: 8rem;
+  font-size: 6.4rem;
   letter-spacing: -0.08rem;
 }
 html[lang="en"] .page-company .company-main .section-info .txt-wrap dd .unit {
-  font-size: 4.8rem;
+  font-family: "Trust2ATRIAL", sans-serif;
+  font-size: 10rem;
 }
 html[lang="en"] .page-company .company-main .section-info .txt-wrap dd .txt {
   display: inline-block;
@@ -13899,6 +13982,9 @@ html[lang="en"] .page-company .company-main .section-info .txt-wrap dl:nth-child
   max-width: 37rem;
 }
 html[lang="en"] .page-company .company-main .section-info .txt-wrap dl:nth-child(2) dd .counter {
+  min-width: 1ch;
+}
+html[lang="en"] .page-company .company-main .section-info .txt-wrap dl:nth-child(3) dd .counter {
   min-width: 1ch;
 }
 html[lang="en"] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
@@ -13997,6 +14083,14 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   }
   .page-error .error-wrap .btn-wrap {
     margin-top: 2.4rem;
+  }
+}
+body {
+  --hwf-header-height: 13.7rem;
+}
+@media (max-width: 640px) {
+  body {
+    --hwf-header-height: 10.5rem;
   }
 }
 body:not(.page-main) .container {

@@ -206,6 +206,48 @@ const gsapValueAni = {
     );
   }
 };
+const gsapInfoAni2 = {
+	init: function () {
+		const $section = $(".section-info");
+		if (!$section.length) return;
+
+		const $counters = $section.find(".counter");
+		const $dl = $section.find(".txt-wrap dl");
+
+		// const endNum1 = parseFloat($counters.eq(0).data('num')) || 0; 
+    // const endNum2 = parseFloat($counters.eq(1).data('num')) || 0;
+    // const endNum3 = parseFloat($counters.eq(2).data('num')) || 0;
+
+		const counters = { counter1: 0, counter2: 0, counter3: 0 };
+		const spinOffset = 50;
+		const dlDuration = 1;
+		const counterDuration = 1;
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: $section[0],
+				start: "top 40%",
+				toggleActions: "restart none none reverse",
+			}
+		});
+
+		tl.fromTo($dl.eq(0),
+			{ y: 50, opacity: 0 },
+			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
+			"<0.2"
+		);
+		tl.fromTo($dl.eq(1),
+			{ y: 50, opacity: 0 },
+			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
+			">0.2"
+		);
+		tl.fromTo($dl.eq(2),
+			{ y: 50, opacity: 0 },
+			{ y: 0, opacity: 1, duration: dlDuration, ease: "power3.out" },
+			">0.2"
+		);
+	}
+};
 const gsapInfoAni = {
 	init: function () {
 		const $section = $(".section-info");
@@ -234,7 +276,7 @@ const gsapInfoAni = {
       { y: 0, opacity: 1, duration: 1, ease: "power2.out"}, 
       "-=0.8"
     )
-		.fromTo($dl.eq(0),
+		.fromTo($dl,
 			{ y: 50, opacity: 0 },
 			{ y: 0, opacity: 1, duration: dlDuration, ease: "power2.out" },
 			"<"
