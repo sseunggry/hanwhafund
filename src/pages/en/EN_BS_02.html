@@ -29,9 +29,14 @@
 										<img src="~@/assets/images/business/mo-what-wedo-01.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
+										<div class="tit-wrap">
 											<p class="tit">PE Investment</p>
-											<p class="desc">Hanwha's PE Investment Group is Hanwha Asset Management's private equity arm, targeting direct investments in high-performing companies with durable growth, resilient business models, and expanding global competitiveness</p>
+										</div>
+										<div class="desc-wrap">
+											<p class="desc">
+												Hanwha's PE Investment Group is Hanwha Asset Management's private equity arm, targeting direct investments in 
+												<span class="fc-primary">high-performing companies with durable growth, resilient business models, and expanding global competitiveness</span>
+											</p>
 										</div>
 									</div>
 								</div>
@@ -41,11 +46,13 @@
 										<img src="~@/assets/images/business/mo-what-wedo-02.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
+										<div class="tit-wrap">
 											<p class="tit">Credit Investment</p>
+										</div>
+										<div class="desc-wrap">
 											<p class="desc">
-												Focusing on Thematic Investments and Continuous Event-Driven Lending Opportunities in Asia-Pacific Private Credit Market <br/>
-												Special Focus on High-Growth Sectors such as Asia High-Tech and Next-Generation Infrastructure <br/>
+												Focusing on Thematic Investments and Continuous Event-Driven Lending Opportunities in Asia-Pacific Private Credit Market
+												Special Focus on <span class="fc-primary">High-Growth Sectors such as Asia High-Tech and Next-Generation Infrastructure</span>
 												Private IG Aims to Deliver Tailored Private Debt Solutions for Asian Companies (Conglomerates), Particularly in Korea
 											</p>
 										</div>
@@ -57,8 +64,10 @@
 										<img src="~@/assets/images/business/mo-what-wedo-03.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
+										<div class="tit-wrap">
 											<p class="tit">Real Estate Platform Investment </p>
+										</div>
+										<div class="desc-wrap">
 											<p class="desc">
 												Hanwha's Real Estate Platform Investment Group is specialized in investing in <span class="fc-primary">“New Economy” real estate</span> through <span class="fc-primary">partnering with operators</span> to enerate income enhancement and capital appreciation
 											</p>
@@ -71,10 +80,12 @@
 										<img src="~@/assets/images/business/mo-what-wedo-04.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
+										<div class="tit-wrap">
 											<p class="tit">Infrastructure Platform Investment</p>
+										</div>
+										<div class="desc-wrap">
 											<p class="desc">
-												Infrastructure Platform Investment Group specializes in investments across infrastructure, the AI ecosystem, and sustainability-focused sectors <br/>
+												Infrastructure Platform Investment Group specializes in investments across <span class="fc-primary">infrastructure, the AI ecosystem, and sustainability-focused sectors</span>
 												With deep expertise and market insights, we continue to build a strong track record and deal pipeline across diverse investment opportunities
 											</p>
 										</div>
@@ -86,11 +97,20 @@
 										<img src="~@/assets/images/business/mo-what-wedo-05.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
-											<p class="tit">FoFs</p>
+										<div class="tit-wrap">
+											<p class="tit">FoFs Investment</p>
+										</div>
+										<div class="desc-wrap">
 											<p class="desc">
 												Manage institutional capital deployed globally across PE,private credit, real estate and infrastructure asset classes
 											</p>
+											<%- include('../../components/note-list.ejs', { 
+												depth: 1,
+												items: [
+													`<span class="fc-primary">Bridge Domestic Investors to the Global Private Capital Market</span>`,
+													'<span class="fc-primary">Asia Fund Program :</span> Expand to Global Investor Base with Deep Investment Experience',
+												],
+											}) -%>
 										</div>
 									</div>
 								</div>
@@ -100,11 +120,20 @@
 										<img src="~@/assets/images/business/mo-what-wedo-06.jpg" alt="" class="mobile-only">
 									</div>
 									<div class="info-box">
-										<div class="tit-wrap spacing-lg">
-											<p class="tit">VC</p>
+										<div class="tit-wrap">
+											<p class="tit">VC Investment</p>
+										</div>
+										<div class="desc-wrap">
 											<p class="desc">
 												Capture selectively sourced global opportunities byinvesting in high-growth companies and leading fund managers to drive superior returns
 											</p>
+											<%- include('../../components/note-list.ejs', { 
+												depth: 1,
+												items: [
+													`<span class="fc-primary">Direct Investment :</span>By leveraging our strong networks and analytical capabilities, selectively access well-validated, high-potential opportunities`,
+													'<span class="fc-primary">Fund of Funds Investment :</span> Strategic access to leading global venture funds through top-tier GP networks',
+												],
+											}) -%>
 										</div>
 									</div>
 								</div>

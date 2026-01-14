@@ -38,6 +38,64 @@
             </div>
           </div>
         </section>
+
+        <section class="section">
+          <div class="tit-xsm">
+            <span class="txt">Tertiary</span>
+          </div>
+
+          <div class="group">
+            <div class="hls_preview">
+							<%- include('../../components/table.ejs', { 
+								caption: '기간별 수익률',
+								colWidths: ['auto', '26%', '26%', '26%'],
+								thead: ['구분', {text: '연금저축펀드', class: 'compare'}, '연금저축보험', '연금저축신탁'],
+								tbody: [
+									['가입대상', {text: '자산운용사', class: 'compare'}, '보험사', '은행'],
+									['주요판매사', {text: '증권사, 은행, 보험사', class: 'compare'}, '증권사, 은행, 보험사', '은행'],
+									['납입방식', {text: '자유납입', class: 'compare'}, '정기납입', '자유납입'],
+									['연금지급방식', {text: '확정기간형(제한 없음)', class: 'compare'}, '확정기간형 또는 종신형', '확정기간형(제한 없음)'],
+									['원금보장', {text: '비보장', class: 'compare'}, '보장', '비보장'],
+									['예금자보호', {text: '비보호', class: 'compare'}, '보호', '보호'],
+									['가입 대상', {text: '연령 제한 없이 누구나 가입 가능', colspan: 3, align: 'left'}],
+									['납입한도', {text: 
+										`<strong class="desc">연간 1,800만원 內</strong>
+										<ul class="note-list depth-1">
+											<li>전 금융기관 합산 한도 기준, 분기별 한도 제한 없음</li>
+											<li>연금저축계좌 및 퇴직연금 DC/IRP 가입자 납입분 합산</li>
+										</ul>`, 
+										colspan: 3, align: 'left'}],
+									['세액공제', {text: 
+										`<ul class="note-list depth-1">
+											<li>세액공제 한도 : 개인연금 최대 600만원 (IRP 합산 최대 900만원)</li>
+											<li>세액공제율 : <strong class="fc-gray">16.5%</strong> (지방소득세율 포함) <br/> 단, 총 급여 5,500만원 또는 종합소득금액 4,500만원 초과의 경우 13.2%</li>
+										</ul>`, 
+										colspan: 3, align: 'left'}],
+									['연금수령대상', {text: '만 55세 이상 및 5년 이상 가입고객', colspan: 3, align: 'left'}],
+									['중도인출', {text: 
+										`<p class="desc">가입자 필요 시 중도인출 가능</p>
+										<ul class="note-list depth-1">
+											<li>중도해지하거나 계약기관 종류 후 연금 외 형태로 수령 시 세액공제 받은 납입원금 및 수익에 대해 기타소득세(16.5%) 부과될 수 있음</li>
+										</ul>`
+										, colspan: 3, align: 'left'}],
+									['인출 시 세금', {text: 
+										`<p class="desc">연금적립금에서 출금 시 차감되는 세금을 줄이기 위해 세율이 낮은 적립금부터 출금</p>
+										<ul class="note-list depth-1">
+											<li>1순위: 연말 세액공제 시청하지 않은 비과세 대상 금액</li>
+											<li>2순위: 연말 세액공제 신청한 납입금 및 연금저축에서 발생한 수익</li>
+										</ul>`
+										, colspan: 3, align: 'left'}],
+								],
+								rowHeaders: true,
+								addClass: 'tertiary scroll small',
+							}) %>
+            </div>
+            <button class="btn-code-toggle">View Code</button>
+            <div class="hls-wrap">
+              <pre><code class="hls language-html"></code></pre>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </body>
