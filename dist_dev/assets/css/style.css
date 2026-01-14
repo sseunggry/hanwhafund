@@ -14127,6 +14127,55 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
     margin-top: 2.4rem;
   }
 }
+.page-business .business-list {
+  --business-list-gap: 8rem;
+  --business-list-li-gap: 6rem;
+  --business-list-li-tit-line-gap: 4rem;
+  --business-list-li-txt-line-gap: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--business-list-gap);
+}
+.page-business .business-list li {
+  display: flex;
+  gap: var(--business-list-li-gap);
+}
+.page-business .business-list li .img-wrap {
+  flex-shrink: 0;
+  width: 61.53%;
+}
+.page-business .business-list li .img-wrap img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.page-business .business-list li .txt-wrap .line-bottom,
+.page-business .business-list li .txt-wrap .box-list-wrap .tit,
+.box-list-wrap .page-business .business-list li .txt-wrap .tit {
+  padding-bottom: var(--business-list-li-tit-line-gap);
+  margin-bottom: var(--business-list-li-txt-line-gap);
+}
+.page-business .business-list li .txt-wrap .line-bottom::after,
+.page-business .business-list li .txt-wrap .box-list-wrap .tit::after,
+.box-list-wrap .page-business .business-list li .txt-wrap .tit::after {
+  height: 0.2rem;
+}
+.page-business .business-list li .txt-wrap .btn {
+  margin-top: 4rem;
+  white-space: normal;
+}
+@media (max-width: 1024px) {
+  .page-business .business-list {
+    --business-list-li-gap: 4rem;
+  }
+  .page-business .business-list li {
+    flex-direction: column;
+  }
+  .page-business .business-list li .img-wrap {
+    width: 100%;
+  }
+}
 body {
   --hwf-header-height: 13.7rem;
 }
@@ -14270,13 +14319,19 @@ section.bg-gray {
   font-size: 3.6rem;
   font-weight: 700;
 }
-.overlay-list-wrap .overlay-box-wrap .info-box .tit-wrap.spacing-lg,
-.talent-list-wrap .overlay-box-wrap .info-box .tit-wrap.spacing-lg {
-  gap: 4rem;
-}
-.overlay-list-wrap .overlay-box-wrap .info-box .note-list,
-.talent-list-wrap .overlay-box-wrap .info-box .note-list {
+.overlay-list-wrap .overlay-box-wrap .info-box .tit-wrap + .note-list,
+.talent-list-wrap .overlay-box-wrap .info-box .tit-wrap + .note-list {
   margin-top: 4rem;
+}
+.overlay-list-wrap .overlay-box-wrap .info-box .tit-wrap + .desc-wrap,
+.talent-list-wrap .overlay-box-wrap .info-box .tit-wrap + .desc-wrap {
+  margin-top: 4rem;
+}
+.overlay-list-wrap .overlay-box-wrap .info-box .desc-wrap,
+.talent-list-wrap .overlay-box-wrap .info-box .desc-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 @media (max-width: 1024px) {
   .overlay-list-wrap .overlay-box-wrap .visual-box,
@@ -14308,6 +14363,10 @@ section.bg-gray {
   .overlay-list-wrap .overlay-box-wrap .info-box .tit-wrap .tit,
   .talent-list-wrap .overlay-box-wrap .info-box .tit-wrap .tit {
     font-size: 2.8rem;
+  }
+  .overlay-list-wrap .overlay-box-wrap .info-box .desc-wrap,
+  .talent-list-wrap .overlay-box-wrap .info-box .desc-wrap {
+    gap: 1.6rem;
   }
 }
 sup {
