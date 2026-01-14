@@ -12864,9 +12864,6 @@ html[lang="en"] .page-main .section-banner {
   margin: 0;
   text-align: left;
 }
-.page-company .company-main .section-info .company-tit-wrap .tit {
-  font-size: 6.4rem;
-}
 .page-company .company-main .section-info .company-tit-wrap .txt-gradient {
   margin: 0;
 }
@@ -12904,6 +12901,19 @@ html[lang="en"] .page-main .section-banner {
 }
 .page-company .company-main .section-info .txt-wrap dl:nth-child(3) dd .counter {
   min-width: 1ch;
+}
+.page-company .company-main .section-info .txt-wrap dl:only-child {
+  padding-bottom: 5rem;
+}
+.page-company .company-main .section-info .txt-wrap dl:only-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(90deg, #ff4d32 25%, #803c4a 50%, #022a62 100%);
 }
 .page-company .company-main .section-info .txt-wrap dt {
   display: flex;
@@ -12974,6 +12984,9 @@ html[lang="en"] .page-main .section-banner {
   }
   .page-company .company-main .section-info .txt-wrap dl:first-child {
     padding-top: 0;
+  }
+  .page-company .company-main .section-info .txt-wrap dl:only-child {
+    padding-bottom: 4rem;
   }
   .page-company .company-main .section-info .txt-wrap dt {
     font-size: 2.4rem;
