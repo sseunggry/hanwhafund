@@ -8680,8 +8680,20 @@ html[lang="en"] .footer-top .logo {
 .page-company.test .company-main .section-slogan .deco-tit {
   transform: translateX(-50%);
 }
+html[lang="en"] .page-main {
+  --main-section-title-font-size: 8rem;
+}
+@media (max-width: 640px) {
+  html[lang="en"] .page-main {
+    --main-section-title-font-size: 4rem;
+  }
+}
 html[lang="en"] .page-main .header .logo {
   background: url(/assets/images/common/en-logo2-w.svg) no-repeat center/cover;
+}
+html[lang="en"] .page-main .main-tit-wrap .tit {
+  font-family: "Trust2ATRIAL", sans-serif;
+  font-weight: 400;
 }
 html[lang="en"] .page-main .section-network .main-tit-wrap {
   margin-bottom: 12rem;
