@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<%- include('../../layouts/head.ejs', { 
+			title : 'Our Business | News Room'
+		}) -%>
+	</head>
+	<body class="page-business">
+		<div class="wrap">
+			<!-- header -->
+			<%- include('../../layouts/en_header.ejs') -%>
+			<!-- // header -->
+			
+			<!-- container -->
+			<main class="container business-news">
+				<div class="inner">
+					<div class="cont-group">
+						<div class="section-tit-wrap">
+							<h2 class="tit">News Room</h2>
+						</div>
+						<%- include('../../layouts/board.ejs', {
+							theadChanges: { category: { text: 'Press' }, title: { text: 'Title' }, date: { text: 'Date' } },
+							showSearch: false,
+							download: false,
+							noData: false,
+							moreButton: false,
+							boardListItems: [
+								{
+									category: 'The Asia Business Daily',
+									title: `'PLUS' Solidifies Its Presence in the ETF Market with Top Returns in 2025`,
+									url: 'https://cm.asiae.co.kr/en/article/2026010908444723015',
+  								target: '_blank',
+									date: '2026-01-09',
+								},
+								{
+									category: 'Chosun Biz',
+									title: `Hanwha Asset Management says KDEF ETF tops 100 billion won in overseas net worth	`,
+									url: 'https://biz.chosun.com/en/en-finance/2026/01/02/3C4GQC3FFJDHDM24J4GYUMNHBU/',
+  								target: '_blank',
+									date: '2026-01-02',
+								},
+								{
+									category: 'The Korea Times',
+									title: `Hanwha expands Middle East financial ties at Abu Dhabi Finance Week`,
+									url: 'https://www.koreatimes.co.kr/business/banking-finance/20251211/hanwha-expands-middle-east-financial-ties-at-abu-dhabi-finance-week',
+  								target: '_blank',
+									date: '2025-12-11',
+								},
+								{
+									category: 'The Chosun Biz Daily',
+									title: `Hanwha, MarcyPen Launch 700 Billion-Won K-Culture Fund`,
+									url: 'https://www.chosun.com/english/market-money-en/2025/12/09/X6RRQ4MFCRDHFKGCO4ZLZX3UV4/',
+  								target: '_blank',
+									date: '2025-12-09',
+								},
+							],
+						}); %>
+					</div>
+				</div>
+			</main>
+			<!-- // container -->
+
+			<!-- footer -->
+			<%- include('../../layouts/en_footer.ejs') -%>
+			<!-- // footer -->
+		</div>
+	</body>
+</html>

@@ -1,7 +1,7 @@
 <% 
 	const title = locals.title ? locals.title : ''; 
-	const keyword = locals.keyword ? locals.keyword : '한화자산운용, '; 
-	const desc = locals.desc ? locals.desc : '한화자산운용 웹사이트 입니다.'; 
+	const keyword = locals.keyword ? locals.keyword : '한화자산운용 ,한화운용 ,한화펀드 ,한화자산 ,그린히어로펀드 ,헤라클레스펀드'; 
+	const desc = locals.desc ? locals.desc : '세대를 아우르는 금융 파트너, 한화자산운용입니다.'; 
 	const img = locals.img ? locals.img : ''; 
 	const url = locals.url ? locals.url : ''; 
 
@@ -9,12 +9,16 @@
 -%>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- [2026-01-14] 수정 -->
 <meta name="keywords" content="<%= keyword %>" />
 <meta name="description" content="<%= desc %>">
+<!-- // [2026-01-14] 수정 -->
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<%= finalTitle %>">
+<!-- [2026-01-14] 수정 -->
 <meta property="og:description" content="<%= desc %>">
+<!-- // [2026-01-14] 수정 -->
 <!-- <meta property="og:image" content="<%#= img %>"> -->
 <!-- <meta property="og:url" content="<%#= url %>"> -->
 <meta name="format-detection" content="telephone=no" />

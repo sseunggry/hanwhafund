@@ -11,13 +11,15 @@
 
 .page-main {
 	--main-section-title-gap: 4rem;
-	--main-section-title-font-size: 10rem;
-	--main-section-sub-title-font-size: 3.2rem;
+	--main-section-title-font-size: 8rem;
+	--main-section-sub-title-font-size: 4rem;
 	
+	--main-partner-title-font-size: 10rem;
+
 	--main-message-title-font-size: 16rem;
 
 	--main-banner-title-font-size: 9.6rem;
-	--main-banner-desc-font-size: var(--main-section-sub-title-font-size);
+	--main-banner-desc-font-size: 3.2rem;
 
 	@include mq(tablet){
 		--main-section-title-font-size: 8rem;
@@ -32,9 +34,12 @@
 		--main-section-title-font-size: 4rem;
 		--main-section-sub-title-font-size: 2.4rem;
 
+		--main-partner-title-font-size: 4rem;
+
 		--main-message-title-font-size: 6.4rem;
 
 		--main-banner-title-font-size: 4.8rem;
+		--main-banner-desc-font-size: 1.8rem;
 	}
 
 	position: relative;
@@ -166,18 +171,27 @@
 
     .tit {
       width: fit-content;
-      font-family: $font-family-en;
+      // font-family: $font-family-en;
       font-weight: 400;
       font-size: var(--main-section-title-font-size);
       line-height: 1.2;
       word-break: keep-all;
       @include txt-gradient;
+
+			&:not(.txt-en){
+				font-weight: 600;
+			}
     }
     .sub-tit {
 			word-break: keep-all;
       color: var(--#{$prefix}-color-text-strong);
       font-size: var(--main-section-sub-title-font-size);
       font-weight: 600;
+			text-transform: capitalize;
+
+			&.txt-en{
+				font-weight: 400;
+			}
     }
   }
 
@@ -296,6 +310,11 @@
 
     padding: var(--main-partner-padding-top) 0 var(--main-partner-padding-bottom);
 
+		.main-tit-wrap{
+			.tit{
+				font-size: var(--main-partner-title-font-size);
+			}
+		}
     .info-wrap {
       display: flex;
       align-items: center;

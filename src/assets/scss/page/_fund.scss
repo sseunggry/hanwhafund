@@ -371,6 +371,7 @@
 							border-right: 0.1rem solid #E6E5E5;
 
 							&:nth-child(3){
+								margin-right: 0;
 								width: 16.6rem;
 							}
 						}
@@ -394,11 +395,12 @@
 						.period-grid{
 							display: flex;
 							justify-content: space-between;
-							padding-right: 1.6rem;
+							// padding-right: 1.6rem;
 							width: 86rem;
 
 							.fund-txt{
 								border-right: 0;
+								flex: 1;
 								min-width: 10rem;
 								text-align: center;
 							}
