@@ -7811,11 +7811,12 @@ html[lang="en"] .footer-top .logo {
 }
 .page-main {
   --main-section-title-gap: 4rem;
-  --main-section-title-font-size: 10rem;
-  --main-section-sub-title-font-size: 3.2rem;
+  --main-section-title-font-size: 8rem;
+  --main-section-sub-title-font-size: 4rem;
+  --main-partner-title-font-size: 10rem;
   --main-message-title-font-size: 16rem;
   --main-banner-title-font-size: 9.6rem;
-  --main-banner-desc-font-size: var(--main-section-sub-title-font-size);
+  --main-banner-desc-font-size: 3.2rem;
 }
 @media (max-width: 1024px) {
   .page-main {
@@ -7830,8 +7831,10 @@ html[lang="en"] .footer-top .logo {
     --main-section-title-gap: 2.4rem;
     --main-section-title-font-size: 4rem;
     --main-section-sub-title-font-size: 2.4rem;
+    --main-partner-title-font-size: 4rem;
     --main-message-title-font-size: 6.4rem;
     --main-banner-title-font-size: 4.8rem;
+    --main-banner-desc-font-size: 1.8rem;
   }
 }
 .page-main {
@@ -7936,7 +7939,6 @@ html[lang="en"] .footer-top .logo {
 .page-main .main-tit-wrap .tit {
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "Trust2ATRIAL", sans-serif;
   font-weight: 400;
   font-size: var(--main-section-title-font-size);
   line-height: 1.2;
@@ -7947,11 +7949,18 @@ html[lang="en"] .footer-top .logo {
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
   text-transform: capitalize;
 }
+.page-main .main-tit-wrap .tit:not(.txt-en) {
+  font-weight: 600;
+}
 .page-main .main-tit-wrap .sub-tit {
   word-break: keep-all;
   color: var(--hwf-color-text-strong);
   font-size: var(--main-section-sub-title-font-size);
   font-weight: 600;
+  text-transform: capitalize;
+}
+.page-main .main-tit-wrap .sub-tit.txt-en {
+  font-weight: 400;
 }
 .page-main .section-visual .visual {
   height: 108rem;
@@ -8057,6 +8066,9 @@ html[lang="en"] .footer-top .logo {
   --main-partner-dd-font-size: 20rem;
   --main-partner-dd-small-font-size: 12rem;
   padding: var(--main-partner-padding-top) 0 var(--main-partner-padding-bottom);
+}
+.page-main .section-partner .main-tit-wrap .tit {
+  font-size: var(--main-partner-title-font-size);
 }
 .page-main .section-partner .info-wrap {
   display: flex;
@@ -9032,6 +9044,7 @@ html[lang="en"] .page-main .section-banner {
   border-right: 0.1rem solid #e6e5e5;
 }
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con > .fund-txt:nth-child(3) {
+  margin-right: 0;
   width: 16.6rem;
 }
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .tit {
@@ -9052,11 +9065,11 @@ html[lang="en"] .page-main .section-banner {
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .period-grid {
   display: flex;
   justify-content: space-between;
-  padding-right: 1.6rem;
   width: 86rem;
 }
 .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .fund-con .period-grid .fund-txt {
   border-right: 0;
+  flex: 1;
   min-width: 10rem;
   text-align: center;
 }
@@ -12642,6 +12655,7 @@ html[lang="en"] .page-main .section-banner {
 @media (max-width: 640px) {
   .page-company:has(.company-main) .company-tit-wrap .sub-desc {
     margin-bottom: 6rem;
+    font-size: 2.1rem;
   }
   .page-company:has(.company-main) .company-tit-wrap .tit {
     font-size: 4.8rem;
@@ -12825,6 +12839,9 @@ html[lang="en"] .page-main .section-banner {
   align-items: center;
   padding: 18rem 0;
   background: #04021e url(../../assets/images/company/main-info-bg.png) no-repeat center/cover;
+}
+.page-company .company-main .section-info:has(.txt-wrap dl:only-child) {
+  align-items: flex-start;
 }
 .page-company .company-main .section-info .inner {
   display: flex;
