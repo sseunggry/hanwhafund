@@ -1029,9 +1029,21 @@
 //영문 메인
 html[lang="en"]{
 	.page-main{
+		--main-section-title-font-size: 8rem;
+
+		@include mq(mobile){
+			--main-section-title-font-size: 4rem;
+		}
+
 		.header{
 			.logo {
 				@include bg("common/en-logo2-w.svg");
+			}
+		}
+		.main-tit-wrap{
+			.tit{
+				font-family: $font-family-en;
+				font-weight: 400;
 			}
 		}
 		.section-network{
