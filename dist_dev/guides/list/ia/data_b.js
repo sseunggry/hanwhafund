@@ -26,7 +26,7 @@ const iaPageBData = {
 		{ createDate: "2025-12-18", modifyDate: "2026-01-14", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: '2026-01-14: subsidiary 텍스트 삭제'}, {detail: `2026-01-05: 클래스 삭제`}, { detail: '2025-12-23: 텍스트 수정' }], },
 
 		// --- Contact Us ---
-		{ createDate: "2025-12-18", modifyDate: "2026-01-12", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2026-01-12: 버튼명 수정' }, { detail: '2025-12-30: 텍스트 수정' }], },
+		{ createDate: "2025-12-18", modifyDate: "2026-01-15", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2026-01-15: 버튼명 수정' }, { detail: '2025-12-30: 텍스트 수정' }], },
 
 		// --- Site Map ---
 		{ createDate: "2025-12-18", modifyDate: "2026-01-06", category: "Site Map", depth1: "-", depth2: "-", depth3: "-", pageName: "전체메뉴", pageType: "popup", pageID: "EU_SM_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: `2026-01-06: 텍스트 수정`}], },
