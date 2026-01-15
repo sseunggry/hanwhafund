@@ -14132,6 +14132,7 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   --business-list-li-gap: 6rem;
   --business-list-li-tit-line-gap: 4rem;
   --business-list-li-txt-line-gap: 2.8rem;
+  --business-list-li-txt-button-gap: 4rem;
   display: flex;
   flex-direction: column;
   gap: var(--business-list-gap);
@@ -14162,7 +14163,7 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   height: 0.2rem;
 }
 .page-business .business-list li .txt-wrap .btn {
-  margin-top: 4rem;
+  margin-top: var(--business-list-li-txt-button-gap);
   white-space: normal;
 }
 @media (max-width: 1024px) {
@@ -14180,6 +14181,7 @@ html[lang="en"] .page-company .company-network .global-network-map .map-info-lis
   .page-business .business-list {
     --business-list-li-tit-line-gap: 2.4rem;
     --business-list-li-txt-line-gap: 2rem;
+    --business-list-li-txt-button-gap: 2.4rem;
   }
   .page-business .business-list li .img-wrap {
     margin: 0 calc(var(--hwf-content-padding-x) * -1);
