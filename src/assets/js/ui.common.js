@@ -926,9 +926,9 @@ const uiLnb = {
       }
     }
 
-    if (currentActiveId === null && scrollTop < this.offset) {
-       currentActiveId = this.$sections.first().attr("id");
-    }
+		if (currentActiveId === null) {
+			currentActiveId = this.$sections.first().attr("id");
+	 	}
 
     if (scrollTop + $(window).height() >= $(document).height() - 50) {
       currentActiveId = this.$sections.last().attr("id");
