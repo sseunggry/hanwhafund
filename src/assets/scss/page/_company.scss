@@ -1320,6 +1320,10 @@
 		}
 		.root_daum_roughmap{
 			width: 100%;
+			
+			.wrap_btn_zoom{
+				z-index: 2 !important;
+			}
 		}
 	
 		@include mq(tablet){
