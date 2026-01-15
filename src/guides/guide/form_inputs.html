@@ -279,18 +279,25 @@
             </div>
 
             <div class="group">
-              <% 
-                let btnTag = '';
-                btnTag += include('../../components/button.ejs', { variant: '', label: '확인', size: 'small'});
-              -%>
               <div class="hls_preview">
-                <%- include('../../components/input.ejs', {
-                  title: "검색",
-                  type: "text",
-                  size: 'large',
-                  placeholder: '검색어 입력',
-                  slot: btnTag
-                }) -%>
+								<div class="form-group">
+									<div class="form-tit">
+										<label for="search-input">검색</label>
+									</div>
+									<div class="form-conts">
+										<div class="form-input-group">
+											<%- include('../../components/input.ejs', {
+												type: "text",
+												size: 'large',
+												placeholder: '검색어 입력',
+											}) -%>
+											<%- include('../../components/button.ejs', {
+												label: '검색',
+												size: 'large',
+											}) -%>
+										</div>
+									</div>
+								</div>
               </div>
               <button class="btn-code-toggle">View Code</button>
               <div class="hls-wrap">
