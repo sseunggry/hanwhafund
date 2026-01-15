@@ -6,6 +6,7 @@
 		--business-list-li-gap: 6rem;
 		--business-list-li-tit-line-gap: 4rem;
 		--business-list-li-txt-line-gap: 2.8rem;
+		--business-list-li-txt-button-gap: 4rem;
 
 		display: flex;
 		flex-direction: column;
@@ -36,7 +37,7 @@
 				}
 
 				.btn{
-					margin-top: 4rem;
+					margin-top: var(--business-list-li-txt-button-gap);
 					white-space: normal;
 				}
 			}
@@ -57,6 +58,7 @@
 		@include mq(mobile){
 			--business-list-li-tit-line-gap: 2.4rem;
 			--business-list-li-txt-line-gap: 2rem;
+			--business-list-li-txt-button-gap: 2.4rem;
 
 			li{
 				.img-wrap{
