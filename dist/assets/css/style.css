@@ -1305,6 +1305,9 @@ html {
   background-color: var(--hwf-color-text-white);
   transition: var(--hwf-transition-base);
 }
+.btn.icon {
+  min-height: auto !important;
+}
 .btn:hover {
   background-color: var(--hwf-button--color-black-fill-hover);
 }
