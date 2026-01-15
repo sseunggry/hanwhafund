@@ -162,7 +162,7 @@ $button-color-variable: (
     transition: var(--#{$prefix}-transition-base);
   }
 	&.icon{
-		min-height: auto;
+		min-height: auto !important;
 	}
 
   &:hover {

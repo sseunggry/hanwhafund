@@ -21,7 +21,7 @@
 						<%
 						const table1 = include('../../components/table.ejs', { 
 							infoTxt: 'Unit: KRW million',
-							caption: 'Condensed Consolidated Statement of Comprehensive Income',
+							caption: 'Consolidated Statement of Comprehensive Income',
 							colWidths: ['30%', '30%', 'auto'],
 							thead: ['Items', '37th Fiscal Year (2024.01.01 ~ 2024.12.31)', '36th Fiscal Year (2023.01.01 ~ 2023.12.31)'],
 							tbody: [
@@ -45,7 +45,7 @@
 						});
 						const table2 = include('../../components/table.ejs', { 
 							infoTxt: 'Unit: KRW million',
-							caption: 'Condensed Consolidated Statement of Financial Position',
+							caption: 'Consolidated Statement of Financial Position',
 							colWidths: ['30%', '30%', 'auto'],
 							thead: ['Items', '37th Fiscal Year (2024.12.31)', '36th Fiscal Year (2023.12.31)'],
 							tbody: [
@@ -80,10 +80,11 @@
 							addClass: 'scroll'
 						});
 						%>
+						<!-- [2026-01-16] 탭 텍스트 변경 -->
 						<%- include('../../components/tab.ejs', {
 							active: 1,
 							variant: 'line',
-							tablist: ['Condensed Consolidated <br/> Statement of Comprehensive Income', 'Condensed Consolidated <br/> Statement of Financial Position'],
+							tablist: ['Consolidated <br/> Statement of Comprehensive Income', 'Consolidated <br/> Statement of Financial Position'],
 							contents: [table1, 
 							`<!-- [2025-12-24] th scope="row" -> td로 변경 -->
 							${table2}
@@ -91,6 +92,7 @@
 							`
 							],
 						}) -%>
+						<!-- // [2026-01-16] 탭 텍스트 변경 -->
 					</div>
 				</div>
 			</main>
