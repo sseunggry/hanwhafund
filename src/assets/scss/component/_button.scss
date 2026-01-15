@@ -441,11 +441,18 @@ $button-color-variable: (
 
   //mobile
   @include mq(mobile) {
+		padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
+		min-height: var(--hwf-button--size-height-medium);
+
 		&.large{
 			padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
 			min-height: var(--hwf-button--size-height-medium);
 		}
 		&.medium{
+			padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
+			min-height: var(--hwf-button--size-height-small);
+		}
+		&.small{
 			padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
 			min-height: var(--hwf-button--size-height-small);
 		}
