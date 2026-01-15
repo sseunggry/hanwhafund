@@ -73,7 +73,7 @@
       }
 			.family-site{
 				.form-select{
-					min-width: 23rem;
+					min-width: clamp(15rem, 61.33vw, 23rem);
 				}
 			}
     }
@@ -197,8 +197,8 @@ html[lang="en"]{
 	@include mq(mobile){
 		.footer-top{
 			.logo {
-				width: 31.1rem;
-				height: 3.2rem;
+				width: clamp(10rem, 82.93vw, 31.1rem);
+				height: clamp(1rem, 8.53vw, 3.2rem);
 			}
 		}
 	}

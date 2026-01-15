@@ -44,12 +44,24 @@
 
 		@include mq(tablet){
 			--business-list-li-gap: 4rem;
-			
+
 			li{
 				flex-direction: column;
 
 				.img-wrap{
 					width: 100%;
+				}
+			}
+		}
+
+		@include mq(mobile){
+			--business-list-li-tit-line-gap: 2.4rem;
+			--business-list-li-txt-line-gap: 2rem;
+
+			li{
+				.img-wrap{
+					margin: 0 calc(var(--#{$prefix}-content-padding-x) * -1);
+					width: calc(100% + var(--#{$prefix}-content-padding-x) * 2);
 				}
 			}
 		}
