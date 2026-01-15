@@ -1217,28 +1217,28 @@ html {
 .btn {
   --hwf-button--size-height-small: 3.2rem;
   --hwf-button--padding-x-small: 1.6rem;
-  --hwf-button--padding-y-small: 0.2rem;
+  --hwf-button--padding-y-small: 0;
   --hwf-button--gap-small: 0.2rem;
   --hwf-button--radius-small: var(--hwf-radius-medium);
   --hwf-button--icon-size-small: var(--hwf-icon-size-medium);
   --hwf-button--font-size-small: var(--hwf-font-size--body-xsmall);
   --hwf-button--size-height-medium: 4.8rem;
   --hwf-button--padding-x-medium: 2.4rem;
-  --hwf-button--padding-y-medium: 0.4rem;
+  --hwf-button--padding-y-medium: 0;
   --hwf-button--gap-medium: 0.4rem;
   --hwf-button--radius-medium: var(--hwf-radius-medium);
   --hwf-button--icon-size-medium: var(--hwf-icon-size-medium);
   --hwf-button--font-size-medium: var(--hwf-font-size--body-small);
   --hwf-button--size-height-large: 5.6rem;
   --hwf-button--padding-x-large: 4rem;
-  --hwf-button--padding-y-large: 0.6rem;
+  --hwf-button--padding-y-large: 0;
   --hwf-button--gap-large: 0.8rem;
   --hwf-button--radius-large: var(--hwf-radius-medium);
   --hwf-button--icon-size-large: var(--hwf-icon-size-large);
   --hwf-button--font-size-large: var(--hwf-font-size--body-small);
   --hwf-button--size-height-xlarge: 6.4rem;
   --hwf-button--padding-x-xlarge: 4rem;
-  --hwf-button--padding-y-xlarge: 0.8rem;
+  --hwf-button--padding-y-xlarge: 0;
   --hwf-button--gap-xlarge: 0.8rem;
   --hwf-button--radius-xlarge: var(--hwf-radius-medium);
   --hwf-button--icon-size-xlarge: var(--hwf-icon-size-xlarge);
@@ -1285,7 +1285,7 @@ html {
   white-space: nowrap;
   transition: var(--hwf-transition-base);
   gap: var(--hwf-button--gap-large);
-  min-height: var(--hwf-button--size-height-large);
+  height: var(--hwf-button--size-height-large);
   padding: var(--hwf-button--padding-y-large) var(--hwf-button--padding-x-large);
   border-radius: var(--hwf-button--radius-large);
   font-size: var(--hwf-button--font-size-large);
@@ -1304,9 +1304,6 @@ html {
   flex-shrink: 0;
   background-color: var(--hwf-color-text-white);
   transition: var(--hwf-transition-base);
-}
-.btn.icon {
-  min-height: auto !important;
 }
 .btn:hover {
   background-color: var(--hwf-button--color-black-fill-hover);
@@ -1330,7 +1327,7 @@ html {
 }
 .btn.small {
   gap: var(--hwf-button--gap-small);
-  min-height: var(--hwf-button--size-height-small);
+  height: var(--hwf-button--size-height-small);
   padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
   border-radius: var(--hwf-button--radius-small);
   font-size: var(--hwf-button--font-size-small);
@@ -1342,7 +1339,7 @@ html {
 }
 .btn.medium {
   gap: var(--hwf-button--gap-medium);
-  min-height: var(--hwf-button--size-height-medium);
+  height: var(--hwf-button--size-height-medium);
   padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
   border-radius: var(--hwf-button--radius-medium);
   font-size: var(--hwf-button--font-size-medium);
@@ -1354,7 +1351,7 @@ html {
 }
 .btn.large {
   gap: var(--hwf-button--gap-large);
-  min-height: var(--hwf-button--size-height-large);
+  height: var(--hwf-button--size-height-large);
   padding: var(--hwf-button--padding-y-large) var(--hwf-button--padding-x-large);
   border-radius: var(--hwf-button--radius-large);
   font-size: var(--hwf-button--font-size-large);
@@ -1366,7 +1363,7 @@ html {
 }
 .btn.xlarge {
   gap: var(--hwf-button--gap-xlarge);
-  min-height: var(--hwf-button--size-height-xlarge);
+  height: var(--hwf-button--size-height-xlarge);
   padding: var(--hwf-button--padding-y-xlarge) var(--hwf-button--padding-x-xlarge);
   border-radius: var(--hwf-button--radius-xlarge);
   font-size: var(--hwf-button--font-size-xlarge);
