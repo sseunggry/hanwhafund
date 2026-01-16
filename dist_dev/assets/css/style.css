@@ -15097,7 +15097,7 @@ sup {
 .thumb-list-wrap .thumb-list .thumb-item .thumb-img .source {
   position: absolute;
   bottom: 1rem;
-  left: 1rem;
+  right: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
