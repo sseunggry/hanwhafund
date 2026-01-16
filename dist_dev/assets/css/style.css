@@ -12950,6 +12950,7 @@ html[lang="en"] .page-main .section-banner {
   color: #fff;
   font-size: 3.2rem;
   font-weight: 600;
+  word-break: keep-all;
 }
 .page-company .company-main .section-info .txt-wrap dt small {
   font-size: 1.8rem;
