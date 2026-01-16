@@ -9942,9 +9942,16 @@ html[lang="en"] .page-main .section-banner {
     margin-bottom: 0.4rem;
     align-self: flex-start;
   }
+  .page-fund .fund-main .section-visual .fund-info .fund-summary .summary-con {
+    display: flex;
+    flex-direction: column;
+  }
   .page-fund .fund-main .section-visual .fund-info .fund-summary .summary-con .value {
     margin-bottom: 0.4rem;
     font-size: 3.2rem;
+  }
+  .page-fund .fund-main .section-visual .fund-info .fund-summary .summary-con .change {
+    margin-left: auto;
   }
   .page-fund .fund-main .section-visual .fund-info:only-child .fund-summary {
     --fund-summary-li-gap: 1.6rem;
