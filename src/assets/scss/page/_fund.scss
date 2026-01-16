@@ -1411,10 +1411,16 @@
               align-self: flex-start;
             }
             .summary-con {
+							display: flex;
+							flex-direction: column;
+
               .value {
                 margin-bottom: 0.4rem;
                 font-size: 3.2rem;
               }
+							.change{
+								margin-left: auto;
+							}
             }
           }
           &:only-child {
