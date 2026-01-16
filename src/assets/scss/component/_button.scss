@@ -162,6 +162,9 @@ $button-color-variable: (
     @include btn-color-icon(white);
     transition: var(--#{$prefix}-transition-base);
   }
+	&.icon{
+		min-height: auto !important;
+	}
 
   &:hover {
     @include btn-color-hover(black);
