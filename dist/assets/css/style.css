@@ -1283,6 +1283,7 @@ html {
   border-width: 0.1rem;
   cursor: pointer;
   white-space: nowrap;
+  text-align: center;
   transition: var(--hwf-transition-base);
   gap: var(--hwf-button--gap-large);
   height: var(--hwf-button--size-height-large);
@@ -9530,6 +9531,17 @@ html[lang="en"] .page-main .section-banner {
   padding-right: 0;
   color: var(--hwf-color-text-subtler);
 }
+.page-fund .layout-sidebar .sidebar li a::before {
+  content: "";
+  display: inline-block;
+  margin-right: 0.4rem;
+  flex-shrink: 0;
+  width: 0;
+  height: 0.6rem;
+  background-color: #f54500;
+  vertical-align: top;
+  transition: all 0.1s;
+}
 .page-fund .layout-sidebar .sidebar li.active::after {
   width: 100%;
 }
@@ -9537,14 +9549,7 @@ html[lang="en"] .page-main .section-banner {
   color: var(--hwf-color-text-basic);
 }
 .page-fund .layout-sidebar .sidebar li.active a::before {
-  content: "";
-  display: inline-block;
-  margin-right: 0.4rem;
-  flex-shrink: 0;
   width: 0.6rem;
-  height: 0.6rem;
-  background-color: #f54500;
-  vertical-align: top;
 }
 .page-fund .layout-sidebar .layout-content {
   position: relative;
