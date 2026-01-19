@@ -1132,7 +1132,6 @@
 					.btn{
 						word-break: keep-all;
 						white-space: normal;
-
 						flex-direction: column;
 						align-items: flex-start;
 						justify-content: space-between;
@@ -1140,6 +1139,7 @@
 						min-width: 24rem;
 						height: 100%;
 						font-size: 2.1rem;
+						text-align: left;
 
 						.svg-icon{
 							@include square(2.4rem);
