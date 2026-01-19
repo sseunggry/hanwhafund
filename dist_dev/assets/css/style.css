@@ -13405,6 +13405,7 @@ html[lang="en"] .page-main .section-banner {
   min-width: 24rem;
   height: 100%;
   font-size: 2.1rem;
+  text-align: left;
 }
 .page-company .company-main .section-banner .blur-box .btn-wrap .btn .svg-icon {
   width: 2.4rem;
