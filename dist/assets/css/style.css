@@ -1283,7 +1283,6 @@ html {
   border-width: 0.1rem;
   cursor: pointer;
   white-space: nowrap;
-  text-align: center;
   transition: var(--hwf-transition-base);
   gap: var(--hwf-button--gap-large);
   height: var(--hwf-button--size-height-large);
@@ -10864,6 +10863,9 @@ html[lang="en"] .page-main .section-banner {
 .page-fund .fund-find .section-detail {
   padding-bottom: 12rem;
 }
+.page-fund .fund-find .section-detail .fund-content {
+  min-height: 50rem;
+}
 .page-fund .fund-find .section-detail .fund-compare-floating {
   position: fixed;
   left: 0;
@@ -11845,6 +11847,22 @@ html[lang="en"] .page-main .section-banner {
 }
 .board-detail .board-detail-con img {
   width: 100%;
+}
+.board-detail .board-detail-con ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.board-detail .board-detail-con ul li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.board-detail .board-detail-con ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.board-detail .board-detail-con ol li {
+  list-style-type: decimal;
+  list-style-position: inside;
 }
 .board-detail .board-detail-file {
   display: flex;
