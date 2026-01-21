@@ -2461,6 +2461,10 @@
 		.section-detail{
 			padding-bottom: 12rem;
 
+			.fund-content{
+				min-height: 50rem;
+			}
+
 			.fund-compare-floating{
 				position: fixed;
 				left: 0;

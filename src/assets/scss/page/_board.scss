@@ -244,6 +244,26 @@
 		img{
 			width: 100%;
 		}
+
+		//에디터에서 등록한 텍스트
+		ul{
+			list-style-type: disc;
+			list-style-position: inside;
+
+			li{
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+		}
+		ol{
+			list-style-type: decimal;
+			list-style-position: inside;
+
+			li{
+				list-style-type: decimal;
+				list-style-position: inside;
+			}
+		}
 	}
 	.board-detail-file{
 		display: flex;

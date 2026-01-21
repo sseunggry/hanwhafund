@@ -151,7 +151,6 @@ $button-color-variable: (
   border-width: 0.1rem;
   cursor: pointer;
   white-space: nowrap;
-	text-align: center;
   transition: var(--#{$prefix}-transition-base);
 
   @include btn-size(large);
