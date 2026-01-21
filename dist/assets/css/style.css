@@ -879,11 +879,11 @@ html {
 .pc-only {
   display: flex !important;
 }
-.tablet-only {
-  display: none !important;
-}
 .pc-tablet-only {
   display: flex !important;
+}
+.tablet-only {
+  display: none !important;
 }
 .tablet-mobile-only {
   display: none !important;
@@ -906,11 +906,11 @@ html {
   }
 }
 @media (max-width: 768px) {
-  .pc-tablet-only {
-    display: flex !important;
-  }
   .pc-only {
     display: none !important;
+  }
+  .pc-tablet-only {
+    display: flex !important;
   }
   .tablet-small-only {
     display: flex !important;
@@ -7978,8 +7978,11 @@ html[lang="en"] .footer-top .logo {
 .page-main .main-tit-wrap .sub-tit.txt-en {
   font-weight: 400;
 }
+.page-main .section-visual {
+  --main-visual-height: 56.25vw;
+}
 .page-main .section-visual .visual {
-  height: 108rem;
+  height: var(--main-visual-height);
 }
 .page-main .section-visual .visual .inner {
   position: relative;
@@ -8034,6 +8037,9 @@ html[lang="en"] .footer-top .logo {
   -o-object-position: center center;
   object-position: center center;
 }
+.page-main .section-visual .visual .img-mobile {
+  display: none;
+}
 .page-main .section-visual .main-visual-swiper .swiper-horizontal > .swiper-pagination-bullets,
 .page-main .section-visual .main-visual-swiper .swiper-pagination-bullets.swiper-pagination-horizontal {
   display: flex;
@@ -8055,11 +8061,15 @@ html[lang="en"] .footer-top .logo {
   background-color: #fe5b16;
 }
 @media (max-width: 768px) {
-  .page-main .section-visual .visual {
-    height: 82.1rem;
-  }
   .page-main .section-visual {
+    --main-visual-height: 218.93vw;
     font-size: 1.8rem;
+  }
+  .page-main .section-visual .visual .img-pc {
+    display: none;
+  }
+  .page-main .section-visual .visual .img-mobile {
+    display: block;
   }
 }
 @media (max-width: 640px) {
