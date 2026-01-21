@@ -196,8 +196,11 @@
   }
 
   .section-visual {
+		--main-visual-height: 56.25vw;
+
     .visual {
-      height: 108rem;
+      // height: 108rem;
+			height: var(--main-visual-height);
 
       .inner {
         position: relative;
@@ -249,6 +252,10 @@
 					object-position: center center; 
 				}
       }
+
+			.img-mobile{
+				display: none;
+			}
     }
     .main-visual-swiper {
       .swiper-horizontal > .swiper-pagination-bullets,
@@ -275,10 +282,18 @@
     }
 
 		@include mq(tablet-small){
-			.visual{
-				height: 82.1rem;
-			}
+			--main-visual-height: 218.93vw;
+
 			font-size: 1.8rem;
+
+			.visual{
+				.img-pc{
+					display: none;
+				}
+				.img-mobile{
+					display: block;
+				}
+			}
 		}
 		@include mq(mobile){
 			.visual{
