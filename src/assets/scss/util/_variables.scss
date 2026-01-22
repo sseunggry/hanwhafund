@@ -6,8 +6,6 @@ $prefix: 'hwf' !default;
 $base-url: "../";
 
 // 적용 웹 폰트
-// $font-kr: var(--#{$prefix}-font-kr);
-// $font-en: var(--#{$prefix}-font-en);
 $font-kr: "Pretendard";
 $font-en: "Trust2ATRIAL";
 $font-hanwha: "Hanwha";
@@ -21,24 +19,10 @@ $f-trust: $font-en, sans-serif;
 $breakpoint-pc-large: 1440px !default;
 $breakpoint-pc: 1280px !default;
 $breakpoint-tablet: 1024px !default;
-// $breakpoint-tablet-small: 768px !default;
-// $breakpoint-mobile-large: 480px !default;
-// $breakpoint-mobile: 360px !default;
 $breakpoint-tablet-small: 768px !default;
 $breakpoint-mobile: 640px !default;
 $breakpoint-mobile-medium: 480px !default;
 $breakpoint-mobile-small: 360px !default;
-
-// 640
-
-// SVG ICON SIZE
-// $icon-sizes: (
-//   xsmall: 1.6rem,
-//   small: 1.6rem,
-//   medium: 2rem,
-//   large: 2.4rem,
-//   xlarge: 2.4rem,
-// ) !default;
 
 // 3. 아이콘 사이즈 맵
 $icon-size: (
@@ -50,13 +34,3 @@ $icon-size: (
   xxlarge: var(--#{$prefix}-icon-size-xxlarge), //4rem
   xxxlarge: var(--#{$prefix}-icon-size-xxxlarge), //4.8rem
 ) !default;
-
-// $icon-size: (
-//   xsmall: 1.2rem,
-//   small: 1.4rem,
-//   medium: 1.6rem,
-//   large: 2rem,
-//   xlarge: 2.4rem,
-//   xxlarge: 4rem,
-//   xxxlarge: 4.8rem,
-// ) !default;
