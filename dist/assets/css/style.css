@@ -7685,6 +7685,10 @@ html[lang="en"] .modal.header-search .logo {
 .footer .footer-con .nav .link-list li {
   margin-bottom: 1.2rem;
 }
+.footer .footer-con .nav .link-list li a,
+.footer .footer-con .nav .link-list li button {
+  text-align: left;
+}
 .footer .footer-con .nav .link-list li.active {
   color: var(--hwf-color-text-primary);
   font-weight: 700;
