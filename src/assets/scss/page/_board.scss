@@ -264,6 +264,28 @@
 				list-style-position: inside;
 			}
 		}
+		em, i, cite{
+			font-style: italic;
+		}
+		strong, b{
+			font-weight: 700;
+		}
+		s, strike{
+			text-decoration: line-through;
+		}
+		sub{
+			vertical-align: sub;
+		}
+		sup{
+			vertical-align: super;
+		}
+		h1, h2, h3, h4, h5, h6{
+			font-size: revert;
+			font-weight: 700;
+		}
+		pre{
+			font-family: $font-family-kr;
+		}
 	}
 	.board-detail-file{
 		display: flex;
