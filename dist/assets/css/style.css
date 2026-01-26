@@ -11909,6 +11909,9 @@ html[lang="en"] .page-main .section-banner {
 .board-detail .board-detail-con pre {
   font-family: "Pretendard", sans-serif;
 }
+.board-detail .board-detail-con .marker {
+  background-color: #ff0;
+}
 .board-detail .board-detail-file {
   display: flex;
   flex-direction: column;
