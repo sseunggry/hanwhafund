@@ -11878,6 +11878,37 @@ html[lang="en"] .page-main .section-banner {
   list-style-type: decimal;
   list-style-position: inside;
 }
+.board-detail .board-detail-con em,
+.board-detail .board-detail-con i,
+.board-detail .board-detail-con cite {
+  font-style: italic;
+}
+.board-detail .board-detail-con strong,
+.board-detail .board-detail-con b {
+  font-weight: 700;
+}
+.board-detail .board-detail-con s,
+.board-detail .board-detail-con strike {
+  text-decoration: line-through;
+}
+.board-detail .board-detail-con sub {
+  vertical-align: sub;
+}
+.board-detail .board-detail-con sup {
+  vertical-align: super;
+}
+.board-detail .board-detail-con h1,
+.board-detail .board-detail-con h2,
+.board-detail .board-detail-con h3,
+.board-detail .board-detail-con h4,
+.board-detail .board-detail-con h5,
+.board-detail .board-detail-con h6 {
+  font-size: revert;
+  font-weight: 700;
+}
+.board-detail .board-detail-con pre {
+  font-family: "Pretendard", sans-serif;
+}
 .board-detail .board-detail-file {
   display: flex;
   flex-direction: column;
