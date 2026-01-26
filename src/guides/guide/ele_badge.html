@@ -14,33 +14,6 @@
 				</div>
 
         <section class="section">
-					<div class="tit-xsm">
-						<span class="txt">Badge - outline</span>
-					</div>
-
-          <div class="group">
-            <div class="module-box option-bg">
-              <ul class="note-list depth-1">
-                <li>텍스트만 선언되는 가장 기본적인 유형</li>
-                <!-- <li>뱃지가 2개 이상 선언시 가운데 라인 생성</li> -->
-              </ul>
-            </div>
-          </div>
-
-          <div class="group">
-            <div class="hls_preview">
-              <%- include('../../components/badge.ejs', { 
-                  variant: 'solid', color: 'rating1', label: '1등급' 
-              }) -%>
-            </div>
-            <button class="btn-code-toggle">View Code</button>
-            <div class="hls-wrap">
-              <pre><code class="hls language-html"></code></pre>
-            </div>
-          </div>
-        </section>
-
-        <section class="section">
           <div class="tit-xsm">
             <span class="txt">Badge - solid</span>
           </div>
@@ -49,7 +22,6 @@
             <div class="module-box option-bg">
               <ul class="note-list depth-1">
                 <li>박스형태 유형</li>
-                <li><strong>.badge.solid</strong>추가</li>
               </ul>
             </div>
           </div>
@@ -58,18 +30,19 @@
             <div class="hls_preview">
               <%- include('../../components/badge.ejs', { 
                 badgeItems: [
-                  { label: '국내', variant: 'solid', color: 'domestic' },
-                  { label: '주식', variant: 'solid', color: 'stock' },
-                  { label: '글로벌', variant: 'solid', color: 'global' }
+                  { label: '국내', variant: 'solid', color: 'light-orange' },
+                  { label: '주식', variant: 'solid', color: 'light-orange' },
+                  { label: '글로벌', variant: 'solid', color: 'light-orange' }
                 ]
               }) -%>
               <%- include('../../components/badge.ejs', { 
                 badgeItems: [
-                  { label: '1등급', variant: 'solid', color: 'rating1' },
-                  { label: '2등급', variant: 'solid', color: 'rating2' },
-                  { label: '3등급', variant: 'solid', color: 'rating3' },
-                  { label: '4등급', variant: 'solid', color: 'rating4' },
-                  { label: '5등급', variant: 'solid', color: 'rating5' },
+                  { label: '1등급', variant: 'solid', color: 'level6' },
+                  { label: '2등급', variant: 'solid', color: 'level5' },
+                  { label: '3등급', variant: 'solid', color: 'level4' },
+                  { label: '4등급', variant: 'solid', color: 'level3' },
+                  { label: '5등급', variant: 'solid', color: 'level2' },
+                  { label: '6등급', variant: 'solid', color: 'level1' },
                 ]
               }) -%>
             </div>
