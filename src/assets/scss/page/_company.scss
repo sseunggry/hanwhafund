@@ -1919,6 +1919,10 @@ html[lang="en"]{
 					.tit{
 						font-size: 6.4rem;
 						letter-spacing: -0.08rem;
+
+						.f-hanwha{
+							font-size: 6rem;
+						}
 					}
 				}
 				.txt-wrap{
@@ -1961,11 +1965,28 @@ html[lang="en"]{
 					}
 				}
 			}
+			.section-history{
+				.f-hanwha{
+					font-size: 6rem;
+				}
+			}
 			.section-banner{
+				.company-tit-wrap{
+					.desc-small{
+						.f-hanwha{
+							font-size: 4.4rem;
+						}
+					}
+				}
 				.blur-box{
 					.btn-wrap{
 						.btn{
 							min-width: 24rem;
+						}
+					}
+					.txt{
+						.f-hanwha{
+							font-size: 2rem;
 						}
 					}
 				}
@@ -1986,6 +2007,9 @@ html[lang="en"]{
 					.company-tit-wrap{
 						.tit{
 							font-size: 4.8rem;
+							.f-hanwha{
+								font-size: 4rem;
+							}
 						}
 					}
 					.txt-wrap{
@@ -1999,11 +2023,29 @@ html[lang="en"]{
 						}
 					}
 				}
+				.section-history{
+					.f-hanwha{
+						font-size: 3rem;
+					}
+				}
 				.section-banner{
+					.company-tit-wrap{
+						.desc-small{
+							.f-hanwha{
+								font-size: 3rem;
+							}
+						}
+					}
 					.blur-box{
 						.btn-wrap{
 							.btn{
 								min-width: auto;
+							}
+						}
+						.txt{
+							.f-hanwha{
+								font-size: 1.6rem;
+								transform: rotate(0.03deg);
 							}
 						}
 					}

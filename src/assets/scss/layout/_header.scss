@@ -439,6 +439,11 @@
               &:hover, &:active{
                 color: var(--#{$prefix}-color-text-primary);
               }
+
+							//폰트 크기가 작아서 찌글거리는것 방지
+							.f-hanwha{
+								transform: rotate(0.03deg);
+							}
             }
             .depth3{
               padding: 0.7rem 1.6rem;
