@@ -11771,6 +11771,56 @@ html[lang="en"] .page-main .section-banner {
 .board-con .accordion + .btn-wrap {
   margin-top: var(--board-btn-wrap);
 }
+.board-con .accordion .accordion-body ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.board-con .accordion .accordion-body ul li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.board-con .accordion .accordion-body ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.board-con .accordion .accordion-body ol li {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.board-con .accordion .accordion-body em,
+.board-con .accordion .accordion-body i,
+.board-con .accordion .accordion-body cite {
+  font-style: italic;
+}
+.board-con .accordion .accordion-body strong,
+.board-con .accordion .accordion-body b {
+  font-weight: 700;
+}
+.board-con .accordion .accordion-body s,
+.board-con .accordion .accordion-body strike {
+  text-decoration: line-through;
+}
+.board-con .accordion .accordion-body sub {
+  vertical-align: sub;
+}
+.board-con .accordion .accordion-body sup {
+  vertical-align: super;
+}
+.board-con .accordion .accordion-body h1,
+.board-con .accordion .accordion-body h2,
+.board-con .accordion .accordion-body h3,
+.board-con .accordion .accordion-body h4,
+.board-con .accordion .accordion-body h5,
+.board-con .accordion .accordion-body h6 {
+  font-size: revert;
+  font-weight: 700;
+}
+.board-con .accordion .accordion-body pre {
+  font-family: "Pretendard", sans-serif;
+}
+.board-con .accordion .accordion-body .marker {
+  background-color: #ff0;
+}
 @media (max-width: 1024px) {
   .board-con .board-list-wrap .board-thead {
     display: none;
