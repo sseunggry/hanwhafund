@@ -11931,6 +11931,9 @@ html[lang="en"] .page-main .section-banner {
 .board-detail .board-detail-con img {
   width: 100%;
 }
+.board-detail .board-detail-con img[alt*="다운로드"] {
+  width: auto;
+}
 .board-detail .board-detail-con ul {
   list-style-type: disc;
   list-style-position: inside;
