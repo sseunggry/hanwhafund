@@ -441,17 +441,19 @@ $button-color-variable: (
 		padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
 		height: var(--hwf-button--size-height-medium);
 
-		&.large{
-			padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
-			height: var(--hwf-button--size-height-medium);
-		}
-		&.medium{
-			padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
-			height: var(--hwf-button--size-height-small);
-		}
-		&.small{
-			padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
-			height: var(--hwf-button--size-height-small);
+		&:not(.text){
+			&.large{
+				padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
+				height: var(--hwf-button--size-height-medium);
+			}
+			&.medium{
+				padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
+				height: var(--hwf-button--size-height-small);
+			}
+			&.small{
+				padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
+				height: var(--hwf-button--size-height-small);
+			}
 		}
 
     &.icon-mo-only {
