@@ -11927,6 +11927,7 @@ html[lang="en"] .page-main .section-banner {
 .board-detail .board-detail-con {
   padding: var(--board-detail-cont-gap) 0;
   min-height: 36rem;
+  overflow-x: auto;
 }
 .board-detail .board-detail-con img {
   width: 100%;
@@ -12003,6 +12004,7 @@ html[lang="en"] .page-main .section-banner {
 .board-detail .board-detail-file .btn-file span {
   flex: 1;
   white-space: normal;
+  width: calc(100% - 6.8rem);
 }
 .board-detail .board-detail-file .btn-file .icon-file {
   flex-shrink: 0;
