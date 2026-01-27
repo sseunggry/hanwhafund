@@ -1726,15 +1726,15 @@ html {
     padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
     height: var(--hwf-button--size-height-medium);
   }
-  .btn.large {
+  .btn:not(.text).large {
     padding: var(--hwf-button--padding-y-medium) var(--hwf-button--padding-x-medium);
     height: var(--hwf-button--size-height-medium);
   }
-  .btn.medium {
+  .btn:not(.text).medium {
     padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
     height: var(--hwf-button--size-height-small);
   }
-  .btn.small {
+  .btn:not(.text).small {
     padding: var(--hwf-button--padding-y-small) var(--hwf-button--padding-x-small);
     height: var(--hwf-button--size-height-small);
   }
@@ -9220,6 +9220,7 @@ html[lang="en"] .page-main .section-banner {
   }
   .page-fund .fund-content .sort-wrap .sort-item.select {
     max-width: 28rem;
+    min-width: 14.5rem;
     width: 100%;
     margin-right: 2.4rem;
     padding-right: 0;
@@ -9393,6 +9394,21 @@ html[lang="en"] .page-main .section-banner {
   }
   .page-fund .fund-content .fund-list-wrap .fund-item .fund-info .tit-wrap .tit {
     font-size: 2.1rem;
+  }
+}
+@media (max-width: 375px) {
+  .page-fund .fund-content .sort-wrap .sort-item.select {
+    max-width: 40vw;
+  }
+}
+@media (max-width: 355px) {
+  .page-fund .fund-content .sort-wrap .tablet-only {
+    flex-direction: column;
+    row-gap: 2.4rem;
+  }
+  .page-fund .fund-content .sort-wrap .sort-item.select {
+    max-width: 100%;
+    width: 100%;
   }
 }
 .page-fund:has(.layout-sidebar) {
