@@ -2,7 +2,7 @@ const iaPageBData = {
 	language: "en",
 	list: [
 		// --- 메인 ---
-		{ createDate: "2025-12-18",  modifyDate: "2026-01-15",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: '2026-01-15: 글로벌네트워크 subsidiary 텍스트 삭제'}, {detail: `2026-01-09: 마크업 추가`}, {detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 클래스 삭제`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, { detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
+		{ createDate: "2025-12-18",  modifyDate: "2026-01-28",  category: "Main", depth1: "",  depth2: "",  depth3: "-",  pageName: "메인",  pageType: "page",  pageID: "EN_MA_01",  link: "", isAdminLinked: true,  status: "완료",  memo: [{detail: '2026-01-28: 글로벌네트워크 텍스트 수정'}, {detail: '2026-01-15: 글로벌네트워크 subsidiary 텍스트 삭제'}, {detail: `2026-01-09: 마크업 추가`}, {detail: `2026-01-08: 마크업 수정`}, {detail: `2026-01-05: 클래스 삭제`}, {detail: `2025-12-30: 메인비주얼 a태그 추가`}, { detail: '2025-12-23: 글로벌네트워크 - 텍스트 수정' }] },
 
 		// --- Our Business ---
 		{ createDate: "2026-01-09", modifyDate: "2026-01-27", category: "Our Business", depth1: "What we do", depth2: "-", depth3: "-", pageName: "What we do", pageType: "page", pageID: "EN_BS_01", link: "", isAdminLinked: true, status: "작업중", memo: [{detail: `2026-01-27: 한화체 변경(마크업수정)`}, {detail: '2026-01-16: 버튼 tag a로 수정'}, {detail: '2026-01-15: 마크업 수정'}]},
@@ -23,7 +23,7 @@ const iaPageBData = {
 		{ createDate: "2025-12-18", modifyDate: "", category: "Risk Management", depth1: "Compliance system", depth2: "-", depth3: "-", pageName: "내부통제 점검체계", pageType: "tab", pageID: "EN_RM_03", link: "", isAdminLinked: false, status: "삭제", memo: [], },
 
 		// --- Global Network ---
-		{ createDate: "2025-12-18", modifyDate: "2026-01-15", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: '2026-01-15: subsidiary 텍스트 삭제'}, {detail: `2026-01-05: 클래스 삭제`}, { detail: '2025-12-23: 텍스트 수정' }], },
+		{ createDate: "2025-12-18", modifyDate: "2026-01-28", category: "Global Network", depth1: "-", depth2: "-", depth3: "-", pageName: "글로벌네트워크", pageType: "page", pageID: "EN_GN_01", link: "", isAdminLinked: false, status: "완료", memo: [{detail: '2026-01-28: 텍스트 수정'}, {detail: '2026-01-15: subsidiary 텍스트 삭제'}, {detail: `2026-01-05: 클래스 삭제`}, { detail: '2025-12-23: 텍스트 수정' }], },
 
 		// --- Contact Us ---
 		{ createDate: "2025-12-18", modifyDate: "2026-01-15", category: "Contact Us", depth1: "-", depth2: "-", depth3: "-", pageName: "오시는 길", pageType: "page", pageID: "EN_CU_01", link: "", isAdminLinked: false, status: "완료", memo: [{ detail: '2026-01-15: 버튼명 수정' }, { detail: '2025-12-30: 텍스트 수정' }], },
