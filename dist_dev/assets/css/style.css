@@ -7368,6 +7368,9 @@ label {
 .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth2:active {
   color: var(--hwf-color-text-primary);
 }
+.header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth2 .f-hanwha {
+  transform: rotate(0.03deg);
+}
 .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item .depth3 {
   padding: 0.7rem 1.6rem;
   color: var(--hwf-color-text-subtler);
@@ -14103,6 +14106,9 @@ html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit
   font-size: 6.4rem;
   letter-spacing: -0.08rem;
 }
+html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit .f-hanwha {
+  font-size: 6rem;
+}
 html[lang="en"] .page-company .company-main .section-info .txt-wrap dd .unit {
   font-family: "Trust2ATRIAL", sans-serif;
   font-size: 10rem;
@@ -14128,8 +14134,17 @@ html[lang="en"] .page-company .company-main .section-info .txt-wrap dl:nth-child
 html[lang="en"] .page-company .company-main .section-info .txt-wrap dl:nth-child(3) dd .counter {
   min-width: 1ch;
 }
+html[lang="en"] .page-company .company-main .section-history .f-hanwha {
+  font-size: 6rem;
+}
+html[lang="en"] .page-company .company-main .section-banner .company-tit-wrap .desc-small .f-hanwha {
+  font-size: 4.4rem;
+}
 html[lang="en"] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
   min-width: 24rem;
+}
+html[lang="en"] .page-company .company-main .section-banner .blur-box .txt .f-hanwha {
+  font-size: 2rem;
 }
 @media (max-width: 1400px) {
   html[lang="en"] .page-company .company-main .section-banner .company-tit-wrap br {
@@ -14140,14 +14155,27 @@ html[lang="en"] .page-company .company-main .section-banner .blur-box .btn-wrap 
   html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit {
     font-size: 4.8rem;
   }
+  html[lang="en"] .page-company .company-main .section-info .company-tit-wrap .tit .f-hanwha {
+    font-size: 4rem;
+  }
   html[lang="en"] .page-company .company-main .section-info .txt-wrap dd .unit {
     font-size: 3.2rem;
   }
   html[lang="en"] .page-company .company-main .section-info .txt-wrap dd .txt {
     font-size: 9.6rem;
   }
+  html[lang="en"] .page-company .company-main .section-history .f-hanwha {
+    font-size: 3rem;
+  }
+  html[lang="en"] .page-company .company-main .section-banner .company-tit-wrap .desc-small .f-hanwha {
+    font-size: 3rem;
+  }
   html[lang="en"] .page-company .company-main .section-banner .blur-box .btn-wrap .btn {
     min-width: auto;
+  }
+  html[lang="en"] .page-company .company-main .section-banner .blur-box .txt .f-hanwha {
+    font-size: 1.6rem;
+    transform: rotate(0.03deg);
   }
 }
 html[lang="en"] .page-company .company-network .global-network-map .map-info-list > li:nth-child(3) {
