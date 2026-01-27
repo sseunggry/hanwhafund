@@ -287,6 +287,7 @@
 	.board-detail-con{
 		padding: var(--board-detail-cont-gap) 0;
 		min-height: 36rem;
+		overflow-x: auto;
 
 		img{
 			width: 100%;
@@ -360,6 +361,7 @@
 			span{
 				flex: 1;
 				white-space: normal;
+				width: calc(100% - 6.8rem);
 			}
 			.icon-file{
 				flex-shrink: 0;
