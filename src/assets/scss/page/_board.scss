@@ -139,6 +139,53 @@
 		& + .btn-wrap{
 			margin-top: var(--board-btn-wrap);
 		}
+
+		.accordion-body{
+			//faq 에디터에서 등록한 텍스트
+			ul{
+				list-style-type: disc;
+				list-style-position: inside;
+
+				li{
+					list-style-type: disc;
+					list-style-position: inside;
+				}
+			}
+			ol{
+				list-style-type: decimal;
+				list-style-position: inside;
+
+				li{
+					list-style-type: decimal;
+					list-style-position: inside;
+				}
+			}
+			em, i, cite{
+				font-style: italic;
+			}
+			strong, b{
+				font-weight: 700;
+			}
+			s, strike{
+				text-decoration: line-through;
+			}
+			sub{
+				vertical-align: sub;
+			}
+			sup{
+				vertical-align: super;
+			}
+			h1, h2, h3, h4, h5, h6{
+				font-size: revert;
+				font-weight: 700;
+			}
+			pre{
+				font-family: $font-family-kr;
+			}
+			.marker{
+				background-color: yellow;
+			}
+		}
 	}
 
 	@include mq(tablet){
