@@ -11250,6 +11250,7 @@ html[lang="en"] .page-main .section-banner {
   }
 }
 .page-fund .fund-pension.retire .check-point-wrap {
+  align-items: center;
   gap: 6rem;
 }
 .page-fund .fund-pension.retire .check-point-wrap .img-wrap {
