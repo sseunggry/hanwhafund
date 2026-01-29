@@ -18,7 +18,7 @@
 						<div class="txt-wrap">
 							<p class="sub-tit">연금펀드</p>
 							<p class="tit">퇴직연금</p>
-							<p class="desc">여유로운 노후를 위한 개인연금의 대표주자, <br/> 연금 저축을 소개합니다.</p>
+							<p class="desc">여유로운 노후를 위한 든든한 퇴직연금 제도, <br/> 퇴직연금을 소개합니다.</p>
 						</div>
 						<div class="img-wrap">
 							<img src="~@/assets/images/fund/pension-retire-visual.png" alt="" class="pc-only">
@@ -231,15 +231,17 @@
 														<%- include('../../components/badge.ejs', { 
 															variant: 'solid', color: 'gray', label: 'Check Point', size: 'small'
 														}) -%>
+														<!-- [2026-01-29] 텍스트 수정 -->
 														<%- include('../../components/note-list.ejs', { 
 															depth: 1,
 															items: [
-																'퇴직급여 = 퇴직 전 3개월 평균 임금 X 근속연수',
-																'운용 주체 및 책임: 회사',
+																'퇴직급여 = 회사 납입금 + 운용수익의 누적액',
+																'운용 주체 및 책임: 근로자',
 																'퇴직연금 수령: 일시금과 연금 중 선택',
 															],
 															addClass: 'small'
 														}) -%>
+														<!-- // [2026-01-29] 텍스트 수정 -->
 													</div>
 												</div>
 											</div>
