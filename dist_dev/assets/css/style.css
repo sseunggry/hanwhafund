@@ -7602,6 +7602,9 @@ html[lang="en"] .header .header-con .nav .gnb-list .submenu .submenu-link {
   html[lang="en"] .header .header-con .util .lang {
     display: none;
   }
+  html[lang="en"] .header .sitemap .header-con .util .lang {
+    display: flex;
+  }
 }
 @media (max-width: 640px) {
   html[lang="en"] .header .logo {
