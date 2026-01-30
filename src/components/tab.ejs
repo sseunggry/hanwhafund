@@ -13,6 +13,8 @@
   ].filter(Boolean).join(' ');
 
 	const id = localsSafe.id ? `tab-${localsSafe.id}` : 'tab';
+
+	const extraContent = localsSafe.extraContent || '';
 -%>
 <div class="tab-area">
   <div class="tab <%= classes %>">
@@ -42,5 +44,8 @@
         <%- contents[idx] || '콘텐츠 없음' %>
       </div>
     <% }); -%>
+		<% if (extraContent) { %>
+			<%- extraContent %>
+		<% } %>
   </div>
 </div>

@@ -647,6 +647,8 @@ const uiToast = {
     if (!message) return;
     if (this.$viewport.length === 0) return;
 
+		this.$viewport.empty();
+
     const $toast = $('<div class="toast"></div>');
     $toast.text(message);
     this.$viewport.append($toast);
@@ -659,7 +661,9 @@ const uiToast = {
     }, duration);
 
     setTimeout(() => {
-      $toast.remove();
+      if($toast.parent().length > 0) { 
+          $toast.remove();
+      }
     }, duration + 400);
   }
 };

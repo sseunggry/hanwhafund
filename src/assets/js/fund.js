@@ -16,13 +16,10 @@ const uiDetailSearch = {
 const uiFundListChk = {
   init: function () {
     $(document).on("change.fundListChk", ".fund-list-wrap .fund-item input[type='checkbox']", function () {
-      const $chk = $(this);
-      const $fundContent = $chk.closest('.fund-content');
-      const $floatingBox = $fundContent.siblings('.fund-compare-floating');
-      const $allCheckboxes = $fundContent.find(".fund-list-wrap .fund-item input[type='checkbox']");
-      const checkedCount = $allCheckboxes.filter(':checked').length;
+      const totalCheckedCount = $(".fund-list-wrap .fund-item input[type='checkbox']:checked").length;
+			const $allFloatingBoxes = $('.fund-compare-floating');
 
-      $floatingBox.toggleClass('active', checkedCount > 0)
+			$allFloatingBoxes.toggleClass('active', totalCheckedCount > 0);
     });
   }
 }

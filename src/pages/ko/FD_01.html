@@ -399,11 +399,6 @@
 									${moreBtn}
 								</div>
 							</div>
-							<div class="fund-compare-floating">
-								<div class="inner">
-									${compareFloating}
-								</div>
-							</div>
 						`
 						const tabCont2 = `
 						<div class="fund-content">
@@ -413,12 +408,7 @@
 							<div class="btn-wrap array-center">
 								${moreBtn}
 							</div>
-						</div>
-						<div class="fund-compare-floating">
-							<div class="inner">
-								${compareFloating}
-							</div>
-						</div>						
+						</div>					
 						`;
 						-%>
 						<%- include('../../components/tab.ejs', {
@@ -426,6 +416,12 @@
 							tablist: ['전체', '연금'],
 							contents: [tabCont1, tabCont2,],
 							addClass: 'full',
+							extraContent: `
+							<div class="fund-compare-floating">
+								<div class="inner">
+									${compareFloating}
+								</div>
+							</div>`
 						}) -%>
 					</div>
 				</section>
