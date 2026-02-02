@@ -167,7 +167,7 @@ const uiSortWrapSticky = {
 
 $(function() {
   uiDetailSearch.init();
-  uiFundListChk.init();
+  // uiFundListChk.init();
   uiSort.init();
   uiRangeSlider.init();
   uiSortWrapSticky.init();
