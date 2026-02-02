@@ -2524,6 +2524,10 @@
 	
 						.btn.delete{
 							flex-shrink: 0;
+
+							&:hover{
+								background-color: #000;
+							}
 							.icon-delete{
 								background-color: currentColor;
 							}
