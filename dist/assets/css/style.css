@@ -10941,6 +10941,9 @@ html[lang="en"] .page-main .section-banner {
 .page-fund .fund-find .section-detail .fund-compare-floating .compare-list .compare-item .btn.delete {
   flex-shrink: 0;
 }
+.page-fund .fund-find .section-detail .fund-compare-floating .compare-list .compare-item .btn.delete:hover {
+  background-color: #000;
+}
 .page-fund .fund-find .section-detail .fund-compare-floating .compare-list .compare-item .btn.delete .icon-delete {
   background-color: currentColor;
 }
