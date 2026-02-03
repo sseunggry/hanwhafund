@@ -142,6 +142,8 @@
         }
 
         .submenu{
+					will-change: opacity, visibility;
+
           visibility: hidden;
           opacity: 0;
           position: absolute;
@@ -166,6 +168,9 @@
             color: var(--#{$prefix}-color-text-subtle);
             font-size: 1.7rem;
             font-weight: 400;
+						-webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						text-rendering: optimizeLegibility;
 
             &:hover, &:active{
               color: var(--#{$prefix}-color-text-primary);
@@ -186,6 +191,18 @@
             &.active{
               color: var(--#{$prefix}-color-text-primary);
             }
+
+						&:has(.f-hanwha){
+							.flex{
+								gap: 0.4rem;
+							}
+						}
+
+						.f-hanwha{
+							display: inline-block;
+							vertical-align: middle;
+							transform: rotate(0.03deg);
+						}
           }
         }
 			}
