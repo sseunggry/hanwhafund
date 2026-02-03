@@ -7494,10 +7494,10 @@ label {
   .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 {
     color: var(--hwf-color-text-primary);
   }
-  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 span {
+  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 > span {
     position: relative;
   }
-  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 span::before {
+  .header .modal.sitemap .sitemap-wrap .sitemap-list .sitemap-item.has-sub.active .depth1 > span::before {
     content: "";
     display: block;
     position: absolute;
