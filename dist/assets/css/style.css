@@ -7127,6 +7127,7 @@ label {
   opacity: 1;
 }
 .header .header-con .nav .gnb-list .submenu {
+  will-change: opacity, visibility;
   visibility: hidden;
   opacity: 0;
   position: absolute;
@@ -7153,6 +7154,9 @@ label {
   color: var(--hwf-color-text-subtle);
   font-size: 1.7rem;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 .header .header-con .nav .gnb-list .submenu .submenu-link:hover,
 .header .header-con .nav .gnb-list .submenu .submenu-link:active {
@@ -7180,6 +7184,14 @@ label {
 }
 .header .header-con .nav .gnb-list .submenu .submenu-link.active {
   color: var(--hwf-color-text-primary);
+}
+.header .header-con .nav .gnb-list .submenu .submenu-link:has(.f-hanwha) .flex {
+  gap: 0.4rem;
+}
+.header .header-con .nav .gnb-list .submenu .submenu-link .f-hanwha {
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(0.03deg);
 }
 .header .header-con .util {
   display: flex;
