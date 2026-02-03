@@ -587,7 +587,7 @@
                   .depth1{
 										color: var(--#{$prefix}-color-text-primary);
 										
-										span{
+										> span{
 											position: relative;
 
 											&::before{
